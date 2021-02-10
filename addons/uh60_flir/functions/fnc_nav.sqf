@@ -12,7 +12,7 @@
  * [_heli] call vtx_uh60_flir_fnc_nav
  */
 
-CHK_FLIR
+CHK_FLIR;
 
 params ["_vehicle"];
 
