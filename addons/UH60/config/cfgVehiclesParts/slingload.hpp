@@ -1,0 +1,1 @@
+slingLoadMemoryPoint = "slingload0";
