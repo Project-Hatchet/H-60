@@ -1,0 +1,14 @@
+params ["_vehicle"];
+vtx_aar_probeDeployed = _vehicle call vtx_aar_probeCondition;
+if (!vtx_aar_probeDeployed) exitWith {};
+private _probePosModel = (_vehicle getVariable ["vtx_aar_probePos",[0,0,0]]);
+private _probePos = _vehicle modelToWorldVisual _probePosModel;
+private _baskets = _probePos nearObjects ["vtx_aar_basket", 15];
+if (count _baskets > 0) then { vtx_uh60_aar_basket = (_baskets # 0); };
+if (isNil "vtx_uh60_aar_basket") exitWith {};
+if ((_probePos distance vtx_uh60_aar_basket) > 15) exitWith { vtx_uh60_aar_basket = nil; };
+private _rope = (vtx_uh60_aar_basket getVariable "vtx_aar_rope");
+if (!local vtx_uh60_aar_basket) then {vtx_uh60_aar_basket setOwner (owner player);};
+if (!local _rope) then {_rope setOwner (owner player);};
+vtx_uh60_aar_basket disableCollisionWith _vehicle;
+_rope disableCollisionWith _vehicle;

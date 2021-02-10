@@ -1,0 +1,10 @@
+class RscText;
+class RscFrame;
+class RscListbox;
+class RscListNBox;
+class RscPicture;
+class RscControlsGroup;
+class ScrollBar;
+class RscActiveText;
+class RscStructuredText;
+class RscIGText;

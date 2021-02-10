@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project name="Hatchet UH-60M">
+	<Package name="UH-60M Core">
+		<Container name="Translations">
+			<Key ID="str_myTag_Yes">
+				<English>yes</English>
+			</Key>
+			<Key ID="str_myTag_No">
+				<Original>no</Original>
+			</Key>
+		</Container>
+	</Package>
+</Project>

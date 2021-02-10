@@ -1,0 +1,17 @@
+PREP(animateTurret);
+PREP(keyFLIRSlewToHMD);
+PREP(keyFLIRStabilize);
+PREP(nav);
+PREP(perFrame);
+PREP(perSecond);
+PREP(setup);
+PREP(shutDown);
+PREP(startCamera);
+PREP(stopCamera);
+PREP(syncAnimation);
+PREP(syncCameraMode);
+PREP(syncFOV);
+PREP(syncPilotCamera);
+PREP(trackPilotCamera);
+PREP(updateCamera);
+PREP(updatePilots);
