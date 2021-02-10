@@ -1,3 +1,16 @@
 *.p3d
 *.paa
 *.tga
+*.zip
+release/*
+releases/*
+keys/*
+.hemtt/local
+*.cache
+*.pbo
+texHeaders.bin
+*.swp
+*.swo
+*.biprivatekey
+Thumbs.db
+addons/UH60/vtx_uh60.p3d
