@@ -1,0 +1,12 @@
+name = "H-60 pack - Development Version";
+picture = "logo_vtx_ca.paa";
+actionName = "Guide";
+action = "https://uh-60m.gitbook.io/workspace/guides/getting-started";
+description = "H-60 pack - Development Version";
+logo = "logo_vtx_ca.paa";
+logoOver = "logo_vtx_ca.paa";
+tooltip = "H-60 pack - Development Version";
+tooltipOwned = "H-60 pack - Development Version Owned";
+overview = "H-60 pack - Development Version";
+author = "Yax";
+overviewPicture = "logo_vtx_ca.paa";
