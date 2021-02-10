@@ -1,21 +1,37 @@
-# hatchet
-## Overview
+<p align="center">
+    <a href="">
+        <img src="https://img.shields.io/badge/Version-0.1.0-blue.svg?style=flat-square" alt="Zeus Enhanced Version">
+    </a>
+    <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1745501605">
+        <img src="https://img.shields.io/badge/Steam-dev%20build-orange?logo=steam" alt="H-60 Pack">
+    </a>
+    <a href="https://github.com/zen-mod/ZEN/issues">
+        <img src="https://img.shields.io/github/issues-raw/Project-Hatchet/public_h-60.svg?label=Issues" alt="H-60 Pack Issues">
+    </a>
+    <a href="https://discord.gg/4AYEfFD">
+        <img src="https://img.shields.io/discord/487939925938012161.svg?label=Discord&colorB=7683D5" alt="H-60 Pack Discord">
+    </a>
+</p>
+<p align="center">
+    <sup><strong>Requires the latest versions of <a href="https://github.com/CBATeam/CBA_A3/releases">CBA A3</a>, <a href="https://github.com/acemod/ACE3/releases">ACE3</a> and <a href="https://github.com/Project-Hatchet/hatchet-framework">Hatchet Framework</a>.<br/></strong></sup>
+</p>
 
-## Credits
-Design & Scripting - Yax
+The **Hatchet H-60 Pack** is a helicopter pack that brings realistic H-60 series helicopters to Arma 3, using our custom made Hatchet Framework to add detailed interactive cockpits, we strive to bring the player's experience as close to a flight sim as possible.
 
-Art & Encoding - Riverx
 
-A26Mike - Cabin fuel tanks and general art help
+## Features
 
-Ampersand - scripting features like the FLIR and the hoist, and doing general config help
+### Credits
+Core Team
+
+- Yax
+- Riverx
+- A26Mike
+- Ampersand
 
 Special thanks to
 
-Foxone - Refueling probe
-
-JLOrion - HH60 texture
-
-Raptor6 - Service platform model
-
-Sykocrazy (& RHS) - Allowing us to use the FLIR overlay from the MELB
+- Foxone
+- JLOrion
+- Raptor6
+- Sykocrazy
