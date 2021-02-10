@@ -6,7 +6,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"vtx_main"};
+        requiredAddons[] = {"A3_Map_Altis"};
         author = "";
         authors[] = {""};
         VERSION_CONFIG;
