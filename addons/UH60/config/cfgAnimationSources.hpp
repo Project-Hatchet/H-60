@@ -402,17 +402,17 @@ class AnimationSources
             animPeriod=1;
             initPhase=0.5;
     };
-    class wheel_dumper_l
+    class wheel_damper_l
     {
         source="damper";
         wheel="Wheel_1";
     };
-    class wheel_dumper_r
+    class wheel_damper_r
     {
         source="damper";
         wheel="Wheel_2";
     };
-    class wheel_dumper_rear
+    class wheel_damper_rear
     {
         source="damper";
         wheel="Wheel_3";

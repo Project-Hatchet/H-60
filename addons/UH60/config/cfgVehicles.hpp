@@ -296,8 +296,8 @@ class CfgVehicles
         turnCoef			= 1.6;
         terrainCoef 		= 1;
         damperSize 			= 1;
-        damperForce 		= 10;
-        damperDamping 		= 100;
+        damperForce 		= 100;
+        damperDamping 		= 10;
         wheelWeight 		= 30;
 
         driveOnComponent[]=
@@ -321,7 +321,7 @@ class CfgVehicles
                 mass						= 15;
                 MOI							= 30;
 
-                dampingRate					= 0.1;
+                dampingRate					=1;
                 dampingRateDamaged			= 1.0;
                 dampingRateDestroyed		= 1000.0;
                 suspTravelDirection[]		= {0, -1, 0};
@@ -348,6 +348,7 @@ class CfgVehicles
             };
             class Wheel_2: Wheel_1
             {
+                side						= "right";
                 boneName					= "wheel_1_2";
                 suspForceAppPointOffset		= "wheel_1_2_center";
                 tireForceAppPointOffset		= "wheel_1_2_center";
@@ -357,7 +358,7 @@ class CfgVehicles
             class Wheel_3: Wheel_2
             {
                 steering					= true;
-                side						= "right";
+                side						= "center";
                 boneName					= "wheel_2_1";
                 suspForceAppPointOffset		= "wheel_2_1_center";
                 tireForceAppPointOffset		= "wheel_2_1_center";
