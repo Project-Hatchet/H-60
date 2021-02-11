@@ -1,0 +1,11 @@
+PREP(apuState);
+PREP(batteryState);
+PREP(engineEH);
+PREP(hasFuelFlow);
+PREP(perFrame);
+PREP(perSecond);
+PREP(rotorBrakeInterlock);
+PREP(setup);
+PREP(shutdown);
+PREP(starterState);
+PREP(wheelBrakes);
