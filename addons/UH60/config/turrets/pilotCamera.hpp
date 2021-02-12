@@ -16,7 +16,7 @@ class OpticsIn
         thermalMode[] = {0};
         directionStabilized = 1;
         horizontallyStabilized = 1;
-        gunnerOpticsModel = "\A3\Weapons_F_Beta\Reticle\Heli_Attack_01_Optics_Gunner_wide_F";
+        gunnerOpticsModel = "";
         opticsPPEffects[] = {"OpticsCHAbera3","OpticsBlur3"};
         gunnerOpticsEffect[] = {"TankCommanderOptics2"};
     };
@@ -25,28 +25,28 @@ class OpticsIn
         initFov = 0.2;
         minFov = 0.2;
         maxFov = 0.2;
-        gunnerOpticsModel = "\A3\Weapons_F_Beta\Reticle\Heli_Attack_01_Optics_Gunner_wide_F";
+        gunnerOpticsModel = "";
     };
     class MediumT: WideT
     {
         initFov = 0.1;
         minFov = 0.1;
         maxFov = 0.1;
-        gunnerOpticsModel = "\A3\Weapons_F_Beta\Reticle\Heli_Attack_01_Optics_Gunner_medium_F";
+        gunnerOpticsModel = "";
     };
     class NarrowT: WideT
     {
         initFov = 0.022;
         minFov = 0.022;
         maxFov = 0.022;
-        gunnerOpticsModel = "\A3\Weapons_F_Beta\Reticle\Heli_Attack_01_Optics_Gunner_narrow_F";
+        gunnerOpticsModel = "";
     };
     class NarrowT2: WideT
     {
         initFov = 0.0092;
         minFov = 0.0092;
         maxFov = 0.0092;
-        gunnerOpticsModel = "\A3\Weapons_F_Beta\Reticle\Heli_Attack_01_Optics_Gunner_narrow_F";
+        gunnerOpticsModel = "";
     };
 };
 stabilizedInAxes = 3;
