@@ -155,9 +155,9 @@ class CfgVehicles
         driverInAction = UH60_Pilot;
         driverAction = UH60_Pilot;
         driverRightHandAnimName="Cyclic_right";
-	driverLeftHandAnimName="Collective_right";
-	driverLeftLegAnimName="Pedal_Left_P";
-	driverRightLegAnimName="Pedal_Right_P";
+        driverLeftHandAnimName="Collective_right";
+        driverLeftLegAnimName="Pedal_Left_P";
+        driverRightLegAnimName="Pedal_Right_P";
         precisegetinout = 0;
         transportSoldier = 11;
 
@@ -443,6 +443,7 @@ class CfgVehicles
         scope = 2;
         editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_HH60.jpg";
         displayName = "HH-60G/M Pavehawk";
+        memoryPointDriverOptics = "pilotcamera_flir_pos";
 
         hiddenSelectionsTextures[] = {
                 "",

@@ -1,0 +1,10 @@
+params ["_vehicle", "_frameTime"];
+private _xSlew = 0 - (inputAction "AimLeft") + (inputAction "AimRight");
+private _ySlew = 0 - (inputAction "AimDown") + (inputAction "AimUp");
+if (_xSlew == 0 && _ySlew == 0) exitWith {};
+private _direction = getDir vtx_uh60_flir_camera;
+private _currentFovIndex = ((_vehicle getVariable "vtx_flir_initFovMode") + 1);
+private _slewMod = 2 / _currentFovIndex;
+private _targetMod2D = [[(_xSlew * _slewMod), (_ySlew * _slewMod)], -_direction] call BIS_fnc_rotateVector2D;
+vtx_uh60_flir_stabTarget = vtx_uh60_flir_stabTarget vectorAdd [_targetMod2D # 0, _targetMod2D # 1, 0];
+vehicle player setPilotCameraTarget (AGLtoASL vtx_uh60_flir_stabTarget);

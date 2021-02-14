@@ -17,3 +17,4 @@ class CfgPatches {
 
 #include "uiConfig\baseClasses.hpp"
 #include "uiConfig\unitInfo.hpp"
+#include "uiConfig\rscTitles.hpp"
