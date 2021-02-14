@@ -27,12 +27,19 @@ _vehicle setVariable ["vtx_flir_initFovMode", 0];
 _vehicle setVariable ["vtx_flir_initVisionMode", 0];
 
 vtx_uh60_flir_rightMouseDown = false;
-vtx_uh60_flir_mouseButtonEvent = findDisplay 46 displayAddEventHandler ["MouseButtonDown", "_this call vtx_uh60_flir_fnc_handleKeyInputs;"];
+[] spawn {
+ 	waitUntil {!(isNull (findDisplay 46))};
+	vtx_uh60_flir_mouseButtonEvent = findDisplay 46 displayAddEventHandler ["MouseButtonDown", "_this call vtx_uh60_flir_fnc_handleKeyInputs;"];
+};
 
 vtx_uh60_flir_stabilizing = false;
 vtx_uh60_flir_stabilized = false;
 vtx_uh60_flir_stabTarget = nil;
 vtx_uh60_flir_zoomChanging = false;
 vtx_uh60_flir_visionChanging = false;
+vtx_uh60_flir_enteringOptics = false;
+
+vtx_uh60_flir_unstabilizedSlewSpeed = 0.5;
+vtx_uh60_flir_stabilizedSlewSpeed = 0.5;
 
 true

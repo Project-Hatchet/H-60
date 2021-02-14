@@ -1,13 +1,15 @@
 params ["_vehicle", "_frameTime"];
+
+if (vtx_uh60_flir_slewX == 0 && vtx_uh60_flir_slewY == 0) exitWith {};
+
 (vtx_uh60_flir_camera call BIS_fnc_getPitchBank) params ["_pitch"];
-private _currentFovIndex = ((_vehicle getVariable "vtx_flir_initFovMode") * 1.5 + 1);
-private _slewMod = 0.25 / _currentFovIndex;
-if (inputAction "AimLeft" > 0 || inputAction "AimRight" > 0) then {
-	private _newDir = 0 - (inputAction "AimLeft") + (inputAction "AimRight");
-	vtx_uh60_flir_camera setDir ((getDir vtx_uh60_flir_camera) + (_newDir * _slewMod));
+private _zoomRaw = ([0.5,0.5] distance2D  worldToScreen positionCameraToWorld [0,3,4]) 
+* (getResolution select 5) / 2;
+private _slewMod = vtx_uh60_flir_unstabilizedSlewSpeed / _zoomRaw;
+if (vtx_uh60_flir_slewX != 0) then {
+	vtx_uh60_flir_camera setDir ((getDir vtx_uh60_flir_camera) + (vtx_uh60_flir_slewX * _slewMod));
 };
-if (inputAction "AimDown" > 0 || inputAction "AimUp" > 0) then {
-	private _pitchChange = 0 - (inputAction "AimDown") + (inputAction "AimUp");
-	_pitch = _pitch + (_pitchChange * _slewMod);
+if (vtx_uh60_flir_slewY != 0) then {
+	_pitch = _pitch + (vtx_uh60_flir_slewY * _slewMod);
 };
 [vtx_uh60_flir_camera, _pitch, 0] call BIS_fnc_setPitchBank;
