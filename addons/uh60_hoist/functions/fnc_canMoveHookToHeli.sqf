@@ -18,7 +18,7 @@ if !(local _unit) exitWith {[_unit] remoteExecCall ["vtx_uh60_hoist_fnc_canMoveH
 
 private _hook = vehicle _unit;
 private _heli = _hook getVariable ["vtx_uh60_hoist_heli", objNull];
-if (_heli == objNull) exitWith {false};
+if (_heli == objNull || {_heli animationPhase "cabindoor_R" == 1}) exitWith {false};
 
 private _hoistPos = [1.405, 2.03, 0.45];
 if ((_hook distance (_heli modelToWorld _hoistPos)) > 1.5) exitWith {false};
