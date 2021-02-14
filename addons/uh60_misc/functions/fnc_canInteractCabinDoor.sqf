@@ -15,14 +15,35 @@
 params ["_caller", "_animName", "_animPhase", "_interactionName"];
 private _vehicle = vehicle _caller;
 
+private _doorSeats = [];
+{
+    private _gunnerName = getText (_x >> "gunnerName");
+    if (_gunnerName select [0, 5] == "Door " && {
+        (_gunnerName select [5, 1]) == (str _animName select [count _animName, 1]) // Match "L" or "R"
+    }) then {
+        _doorSeats pushBack [_forEachIndex];
+    };
+} forEach ("true" configClasses (configOf _vehicle >> "Turrets"));
+
 private _result = true;
 if (_interactionName == "Closed") then {
     if (_vehicle getVariable ["ace_fastroping_deploymentStage", 0] > 0) exitWith {
         hint "Door is blocked by FRIES";
         _result = false;
     };
+    if !((_doorSeats apply {_vehicle turretUnit _x}) isEqualTo [objNull, objNull]) exitWith {
+        hint "Door is blocked";
+        _result = false;
+    };
+    // True
+    {
+        _vehicle lockTurret [_x, true];
+    } forEach _doorSeats;
     _vehicle setVariable ["ace_fastroping_deploymentStage", -1, true];
 } else { // Open
+    {
+        _vehicle lockTurret [_x, false];
+    } forEach _doorSeats;
     _vehicle setVariable ["ace_fastroping_deploymentStage", 0, true];
 };
 
