@@ -4,7 +4,7 @@
 // AimDown, AimLeft, AimRight, AimUp
 params ["_vehicle", "_frameTime"];
 
-
+if (player == driver _vehicle) exitWith {};
 if (inputAction "pilotCamera" > 0 && !vtx_uh60_flir_enteringOptics) then {
 	vtx_uh60_flir_enteringOptics = true;
 	if (isNil "vtx_uh60_flir_camera") then {
