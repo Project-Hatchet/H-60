@@ -49,12 +49,12 @@ class Bones {
 	}; // ImpactPoint
 }; // Bones
 class Draw {
-	condition="user15>-1";
+	condition="(user15>-1)*on";
     class laserOn {
         condition="laseron";
         class TurretDirection {
             type="line";
-            width = 6;
+            width = 3;
             points[] ={
                 {"TurretToView", {-0.04, -0.04}, 1},
                 {"TurretToView", {-0.02, -0.02}, 1},{},

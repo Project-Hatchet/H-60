@@ -1,5 +1,5 @@
 #define MARGIN_L 0.02
-TEXT_HMD_L(WEAPON_NAME,MARGIN_L,0.87)
+TEXT_HMD_L(WEAPON_NAME,0.015,0.81+(SMALL_LINEHEIGHT*2))
     source = "weapon";
     sourceScale = 1;
     text = "";
