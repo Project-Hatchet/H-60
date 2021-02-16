@@ -8,6 +8,11 @@
 
 params ["_vehicle"];
 
+[{
+    showHUD [true, false, true, true, true, true, true, true, true];
+    !(shownHUD # 1)
+}, {}] call CBA_fnc_waitUntilAndExecute;
+
 if (!(typeOf _vehicle in ["vtx_MH60S_Pylons_GAU21L","vtx_MH60S_GAU21L","vtx_MH60S_Pylons","vtx_MH60S","vtx_MH60M_DAP","vtx_MH60M"])) exitWith { false };
 
 _vehicle setUserMFDValue [15, 1];
