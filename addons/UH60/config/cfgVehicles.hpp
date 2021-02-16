@@ -441,7 +441,7 @@ class CfgVehicles
         class pilotCamera: vtx_templateFLIR {};
         class Turrets: Turrets
         {
-            #include "turrets\copilotFLIR.hpp"
+            #include "turrets\copilot.hpp"
             #include "turrets\doorguns.hpp"
             #include "turrets\cargoTurrets.hpp"
         };
