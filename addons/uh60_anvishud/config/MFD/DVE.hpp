@@ -65,17 +65,36 @@ class DVE_DCLT {
 				{"DVE_WP_DIST",1,"DVE_WP_VEH_DIR",1,"DVE_WP_DIR", 1,    {0-HVR_WP_SPACING, 0.02+HVR_WP_SPACING}, 1}
 			};
 		};
-		class HVR_WP_DIST_TEXT {
-			type = "text";
-			align = "center";
-			scale = 1;
-			pos[] = {"DVE_WP_DIST",1,"DVE_WP_VEH_DIR",1,"DVE_WP_DIR", 1,{0.002*0.8, 0.03 + 0.003*0.8}, 1};
-			right[] = {"DVE_WP_DIST",1,"DVE_WP_VEH_DIR",1,"DVE_WP_DIR", 1,{0.06*0.8, 0.03 + 0.003*0.8}, 1};
-			down[] = {"DVE_WP_DIST",1,"DVE_WP_VEH_DIR",1,"DVE_WP_DIR", 1,{0.002*0.8,0.03 + 0.05*0.8}, 1};
-			source = "user";
-			sourceIndex = 1;
-			sourceScale = 1;
-			text = "VS";
-		};
+		
+		class METRIC {
+			condition = COND_METRIC;
+			class HVR_WP_DIST_TEXT {
+				type = "text";
+				align = "center";
+				scale = 1;
+				pos[] = {"DVE_WP_DIST",1,"DVE_WP_VEH_DIR",1,"DVE_WP_DIR", 1,{0.002*0.8, 0.03 + 0.003*0.8}, 1};
+				right[] = {"DVE_WP_DIST",1,"DVE_WP_VEH_DIR",1,"DVE_WP_DIR", 1,{0.06*0.8, 0.03 + 0.003*0.8}, 1};
+				down[] = {"DVE_WP_DIST",1,"DVE_WP_VEH_DIR",1,"DVE_WP_DIR", 1,{0.002*0.8,0.03 + 0.05*0.8}, 1};
+				source = "user";
+				sourceIndex = 1;
+				sourceScale = 1;
+				text = "VS";
+			};
+		}; // METRIC
+		class IMPERIAL {
+			condition = COND_IMPERIAL;
+			class HVR_WP_DIST_TEXT {
+				type = "text";
+				align = "center";
+				scale = 1;
+				pos[] = {"DVE_WP_DIST",1,"DVE_WP_VEH_DIR",1,"DVE_WP_DIR", 1,{0.002*0.8, 0.03 + 0.003*0.8}, 1};
+				right[] = {"DVE_WP_DIST",1,"DVE_WP_VEH_DIR",1,"DVE_WP_DIR", 1,{0.06*0.8, 0.03 + 0.003*0.8}, 1};
+				down[] = {"DVE_WP_DIST",1,"DVE_WP_VEH_DIR",1,"DVE_WP_DIR", 1,{0.002*0.8,0.03 + 0.05*0.8}, 1};
+				source = "user";
+				sourceIndex = 1;
+				sourceScale = 3.28;
+				text = "VS";
+			};
+		}; // IMPERIAL
 	}; // HVR_COND
 };

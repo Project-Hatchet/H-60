@@ -102,6 +102,19 @@ class torqueWrapper {
 			sourceScale = 1;
 			text = "KMH";
 		}; // TORQUE_LBL
+		
+		TEXT_HMD_R(MSL_ALT_VAL,0.94,0.41)
+			source = "altitudeASL";
+			sourceIndex = 1;
+			sourceScale = 1;
+			text = "";
+		}; // TORQUE_VAL
+		TEXT_HMD_R(MSL_ALT_LBL,0.94,0.41 + 0.032)
+			source = "static";
+			sourceIndex = 1;
+			sourceScale = 1;
+			text = "MSL";
+		}; // TORQUE_LBL
 	};
 	class IMPERIAL {
 		condition = COND_IMPERIAL;
@@ -117,6 +130,19 @@ class torqueWrapper {
 			sourceScale = 1;
 			text = "KTS";
 		}; // TORQUE_LBL
+		
+		TEXT_HMD_R(MSL_ALT_VAL,0.94,0.41)
+			source = "altitudeASL";
+			sourceIndex = 1;
+			sourceScale = 3.28;
+			text = "";
+		}; // TORQUE_VAL
+		TEXT_HMD_R(MSL_ALT_LBL,0.94,0.41 + 0.032)
+			source = "static";
+			sourceIndex = 1;
+			sourceScale = 1;
+			text = "MSL";
+		}; // TORQUE_LBL
 	};
 
 	class KTS_Outline {
@@ -129,7 +155,18 @@ class torqueWrapper {
 			{{0.01, 0.27}, 1},
 			{{0.01, 0.2}, 1}
 		}; // points
-	}; // WP_Point_Square
+	}; // KTS_Outline
+	class MSL_Outline {
+		type="line";
+		width = 3;
+		points[] ={
+			{{0.86 + 0.01, 0.41 + 0.0}, 1},
+			{{0.86 + 0.1,  0.41 + 0.0}, 1},
+			{{0.86 + 0.1,  0.41 + 0.07}, 1},
+			{{0.86 + 0.01, 0.41 + 0.07}, 1},
+			{{0.86 + 0.01, 0.41 + 0.0}, 1}
+		}; // points
+	}; // KTS_Outline
 };
 
 class blueWrapper {

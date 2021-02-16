@@ -58,3 +58,12 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
         HELP_LABEL("b_batt2","11")
     };
 };
+
+
+if ((count customWaypointPosition) > 0) then {
+    _vehicle setUserMFDvalue [1, _vehicle distance2D customWaypointPosition];
+} else {
+    private _wayPoint = [group player, currentWaypoint group player];
+    private _position = waypointPosition _wayPoint;
+    _vehicle setUserMFDvalue [1, _vehicle distance2D _position];
+};
