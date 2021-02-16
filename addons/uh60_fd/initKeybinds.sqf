@@ -11,3 +11,12 @@
     [15, [false, true, false]],
     false
 ] call CBA_fnc_addKeybind;
+
+[
+    "UH-60M Blackhawk",
+    "vtx_uh60_fd_raltToggle",
+    "FD RALT Toggle",
+    {},{
+        [vehicle player, "RALT"] call vtx_uh60_fd_fnc_modeSet;
+    }
+] call CBA_fnc_addKeybind;
