@@ -56,28 +56,24 @@ class Bones {
 	}; // WPPoint
 }; // Bones
 class Draw {
-	condition="user15>-1";
+	condition="(user15>-1)*on";
 	class noCoPilot {
 		condition="user39<1";
 	    class TurretDirection {
 	        type="line";
-	        width = 6;
+	        width = 3;
 	        points[] ={
-	            {"PilotCameraToView", {0, -0.05}, 1},
-	            {"PilotCameraToView", {0, -0.01}, 1},{},
-	            {"PilotCameraToView", {0, 0.05}, 1},
-	            {"PilotCameraToView", {0, 0.01}, 1},{},
-	            {"PilotCameraToView", {-0.05,0}, 1},
-	            {"PilotCameraToView", {-0.01,0}, 1},{},
-	            {"PilotCameraToView", {0.05,0}, 1},
-	            {"PilotCameraToView", {0.01,0}, 1}
+	            {"PilotCameraToView", { 0.02, -0.015}, 1},
+	            {"PilotCameraToView", { 0,     0.015}, 1},
+	            {"PilotCameraToView", {-0.02, -0.015}, 1},
+	            {"PilotCameraToView", { 0.02, -0.015}, 1}
 	        }; // points
 	    }; // TurretDirection
 	    class laserOn {
 	        condition="laseron";
 	        class TurretDirection {
 	            type="line";
-	            width = 6;
+	            width = 3;
 	            points[] ={
 	                {"PilotCameraToView", {-0.04, -0.04}, 1},
 	                {"PilotCameraToView", {-0.02, -0.02}, 1},{},

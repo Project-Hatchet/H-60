@@ -10,11 +10,16 @@ params ["_vehicle"];
 
 private _wayPoint = [group player, currentWaypoint group player];
 private _position = waypointPosition _wayPoint;
+if ((count customWaypointPosition) > 0) then {
+    _position = customWaypointPosition;
+    _vehicle setUserMFDText [7, "MAP MARK"];
+} else {
+    _vehicle setUserMFDText [7, waypointDescription _wayPoint];
+};
 
 private _waypointDirection = _vehicle getDir _position;
 _vehicle setUserMFDvalue [0, _waypointDirection];
 _vehicle setUserMFDvalue [1, _vehicle distance2D _position];
-_vehicle setUserMFDText [7, waypointDescription _wayPoint];
 
 private _zoomLevel = _vehicle getVariable ["MAP_ZoomMult", 1];
 private ["_waypointPosition"];
