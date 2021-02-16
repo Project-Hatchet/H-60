@@ -163,6 +163,10 @@ class Middle{
 	type="fixed";
 	pos[]={0.5,0.3};
 };
+class PFD_LEVEL_MIDDLE{
+	type="fixed";
+	pos[]={0.5,0.28};
+};
 PITCH_BONES(0.5,0.6,0.28,0.38)
 
 #undef BARTOP

@@ -90,13 +90,13 @@ class torqueWrapper {
 
 	class METRIC {
 		condition = COND_METRIC;
-		TEXT_HMD_R(KTS_VAL,0.085,0.2)
+		TEXT_HMD_R(KTS_VAL,0.085,0.41)
 			source = "speed";
 			sourceIndex = 1;
 			sourceScale = 3.6;
 			text = "";
 		}; // TORQUE_VAL
-		TEXT_HMD_R(KTS_LBL,0.085,0.232)
+		TEXT_HMD_R(KTS_LBL,0.085,0.41 + 0.032)
 			source = "static";
 			sourceIndex = 1;
 			sourceScale = 1;
@@ -118,13 +118,13 @@ class torqueWrapper {
 	};
 	class IMPERIAL {
 		condition = COND_IMPERIAL;
-		TEXT_HMD_R(KTS_VAL,0.085,0.2)
+		TEXT_HMD_R(KTS_VAL,0.085,0.41)
 			source = "speed";
 			sourceIndex = 1;
 			sourceScale = 1.94384;
 			text = "";
 		}; // TORQUE_VAL
-		TEXT_HMD_R(KTS_LBL,0.085,0.232)
+		TEXT_HMD_R(KTS_LBL,0.085,0.41 + 0.032)
 			source = "static";
 			sourceIndex = 1;
 			sourceScale = 1;
@@ -149,11 +149,11 @@ class torqueWrapper {
 		type="line";
 		width = 3;
 		points[] ={
-			{{0.01, 0.2}, 1},
-			{{0.1, 0.2}, 1},
-			{{0.1, 0.27}, 1},
-			{{0.01, 0.27}, 1},
-			{{0.01, 0.2}, 1}
+			{{0.01, 0.41 + 0.0}, 1},
+			{{0.1,  0.41 + 0.0}, 1},
+			{{0.1,  0.41 + 0.07}, 1},
+			{{0.01, 0.41 + 0.07}, 1},
+			{{0.01, 0.41 + 0.0}, 1}
 		}; // points
 	}; // KTS_Outline
 	class MSL_Outline {

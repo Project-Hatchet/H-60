@@ -497,6 +497,96 @@ class pitchLadderWrapper {
 		LEVEL_SET(75,80,0.02,0.05,0.08)
 		LEVEL_SET(85,90,0.02,0.05,0.08)
 	}; // pitchLadderLinesWrap
+
+	
+	class pitchLadderLevelBackgroundWhite {
+		color[] = common_white;
+		class HorizonLeftHoriz {
+			type = "polygon";
+			points[] ={
+				{
+					{"PFD_LEVEL_MIDDLE", {-0.13, -0.01}, 1},{"PFD_LEVEL_MIDDLE", {-0.05, -0.01}, 1},{"PFD_LEVEL_MIDDLE", {-0.05,  0.01}, 1},
+					{"PFD_LEVEL_MIDDLE", {-0.13,  0.01}, 1},
+				}
+			};
+		};
+		class HorizonLeftVert {
+			type = "polygon";
+			points[] ={
+				{
+					{"PFD_LEVEL_MIDDLE", {-0.05,  0.04}, 1},{"PFD_LEVEL_MIDDLE", {-0.03,  0.04}, 1},{"PFD_LEVEL_MIDDLE", {-0.03,  -0.01}, 1},
+					{"PFD_LEVEL_MIDDLE", {-0.05,  -0.01}, 1},
+				}
+			};
+		};
+		class HorizonRightHoriz {
+			type = "polygon";
+			points[] ={
+				{
+					{"PFD_LEVEL_MIDDLE", {0.13, -0.01}, 1},{"PFD_LEVEL_MIDDLE", {0.05, -0.01}, 1},{"PFD_LEVEL_MIDDLE", {0.05,  0.01}, 1},
+					{"PFD_LEVEL_MIDDLE", {0.13,  0.01}, 1},
+				}
+			};
+		};
+		class HorizonRightVert {
+			type = "polygon";
+			points[] ={
+				{
+					{"PFD_LEVEL_MIDDLE", {0.05,  0.04}, 1},{"PFD_LEVEL_MIDDLE", {0.03,  0.04}, 1},{"PFD_LEVEL_MIDDLE", {0.03,  -0.01}, 1},
+					{"PFD_LEVEL_MIDDLE", {0.05,  -0.01}, 1},
+				}
+			};
+		};
+		#define LEVEL_SHRINK 0.005
+		class pitchLadderLevelBlack {
+			color[] = {0,0,0,1};
+			class HorizonLeftHoriz {
+				type = "polygon";
+				points[] ={
+					{
+						{"PFD_LEVEL_MIDDLE", {-0.13+LEVEL_SHRINK, -0.01+LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {-0.05+LEVEL_SHRINK, -0.01+LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {-0.05+LEVEL_SHRINK,  0.01-LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {-0.13+LEVEL_SHRINK,  0.01-LEVEL_SHRINK}, 1},
+					}
+				};
+			};
+			class HorizonLeftVert {
+				type = "polygon";
+				points[] ={
+					{
+						{"PFD_LEVEL_MIDDLE", {-0.05+LEVEL_SHRINK,  0.04-LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {-0.03-LEVEL_SHRINK,  0.04-LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {-0.03-LEVEL_SHRINK,  -0.01+LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {-0.05+LEVEL_SHRINK,  -0.01+LEVEL_SHRINK}, 1},
+					}
+				};
+			};
+			class HorizonRightHoriz {
+				type = "polygon";
+				points[] ={
+					{
+						{"PFD_LEVEL_MIDDLE", {0.13-LEVEL_SHRINK, -0.01+LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {0.05-LEVEL_SHRINK, -0.01+LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {0.05-LEVEL_SHRINK,  0.01-LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {0.13-LEVEL_SHRINK,  0.01-LEVEL_SHRINK}, 1},
+					}
+				};
+			};
+			class HorizonRightVert {
+				type = "polygon";
+				points[] ={
+					{
+						{"PFD_LEVEL_MIDDLE", {0.05-LEVEL_SHRINK,  0.04-LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {0.03+LEVEL_SHRINK,  0.04-LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {0.03+LEVEL_SHRINK,  -0.01+LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {0.05-LEVEL_SHRINK,  -0.01+LEVEL_SHRINK}, 1},
+					}
+				};
+			};
+		}; // pitchLadderBlack
+	}; // pitchLadderBackgroundWhite
+
 }; // pitchLadderWrapper
 
 class powerPodBarWrap {
