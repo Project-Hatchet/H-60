@@ -5,31 +5,34 @@ class torqueWrapper {
 	#define COLLECTIVE_OFFSET 0.05
 	class DCLT_HIDE {
 		condition=COND_FULL_ONLY;
-		TEXT_HMD_L(TORQUE_LBL,0.015,0.81)
-			source = "static";
-			sourceIndex = 1;
-			sourceScale = 1;
-			text = "Q";
-		}; // TORQUE_LBL
-		TEXT_HMD_L(TORQUE_VAL,0.065,0.81)
-			source = "rtdRotorTorque";
-			sourceIndex = 1;
-			sourceScale = 2270;
-			text = "";
-		}; // TORQUE_VAL
+		class IS_RTD {
+			condition="simulRTD";
+			TEXT_HMD_L(TORQUE_LBL,0.015,0.81)
+				source = "static";
+				sourceIndex = 1;
+				sourceScale = 1;
+				text = "Q";
+			}; // TORQUE_LBL
+			TEXT_HMD_L(TORQUE_VAL,0.065,0.81)
+				source = "rtdRotorTorque";
+				sourceIndex = 1;
+				sourceScale = 2270;
+				text = "";
+			}; // TORQUE_VAL
 
-		TEXT_HMD_L(C_LBL,0.015,0.81+SMALL_LINEHEIGHT)
-			source = "static";
-			sourceIndex = 1;
-			sourceScale = 1;
-			text = "C";
-		}; // TORQUE_LBL
-		TEXT_HMD_L(C_VAL,0.065,0.81+SMALL_LINEHEIGHT)
-			source = "rtdCollective";
-			sourceIndex = 1;
-			sourceScale = 100;
-			text = "";
-		}; // TORQUE_VAL
+			TEXT_HMD_L(C_LBL,0.015,0.81+SMALL_LINEHEIGHT)
+				source = "static";
+				sourceIndex = 1;
+				sourceScale = 1;
+				text = "C";
+			}; // TORQUE_LBL
+			TEXT_HMD_L(C_VAL,0.065,0.81+SMALL_LINEHEIGHT)
+				source = "rtdCollective";
+				sourceIndex = 1;
+				sourceScale = 100;
+				text = "";
+			}; // TORQUE_VAL
+		};
 		class ACOL_ON {
 			condition="collisionlights";
 			TEXT_HMD_L(TEXT,0.015,0.81-SMALL_LINEHEIGHT)
@@ -168,25 +171,3 @@ class torqueWrapper {
 		}; // points
 	}; // KTS_Outline
 };
-
-class blueWrapper {
-	condition = "0";
-	color[] = common_blue;
-	LINE(VSI_MIDDLE_L,8,COLLECTIVE_X-0.05-0.03-COLLECTIVE_OFFSET,0.68,COLLECTIVE_X-0.05-0.01-COLLECTIVE_OFFSET,0.68)
-	LINE(VSI_MIDDLE_R,8,COLLECTIVE_X-0.05+0.01-COLLECTIVE_OFFSET,0.68,COLLECTIVE_X-0.05+0.03-COLLECTIVE_OFFSET,0.68)
-	BAR(VSIBar,"VSIBar",COLLECTIVE_X-0.05-COLLECTIVE_OFFSET,0.685,0.01)
-
-	TEXT_HMD_R(VSI_LBL,0.83,0.71)
-		source = "static";
-		sourceIndex = 1;
-		sourceScale = 1;
-		text = "VS";
-	}; // TORQUE_LBL
-	TEXT_HMD_R(VSI_VAL,0.83,0.742)
-		sourceScale = 196.85;
-		source="vspeed";
-		sourceIndex = 1;
-		text = "";
-	}; // TORQUE_VAL
-
-}; // blueWrapper
