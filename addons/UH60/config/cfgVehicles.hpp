@@ -67,80 +67,80 @@ class CfgVehicles
         radarTargetSize = 1.2;
 
         hiddenSelections[] = {
-                "emmisive_overhead",
-                "emmisive_frontDash",
-                "emmisive_pedestal",
-                "emmisive_ralt",
-                "emmisive_altp",
-                "emmisive_alt",
-                "emmisive_ias",
-                "emmisive_hdg",
-                "MAP_MFD1",
-                "MAP_MFD2",
-                "MAP_MFD3",
-                "MAP_MFD4",
-                "MAP_OVERLAY1",
-                "MAP_OVERLAY2",
-                "MAP_OVERLAY3",
-                "MAP_OVERLAY4",
-                "Exterrior_Hull",
-                "Exterrior_Misc",
-                "Exterrior_Tail",
-                "markings",
-                "left_num_1",
-                "left_num_2",
-                "right_num_1",
-                "right_num_2",
-                "Fuel_Probe"
+            "emmisive_overhead",
+            "emmisive_frontDash",
+            "emmisive_pedestal",
+            "emmisive_ralt",
+            "emmisive_altp",
+            "emmisive_alt",
+            "emmisive_ias",
+            "emmisive_hdg",
+            "MAP_MFD1",
+            "MAP_MFD2",
+            "MAP_MFD3",
+            "MAP_MFD4",
+            "MAP_OVERLAY1",
+            "MAP_OVERLAY2",
+            "MAP_OVERLAY3",
+            "MAP_OVERLAY4",
+            "Exterrior_Hull",
+            "Exterrior_Misc",
+            "Exterrior_Tail",
+            "markings",
+            "left_num_1",
+            "left_num_2",
+            "right_num_1",
+            "right_num_2",
+            "Fuel_Probe"
         };
         hiddenSelectionsTextures[] = {
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "z\vtx\addons\UH60\Data\Exterior\Hull Main_co.paa",
-                "z\vtx\addons\UH60\Data\Exterior\Misc_co.paa",
-                "z\vtx\addons\UH60\Data\Exterior\Hull Tail_co.paa",
-                "z\vtx\addons\UH60\Data\Exterior\Markings\Markings_ca.paa",
-                "", // "left_num_1",
-                "", // "left_num_2",
-                "", // "right_num_1",
-                "", // "right_num_2",
-                "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "z\vtx\addons\UH60\Data\Exterior\Hull Main_co.paa",
+            "z\vtx\addons\UH60\Data\Exterior\Misc_co.paa",
+            "z\vtx\addons\UH60\Data\Exterior\Hull Tail_co.paa",
+            "z\vtx\addons\UH60\Data\Exterior\Markings\Markings_ca.paa",
+            "", // "left_num_1",
+            "", // "left_num_2",
+            "", // "right_num_1",
+            "", // "right_num_2",
+            "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
         };
         hiddenSelectionsMaterials[] = {
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "z\vtx\addons\UH60\data\exterior\hull main.rvmat",
-                "z\vtx\addons\UH60\data\exterior\misc.rvmat",
-                "z\vtx\addons\UH60\data\exterior\hull tail.rvmat",
-                ""
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "z\vtx\addons\UH60\data\exterior\hull main.rvmat",
+            "z\vtx\addons\UH60\data\exterior\misc.rvmat",
+            "z\vtx\addons\UH60\data\exterior\hull tail.rvmat",
+            ""
         };
         A3TI_ThermalSelections[] = {16, 17, 18};
         accuracy = 0.5;
@@ -155,9 +155,9 @@ class CfgVehicles
         driverInAction = UH60_Pilot;
         driverAction = UH60_Pilot;
         driverRightHandAnimName="Cyclic_right";
-	driverLeftHandAnimName="Collective_right";
-	driverLeftLegAnimName="Pedal_Left_P";
-	driverRightLegAnimName="Pedal_Right_P";
+    	driverLeftHandAnimName="Collective_right";
+    	driverLeftLegAnimName="Pedal_Left_P";
+    	driverRightLegAnimName="Pedal_Right_P";
         precisegetinout = 0;
         transportSoldier = 11;
 
@@ -171,8 +171,11 @@ class CfgVehicles
         cargoIsCoDriver[]={0,0};
         memoryPointsGetInDriver    = "pos Driver";
         memoryPointsGetInDriverDir    = "pos Driver dir";
-        memoryPointsGetInCargo[] = {"pos codriver","pos cargo"};
-        memoryPointsGetInCargoDir[] = {"pos codriver dir","pos cargo dir"};
+
+		memoryPointsGetInGunner[] = {"pos Cargo L","pos Cargo R"};
+		memoryPointsGetInGunnerDir[] = {"pos Cargo L dir","pos Cargo R dir"};
+		memoryPointsGetInCargo[] = {"pos Cargo L","pos Cargo R"};
+		memoryPointsGetInCargoDir[] = {"pos Cargo L dir","pos Cargo R dir"};
         hideWeaponsCargo = 1;
         cargoCanEject = 1;
         driverCanEject = 0;
@@ -183,41 +186,38 @@ class CfgVehicles
         mainRotorSpeed = 1.0;
 	    backRotorSpeed = 1.5;
 
-        memoryPointsGetInGunner= "pos gunner";
-        memoryPointsGetInGunnerDir= "pos gunner dir";
-
         #include "MFD\MFDConfig.hpp"
         class MarkerLights{
-                class CollisionRedTailLower{
-                        activeLight = 0;
-                        ambient[] = {100,0,0};
-                        blinking = 1;
-                        blinkingPattern[] = {0.2,1.3};
-                        blinkingPatternGuarantee = 0;
-                        color[] = {0.9,0.15,0.1};
-                        dayLight = 0;
-                        drawLight = 1;
-                        drawLightCenterSize = 0.08;
-                        drawLightSize = 0.5;
-                        intensity = 500;
-                        name = "light_collision_tail_lower";
-                        useFlare = 1;
-                };
-                class CollisionRedTailUpper{
-                        activeLight = 0;
-                        ambient[] = {100,0,0};
-                        blinking = 1;
-                        blinkingPattern[] = {0.2,1.3};
-                        blinkingPatternGuarantee = 0;
-                        color[] = {0.9,0.15,0.1};
-                        dayLight = 0;
-                        drawLight = 1;
-                        drawLightCenterSize = 0.08;
-                        drawLightSize = 0.5;
-                        intensity = 500;
-                        name = "light_collision_tail_upper";
-                        useFlare = 1;
-                };
+            class CollisionRedTailLower{
+                activeLight = 0;
+                ambient[] = {100,0,0};
+                blinking = 1;
+                blinkingPattern[] = {0.2,1.3};
+                blinkingPatternGuarantee = 0;
+                color[] = {0.9,0.15,0.1};
+                dayLight = 0;
+                drawLight = 1;
+                drawLightCenterSize = 0.08;
+                drawLightSize = 0.5;
+                intensity = 500;
+                name = "light_collision_tail_lower";
+                    useFlare = 1;
+            };
+            class CollisionRedTailUpper{
+                activeLight = 0;
+                ambient[] = {100,0,0};
+                blinking = 1;
+                blinkingPattern[] = {0.2,1.3};
+                blinkingPatternGuarantee = 0;
+                color[] = {0.9,0.15,0.1};
+                dayLight = 0;
+                drawLight = 1;
+                drawLightCenterSize = 0.08;
+                drawLightSize = 0.5;
+                intensity = 500;
+                name = "light_collision_tail_upper";
+                useFlare = 1;
+            };
         };
 
         class ViewPilot: ViewPilot 	/// describes what does the pilot see using bare eyes
@@ -274,21 +274,22 @@ class CfgVehicles
         class Turrets: Turrets
         {
             #include "turrets\copilot.hpp"
+            #include "turrets\doorguns.hpp"
         };
         class Exhausts
         {
-                class ExhaustEngineLeft
-                {
-                        position = "exh_leng_pos";
-                        direction = "exh_leng_dir";
-                        effect = "ExhaustsEffectHeliMed";
-                };
-                class ExhaustEngineRight
-                {
-                        position = "exh_reng_pos";
-                        direction = "exh_reng_dir";
-                        effect = "ExhaustsEffectHeliMed";
-                };
+            class ExhaustEngineLeft
+            {
+                position = "exh_leng_pos";
+                direction = "exh_leng_dir";
+                effect = "ExhaustsEffectHeliMed";
+            };
+            class ExhaustEngineRight
+            {
+                position = "exh_reng_pos";
+                direction = "exh_reng_dir";
+                effect = "ExhaustsEffectHeliMed";
+            };
         };
         #include "cfgAnimationSources.hpp"
         gearRetracting		= 0;
@@ -381,21 +382,11 @@ class CfgVehicles
     {
         scope = 2;
         editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_UH60M.jpg";
-        class Turrets: Turrets
-        {
-            #include "turrets\copilot.hpp"
-            #include "turrets\doorguns.hpp"
-        };
     };
     class vtx_UH60M_Probe : vtx_UH60M
     {
         scope = 1;
         displayName = "UH-60M Blackhawk - Probe";
-        class Turrets: Turrets
-        {
-            #include "turrets\copilot.hpp"
-            #include "turrets\doorguns.hpp"
-        };
         class AnimationSources: AnimationSources
         {
             class Fuelprobe_Show {
@@ -442,7 +433,6 @@ class CfgVehicles
         class Turrets: Turrets
         {
             #include "turrets\copilotFLIR.hpp"
-            #include "turrets\doorguns.hpp"
             #include "turrets\cargoTurrets.hpp"
         };
 
