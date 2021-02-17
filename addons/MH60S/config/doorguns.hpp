@@ -34,8 +34,8 @@ class MainTurret: MainTurret //Left Doorgun
     gunnerOpticsShowCursor=0;
     gunnerAction=M134Gunner;
     gunnerInAction=M134Gunner;
-    memoryPointsGetInGunner= "pos gunner";
-    memoryPointsGetInGunnerDir= "pos gunner dir";
+    memoryPointsGetInGunner = "pos gunner L";
+    memoryPointsGetInGunnerDir = "pos gunner L dir";
     commanding=-2;
     primaryGunner=1;
     proxyIndex=1;
@@ -76,6 +76,8 @@ class RightDoorGun: MainTurret
     gunnerLeftLegAnimName="M134Gunner_r_Legs";
     gunnerRightLegAnimName= "M134Gunner_r_Legs";
     primaryGunner=0;
+    memoryPointsGetInGunner = "pos gunner R";
+    memoryPointsGetInGunnerDir = "pos gunner R dir";
     memoryPointGun="machinegun_1";
     memoryPointGunnerOptics="gunnerview_2";
     class ViewOptics
