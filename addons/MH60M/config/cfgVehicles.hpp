@@ -50,7 +50,7 @@ class CfgVehicles {
         memoryPointDriverOptics = "pilotcamera_flir_pos";
 
         transportSoldier=0;
-        cargoProxyIndexes[] = {};
+        cargoProxyIndexes[] = {12, 13, 14, 15, 16, 17, 20, 21, 22, 23};
         cargoAction[] = {};
 
         weapons[]={
@@ -142,6 +142,7 @@ class CfgVehicles {
         scope = 2;
         displayName = "MH-60M DAP";
         editorPreview = "z\vtx\addons\MH60M\Data\Preview\vtx_MH60M_DAP.jpg";
+        cargoProxyIndexes[] = {};
         class vtx_templateFLIR;
         class pilotCamera: vtx_templateFLIR {};
         class ViewPilot: ViewPilot
