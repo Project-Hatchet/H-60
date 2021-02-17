@@ -1,40 +1,22 @@
 class MainTurret: MainTurret //Left Doorgun
 {
-    body="MinigunL_Dir";
-    gun="MinigunL_Elev";
     animationSourceBody="MinigunL_Dir";
     animationSourceGun="MinigunL_Elev";
-    memoryPointGunnerOptics="gunnerview_1";
-    minElev=-70; maxElev=20; initElev=-50;
-    minTurn=20; maxTurn=160; initTurn=90;
-    soundServo[]={,db-40,1.0};
-    animationSourceHatch="";
-    stabilizedInAxes = 0;
+    body="MinigunL_Dir";
+    commanding=-2;
+    gun="MinigunL_Elev";
     gunBeg="muzzle_1";
     gunEnd="chamber_1";
     gunnerLeftHandAnimName="minigun_base_elev_l";
-    gunnerRightHandAnimName= "minigun_base_elev_l";
     gunnerLeftLegAnimName="M134Gunner_L_Legs";
-    gunnerRightLegAnimName= "M134Gunner_L_Legs";
-    LODOpticsIn = 1200;
-    weapons[]=
-    {
-        "vtx_wpn_m134_safe"
-    };
-    magazines[]=
-    {
-        "vtx_2000Rnd_65x39_Belt_Tracer_Red"
-    };
-    gunnerType = "vtx_uh60_doorgunner";
     gunnerName="Left door gunner";
-    gunnerOpticsModel="\A3\Weapons_F\empty.p3d";
-    gunnerOutOpticsShowCursor=1;
-    gunnerOpticsShowCursor=0;
-    gunnerAction=M134Gunner;
-    gunnerInAction=M134Gunner;
+    gunnerRightHandAnimName= "minigun_base_elev_l";
+    gunnerRightLegAnimName= "M134Gunner_L_Legs";
+    memoryPointGunnerOptics="gunnerview_1";
     memoryPointsGetInGunner = "pos gunner L";
     memoryPointsGetInGunnerDir = "pos gunner L dir";
-    commanding=-2;
+    minElev=-70; maxElev=20; initElev=-50;
+    minTurn=20; maxTurn=160; initTurn=90;
     primaryGunner=0;
     proxyIndex=1;
     selectionFireAnim="zasleh";
@@ -44,16 +26,6 @@ class MainTurret: MainTurret //Left Doorgun
         initAngleY=-50; minAngleY=-70; maxAngleY=20;
         initFov=0.7; minFov=0.25; maxFov=1.1;
     };
-    gunnerCompartments = Compartment2;
-};
-class RightDoorGun: MainTurret
-{
-    body="MinigunR_Dir";
-    gun="MinigunR_Elev";
-    animationSourceBody="MinigunR_Dir";
-    animationSourceGun="MinigunR_Elev";
-    memoryPointsGetInGunner= "pos gunner2";
-    memoryPointsGetInGunnerDir= "pos gunner2 dir";
     weapons[]=
     {
         "vtx_wpn_m134_safe"
@@ -62,23 +34,40 @@ class RightDoorGun: MainTurret
     {
         "vtx_2000Rnd_65x39_Belt_Tracer_Red"
     };
+    animationSourceHatch="";
+    gunnerAction=M134Gunner;
+    gunnerCompartments = Compartment2;
+    gunnerInAction=M134Gunner;
+    gunnerOpticsModel="\A3\Weapons_F\empty.p3d";
+    gunnerOpticsShowCursor=0;
+    gunnerOutOpticsShowCursor=1;
+    gunnerType = "vtx_uh60_doorgunner";
+    LODOpticsIn = 1200;
+    soundServo[]={,db-40,1.0};
     stabilizedInAxes = 0;
-    selectionFireAnim="zasleh_1";
-    proxyIndex=2;
-    gunnerName="Right door gunner";
+};
+class RightDoorGun: MainTurret
+{
+    animationSourceBody="MinigunR_Dir";
+    animationSourceGun="MinigunR_Elev";
+    body="MinigunR_Dir";
     commanding=-3;
-    minElev=-70; maxElev=20; initElev=-50;
-    minTurn=205; maxTurn=345; initTurn=275;
+    gun="MinigunR_Elev";
     gunBeg="muzzle_2"; //gunBeg=endpoint of the gun
     gunEnd="chamber_2"; //gunEnd=chamber of the gun
     gunnerLeftHandAnimName="minigun_base_elev_r";
-    gunnerRightHandAnimName= "minigun_base_elev_r";
     gunnerLeftLegAnimName="M134Gunner_r_Legs";
+    gunnerName="Right door gunner";
+    gunnerRightHandAnimName= "minigun_base_elev_r";
     gunnerRightLegAnimName= "M134Gunner_r_Legs";
+    memoryPointGunnerOptics="gunnerview_2";
     memoryPointsGetInGunner = "pos gunner R";
     memoryPointsGetInGunnerDir = "pos gunner R dir";
+    minElev=-70; maxElev=20; initElev=-50;
+    minTurn=205; maxTurn=345; initTurn=275;
     primaryGunner=0;
-    memoryPointGunnerOptics="gunnerview_2";
+    proxyIndex=2;
+    selectionFireAnim="zasleh_1";
     class ViewOptics
     {
         initAngleX=0; minAngleX=-30; maxAngleX=+30;
