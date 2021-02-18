@@ -18,7 +18,7 @@ class CopilotTurret: CopilotTurret {
 	proxyIndex=3;
 	commanding=-1;
 	class ViewGunner: ViewPilot {
-		//#include "..\views\copilot.hpp"
+		#include "ViewPilot.hpp"
 	};
 	class Components {};
 	class Hitpoints {};
