@@ -220,9 +220,8 @@ class CfgVehicles
             };
         };
 
-        class ViewPilot: ViewPilot 	/// describes what does the pilot see using bare eyes
-        {
-            PILOTVIEW
+        class ViewPilot: ViewPilot { // Describes what does the pilot see using bare eyes
+            //#include "views\pilot.hpp"
         };
 
 		LODDriverOpticsIn = 1100;
