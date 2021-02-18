@@ -1,5 +1,4 @@
-class CopilotTurret: CopilotTurret
-{
+class CopilotTurret: CopilotTurret {
 	CanEject=0;
 	gunnerAction=UH60_Pilot;
 	gunnerInAction=UH60_Pilot;
@@ -18,14 +17,9 @@ class CopilotTurret: CopilotTurret
 	GunnerDoor="DoorL";
 	proxyIndex=3;
 	commanding=-1;
-	class ViewGunner: ViewPilot
-	{
-		COPILOTVIEW
+	class ViewGunner: ViewPilot {
+		//#include "..\views\copilot.hpp"
 	};
-	class Components
-	{
-	};
-	class Hitpoints
-	{
-	};
+	class Components {};
+	class Hitpoints {};
 };
