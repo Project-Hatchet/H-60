@@ -221,7 +221,7 @@ class CfgVehicles
         };
 
         class ViewPilot: ViewPilot { // Describes what does the pilot see using bare eyes
-            //#include "views\pilot.hpp"
+            #include "turrets\ViewPilot.hpp"
         };
 
 		LODDriverOpticsIn = 1100;
