@@ -1,5 +1,4 @@
-class MainTurret: MainTurret //Left Doorgun
-{
+class MainTurret: MainTurret { //Left Doorgun
     animationSourceBody="MinigunL_Dir";
     animationSourceGun="MinigunL_Elev";
     body="MinigunL_Dir";
@@ -16,12 +15,18 @@ class MainTurret: MainTurret //Left Doorgun
     memoryPointsGetInGunner = "pos gunner L";
     memoryPointsGetInGunnerDir = "pos gunner L dir";
     minElev=-70; maxElev=20; initElev=-50;
-    minTurn=20; maxTurn=160; initTurn=90;
+    minTurn=-10; maxTurn=185; initTurn=90;
+    class TurnIn {
+        limitsArrayTop[] = {{10, 185}, {10, -10}};
+        limitsArrayBottom[] = {{-70, 185}, {-70, -10}};
+    };
     primaryGunner=0;
     proxyIndex=1;
     selectionFireAnim="zasleh";
-    class ViewOptics
-    {
+    class ViewGunner {
+        //#include "..\views\copilot.hpp"
+	};
+    class ViewOptics {
         initAngleX=90; minAngleX=20; maxAngleX=160;
         initAngleY=-50; minAngleY=-70; maxAngleY=20;
         initFov=0.7; minFov=0.25; maxFov=1.1;
@@ -46,8 +51,7 @@ class MainTurret: MainTurret //Left Doorgun
     soundServo[]={,db-40,1.0};
     stabilizedInAxes = 0;
 };
-class RightDoorGun: MainTurret
-{
+class RightDoorGun: MainTurret {
     animationSourceBody="MinigunR_Dir";
     animationSourceGun="MinigunR_Elev";
     body="MinigunR_Dir";
@@ -64,12 +68,18 @@ class RightDoorGun: MainTurret
     memoryPointsGetInGunner = "pos gunner R";
     memoryPointsGetInGunnerDir = "pos gunner R dir";
     minElev=-70; maxElev=20; initElev=-50;
-    minTurn=205; maxTurn=345; initTurn=275;
+    minTurn=-185; maxTurn=10; initTurn=-90;
+    class TurnIn {
+        limitsArrayTop[] = {{10, 10}, {10, -185}};
+        limitsArrayBottom[] = {{-70, 10}, {-70, -185}};
+    };
     primaryGunner=0;
     proxyIndex=2;
     selectionFireAnim="zasleh_1";
-    class ViewOptics
-    {
+    class ViewGunner {
+        //#include "..\views\copilot.hpp"
+	};
+    class ViewOptics {
         initAngleX=0; minAngleX=-30; maxAngleX=+30;
         initAngleY=0; minAngleY=-100; maxAngleY=+100;
         initFov=0.7; minFov=0.25; maxFov=1.1;
