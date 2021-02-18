@@ -23,14 +23,13 @@ class MainTurret: MainTurret { //Left Doorgun
     primaryGunner=0;
     proxyIndex=1;
     selectionFireAnim="zasleh";
-    class ViewGunner {
-        //#include "..\views\copilot.hpp"
-	};
+    //class ViewGunner {#include "ViewGunnerLeft.hpp"}; // Headlimits don't seem to apply
     class ViewOptics {
         initAngleX=90; minAngleX=20; maxAngleX=160;
         initAngleY=-50; minAngleY=-70; maxAngleY=20;
         initFov=0.7; minFov=0.25; maxFov=1.1;
     };
+    // shared properties
     weapons[]=
     {
         "vtx_wpn_m134_safe"
@@ -76,9 +75,6 @@ class RightDoorGun: MainTurret {
     primaryGunner=0;
     proxyIndex=2;
     selectionFireAnim="zasleh_1";
-    class ViewGunner {
-        //#include "..\views\copilot.hpp"
-	};
     class ViewOptics {
         initAngleX=0; minAngleX=-30; maxAngleX=+30;
         initAngleY=0; minAngleY=-100; maxAngleY=+100;
