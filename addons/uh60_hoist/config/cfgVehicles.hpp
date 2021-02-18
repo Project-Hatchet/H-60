@@ -162,7 +162,7 @@ class CfgVehicles
         maximumLoad = 0;
         model = "z\vtx\addons\uh60_hoist\data\vtx_hook.p3d";
         scope = 2;
-        slingLoadCargoMemoryPoints[] = {"sling_point"};
+        //slingLoadCargoMemoryPoints[] = {"sling_point"}; // Don't make slingable
         transportSoldier=1;
         typicalCargo[] = {};
 
