@@ -34,8 +34,7 @@ class CfgFontFamilies {
 #define mag_xx(a,b) class _xx_##a {magazine = a; count = b;}
 #define weap_xx(a,b) class _xx_##a {weapon = a; count = b;}
 
-//#include "config\defines\viewAngleDefines.hpp"
-//#include "config\defines\mfdDefines.hpp"
+#include "config\defines\mfdDefines.hpp"
 #include "config\cfgWeapons.hpp"
 #include "config\cfgMagazines.hpp"
 #include "config\cfgVehicles.hpp"

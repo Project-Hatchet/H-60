@@ -30,7 +30,8 @@ class CfgVehicles {
         class CargoTurret;
         class Turrets: Turrets
         {
-            #include "copilot.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\doorguns_pylons.hpp"
             #include "GAU21L.hpp"
             #include "cargoTurretsGAU21L.hpp"
         };
@@ -76,8 +77,8 @@ class CfgVehicles {
         class CargoTurret;
         class Turrets: Turrets
         {
-            #include "doorguns_free.hpp"
-            #include "copilot.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\doorguns.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
             #include "gau21L_free.hpp"
             #include "cargoTurretsGAU21L.hpp"
         };
@@ -123,8 +124,9 @@ class CfgVehicles {
         class CargoTurret;
         class Turrets: Turrets
         {
-            #include "copilot.hpp"
-            #include "cargoTurrets.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\doorguns_pylons.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
         };
         class Components: Components {
             #include "Pylons.hpp"
@@ -189,8 +191,8 @@ class CfgVehicles {
         editorPreview = "z\vtx\addons\MH60S\Data\Preview\vtx_MH60S.jpg";
         class Turrets: Turrets
         {
-            #include "copilot.hpp"
-            #include "doorguns_free.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\doorguns.hpp"
         };
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa"};
     }; // vtx_MH60S
