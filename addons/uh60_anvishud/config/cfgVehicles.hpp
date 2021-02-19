@@ -16,24 +16,15 @@ class CfgVehicles {
         class MFD;
     }; // Heli_Transport_01_base_F
     class vtx_H60_base: Heli_Transport_01_base_F {
-        class VTX_H60_HDTS_Common {
-        		#include "MFD\HMD.hpp"
-        }; // VTX_H60_HDTS_Pilot
         class VTX_H60_HDTS_Copilot {
-        		#include "MFD\HMDCopilot.hpp"
+        		#include "MFD\HMD.hpp"
+                turret[] = {-1};
         }; // VTX_H60_HDTS_Pilot
         class VTX_H60_HDTS_Pilot {
-        		#include "MFD\HMDPilot.hpp"
+        		#include "MFD\HMD.hpp"
+                turret[] = {0};
         }; // VTX_H60_HDTS_Pilot
-        class VTX_H60_HDTS_Pilot_Turret {
-            #include "MFD\HMDTurretConfig.hpp"
-        }; // VTX_H60_HDTS_Pilot_Turret
-        class VTX_H60_HDTS_CoPilot_Turret {
-            #include "MFD\HMDCopilotTurretConfig.hpp"
-        }; // VTX_H60_HDTS_Pilot_Turret
         class MFD: MFD {
-            class HMD1: VTX_H60_HDTS_Common {};
-            class HMD2: VTX_H60_HDTS_Pilot_Turret {};
             class HMD3: VTX_H60_HDTS_Pilot {};
         };
         class vxf_driver: vxf_driver {

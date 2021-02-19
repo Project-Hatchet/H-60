@@ -28,7 +28,4 @@ class CopilotTurret: CopilotTurret
 	class Hitpoints
 	{
 	};
-	class MFD {
-        class VTX_H60_HDTS_Copilot: VTX_H60_HDTS_Copilot {};
-	};
 };

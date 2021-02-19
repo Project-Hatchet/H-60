@@ -1,5 +1,7 @@
 params ["_vehicle"];
 
+if (!hasPilotCamera _vehicle) exitWith {false};
+
 private _vehicleConfig = configFile >> "cfgVehicles" >> typeOf _vehicle;
 private _pilotCameraConfig = _vehicleConfig >> "pilotCamera";
 if (!isClass _pilotCameraConfig) exitWith {};
@@ -40,5 +42,8 @@ vtx_uh60_flir_enteringOptics = false;
 
 vtx_uh60_flir_unstabilizedSlewSpeed = 0.5;
 vtx_uh60_flir_stabilizedSlewSpeed = 0.5;
+
+vtx_uh60_flir_syncInterval = 0.05;
+vtx_uh60_flir_lastSync = 0;
 
 true

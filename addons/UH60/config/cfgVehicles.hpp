@@ -139,8 +139,7 @@ class CfgVehicles
                 "",
                 "z\vtx\addons\UH60\data\exterior\hull main.rvmat",
                 "z\vtx\addons\UH60\data\exterior\misc.rvmat",
-                "z\vtx\addons\UH60\data\exterior\hull tail.rvmat",
-                ""
+                "z\vtx\addons\UH60\data\exterior\hull tail.rvmat"
         };
         A3TI_ThermalSelections[] = {16, 17, 18};
         accuracy = 0.5;
@@ -490,16 +489,6 @@ class CfgVehicles
                 animPeriod=1;
                 initPhase=1;
             };
-            class FLIR_HIDE {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class FLIR_BACK {
-                source="user";
-                animPeriod=1;
-                initPhase=0;
-            };
             class CabinSeats_Hide {
                 source="user";
                 animPeriod=1;
@@ -516,6 +505,12 @@ class CfgVehicles
                 initPhase=1;
             };
             class ERFS_Show: MAWS_Tubes_Show {
+                initPhase=1;
+            };
+            class FLIR_HIDE: MAWS_Tubes_Show {
+                initPhase=0;
+            };
+            class FLIR_BACK: MAWS_Tubes_Show {
                 initPhase=1;
             };
         };

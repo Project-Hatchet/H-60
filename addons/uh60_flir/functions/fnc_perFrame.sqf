@@ -17,7 +17,9 @@ vtx_uh60_flir_stabilized = (getPilotCameraTarget _vehicle) # 0;
 if (isLaserOn _vehicle && !_isSlewing && !_isDriver) then {
 	_vehicle setPilotCameraTarget (getPosASL (laserTarget _vehicle));
 };
-if (_isSlewing) then {
+
+if (_isSlewing && time > vtx_uh60_flir_lastSync + vtx_uh60_flir_syncInterval) then {
+	vtx_uh60_flir_lastSync = time;
 	private _target = if (vtx_uh60_flir_stabilized) then [{
 		(getPilotCameraTarget _vehicle) # 1;
 	}, {
@@ -28,13 +30,13 @@ if (_isSlewing) then {
 		private _copilotTurretIndex = [_vehicle] call ace_common_fnc_getTurretCopilot;
 		private _hasCopilot = !isNil {_vehicle turretUnit _copilotTurretIndex};
 		if (_hasCopilot) then {
-			[vtx_uh60_flir_stabilized, _target] remoteExecCall ["vtx_uh60_flir_fnc_syncCopilot", (_vehicle turretUnit _copilotTurretIndex)];
+			[vtx_uh60_flir_stabilized, _target] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", (_vehicle turretUnit _copilotTurretIndex)];
 		};
 	} else {
 		// copilot send to driver
 		private _hasDriver = !isNil {driver _vehicle};
 		if (_hasDriver) then {
-			[vtx_uh60_flir_stabilized, _target] remoteExecCall ["vtx_uh60_flir_fnc_syncCopilot", (driver _vehicle)];
+			[vtx_uh60_flir_stabilized, _target] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", (driver _vehicle)];
 		};
 	};
 };

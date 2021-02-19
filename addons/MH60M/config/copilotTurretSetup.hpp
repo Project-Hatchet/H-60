@@ -53,9 +53,7 @@ class CopilotTurret: CopilotTurret
         };
     };
     class MFD {
-        class VTX_H60_HDTS_Common: VTX_H60_HDTS_Common {};
         class VTX_H60_HDTS_Copilot: VTX_H60_HDTS_Copilot {};
-        class VTX_H60_HDTS_CoPilot_Turret: VTX_H60_HDTS_CoPilot_Turret {};
     };
     class ViewGunner
     {

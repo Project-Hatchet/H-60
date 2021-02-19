@@ -41,9 +41,8 @@ class CfgVehicles {
     }; // Heli_Transport_01_base_F
 
     class vtx_MH60M: vtx_H60_base {
-        class VTX_H60_HDTS_Common;
         class VTX_H60_HDTS_Copilot;
-        class VTX_H60_HDTS_CoPilot_Turret;
+        class VTX_H60_HDTS_Pilot;
         scope = 2;
         displayName = "MH-60M";
         editorPreview = "z\vtx\addons\MH60M\Data\Preview\vtx_MH60M.jpg";
@@ -117,7 +116,7 @@ class CfgVehicles {
         class CargoTurret;
         class Turrets: Turrets
         {
-            #include "copilotTurretSetup.hpp"
+            #include "copilot.hpp"
             #include "doorguns_free.hpp"
             #include "cargoTurrets.hpp"
         };
