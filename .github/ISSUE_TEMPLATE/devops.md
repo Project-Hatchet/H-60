@@ -1,10 +1,11 @@
 ---
 name: DevOps
 about: Automate workflow
-title: "[DevObs]"
+title: "DevObs"
 labels: DevOps
 assignees: ''
 
 ---
 
-Make better
+Place
+holder
