@@ -1,22 +1,14 @@
 ---
-name: Detailed Bug report
-about: Detailed bug report
-title: ''
-labels: 'bug'
+name: Crash report 
+about: Detailed Crash report 
+title: 'Crash to Desktop'
+labels: 'Crash'
 assignees: ''
 ---
 <!---NOTE: Replace any "ENTER TEXT HERE" with your input  .-->
 
 <!--- Your title should serve as a concise summary of what the bug is.Pro Tip: We recommend you review the title again after completing the report to ensure it is concise and reflects the problem.-->
 
-
-# Prerequisites
-<!-- Your issue may already be reported! -->
-Please answer the following questions for yourself before submitting an issue. 
-
-- [ ] I checked the documentation and found no answer
-- [ ] I checked to make sure that this [issue](https://github.com/Project-Hatchet/public_h-60/issues?q=is%3Aissue+label%3Abug+) has not already been filed
-- [ ] I checked the [FAQ](https://discord.gg/4AYEfFD) and known bugs on the discord
 
 # First Add RPT log from both client and server 
 ### **RPT log file:**
