@@ -23,6 +23,6 @@ class CopilotTurret: CopilotTurret {
 	class MFD {
         class VTX_H60_HDTS_Copilot: VTX_H60_HDTS_Copilot {};
 	};
-	class Components {};
 	class Hitpoints {};
+    #include "..\cfgVehiclesParts\components.hpp"
 };

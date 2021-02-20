@@ -1,3 +1,7 @@
+class SensorTemplatePassiveRadar;
+class SensorTemplateDataLink;
+class VehicleSystemsTemplateLeftPilot;
+class VehicleSystemsTemplateRightPilot;
 class CfgVehicles {
     class Helicopter_Base_F;
     class Helicopter_Base_H: Helicopter_Base_F {
@@ -134,8 +138,8 @@ class CfgVehicles {
     }; // vtx_MH60S_GAU21L
     class vtx_MH60S_Pylons: vtx_H60_base {
         class pilotCamera: vtx_templateFLIR {};
-        weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
-        magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
+        weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera", "vtx_MH60M_M134_minigun"};
+        magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries", "5000Rnd_762x51_Belt"};
         driverWeaponsInfoType = "Rsc_MELB_Turret_UnitInfo";
         memoryPointDriverOptics = "pilotcamera_flir_pos";
         class VTX_H60_HDTS_Copilot;
@@ -206,8 +210,6 @@ class CfgVehicles {
             };
         }; // AnimationSources
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa"};
-        weapons[] = {"CMFlareLauncher","vtx_MH60M_M134_minigun"};
-        magazines[] = {"60Rnd_CMFlareMagazine","5000Rnd_762x51_Belt"};
         memoryPointGun[] = {"muzzle_1","muzzle_2"};
         gunBeg[] = {"muzzle_1","muzzle_2"};
         gunEnd[] = {"chamber_1","chamber_2"};

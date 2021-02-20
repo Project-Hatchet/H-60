@@ -1,3 +1,5 @@
+class VehicleSystemsTemplateLeftPilot;
+class VehicleSystemsTemplateRightPilot;
 class SensorTemplatePassiveRadar;
 class SensorTemplateDataLink;
 class CfgVehicles

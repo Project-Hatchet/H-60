@@ -1,13 +1,6 @@
 #include "customInfo.hpp"
 class VehicleSystemsTemplateLeftPilot;
-class vtx_VehicleSystemsTemplateLeftPilot: VehicleSystemsTemplateLeftPilot {
-    class Components;
-};
 class VehicleSystemsTemplateRightPilot;
-class vtx_VehicleSystemsTemplateRightPilot: VehicleSystemsTemplateRightPilot {
-    class Components;
-};
-
 class SensorTemplatePassiveRadar;
 class SensorTemplateAntiRadiation;
 class SensorTemplateActiveRadar;
@@ -56,12 +49,12 @@ class CfgVehicles {
         class Components: Components {
             #include "sensors.hpp"
 
-            class VehicleSystemsDisplayManagerComponentLeft: vtx_VehicleSystemsTemplateLeftPilot {
+            class VehicleSystemsDisplayManagerComponentLeft: VehicleSystemsTemplateLeftPilot {
                 class Components: Components {
                     ADDGUNNER
                 };
             };
-            class VehicleSystemsDisplayManagerComponentRight: vtx_VehicleSystemsTemplateRightPilot {
+            class VehicleSystemsDisplayManagerComponentRight: VehicleSystemsTemplateRightPilot {
                 class Components: Components {
                     ADDGUNNER
                 };
