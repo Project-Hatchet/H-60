@@ -31,7 +31,7 @@ class CfgVehicles {
         class Turrets: Turrets
         {
             #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
-            #include "\z\vtx\addons\UH60\config\turrets\doorguns_pylons.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\doorguns.hpp"
             #include "GAU21L.hpp"
             #include "cargoTurretsGAU21L.hpp"
         };
@@ -125,7 +125,7 @@ class CfgVehicles {
         class Turrets: Turrets
         {
             #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
-            #include "\z\vtx\addons\UH60\config\turrets\doorguns_pylons.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\doorguns.hpp"
             #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
         };
         class Components: Components {
