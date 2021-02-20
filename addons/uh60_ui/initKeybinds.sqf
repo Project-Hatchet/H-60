@@ -3,7 +3,7 @@
 [
     "UH-60M Blackhawk",
     "vtx_uh60m_c_help",
-    "Help Mode",
+    LSTRING(HelpMode),
     {},{
         private _vehicle = vehicle player;
         if ([_vehicle, "ui", "vtx_H60_base"] call vxf_core_fnc_hasModule) then {

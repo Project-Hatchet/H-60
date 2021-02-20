@@ -1,7 +1,7 @@
 [
     "vtx_uh60m_simpleCollective",
     "CHECKBOX",
-    "AFM Simple Collective",
+    LSTRING(AFMSimple Collective),
     "UH-60M",
     [false],
     nil,

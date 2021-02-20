@@ -7,5 +7,8 @@
         <Key ID="STR_VTX_UH60_FD_RALTToggle">
             <English>FD RALT Toggle</English>
         </Key>
+        <Key ID="STR_VTX_UH60_FD_AFMSimpleCollective">
+            <English>AFM Simple Collective</English>
+        </Key>
     </Package>
 </Project>
