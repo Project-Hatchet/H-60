@@ -364,7 +364,7 @@ class CfgVehicles
                 maxCompression				= 0.2;
                 maxDroop					= 0.05;
 
-                sprungMass					= 4000;
+                sprungMass					= 6000;
                 springStrength				= 90000;
                 springDamperRate			= 4000;
 
@@ -385,6 +385,7 @@ class CfgVehicles
                 tireForceAppPointOffset		= "wheel_1_2_center";
                 center						= "wheel_1_2_center";
                 boundary					= "wheel_1_2_rim";
+                sprungMass					= 8500;
             };
             class Wheel_3: Wheel_2
             {
