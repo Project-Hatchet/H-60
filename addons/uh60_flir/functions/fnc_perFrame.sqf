@@ -5,7 +5,6 @@
 // vtx_uh60_flir_fnc_perFrame
 
 params ["_vehicle", "_frameTime"];
-systemChat str _time;
 
 private _left = ((inputAction "LookLeft") min 1) + ((inputAction "AimLeft") min 1);
 private _right = ((inputAction "LookRight") min 1) + ((inputAction "AimRight") min 1);
@@ -15,7 +14,7 @@ private _wasSlewing = (vtx_uh60_flir_slewX > 0 || vtx_uh60_flir_slewY > 0);
 vtx_uh60_flir_slewX = 0 - _left + _right;
 vtx_uh60_flir_slewY = 0 - _down + _up;
 private _isSlewing = (vtx_uh60_flir_slewX > 0 || vtx_uh60_flir_slewY > 0);
-private _slewingStopped = (_wasSlewing && !_isSlewing)
+private _slewingStopped = (_wasSlewing && !_isSlewing);
 private _isDriver = player == driver _vehicle;
 private _isInCamera = ((_isDriver && cameraView == "GUNNER") || !isNil "vtx_uh60_flir_camera");
 
@@ -32,7 +31,7 @@ if (isLaserOn _vehicle && !_isSlewing && !_isDriver && !_isInCamera) then {
 	_vehicle setPilotCameraTarget (getPosASL (laserTarget _vehicle));
 };
 
-if (_isInCamera &&_((isSlewing && time > vtx_uh60_flir_lastSync + vtx_uh60_flir_syncInterval) || _slewingStopped)) then {
+if (_isInCamera &&((_isSlewing && time > vtx_uh60_flir_lastSync + vtx_uh60_flir_syncInterval) || _slewingStopped)) then {
 	vtx_uh60_flir_lastSync = time;
 	private _target = if (vtx_uh60_flir_stabilized) then [{(getPilotCameraTarget _vehicle) # 1;}, {(getPilotCameraDirection _vehicle)}];
 	if (!isNil "_otherCrew") then {

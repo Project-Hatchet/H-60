@@ -35,6 +35,7 @@ class CfgVehicles {
     }; // Heli_Transport_01_base_F
     class vtx_MH60M: vtx_H60_base {
         class pilotCamera: vtx_templateFLIR {};
+        driverWeaponsInfoType = "Rsc_MELB_Turret_UnitInfo";
         class VTX_H60_HDTS_Copilot;
         class VTX_H60_HDTS_Pilot;
         scope = 2;
@@ -46,12 +47,8 @@ class CfgVehicles {
         cargoProxyIndexes[] = {};
         cargoAction[] = {};
 
-        weapons[]={
-            "CMFlareLauncher"
-        };
-        magazines[]={
-            "60Rnd_CMFlareMagazine"
-        };
+        weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
+        magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
         class ViewPilot: ViewPilot
         {
             initAngleX=0;
@@ -116,6 +113,7 @@ class CfgVehicles {
     }; // vtx_MH60M
     class vtx_MH60M_DAP : vtx_MH60M {
         class pilotCamera: vtx_templateFLIR {};
+        driverWeaponsInfoType = "Rsc_MELB_Turret_UnitInfo";
         scope = 2;
         displayName = "MH-60M DAP";
         editorPreview = "z\vtx\addons\MH60M\Data\Preview\vtx_MH60M_DAP.jpg";
@@ -205,8 +203,8 @@ class CfgVehicles {
             #include "cargoTurrets.hpp"
         };
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\tail_co.paa","","","","","","z\vtx\addons\UH60\data\FuelProbe\Fuel_probe_co.paa"};
-        weapons[] = {"CMFlareLauncher","vtx_MH60M_M134_minigun"};
-        magazines[] = {"60Rnd_CMFlareMagazine","5000Rnd_762x51_Belt"};
+        weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera", "vtx_MH60M_M134_minigun"};
+        magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries", "5000Rnd_762x51_Belt"};
         memoryPointGun[] = {"muzzle_1","muzzle_2"};
         gunBeg[] = {"muzzle_1","muzzle_2"};
         gunEnd[] = {"chamber_1","chamber_2"};

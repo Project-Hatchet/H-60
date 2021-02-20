@@ -18,11 +18,11 @@ class CfgVehicles {
     class vtx_H60_base: Heli_Transport_01_base_F {
         class VTX_H60_HDTS_Copilot {
         		#include "MFD\HMD.hpp"
-                turret[] = {-1};
+                turret[] = {0};
         }; // VTX_H60_HDTS_Pilot
         class VTX_H60_HDTS_Pilot {
         		#include "MFD\HMD.hpp"
-                turret[] = {0};
+                turret[] = {-1};
         }; // VTX_H60_HDTS_Pilot
         class MFD: MFD {
             class HMD3: VTX_H60_HDTS_Pilot {};
