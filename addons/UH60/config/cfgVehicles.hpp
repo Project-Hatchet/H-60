@@ -227,10 +227,42 @@ class CfgVehicles
 
 		LODDriverOpticsIn = 1100;
 
+    	class TransportBackpacks
+    	{
+    		class _xx_B_Parachute
+    		{
+    			backpack = "B_AssaultPack_rgr"; // For repairs
+    			count = 2;
+    		};
+    	};
+    	class TransportItems
+    	{
+    		class _xx_FirstAidKit
+    		{
+    			name = "FirstAidKit";
+    			count = 8;
+    		};
+    		class _xx_Toolkit
+    		{
+    			name = "Toolkit";
+    			count = 1;
+    		};
+    		class _xx_Medikit
+    		{
+    			name = "Medikit";
+    			count = 1;
+    		};
+    		class _xx_ItemGPS
+    		{
+    			name = "ACE_microDAGR"; // For wayopints
+    			count = 2;
+    		};
+    	};
         class TransportMagazines
         {
             mag_xx(SmokeShellGreen,2);
             mag_xx(SmokeShell,2);
+            mag_xx(DemoCharge_Remote_Mag,1); // For destroying crashed heli
         };
 
         class TransportWeapons{};
