@@ -5,7 +5,7 @@ GVAR(carriers) = [];
 GVAR(loadAction) = [ // create action
     QGVAR(loadAction),
     localize LSTRING(LoadCargo),
-    "\a3\ui_f\data\IGUI\Cfg\VehicleToggles\VehicleCargoIconOn2_ca.paa",
+    "\a3\ui_f\data\IGUI\Cfg\VehicleToggles\VehicleCargoIconOn_ca.paa",
     {[_target, _player] call FUNC(startLoading)},
     {[ace_player, _target] call FUNC(canConfigureCargo)},
     nil,
@@ -24,15 +24,25 @@ GVAR(loadAction) = [ // create action
     [_typeOf, 0, ["ACE_MainActions"], GVAR(loadAction)] call ace_interact_menu_fnc_addActionToClass;
 }, true, [], true] call CBA_fnc_addClassEventHandler;
 
-GVAR(unloadAction) = [ // create action
-    QGVAR(unloadAction),
+GVAR(unloadActionCarrier) = [ // create action
+    QGVAR(unloadActionCarrier),
+    localize "STR_A3_OM_HoldAction_AddDepo_Unload",
+    "\a3\ui_f\data\IGUI\Cfg\VehicleToggles\VehicleCargoIconOn2_ca.paa",
+    {
+        [QGVAR(setVehicleCargo), [_target, objNull]] call CBA_fnc_localEvent},
+    {!((getVehicleCargo  _target) isEqualTo [])}
+] call ace_interact_menu_fnc_createAction;
+["All", 0, ["ACE_MainActions"], GVAR(unloadActionCarrier), true] call ace_interact_menu_fnc_addActionToClass;
+
+GVAR(unloadActionCargo) = [ // create action
+    QGVAR(unloadActionCargo),
     localize "STR_A3_moduleDepot_Unload",
     "\a3\ui_f\data\IGUI\Cfg\Actions\unloadVehicle_ca.paa",
     {
         [QGVAR(setVehicleCargo), [objNull, _target]] call CBA_fnc_localEvent},
     {!isNull (isVehicleCargo _target)}
 ] call ace_interact_menu_fnc_createAction;
-["All", 0, ["ACE_MainActions"], GVAR(unloadAction), true] call ace_interact_menu_fnc_addActionToClass;
+["All", 0, ["ACE_MainActions"], GVAR(unloadActionCargo), true] call ace_interact_menu_fnc_addActionToClass;
 
 ["vtx_H60_base", "GetIn", {call FUNC(onGetInOut)}, true, [], true] call CBA_fnc_addClassEventHandler;
 ["vtx_H60_base", "GetOut", {call FUNC(onGetInOut)}, true, [], true] call CBA_fnc_addClassEventHandler;
