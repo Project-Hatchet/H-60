@@ -9,7 +9,6 @@ assignees: ''
 
 <!--- Your title should serve as a concise summary of what the bug is.Pro Tip: We recommend you review the title again after completing the report to ensure it is concise and reflects the problem.-->
 
-
 # First Add RPT log from both client and server 
 ### **RPT log file:**
 - Add a link ([gist](https://gist.github.com) or [pastebin](http://pastebin.com)) to the client and/or server RPT file. An instruction to find your RPT files can be found [here](https://community.bistudio.com/wiki/Crash_Files#Arma_3).
@@ -111,7 +110,7 @@ If applicable, add screenshots to help explain your problem.
 
 
 ### **Additional context**
+<!-- Add any other context about the problem here. -->
 
-Add any other context about the problem here.
 
 
