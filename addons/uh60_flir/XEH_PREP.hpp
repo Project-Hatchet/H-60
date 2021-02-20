@@ -17,4 +17,6 @@ PREP(handleZoom);
 PREP(handleVisionMode);
 PREP(handleKeyInputs);
 
+PREP(syncTurret);
+
 PREP(intersectAtPolar);

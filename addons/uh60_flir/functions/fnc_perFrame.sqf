@@ -31,9 +31,9 @@ if (isLaserOn _vehicle && !_isSlewing && !_isDriver && !_isInCamera) then {
 	_vehicle setPilotCameraTarget (getPosASL (laserTarget _vehicle));
 };
 
+private _target = if (vtx_uh60_flir_stabilized) then [{(getPilotCameraTarget _vehicle) # 1;}, {(getPilotCameraDirection _vehicle)}];
 if (_isInCamera &&((_isSlewing && time > vtx_uh60_flir_lastSync + vtx_uh60_flir_syncInterval) || _slewingStopped)) then {
 	vtx_uh60_flir_lastSync = time;
-	private _target = if (vtx_uh60_flir_stabilized) then [{(getPilotCameraTarget _vehicle) # 1;}, {(getPilotCameraDirection _vehicle)}];
 	if (!isNil "_otherCrew") then {
 		[vtx_uh60_flir_stabilized, _target] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", _otherCrew];
 	};
@@ -44,11 +44,8 @@ _this call vtx_uh60_flir_fnc_updateUIValues;
 if (_isDriver) exitWith {
 	if (inputAction "vehLockTurretView" > 0 && !vtx_uh60_flir_stabilizing) then {
 		if (!isNil "_otherCrew") then {
-			if (!vtx_uh60_flir_stabilized) then {
-				[true, (AGLtoASL _target)] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", (driver _vehicle)];
-			} else {
-				[true, objNull] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", (driver _vehicle)];
-			};
+			_target = if (vtx_uh60_flir_stabilized) then [{AGLtoASL (screenToWorld [0.5, 0.5])}, {(getPilotCameraDirection _vehicle)}];
+			[vtx_uh60_flir_stabilized, _target] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", _otherCrew];
 		};
 	};
 	vtx_uh60_flir_stabilizing = (inputAction "vehLockTurretView" > 0);
