@@ -18,29 +18,23 @@ class SensorTemplateLaser;
 class SensorTemplateNV;
 class SensorTemplateDataLink;
 class CfgVehicles {
-    class Helicopter_Base_F;
-    class Helicopter_Base_H: Helicopter_Base_F {
-        class Turrets;
-    };
+    class Helicopter_Base_H;
     class Heli_Transport_01_base_F: Helicopter_Base_H {
-        class Turrets: Turrets {
-            class CopilotTurret;
-        };
+        class Turrets;
     }; // Helicopter_Base_H
     class vtx_H60_base: Heli_Transport_01_base_F {
+        class ViewPilot;
+        class vtx_templateFLIR;
         class Components;
         class AnimationSources;
         class Turrets: Turrets
         {
             class MainTurret;
-            class CopilotTurret: CopilotTurret {
-                class Components;
-            };
+            class CopilotTurret;
         };
-        class ViewPilot;
     }; // Heli_Transport_01_base_F
-
     class vtx_MH60M: vtx_H60_base {
+        class pilotCamera: vtx_templateFLIR {};
         class VTX_H60_HDTS_Copilot;
         class VTX_H60_HDTS_Pilot;
         scope = 2;
@@ -111,23 +105,20 @@ class CfgVehicles {
                 initPhase=1;
             };
         }; // AnimationSources
-        class vtx_templateFLIR;
-        class pilotCamera: vtx_templateFLIR {};
         class CargoTurret;
         class Turrets: Turrets
         {
-            #include "copilot.hpp"
+            class CopilotTurret: CopilotTurret {};
             #include "doorguns_free.hpp"
             #include "cargoTurrets.hpp"
         };
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\tail_co.paa","","","","","","z\vtx\addons\UH60\data\FuelProbe\Fuel_probe_co.paa"};
     }; // vtx_MH60M
     class vtx_MH60M_DAP : vtx_MH60M {
+        class pilotCamera: vtx_templateFLIR {};
         scope = 2;
         displayName = "MH-60M DAP";
         editorPreview = "z\vtx\addons\MH60M\Data\Preview\vtx_MH60M_DAP.jpg";
-        class vtx_templateFLIR;
-        class pilotCamera: vtx_templateFLIR {};
         class ViewPilot: ViewPilot
         {
             initAngleX=0;
@@ -210,7 +201,7 @@ class CfgVehicles {
         }; // AnimationSources
         class Turrets: Turrets
         {
-            #include "copilotTurretSetup.hpp"
+            class CopilotTurret: CopilotTurret {};
             #include "cargoTurrets.hpp"
         };
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\tail_co.paa","","","","","","z\vtx\addons\UH60\data\FuelProbe\Fuel_probe_co.paa"};

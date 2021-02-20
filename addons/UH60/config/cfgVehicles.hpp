@@ -24,6 +24,7 @@ class CfgVehicles
 
     class vtx_H60_base: Heli_Transport_01_base_F
     {
+        class VTX_H60_HDTS_Copilot;
         #include "cfgVxf.hpp"
         memoryPointDriverOptics = "slingcam";
         driverWeaponsInfoType = "Rsc_MELB_Turret_UnitInfo";

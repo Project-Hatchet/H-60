@@ -16,8 +16,11 @@ private _fovObjects = _fovClasses apply {
 		getText (_x >> "opticsDisplayName")
 	]
 };
+private _mempoint = getText (_vehicleConfig >> "memoryPointDriverOptics");
 
-_vehicle setVariable ["vtx_flir_mempoint", getText (_vehicleConfig >> "memoryPointDriverOptics")];
+if (_mempoint == "slingcam") exitWith {false};
+
+_vehicle setVariable ["vtx_flir_mempoint", _mempoint];
 _vehicle setVariable ["vtx_flir_turnLimits", [
 	getNumber (_pilotCameraConfig >> "minTurn"),
 	getNumber (_pilotCameraConfig >> "maxTurn"),
