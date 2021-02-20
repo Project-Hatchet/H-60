@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="VTX">
+    <Package name="UH60_ANVISHUD">
+        <Key ID="STR_VTX_UH60_ANVISHUD_HMDDefaultMode">
+            <English>HMD Default Mode</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_ANVISHUD_HMDDefaultMode_Description">
+            <English>The mode which the HMD will start on. Default: Off</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_ANVISHUD_ImperialFull">
+            <English>Imperial Full</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_ANVISHUD_ImperialDecluttered">
+            <English>Imperial Decluttered</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_ANVISHUD_MetricFull">
+            <English>Metric Full</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_ANVISHUD_MetricDecluttered">
+            <English>Metric Decluttered</English>
+        </Key>
+    </Package>
+</Project>

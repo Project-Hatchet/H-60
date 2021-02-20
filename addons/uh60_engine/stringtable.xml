@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="VTX">
+    <Package name="UH60_ENGINE">
+        <Key ID="STR_VTX_UH60_ENGINE_SimpleStartup">
+            <English>Simple Startup</English>
+        </Key>
+    </Package>
+</Project>

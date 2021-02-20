@@ -1,5 +1,5 @@
 [
-    "UH-60M Blackhawk", "vtx_uh60m_hoistHookUp", "Hoist Hook Up",{
+    "UH-60M Blackhawk", "vtx_uh60m_hoistHookUp", LSTRING(HoistHookUp),{
         private _heli = vehicle player;
         if !([player] call vtx_uh60_hoist_fnc_canControlHoist) exitWith {};
 
@@ -21,7 +21,7 @@
 ] call CBA_fnc_addKeybind; // Shift + '
 
 [
-    "UH-60M Blackhawk", "vtx_uh60m_hoistHookDown", "Hoist Hook Down",{
+    "UH-60M Blackhawk", "vtx_uh60m_hoistHookDown", LSTRING(HoistHookDown),{
         private _heli = vehicle player;
         if !([player] call vtx_uh60_hoist_fnc_canControlHoist) exitWith {};
 
@@ -42,7 +42,7 @@
 ] call CBA_fnc_addKeybind; // Ctrl + '
 
 [
-    "UH-60M Blackhawk", "vtx_uh60m_hoistHookStabilize", "Stabilize Hook",{
+    "UH-60M Blackhawk", "vtx_uh60m_hoistHookStabilize", LSTRING(StabilizeHook),{
         private _heli = vehicle player;
         if !([player] call vtx_uh60_hoist_fnc_canControlHoist) exitWith {};
 
@@ -55,7 +55,7 @@
 ] call CBA_fnc_addKeybind; // '
 
 [
-    "UH-60M Blackhawk", "vtx_uh60m_hoistHookGetIn", "Get In Hook From Vehicle",{
+    "UH-60M Blackhawk", "vtx_uh60m_hoistHookGetIn", LSTRING(MoveFromHeliToHook),{
         if (isNull objectParent player) exitWith {}; // must be in a vehicle
 
         private _hooks = positionCameraToWorld [0,0,2] nearObjects ["vtx_hook", 2];
@@ -73,32 +73,5 @@
             [_hook getVariable 'vtx_uh60_hoist_heli'] call vtx_uh60_hoist_fnc_stabilizeHook;
         }, [_hook]] call CBA_fnc_waitUntilAndExecute;
 
-    }, "", [DIK_V, [true, false, false]], false
-] call CBA_fnc_addKeybind; // Shift + V
-
-[
-    "UH-60M Blackhawk", "vtx_uh60m_hoistHookLoadIn", "Load Patient in Hook",{
-        if !(isNull objectParent player) exitWith {}; // must not in a vehicle
-
-        private _hooks = positionCameraToWorld [0,0,2] nearObjects ["vtx_hook", 2];
-        if (_hooks isEqualTo []) exitWith {}; // must see a hook
-
-        private _hook = _hooks # 0;
-        if !(crew _hook isEqualTo []) exitWith {}; // hook must be free
-
-        private _dragged = player getVariable "ace_dragging_draggedObject";
-        if (isNil "_dragged") exitWith {}; // must be ACE dragging a patient
-
-        [player, _dragged] call ace_dragging_fnc_dropObject;
-
-        [{
-            params ["_dragged", "_hook"];
-            isNull attachedTo _dragged
-        }, {
-            params ["_dragged", "_hook"];
-            _dragged moveInCargo _hook;
-            [_hook getVariable 'vtx_uh60_hoist_heli'] call vtx_uh60_hoist_fnc_stabilizeHook;
-        }, [_dragged, _hook]] call CBA_fnc_waitUntilAndExecute;
-
-    }, "", [DIK_V, [false, false, true]], false, 0, true
-] call CBA_fnc_addKeybind; // Alt + V
+    }, ""
+] call CBA_fnc_addKeybind;

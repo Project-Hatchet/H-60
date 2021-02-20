@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="VTX">
+    <Package name="UH60_HOIST">
+        <Key ID="STR_VTX_UH60_HOIST_HoistHookUp">
+            <English>Hoist Hook Up</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_HOIST_HoistHookDown">
+            <English>Hoist Hook Down</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_HOIST_StabilizeHook">
+            <English>Stabilize Hook</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_HOIST_MoveFromHeliToHook">
+            <English>Move From Heli To Hook</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_HOIST_RescueHoist">
+            <English>Rescue Hoist</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_HOIST_DeployHook">
+            <English>Deploy Hook</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_HOIST_SecureHook">
+            <English>Secure Hook</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_HOIST_RecoverPerson">
+            <English>Recover Person</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_HOIST_MoveToHook">
+            <English>Move To Hook</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_HOIST_RaiseHookToHeli">
+            <English>Raise Hook To Heli</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_HOIST_LowerHookToGround">
+            <English>Lower Hook To Ground</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_HOIST_StabilizeHook">
+            <English>Stabilize Hook</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_HOIST_Working">
+            <English>Working...</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_HOIST_RepairHoistHook">
+            <English>Repair Hoist Hook</English>
+        </Key>
+    </Package>
+</Project>
