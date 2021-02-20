@@ -44,7 +44,7 @@ class CfgVehicles {
         memoryPointDriverOptics = "pilotcamera_flir_pos";
 
         transportSoldier=0;
-        cargoProxyIndexes[] = {};
+        cargoProxyIndexes[] = {12, 13, 14, 15, 16, 17, 20, 21, 22, 23};
         cargoAction[] = {};
 
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
@@ -106,10 +106,25 @@ class CfgVehicles {
         class Turrets: Turrets
         {
             class CopilotTurret: CopilotTurret {};
-            #include "doorguns_free.hpp"
-            #include "cargoTurrets.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\doorguns.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
         };
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\tail_co.paa","","","","","","z\vtx\addons\UH60\data\FuelProbe\Fuel_probe_co.paa"};
+        class VehicleTransport {
+        	class Carrier {
+        		cargoBayDimensions[]		= {"VTV_limit_1", "VTV_limit_2"};	// Memory points in model defining cargo space
+        		disableHeightLimit			= 0;								// If set to 1 disable height limit of transported vehicles
+        		maxLoadMass					= 4100;							// Maximum cargo weight (in Kg) which the vehicle can transport
+        		cargoAlignment[]			= {"front", "center"};				// Array of 2 elements defining alignment of vehicles in cargo space. Possible values are left, right, center, front, back. Order is important.
+        		cargoSpacing[]				= {0.3, 0.3, 0};						// Offset from X,Y,Z axes (in metres)
+        		exits[]						= {"pos Cargo L", "pos Cargo R"};		// Memory points in model defining loading ramps, could have multiple
+        		unloadingInterval			= 2;								// Time between unloading vehicles (in seconds)
+        		loadingDistance				= 5;								// Maximal distance for loading in exit point (in meters).
+        		loadingAngle				= 60;								// Maximal sector where cargo vehicle must be to for loading (in degrees).
+        		parachuteClassDefault       = B_Parachute_02_F;					// Type of parachute used when dropped in air. Can be overridden by parachuteClass in Cargo.
+        		parachuteHeightLimitDefault = 50;								// Minimal height above terrain when parachute is used. Can be overriden by parachuteHeightLimit in Cargo.
+        	};
+        };
     }; // vtx_MH60M
     class vtx_MH60M_DAP : vtx_MH60M {
         class pilotCamera: vtx_templateFLIR {};
@@ -117,6 +132,7 @@ class CfgVehicles {
         scope = 2;
         displayName = "MH-60M DAP";
         editorPreview = "z\vtx\addons\MH60M\Data\Preview\vtx_MH60M_DAP.jpg";
+        cargoProxyIndexes[] = {};
         class ViewPilot: ViewPilot
         {
             initAngleX=0;
@@ -182,7 +198,11 @@ class CfgVehicles {
                 animPeriod=1;
                 initPhase=1;
             };
-
+            class GunnerSeats_Hide {
+                source="user";
+                animPeriod=1;
+                initPhase=1;
+            };
             class CabinSeats_Hide {
                 source="user";
                 animPeriod=1;
@@ -199,8 +219,9 @@ class CfgVehicles {
         }; // AnimationSources
         class Turrets: Turrets
         {
+            #include "\z\vtx\addons\UH60\config\turrets\doorguns_pylons.hpp"
             class CopilotTurret: CopilotTurret {};
-            #include "cargoTurrets.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
         };
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\tail_co.paa","","","","","","z\vtx\addons\UH60\data\FuelProbe\Fuel_probe_co.paa"};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera", "vtx_MH60M_M134_minigun"};
@@ -209,6 +230,7 @@ class CfgVehicles {
         gunBeg[] = {"muzzle_1","muzzle_2"};
         gunEnd[] = {"chamber_1","chamber_2"};
         selectionFireAnim = "zasleh_12";
+        class VehicleTransport {};
     }; // vtx_H60_base
 }; // CfgVehicles
 

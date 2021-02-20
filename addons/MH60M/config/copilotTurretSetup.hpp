@@ -33,7 +33,8 @@ class CopilotTurret: CopilotTurret
     startEngine = 0;
     turretFollowFreeLook = 2;
     gunnerName = "Copilot";
-    primaryGunner = 1;
+    proxyIndex = 3;
+    primaryGunner = 0;
     isCopilot = 1;
     turretInfoType = "Rsc_MELB_Turret_UnitInfo";
     inGunnerMayFire = 1;

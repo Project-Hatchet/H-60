@@ -3,10 +3,10 @@
 class CfgPatches {
     class ADDON {
         name = COMPONENT_NAME;
-        units[] = {"vtx_MH60M", "vtx_MH60M_DAP"};
+        units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"vtx_UH60"};
+        requiredAddons[] = {"vtx_UH60", "vtx_MH60M", "vtx_MH60S"};
         author = "";
         authors[] = {""};
         VERSION_CONFIG;
@@ -14,5 +14,4 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
-#include "config\cfgVehicles.hpp"
-#include "config\cfgWeapons.hpp"
+#include "cfgVehicles.hpp"
