@@ -145,7 +145,7 @@ class CfgVehicles
         A3TI_ThermalSelections[] = {16, 17, 18};
         accuracy = 0.5;
         model = "\z\vtx\addons\UH60\vtx_UH60.p3d";
-        displayName = "UH-60M Blackhawk";
+        displayName = "$STR_VTX_UH60_UHMBlackhawk";
 
 
 
@@ -390,7 +390,7 @@ class CfgVehicles
     class vtx_UH60M_Probe : vtx_UH60M
     {
         scope = 1;
-        displayName = "UH-60M Blackhawk - Probe";
+        displayName = "$STR_VTX_UH60_UHMBlackhawkProbe";
         class Turrets: Turrets
         {
             #include "turrets\copilot.hpp"
@@ -409,7 +409,7 @@ class CfgVehicles
     {
         scope = 2;
         editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_HH60.jpg";
-        displayName = "HH-60G/M Pavehawk";
+        displayName = "$STR_VTX_UH60_HHGMPavehawk";
 
         hiddenSelectionsTextures[] = {
                 "",

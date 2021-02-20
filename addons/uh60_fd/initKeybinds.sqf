@@ -1,7 +1,7 @@
 [
     "UH-60M Blackhawk",
     "vtx_uh60m_c_rmtsby",
-    "FD Standby",
+    LSTRING(Standby),
     {},{
         private _vehicle = vehicle player;
         if ([_vehicle, "ui", "vtx_H60_base"] call vxf_core_fnc_hasModule) then {
@@ -15,7 +15,7 @@
 [
     "UH-60M Blackhawk",
     "vtx_uh60_fd_raltToggle",
-    "FD RALT Toggle",
+    LSTRING(RALTToggle),
     {},{
         [vehicle player, "RALT"] call vtx_uh60_fd_fnc_modeSet;
     }

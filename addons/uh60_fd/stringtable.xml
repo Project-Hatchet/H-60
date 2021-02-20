@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="VTX">
+    <Package name="UH60_FD">
+        <Key ID="STR_VTX_UH60_FD_Standby">
+            <English>FD Standby</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_FD_RALTToggle">
+            <English>FD RALT Toggle</English>
+        </Key>
+    </Package>
+</Project>

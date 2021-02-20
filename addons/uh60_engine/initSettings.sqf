@@ -1,7 +1,7 @@
 [
     "vtx_uh60m_simpleStartup",
     "CHECKBOX",
-    "Simple Startup",
+    localize LSTRING(SimpleStartup),
     "UH-60M",
     [false],
     nil,
