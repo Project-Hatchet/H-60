@@ -3,7 +3,7 @@
 [
     "vtx_uh60m_trackIR_interaction_cursor",
     "CHECKBOX",
-    [LSTRING(Cursor), LSTRING(Cursor_Description)]
+    [LSTRING(Cursor), LSTRING(Cursor_Description)],
     "UH-60M",
     [false],
     nil,
@@ -13,7 +13,7 @@
 [
     "vtx_uh60m_trackIR_interaction_cursorSensitivity",
     "SLIDER",
-    [LSTRING(DetachedCursorSensitivity), LSTRING(Cursor_Description)]
+    [LSTRING(DetachedCursorSensitivity), LSTRING(Cursor_Description)],
     "UH-60M",
     [1,10,2.5,1],
     nil,
