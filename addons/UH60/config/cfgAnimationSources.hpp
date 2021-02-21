@@ -125,6 +125,16 @@ class AnimationSources
         animPeriod=1;
         initPhase=0;
     };
+    class Minigun_L_hide {
+        source="user";
+        animPeriod=1;
+        initPhase=1;
+    };
+    class Minigun_R_hide {
+        source="user";
+        animPeriod=1;
+        initPhase=1;
+    };
     class Hoist_hook {
         source="user";
         animPeriod=1;
