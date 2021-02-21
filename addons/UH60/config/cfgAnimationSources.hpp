@@ -105,7 +105,22 @@ class AnimationSources
         initPhase=0;
     };
     //exterior parts
+    class GunnerSeats_Hide {
+        source="user";
+        animPeriod=1;
+        initPhase=0;
+    };
     class CabinSeats_Hide {
+        source="user";
+        animPeriod=1;
+        initPhase=0;
+    };
+    class Minigun_Mount_L_hide {
+        source="user";
+        animPeriod=1;
+        initPhase=0;
+    };
+    class Minigun_Mount_R_hide {
         source="user";
         animPeriod=1;
         initPhase=0;
