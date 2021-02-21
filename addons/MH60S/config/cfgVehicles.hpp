@@ -107,11 +107,6 @@ class CfgVehicles {
                 animPeriod=1;
                 initPhase=0;
             }; // ESSS_Show
-            class GunnerSeats_Hide {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
             class CabinSeats_Hide {
                 source="user";
                 animPeriod=1;
