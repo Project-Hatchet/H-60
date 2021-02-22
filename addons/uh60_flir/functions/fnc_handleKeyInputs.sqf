@@ -12,4 +12,4 @@ if (isNil "vtx_uh60_flir_camera") then {
 } else {
 	[vehicle player] call vtx_uh60_flir_fnc_stopPilotCamera;
 };
-true
+false
