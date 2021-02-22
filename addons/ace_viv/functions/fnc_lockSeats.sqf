@@ -18,11 +18,11 @@
 
 params ["_carrier", "_lock"];
 
-private _seats = getArray (configOf _carrier >> QGVAR(lockSeats));
+getArray (configOf _carrier >> QGVAR(lockSeats)) params ["_turrets", "_cargos"];
 
 {
     _carrier lockTurret [_x, _lock];
-} forEach (_seats # 0);
+} forEach _turrets;
 {
     _carrier lockCargo [_x, _lock];
-} forEach (_seats # 1);
+} forEach _cargos;
