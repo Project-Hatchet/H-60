@@ -26,6 +26,7 @@ class CfgVehicles {
         class Turrets: Turrets
         {
             class MainTurret;
+            class RightDoorGun: MainTurret {};
             class CopilotTurret: CopilotTurret {
                 class Components;
             };
@@ -47,7 +48,7 @@ class CfgVehicles {
         class Turrets: Turrets
         {
             #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
-            #include "\z\vtx\addons\UH60\config\turrets\doorguns_pylons.hpp"
+            #include "doorguns_pylons.hpp"
             #include "GAU21L.hpp"
             #include "cargoTurretsGAU21L.hpp"
         };
@@ -158,7 +159,7 @@ class CfgVehicles {
         class Turrets: Turrets
         {
             #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
-            #include "\z\vtx\addons\UH60\config\turrets\doorguns_pylons.hpp"
+            #include "doorguns_pylons.hpp"
             #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
         };
         class Components: Components {
@@ -216,10 +217,6 @@ class CfgVehicles {
             };
         }; // AnimationSources
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa"};
-        memoryPointGun[] = {"muzzle_1","muzzle_2"};
-        gunBeg[] = {"muzzle_1","muzzle_2"};
-        gunEnd[] = {"chamber_1","chamber_2"};
-        selectionFireAnim = "zasleh_12";
     }; // vtx_MH60S_Pylons_GAU21L
     class vtx_MH60S: vtx_H60_base {
         class pilotCamera: vtx_templateFLIR {};
