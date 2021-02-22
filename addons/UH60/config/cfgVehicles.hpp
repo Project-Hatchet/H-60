@@ -432,57 +432,6 @@ class CfgVehicles
             };
         };
     };
-    class vtx_UH60M_MEDEVAC : vtx_UH60M
-    {
-        scope = 2;
-        displayName = "UH-60M MEDEVAC";
-        transportSoldier=0;
-        cargoProxyIndexes[] = {};
-        cargoAction[] = {};
-
-        class AnimationSources: AnimationSources
-        {
-            class CabinSeats_Hide {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class GunnerSeats_Hide {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class Minigun_Mount_L_hide {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class Minigun_Mount_R_hide {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class Minigun_L_hide {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class Minigun_R_hide {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-        };
-        class Turrets: Turrets {
-            class MainTurret: MainTurret {
-                hasGunner = 0;
-            };
-            class RightDoorGun: MainTurret {
-                hasGunner = 0;
-            };
-        };
-        #include "vehicleTransportSlick.hpp"
-    };
     class vtx_HH60 : vtx_UH60M
     {
         scope = 2;
@@ -565,6 +514,15 @@ class CfgVehicles
         };
         #include "vehicleTransport.hpp"
     };
+      class AnimationSources: AnimationSources {
+        //#define ANIMSRC(name,src,per,init)
+        ANIMSRC(CabinSeats_Hide,user,1,1);
+        ANIMSRC(GunnerSeats_Hide,user,1,1);
+        ANIMSRC(Minigun_Mount_L_hide,user,1,1);
+        ANIMSRC(Minigun_Mount_R_hide,user,1,1);
+        ANIMSRC(Minigun_L_hide,user,1,1);
+        ANIMSRC(Minigun_R_hide,user,1,1);
+      };
 };
 
 class cfgNonAIVehicles{

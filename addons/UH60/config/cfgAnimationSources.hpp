@@ -1,16 +1,9 @@
-#define ANIMSRC(name,period,phase) \
-class name { \
-    animPeriod = period; \
-    source = "user"; \
-    initPhase = phase; \
-};
-
-
 class AnimationSources
 {
-    ANIMSRC(Skis_Show,1,0)
-    ANIMSRC(cockpitlight_show,1,0)
-    ANIMSRC(hoist_hook_hide,1,0)
+    //#define ANIMSRC(name,src,per,init)
+    ANIMSRC(Skis_Show,user,1,0);
+    ANIMSRC(cockpitlight_show,user,1,0);
+    ANIMSRC(hoist_hook_hide,user,1,0);
     class recoil_source
     {
             source="reload";

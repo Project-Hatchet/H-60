@@ -4,8 +4,9 @@ class CfgPatches {
     class ADDON {
         name = COMPONENT_NAME;
         units[] = {
-    		"vtx_UH60M",
-    		"vtx_HH60"
+      		"vtx_UH60M",
+      		"vtx_HH60",
+          "vtx_UH60M_MEDEVAC"
         };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
