@@ -363,7 +363,7 @@ class CfgVehicles
                 suspTravelDirection[]		= {0, -1, 0};
 
                 maxBrakeTorque				= 1500;
-                maxHandBrakeTorque			= 0;
+                maxHandBrakeTorque			= 4000;
 
                 maxCompression				= 0.2;
                 maxDroop					= 0.05;
