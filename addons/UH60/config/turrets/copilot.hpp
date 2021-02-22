@@ -1,5 +1,4 @@
-class CopilotTurret: CopilotTurret
-{
+class CopilotTurret: CopilotTurret {
 	CanEject=0;
 	gunnerAction=UH60_Pilot;
 	gunnerInAction=UH60_Pilot;
@@ -16,16 +15,14 @@ class CopilotTurret: CopilotTurret
 
 	preciseGetInOut=1;
 	GunnerDoor="DoorL";
-	proxyIndex=13;
+	proxyIndex=3;
 	commanding=-1;
-	class ViewGunner: ViewPilot
-	{
-		COPILOTVIEW
+	class ViewGunner: ViewPilot {
+		#include "ViewPilot.hpp"
 	};
-	class Components
-	{
+	class MFD {
+        class VTX_H60_HDTS_Copilot: VTX_H60_HDTS_Copilot {};
 	};
-	class Hitpoints
-	{
-	};
+	class Hitpoints {};
+    #include "..\cfgVehiclesParts\components.hpp"
 };

@@ -14,7 +14,7 @@ class vxf_cargo {
             positionType="anim";
             label="Left Door";
             animation="cabindoor_L";
-            interactionCondition="_this call vtx_uh60_misc_fnc_canCloseCabindoor";
+            interactionCondition="_this call vtx_uh60_misc_fnc_canInteractCabinDoor";
             animStates[] = {0, 1};
             animLabels[] = {"Open", "Closed"};
             animEnd="";
@@ -27,7 +27,7 @@ class vxf_cargo {
             positionType="anim";
             label="Right Door";
             animation="cabindoor_R";
-            interactionCondition="_this call vtx_uh60_misc_fnc_canCloseCabindoor";
+            interactionCondition="_this call vtx_uh60_misc_fnc_canInteractCabinDoor";
             animStates[] = {0, 1};
             animLabels[] = {"Open", "Closed"};
             animEnd="";

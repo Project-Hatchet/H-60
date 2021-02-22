@@ -1,13 +1,14 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<Project name="Hatchet UH-60M">
-	<Package name="UH-60M Core">
-		<Container name="Translations">
-			<Key ID="str_myTag_Yes">
-				<English>yes</English>
-			</Key>
-			<Key ID="str_myTag_No">
-				<Original>no</Original>
-			</Key>
-		</Container>
-	</Package>
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="VTX">
+    <Package name="UH60">
+        <Key ID="STR_VTX_UH60_UHMBlackhawk">
+            <English>UH-60M Blackhawk</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_UHMBlackhawkProbe">
+            <English>UH-60M Blackhawk (Probe)</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_HHGMPavehawk">
+            <English>HH-60G/M Pavehawk</English>
+        </Key>
+    </Package>
 </Project>

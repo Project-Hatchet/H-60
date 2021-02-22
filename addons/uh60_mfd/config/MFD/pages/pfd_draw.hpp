@@ -497,6 +497,96 @@ class pitchLadderWrapper {
 		LEVEL_SET(75,80,0.02,0.05,0.08)
 		LEVEL_SET(85,90,0.02,0.05,0.08)
 	}; // pitchLadderLinesWrap
+
+	
+	class pitchLadderLevelBackgroundWhite {
+		color[] = common_white;
+		class HorizonLeftHoriz {
+			type = "polygon";
+			points[] ={
+				{
+					{"PFD_LEVEL_MIDDLE", {-0.13, -0.01}, 1},{"PFD_LEVEL_MIDDLE", {-0.05, -0.01}, 1},{"PFD_LEVEL_MIDDLE", {-0.05,  0.01}, 1},
+					{"PFD_LEVEL_MIDDLE", {-0.13,  0.01}, 1},
+				}
+			};
+		};
+		class HorizonLeftVert {
+			type = "polygon";
+			points[] ={
+				{
+					{"PFD_LEVEL_MIDDLE", {-0.05,  0.04}, 1},{"PFD_LEVEL_MIDDLE", {-0.03,  0.04}, 1},{"PFD_LEVEL_MIDDLE", {-0.03,  -0.01}, 1},
+					{"PFD_LEVEL_MIDDLE", {-0.05,  -0.01}, 1},
+				}
+			};
+		};
+		class HorizonRightHoriz {
+			type = "polygon";
+			points[] ={
+				{
+					{"PFD_LEVEL_MIDDLE", {0.13, -0.01}, 1},{"PFD_LEVEL_MIDDLE", {0.05, -0.01}, 1},{"PFD_LEVEL_MIDDLE", {0.05,  0.01}, 1},
+					{"PFD_LEVEL_MIDDLE", {0.13,  0.01}, 1},
+				}
+			};
+		};
+		class HorizonRightVert {
+			type = "polygon";
+			points[] ={
+				{
+					{"PFD_LEVEL_MIDDLE", {0.05,  0.04}, 1},{"PFD_LEVEL_MIDDLE", {0.03,  0.04}, 1},{"PFD_LEVEL_MIDDLE", {0.03,  -0.01}, 1},
+					{"PFD_LEVEL_MIDDLE", {0.05,  -0.01}, 1},
+				}
+			};
+		};
+		#define LEVEL_SHRINK 0.005
+		class pitchLadderLevelBlack {
+			color[] = {0,0,0,1};
+			class HorizonLeftHoriz {
+				type = "polygon";
+				points[] ={
+					{
+						{"PFD_LEVEL_MIDDLE", {-0.13+LEVEL_SHRINK, -0.01+LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {-0.05+LEVEL_SHRINK, -0.01+LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {-0.05+LEVEL_SHRINK,  0.01-LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {-0.13+LEVEL_SHRINK,  0.01-LEVEL_SHRINK}, 1},
+					}
+				};
+			};
+			class HorizonLeftVert {
+				type = "polygon";
+				points[] ={
+					{
+						{"PFD_LEVEL_MIDDLE", {-0.05+LEVEL_SHRINK,  0.04-LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {-0.03-LEVEL_SHRINK,  0.04-LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {-0.03-LEVEL_SHRINK,  -0.01+LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {-0.05+LEVEL_SHRINK,  -0.01+LEVEL_SHRINK}, 1},
+					}
+				};
+			};
+			class HorizonRightHoriz {
+				type = "polygon";
+				points[] ={
+					{
+						{"PFD_LEVEL_MIDDLE", {0.13-LEVEL_SHRINK, -0.01+LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {0.05-LEVEL_SHRINK, -0.01+LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {0.05-LEVEL_SHRINK,  0.01-LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {0.13-LEVEL_SHRINK,  0.01-LEVEL_SHRINK}, 1},
+					}
+				};
+			};
+			class HorizonRightVert {
+				type = "polygon";
+				points[] ={
+					{
+						{"PFD_LEVEL_MIDDLE", {0.05-LEVEL_SHRINK,  0.04-LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {0.03+LEVEL_SHRINK,  0.04-LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {0.03+LEVEL_SHRINK,  -0.01+LEVEL_SHRINK}, 1},
+						{"PFD_LEVEL_MIDDLE", {0.05-LEVEL_SHRINK,  -0.01+LEVEL_SHRINK}, 1},
+					}
+				};
+			};
+		}; // pitchLadderBlack
+	}; // pitchLadderBackgroundWhite
+
 }; // pitchLadderWrapper
 
 class powerPodBarWrap {
@@ -505,85 +595,3 @@ class powerPodBarWrap {
     BAR(RPM1BAR,"RPM1",0.088,BARBOTTOM,0.01)
     BAR(RPM2BAR,"RPM2",0.185,BARBOTTOM,0.01)
 }; // powerPodBarWrap
-
-class HVR_COND {
-	condition="speed < 10";
-	#define HSI_HVR_10KTS 0.04
-
-	class HVR_VEL_LINE_COLOR {
-		color[] = common_blue;
-		class HVR_VEL_LINE_DRAW {
-			type="line";
-			width=8;
-			points[] =
-			{
-				{"PFD_HSI_CENTER",1},
-				{"PFD_HSI_CENTER",1,"PFD_HOVER_VEL_Y",1,"PFD_HOVER_VEL_X",1}
-			};
-		}; // HVR_VEL_LINE_DRAW
-	}; // HVR_VEL_LINE_COLOR
-
-	class HVR_R_10KTS {
-		type="line";
-		width=2;
-		points[] =
-		{
-			{"PFD_HSI_CENTER",1,{0.725*HSI_HVR_10KTS,-HSI_HVR_10KTS*0.6},1},
-			{"PFD_HSI_CENTER",1,{0.725*HSI_HVR_10KTS,HSI_HVR_10KTS*0.6},1}
-		};
-	}; // HVR_R_10KTS
-	class HVR_L_10KTS: HVR_R_10KTS {
-		points[] =
-		{
-			{"PFD_HSI_CENTER",1,{0.725*-HSI_HVR_10KTS,-HSI_HVR_10KTS*0.6},1},
-			{"PFD_HSI_CENTER",1,{0.725*-HSI_HVR_10KTS,HSI_HVR_10KTS*0.6},1}
-		};
-	}; // HVR_L_10KTS
-	class HVR_R_30KTS: HVR_R_10KTS {
-		points[] =
-		{
-			{"PFD_HSI_CENTER",1,{0.725*HSI_HVR_10KTS*3,-HSI_HVR_10KTS*0.6},1},
-			{"PFD_HSI_CENTER",1,{0.725*HSI_HVR_10KTS*3,HSI_HVR_10KTS*0.6},1}
-		};
-	}; // HVR_R_30KTS
-	class HVR_L_30KTS: HVR_R_10KTS {
-		points[] =
-		{
-			{"PFD_HSI_CENTER",1,{0.725*-HSI_HVR_10KTS*3,-HSI_HVR_10KTS*0.6},1},
-			{"PFD_HSI_CENTER",1,{0.725*-HSI_HVR_10KTS*3,HSI_HVR_10KTS*0.6},1}
-		};
-	}; // HVR_L_30KTS
-
-	class HVR_F_10KTS {
-		type="line";
-		width=1;
-		points[] =
-		{
-			{"PFD_HSI_CENTER",1,{0.6*-HSI_HVR_10KTS,HSI_HVR_10KTS},1},
-			{"PFD_HSI_CENTER",1,{0.6*HSI_HVR_10KTS,HSI_HVR_10KTS},1}
-		};
-	}; // HVR_R_10KTS
-	class HVR_A_10KTS: HVR_R_10KTS {
-		points[] =
-		{
-			{"PFD_HSI_CENTER",1,{0.6*-HSI_HVR_10KTS,-HSI_HVR_10KTS},1},
-			{"PFD_HSI_CENTER",1,{0.6*HSI_HVR_10KTS,-HSI_HVR_10KTS},1}
-		};
-	}; // HVR_L_10KTS
-	class HVR_F_30KTS: HVR_R_10KTS {
-		points[] =
-		{
-			{"PFD_HSI_CENTER",1,{0.6*-HSI_HVR_10KTS,HSI_HVR_10KTS*3},1},
-			{"PFD_HSI_CENTER",1,{0.6*HSI_HVR_10KTS,HSI_HVR_10KTS*3},1}
-		};
-	}; // HVR_R_30KTS
-	class HVR_A_30KTS: HVR_R_10KTS {
-		points[] =
-		{
-			{"PFD_HSI_CENTER",1,{0.6*-HSI_HVR_10KTS,-HSI_HVR_10KTS*3},1},
-			{"PFD_HSI_CENTER",1,{0.6*HSI_HVR_10KTS,-HSI_HVR_10KTS*3},1}
-		};
-	}; // HVR_L_30KTS
-
-
-}; // HVR_COND

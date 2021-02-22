@@ -13,5 +13,4 @@ class CfgPatches {
     };
 };
 
-#include "config\dummyDisplay.hpp"
 #include "CfgEventHandlers.hpp"

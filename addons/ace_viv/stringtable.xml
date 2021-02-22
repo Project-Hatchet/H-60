@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="VTX">
+    <Package name="ACE_VIV">
+        <Key ID="STR_VTX_ACE_VIV_VehicleCargo">
+            <English>Vehicle Cargo</English>
+        </Key>
+        <Key ID="STR_VTX_ACE_VIV_LoadCargo">
+            <English>Load Cargo</English>
+        </Key>
+    </Package>
+</Project>

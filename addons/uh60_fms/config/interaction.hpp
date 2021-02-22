@@ -142,8 +142,8 @@ class MSN {
   FMS_BTN(FMS_7,"AN/APQ-187 Radar","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_RDR], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
-  FMS_BTN(FMS_8,"Toggle HMD","")
-    buttonUp = [-1 * ((getUserMFDValue (_this select 0)) select 15)] call vtx_uh60_anvishud_fnc_toggleHud;
+  FMS_BTN(FMS_8,"ANVIS/HUD-24T","")
+    buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_HMD], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
   FMS_BTN(FMS_10,"Main Menu","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_MENU], true] call vtx_uh60_fms_fnc_interaction_pageChange;
@@ -166,6 +166,28 @@ class radar {
 
 class FLIR {
   condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_FLIR);
+  FMS_BTN(FMS_10,"Mission Systems","")
+    buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_MSN], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+  };
+};
+
+class hmd {
+  condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_HMD);
+  FMS_BTN(FMS_6,"OFF","") 
+    buttonUp = "[-1] call vtx_uh60_anvishud_fnc_toggleHud;";
+  };
+  FMS_BTN(FMS_7,"IMPERIAL ON","") 
+    buttonUp = "[1] call vtx_uh60_anvishud_fnc_toggleHud;";
+  };
+  FMS_BTN(FMS_8,"IMPERIAL DCLT","") 
+    buttonUp = "[2] call vtx_uh60_anvishud_fnc_toggleHud;";
+  };
+  FMS_BTN(FMS_2,"METRIC ON","") 
+    buttonUp = "[3] call vtx_uh60_anvishud_fnc_toggleHud;";
+  };
+  FMS_BTN(FMS_3,"METRIC DCLT","") 
+    buttonUp = "[4] call vtx_uh60_anvishud_fnc_toggleHud;";
+  };
   FMS_BTN(FMS_10,"Mission Systems","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_MSN], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
