@@ -106,8 +106,8 @@ class CfgVehicles {
         class CargoTurret;
         class Turrets: Turrets
         {
-            #include "\z\vtx\addons\UH60\config\turrets\doorguns.hpp"
             #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\doorguns.hpp"
             #include "gau21L_free.hpp"
             #include "cargoTurretsGAU21L.hpp"
         };
@@ -159,7 +159,7 @@ class CfgVehicles {
         class Turrets: Turrets
         {
             #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
-            #include "\z\vtx\addons\UH60\config\turrets\doorguns.hpp"
+            #include "doorguns_pylons.hpp"
             #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
         };
         class Components: Components {
@@ -226,8 +226,8 @@ class CfgVehicles {
         editorPreview = "z\vtx\addons\MH60S\Data\Preview\vtx_MH60S.jpg";
         class Turrets: Turrets
         {
-            #include "\z\vtx\addons\UH60\config\turrets\doorguns.hpp"
             #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\doorguns.hpp"
         };
         class AnimationSources: AnimationSources {
             class MAWS_Tubes_Show {
