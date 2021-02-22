@@ -143,8 +143,8 @@ class CfgVehicles {
     }; // vtx_MH60S_GAU21L
     class vtx_MH60S_Pylons: vtx_H60_base {
         class pilotCamera: vtx_templateFLIR {};
-        weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera", "vtx_MH60M_M134_minigun"};
-        magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries", "5000Rnd_762x51_Belt"};
+        weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
+        magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
         driverWeaponsInfoType = "Rsc_MELB_Turret_UnitInfo";
         memoryPointDriverOptics = "pilotcamera_flir_pos";
         class VTX_H60_HDTS_Copilot;
@@ -159,7 +159,7 @@ class CfgVehicles {
         class Turrets: Turrets
         {
             #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
-            #include "doorguns_pylons.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\doorguns.hpp"
             #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
         };
         class Components: Components {
@@ -193,11 +193,6 @@ class CfgVehicles {
                 source="user";
                 animPeriod=1;
                 initPhase=1;
-            };
-            class GunnerSeats_Hide {
-                source="user";
-                animPeriod=1;
-                initPhase=0;
             };
             class GAU21_L_Hide {
                 source="user";
