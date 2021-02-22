@@ -30,7 +30,6 @@ class CfgVehicles
         #include "cfgVxf.hpp"
         memoryPointDriverOptics = "slingcam";
         // driverWeaponsInfoType = "Rsc_MELB_Turret_UnitInfo";
-        driverWeaponsInfoType = "";
         class vtx_templateFLIR {
             #include "turrets\pilotCamera.hpp"
         };
@@ -514,9 +513,9 @@ class CfgVehicles
         };
         #include "vehicleTransport.hpp"
     };
-    class vtx_UH60M_MEDEVAC : vtx_H60_base {
+    class vtx_UH60M_SLICK : vtx_H60_base {
       scope = 2;
-      displayName = "UH-60M MEDEVAC";
+      displayName = "UH-60M Slick";
       transportSoldier=0;
       cargoProxyIndexes[] = {};
       cargoAction[] = {};
