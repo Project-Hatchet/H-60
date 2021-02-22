@@ -2,7 +2,7 @@ params ["_vehicle"];
 
 if (!hasPilotCamera _vehicle) exitWith {false};
 
-private _vehicleConfig = configFile >> "cfgVehicles" >> typeOf _vehicle;
+private _vehicleConfig = configOf _vehicle;
 private _pilotCameraConfig = _vehicleConfig >> "pilotCamera";
 if (!isClass _pilotCameraConfig) exitWith {};
 private _OpticsIn = _pilotCameraConfig >> "OpticsIn";
