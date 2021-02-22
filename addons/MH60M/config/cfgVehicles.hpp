@@ -1,4 +1,3 @@
-#include "customInfo.hpp"
 class VehicleSystemsTemplateLeftPilot;
 class VehicleSystemsTemplateRightPilot;
 class SensorTemplatePassiveRadar;
@@ -48,17 +47,6 @@ class CfgVehicles {
         };
         class Components: Components {
             #include "sensors.hpp"
-
-            class VehicleSystemsDisplayManagerComponentLeft: VehicleSystemsTemplateLeftPilot {
-                class Components: Components {
-                    ADDGUNNER
-                };
-            };
-            class VehicleSystemsDisplayManagerComponentRight: VehicleSystemsTemplateRightPilot {
-                class Components: Components {
-                    ADDGUNNER
-                };
-            };
         }; // Components
         class AnimationSources: AnimationSources {
             class Cockpitdoors_Hide {
@@ -117,19 +105,9 @@ class CfgVehicles {
             initAngleX=0;
         };
         class Components: Components {
-            #include "Pylons.hpp"
-            #include "sensors.hpp"
-
-            class VehicleSystemsDisplayManagerComponentLeft: VehicleSystemsDisplayManagerComponentLeft {
-                class Components: Components {
-                    ADDMISSILE
-                };
-            };
-            class VehicleSystemsDisplayManagerComponentRight: VehicleSystemsDisplayManagerComponentRight {
-                class Components: Components {
-                    ADDMISSILE
-                };
-            };
+          #include "Pylons.hpp"
+          #include "sensors.hpp"
+          #include "missileCam.hpp"
         }; // Components
         class AnimationSources: AnimationSources {
             class Gatling_1
@@ -198,7 +176,7 @@ class CfgVehicles {
         }; // AnimationSources
         class Turrets: Turrets
         {
-            #include "\z\vtx\addons\UH60\config\turrets\doorguns_pylons.hpp"
+            //#include "\z\vtx\addons\UH60\config\turrets\doorguns_pylons.hpp"
             class CopilotTurret: CopilotTurret {};
             #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
         };

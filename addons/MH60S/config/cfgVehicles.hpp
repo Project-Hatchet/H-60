@@ -1,7 +1,14 @@
-class SensorTemplatePassiveRadar;
-class SensorTemplateDataLink;
 class VehicleSystemsTemplateLeftPilot;
 class VehicleSystemsTemplateRightPilot;
+class SensorTemplatePassiveRadar;
+class SensorTemplateAntiRadiation;
+class SensorTemplateActiveRadar;
+class SensorTemplateIR;
+class SensorTemplateVisual;
+class SensorTemplateMan;
+class SensorTemplateLaser;
+class SensorTemplateNV;
+class SensorTemplateDataLink;
 class CfgVehicles {
     class Helicopter_Base_F;
     class Helicopter_Base_H: Helicopter_Base_F {
@@ -45,7 +52,9 @@ class CfgVehicles {
             #include "cargoTurretsGAU21L.hpp"
         };
         class Components: Components {
-            #include "Pylons.hpp"
+          #include "Pylons.hpp"
+          #include "\z\vtx\addons\MH60M\config\sensors.hpp"
+          #include "\z\vtx\addons\MH60M\config\missileCam.hpp"
         }; // Components
         class AnimationSources: AnimationSources {
             class ESSS_Show {
@@ -153,7 +162,9 @@ class CfgVehicles {
             #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
         };
         class Components: Components {
-            #include "Pylons.hpp"
+          #include "Pylons.hpp"
+          #include "\z\vtx\addons\MH60M\config\sensors.hpp"
+          #include "\z\vtx\addons\MH60M\config\missileCam.hpp"
         }; // Components
         class AnimationSources: AnimationSources {
             class Gatling_1 {
@@ -223,8 +234,8 @@ class CfgVehicles {
         editorPreview = "z\vtx\addons\MH60S\Data\Preview\vtx_MH60S.jpg";
         class Turrets: Turrets
         {
-            #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
             #include "\z\vtx\addons\UH60\config\turrets\doorguns.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
         };
         class AnimationSources: AnimationSources {
             class MAWS_Tubes_Show {
