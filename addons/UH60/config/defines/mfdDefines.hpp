@@ -16,7 +16,6 @@
 #define pitch_esis_grey RGB256(60,60,60)
 
 //HELPERS
-//#define GLUE(A,B) A##B
 #define LEVELP(x) LevelP##x
 #define LEVELM(x) LevelM##x
 #define STR(A) #A

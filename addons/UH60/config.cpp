@@ -4,8 +4,9 @@ class CfgPatches {
     class ADDON {
         name = COMPONENT_NAME;
         units[] = {
-    		"vtx_UH60M",
-    		"vtx_HH60"
+      		"vtx_UH60M",
+      		"vtx_HH60",
+          "vtx_UH60M_MEDEVAC"
         };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
@@ -34,7 +35,6 @@ class CfgFontFamilies {
 #define mag_xx(a,b) class _xx_##a {magazine = a; count = b;}
 #define weap_xx(a,b) class _xx_##a {weapon = a; count = b;}
 
-#include "config\defines\viewAngleDefines.hpp"
 #include "config\defines\mfdDefines.hpp"
 #include "config\cfgWeapons.hpp"
 #include "config\cfgMagazines.hpp"

@@ -31,7 +31,9 @@ if (_interactionName == "Closed") then {
         hint "Door is blocked by FRIES";
         _result = false;
     };
-    if !((_doorSeats apply {_vehicle turretUnit _x}) isEqualTo [objNull, objNull]) exitWith {
+    if (!(_doorSeats isEqualTo []) && {
+      !((_doorSeats apply {_vehicle turretUnit _x}) isEqualTo [objNull, objNull])
+    }) exitWith {
         hint "Door is blocked";
         _result = false;
     };

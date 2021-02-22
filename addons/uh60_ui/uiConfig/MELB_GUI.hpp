@@ -262,7 +262,7 @@ class MELB_GUI: RscControlsGroup
         };
         class TextGEOLOCK: RangeText
         {
-            idc = 1010;
+            idc = 155;
             text = "GEOLOCK";
             font = "PuristaMedium";
             sizeEx = "0.0255*SafezoneH";

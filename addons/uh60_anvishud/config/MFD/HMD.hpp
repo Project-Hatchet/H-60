@@ -11,7 +11,6 @@ helmetRight[] = {0.065,0,0};
 topLeft = ""; // not used because HMD, but still needed
 topRight = ""; // not used because HMD, but still needed
 bottomLeft = ""; // not used because HMD, but still needed
-turret[] = {-1};
 font="RobotoCondensedLight";
 class material {
 	ambient[] = {1, 1, 1, 1};
@@ -59,13 +58,6 @@ class Bones {
 		pos0[] = {0, 0};
 		pos10[] = {POS10X, POS10Y};
 	}; // ForwardVector
-	class ImpactPoint
-	{
-		type = "vector";
-		source = "impactpointtoview";
-		pos0[] = {0.5, 0.5};
-		pos10[] = {POS10X, POS10Y};
-	}; // ImpactPoint
 	class Airport1
 	{
 		type = "vector";
@@ -226,6 +218,20 @@ class Bones {
 		minPos[]={0,-0.5};
 		maxPos[]={0,0};
 	};
+	class ImpactPoint
+	{
+		type = "vector";
+		source = "impactpointtoview";
+		pos0[] = {0.5, 0.5};
+		pos10[] = {POS10X, POS10Y};
+	}; // ImpactPoint
+	class PilotCameraToView
+	{
+		type = "vector";
+		source = "pilotcameratoview";
+		pos0[] = {0.5, 0.5};
+		pos10[] = {POS10X, POS10Y};
+	}; // WPPoint
 }; // Bones
 class Draw {
 	condition="(user15>-1)*on";
@@ -412,4 +418,6 @@ class Draw {
 	#include "radar.hpp"
 	#include "pitchLadder.hpp"
 	#include "horizonBankRot.hpp"
+	#include "weaponInfo.hpp"
+	#include "CCIP.hpp"
 }; // Draw

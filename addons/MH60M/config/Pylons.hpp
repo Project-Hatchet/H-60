@@ -20,7 +20,7 @@ class TransportPylonsComponent {
             attachment[] = {};
         };
         class Default {
-            displayName = "30mm + Rocket";
+            displayName = "Default";
             attachment[] = {"PylonWeapon_300Rnd_20mm_shells", "PylonRack_19Rnd_Rocket_Skyfire"};
         };
         class Interdiction {

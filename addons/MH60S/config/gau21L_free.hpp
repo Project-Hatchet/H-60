@@ -14,7 +14,7 @@ class GAU21_Left: MainTurret
     };
     stabilizedInAxes = 0;
     selectionFireAnim="zasleh_2";
-    proxyIndex=3;
+    proxyIndex=4;
     turretAxis="axis_gau21_dir_L";
     gunAxis="axis_gau21_elev_L";
     gunnerName="Left GAU21 Gunner";
