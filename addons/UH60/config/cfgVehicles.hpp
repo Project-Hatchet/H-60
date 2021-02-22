@@ -514,6 +514,13 @@ class CfgVehicles
         };
         #include "vehicleTransport.hpp"
     };
+    class vtx_UH60M_MEDEVAC : vtx_H60_base {
+      scope = 2;
+      displayName = "UH-60M MEDEVAC";
+      transportSoldier=0;
+      cargoProxyIndexes[] = {};
+      cargoAction[] = {};
+
       class AnimationSources: AnimationSources {
         //#define ANIMSRC(name,src,per,init)
         ANIMSRC(CabinSeats_Hide,user,1,1);
@@ -523,6 +530,12 @@ class CfgVehicles
         ANIMSRC(Minigun_L_hide,user,1,1);
         ANIMSRC(Minigun_R_hide,user,1,1);
       };
+      class Turrets: Turrets {
+        class CopilotTurret: CopilotTurret {};
+        #include "turrets\cargoTurretsDoor.hpp"
+      };
+      #include "vehicleTransportSlick.hpp"
+    };
 };
 
 class cfgNonAIVehicles{
