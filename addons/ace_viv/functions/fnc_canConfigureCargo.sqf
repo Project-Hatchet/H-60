@@ -21,5 +21,6 @@ params ["_unit", "_carrier"];
 if ((_unit distanceSqr _carrier) > GVAR(loadDistance)) exitWith {false};
 
 if !(vehicleCargoEnabled _carrier) exitWith {false};
+if !(isClass (configOf _carrier >> "VehicleTransport" >> "Carrier")) exitWith {false};
 
 [_unit, _carrier] call ace_common_fnc_canInteractWith
