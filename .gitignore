@@ -1,7 +1,4 @@
 *.bak
-*.p3d
-*.paa
-*.tga
 *.zip
 *.cache
 release/*
