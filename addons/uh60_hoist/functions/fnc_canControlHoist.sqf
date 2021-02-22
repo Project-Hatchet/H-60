@@ -26,7 +26,7 @@ if (count _turretIndex == 0) exitWith { false }; // at this point if you're not 
 
 if ((_turretIndex # 0) < 3) exitWith { true }; // doorgunners are 1 and 2
 
-private _config = [configFile >> "cfgVehicles" >> typeOf _vehicle, _turretIndex] call ace_common_fnc_getTurretConfigPath;
+private _config = [configOf _vehicle, _turretIndex] call ace_common_fnc_getTurretConfigPath;
 private _gunnerName = getText (_config >> "gunnerName");
 
 ["hoist", _gunnerName] call BIS_fnc_inString //finally if you have hoist in your seat name you can use it
