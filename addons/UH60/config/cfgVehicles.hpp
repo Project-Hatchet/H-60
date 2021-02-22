@@ -519,6 +519,7 @@ class CfgVehicles
       transportSoldier=0;
       cargoProxyIndexes[] = {};
       cargoAction[] = {};
+      typicalCargo[] = {"vtx_uh60_doorgunner"};
 
       class AnimationSources: AnimationSources {
         //#define ANIMSRC(name,src,per,init)
