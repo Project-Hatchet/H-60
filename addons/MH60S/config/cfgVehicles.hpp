@@ -61,7 +61,7 @@ class CfgVehicles {
             class GunnerSeats_Hide {
                 source="user";
                 animPeriod=1;
-                initPhase=1;
+                initPhase=0;
             };
             class GAU21_L_Hide {
                 source="user";
@@ -185,7 +185,7 @@ class CfgVehicles {
             class GunnerSeats_Hide {
                 source="user";
                 animPeriod=1;
-                initPhase=1;
+                initPhase=0;
             };
             class GAU21_L_Hide {
                 source="user";
