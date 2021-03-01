@@ -34,10 +34,10 @@ private ["_waypointPosition"];
     };
 } forEach [[2,3],[4,5],[6,7],[8,9],[33,34],[35,36]];
 
-if (!isNil "fms_markpoint") then {
-    _vehicle setUserMFDvalue [10, _vehicle getRelDir (fms_markpoint # 1)];
-    _vehicle setUserMFDvalue [11, ((_vehicle distance2D (fms_markpoint # 1)) * _zoomLevel) / (vtx_uh60_fms_mapSize / 2)];
-    _vehicle setUserMFDText [10, (fms_markpoint # 0)];
+if ((getPilotCameraTarget _vehicle) # 0) then {
+    private _target = (getPilotCameraTarget _vehicle) # 1;
+    _vehicle setUserMFDvalue [10, _vehicle getRelDir _target];
+    _vehicle setUserMFDvalue [11, ((_vehicle distance2D _target) * _zoomLevel) / (vtx_uh60_fms_mapSize / 2)];
 } else {
     _vehicle setUserMFDvalue [10,-1];
     _vehicle setUserMFDvalue [11,-1];

@@ -105,11 +105,11 @@ class TAC_WP6_DIST: TAC_WP1_DIST {
 	source="user";
 	sourceIndex=36;
 };
-class TAC_MARK_Dir: TAC_WP1_Dir {
+class TAC_TGP_Dir: TAC_WP1_Dir {
 	source="user";
 	sourceIndex=10;
 };
-class TAC_MARK_DIST: TAC_WP1_DIST {
+class TAC_TGP_DIST: TAC_WP1_DIST {
 	source="user";
 	sourceIndex=11;
 };

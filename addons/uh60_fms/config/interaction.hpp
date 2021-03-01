@@ -119,7 +119,7 @@ class nav_location_stores {
 };
 class nav_location_sel {
   condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_NAV_LOCATIONS_SEL);
-  FMS_BTN(FMS_3,"Set as markpoint","") buttonUp=[vehicle player,"store_save_mark", nil, [FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT]] call vtx_uh60_fms_fnc_interaction_waypoint; };
+  FMS_BTN(FMS_3,"Slew FLIR","") buttonUp=[vehicle player,"slew_flir", nil, [FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT]] call vtx_uh60_fms_fnc_interaction_waypoint; };
   FMS_BTN(FMS_4,"Add to waypoints","") buttonUp=[vehicle player,"store_save_waypoint", nil, [FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT]] call vtx_uh60_fms_fnc_interaction_waypoint; };
   FMS_BTN(FMS_10,"Location Stores","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_NAV_LOCATIONS_LIST], true] call vtx_uh60_fms_fnc_interaction_pageChange;

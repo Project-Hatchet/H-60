@@ -21,4 +21,4 @@ if (count _replies > 0) then {
 };
 
 private _messageCount = count VTX_JVMF_MESSAGES;
-_vehicle setUserMFDText [42, format["JVMF INBOX %1/%2", VTX_JVMF_SELECTED_IDX + 1, count VTX_JVMF_MESSAGES]];
+_vehicle setUserMFDText [42, format["%1/%2", VTX_JVMF_SELECTED_IDX + 1, count VTX_JVMF_MESSAGES]];

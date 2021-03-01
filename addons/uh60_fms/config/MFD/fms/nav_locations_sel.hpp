@@ -32,7 +32,7 @@ class DIVIDER_BAR {
 
 TEXT_FMS_R(R3,FMS_MARGIN_R,FMS_Y3)
 	source = "static";
-	text = "SET AS MARKPOINT >";
+	text = "SLEW FLIR >";
 }; // L4
 
 TEXT_FMS_R(R4,FMS_MARGIN_R,FMS_Y4 - 0.02)

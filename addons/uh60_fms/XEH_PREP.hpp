@@ -5,3 +5,4 @@ PREP(interaction_pageChange);
 PREP(interaction_waypoint);
 PREP(perFrame);
 PREP(perSecond);
+PREP(addWaypoint);
