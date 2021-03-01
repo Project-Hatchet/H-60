@@ -57,12 +57,11 @@ switch (_action) do {
         };
         _vehicle setUserMFDvalue _pageData;
     };
-    case "store_save_mark": {
+    case "slew_flir": { 
         if (isNil "fms_locations_selected") exitWith {};
         private _location = fms_locations_selected;
-        fms_markpoint = [text _location, locationPosition _location];
-        [text _location, locationPosition _location] remoteExec ["vtx_uh60_fms_fnc_setMarkPoint", crew _vehicle];diag_log "waypoint";
-        _vehicle setUserMFDvalue _pageData;
+        _vehicle setPilotCameraTarget (AGLtoASL (locationPosition _location));
+		[true, (AGLtoASL (locationPosition _location))] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", crew _vehicle];
     };
 };
 

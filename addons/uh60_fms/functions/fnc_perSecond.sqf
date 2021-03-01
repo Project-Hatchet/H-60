@@ -8,10 +8,6 @@
 
 params ["_vehicle"];
 
-if (missionNamespace getVariable ["vtx_uh60m_enabled_waypts", false]) then {
-    _this call vtx_uh60_fms_fnc_updateWaypointInfo;
-};
-
 #include "..\config\fmsDefines.hpp"
 
 private _fms = if (player == driver _vehicle) then [{ FMS_R_PAGE_INDEX }, { FMS_L_PAGE_INDEX }];

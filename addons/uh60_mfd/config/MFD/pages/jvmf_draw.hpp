@@ -36,6 +36,18 @@ class reply_options_blue {
     TEXT_MID_MID(JVMF_REPLY_OPTIONS,0.5,JVMF_LINE_HEIGHT * 0.5,"REPLY OPTIONS")
 };
 
+#define JVMF_BORDER_MARGIN 0.02
+#define JVMF_BOTTOM_MARGIN 0.14
+#define JVMF_LINE(CLASS,X1,Y1,X2,Y2) \
+    class CLASS { \
+        type="line"; \
+        width = 3; \
+        points[] = { \
+            {{X1, Y1}, 1}, \
+            {{X2, Y2}, 1} \
+        }; \
+    };
+
 class jvmf_type_0 {
 	condition=COND_ISNUMBER(JVMF_TYPE,0);
 	#include "jvmf\jvmf_0.hpp"
@@ -44,6 +56,11 @@ class jvmf_type_0 {
 class jvmf_type_1 {
 	condition=COND_ISNUMBER(JVMF_TYPE,1);
 	#include "jvmf\jvmf_1.hpp"
+};
+
+class jvmf_type_2 {
+	condition=COND_ISNUMBER(JVMF_TYPE,2);
+	#include "jvmf\jvmf_2.hpp"
 };
 
 #define BOTTOM_TEXT_Y 0.96
