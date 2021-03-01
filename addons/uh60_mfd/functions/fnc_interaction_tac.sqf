@@ -21,4 +21,19 @@ switch (_action) do {
         _vehicle setVariable ["MAP_ZoomMult", _scales # _newIndex, true];
         _vehicle animateSource ["MAP1_Scale", _zoomStages # _newIndex, 1];
     };
+    case "waypt": {
+        private _cursorPos = [] call vtx_uh60_mfd_fnc_tac_cursorToWorld;
+        private _microDagrWaypoints = [] call ace_microdagr_fnc_deviceGetWaypoints;
+        private _newWP = [format ["MARK %1", count _microDagrWaypoints], _cursorPos];
+        _microDagrWaypoints pushBack _newWP;
+        ACE_player setVariable ["ace_microdagr_waypoints", _microDagrWaypoints];
+        private _wp = group player addWaypoint [_newWP # 1, -1, (count waypoints group player), _newWP # 0];
+        _wp setWaypointDescription (_newWP # 0);
+        _wp setWaypointStatements ["false", ""];
+    };
+    case "flir": {
+        private _cursorPos = [] call vtx_uh60_mfd_fnc_tac_cursorToWorld;
+        _vehicle setPilotCameraTarget (AGLtoASL _cursorPos);
+		[true, (AGLtoASL _cursorPos)] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", crew _vehicle];
+    };
 };
