@@ -32,10 +32,32 @@ class TAC_HeadingRotation {
 	source="heading";
 	sourceScale = 1;
 	center[] = {0,0};
-	min = "0";
+	min = "-360";
 	max = "360";
 	minAngle = 360;
-	maxAngle = 0;
+	maxAngle = -360;
+	aspectRatio = 1/0.725;
+};
+class TAC_North {
+	type="rotational";
+	source="heading";
+	sourceScale = 1;
+	center[] = {0.5,0.5};
+	min = "0";
+	max = "360";
+	minAngle = 0;
+	maxAngle = 360;
+	aspectRatio = 1/0.725;
+};
+class TAC_HeadingRotationHeli {
+	type="rotational";
+	source="heading";
+	sourceScale = 1;
+	center[] = {0,0};
+	min = "-360";
+	max = "360";
+	minAngle = -360;
+	maxAngle = 360;
 	aspectRatio = 1/0.725;
 };
 class TAC_WP1_Dir {
@@ -44,9 +66,9 @@ class TAC_WP1_Dir {
 	sourceIndex=2;
 	sourceScale = 1;
 	center[] = {0.5,0.5};
-	min = "0";
+	min = "-360";
 	max = "360";
-	minAngle = 0;
+	minAngle = -360;
 	maxAngle = 360;
 	aspectRatio = 1/0.725;
 };
@@ -151,4 +173,24 @@ class TAC_PCAS_OFFCENTER
 {
     type	= fixed;
     pos[]	= {-0.5,-0.5};
+};
+class TAC_CURSOR_X {
+    type="linear";
+	source="user";
+	sourceIndex=29;
+	sourceScale=1;
+	min=0;
+	max=1;
+	minPos[]={0,0};
+	maxPos[]={1,0};
+};
+class TAC_CURSOR_Y {
+    type="linear";
+	source="user";
+	sourceIndex=30;
+	sourceScale=1;
+	min=0;
+	max=1;
+	minPos[]={0,0};
+	maxPos[]={0,1};
 };
