@@ -4,3 +4,4 @@ PREP(perFrame);
 PREP(setup);
 PREP(shutDown);
 PREP(switchPage);
+PREP(tac_cursorToWorld);
