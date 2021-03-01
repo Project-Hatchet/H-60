@@ -4,11 +4,17 @@ ADDON = false;
 
 #include "XEH_PREP.hpp"
 
+/*
+ * 0 - freetext
+ * 1 - 5-line CAS
+ * 2 - location
+ */
+
 VTX_JVMF_MESSAGES = [
    [
-       "WELCOME",
-       "SYSTEM", // determines who can see it, displayed for recipient
-       "ALL", // determines who can see it, displayed for sender
+       "WELCOME", // TITLE
+       "SYSTEM", // SENDER
+       "ALL", // RECIPIENTS
        0, //MSG TYPE
        [
            "Welcome to the JVMF System",
@@ -26,9 +32,9 @@ VTX_JVMF_MESSAGES = [
        [] // REPLIES
    ],
    [
-       "TEST MESSAGE",
-       "IMAGINARY JTAC", // determines who can see it, displayed for recipient
-       "ALL", // determines who can see it, displayed for sender
+       "TEST MESSAGE", // TITLE
+       "IMAGINARY JTAC", // SENDER
+       "ALL", // RECIPIENTS
        1, //MSG TYPE
        [
            "TYPE 2, USE ROCKETS",
@@ -37,6 +43,26 @@ VTX_JVMF_MESSAGES = [
            "2x BTR-80A PARKED ON ROAD", // description
            "",
            "ATTACK WEST TO EAST", // restrictions
+           "",
+           "",
+           "",
+           ""
+       ], //MSG TEXT
+       [], // MSG DATA
+       [] // REPLIES
+   ],
+   [
+       "NEW LZ", // TITLE
+       "BLUESTONE 4-2", // SENDER
+       "FALCON 2-3", // RECIPIENTS
+       2, //MSG TYPE
+       [
+           "060 060",
+           "0300 MSL",
+           "LZ BRONZE",
+           "APPROACH FROM THE SOUTH", // description
+           "WATCH FOR THINGS AND STUFF",
+           "", // restrictions
            "",
            "",
            "",

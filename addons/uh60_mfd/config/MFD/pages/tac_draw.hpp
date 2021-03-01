@@ -87,7 +87,7 @@ class HAS_NO_PREVWP {
     color[]={0,0,0,1};
     class WP1_Line_back {
     	type="line";
-    	width = 8;
+    	width = 6;
     	points[] ={
     		{"TAC_CENTER", 1},
     		{"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1}
@@ -97,7 +97,7 @@ class HAS_NO_PREVWP {
         color[]={1,1,1,1};
         class WP1_Line_back {
         	type="line";
-        	width = 4;
+        	width = 2;
         	points[] ={
         		{"TAC_CENTER", 1},
         		{"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1}
@@ -111,7 +111,7 @@ class HAS_WP1_2 {
     color[]={0,0,0,1};
     class WP1_Line_back {
     	type="line";
-    	width = 8;
+    	width = 6;
     	points[] ={
     		{"TAC_WP1_DIST", 1, "TAC_WP1_Dir", 1},
     		{"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1}
@@ -121,7 +121,7 @@ class HAS_WP1_2 {
         color[]={1,1,1,1};
         class WP1_Line_back {
         	type="line";
-        	width = 4;
+        	width = 2;
         	points[] ={
         		{"TAC_WP1_DIST", 1, "TAC_WP1_Dir", 1},
         		{"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1}
@@ -135,19 +135,16 @@ class HAS_CUR_WP {
     class WP_Circle
     {
         type = "line";
-        width = 4;
+        width = 2;
         points[]={
-            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1,{0, 0.02},1},
-            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1,{0.011755705045849463, 0.016180339887498948},1},
-            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1,{0.019021130325903073, 0.006180339887498949},1},
-            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1,{0.019021130325903073, -0.006180339887498947},1},
-            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1,{0.011755705045849465, -0.016180339887498948},1},
-            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1,{0, -0.02},1},
-            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1,{-0.011755705045849461, -0.016180339887498948},1},
-            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1,{-0.019021130325903073, -0.006180339887498951},1},
-            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1,{-0.019021130325903073, 0.006180339887498945},1},
-            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1,{-0.011755705045849468, 0.016180339887498948},1},
-            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1,{0, 0.02},1}
+            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1, { 0   , -0.001},1},
+            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1, { 0   ,  0.001},1},{},
+            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1, { 0   , -0.025},1},
+            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1, { 0.025, 0.0},1},
+            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1, { 0.015, 0.015},1},
+            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1, {-0.015, 0.015},1},
+            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1, {-0.025, 0.0},1},
+            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1, { 0   , -0.025},1}
         };
     }; // WP_Circle
     class WP_TEXT {
@@ -168,7 +165,7 @@ class HAS_WP2_3 {
     color[]={0,0,0,1};
     class WP2_Line_back {
     	type="line";
-    	width = 8;
+    	width = 6;
     	points[] ={
             {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1},
     		{"TAC_WP3_DIST", 1, "TAC_WP3_Dir", 1}
@@ -178,7 +175,7 @@ class HAS_WP2_3 {
         color[]={1,1,1,1};
         class WP2_Line {
         	type="line";
-        	width = 4;
+        	width = 2;
         	points[] ={
                 {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1},
         		{"TAC_WP3_DIST", 1, "TAC_WP3_Dir", 1}
@@ -191,7 +188,7 @@ class HAS_WP3 {
     color[]={0,0,0,1};
     class WP3_Line_back {
     	type="line";
-    	width = 8;
+    	width = 6;
     	points[] ={
             {"TAC_WP3_DIST", 1, "TAC_WP3_Dir", 1},
     		{"TAC_WP4_DIST", 1, "TAC_WP4_Dir", 1}
@@ -201,7 +198,7 @@ class HAS_WP3 {
         color[]={1,1,1,1};
         class WP3_Line {
         	type="line";
-        	width = 4;
+        	width = 2;
         	points[] ={
                 {"TAC_WP3_DIST", 1, "TAC_WP3_Dir", 1},
         		{"TAC_WP4_DIST", 1, "TAC_WP4_Dir", 1}
@@ -214,7 +211,7 @@ class HAS_WP4 {
     color[]={0,0,0,1};
     class WP4_Line_back {
     	type="line";
-    	width = 8;
+    	width = 6;
     	points[] ={
             {"TAC_WP4_DIST", 1, "TAC_WP4_Dir", 1},
     		{"TAC_WP5_DIST", 1, "TAC_WP5_Dir", 1}
@@ -224,7 +221,7 @@ class HAS_WP4 {
         color[]={1,1,1,1};
         class WP4_Line {
         	type="line";
-        	width = 4;
+        	width = 2;
         	points[] ={
                 {"TAC_WP4_DIST", 1, "TAC_WP4_Dir", 1},
         		{"TAC_WP5_DIST", 1, "TAC_WP5_Dir", 1}
@@ -237,7 +234,7 @@ class HAS_WP5 {
     color[]={0,0,0,1};
     class WP5_Line_back {
     	type="line";
-    	width = 8;
+    	width = 6;
     	points[] ={
             {"TAC_WP5_DIST", 1, "TAC_WP5_Dir", 1},
     		{"TAC_WP6_DIST", 1, "TAC_WP6_Dir", 1}
@@ -247,7 +244,7 @@ class HAS_WP5 {
         color[]={1,1,1,1};
         class WP5_Line {
         	type="line";
-        	width = 4;
+        	width = 2;
         	points[] ={
                 {"TAC_WP5_DIST", 1, "TAC_WP5_Dir", 1},
         		{"TAC_WP6_DIST", 1, "TAC_WP6_Dir", 1}
@@ -256,7 +253,7 @@ class HAS_WP5 {
     }; // black
 }; // cond
 
-class HAS_MARK {
+class TGP_STABILIZED {
     condition = (user10 > -1);
     color[]={0,1,0,1};
     class Mark_Circle
@@ -264,31 +261,13 @@ class HAS_MARK {
         type = "line";
         width = 4;
         points[]={
-            {"TAC_MARK_DIST", 1, "TAC_MARK_Dir", 1,{0, 0.02},1},
-            {"TAC_MARK_DIST", 1, "TAC_MARK_Dir", 1,{0.011755705045849463, 0.016180339887498948},1},
-            {"TAC_MARK_DIST", 1, "TAC_MARK_Dir", 1,{0.019021130325903073, 0.006180339887498949},1},
-            {"TAC_MARK_DIST", 1, "TAC_MARK_Dir", 1,{0.019021130325903073, -0.006180339887498947},1},
-            {"TAC_MARK_DIST", 1, "TAC_MARK_Dir", 1,{0.011755705045849465, -0.016180339887498948},1},
-            {"TAC_MARK_DIST", 1, "TAC_MARK_Dir", 1,{0, -0.02},1},
-            {"TAC_MARK_DIST", 1, "TAC_MARK_Dir", 1,{-0.011755705045849461, -0.016180339887498948},1},
-            {"TAC_MARK_DIST", 1, "TAC_MARK_Dir", 1,{-0.019021130325903073, -0.006180339887498951},1},
-            {"TAC_MARK_DIST", 1, "TAC_MARK_Dir", 1,{-0.019021130325903073, 0.006180339887498945},1},
-            {"TAC_MARK_DIST", 1, "TAC_MARK_Dir", 1,{-0.011755705045849468, 0.016180339887498948},1},
-            {"TAC_MARK_DIST", 1, "TAC_MARK_Dir", 1,{0, 0.02},1}
+            {"TAC_TGP_DIST", 1, "TAC_TGP_Dir", 1,{0, 0.02},1},
+            {"TAC_TGP_DIST", 1, "TAC_TGP_Dir", 1,{0.02, 0},1},
+            {"TAC_TGP_DIST", 1, "TAC_TGP_Dir", 1,{0, -0.02},1},
+            {"TAC_TGP_DIST", 1, "TAC_TGP_Dir", 1,{-0.02, 0},1},
+            {"TAC_TGP_DIST", 1, "TAC_TGP_Dir", 1,{0, 0.02},1}
         };
     }; // Mark_Circle
-    class Mark_TEXT {
-        type="text";
-        source="userText";
-        sourceIndex=10;
-        scale=1;
-        sourceScale=1;
-        align = "right";
-        text="0";
-        pos[]= {"TAC_MARK_DIST", 1, "TAC_MARK_Dir", 1,{0.04 - 0.02, 0.0}, 1};
-        right[]= {"TAC_MARK_DIST", 1, "TAC_MARK_Dir", 1,{0.085 - 0.02, 0.00}, 1};
-        down[]= {"TAC_MARK_DIST", 1, "TAC_MARK_Dir", 1,{0.04 - 0.02, 0.045}, 1};
-    };
 }; // Mark_TEXT
 
 class BFT_COND {
