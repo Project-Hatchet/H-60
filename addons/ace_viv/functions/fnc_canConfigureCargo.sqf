@@ -18,6 +18,7 @@
 
 params ["_unit", "_carrier"];
 
+if !(alive _carrier) exitWith {false};
 if ((_unit distanceSqr _carrier) > GVAR(loadDistance)) exitWith {false};
 
 if !(vehicleCargoEnabled _carrier) exitWith {false};
