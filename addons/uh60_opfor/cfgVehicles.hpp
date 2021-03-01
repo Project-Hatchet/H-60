@@ -11,6 +11,7 @@ class OO(heli): heli { \
 
 class CfgVehicles {
     CSAT(vtx_UH60M)
+    CSAT(vtx_UH60M_Slick)
     CSAT(vtx_HH60)
     CSAT(vtx_MH60M)
     CSAT(vtx_MH60M_DAP)
