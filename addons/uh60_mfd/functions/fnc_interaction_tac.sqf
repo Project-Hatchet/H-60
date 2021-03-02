@@ -23,13 +23,11 @@ switch (_action) do {
     };
     case "waypt": {
         private _cursorPos = [] call vtx_uh60_mfd_fnc_tac_cursorToWorld;
-        private _microDagrWaypoints = [] call ace_microdagr_fnc_deviceGetWaypoints;
-        private _newWP = [format ["MARK %1", count _microDagrWaypoints], _cursorPos];
-        _microDagrWaypoints pushBack _newWP;
-        ACE_player setVariable ["ace_microdagr_waypoints", _microDagrWaypoints];
-        private _wp = group player addWaypoint [_newWP # 1, -1, (count waypoints group player), _newWP # 0];
-        _wp setWaypointDescription (_newWP # 0);
-        _wp setWaypointStatements ["false", ""];
+        [
+            format ["MARK %1", count _microDagrWaypoints],
+            _cursorPos,
+            ""
+        ] call vtx_uh60_fms_fnc_addWaypoint;
     };
     case "flir": {
         private _cursorPos = [] call vtx_uh60_mfd_fnc_tac_cursorToWorld;
