@@ -46,7 +46,7 @@ class TAC_North {
 	min = "0";
 	max = "360";
 	minAngle = 0;
-	maxAngle = 360;
+	maxAngle = -360;
 	aspectRatio = 1/0.725;
 };
 class TAC_HeadingRotationHeli {

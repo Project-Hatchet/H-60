@@ -68,7 +68,7 @@ VTX_JVMF_MESSAGES = [
            "",
            ""
        ], //MSG TEXT
-       [], // MSG DATA
+       [[0,0,0]], // MSG DATA
        [] // REPLIES
    ]
    /*
