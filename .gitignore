@@ -10,4 +10,6 @@ texHeaders.bin
 *.swp
 *.swo
 *.biprivatekey
+*.p3d
+*.paa
 Thumbs.db
