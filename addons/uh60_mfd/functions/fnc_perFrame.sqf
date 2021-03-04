@@ -16,8 +16,8 @@ private _center = switch (vtx_uh60_mfd_tac_center_mode) do {
 	case 0;
 	case 1: {
 		vtx_uh60_mfd_tac_cursorPos = [
-			((vtx_uh60_mfd_tac_cursorPos # 0) - (vtx_uh60_mfd_flir_slewX * 0.005)) max 0 min 1,
-			((vtx_uh60_mfd_tac_cursorPos # 1) + (vtx_uh60_mfd_flir_slewY * 0.005)) max 0 min 1
+			((vtx_uh60_mfd_tac_cursorPos # 0) - (vtx_uh60_mfd_slewX * 0.005)) max 0 min 1,
+			((vtx_uh60_mfd_tac_cursorPos # 1) + (vtx_uh60_mfd_slewY * 0.005)) max 0 min 1
 		];
 		private _cursorToMap = [
 			(0.5 - (vtx_uh60_mfd_tac_cursorPos # 0)) * _world_size * _coverage,
@@ -29,13 +29,13 @@ private _center = switch (vtx_uh60_mfd_tac_center_mode) do {
 	};
 	case 2: {
 		vtx_uh60_mfd_tac_cursorPos = [0.5,0.5];
-		vtx_uh60_mfd_tac_mapPos = vtx_uh60_mfd_tac_mapPos vectorAdd [vtx_uh60_mfd_flir_slewX * 100, vtx_uh60_mfd_flir_slewY * 100, 0];
+		vtx_uh60_mfd_tac_mapPos = vtx_uh60_mfd_tac_mapPos vectorAdd [vtx_uh60_mfd_slewX * 100, vtx_uh60_mfd_slewY * 100, 0];
 		vtx_uh60_mfd_tac_mapPos
 	};
 	case 3: {
 		vtx_uh60_mfd_tac_cursorPos = [
-			((vtx_uh60_mfd_tac_cursorPos # 0) - (vtx_uh60_mfd_flir_slewX * 0.005)) max 0 min 1,
-			((vtx_uh60_mfd_tac_cursorPos # 1) + (vtx_uh60_mfd_flir_slewY * 0.005)) max 0 min 1
+			((vtx_uh60_mfd_tac_cursorPos # 0) - (vtx_uh60_mfd_slewX * 0.005)) max 0 min 1,
+			((vtx_uh60_mfd_tac_cursorPos # 1) + (vtx_uh60_mfd_slewY * 0.005)) max 0 min 1
 		];
 		vtx_uh60_mfd_tac_mapPos
 	};

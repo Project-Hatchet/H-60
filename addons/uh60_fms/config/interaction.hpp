@@ -151,28 +151,28 @@ class MSN {
 };
 
 class wpn {
-  condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_WPN);
+  condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_WPN);
   FMS_BTN(FMS_10,"Mission Systems","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_MSN], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
 };
 
 class radar {
-  condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_RDR);
+  condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_RDR);
   FMS_BTN(FMS_10,"Mission Systems","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_MSN], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
 };
 
 class FLIR {
-  condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_FLIR);
+  condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_FLIR);
   FMS_BTN(FMS_10,"Mission Systems","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_MSN], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
 };
 
 class hmd {
-  condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_HMD);
+  condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_HMD);
   FMS_BTN(FMS_6,"OFF","") 
     buttonUp = "[-1] call vtx_uh60_anvishud_fnc_toggleHud;";
   };

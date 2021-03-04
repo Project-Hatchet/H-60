@@ -434,3 +434,76 @@ class AIRCRAFT_CENTERED_NORTH {
         };
     };
 };
+
+#define SELECTORPOLY(USERVALUE,Y) \
+    class conditionWrapper_##Y { \
+        color[] = {1,1,1,1}; \
+        condition=COND_ISNUMBER(39,USERVALUE); \
+        class selectedArrow { \
+            type        = "polygon"; \
+            points[] ={ \
+                { \
+                    {{0.31-0.005, 0.25+(Y*0.05)-0.01},1}, \
+                    {{0.31+0.005, 0.25+(Y*0.05)},1}, \
+                    {{0.31-0.005, 0.25+(Y*0.05)+0.01},1} \
+                } \
+            }; \
+        }; \
+    };
+
+class contextMenu {
+    condition = "(user39>-1)";
+    class black {
+        color[] = {0,0,0,1};
+        class Background {
+            type        = "polygon";
+            points[] ={
+                {
+                    {{0+0.3, 0+0.22},1},
+                    {{1-0.3, 0+0.22},1},
+                    {{1-0.3, 1-0.47},1},
+                    {{0+0.3, 1-0.47},1}
+                }
+            };
+        };
+        class whiteOverlay {
+            color[] = {1,1,1,1};
+            class BackgroundBorder {
+                type  = "line";
+                width = 2;
+                points[] ={
+                    {{0+0.3, 0.48},1},{{1-0.3, 0.48},1}
+                    //,{},{{0+0.3, 0.74},1},{{1-0.3, 0.74},1}
+                };
+            };
+        };
+    };
+    class BackgroundBorder {
+        type  = "line";
+        width = 2;
+        points[] ={
+            {{0+0.3, 0+0.22},1},
+            {{1-0.3, 0+0.22},1},
+            {{1-0.3, 1-0.47},1},
+            {{0+0.3, 1-0.47},1},
+            {{0+0.3, 0+0.22},1}
+        };
+    };
+    SELECTORPOLY(0,0)
+    SELECTORPOLY(1,1)
+    SELECTORPOLY(2,2)
+    SELECTORPOLY(3,3)
+    SELECTORPOLY(4,4)
+    SELECTORPOLY(5,5)
+    TEXT_MFD_SCALE_STATIC(LINE0,0.32,0.25+(0*000.05),0.8,"right","Create waypoint")
+    TEXT_MFD_SCALE_STATIC(LINE1,0.32,0.25+(1*000.05),0.8,"right","Slew FLIR")
+    //TEXT_MFD_SCALE_STATIC(LINE2,0.32,0.25+(2*000.05),0.8,"right","Cycle symbology")
+    TEXT_MFD_SCALE_STATIC(LINE3,0.32,0.25+(2*000.05),0.8,"right","Zoom in")
+    TEXT_MFD_SCALE_STATIC(LINE4,0.32,0.25+(3*000.05),0.8,"right","Zoom out")
+    TEXT_MFD_SCALE_STATIC(LINE5,0.32,0.25+(4*000.05),0.8,"right","Cyle center mode")
+    //TEXT_MFD_SCALE_STATIC(LINE6,0.32,0.26+(6*000.05),0.8,"right","PFD")
+    //TEXT_MFD_SCALE_STATIC(LINE7,0.32,0.26+(7*000.05),0.8,"right","EICAS")
+    //TEXT_MFD_SCALE_STATIC(LINE8,0.32,0.26+(8*000.05),0.8,"right","FLIR")
+    //TEXT_MFD_SCALE_STATIC(LINE9,0.32,0.26+(9*000.05),0.8,"right","JVMF")
+    TEXT_MFD_SCALE_STATIC(LINE10,0.32,0.25+(5*0.05),0.8,"right","Exit")
+};
