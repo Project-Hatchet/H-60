@@ -10,7 +10,7 @@ params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
 switch (_type) do {
     case 2: {
 		_data params ["_position"];
-		_text params ["", "", "_posTitle"]
+		_text params ["", "", "_posTitle"];
         [
             _posTitle,
             _position,

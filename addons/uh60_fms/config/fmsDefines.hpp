@@ -39,10 +39,12 @@
 #define FMS_Y22 0.45
 #define FMS_Y3 0.53
 #define FMS_Y32 0.60
-#define FMS_Y4 0.68
+#define FMS_Y4 0.67
 #define FMS_Y42 0.74
-#define FMS_Y5 0.80
+#define FMS_Y5 0.81
 #define FMS_Y52 0.86
+#define FMS_Y_HALF 0.0325
+#define FMS_MARGIN_ARR 0.07
 
 #define COND_ISNUMBER(INDEX,VALUE) (user##INDEX>(VALUE-1))*(user##INDEX<(VALUE+1))
 #define FMS_PAGE_MENU 0
