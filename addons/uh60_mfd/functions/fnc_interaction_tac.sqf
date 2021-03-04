@@ -24,10 +24,11 @@ switch (_action) do {
     case "waypt": {
         private _cursorPos = [] call vtx_uh60_mfd_fnc_tac_cursorToWorld;
         [
-            format ["MARK %1", count _microDagrWaypoints],
+            format ["MARK %2 %1", name player, vtx_uh60_mfd_marks],
             _cursorPos,
             ""
         ] call vtx_uh60_fms_fnc_addWaypoint;
+        vtx_uh60_mfd_marks = vtx_uh60_mfd_marks + 1;
     };
     case "flir": {
         private _cursorPos = [] call vtx_uh60_mfd_fnc_tac_cursorToWorld;

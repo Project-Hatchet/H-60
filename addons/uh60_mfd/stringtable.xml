@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="VTX">
+    <Package name="UH60_FD">
+        <Key ID="STR_VTX_UH60_MFD_SlewUp">
+            <English>MFD Slew Up</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_MFD_SlewDown">
+            <English>MFD Slew Down</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_MFD_SlewLeft">
+            <English>MFD Slew Left</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_MFD_SlewRight">
+            <English>MFD Slew Right</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_MFD_SlewAction">
+            <English>MFD Slew Action</English>
+        </Key>
+    </Package>
+</Project>

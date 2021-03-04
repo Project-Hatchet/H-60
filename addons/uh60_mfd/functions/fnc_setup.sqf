@@ -23,7 +23,7 @@ vtx_uh60_map_lastPosition = [0,0,0];
 vtx_uh60_mfd_tac_center_mode = 0;
 vtx_uh60_mfd_tac_mapPos = [0,0,0];
 vtx_uh60_mfd_tac_cursorPos = [0.5,0.5];
-vtx_uh60_mfd_flir_slewX = 0;
-vtx_uh60_mfd_flir_slewY = 0;
+vtx_uh60_mfd_slewX = 0;
+vtx_uh60_mfd_slewY = 0;
 
 true

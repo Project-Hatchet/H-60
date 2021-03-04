@@ -58,7 +58,7 @@ class BFT
 	};
 	class rwrFriendly: rwr
 	{
-		color[] = {0, 1, 0};
+		color[] = {0, 0, 1};
 		class TargetLines: TargetLines { };
 	};
 	class rwrEnemy: rwr
@@ -102,7 +102,7 @@ class BFT
 	};
 	class targetFriendly: target
 	{
-		color[] = {0, 1, 0};
+		color[] = {0, 0, 1};
 		class TargetLines: TargetLines
 		{
 		};
@@ -134,7 +134,7 @@ class BFT
 	};
 	class targetGroundFriendly: targetGround
 	{
-		color[] = {0, 1, 0};
+		color[] = {0, 0, 1};
 		class TargetLines: TargetLines
 		{
 		};
@@ -164,7 +164,7 @@ class BFT
 	};
 	class targetGroundRemoteFriendly: targetGroundRemote
 	{
-		color[] = {0, 1, 0};
+		color[] = {0, 0, 1};
 		class TargetLines: TargetLines
 		{
 		};
@@ -197,7 +197,7 @@ class BFT
 	};
 	class targetLaserFriendly: targetLaser
 	{
-		color[] = {0, 1, 0};
+		color[] = {0, 0, 1};
 		class TargetLines: TargetLines
 		{
 		};
@@ -224,7 +224,7 @@ class BFT
 	};
 	class targetNVGFriendly: targetNVG
 	{
-		color[] = {0, 1, 0};
+		color[] = {0, 0, 1};
 		class TargetLines: TargetLines
 		{
 		};
@@ -251,7 +251,7 @@ class BFT
 	};
 	class targetManFriendly: targetMan
 	{
-		color[] = {0, 1, 0};
+		color[] = {0, 0, 1};
 		class TargetLines: TargetLines
 		{
 		};
@@ -278,7 +278,7 @@ class BFT
 	};
 	class targetManRemoteFriendly: targetManRemote
 	{
-		color[] = {0, 1, 0};
+		color[] = {0, 0, 1};
 		class TargetLines: TargetLines
 		{
 		};
@@ -308,7 +308,7 @@ class BFT
 	};
 	class targetAirFriendly: targetAir
 	{
-		color[] = {0, 1, 0};
+		color[] = {0, 0, 1};
 		class TargetLines: TargetLines
 		{
 		};
@@ -339,7 +339,7 @@ class BFT
 	};
 	class targetAirRemoteFriendly: targetAirRemote
 	{
-		color[] = {0, 1, 0};
+		color[] = {0, 0, 1};
 		class TargetLines: TargetLines
 		{
 		};
