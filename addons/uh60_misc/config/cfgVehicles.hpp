@@ -7,8 +7,12 @@ class cfgVehicles {
         class vxf_cargo: vxf_cargo {
             class interaction;
         };
+        //class ACE_Actions;
     };
     class vtx_H60_base: Heli_Transport_01_base_F {
+        //class ACE_Actions: ACE_Actions {
+        //    class ACE_MainActions;
+        //};
         class vxf_cargo: vxf_cargo {
             class interaction: interaction {
                 class fastRopeRight {
