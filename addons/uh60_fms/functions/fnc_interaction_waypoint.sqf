@@ -57,6 +57,34 @@ switch (_action) do {
         };
         _vehicle setUserMFDvalue _pageData;
     };
+    case "send": { 
+        private _wayPoint = [group player, currentWaypoint group player];
+        private _position = waypointPosition _wayPoint;
+
+        private _sender = profileName; 
+        private _recipient = "ALL"; 
+        private _id = "XMIT WAYPT"; 
+        private _messageContent = [ 
+            mapGridPosition _position,
+            str (_position # 2),
+            format ["JVMF - %1 ", waypointName _wayPoint],
+            "AUTO SENT FROM FMS",
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            ""
+        ]; 
+        private _message = [_id, _sender, _recipient, 2, _messageContent, [], [[_timestamp, _sender, "SENT"]]]; 
+        _message call vtx_uh60_jvmf_fnc_attemptSendMessage;
+    };
+    case "slew_flir_waypt": { 
+        private _wayPoint = [group player, currentWaypoint group player];
+        private _position = waypointPosition _wayPoint;
+        _vehicle setPilotCameraTarget (AGLtoASL (_position));
+		[true, (AGLtoASL _position)] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", crew _vehicle];
+    };
     case "slew_flir": { 
         if (isNil "fms_locations_selected") exitWith {};
         private _location = fms_locations_selected;

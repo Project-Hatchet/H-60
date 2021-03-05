@@ -42,13 +42,9 @@ TEXT_FMS_C(CENTER_WAYPT,0.5,FMS_Y3)
 	source = "static";
 	text = "WAYPT";
 }; // HEADER_TEXT
-TEXT_FMS_R(R3,FMS_MARGIN_R,FMS_Y3)
-	source = "static";
-	text = "NEW";
-}; // R3
 TEXT_FMS_L(L3,FMS_MARGIN_L,FMS_Y3)
 	source = "static";
-	text = "EDIT";
+	text = "TGT";
 }; // R3
 TEXT_FMS_L(L4,FMS_MARGIN_L,FMS_Y4)
 	source = "static";

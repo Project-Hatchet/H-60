@@ -35,4 +35,9 @@ switch (_action) do {
         _vehicle setPilotCameraTarget (AGLtoASL _cursorPos);
 		[true, (AGLtoASL _cursorPos)] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", crew _vehicle];
     };
+    case "centerMode": {
+        private _centerMode = _vehicle getVariable ["vtx_uh60_mfd_tac_center_mode", 0];
+        if (_centerMode == 3) then {_centerMode = 0} else {_centerMode = _centerMode + 1};
+        _vehicle setVariable ["vtx_uh60_mfd_tac_center_mode", _centerMode, true];
+    };
 };
