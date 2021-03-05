@@ -17,13 +17,14 @@ if ((count customWaypointPosition) > 0) then {
     _vehicle setUserMFDText [7, waypointDescription _wayPoint];
 };
 
-private _center = switch (vtx_uh60_mfd_tac_center_mode) do {
+private _centerMode = _vehicle getVariable ["vtx_uh60_mfd_tac_center_mode", 0];
+private _center = switch (_centerMode) do {
     case 0: {getPos _vehicle};
     case 1: {getPos _vehicle};
     case 2: {vtx_uh60_mfd_tac_mapPos};
     case 3: {vtx_uh60_mfd_tac_mapPos};
 };
-private _startDir = if (vtx_uh60_mfd_tac_center_mode == 0) then {getDir _vehicle} else {0};
+private _startDir = if (_centerMode == 0) then {getDir _vehicle} else {0};
 
 private _waypointDirection = (_center getDir _position) - _startDir;
 _vehicle setUserMFDvalue [0, _waypointDirection];

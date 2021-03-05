@@ -28,9 +28,7 @@ class mfd_any {
 
 class tac {
     condition= USERVAL(MFD_PAGE_INDEX,MFD_PAGE_TAC);
-    MFD_BTN(MFD_4,QUOTE(Center mode))
-        buttonUp   ="if (vtx_uh60_mfd_tac_center_mode == 3) then {vtx_uh60_mfd_tac_center_mode = 0} else {vtx_uh60_mfd_tac_center_mode = vtx_uh60_mfd_tac_center_mode + 1}";
-    };
+    MFD_BTN(MFD_4,QUOTE(Center mode)) buttonUp="[vehicle player,'centerMode'] call vtx_uh60_mfd_fnc_interaction_tac;"; };
     MFD_BTN(MFD_5,QUOTE(Slew left))
         buttonDown ="vtx_uh60_mfd_slewX =-1";
         buttonUp   ="vtx_uh60_mfd_slewX = 0";

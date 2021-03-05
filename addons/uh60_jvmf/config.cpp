@@ -17,3 +17,4 @@ class CfgPatches {
 
 #include "uiConfig\baseClasses.hpp"
 #include "uiConfig\writeDialog.hpp"
+#include "uiConfig\positionDialog.hpp"

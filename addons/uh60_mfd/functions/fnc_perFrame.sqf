@@ -12,7 +12,8 @@ private _zoomLevel = _vehicle getVariable ["MAP_ZoomMult", 1];
 private _coverage = (4000 * _zoomLevel) / ((_world_size / 2) * 1.49);
 _vehicle setUserMFDvalue [27, 1 - _coverage];
 
-private _center = switch (vtx_uh60_mfd_tac_center_mode) do {
+private _centerMode = _vehicle getVariable ["vtx_uh60_mfd_tac_center_mode", 0];
+private _center = switch (_centerMode) do {
 	case 0;
 	case 1: {
 		vtx_uh60_mfd_tac_cursorPos = [
@@ -51,12 +52,12 @@ if (local _vehicle) then {
     //systemChat str [_plannedPos distance (getPos _vehicle), vectorMagnitude (velocity _vehicle)];
     _vehicle animateSource ["MAP_X", _map_anim_x, 1];
     _vehicle animateSource ["MAP_Y", _map_anim_y, 1];
-    private _rotation = if (vtx_uh60_mfd_tac_center_mode == 0) then {getDir _vehicle} else {0};
+    private _rotation = if (_centerMode == 0) then {getDir _vehicle} else {0};
     _vehicle animateSource ["MAP_Rotation", _rotation, true];
 };
 
 if (_coverage < 0 || _coverage > 1) exitWith {_vehicle setUserMFDvalue [27, -1];};
 
-_vehicle setUserMFDvalue [18, vtx_uh60_mfd_tac_center_mode];
+_vehicle setUserMFDvalue [18, _centerMode];
 _vehicle setUserMFDvalue [29, vtx_uh60_mfd_tac_cursorPos # 0];
 _vehicle setUserMFDvalue [30, vtx_uh60_mfd_tac_cursorPos # 1];

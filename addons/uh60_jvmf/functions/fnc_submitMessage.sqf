@@ -1,8 +1,10 @@
 /*
- * vtx_uh60_jvmf_fnc_submitFreetext
+ * vtx_uh60_jvmf_fnc_submitMessage
  *
- * Creates and sends a freetext message from a creation dialog
+ * Creates and sends a JVMF message from a creation dialog
  */
+
+params ["", "_type"];
 
 private _sender = profileName;
 private _recipient = ctrlText 1400;
@@ -12,7 +14,7 @@ for "_i" from 1402 to 1411 do {
         _messageContent pushBack (ctrlText _i);
 };
 
-private _message = [_id, _sender, _recipient, 0, _messageContent, [], [[_timestamp, _sender, "SENT"]]];
+private _message = [_id, _sender, _recipient, _type, _messageContent, [], [[_timestamp, _sender, "SENT"]]];
 private _success = _message call vtx_uh60_jvmf_fnc_attemptSendMessage;
 
 if (_success) then {

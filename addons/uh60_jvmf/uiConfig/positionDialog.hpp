@@ -1,4 +1,4 @@
-class vtx_uh60_jvmf_writeDialog {
+class vtx_uh60_jvmf_positionDialog {
     idd = 20001;
     movingEnable = true;
     onLoad = "";
@@ -37,7 +37,7 @@ class vtx_uh60_jvmf_writeDialog {
         	y = 0.269 * safezoneH + safezoneY;
         	w = 0.04125 * safezoneW;
         	h = 0.022 * safezoneH;
-            onButtonClick="";
+            onButtonClick="closeDialog 2;createDialog ""vtx_uh60_jvmf_writeDialog"";";
         };
         class RscButton_1603: RscButton
         {
@@ -47,7 +47,7 @@ class vtx_uh60_jvmf_writeDialog {
         	y = 0.269 * safezoneH + safezoneY;
         	w = 0.04125 * safezoneW;
         	h = 0.022 * safezoneH;
-            onButtonClick="closeDialog 2;createDialog ""vtx_uh60_jvmf_positionDialog"";";
+            onButtonClick="";
         };
         class RscText_1002: RscText
         {
@@ -103,33 +103,55 @@ class vtx_uh60_jvmf_writeDialog {
         	w = 0.128906 * safezoneW;
         	h = 0.022 * safezoneH;
         };
-        class ContentText: RscEdit
+		class lineLabel1: RscText_1005 {
+        	y = 0.423 * safezoneH + safezoneY;
+        	text = "GRID"; //--- ToDo: Localize;
+        	idc = 1006;
+		};
+		class lineLabel2: RscText_1005 {
+        	y = 0.445 * safezoneH + safezoneY;
+        	text = "ELEVATION"; //--- ToDo: Localize;
+        	idc = 1007;
+		};
+		class lineLabel3: RscText_1005 {
+        	y = 0.467 * safezoneH + safezoneY;
+        	text = "NAME"; //--- ToDo: Localize;
+        	idc = 1008;
+		};
+		class lineLabel4: RscText_1005 {
+        	y = 0.489 * safezoneH + safezoneY;
+        	text = "NOTES"; //--- ToDo: Localize;
+        	idc = 1009;
+		};
+        class ContentTextShort: RscEdit
         {
         	idc = 1402;
-        	x = 0.396875 * safezoneW + safezoneX;
+        	x = 0.496875 * safezoneW + safezoneX;
         	y = 0.423 * safezoneH + safezoneY;
-        	w = 0.216563 * safezoneW;
+        	w = 0.116563 * safezoneW;
         	h = 0.022 * safezoneH;
             onKeyUp="(_this select 0) ctrlSetText ((ctrlText (_this select 0)) select [0,60])";
         };
-        class RscEdit_1403: ContentText
+        class RscEdit_1403: ContentTextShort
         {
         	idc = 1403;
         	y = 0.445 * safezoneH + safezoneY;
         };
-        class RscEdit_1404: ContentText
+        class RscEdit_1404: ContentTextShort
         {
         	idc = 1404;
         	y = 0.467 * safezoneH + safezoneY;
         };
-        class RscEdit_1405: ContentText
+        class RscEdit_1405: ContentTextShort
         {
         	idc = 1405;
         	y = 0.489 * safezoneH + safezoneY;
         };
-        class RscEdit_1406: ContentText
+        class ContentText: ContentTextShort
         {
         	idc = 1406;
+        	x = 0.396875 * safezoneW + safezoneX;
+        	w = 0.216563 * safezoneW;
         	y = 0.511 * safezoneH + safezoneY;
         };
         class RscEdit_1407: ContentText
@@ -165,7 +187,7 @@ class vtx_uh60_jvmf_writeDialog {
         	y = 0.665 * safezoneH + safezoneY;
         	w = 0.04125 * safezoneW;
         	h = 0.022 * safezoneH;
-            onButtonClick="[_this, 0] call vtx_uh60_jvmf_fnc_submitMessage";
+            onButtonClick="[_this, 2] call vtx_uh60_jvmf_fnc_submitMessage";
         };
         class RscButton_1601: RscButton
         {
