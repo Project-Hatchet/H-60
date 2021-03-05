@@ -29,7 +29,7 @@ class CfgVehicles
         class VTX_H60_HDTS_Copilot;
         #include "cfgVxf.hpp"
         memoryPointDriverOptics = "slingcam";
-        // driverWeaponsInfoType = "Rsc_MELB_Turret_UnitInfo";
+        // driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         class vtx_templateFLIR {
             #include "turrets\pilotCamera.hpp"
         };
@@ -468,7 +468,7 @@ class CfgVehicles
         class pilotCamera: vtx_templateFLIR {};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
-        driverWeaponsInfoType = "Rsc_MELB_Turret_UnitInfo";
+        driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         class Turrets: Turrets
         {
             #include "turrets\copilot.hpp"

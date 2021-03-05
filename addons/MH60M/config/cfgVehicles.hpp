@@ -27,7 +27,7 @@ class CfgVehicles {
     }; // vtx_H60_base
     class vtx_MH60M: vtx_H60_base {
         class pilotCamera: vtx_templateFLIR {};
-        driverWeaponsInfoType = "Rsc_MELB_Turret_UnitInfo";
+        driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         class VTX_H60_HDTS_Copilot;
         class VTX_H60_HDTS_Pilot;
         scope = 2;
@@ -95,7 +95,7 @@ class CfgVehicles {
     }; // vtx_MH60M
     class vtx_MH60M_DAP : vtx_MH60M {
         class pilotCamera: vtx_templateFLIR {};
-        driverWeaponsInfoType = "Rsc_MELB_Turret_UnitInfo";
+        driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         scope = 2;
         displayName = "MH-60M DAP";
         editorPreview = "z\vtx\addons\MH60M\Data\Preview\vtx_MH60M_DAP.jpg";
