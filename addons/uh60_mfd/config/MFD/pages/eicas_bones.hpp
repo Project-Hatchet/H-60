@@ -99,8 +99,8 @@ class NG1: T1 {max=120;sourceScale=1;};
     class NG2: T2 {max=120;sourceScale=1;};
     class TGT1: T1 {max=900;sourceScale=1;};
     class TGT2: T2 {max=900;sourceScale=1;};
-    class Q1: T1 {max=120;sourceScale=1;};
-    class Q2: T2 {max=120;sourceScale=1;};
+    class Q1: T1 {max=120;sourceScale=1;sourceIndex=19;};
+    class Q2: T2 {max=120;sourceScale=1;sourceIndex=20;};
     class TRQ: EICAS_RPM1 {
             source="rtdRotorTorque";
             max=0.1;

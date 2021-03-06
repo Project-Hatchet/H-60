@@ -176,8 +176,7 @@ PITCH_BONES(0.5,0.6,0.28,0.38)
 class RPM1
 {
 	type="linear";
-	source="user";
-	sourceIndex=19;
+	source="rtdRpm1";
 	sourceScale=1;
 	min=0;
 	max=120;
@@ -185,8 +184,7 @@ class RPM1
 	maxPos[]={0,BARBOTTOM};
 };
 class RPM2: RPM1 {
-source="user";
-sourceIndex=20;
+	source="rtdRpm2";
 };
 class PFD_TRQ: RPM1 {
     source="rtdRotorTorque";
