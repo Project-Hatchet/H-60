@@ -27,8 +27,6 @@ class reply_wrapper {
 };
 TEXT_LEFT_MID_USERTEXT(JVMF_REPLY,JVMF_LEFT_ALIGN + JVMF_LEFT_PADDING,JVMF_TOP_MARGIN + (JVMF_LINE_HEIGHT * 11),41)
 
-TEXT_LEFT_MID_USERTEXT(JVMF_MESSAGE_INBOX,0.35,JVMF_TOP_MARGIN + (JVMF_LINE_HEIGHT * 12.5),42)
-
 class jvmf_border {
     color[] = common_blue;
     class title_box {
