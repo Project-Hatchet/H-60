@@ -15,10 +15,8 @@
  * Public: No
  */
 
-params ["_scrollAmount"];
+if !(GVAR(isReady)) exitWith {false};
 
-if (GVAR(isReady)) then {
-    [ACE_player] call FUNC(stopLoading);
-};
+[ACE_player] call FUNC(stopLoading);
 
 true
