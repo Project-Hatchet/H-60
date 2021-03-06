@@ -37,7 +37,7 @@ class CfgVehicles {
         class pilotCamera: vtx_templateFLIR {};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
-        driverWeaponsInfoType = "Rsc_MELB_Turret_UnitInfo";
+        driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         memoryPointDriverOptics = "pilotcamera_flir_pos";
         class VTX_H60_HDTS_Copilot;
         class VTX_H60_HDTS_Pilot;
@@ -96,7 +96,7 @@ class CfgVehicles {
         class pilotCamera: vtx_templateFLIR {};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
-        driverWeaponsInfoType = "Rsc_MELB_Turret_UnitInfo";
+        driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         memoryPointDriverOptics = "pilotcamera_flir_pos";
         class VTX_H60_HDTS_Copilot;
         class VTX_H60_HDTS_Pilot;
@@ -145,7 +145,7 @@ class CfgVehicles {
         class pilotCamera: vtx_templateFLIR {};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
-        driverWeaponsInfoType = "Rsc_MELB_Turret_UnitInfo";
+        driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         memoryPointDriverOptics = "pilotcamera_flir_pos";
         class VTX_H60_HDTS_Copilot;
         class VTX_H60_HDTS_Pilot;
@@ -217,7 +217,7 @@ class CfgVehicles {
         class pilotCamera: vtx_templateFLIR {};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
-        driverWeaponsInfoType = "Rsc_MELB_Turret_UnitInfo";
+        driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         memoryPointDriverOptics = "pilotcamera_flir_pos";
         class VTX_H60_HDTS_Copilot;
         class VTX_H60_HDTS_Pilot;
