@@ -1,8 +1,15 @@
 class cfgWeapons {
     class ace_hellfire_launcher;
+    class ace_hellfire_launcher_L;
+    class ace_hellfire_launcher_N;
     class vtx_hellfire_launcher: ace_hellfire_launcher {
-      displayName = "AGM-114K Hellfire II";
       magazines[] = {"VTX_4Rnd_ACE_Hellfire_AGM114K"};
+    };
+    class vtx_hellfire_launcher_L: ace_hellfire_launcher_L {
+      magazines[] = {"VTX_4Rnd_ACE_Hellfire_AGM114L"};
+    };
+    class vtx_hellfire_launcher_N: ace_hellfire_launcher_N {
+      magazines[] = {"VTX_4Rnd_ACE_Hellfire_AGM114N"};
     };
     class autocannon_Base_F;
     class autocannon_30mm_RCWS: autocannon_Base_F {
