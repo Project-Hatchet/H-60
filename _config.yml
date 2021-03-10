@@ -1,0 +1,76 @@
+# (string) Title of your wiki
+title: Project Hatchet Wiki
+demo_ver: 1.0.2
+remote_theme: Drassil/git-wiki-theme@master
+description: Project user and dev documentation
+show_downloads: false
+show_wiki_pages: true
+show_wiki_pages_limit: 10
+paginate: 5
+paginate_path: "assets/blog/page:num"
+blog_feature: false
+show_wiki_posts: false
+show_wiki_posts_limit: 5
+logo_url: "ProjectHatchetBlk3.png"
+google_analytics:
+git_branch: main
+use_github_wiki: false
+use_prose_io: false
+service: github
+search_engine : "js"
+google_cse_token: 007197903287787072094:8rbvkeqo6qw
+wiki_folder : "wiki"
+permalink: /blog/posts/:year/:month/:day/:title:output_ext
+site_root: 
+
+#
+# Jekyll
+#
+
+defaults:
+ - 
+    scope:
+      path: "wiki"
+    values:
+      permalink: /:basename
+ -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "git-wiki-default"
+ -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "git-wiki-default"
+ -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "git-wiki-post"
+ -
+    scope:
+      path: assets/blog
+    values:
+      layout: "git-wiki-blog"
+
+plugins:
+ - jekyll-feed
+ - jekyll-redirect-from
+ - jekyll-seo-tag
+ - jekyll-sitemap
+ - jekyll-avatar
+ - jemoji
+ - jekyll-mentions
+  
+#
+# INCLUDING HOOKS
+# They are optional, change them only if you need
+# Check wiki documentation to learn how they work
+#
+
+
+inc_after_head : "drassil/head.html"
+inc_before_page_list : "drassil/sidebar.html"
