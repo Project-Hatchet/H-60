@@ -13,7 +13,7 @@ show_wiki_posts: false
 show_wiki_posts_limit: 5
 logo_url: "ProjectHatchetBlk3.png"
 google_analytics:
-git_branch: main
+git_branch: gh-pages
 use_github_wiki: false
 use_prose_io: false
 service: github
