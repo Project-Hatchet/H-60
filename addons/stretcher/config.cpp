@@ -3,7 +3,11 @@
 class CfgPatches {
     class ADDON {
         name = COMPONENT_NAME;
-        units[] = {};
+        units[] = {
+          QGVAR(1),
+          QGVAR(2),
+          QGVAR(3)
+        };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"vtx_UH60"};

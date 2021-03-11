@@ -15,3 +15,11 @@ class Extended_PostInit_EventHandlers {
         init = QUOTE(call COMPILE_FILE(XEH_postInit));
     };
 };
+
+class Extended_Init_EventHandlers {
+    class GVAR(1) {
+        class ace_dragging {
+            init = QUOTE(_this call ace_dragging_fnc_initObject);
+        };
+    };
+};
