@@ -9,6 +9,7 @@ PREP(canSecureHook);
 PREP(deployHook);
 PREP(detachHook);
 PREP(getInHeliHook);
+PREP(handleGetIn);
 PREP(isAttachedHook);
 PREP(isHoistReady);
 PREP(isHoistWorking);
