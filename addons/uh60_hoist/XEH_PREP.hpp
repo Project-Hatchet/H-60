@@ -1,5 +1,6 @@
 PREP(attachedHook);
 PREP(attachHook);
+PREP(canAttachHook);
 PREP(canControlHoist);
 PREP(canDeployHook);
 PREP(canMoveHeliToHook);
