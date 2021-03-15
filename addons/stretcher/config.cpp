@@ -8,9 +8,11 @@ class CfgPatches {
           QGVAR(2),
           QGVAR(3)
         };
-        weapons[] = {};
+        weapons[] = {
+          "vtx_stretcher_item"
+        };
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"vtx_UH60"};
+        requiredAddons[] = {"ace_common"};
         author = "";
         authors[] = {""};
         VERSION_CONFIG;
@@ -19,4 +21,5 @@ class CfgPatches {
 
 #include "CfgEventHandlers.hpp"
 
-#include "cfgVehicles.hpp"
+#include "CfgVehicles.hpp"
+#include "CfgWeapons.hpp"

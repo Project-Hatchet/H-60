@@ -1,6 +1,21 @@
 class CfgVehicles {
   class Pod_Heli_Transport_04_crewed_base_F;
   class GVAR(1): Pod_Heli_Transport_04_crewed_base_F {
+  class Man;
+  class CAManBase: Man {
+    class ACE_SelfActions {
+      class ACE_Equipment {
+        class GVAR(1) {
+          displayName = CSTRING(Unfold);
+          condition = QUOTE('vtx_stretcher_item' in items _player);
+          exceptions[] = {"isNotSwimming", "isNotInside", "isNotSitting"};
+          statement = QUOTE([_player] call FUNC(unfold));
+          showDisabled = 0;
+          icon = QPATHTOF(data\ui\stretcher_icon.paa);
+        };
+      };
+    };
+  };
     ace_dragging_canDrag = 1;
     ace_dragging_dragDirection = 90;
     ace_dragging_dragPosition[] = {0, 2, 0};
