@@ -1,4 +1,3 @@
-PREP(attachedHook);
 PREP(attachHook);
 PREP(canAttachHook);
 PREP(canControlHoist);
