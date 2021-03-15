@@ -16,16 +16,20 @@
 
 params ["_unit", ["_variant", 0, 0]];
 
-_player removeItem "vtx_stretcher_item";
+_unit removeItem "vtx_stretcher_item";
+[_unit, "PutDown"] call ace_common_fnc_doGesture;
+
+private _pos = _unit modelToWorld [0,0,0];
+private _offset = if ((_unit call CBA_fnc_getUnitAnim select 0) == "prone") then { 1 } else {0.8};
+
+_pos set [0, (_pos select 0) + (sin getDir _unit) * _offset];
+_pos set [1, (_pos select 1) + (cos getDir _unit) * _offset];
+_pos set [2, [_unit] call CBA_fnc_realHeight];
 
 if !(_variant in [1, 2, 3]) then {
   _variant = selectRandom [1, 2, 3];
 };
 private _class = "vtx_stretcher_" + str _variant;
-
-[_unit, "PutDown"] call ace_common_fnc_doGesture;
-private _vehicle = _class createVehicle getPos _unit;
-
-if (_unit == ACE_player) then {
-  [_unit, _vehicle] call ace_dragging_fnc_startCarry;
-};
+private _vehicle = _class createVehicle _pos;
+_vehicle setPos _pos;
+_vehicle setDir getDir _unit;
