@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="VTX">
+    <Package name="STRETCHER">
+        <Key ID="STR_VTX_STRETCHER_StretcherH60">
+            <English>Stretcher [H60]</English>
+        </Key>
+    </Package>
+</Project>
