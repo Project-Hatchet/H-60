@@ -41,6 +41,7 @@ _unit setVariable [QGVAR(Load), [
         private _vehName = {
             getText (configOf _this >> "displayName")
         };
+        if (cursorObject isKindOf "CAManBase") exitWith {hint format ["Cannot load cargo %1 into carrier %2", cursorObject call _vehName, GVAR(carrier) call _vehName]};
         if !(_canVehicleCargo # 1) exitWith {hint format ["Cannot load cargo %1 into carrier %2", cursorObject call _vehName, GVAR(carrier) call _vehName]};
         if !(_canVehicleCargo # 0) exitWith {hint format ["Carrier %2 is too full to fit cargo %1", cursorObject call _vehName, GVAR(carrier) call _vehName]};
         if ((cursorObject distance GVAR(carrier)) > GVAR(loadDistance)) exitWith {hint format ["Cargo %1 is too far from carrier %2", cursorObject call _vehName, GVAR(carrier) call _vehName]};
