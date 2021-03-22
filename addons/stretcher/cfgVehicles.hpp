@@ -22,6 +22,7 @@ class CfgVehicles {
     scope = 2;
     scopeCurator = 2;
     vehicleClass = "Items";
+    editorPreview = QPATHTOF(data\ui\stretcher_item_preview.jpg);
     class TransportItems {
       class _xx_vtx_stretcher_item {
         count = 1;
@@ -60,6 +61,7 @@ class CfgVehicles {
     hasCommander = 0;
     icon = QPATHTOF(data\ui\stretcher_icon.paa);
     picture = QPATHTOF(data\ui\stretcher_groupBar.paa);
+    editorPreview = QPATHTOF(data\ui\stretcher_preview.jpg);
     mapSize = 2;
     mass = 200;
     maximumLoad = 0;
