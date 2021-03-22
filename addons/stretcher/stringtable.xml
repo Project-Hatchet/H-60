@@ -4,5 +4,8 @@
         <Key ID="STR_VTX_STRETCHER_Unfold">
             <English>Unfold Stretcher</English>
         </Key>
+        <Key ID="STR_VTX_STRETCHER_Fold">
+            <English>Fold Stretcher</English>
+        </Key>
     </Package>
 </Project>

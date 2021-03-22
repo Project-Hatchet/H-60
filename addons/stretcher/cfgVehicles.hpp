@@ -15,6 +15,21 @@ class CfgVehicles {
     };
   };
 
+  class Item_Base_F;
+  class GVAR(item): Item_Base_F {
+    author = "Ampersand";
+    displayName = "$STR_A3_CfgVehicles_Land_Stretcher_01_f0"; // Stretcher
+    scope = 2;
+    scopeCurator = 2;
+    vehicleClass = "Items";
+    class TransportItems {
+      class _xx_vtx_stretcher_item {
+        count = 1;
+        name = GVAR(item);
+      };
+    };
+  };
+
   class Tank_F;
   class GVAR(1): Tank_F {
     ace_dragging_canDrag = 1;
