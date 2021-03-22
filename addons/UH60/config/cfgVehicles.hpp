@@ -361,7 +361,7 @@ class CfgVehicles
                 dampingRateDestroyed		= 1000.0;
                 suspTravelDirection[]		= {0, -1, 0};
 
-                maxBrakeTorque				= 2000;
+                maxBrakeTorque				= 2500;
                 maxHandBrakeTorque			= 4000;
 
                 maxCompression				= 0.2;
