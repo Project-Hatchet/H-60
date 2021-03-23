@@ -3,7 +3,7 @@
 ## How changelogs work
 
 Changelogs works just how it sounds; they are telling you what changed in each release.<br>
-Versions labeled "RC" are Release Candidates. Those versions are releasd for testing purposes on Github and are not uploaded on steam.
+Versions labeled "RC" are Release Candidates. Those versions are released for testing purposes on Github and are not uploaded on steam.
 
 ## [0.3.1 RC](https://github.com/Project-Hatchet/public_h-60/releases/tag/v0.3.1-rc)
 
