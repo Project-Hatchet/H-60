@@ -46,13 +46,21 @@ class cfgMagazines {
     	model				= \z\vtx\addons\uh60_weapons\Data\M230\M230_R.p3d;
     };
   class PylonRack_12Rnd_missiles;
-	class VTX_PylonRack_M261: PylonRack_12Rnd_missiles {
+	class VTX_PylonRack_M261_M229: PylonRack_12Rnd_missiles {
 		author = "Ampersand";
 		count = 19;
     displayName = "19x Hydra 70 M229";
     displayNameShort = "19x Hydra 70 M229";
-    mass = 300;
+    weight = 230;
     model = QPATHTOF(fza_pod_m261.p3d);
-		pylonWeapon = "VTX_Hydra70_M229";
 	};
+  class PylonRack_12Rnd_PG_missiles;
+  class VTX_PylonRack_M261_DAGR: PylonRack_12Rnd_PG_missiles {
+    author = "Ampersand";
+    count = 19;
+    displayName = "19x DAGR";
+    displayNameShort = "19x DAGR";
+    weight = 300;
+    model = QPATHTOF(fza_pod_m261.p3d);
+  };
 };

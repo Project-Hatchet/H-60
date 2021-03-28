@@ -31,9 +31,11 @@ class cfgWeapons {
           };
       };
     };
-  class missiles_DAR;
-  class VTX_Hydra70_M229: missiles_DAR {
-    magazines[] = {"VTX_PylonRack_M261"};
-    displayName = "19x Hydra 70 M229";
+  class RocketPods;
+  class missiles_DAR: RocketPods {
+    magazines[] += {"VTX_PylonRack_M261_M151", "VTX_PylonRack_M261_M229"};
+  };
+	class missiles_DAGR: RocketPods {
+    magazines[] += {"VTX_PylonRack_M261_DAGR"};
   };
 };
