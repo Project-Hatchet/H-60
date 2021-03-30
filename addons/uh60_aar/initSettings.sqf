@@ -1,5 +1,5 @@
 [
-	"vtx_uh60m_disable_aar",
+	"vtx_uh60m_disabled_aar",
 	"CHECKBOX",
 	"(DEBUG) Disable AAR",
 	"UH-60M",
