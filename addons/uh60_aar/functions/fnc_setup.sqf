@@ -7,7 +7,7 @@
  */
 
 params ["_vehicle"];
-if (!vtx_uh60m_enabled_aar) exitWith {false};
+if (vtx_uh60m_disabled_aar) exitWith {false};
 
 private _config = (_vehicle getVariable "vxf_config");
 private _probePos = (_config >> "modules" >> "aar" >> "probePos") call BIS_fnc_getCfgData;

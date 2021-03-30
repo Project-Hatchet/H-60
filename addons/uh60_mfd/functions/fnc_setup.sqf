@@ -6,7 +6,7 @@
  * params (array)[(object) vehicle]
  */
 params ["_vehicle"];
-if (!vtx_uh60m_enabled_mfd) exitWith {
+if (vtx_uh60m_disabled_mfd) exitWith {
     _vehicle setUserMFDvalue [23,1];
     _vehicle setUserMFDvalue [24,0];
     _vehicle setUserMFDvalue [25,0];

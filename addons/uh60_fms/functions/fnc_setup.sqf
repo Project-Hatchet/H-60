@@ -7,7 +7,7 @@
  */
 
 params ["_vehicle"];
-if (!vtx_uh60m_enabled_fms) exitWith {false};
+if (vtx_uh60m_disabled_fms) exitWith {false};
 
 _vehicle setUserMFDValue [31, 0];
 _vehicle setUserMFDValue [32, 0];

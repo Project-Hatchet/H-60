@@ -9,7 +9,7 @@
 #include "defines.hpp"
 
 params ["_vehicle"];
-if (!vtx_uh60m_enabled_fd) exitWith {false};
+if (vtx_uh60m_disabled_fd) exitWith {false};
 
 [_vehicle] call vtx_uh60_fd_fnc_updatePanel;
 vtx_uh60_fd_lastAltMatch = true;

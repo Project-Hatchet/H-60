@@ -11,3 +11,4 @@ texHeaders.bin
 *.swo
 *.biprivatekey
 Thumbs.db
+*.DS_Store
