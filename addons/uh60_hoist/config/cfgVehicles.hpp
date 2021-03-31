@@ -75,6 +75,7 @@ class CfgVehicles
         };
     };
     class vtx_hook_helper: vtx_hook_base{
+        displayName = "Rescue Hoist Hook Helper";
         author = "Ampersand";
         scope = 1;
         model = "z\vtx\addons\uh60_hoist\data\vtx_hook_helper.p3d";
@@ -93,34 +94,7 @@ class CfgVehicles
     class vtx_hook: vtx_hook_base {
         _generalMacro = "vtx_hook";
         class ACE_Actions {
-            class VTX_Enter {
-                displayName = "Hook On";
-                condition = "count (crew _target) > 0";
-                statement = "_player moveInCargo _target; [_target getVariable 'vtx_uh60_hoist_heli'] call vtx_uh60_hoist_fnc_stabilizeHook"; // auto stabilize
-                icon = "z\vtx\addons\uh60_hoist\data\ui\iconHook.paa";
-                selection = "sling_point";
-                exceptions[] = {"isNotInside", "isNotSwimming"};
-                distance = 5;
-            };
-            class VTX_Attach {
-                displayName = "Attach Hook";
-                condition = "crew _target isEqualTo []";
-                statement = "[_player, _target] spawn vtx_uh60_hoist_fnc_attachHook;"; // auto stabilize
-                icon = "z\vtx\addons\uh60_hoist\data\ui\iconHook.paa";
-                selection = "sling_point";
-                exceptions[] = {"isNotInside", "isNotSwimming"};
-                distance = 5;
-            };
-            class VTX_Stabilize {
-                displayName = "Stabilize";
-                condition = "(count (crew _target) > 0) && !(isNull (_target getVariable 'vtx_uh60_hoist_heli'))";
-                statement = "[_target getVariable 'vtx_uh60_hoist_heli'] call vtx_uh60_hoist_fnc_stabilizeHook";
-                icon = "z\vtx\addons\uh60_hoist\data\ui\iconHook.paa";
-                selection = "sling_point";
-                exceptions[] = {"isNotInside", "isNotSwimming"};
-                distance = 5;
-                //position = {0,0,0.5};
-            };
+          class ACE_MainActions {};
         };
         class ACE_SelfActions {
             class VTX_GetInHeli {
@@ -141,6 +115,9 @@ class CfgVehicles
         armor = 1000000;
         author = "vtx";
         cargoAction[] = {"ChopperLight_CB_static_H"};
+        memoryPointsGetInCargo = "pos cargo";
+        memoryPointsGetInCargoDir = "pos cargo dir";
+        preciseGetInOut = 1;
         cost = 0;
         displayName = "Rescue Hoist Hook";
         fuelCapacity = 0;

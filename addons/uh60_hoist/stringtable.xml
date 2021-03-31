@@ -40,5 +40,11 @@
         <Key ID="STR_VTX_UH60_HOIST_RepairHoistHook">
             <English>Repair Hoist Hook</English>
         </Key>
+        <Key ID="STR_VTX_UH60_HOIST_AttachHook">
+            <English>Attach Hook</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_HOIST_DetachHook">
+            <English>Detach Hook</English>
+        </Key>
     </Package>
 </Project>

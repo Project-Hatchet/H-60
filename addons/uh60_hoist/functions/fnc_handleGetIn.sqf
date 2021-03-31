@@ -15,6 +15,4 @@
 
 params ["_hook", "", "_unit"];
 
-systemChat "getin";
-
 [_hook, _unit] call vtx_uh60_hoist_fnc_attachHook;
