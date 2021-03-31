@@ -12,7 +12,7 @@
     "vtx_uh60m_disabled_engine",
     "CHECKBOX",
     "(DEBUG) Disable ENGINE",
-    "UH-60M",
+    ["UH-60M","Debug"],
     [false],
     nil,
     {}

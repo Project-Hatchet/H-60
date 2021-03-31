@@ -12,7 +12,7 @@
     "vtx_uh60m_disabled_fd",
     "CHECKBOX",
     "(DEBUG) Disable Flight Director",
-    "UH-60M",
+    ["UH-60M","Debug"],
     [false],
     nil,
     {}

@@ -2,7 +2,7 @@
 	"vtx_uh60m_disabled_fms",
 	"CHECKBOX",
 	"(DEBUG) Disable FMS",
-	"UH-60M",
+	["UH-60M","Debug"],
 	[false],
 	nil,
 	{}
@@ -12,7 +12,7 @@
     "vtx_uh60m_disabled_waypts",
     "CHECKBOX",
     "(DEBUG) Disable FMS Waypoint System",
-    "UH-60M",
+    ["UH-60M","Debug"],
     [false],
     nil,
     {}

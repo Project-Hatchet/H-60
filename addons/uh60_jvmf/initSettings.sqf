@@ -2,7 +2,7 @@
 	"vtx_uh60m_disabled_jvmf",
 	"CHECKBOX",
 	"(DEBUG) Disable JVMF",
-	"UH-60M",
+	["UH-60M","Debug"],
 	[false],
 	nil,
 	{}
