@@ -5,8 +5,8 @@
 --------------------------------------------------------------------------------------------------*/
 dev = "Ampersand";
 author = "Ampersand";
-onLoadName = "CO20 H-60 Support Rodopoli";
-briefingName = "CO20 H-60 Support Rodopoli";
+onLoadName = "CO6 H-60 Support Rodopoli";
+briefingName = "CO6 H-60 Support Rodopoli";
 onLoadMission = "Members of an elite airborne battalion launch an offensive against the FIA.";
 overviewText = "Members of an elite airborne battalion launch an offensive against the FIA.";
 overviewPicture = "VTX_GroundSupport01_overview_CA.paa";
@@ -20,7 +20,7 @@ class Header
 {
 	gameType = Support;
 	minPlayers = 1;
-	maxPlayers = 20;
+	maxPlayers = 6;
 };
 
 /*--------------------------------------------------------------------------------------------------
@@ -36,7 +36,7 @@ class Params
 
 	#define TICKETS_MIN		200
 	#define TICKETS_MAX		1000
-	#define TICKETS_DEFAULT		300
+	#define TICKETS_DEFAULT		500
 
 	#define WEATHER_DEFAULT		75
 
