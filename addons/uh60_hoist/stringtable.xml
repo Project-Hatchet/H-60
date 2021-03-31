@@ -34,9 +34,6 @@
         <Key ID="STR_VTX_UH60_HOIST_LowerHookToGround">
             <English>Lower Hook To Ground</English>
         </Key>
-        <Key ID="STR_VTX_UH60_HOIST_StabilizeHook">
-            <English>Stabilize Hook</English>
-        </Key>
         <Key ID="STR_VTX_UH60_HOIST_Working">
             <English>Working...</English>
         </Key>
