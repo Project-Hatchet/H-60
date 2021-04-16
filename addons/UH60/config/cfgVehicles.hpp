@@ -476,9 +476,9 @@ class CfgVehicles
             #include "turrets\cargoTurrets.hpp"
         };
 
-        transportSoldier=0;
-        cargoProxyIndexes[] = {12, 13, 14, 15, 16, 17, 20, 21, 22, 23};
-        cargoAction[] = {};
+        transportSoldier=2;
+        cargoProxyIndexes[] = {24, 25, 12, 13, 14, 15, 16, 17, 20, 21, 22, 23};
+        cargoAction[] = {"passenger_injured_medevac_truck01", "passenger_injured_medevac_truck02"};
         class AnimationSources: AnimationSources
         {
             class Fuelprobe_Show {
@@ -502,6 +502,9 @@ class CfgVehicles
                 initPhase=1;
             };
             class ERFS_Show: MAWS_Tubes_Show {
+                initPhase=1;
+            };
+            class Stretcher_Rack_Show: MAWS_Tubes_Show {
                 initPhase=1;
             };
             class FLIR_HIDE: MAWS_Tubes_Show {
