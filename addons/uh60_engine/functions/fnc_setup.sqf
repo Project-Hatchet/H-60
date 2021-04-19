@@ -9,6 +9,7 @@
 params ["_vehicle"];
 if (!vtx_uh60m_enabled_engine) exitWith {false};
 
+[(_this # 0),"PARKING BRAKE",{},false,false] call vtx_uh60_cas_fnc_registerCautionAdvisory;
 vtx_uh60_engine_engineEH = _vehicle addEventHandler ["engine", vtx_uh60_engine_fnc_engineEH];
 vtx_uh60_engine_lastFuelLevel = fuel _vehicle;
 vtx_uh60_engine_lastAltitude = ((getPosASL _vehicle) # 2);
