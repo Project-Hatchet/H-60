@@ -26,6 +26,13 @@ SET_GLOBAL_DEFAULT("APU_POWER", false)
 
 _vehicle enableAutoTrimRTD true;
 
+//Let EICAS know parking brake is on & double check brakeRTD is on
+if ((_vehicle animationPhase "handle_wheelbrake") == 1) then {
+    [_vehicle, true, "ON"] call vtx_uh60_engine_fnc_wheelBrakes;
+} else {
+    [_vehicle, true, "OFF"] call vtx_uh60_engine_fnc_wheelBrakes;
+};
+//Monitor parking brake value
 player addEventHandler ["SelectedRotorLibActionPerformed", {
     params ["_caller", "_target", "_enumNumber", "_actionId"];
     if    (!local _caller || !local _target) exitWith {};
