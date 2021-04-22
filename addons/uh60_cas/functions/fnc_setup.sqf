@@ -16,4 +16,8 @@ SET_DEFAULT("vtx_cas_queue", 0)
 [_vehicle] call vtx_uh60_cas_fnc_updateCautionsList;
 SET_DEFAULT("vtx_cas_rotorIgnored", false);
 
+if (_vehicle animationPhase "handle_wheelbrake" > 0.5) then {
+    [(_this # 0),"PARKING BRAKE",{(((_this # 0) animationPhase "handle_wheelbrake") > 0.5)},false,false] call vtx_uh60_cas_fnc_registerCautionAdvisory;
+};
+
 true

@@ -178,7 +178,7 @@
             pos[] = {{X-0.002*SIZE, Y-0.035*SIZE}, 1}; \
             right[] = {{X + 0.06*SIZE, Y-0.035*SIZE}, 1}; \
             down[] = {{X-0.002*SIZE, Y + 0.035*SIZE}, 1}; \
-        };
+        }
 
     #define TEXT_MID_MID(CLASS,X,Y,TEXT) \
         TEXT_MID_MID_SRC(CLASS,X,Y) \

@@ -208,7 +208,7 @@ class AnimationSources
     class ACCLow
     {
             source="user";
-            animPeriod=0.00001;
+            animPeriod=2;
             initPhase=0;
     };
     class APUFail:ACCLow{};
@@ -218,10 +218,12 @@ class AnimationSources
     class EmerRlse:ACCLow{};
     class OilHot:ACCLow{};
     class TestLte:ACCLow{};
-    class CautionEng1Out:ACCLow{};
-    class CautionEng2Out:ACCLow{};
-    class CautionFire:ACCLow{};
-    class CautionMasterCaution:ACCLow{};
+    class CautionEng1Out:ACCLow{
+        animPeriod=1;
+    };
+    class CautionEng2Out:CautionEng1Out{};
+    class CautionFire:CautionEng1Out{};
+    class CautionMasterCaution:CautionEng1Out{};
     class Gauge_temp
     {
             source="user";
@@ -279,26 +281,26 @@ class AnimationSources
     class MFD1_hide
     {
             source="user";
-            animPeriod=1;
-            initPhase=0;
+            animPeriod=2;
+            initPhase=1;
     };
     class MFD2_hide
     {
             source="user";
-            animPeriod=1;
-            initPhase=0;
+            animPeriod=2;
+            initPhase=1;
     };
     class MFD3_hide
     {
             source="user";
-            animPeriod=1;
+            animPeriod=2;
             initPhase=0;
     };
     class MFD4_hide
     {
             source="user";
-            animPeriod=1;
-            initPhase=0;
+            animPeriod=2;
+            initPhase=1;
     };
     class ESIS_hide
     {

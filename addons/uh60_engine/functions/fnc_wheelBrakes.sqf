@@ -17,7 +17,9 @@ if (count _this > 2) then {
 };
 
 if (_isEnabled) then {
-    [(_this # 0),"PARKING BRAKE",{},false,false] call vtx_uh60_cas_fnc_registerCautionAdvisory;
+    [(_this # 0),"PARKING BRAKE",{
+        (((_this # 0) animationPhase "handle_wheelbrake") < 0.5)
+    },false,true] call vtx_uh60_cas_fnc_registerCautionAdvisory;
 } else {
     [(_this # 0), "PARKING BRAKE"] call vtx_uh60_cas_fnc_removeCautionAdvisory;
 };

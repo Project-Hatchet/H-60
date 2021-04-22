@@ -19,7 +19,6 @@ _engine2Generator = ANIMATED("Switch_gen2",0) && _eng2Powered;
 _apuGenerator =     ANIMATED("Switch_apugen",0) && _apuPower;
 
 private _batteriesOn = BATT_ON;
-private _drainRate = GET("POWER_DRAIN_RATE",0);
 
 #define CONSUMPTION(POWER) (0.00158675799 * POWER + 0.092)
 private _temp = ((getPosASL player) # 2) call ace_weather_fnc_calculateTemperatureAtHeight;
