@@ -18,6 +18,6 @@ vtx_uh60_fd_lastTerrainAlt = ((getPosASL _vehicle) # 2) - ((getPos _vehicle) # 2
 vtx_uh60_fd_terrainSlope = 0;
 vtx_uh60_fd_collectiveHeld = 0;
 
-[_vehicle, "collective", 0.3, 0.2, 0] call vxf_util_fnc_pidCreate;
+[_vehicle, "collective", 0.3, 0.2, 0] call hatchet_util_fnc_pidCreate;
 
 true

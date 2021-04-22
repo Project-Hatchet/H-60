@@ -4,7 +4,7 @@ class cas_panel {
         position="B_MASTERCAUT_R";
         label="Master Caution";
         radius=0.025;
-        clickSound="vxf_Switch_Sound";
+        clickSound="hatchet_Switch_Sound";
         buttonUp="_this call vtx_uh60_cas_fnc_clearCautionsList";
     };
 };

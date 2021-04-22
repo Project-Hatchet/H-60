@@ -4,7 +4,7 @@
         position= BTN_VAL; \
         label=LABEL; \
         radius=0.025; \
-        clickSound="vxf_Switch_Sound_2";
+        clickSound="hatchet_Switch_Sound_2";
 
 #define USERVAL(INDEX,VAL) QUOTE(((getUserMFDValue _this) select INDEX) == VAL)
 

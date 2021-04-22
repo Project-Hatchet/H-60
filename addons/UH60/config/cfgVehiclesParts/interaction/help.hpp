@@ -6,6 +6,6 @@ class help {
         label="Toggle player body";
         radius=0.05;
         buttonUp="player hideObject !(isObjectHidden player);";
-        clickSound="vxf_Switch_Sound";
+        clickSound="hatchet_Switch_Sound";
     }; // b_hidePlayer
 };

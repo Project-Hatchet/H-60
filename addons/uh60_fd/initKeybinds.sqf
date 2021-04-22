@@ -5,7 +5,7 @@
   {},{
     ZEUS_EXIT
     private _vehicle = vehicle player;
-    if ([_vehicle, "ui", "vtx_H60_base"] call vxf_core_fnc_hasModule) then {
+    if ([_vehicle, "ui", "vtx_H60_base"] call hatchet_core_fnc_hasModule) then {
       [_vehicle, "STBY"] call vtx_uh60_fd_fnc_modeSet;
     };
   },
@@ -20,7 +20,7 @@
   {},{
     ZEUS_EXIT
     private _vehicle = vehicle player;
-    if ([_vehicle, "ui", "vtx_H60_base"] call vxf_core_fnc_hasModule) then {
+    if ([_vehicle, "ui", "vtx_H60_base"] call hatchet_core_fnc_hasModule) then {
       [vehicle player, "RALT"] call vtx_uh60_fd_fnc_modeSet;
     };
   }

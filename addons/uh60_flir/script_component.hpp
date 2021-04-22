@@ -17,4 +17,4 @@
 
 #include "\z\vtx\addons\main\script_macros.hpp"
 
-#define CHK_FLIR if (isNil "vtx_uh60_flir_camera" || {isNil "vxf_vehicle" || {!(vxf_vehicle isKindOf "vtx_MH60M")}}) exitWith {false}
+#define CHK_FLIR if (isNil "vtx_uh60_flir_camera" || {isNil "hatchet_vehicle" || {!(hatchet_vehicle isKindOf "vtx_MH60M")}}) exitWith {false}

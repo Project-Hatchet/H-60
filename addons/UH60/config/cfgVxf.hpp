@@ -1,12 +1,12 @@
-class vxf_driver {
+class hatchet_driver {
     #include "cfgVehiclesParts\cfgVxfCockpit.hpp"
 };
 
-class vxf_copilot {
+class hatchet_copilot {
     #include "cfgVehiclesParts\cfgVxfCockpit.hpp"
 };
 
-class vxf_cargo {
+class hatchet_cargo {
     class interaction {
         class l_door {
             clickSound="";

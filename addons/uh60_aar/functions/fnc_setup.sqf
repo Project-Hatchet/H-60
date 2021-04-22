@@ -9,7 +9,7 @@
 params ["_vehicle"];
 if (!vtx_uh60m_enabled_aar) exitWith {false};
 
-private _config = (_vehicle getVariable "vxf_config");
+private _config = (_vehicle getVariable "hatchet_config");
 private _probePos = (_config >> "modules" >> "aar" >> "probePos") call BIS_fnc_getCfgData;
 _vehicle setVariable ["vtx_aar_probePos", _probePos];
 vtx_aar_probeCondition = compile (getText (_config >> "modules" >> "aar" >> "probeCondition"));
