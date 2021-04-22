@@ -1416,7 +1416,7 @@
                 <MountStation    x="-1.402" y="2.746" z="-1.279"/>
                 <SliderAxis x="0" y="0" z="1" />
                 <SuspensionLength length="0.63" />
-                <SpringParameters springConstant="300000" damperConstant="50000" maxCompression="0.1" />
+                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.13" />
             </Suspension>
             <Wheel mass="1" radius="0.23" >
                 <RollAxis x="1" y="0" z="0" />
@@ -1432,7 +1432,7 @@
                 <MountStation    x="1.402" y="2.746" z="-1.279"/>
                 <SliderAxis x="0" y="0" z="1" />
                 <SuspensionLength length="0.63" />
-                <SpringParameters springConstant="300000" damperConstant="50000" maxCompression="0.1" />
+                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.13" />
             </Suspension>
             <Wheel mass="1" radius="0.23" >
                 <RollAxis x="1" y="0" z="0" />
