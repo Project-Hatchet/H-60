@@ -1,14 +1,17 @@
 # What are the future plans?
 
 ## When are you releasing?
+---
 When we feel like it is an appropriate moment to release.
 
 --
 ## Will there be texture templates?
+---
 Yes.
 
 --
 ## Are you planning on...
+---
 Yes, we're planning for literally everything, but what we actually make will depend on what we have the time and motivation to do, lightning round:
 
  - Special forces variants(MH-60M + LASS/MLASS)
@@ -34,10 +37,12 @@ Nothing in cockpit, just same baseline same compatibility config as all other mo
 
 --
 ## Will the interaction be MP compatible
+---
 Yes, we intend for the whole aircraft to be properly set up for multi-crew use.
 
 --
 ## Can I test it
+---
 Yes! Check out #announcements in the [discord](https://discord.gg/4AYEfFD)
 
 --
