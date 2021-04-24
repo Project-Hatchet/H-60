@@ -14,7 +14,7 @@ published: true
 
 ## Guides
 
-<li><a href = "../public_h-60/mainpage.html">Getting started</a></li>
+<li><a href = "../public_h-60/getting_started.html">Getting started</a></li>
 <li><a href="../public_h-60/engine_start.html">Helicopter Startup</a></li>
 <li><a href="../public_h-60/settings_and_accessibility.html">Settings and accessibility</a></li>
 
