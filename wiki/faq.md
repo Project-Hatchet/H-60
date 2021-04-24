@@ -11,6 +11,8 @@ published: true
 Look up <a href="../public_h-60/engine_start.html">this</a> page. It shows you how the startup works.
 
 --
+### What are you planning in the future?
+Look up <a href="../public_h-60/future_plans.html">this</a> page. It will tell you some things about are goals.
 
 ## Troubleshooting
 
@@ -26,8 +28,11 @@ The mod is providing you with hiqh quality helicopter models and interiors, whil
 
 --
 
-### I have found a bug
+### I have found a bug.
 You can report the bug on our <a href="https://discord.gg/4AYEfFD">Discord</a> or submit issue on our <a href="https://github.com/Project-Hatchet/public_h-60/issues/new/choose">Github</a><br>
+
+### The problem I have isn't here.
+You can seek help on our <a href="https://discord.gg/4AYEfFD">Discord</a>. We will try to help you there.
 
 --
 ## Contribution
