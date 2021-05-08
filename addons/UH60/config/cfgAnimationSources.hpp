@@ -77,17 +77,17 @@ class AnimationSources
         animPeriod=1;
         initPhase=0;
     };
-    class Stretcher_Rack_Show {
+    class StretcherRack_Show {
         source="user";
         animPeriod=1;
         initPhase=0;
     };
-    class Stretcher_Rack_Fold_B {
+    class StretcherRack_Fold_B {
         source="user";
         animPeriod=1;
         initPhase=1;
     };
-    class Stretcher_Rack_Fold_T {
+    class StretcherRack_Fold_T {
         source="user";
         animPeriod=1;
         initPhase=1;
