@@ -476,9 +476,7 @@ class CfgVehicles
             #include "turrets\cargoTurrets.hpp"
         };
 
-        transportSoldier=2;
-        cargoProxyIndexes[] = {24, 25, 12, 13, 14, 15, 16, 17, 20, 21, 22, 23};
-        cargoAction[] = {"vtx_stretcher", "vtx_stretcher"};
+        cargoProxyIndexes[] = {12, 13, 14, 15, 16, 17, 20, 21, 22, 23};
         class AnimationSources: AnimationSources
         {
             class Fuelprobe_Show {
@@ -504,9 +502,6 @@ class CfgVehicles
             class ERFS_Show: MAWS_Tubes_Show {
                 initPhase=1;
             };
-            class StretcherRack_Show: MAWS_Tubes_Show {
-                initPhase=1;
-            };
             class FLIR_HIDE: MAWS_Tubes_Show {
                 initPhase=0;
             };
@@ -515,6 +510,24 @@ class CfgVehicles
             };
         };
         #include "vehicleTransport.hpp"
+    };
+    class vtx_HH60W : vtx_HH60 {
+      scope = 2;
+      editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_HH60.jpg";
+      displayName = "$STR_VTX_UH60_HHWJollyGreen";
+      transportSoldier=2;
+      // FFV 13,14,16,22 should be disabled if stretchers are folded down
+      // Cargo 24 and 25 should be enalbled if stretchers are folded up
+      cargoProxyIndexes[] = {24, 25, 12, 13, 14, 15, 16, 17, 20, 21, 22, 23};
+      cargoAction[] = {"vtx_stretcher", "vtx_stretcher"};
+      class AnimationSources: AnimationSources {
+        class FLIR_HIDE: MAWS_Tubes_Show {
+            initPhase=1;
+        };
+        class StretcherRack_Show: MAWS_Tubes_Show {
+          initPhase=1;
+        };
+      };
     };
     class vtx_UH60M_SLICK : vtx_H60_base {
       scope = 2;
