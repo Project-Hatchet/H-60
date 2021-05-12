@@ -92,6 +92,21 @@ class AnimationSources
         animPeriod=1;
         initPhase=1;
     };
+    class Nose_Show {
+        source="user";
+        animPeriod=1;
+        initPhase=0;
+    };
+    class flirnew_Show {
+        source="user";
+        animPeriod=1;
+        initPhase=0;
+    };
+    class CREWMFDW_Show {
+        source="user";
+        animPeriod=1;
+        initPhase=0;
+    };
     class MAWS_Tubes_Show {
         source="user";
         animPeriod=1;
