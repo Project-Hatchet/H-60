@@ -519,7 +519,7 @@ class CfgVehicles
       // FFV 13,14,16,22 should be disabled if stretchers are folded down
       // Cargo 24 and 25 should be enalbled if stretchers are folded up
       cargoProxyIndexes[] = {24, 25, 12, 13, 14, 15, 16, 17, 20, 21, 22, 23};
-      cargoAction[] = {"vtx_stretcher", "vtx_stretcher"};
+      cargoAction[] = {"vtx_stretcher2", "vtx_stretcher"};
       class AnimationSources: AnimationSources {
         class FLIR_HIDE: MAWS_Tubes_Show {
             initPhase=1;
@@ -528,6 +528,21 @@ class CfgVehicles
           initPhase=1;
         };
       };
+    class UserActions {
+        class Lower_T_Stretcher {
+        displayName = "Lower Top Stretcher";
+        priority = 10;
+        radius = 10; 
+        position = "camera";
+        showWindow = 0;
+        hideOnUse = 1;
+        onlyForPlayer = 0;
+        shortcut = "";
+        condition = "(_target animationPhase ""StretcherRack_Fold_T"") > 0 "; 
+        statement = "_target animateSource [""StretcherRack_Fold_T"", 0];";
+     };
+ };
+
     };
     class vtx_UH60M_SLICK : vtx_H60_base {
       scope = 2;
