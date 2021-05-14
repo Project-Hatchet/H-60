@@ -525,7 +525,7 @@ class CfgVehicles
         class MAWS_Tubes_Show {
                 source="user";
                 animPeriod=1;
-                initPhase=1;
+                initPhase=0;
         };
         class FLIR_HIDE: MAWS_Tubes_Show {
             initPhase=1;

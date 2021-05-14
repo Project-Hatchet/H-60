@@ -306,6 +306,12 @@ class AnimationSources
             animPeriod=1;
             initPhase=0.5;
     };
+    class Switch_lights_cabin
+    {
+            source="user";
+            animPeriod=1;
+            initPhase=0.5;
+    };
     class MFD1_hide
     {
             source="user";
