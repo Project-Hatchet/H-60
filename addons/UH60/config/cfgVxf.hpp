@@ -40,7 +40,7 @@ class vxf_cargo {
             positionType="anim";
             label="Top stretcher";
             animation="StretcherRack_Fold_T";
-            interactionCondition="_this call vtx_uh60_misc_fnc_canInteractCabinDoor";
+            interactionCondition="_this call vtx_uh60_misc_fnc_canInteractStretcherRack";
             animStates[] = {0, 1};
             animLabels[] = {"Lowered", "Raised"};
             animEnd="";
@@ -53,7 +53,7 @@ class vxf_cargo {
             positionType="anim";
             label="Top stretcher";
             animation="StretcherRack_Fold_T";
-            interactionCondition="_this call vtx_uh60_misc_fnc_canInteractCabinDoor";
+            interactionCondition="_this call vtx_uh60_misc_fnc_canInteractStretcherRack";
             animStates[] = {0, 1};
             animLabels[] = {"Lowered", "Raised"};
             animEnd="";
@@ -66,7 +66,7 @@ class vxf_cargo {
             positionType="anim";
             label="Bottom stretcher";
             animation="StretcherRack_Fold_B";
-            interactionCondition="_this call vtx_uh60_misc_fnc_canInteractCabinDoor";
+            interactionCondition="_this call vtx_uh60_misc_fnc_canInteractStretcherRack";
             animStates[] = {0, 1};
             animLabels[] = {"Lowered", "Raised"};
             animEnd="";
@@ -79,7 +79,7 @@ class vxf_cargo {
             positionType="anim";
             label="Bottom stretcher ";
             animation="StretcherRack_Fold_B";
-            interactionCondition="_this call vtx_uh60_misc_fnc_canInteractCabinDoor";
+            interactionCondition="_this call vtx_uh60_misc_fnc_canInteractStretcherRack";
             animStates[] = {0, 1};
             animLabels[] = {"Lowered", "Raised"};
             animEnd="";
