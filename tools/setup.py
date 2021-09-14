@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-#######################
-#    VTX Setup Script    #
-#######################
+######################
+#  VTX Setup Script  #
+######################
 
 import os
 import sys
@@ -14,47 +14,51 @@ import winreg
 ######## GLOBALS #########
 MAINDIR = "z"
 PROJECTDIR = "vtx"
+CBA = "P:\\x\\cba"
 ##########################
 
+
 def main():
-    FULLDIR = "{}\\{}".format(MAINDIR,PROJECTDIR)
+    FULLDIR = "{}\\{}".format(MAINDIR, PROJECTDIR)
     print("""
-    ######################################
-    # VTX Development Environment Setup #
-    ######################################
+  #####################################
+  # VTX Development Environment Setup #
+  #####################################
 
-    This script will create your VTX dev environment for you.
+  This script will create your VTX dev environment for you.
 
-    Before you run this, you should already have:
-    - A properly setup ACE3 Development Environment
+  Before you run this, you should already have:
+    - The Arma 3 Tools installed properly via Steam
+    - A properly set up P-drive
 
-    If you have not done those things yet, please abort this script in the next step and do so first.
+  If you have not done those things yet, please abort this script in the next step and do so first.
 
-    This script will create two hard links on your system, both pointing to your VTX project folder:
+  This script will create two hard links on your system, both pointing to your VTX project folder:
     [Arma 3 installation directory]\\{} => VTX project folder
-    P:\\{}                                => VTX project folder
-    """.format(FULLDIR,FULLDIR))
+    P:\\{}                              => VTX project folder
+
+  It will also copy the required CBA includes to {}, if you do not have the CBA source code already.""".format(FULLDIR, FULLDIR, CBA))
     print("\n")
 
     try:
         reg = winreg.ConnectRegistry(None, winreg.HKEY_LOCAL_MACHINE)
         key = winreg.OpenKey(reg,
-                r"SOFTWARE\Wow6432Node\bohemia interactive\arma 3")
-        armapath = winreg.EnumValue(key,1)[1]
+                             r"SOFTWARE\Wow6432Node\bohemia interactive\arma 3")
+        armapath = winreg.EnumValue(key, 1)[1]
     except:
         print("Failed to determine Arma 3 Path.")
         return 1
 
-    if not os.path.exists("P:\\z\\ace"):
-        print("No ACE3 Development Environment detected.")
+    if not os.path.exists("P:\\"):
+        print("No P-drive detected.")
         return 2
 
     scriptpath = os.path.realpath(__file__)
     projectpath = os.path.dirname(os.path.dirname(scriptpath))
 
     print("# Detected Paths:")
-    print("    Arma Path:    {}".format(armapath))
-    print("    Project Path: {}".format(projectpath))
+    print("  Arma Path:    {}".format(armapath))
+    print("  Project Path: {}".format(projectpath))
 
     repl = input("\nAre these correct? (y/n): ")
     if repl.lower() != "y":
@@ -62,7 +66,7 @@ def main():
 
     print("\n# Creating links ...")
 
-    if os.path.exists("P:\\{}\\{}".format(MAINDIR,PROJECTDIR)):
+    if os.path.exists("P:\\{}\\{}".format(MAINDIR, PROJECTDIR)):
         print("Link on P: already exists. Please finish the setup manually.")
         return 4
 
@@ -76,18 +80,31 @@ def main():
         if not os.path.exists(os.path.join(armapath, MAINDIR)):
             os.mkdir(os.path.join(armapath, MAINDIR))
 
-        if platform.win32_ver()[0] == "7":
-            subprocess.call(["cmd", "/c", "mklink", "/D", "P:\\{}\\{}".format(MAINDIR,PROJECTDIR), projectpath])
-            subprocess.call(["cmd", "/c", "mklink", "/D", os.path.join(armapath, MAINDIR, PROJECTDIR), projectpath])
-        else:
-            subprocess.call(["cmd", "/c", "mklink", "/D", "/J", "P:\\{}\\{}".format(MAINDIR,PROJECTDIR), projectpath])
-            subprocess.call(["cmd", "/c", "mklink", "/D", "/J", os.path.join(armapath, MAINDIR, PROJECTDIR), projectpath])
+        subprocess.call(["cmd", "/c", "mklink", "/J",
+                        "P:\\{}\\{}".format(MAINDIR, PROJECTDIR), projectpath])
+        subprocess.call(["cmd", "/c", "mklink", "/J",
+                        os.path.join(armapath, MAINDIR, PROJECTDIR), projectpath])
     except:
         raise
         print("Something went wrong during the link creation. Please finish the setup manually.")
         return 6
 
     print("# Links created successfully.")
+
+    print("\n# Copying required CBA includes ...")
+
+    if os.path.exists(CBA):
+        print("{} already exists, skipping.".format(CBA))
+        return -1
+
+    try:
+        shutil.copytree(os.path.join(projectpath, "include", "x", "cba"), CBA)
+    except:
+        raise
+        print("Something went wrong while copying CBA includes. Please copy tools\\cba to {} manually.".format(CBA))
+        return 7
+
+    print("# CBA includes copied successfully to {}.".format(CBA))
 
     return 0
 
