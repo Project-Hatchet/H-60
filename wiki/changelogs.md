@@ -5,7 +5,54 @@
 Changelogs works just how it sounds; they are telling you what changed in each release.<br>
 Versions labeled "RC" are Release Candidates. Those versions are released for testing purposes on Github and are not uploaded on steam.
 
-## [0.3.1 RC](https://github.com/Project-Hatchet/H-60/releases/tag/v0.3.1-rc)
+## [0.3.1]
+
+### Stretcher
+* Add Stretcher vehicle
+* 3 variants with different animations and editorPreview
+* Compatible with ViV, slingload, ACE drag and carry, load patient
+* Add Stretcher inventory item
+* Add Unfold Stretcher ACE Self Action, enabled by item
+
+### Doorgun
+* Fix right doorgun pointing wrong way
+
+### FLIR
+* Fix ui conflict with RHS MELB
+
+### SFM
+* Improve brakes, maxBrakeTorque from 1500 to 2500
+
+### MISC
+* Fix CRRC Assault Boat attach action
+
+### ViV
+* Fix conflict with ACE scrollwheel handling
+* Disallow loading units directly
+
+### Model
+* Fix rpt spam: Unsupported UVsets, autocenter agm
+* Fix low-offset hellfires from RC1
+
+### Hoist
+* Improve Attach Hook action distance, increased
+* Improve consistency of get out position
+* Improve reliability by disable the hook seat when a unit is attached already and vice versa
+* Fix duplicate string
+
+### Weapons
+* Add H60 versions of L and N variants of ACE Hellfire missiles
+
+### Flight Direction
+* Improve keybinds by disabling them while in Zeus
+
+### Mission
+* max players from 20 to 6
+* default tickets from 300 to 500
+* enemy spawn rate from 200% to 150%
+* switched non-pylon-gau21 to additional DAP
+
+## [0.3.1 RC]
 
 Stretcher:
 * Add Stretcher vehicle
