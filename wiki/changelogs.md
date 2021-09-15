@@ -5,7 +5,7 @@
 Changelogs works just how it sounds; they are telling you what changed in each release.<br>
 Versions labeled "RC" are Release Candidates. Those versions are released for testing purposes on Github and are not uploaded on steam.
 
-## [0.3.1 RC](https://github.com/Project-Hatchet/public_h-60/releases/tag/v0.3.1-rc)
+## [0.3.1 RC](https://github.com/Project-Hatchet/H-60/releases/tag/v0.3.1-rc)
 
 Stretcher:
 * Add Stretcher vehicle
@@ -50,7 +50,7 @@ Mission:
 * enemy spawn rate from 200% to 150%
 * switched non-pylon-gau21 to additional DAP
 
-## [0.3.0 RC](https://github.com/Project-Hatchet/public_h-60/releases/tag/0.3.0)
+## [0.3.0 RC](https://github.com/Project-Hatchet/H-60/releases/tag/0.3.0)
 Admin:
 * .editorconfig indent size from 4 to 2
 * minor version from 0.2.1 to 0.3.0
@@ -91,7 +91,7 @@ Outstanding issues:
 Warning Message: No entry '.idd'.
 Warning Message: '/' is not a value</code>
 
-## [0.3.0 - First major release of 2021](https://github.com/Project-Hatchet/public_h-60/releases/tag/v0.3.0)
+## [0.3.0 - First major release of 2021](https://github.com/Project-Hatchet/H-60/releases/tag/v0.3.0)
 Admin:
 * .editorconfig indent size from 4 to 2
 * minor version from 0.2.1 to 0.3.0
@@ -119,7 +119,7 @@ Vehicle-in-vehicle:
 * HH-60 and MH-60M viv space btween gunner seats and ERFS, blocks and is blocked by passengers in the floor FFV seats, door seats not affected
 
 Added FD RALT Toggle keybind
-## [0.2.0 - Frankenstein](https://github.com/Project-Hatchet/public_h-60/releases/tag/v0.2.0)
+## [0.2.0 - Frankenstein](https://github.com/Project-Hatchet/H-60/releases/tag/v0.2.0)
 Development structure changed to the ACE project structure using the P drive.
 
 Added:
