@@ -107,4 +107,18 @@ class cfgMagazines {
     model = QPATHTOF(fza_pod_m261.p3d);
     pylonWeapon = "vtx_apkws";
   };
+  class VTX_M230_Chaingun_L_AP: VTX_M230_Chaingun_L_HEI {
+    scope = 2;
+    ammo = "vtx_300Rnd_20mm_shells_ap";
+    displayname = "30x113 mm AP";
+    displayNameShort = "30x113 AP";
+    pylonWeapon = "vtx_chaingun_ap";
+  };
+  class VTX_M230_Chaingun_R_AP: VTX_M230_Chaingun_R_HEI {
+    scope = 2;
+    ammo = "vtx_300Rnd_20mm_shells_ap";
+    displayname = "30x113 mm AP";
+    displayNameShort = "30x113 AP";
+    pylonWeapon = "vtx_chaingun_ap";
+  };
 };
