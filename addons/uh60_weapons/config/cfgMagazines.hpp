@@ -28,14 +28,14 @@ class cfgMagazines {
     ammo = "VTX_Hellfire_AGM114N";
     pylonWeapon = "vtx_hellfire_launcher_N";
   };
-  class VTX_M230_Chaingun_L: VehicleMagazine {
+  class VTX_M230_Chaingun_L_HEI: VehicleMagazine {
     scope = 2;
-    ammo = "B_30mm_MP_Tracer_Green";
     descriptionShort = "Single-barrel chain-driven autocannon firing 30x113 mm M789 High Explosive Dual Purpose (HEDP) rounds.";
-    displayname = "M230 Chaingun [H60]";
-    displayNameShort = "M230";
+    ammo = "vtx_300Rnd_20mm_shells_hei";
+    displayname = "30x113 mm HEI";
+    displayNameShort = "30x113 HEI";
     initspeed = 805;
-    pylonWeapon = "vtx_chaingun";
+    pylonWeapon = "vtx_chaingun_hei";
     muzzlePos = "muzzlePos";
     muzzleEnd = "muzzleEnd";
     mass = 180; // cannon 60 kg, 300 * 0.34 kg per round
@@ -45,7 +45,20 @@ class cfgMagazines {
     hardpoints[] =    {"VTX_ST_L"};
     model = \z\vtx\addons\uh60_weapons\Data\M230\M230_L.p3d;
   };
-  class VTX_M230_Chaingun_R: VTX_M230_Chaingun_L {
+  class VTX_M230_Chaingun_R_HEI: VehicleMagazine {
+    scope = 2;
+    ammo = "vtx_300Rnd_20mm_shells_hei";
+    displayname = "30x113 mm HEI";
+    displayNameShort = "30x113 HEI";
+    initspeed = 805;
+    pylonWeapon = "vtx_chaingun_hei";
+    muzzlePos = "muzzlePos";
+    muzzleEnd = "muzzleEnd";
+    weight = 180;
+    mass = 180;
+    tracersEvery = 1;
+    lastRoundsTracer = 1;
+    count = 300;
     hardpoints[] =    {"VTX_ST_R"};
     model = \z\vtx\addons\uh60_weapons\Data\M230\M230_R.p3d;
   };
@@ -69,6 +82,20 @@ class cfgMagazines {
     mass = 336.5; // 36.3 kg launcher, 15.8 per rocket
     model = QPATHTOF(fza_pod_m261.p3d);
     pylonWeapon = "vtx_dagr";
+  };
+  class VTX_M230_Chaingun_L_AP: VTX_M230_Chaingun_L_HEI {
+    scope = 2;
+    ammo = "vtx_300Rnd_20mm_shells_ap";
+    displayname = "30x113 mm AP";
+    displayNameShort = "30x113 AP";
+    pylonWeapon = "vtx_chaingun_ap";
+  };
+  class VTX_M230_Chaingun_R_AP: VTX_M230_Chaingun_R_HEI {
+    scope = 2;
+    ammo = "vtx_300Rnd_20mm_shells_ap";
+    displayname = "30x113 mm AP";
+    displayNameShort = "30x113 AP";
+    pylonWeapon = "vtx_chaingun_ap";
   };
   class VTX_PylonRack_M261_APKWS: PylonRack_12Rnd_PG_missiles {
     ammo = "VTX_APKWS";
