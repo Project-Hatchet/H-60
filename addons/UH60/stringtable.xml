@@ -10,5 +10,8 @@
         <Key ID="STR_VTX_UH60_HHGMPavehawk">
             <English>HH-60G/M Pavehawk</English>
         </Key>
+        <Key ID="STR_VTX_UH60_HHWJollyGreen">
+            <English>HH-60W Jolly Green II</English>
+        </Key>
     </Package>
 </Project>

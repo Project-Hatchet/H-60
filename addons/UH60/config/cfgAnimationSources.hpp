@@ -77,6 +77,36 @@ class AnimationSources
         animPeriod=1;
         initPhase=0;
     };
+    class StretcherRack_Show {
+        source="user";
+        animPeriod=1;
+        initPhase=0;
+    };
+    class StretcherRack_Fold_B {
+        source="user";
+        animPeriod=1;
+        initPhase=1;
+    };
+    class StretcherRack_Fold_T {
+        source="user";
+        animPeriod=1;
+        initPhase=1;
+    };
+    class Nose_Show {
+        source="user";
+        animPeriod=1;
+        initPhase=0;
+    };
+    class flirnew_Show {
+        source="user";
+        animPeriod=1;
+        initPhase=0;
+    };
+    class CREWMFDW_Show {
+        source="user";
+        animPeriod=1;
+        initPhase=0;
+    };
     class MAWS_Tubes_Show {
         source="user";
         animPeriod=1;
@@ -271,6 +301,12 @@ class AnimationSources
             initPhase=0.5;
     };
     class Switch_lights_cockpit
+    {
+            source="user";
+            animPeriod=1;
+            initPhase=0.5;
+    };
+    class Switch_lights_cabin
     {
             source="user";
             animPeriod=1;
