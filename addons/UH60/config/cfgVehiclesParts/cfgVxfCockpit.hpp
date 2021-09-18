@@ -51,31 +51,7 @@ class interaction {
             animLabels[] = {"OFF", "ON"};
             animEnd="_this call vtx_uh60_misc_fnc_toggleLights";
             clickSound="vxf_Switch_Sound";
-        };
-        class Lights_cabinL {
-            positionType="static";
-            position="B_light_cabinL";
-            label="Cabin Light";
-            radius=BTN_RADIUS_SWITCH;
-            animation="Switch_lights_cabin";
-            animSpeed=0;
-            animStates[] = {0.5, 1};
-            animLabels[] = {"OFF", "ON"};
-            animEnd="_this call vtx_uh60_misc_fnc_toggleLights";
-            clickSound="vxf_Switch_Sound";
-        };
-        class Lights_cabinR {
-            positionType="static";
-            position="B_light_cabinR";
-            label="Cabin Light";
-            radius=BTN_RADIUS_SWITCH;
-            animation="Switch_lights_cabin";
-            animSpeed=0;
-            animStates[] = {0.5, 1};
-            animLabels[] = {"OFF", "ON"};
-            animEnd="_this call vtx_uh60_misc_fnc_toggleLights";
-            clickSound="vxf_Switch_Sound";
-        };
+        }; // Lights_position
         class fuelPump {
             positionType="static";
             position="b_fuelpump";

@@ -13,7 +13,6 @@ class CfgVehicles {
     CSAT(vtx_UH60M)
     CSAT(vtx_UH60M_Slick)
     CSAT(vtx_HH60)
-    CSAT(vtx_HH60W)
     CSAT(vtx_MH60M)
     CSAT(vtx_MH60M_DAP)
     CSAT(vtx_MH60S_Pylons_GAU21L)

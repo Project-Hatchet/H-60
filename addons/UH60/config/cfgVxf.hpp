@@ -34,57 +34,5 @@ class vxf_cargo {
             radius=0.1;
             animSpeed=1;
         }; // r_door
-        class T_rack1 {
-            clickSound="";
-            position="b_stretcher_tl";
-            positionType="anim";
-            label="Top stretcher";
-            animation="StretcherRack_Fold_T";
-            interactionCondition="_this call vtx_uh60_misc_fnc_canInteractStretcherRack";
-            animStates[] = {0, 1};
-            animLabels[] = {"Lowered", "Raised"};
-            animEnd="";
-            radius=0.1;
-            animSpeed=1;
-        }; // top stretcher
-        class T_rack2 {
-            clickSound="";
-            position="b_stretcher_tr";
-            positionType="anim";
-            label="Top stretcher";
-            animation="StretcherRack_Fold_T";
-            interactionCondition="_this call vtx_uh60_misc_fnc_canInteractStretcherRack";
-            animStates[] = {0, 1};
-            animLabels[] = {"Lowered", "Raised"};
-            animEnd="";
-            radius=0.1;
-            animSpeed=1;
-        }; // top stretcher
-        class B_rack1 {
-            clickSound="";
-            position="b_stretcher_bl";
-            positionType="anim";
-            label="Bottom stretcher";
-            animation="StretcherRack_Fold_B";
-            interactionCondition="_this call vtx_uh60_misc_fnc_canInteractStretcherRack";
-            animStates[] = {0, 1};
-            animLabels[] = {"Lowered", "Raised"};
-            animEnd="";
-            radius=0.1;
-            animSpeed=1;
-        }; // bottom stretcher
-        class B_rack2 {
-            clickSound="";
-            position="b_stretcher_br";
-            positionType="anim";
-            label="Bottom stretcher ";
-            animation="StretcherRack_Fold_B";
-            interactionCondition="_this call vtx_uh60_misc_fnc_canInteractStretcherRack";
-            animStates[] = {0, 1};
-            animLabels[] = {"Lowered", "Raised"};
-            animEnd="";
-            radius=0.1;
-            animSpeed=1;
-        }; // bottom stretcher
     };
 };
