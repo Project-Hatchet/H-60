@@ -5,7 +5,7 @@
     <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1745501605">
         <img src="https://img.shields.io/badge/Steam-dev%20build-orange?logo=steam" alt="H-60 Pack">
     </a>
-    <a href="https://github.com/zen-mod/ZEN/issues">
+    <a href="https://github.com/Project-Hatchet/public_h-60/issues">
         <img src="https://img.shields.io/github/issues-raw/Project-Hatchet/public_h-60.svg?label=Issues" alt="H-60 Pack Issues">
     </a>
     <a href="https://discord.gg/4AYEfFD">
@@ -35,3 +35,8 @@ Special thanks to
 - JLOrion
 - Raptor6
 - Sykocrazy
+
+
+
+
+<a rel="license" href="https://www.bohemia.net/community/licenses/arma-public-license-nd" target="_blank" ><img src="https://data.bistudio.com/images/license/APL-ND.png" ><br>This work is licensed under the Arma Public License No Derivatives</a>

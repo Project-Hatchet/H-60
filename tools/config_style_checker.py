@@ -11,7 +11,7 @@ def check_config_style(filepath):
     bad_count_file = 0
     def pushClosing(t):
         closingStack.append(closing.expr)
-        closing << Literal( closingFor[t[0]] )
+        closing << Literal(closingFor[t[0]])
 
     def popClosing():
         closing << closingStack.pop()
@@ -40,7 +40,7 @@ def check_config_style(filepath):
         checkForSemiColumn = False
 
         # Extra information so we know what line we find errors at
-        lineNumber = 0
+        lineNumber = 1
 
         indexOfCharacter = 0
         # Parse all characters in the content of this file to search for potential errors
@@ -137,9 +137,9 @@ def main():
         rootDir = "addons"
 
     for root, dirnames, filenames in os.walk(rootDir + '/' + args.module):
-        for filename in fnmatch.filter(filenames, '*.cpp'):
+      for filename in fnmatch.filter(filenames, '*.cpp'):
         sqf_list.append(os.path.join(root, filename))
-        for filename in fnmatch.filter(filenames, '*.hpp'):
+      for filename in fnmatch.filter(filenames, '*.hpp'):
         sqf_list.append(os.path.join(root, filename))
 
     for filename in sqf_list:

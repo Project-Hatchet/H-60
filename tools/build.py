@@ -9,17 +9,19 @@ MAINPREFIX = "z"
 PREFIX = "vtx_"
 ##########################
 
+
 def tryHemttBuild(projectpath):
     hemttExe = os.path.join(projectpath, "hemtt.exe")
     if os.path.isfile(hemttExe):
         os.chdir(projectpath)
         ret = subprocess.call([hemttExe, "pack"], stderr=subprocess.STDOUT)
-        print("Using hemtt: {}".format(ret));
+        print("Using HEMTT: {}".format(ret))
         return True
     else:
-        print("hemtt not installed");
+        print("HEMTT is not available")
     return False
-    
+
+
 def mod_time(path):
     if not os.path.isdir(path):
         return os.path.getmtime(path)
@@ -30,9 +32,10 @@ def mod_time(path):
 
 
 def check_for_changes(addonspath, module):
-    if not os.path.exists(os.path.join(addonspath, "{}{}.pbo".format(PREFIX,module))):
+    if not os.path.exists(os.path.join(addonspath, "{}{}.pbo".format(PREFIX, module))):
         return True
-    return mod_time(os.path.join(addonspath, module)) > mod_time(os.path.join(addonspath, "{}{}.pbo".format(PREFIX,module)))
+    return mod_time(os.path.join(addonspath, module)) > mod_time(os.path.join(addonspath, "{}{}.pbo".format(PREFIX, module)))
+
 
 def check_for_obsolete_pbos(addonspath, file):
     module = file[len(PREFIX):-4]
@@ -40,18 +43,20 @@ def check_for_obsolete_pbos(addonspath, file):
         return True
     return False
 
+
 def main():
     print("""
-  ####################
+  ###################
   # VTX Debug Build #
-  ####################
+  ###################
 """)
 
     scriptpath = os.path.realpath(__file__)
     projectpath = os.path.dirname(os.path.dirname(scriptpath))
     addonspath = os.path.join(projectpath, "addons")
 
-    if (tryHemttBuild(projectpath)): return
+    if (tryHemttBuild(projectpath)):
+        return
 
     os.chdir(addonspath)
 
@@ -85,9 +90,10 @@ def main():
             subprocess.check_output([
                 "makepbo",
                 "-NUP",
-                "-@={}\\{}\\addons\\{}".format(MAINPREFIX,PREFIX.rstrip("_"),p),
+                "-@={}\\{}\\addons\\{}".format(MAINPREFIX,
+                                               PREFIX.rstrip("_"), p),
                 p,
-                "{}{}.pbo".format(PREFIX,p)
+                "{}{}.pbo".format(PREFIX, p)
             ], stderr=subprocess.STDOUT)
         except:
             failed += 1
@@ -97,7 +103,8 @@ def main():
             print("  Successfully made {}.".format(p))
 
     print("\n# Done.")
-    print("  Made {}, skipped {}, removed {}, failed to make {}.".format(made, skipped, removed, failed))
+    print("  Made {}, skipped {}, removed {}, failed to make {}.".format(
+        made, skipped, removed, failed))
 
 
 if __name__ == "__main__":
