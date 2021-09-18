@@ -38,4 +38,11 @@ class cfgWeapons {
           };
       };
     };
+  class RocketPods;
+  class missiles_DAR: RocketPods {
+    magazines[] += {"VTX_PylonRack_M261_M229"};
+  };
+	class missiles_DAGR: RocketPods {
+    magazines[] += {"VTX_PylonRack_M261_DAGR"};
+  };
 };
