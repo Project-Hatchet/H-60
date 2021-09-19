@@ -69,7 +69,7 @@ def main():
         if os.path.isfile(file):
             if check_for_obsolete_pbos(addonspath, file):
                 removed += 1
-                print("  Removing obsolete file => " + file)
+                print("Removing obsolete file => " + file)
                 os.remove(file)
     print("")
 
