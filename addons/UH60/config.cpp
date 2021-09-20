@@ -6,7 +6,6 @@ class CfgPatches {
         units[] = {
       		"vtx_UH60M",
       		"vtx_HH60",
-          "vtx_HH60W",
           "vtx_UH60M_MEDEVAC"
         };
         weapons[] = {};
