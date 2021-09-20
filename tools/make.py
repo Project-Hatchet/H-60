@@ -57,20 +57,20 @@ if sys.platform == "win32":
     import winreg
 
 ######## GLOBALS #########
-project = "@vtx"
-project_version = "0.0.1"
+project = ""
+project_version = ""
 arma3tools_path = ""
 work_drive = ""
-module_root = ""
-make_root = ""
+module_root = "P:\z\vtx"
+make_root = "P:\z\vtx\tools"
 release_dir = ""
-module_root_parent = ""
+module_root_parent = "P:\z\vtx\addons"
 optionals_root = ""
-key_name = "vtx"
+key_name = ""
 key = ""
 dssignfile = ""
-prefix = "vtx"
-pbo_name_prefix = "vtx_"
+prefix = ""
+pbo_name_prefix = ""
 signature_blacklist = []
 importantFiles = ["mod.cpp", "meta.cpp", "README.md", "AUTHORS.txt", "LICENSE", "logo_vtx_ca.paa", "logo_vtx_small_ca.paa"]
 versionFiles = ["README.md", "mod.cpp"]
@@ -1272,9 +1272,9 @@ See the make.cfg file for additional build options.
 
                     else:
                         if check_external:
-                            cmd = [pboproject, "-P", os.path.join(work_drive, prefix, module), "+Engine=Arma3", "-S","+Noisy", "+X", "+Clean", "+Mod="+os.path.join(module_root, release_dir, project), "-Key"]
+                            cmd = [pboproject, "-P", os.path.join(work_drive, prefix, module), "+Engine=Arma3", "-S","+Noisy", "+Clean", "+Mod="+os.path.join(module_root, release_dir, project), "-Key"]
                         else:
-                            cmd = [pboproject, "-P", os.path.join(work_drive, prefix, module), "+Engine=Arma3", "-S","+Noisy", "-X", "+Clean", "+Mod="+os.path.join(module_root, release_dir, project), "-Key"]
+                            cmd = [pboproject, "-P", os.path.join(work_drive, prefix, module), "+Engine=Arma3", "-S","+Noisy", "+Clean", "+Mod="+os.path.join(module_root, release_dir, project), "-Key"]
 
                     color("grey")
                     if quiet:
