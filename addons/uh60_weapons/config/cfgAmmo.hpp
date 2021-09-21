@@ -67,6 +67,19 @@ class CfgAmmo {
   class vtx_300Rnd_30mm_shells_hedp : vtx_300Rnd_30mm_shells_ap {
     explosive = 1;
     hit = 20;
+  class vtx_300Rnd_30mm_shells_ap : B_30mm_MP_Tracer_Green {
+    caliber=4.4;
+    explosive = 0.1;
+    hit = 170;
+    indirectHit = 60;
+    indirectHitRange = 2;
+    explosionEffects = "ExploAmmoExplosion";
+    deflecting = 10;
+    
+  };
+  class vtx_300Rnd_30mm_shells_hedp : vtx_300Rnd_30mm_shells_ap {
+    explosive = 1;
+    hit = 20;
     indirectHit = 40;
     indirectHitRange = 2;
     explosionEffects = "ExploAmmoExplosion";
@@ -85,14 +98,4 @@ class CfgAmmo {
     
   };
   
-  class vtx_300Rnd_20mm_shells_ap : vtx_300Rnd_20mm_shells_hei {
-  };
-    
-    deflecting = 10;
-    explosionEffects = "ExploAmmoExplosion";
-    indirectHitRange = 2;
-    hit = 160;
-    explosive = 0.1;
-    indirectHit = 60;
-    caliber=4.4;
 };
