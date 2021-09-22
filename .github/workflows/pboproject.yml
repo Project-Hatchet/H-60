@@ -17,13 +17,10 @@ jobs:
     - name: Download game data
       run: |
         Invoke-WebRequest "$env:ARMA3_DATA_URL" -OutFile arma3.zip
-        $files = @("arma3.zip")
-        ForEach ($file in $files) {
-          Expand-Archive -Path $file -DestinationPath .
-          Remove-Item $file
-        }
+          Expand-Archive -Path  -DestinationPath 
       env:
         ARMA3_DATA_URL: ${{ secrets.ARMA3_DATA_URL }}
+        
     - name: Checkout vtx
       uses: actions/checkout@v2
       with:
