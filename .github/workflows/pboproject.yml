@@ -9,18 +9,14 @@ jobs:
     runs-on: windows-2019
     steps:
     
-   
-      
-    - name: Download game data
-      run: |
-        Invoke-WebRequest "$env:ARMA3_DATA_URL" -OutFile arma3.zip
-        $files = @("arma3.zip")
-        ForEach ($file in $files) {
-          Extract-7Zip -Path $file -DestinationPath .
-          Remove-Item $file
-        }
-      env:
-        ARMA3_DATA_URL: ${{ secrets.ARMA3_DATA_URL }}
+     - name: Install Arma 3 Tools
+      uses: arma-actions/arma3-tools@master
+      with:
+        toolsUrl: ${{ secrets.ARMA3_TOOLS_URL }}
+        
+    - name: Install Mikero Tools
+      uses: arma-actions/mikero-tools@2021-04-10
+
 
     - name: Checkout H-60
       uses: actions/checkout@v2
