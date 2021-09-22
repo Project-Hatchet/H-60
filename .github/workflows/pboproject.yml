@@ -52,7 +52,7 @@ jobs:
         path: temp/*.log
 
     - name: Upload to steam
-      uses: arma-actions/workshop-upload@v2
+      uses: arma-actions/workshop-upload@v1
       with:
         appId: '107410'    # default
         itemId: '2607181671' # Id of item to update
