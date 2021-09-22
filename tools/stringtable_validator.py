@@ -16,7 +16,7 @@ import xml.etree.ElementTree as ET
 
 
 ######## GLOBALS #########
-PROJECT_NAME = "VTX"
+PROJECT_NAME = "ACE"
 ##########################
 
 
@@ -37,8 +37,7 @@ def check_stringtable(filepath):
         errors += 1
 
     if root.get("name") != PROJECT_NAME:
-        print("  ERROR: Invalid name attribute '{}' for Project tag, must be '{}'.".format(
-            root.get("name"), PROJECT_NAME))
+        print("  ERROR: Invalid name attribute '{}' for Project tag, must be '{}'.".format(root.get("name"), PROJECT_NAME))
         errors += 1
 
     # Verify that the root has a Package tag and its name attribute matches the component's folder name
@@ -51,13 +50,11 @@ def check_stringtable(filepath):
         package_name = package.get("name")
 
         if package_name.islower():
-            print("  ERROR: Package name attribute '{}' is all lowercase, should be in titlecase.".format(
-                package_name))
+            print("  ERROR: Package name attribute '{}' is all lowercase, should be in titlecase.".format(package_name))
             errors += 1
 
         if package_name.lower() != os.path.basename(os.path.dirname(filepath)):
-            print("  ERROR: Package name attribute '{}' does not match the component folder name.".format(
-                package_name))
+            print("  ERROR: Package name attribute '{}' does not match the component folder name.".format(package_name))
             errors += 1
 
         # Get all keys contained in the stringtable
@@ -77,8 +74,7 @@ def check_stringtable(filepath):
                 print("  ERROR: Key '{}' had no ID attribute.".format(key_id))
                 errors += 1
             elif key_id.find(key_prefix) != 0:
-                print("  ERROR: Key '{}' does not have a valid ID attribute, should be in format {}{{name}}.".format(
-                    key_id, key_prefix))
+                print("  ERROR: Key '{}' does not have a valid ID attribute, should be in format {}{{name}}.".format(key_id, key_prefix))
                 errors += 1
 
             key_ids.append(key_id)
@@ -95,13 +91,11 @@ def check_stringtable(filepath):
                 errors += 1
             else:
                 if not key.find("Original") is None:
-                    print(
-                        "  ERROR: Key '{}' has an Original translation, unnecessary with English as first.".format(key_id))
+                    print("  ERROR: Key '{}' has an Original translation, unnecessary with English as first.".format(key_id))
                     errors += 1
 
                 if entries[0].tag != "English":
-                    print(
-                        "  ERROR: Key '{}' does not have its English translation listed first.".format(key_id))
+                    print("  ERROR: Key '{}' does not have its English translation listed first.".format(key_id))
                     errors += 1
 
                 languages = list(map(lambda l: l.tag, entries))
@@ -110,8 +104,7 @@ def check_stringtable(filepath):
                     count = languages.count(language)
 
                     if count > 1:
-                        print("  ERROR: Key '{}' has {} {} translations.".format(
-                            key_id, count, language))
+                        print("  ERROR: Key '{}' has {} {} translations.".format(key_id, count, language))
                         errors += 1
 
         # Verify that key IDs are unique
@@ -123,28 +116,27 @@ def check_stringtable(filepath):
                 errors += 1
 
     # Check whitespace for tabs and correct number of indenting spaces
-    with open(filepath, "r", encoding="utf-8") as file:
-        spacing_depth = 0
+    with open(filepath, "r", encoding = "utf-8") as file:
+       spacing_depth = 0
 
-        for line_number, line in enumerate(file, 1):
-            if "\t" in line:
-                print("  ERROR: Found a tab on line {}.".format(line_number))
-                errors += 1
+       for line_number, line in enumerate(file, 1):
+           if "\t" in line:
+               print("  ERROR: Found a tab on line {}.".format(line_number))
+               errors += 1
 
-            line_clean = line.lstrip().lower()
+           line_clean = line.lstrip().lower()
 
-            if line_clean.startswith("</key") or line_clean.startswith("</package") or line_clean.startswith("</project") or line_clean.startswith("</container"):
-                spacing_depth -= 4
+           if line_clean.startswith("</key") or line_clean.startswith("</package") or line_clean.startswith("</project") or line_clean.startswith("</container"):
+               spacing_depth -= 4
 
-            line_spacing = len(line.lower()) - len(line_clean)
+           line_spacing = len(line.lower()) - len(line_clean)
 
-            if line_spacing != spacing_depth:
-                print("  ERROR: Incorrect number of indenting spaces on line {}, currently {}, should be {}.".format(
-                    line_number, line_spacing, spacing_depth))
-                errors += 1
+           if line_spacing != spacing_depth:
+               print("  ERROR: Incorrect number of indenting spaces on line {}, currently {}, should be {}.".format(line_number, line_spacing, spacing_depth))
+               errors += 1
 
-            if line_clean.startswith("<key") or line_clean.startswith("<package") or line_clean.startswith("<project") or line_clean.startswith("<container"):
-                spacing_depth += 4
+           if line_clean.startswith("<key") or line_clean.startswith("<package") or line_clean.startswith("<project") or line_clean.startswith("<container"):
+               spacing_depth += 4
 
     return errors
 
@@ -170,13 +162,11 @@ def main():
     bad_count = 0
 
     for filepath in stringtable_files:
-        print("\nChecking {}:".format(os.path.relpath(filepath, root_dir)))
+        print("Checking {}:".format(os.path.relpath(filepath, root_dir)))
 
         errors = check_stringtable(filepath)
 
-        if errors == 0:
-            print("No errors found.")
-        else:
+        if errors != 0:
             print("Found {} error(s).".format(errors))
             bad_count += 1
 
