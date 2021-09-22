@@ -3,7 +3,7 @@ name: Steam_Upload/Release_Candidate
 on:
   push:
     tags:
-    - 'rc-v*.*.*'
+      - 'x-v*.*.*'
 
 jobs:
   build_addon:

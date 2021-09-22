@@ -1,10 +1,9 @@
 name: pboProject
-
 on:
   push:
-    branches:
-    - master
-  pull_request_target:
+    tags:
+      - 'rc*.*.*'
+
 
 jobs:
   pboproject:
@@ -26,24 +25,13 @@ jobs:
         }
       env:
         ARMA3_DATA_URL: ${{ secrets.ARMA3_DATA_URL }}
-    - name: Checkout CBA A3
+
+    - name: Checkout H-60
       uses: actions/checkout@v2
       with:
-        path: x\cba
+        path: z\vtx
         persist-credentials: false
-    - name: Checkout pull request
-      uses: actions/checkout@v2
-      if: ${{ github.event_name == 'pull_request_target' }}
-      with:
-        path: pullrequest
-        ref: 'refs/pull/${{ github.event.number }}/merge'
-    - name: Replace addons with pull request addons
-      if: ${{ github.event_name == 'pull_request_target' }}
-      run: |
-        rm -r x\cba\addons\
-        rm -r x\cba\optionals\
-        xcopy /e /h /q pullrequest\addons x\cba\addons\
-        xcopy /e /h /q pullrequest\optionals x\cba\optionals\
+
     - name: Setup build environment
       run: |
         subst P: .
@@ -58,8 +46,14 @@ jobs:
       with:
         name: logs
         path: temp/*.log
-    - name: Archive @cba_a3
-      uses: actions/upload-artifact@v2
+
+    - name: Upload to steam
+    - uses: arma-actions/workshop-upload@v2
       with:
-        name: '@cba_a3-${{ github.sha }}'
-        path: x\cba\release\@cba_a3
+        appId: '107410'    # default
+        itemId: '2607181671' # Id of item to update
+        contentPath: 'releases/${{ env.VERSION }}/@H-60 Release Candidate'
+        changelog: 'Content of change notes'
+      env:
+        STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+        STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
