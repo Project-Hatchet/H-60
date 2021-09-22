@@ -9,13 +9,7 @@ jobs:
     runs-on: windows-2019
     steps:
     
-    - name: Install Arma 3 Tools
-      uses: arma-actions/arma3-tools@master
-      with:
-        toolsUrl: ${{ secrets.ARMA3_TOOLS_URL }}
-        
-    - name: Install Mikero Tools
-      uses: arma-actions/mikero-tools@2021-04-10
+   
       
     - name: Download game data
       run: |
