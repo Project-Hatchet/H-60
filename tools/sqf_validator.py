@@ -3,189 +3,189 @@
 import fnmatch
 import os
 import re
+import ntpath
 import sys
+import argparse
 
-
-def valid_keyword_after_code(content, index):
-    for word in ["for", "do", "count", "each", "forEach", "else", "and", "not", "isEqualTo", "isNotEqualTo", "in", "call", "spawn", "execVM", "catch", "param", "select", "apply", "findIf", "remoteExec"]:
-        if content.find(word, index, index + len(word)) != -1:
-            return True
-
+def validKeyWordAfterCode(content, index):
+    keyWords = ["for", "do", "count", "each", "forEach", "else", "and", "not", "isEqualTo", "in", "call", "spawn", "execVM", "catch", "param", "select", "apply", "findIf", "remoteExec"];
+    for word in keyWords:
+        try:
+            subWord = content.index(word, index, index+len(word))
+            return True;
+        except:
+            pass
     return False
 
+def check_sqf_syntax(filepath):
+    bad_count_file = 0
+    def pushClosing(t):
+        closingStack.append(closing.expr)
+        closing << Literal( closingFor[t[0]] )
 
-def check_sqf(filepath):
-    errors = []
+    def popClosing():
+        closing << closingStack.pop()
 
-    with open(filepath, "r", encoding = "utf-8", errors = "ignore") as file:
+    with open(filepath, 'r', encoding='utf-8', errors='ignore') as file:
         content = file.read()
 
         # Store all brackets we find in this file, so we can validate everything on the end
-        brackets = []
-
-        # Used in case we are in a line comment (//)
-        ignore_till_eol = False
+        brackets_list = []
 
         # To check if we are in a comment block
-        in_comment_block = False
-        check_if_comment = False
-
-        # Used in case we are in a comment block (/* */)
-        # This is true if we detect a * inside a comment block
-        # If the next character is a /, it means we end our comment block
-        check_if_closing = False
+        isInCommentBlock = False
+        checkIfInComment = False
+        # Used in case we are in a line comment (//)
+        ignoreTillEndOfLine = False
+        # Used in case we are in a comment block (/* */). This is true if we detect a * inside a comment block.
+        # If the next character is a /, it means we end our comment block.
+        checkIfNextIsClosingBlock = False
 
         # We ignore everything inside a string
-        in_string = False
-
+        isInString = False
         # Used to store the starting type of a string, so we can match that to the end of a string
-        string_type = ""
+        inStringType = '';
 
-        # Used to check for semicolon after code blocks
-        last_is_curly_brace = False
-        check_for_semicolon = False
+        lastIsCurlyBrace = False
+        checkForSemicolon = False
+        onlyWhitespace = True
 
         # Extra information so we know what line we find errors at
-        line_number = 1
+        lineNumber = 1
 
-        char_index = 0
-
+        indexOfCharacter = 0
+        # Parse all characters in the content of this file to search for potential errors
         for c in content:
-            if last_is_curly_brace:
-                last_is_curly_brace = False
-
+            if (lastIsCurlyBrace):
+                lastIsCurlyBrace = False
                 # Test generates false positives with binary commands that take CODE as 2nd arg (e.g. findIf)
-                check_for_semicolon = not re.search("findIf", content, re.IGNORECASE)
+                checkForSemicolon = not re.search('findIf', content, re.IGNORECASE)
 
-            # Keep track of current line number
-            if c == "\n":
-                line_number += 1
+            if c == '\n': # Keeping track of our line numbers
+                onlyWhitespace = True # reset so we can see if # is for a preprocessor command
+                lineNumber += 1 # so we can print accurate line number information when we detect a possible error
+            if (isInString): # while we are in a string, we can ignore everything else, except the end of the string
+                if (c == inStringType):
+                    isInString = False
+            # if we are not in a comment block, we will check if we are at the start of one or count the () {} and []
+            elif (isInCommentBlock == False):
 
-            # While we are in a string, we can ignore everything else, except the end of the string
-            if in_string:
-                if c == string_type:
-                    in_string = False
-
-            # Look for the end of this comment block
-            elif in_comment_block:
-                if c == "*":
-                    check_if_closing = True
-                elif check_if_closing:
-                    if c == "/":
-                        in_comment_block = False
-                    elif c != "*":
-                        check_if_closing = False
-
-            # If we are not in a comment block, we will check if we are at the start of one or count the () {} and []
-            else:
                 # This means we have encountered a /, so we are now checking if this is an inline comment or a comment block
-                if check_if_comment:
-                    check_if_comment = False
+                if (checkIfInComment):
+                    checkIfInComment = False
+                    if c == '*': # if the next character after / is a *, we are at the start of a comment block
+                        isInCommentBlock = True
+                    elif (c == '/'): # Otherwise, will check if we are in an line comment
+                        ignoreTillEndOfLine = True # and an line comment is a / followed by another / (//) We won't care about anything that comes after it
 
-                    # If the next character after / is a *, we are at the start of a comment block
-                    if c == "*":
-                        in_comment_block = True
+                if (isInCommentBlock == False):
+                    if (ignoreTillEndOfLine): # we are in a line comment, just continue going through the characters until we find an end of line
+                        if (c == '\n'):
+                            ignoreTillEndOfLine = False
+                    else: # validate brackets
+                        if (c == '"' or c == "'"):
+                            isInString = True
+                            inStringType = c
+                        elif (c == '#' and onlyWhitespace):
+                            ignoreTillEndOfLine = True
+                        elif (c == '/'):
+                            checkIfInComment = True
+                        elif (c == '('):
+                            brackets_list.append('(')
+                        elif (c == ')'):
+                            if (brackets_list[-1] in ['{', '[']):
+                                print("ERROR: Possible missing round bracket ')' detected at {0} Line number: {1}".format(filepath,lineNumber))
+                                bad_count_file += 1
+                            brackets_list.append(')')
+                        elif (c == '['):
+                            brackets_list.append('[')
+                        elif (c == ']'):
+                            if (brackets_list[-1] in ['{', '(']):
+                                print("ERROR: Possible missing square bracket ']' detected at {0} Line number: {1}".format(filepath,lineNumber))
+                                bad_count_file += 1
+                            brackets_list.append(']')
+                        elif (c == '{'):
+                            brackets_list.append('{')
+                        elif (c == '}'):
+                            lastIsCurlyBrace = True
+                            if (brackets_list[-1] in ['(', '[']):
+                                print("ERROR: Possible missing curly brace '}}' detected at {0} Line number: {1}".format(filepath,lineNumber))
+                                bad_count_file += 1
+                            brackets_list.append('}')
+                        elif (c== '\t'):
+                            print("ERROR: Tab detected at {0} Line number: {1}".format(filepath,lineNumber))
+                            bad_count_file += 1
 
-                    # Otherwise, check if we are in an line comment, / followed by another / (//)
-                    elif c == "/":
-                        ignore_till_eol = True
+                        if (c not in [' ', '\t', '\n']):
+                            onlyWhitespace = False
 
-                if not in_comment_block:
-                    if ignore_till_eol:
-                        # We are in a line comment, just continue going through the characters until we find an end of line
-                        if c == "\n":
-                            ignore_till_eol = False
-                    else:
-                        if c == '"' or c == "'":
-                            in_string = True
-                            string_type = c
-                        elif c == "/":
-                            check_if_comment = True
-                        elif c == "\t":
-                            errors.append("  ERROR: Found a tab on line {}.".format(line_number))
-                        elif c in ["(", "[", "{"]:
-                            brackets.append(c)
-                        elif c == ")":
-                            if not brackets or brackets[-1] in ["[", "{"]:
-                                errors.append("  ERROR: Missing parenthesis '(' on line {}.".format(line_number))
-                            brackets.append(c)
-                        elif c == "]":
-                            if not brackets or brackets[-1] in ["(", "{"]:
-                                errors.append("  ERROR: Missing square bracket '[' on line {}.".format(line_number))
-                            brackets.append(c)
-                        elif c == "}":
-                            last_is_curly_brace = True
+                        if (checkForSemicolon):
+                            if (c not in [' ', '\t', '\n', '/']): # keep reading until no white space or comments
+                                checkForSemicolon = False
+                                if (c not in [']', ')', '}', ';', ',', '&', '!', '|', '='] and not validKeyWordAfterCode(content, indexOfCharacter)): # , 'f', 'd', 'c', 'e', 'a', 'n', 'i']):
+                                    print("ERROR: Possible missing semicolon ';' detected at {0} Line number: {1}".format(filepath,lineNumber))
+                                    bad_count_file += 1
 
-                            if not brackets or brackets[-1] in ["(", "["]:
-                                errors.append("  ERROR: Missing curly brace '{{' on line {}.".format(line_number))
-                            brackets.append(c)
+            else: # Look for the end of our comment block
+                if (c == '*'):
+                    checkIfNextIsClosingBlock = True;
+                elif (checkIfNextIsClosingBlock):
+                    if (c == '/'):
+                        isInCommentBlock = False
+                    elif (c != '*'):
+                        checkIfNextIsClosingBlock = False
+            indexOfCharacter += 1
 
-                        if check_for_semicolon:
-                            # Keep reading until no white space or comments
-                            if c not in [" ", "\t", "\n", "/"]:
-                                check_for_semicolon = False
-                                if c not in ["]", ")", "}", ";", ",", "&", "!", "|", "="] and not valid_keyword_after_code(content, char_index):
-                                    errors.append("  ERROR: Possible missing semicolon ';' on line {}.".format(line_number))
+        if brackets_list.count('[') != brackets_list.count(']'):
+            print("ERROR: A possible missing square bracket [ or ] in file {0} [ = {1} ] = {2}".format(filepath,brackets_list.count('['),brackets_list.count(']')))
+            bad_count_file += 1
+        if brackets_list.count('(') != brackets_list.count(')'):
+            print("ERROR: A possible missing round bracket ( or ) in file {0} ( = {1} ) = {2}".format(filepath,brackets_list.count('('),brackets_list.count(')')))
+            bad_count_file += 1
+        if brackets_list.count('{') != brackets_list.count('}'):
+            print("ERROR: A possible missing curly brace {{ or }} in file {0} {{ = {1} }} = {2}".format(filepath,brackets_list.count('{'),brackets_list.count('}')))
+            bad_count_file += 1
+        pattern = re.compile('\s*(/\*[\s\S]+?\*/)\s*#include')
+        if pattern.match(content):
+            print("ERROR: A found #include after block comment in file {0}".format(filepath))
+            bad_count_file += 1
 
-            char_index += 1
 
-        # Compare opening and closing bracket counts
-        if brackets.count("(") != brackets.count(")"):
-            errors.append("  ERROR: Unequal number of parentheses, '(' = {}, ')' = {}.".format(brackets.count("("), brackets.count(")")))
 
-        if brackets.count("[") != brackets.count("]"):
-            errors.append("  ERROR: Unequal number of square brackets, '[' = {}, ']' = {}.".format(brackets.count("["), brackets.count("]")))
-
-        if brackets.count("{") != brackets.count("}"):
-            errors.append("  ERROR: Unequal number of curly braces, '{{' = {}, '}}' = {}.".format(brackets.count("{"), brackets.count("}")))
-
-        # Ensure includes are before block comments
-        if re.compile('\s*(/\*[\s\S]+?\*/)\s*#include').match(content):
-            errors.append("  ERROR: Found an #include after a block comment.")
-
-    return errors
-
+    return bad_count_file
 
 def main():
+
     print("Validating SQF")
-    print("--------------")
 
-    # Allow running from root directory and tools directory
-    root_dir = ".."
-    if os.path.exists("addons"):
-        root_dir = "."
-
-    # Check all SQF files in the project directory
-    sqf_files = []
-
-    for root, _, files in os.walk(root_dir):
-        for file in fnmatch.filter(files, "*.sqf"):
-            sqf_files.append(os.path.join(root, file))
-
-    sqf_files.sort()
-
+    sqf_list = []
     bad_count = 0
 
-    for filepath in sqf_files:
-        errors = check_sqf(filepath)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-m','--module', help='only search specified module addon folder', required=False, default="")
+    args = parser.parse_args()
 
-        if errors:
-            print("\nFound {} error(s) in {}:".format(len(errors), os.path.relpath(filepath, root_dir)))
+    for folder in ['addons', 'optionals']:
+        # Allow running from root directory as well as from inside the tools directory
+        rootDir = "../" + folder
+        if (os.path.exists(folder)):
+            rootDir = folder
 
-            for error in errors:
-                print(error)
+        for root, dirnames, filenames in os.walk(rootDir + '/' + args.module):
+            for filename in fnmatch.filter(filenames, '*.sqf'):
+                sqf_list.append(os.path.join(root, filename))
 
-            bad_count += 1
+    for filename in sqf_list:
+        bad_count = bad_count + check_sqf_syntax(filename)
 
-    print("\nChecked {} files, found errors in {}.".format(len(sqf_files), bad_count))
 
-    if bad_count == 0:
-        print("SQF Validation PASSED")
+    print("------\nChecked {0} files\nErrors detected: {1}".format(len(sqf_list), bad_count))
+    if (bad_count == 0):
+        print("SQF validation PASSED")
     else:
-        print("SQF Validation FAILED")
+        print("SQF validation FAILED")
 
     return bad_count
-
 
 if __name__ == "__main__":
     sys.exit(main())
