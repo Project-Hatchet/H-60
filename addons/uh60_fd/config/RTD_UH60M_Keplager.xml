@@ -1415,10 +1415,10 @@
             <Suspension>
                 <MountStation    x="-1.402" y="2.746" z="-1.279"/>
                 <SliderAxis x="0" y="0" z="1" />
-                <SuspensionLength length="0.394" />
-                <SpringParameters springConstant="200000" damperConstant="50000" maxCompression="0.359" />
+                <SuspensionLength length="0.63" />
+                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.13" />
             </Suspension>
-            <Wheel mass="1" radius="0.318" >
+            <Wheel mass="1" radius="0.23" >
                 <RollAxis x="1" y="0" z="0" />
                 <Friction slidingFriction="0.7" resistanceTorqueNoBrake="1" resistanceTorqueFullBrake="3000" />
             </Wheel>
@@ -1431,10 +1431,10 @@
             <Suspension>
                 <MountStation    x="1.402" y="2.746" z="-1.279"/>
                 <SliderAxis x="0" y="0" z="1" />
-                <SuspensionLength length="0.394" />
-                <SpringParameters springConstant="200000" damperConstant="50000" maxCompression="0.359" />
+                <SuspensionLength length="0.63" />
+                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.13" />
             </Suspension>
-            <Wheel mass="1" radius="0.318" >
+            <Wheel mass="1" radius="0.23" >
                 <RollAxis x="1" y="0" z="0" />
                 <Friction slidingFriction="0.7" resistanceTorqueNoBrake="1" resistanceTorqueFullBrake="3000" />
             </Wheel>
@@ -1446,12 +1446,12 @@
             <Features isBrakable="true" isRetractable="true" isSteerable="true"    />
             <Aerodynamics equivalentFlatPlateArea ="0.067" />
             <Suspension>
-                <MountStation    x="0" y="-6.272" z="-1.458"/>
+                <MountStation    x="0" y="-5.8" z="-1.2"/>
                 <SliderAxis x="0" y="0" z="1" />
-                <SuspensionLength length="0.279" />
-                <SpringParameters springConstant="150000" damperConstant="50000" maxCompression="0.245" />
+                <SuspensionLength length="0.74" />
+                <SpringParameters springConstant="150000" damperConstant="50000" maxCompression="0.24" />
             </Suspension>
-            <Wheel mass="1" radius="0.231" >
+            <Wheel mass="1" radius="0.21" >
                 <RollAxis x="1" y="0" z="0" />
                 <Friction slidingFriction="0.7" resistanceTorqueNoBrake="1" resistanceTorqueFullBrake="1000" />
             </Wheel>
