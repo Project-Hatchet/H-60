@@ -27,5 +27,6 @@ if (!isNil "_attachedBoat") then {
         _attachedBoat lock false;
         _attachedBoat setVelocity (velocity _vehicle);
         _vehicle setVariable ["vtx_crrc_attached", nil, true];
+        _attachedBoat enableRopeAttach true;
     };
 };

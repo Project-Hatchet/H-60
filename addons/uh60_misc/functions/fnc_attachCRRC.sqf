@@ -15,4 +15,5 @@ if (!isNil "_attachedBoat") exitWith {
 if (count (crew _boat) > 0) exitWith {hint "Boat is not empty"};
 _boat lock true;
 _boat attachTo [_helicopter, [0,1.5,-0.85]];
+_boat enableRopeAttach false;
 _helicopter setVariable ["vtx_crrc_attached", _boat, true];
