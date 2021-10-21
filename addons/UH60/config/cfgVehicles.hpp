@@ -14,6 +14,7 @@ class CfgVehicles
             class MainTurret;
             class CopilotTurret;
         };
+        class Attributes;
         class Eventhandlers;
         class Viewoptics;
         class ViewPilot;
@@ -26,6 +27,7 @@ class CfgVehicles
 
     class vtx_H60_base: Heli_Transport_01_base_F
     {
+        #include "edenAttributes.hpp"
         author = "Project Hatchet Studio";
         class VTX_H60_HDTS_Copilot;
         #include "cfgVxf.hpp"
