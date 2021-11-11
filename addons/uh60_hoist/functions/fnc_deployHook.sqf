@@ -35,6 +35,10 @@ _rope = ropeCreate [_heli, _hoistPos, _dummy, [0,0,0], 0.5];
 _heli setVariable ["vtx_uh60_hoist_vars", [_rope, _dummy, _hook], true];
 _hook setVariable ["vtx_uh60_hoist_heli", _heli, true];
 
+// This should fix the hook teleport issue. - Fawks
+_rope allowDamage false;
+_hook allowDamage false;
+
 // handle rope break
 _heli addEventHandler ["RopeBreak",{
     params ["_heli", "_rope", "_dummy"];

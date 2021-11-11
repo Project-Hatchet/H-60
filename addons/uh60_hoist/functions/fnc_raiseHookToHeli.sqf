@@ -21,6 +21,27 @@ _hoist_vars params ["_rope", "_dummy", "_hook"];
 
 _hoistPos = [1.405, 2.03, 0.45];
 ropeUnwind [_rope, 1.5, 0.5];
+
+
+// Added by Fawks
+// Monitor the hook while it is being raised.
+// If the hook goes underground teleport it above ground.
+
+[_rope, _hook] spawn {
+  params ["_rope", "_hook"];
+  waitUntil {
+    _hookPos = getPosATL _hook;
+    if ((_hookPos # 2) > 10) then {
+      true
+    } else {
+      if ((_hookPos) # 2 < 0) then {
+        _hook setPos [_hookPos # 0, _hookPos # 1, 5];
+      };
+      sleep 1;
+      false
+    };
+  };
+};
 /*
 [{
 	params ["_heli", "_hoistPos", "_dummy", "_rope"];
