@@ -54,6 +54,15 @@ if ((getPilotCameraTarget _vehicle) # 0) then {
     _vehicle setUserMFDvalue [11,-1];
 };
 
+if (!isNil "vtx_uh60_fms_nearestLocation") then {
+    private _direction = (_center getDir (getPos vtx_uh60_fms_nearestLocation)) - _startDir;
+    _vehicle setUserMFDvalue [41, if(_direction < 0) then {_direction + 360} else {_direction}];
+    _vehicle setUserMFDvalue [42, ((_center distance2D (getPos vtx_uh60_fms_nearestLocation)) * _zoomLevel) / (vtx_uh60_fms_mapSize / 2)];
+} else {
+    _vehicle setUserMFDvalue [41,-1];
+    _vehicle setUserMFDvalue [42,-1];
+};
+
 if (speed _vehicle > 2) then {
     private _speedMS = vectorMagnitude (velocity _vehicle);
     private _tofSecondsTotal = (_position distance _vehicle) / _speedMS;
