@@ -40,7 +40,7 @@ class MainTurret: MainTurret { //Left Doorgun
     };
     animationSourceHatch="";
     gunnerAction=M134Gunner;
-    gunnerCompartments = Compartment2;
+    gunnerCompartments = Compartment1;
     gunnerInAction=M134Gunner;
     gunnerOpticsModel="\A3\Weapons_F\empty.p3d";
     gunnerOpticsShowCursor=0;

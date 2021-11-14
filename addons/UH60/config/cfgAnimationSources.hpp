@@ -221,7 +221,9 @@ class AnimationSources
     class CautionEng1Out:ACCLow{};
     class CautionEng2Out:ACCLow{};
     class CautionFire:ACCLow{};
-    class CautionMasterCaution:ACCLow{};
+    class CautionMasterCaution:ACCLow{
+        initPhase = 0;
+    };
     class Gauge_temp
     {
             source="user";

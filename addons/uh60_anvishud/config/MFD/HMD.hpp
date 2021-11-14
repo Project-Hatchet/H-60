@@ -234,7 +234,7 @@ class Bones {
 	}; // WPPoint
 }; // Bones
 class Draw {
-	condition="(user15>-1)*on";
+	condition="(user15>-1)";
 	class Outline {
 		type="line";
 		width = 0;
