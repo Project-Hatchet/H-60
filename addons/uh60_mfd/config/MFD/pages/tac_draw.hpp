@@ -273,6 +273,63 @@ class TGP_STABILIZED {
     };
 }; // Mark_TEXT
 
+
+class NEAREST_LOCATION {
+    condition = (user41 > -1);
+    color[]={0,0,0,1};
+    class Mark_Circle
+    {
+        type = "line";
+        width = 6;
+        points[]={
+            {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0, 0.02},1},
+            {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0.02, 0},1},
+            {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0, -0.02},1},
+            {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{-0.02, 0},1},
+            {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0, 0.02},1}
+        };
+    }; // Mark_Circle
+    class PolygonJet {
+		type        = "polygon";
+		points[] ={
+			{
+                {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0.01, 0.0},1},
+                {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0.165, 0.0},1},
+                {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0.165, 0.045},1},
+                {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0.01, 0.045},1},
+			}
+		};
+    };
+    class green {
+        color[]=RGBA256(220,40,220,1);
+        class Mark_Circle
+        {
+            type = "line";
+            width = 2;
+            points[]={
+                {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0, 0.02},1},
+                {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0.02, 0},1},
+                {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0, -0.02},1},
+                {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{-0.02, 0},1},
+                {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0, 0.02},1}
+            };
+        }; // Mark_Circle
+        class LOC_TEXT {
+            type="text";
+            source="userText";
+            sourceIndex=12;
+            scale=1;
+            sourceScale=1;
+            align = "right";
+            text="0";
+            pos[]= {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0.04 - 0.02, 0.0}, 1};
+            right[]= {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0.085 - 0.02, 0.00}, 1};
+            down[]= {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0.04 - 0.02, 0.045}, 1};
+        };
+    }; // green
+}; // Mark_TEXT
+
+
 class BFT_COND {
     condition=((user27 > -1)*(user18<1));
     #include "bft.hpp"
