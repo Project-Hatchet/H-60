@@ -4,7 +4,7 @@ class CargoTurret_01: CargoTurret
     memoryPointsGetInGunner = "pos cargo R";
     memoryPointsGetInGunnerDir = "pos cargo R dir";
     gunnerName = "Door Right 1 (hoist controls)";
-    gunnerCompartments = Compartment2;
+    gunnerCompartments = Compartment1;
     proxyIndex = 12;
     isPersonTurret = 1;        /// this turret is able to fire both when turned in and out
     class TurnIn /// limits for gunner turned in

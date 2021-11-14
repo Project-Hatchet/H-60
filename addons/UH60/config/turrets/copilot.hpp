@@ -24,5 +24,12 @@ class CopilotTurret: CopilotTurret {
         class VTX_H60_HDTS_Copilot: VTX_H60_HDTS_Copilot {};
 	};
 	class Hitpoints {};
-    #include "..\cfgVehiclesParts\components.hpp"
+    class Components: Components {
+		class SensorsManagerComponent {
+			class Components {
+				class PassiveRadarSensorComponent: SensorTemplatePassiveRadar {};
+				class DatalinkSensorComponent: SensorTemplateDataLink {};
+			};
+		};
+	};
 };

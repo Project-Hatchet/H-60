@@ -7,6 +7,7 @@ class modules {
     class jvmf: engine {};
     class flir: engine {};
     class misc: engine {};
+    class cas: engine {};
     class ui: engine {
         startOnEnter = 0;
     };

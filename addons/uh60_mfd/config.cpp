@@ -1,7 +1,9 @@
 #include "script_component.hpp"
 
-class CfgPatches {
-    class ADDON {
+class CfgPatches
+{
+    class ADDON
+    {
         name = COMPONENT_NAME;
         units[] = {};
         weapons[] = {};
@@ -17,3 +19,4 @@ class CfgPatches {
 
 #include "config\mfdDefines.hpp"
 #include "config\cfgVehicles.hpp"
+#include "config\cfgMagazines.hpp"

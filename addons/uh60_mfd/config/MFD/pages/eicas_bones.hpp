@@ -97,8 +97,8 @@ class T2: EICAS_RPM1 {
 };
 class NG1: T1 {max=120;sourceScale=1;};
     class NG2: T2 {max=120;sourceScale=1;};
-    class TGT1: T1 {max=900;sourceScale=1;};
-    class TGT2: T2 {max=900;sourceScale=1;};
+    class TGT1: T1 {max=520;sourceScale=5;};
+    class TGT2: T2 {max=520;sourceScale=5;};
     class Q1: T1 {max=120;sourceScale=1;};
     class Q2: T2 {max=120;sourceScale=1;};
     class TRQ: EICAS_RPM1 {

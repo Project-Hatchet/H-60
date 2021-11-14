@@ -1,10 +1,10 @@
 class HitPoints: HitPoints {
     class HitEngine1 {
-        armor = -50;
+        armor = 1;
         convexComponent = "engine_1_hit";
         explosionShielding = 4;
         material = 51;
-        minimalHit = 0.1;
+        minimalHit = 0;
         name = "engine_1_hit";
         passThrough = 0;
         radius = 0.3;
@@ -37,5 +37,16 @@ class HitPoints: HitPoints {
         convexComponent = "maws_hit";
         name = "maws_hit";
         radius = 0.1;
+    };
+    class HitVRotor {
+        armor = 1.3;
+        convexComponent = "tail_rotor_hit";
+        explosionShielding = 6;
+        material = 51;
+        minimalHit = 0.05;
+        name = "tail_rotor_hit";
+        passThrough = 0.3;
+        radius = 1;
+        visual = "tail rotor static";
     };
 };
