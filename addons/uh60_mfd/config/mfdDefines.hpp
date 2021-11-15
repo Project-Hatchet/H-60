@@ -44,6 +44,39 @@
 #define STR(A) #A
 
 //ELEMENTS
+
+
+#define TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
+	class CLASS { \
+		type = "text"; \
+		align = "center"; \
+		scale = 1; \
+		pos[] = {{X, Y}, 1}; \
+		right[] = {{X + SCALE, Y}, 1}; \
+		down[] = {{X, Y + SCALE}, 1};
+
+#define TEXT_MID_SCALED(CLASS,X,Y,TEXT,SCALE) \
+	TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
+		source = "static"; \
+		text = TEXT; \
+	};
+
+#define TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
+	class CLASS { \
+		type = "text"; \
+		align = "right"; \
+		scale = 1; \
+		pos[] = {{X, Y}, 1}; \
+		right[] = {{X + SCALE, Y}, 1}; \
+		down[] = {{X, Y + SCALE}, 1};
+
+#define TEXT_LEFT_SCALED(CLASS,X,Y,TEXT,SCALE) \
+	TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
+		source = "static"; \
+		text = TEXT; \
+	};
+
+
 #define TEXT_LEFT_OPEN(CLASS) \
     class CLASS { \
         type = "text"; \
