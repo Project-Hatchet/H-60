@@ -9,3 +9,4 @@ PREP(setup);
 PREP(shutdown);
 PREP(starterState);
 PREP(wheelBrakes);
+PREP(autoStart);

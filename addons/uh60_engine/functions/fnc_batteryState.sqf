@@ -18,7 +18,7 @@ if (ANIM("GeneratorsOnOff") != _genAnim) then {
     _vehicle animate ["GeneratorsOnOff",_genAnim];
 };
 
-if (_vehicle animationPhase "ESIS_hide" > 0 && typeName _animEndState == "STRING" && {_animName == "Switch_stbyinst"} && {_animEndState == "ARM"}) then {
+if (_vehicle animationPhase "ESIS_hide" > 0 && typeName _animName == "STRING" && typeName _animEndState == "STRING" && {_animName == "Switch_stbyinst"} && {_animEndState == "ARM"}) then {
     _vehicle setVariable ["ESIS_COUNTER", 70, true];
 };
 _vehicle animate ["ESIS_hide",ANIM("Switch_stbyinst")];

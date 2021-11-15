@@ -9,9 +9,10 @@
 params ["_vehicle"];
 if (!vtx_uh60m_enabled_engine) exitWith {false};
 
-vtx_uh60_engine_engineEH = _vehicle addEventHandler ["engine", vtx_uh60_engine_fnc_engineEH];
+vtx_uh60_engine_engineEH = _vehicle addEventHandler ["engine", {_this spawn vtx_uh60_engine_fnc_engineEH}];
 vtx_uh60_engine_lastFuelLevel = fuel _vehicle;
 vtx_uh60_engine_lastAltitude = ((getPosASL _vehicle) # 2);
+vtx_uh60_lastSimpleStart = -10;
 #define SET_GLOBAL_DEFUALT(VAR,DEFAULT) _vehicle setVariable [VAR, _vehicle getVariable [VAR, DEFAULT], true];
 SET_GLOBAL_DEFUALT("ENG1_PWR", 0)
 SET_GLOBAL_DEFUALT("ENG1_PWR", 0)

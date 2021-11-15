@@ -10,7 +10,16 @@ diag_log format ["%1: engine EH", time];
 
 params ["_vehicle", "_turnedOn", ["_lever","throttle"]];
 
-if (!local _vehicle || vtx_uh60m_simpleStartup) exitWith {};
+if (!local _vehicle) exitWith {};
+
+private _spawnedInAir = (time < 10 && (getPos _vehicle) # 2 > 10);
+private _simpleStart = vtx_uh60m_simpleStartup && _turnedOn;
+private _lastSimpleStart = missionNamespace getVariable ["vtx_uh60_lastSimpleStart", -10];
+if (time < _lastSimpleStart + 5) exitWith {};
+if ((_spawnedInAir || _simpleStart) && time > vtx_uh60_lastSimpleStart + 5) then {
+    vtx_uh60_lastSimpleStart = time;
+    [_vehicle] call vtx_uh60_engine_fnc_autoStart;
+};
 
 if(
     (_vehicle getHitPointDamage "HitEngine1" > 0.3 && _vehicle getHitPointDamage "HitEngine2" > 0.3) ||
