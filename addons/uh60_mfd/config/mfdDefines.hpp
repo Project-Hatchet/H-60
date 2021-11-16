@@ -76,6 +76,13 @@
 		text = TEXT; \
 	};
 
+#define TEXT_LEFT_SCALED_USERTEXT(CLASS,X,Y,IDX,SCALE) \
+	TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
+		source = "userText"; \
+        sourceIndex = IDX; \
+        sourceScale = 1; \
+		text = ""; \
+	};
 
 #define TEXT_LEFT_OPEN(CLASS) \
     class CLASS { \

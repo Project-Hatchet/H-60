@@ -29,7 +29,13 @@ VTX_JVMF_MESSAGES = [
            "The reply will consist of your name, the reply and a timestamp"
        ], //MSG TEXT
        [], // MSG DATA
-       [] // REPLIES
+       [
+            [
+                "12:00",
+                "System",
+                "SENT"
+            ]
+        ] // REPLIES
    ],
    [
        "TEST MESSAGE", // TITLE
@@ -49,7 +55,13 @@ VTX_JVMF_MESSAGES = [
            ""
        ], //MSG TEXT
        [], // MSG DATA
-       [] // REPLIES
+       [
+            [
+                "12:00",
+                "System",
+                "SENT"
+            ]
+        ] // REPLIES
    ],
    [
        "NEW LZ", // TITLE
@@ -69,7 +81,13 @@ VTX_JVMF_MESSAGES = [
            ""
        ], //MSG TEXT
        [[0,0,0]], // MSG DATA
-       [] // REPLIES
+       [
+            [
+                "12:00",
+                "System",
+                "SENT"
+            ]
+        ] // REPLIES
    ]
    /*
     ,[

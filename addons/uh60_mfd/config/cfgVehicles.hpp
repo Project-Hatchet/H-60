@@ -260,6 +260,10 @@ class CfgVehicles {
                     topLeft="MFD1_LH";topRight="MFD1_RH"; bottomLeft="MFD1_LD";
                 #include "MFD\pages\tac_cmws.hpp"
             }; // MFD_1
+            class MFD_1_Monospace {
+                topLeft="MFD1_LH";topRight="MFD1_RH"; bottomLeft="MFD1_LD";
+                #include "MFD\pages\jvmf\jvmf_monospace.hpp"
+            }; // MFD_1
             #undef MFD_PAGE_INDEX
             #define MFD_PAGE_INDEX MFD_2_PAGE_INDEX
             class MFD_2
@@ -273,6 +277,10 @@ class CfgVehicles {
             {
                 topLeft="MFD2_LH"; topRight="MFD2_RH"; bottomLeft="MFD2_LD";
                 #include "MFD\pages\tac_cmws.hpp"
+            }; // MFD_2
+            class MFD_2_Monospace {
+                topLeft="MFD2_LH";topRight="MFD2_RH"; bottomLeft="MFD2_LD";
+                #include "MFD\pages\jvmf\jvmf_monospace.hpp"
             }; // MFD_2
             #undef MFD_PAGE_INDEX
             #define MFD_PAGE_INDEX MFD_3_PAGE_INDEX
@@ -288,6 +296,10 @@ class CfgVehicles {
                     topLeft="MFD3_LH";topRight="MFD3_RH";bottomLeft="MFD3_LD";
                     #include "MFD\pages\tac_cmws.hpp"
             }; // MFD_3
+            class MFD_3_Monospace {
+                topLeft="MFD3_LH";topRight="MFD3_RH"; bottomLeft="MFD3_LD";
+                #include "MFD\pages\jvmf\jvmf_monospace.hpp"
+            }; // MFD_3
             #undef MFD_PAGE_INDEX
             #define MFD_PAGE_INDEX MFD_4_PAGE_INDEX
             class MFD_4
@@ -302,6 +314,10 @@ class CfgVehicles {
                     topLeft="MFD4_LH";topRight="MFD4_RH";bottomLeft="MFD4_LD";
                     #include "MFD\pages\tac_cmws.hpp"
             }; // MFD_4
+            class MFD_4_Monospace {
+                topLeft="MFD4_LH";topRight="MFD4_RH"; bottomLeft="MFD4_LD";
+                #include "MFD\pages\jvmf\jvmf_monospace.hpp"
+            }; // MFD_1
             class ESIS_BOOT
             {
                 #include "MFD\ESIS_BOOT.hpp"
