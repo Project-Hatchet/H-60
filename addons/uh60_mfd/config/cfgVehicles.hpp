@@ -306,16 +306,6 @@ class CfgVehicles {
             {
                 #include "MFD\ESIS_BOOT.hpp"
             };
-            class ESIS_Horizon {
-                class Draw {
-                    condition = "user49 < 0.1";
-                };
-            };
-            class ESIS_Misc {
-                class Draw {
-                    condition = "user49 < 0.1";
-                };
-            };
         }; // MFD
     }; // vtx_H60_base
 }; // CfgVehicles
