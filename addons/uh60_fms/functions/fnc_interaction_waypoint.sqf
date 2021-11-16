@@ -64,10 +64,10 @@ switch (_action) do {
         private _sender = profileName; 
         private _recipient = "ALL"; 
         private _id = "XMIT WAYPT"; 
-        private _messageContent = [ 
+        private _messageContent = [
             mapGridPosition _position,
             str (_position # 2),
-            format ["JVMF - %1 ", waypointName _wayPoint],
+            waypointName _wayPoint,
             "AUTO SENT FROM FMS",
             "", 
             "", 
@@ -76,7 +76,7 @@ switch (_action) do {
             "", 
             ""
         ]; 
-        private _message = [_id, _sender, _recipient, 2, _messageContent, [], [[_timestamp, _sender, "SENT"]]]; 
+        private _message = [_id, _sender, _recipient, 2, _messageContent, [_position], [[_timestamp, _sender, "SENT"]]]; 
         _message call vtx_uh60_jvmf_fnc_attemptSendMessage;
     };
     case "slew_flir_waypt": { 
