@@ -13,7 +13,7 @@ class backgroundWrapper {
 	};
 }; // backgroundWrapper
 
-#define JVMF_LINE_HEIGHT 0.08
+#define JVMF_LINE_HEIGHT 0.06
 #define JVMF_LEFT_ALIGN 0.1
 #define JVMF_TOP_MARGIN 0.16
 
@@ -51,7 +51,7 @@ class reply_options_blue {
 
 class jvmf_type_0 {
 	condition=COND_ISNUMBER(JVMF_TYPE,0);
-	#include "jvmf\jvmf_0.hpp"
+	#include "jvmf\jvmf_freetext.hpp"
 };
 
 class jvmf_type_1 {
@@ -64,11 +64,11 @@ class jvmf_type_2 {
 	#include "jvmf\jvmf_2.hpp"
 };
 
-class jvmf_text {
-	// condition=COND_ISNUMBER(JVMF_TYPE,0);
-	condition="0";
-	#include "jvmf\jvmf_shared.hpp"
-};
+// class jvmf_text {
+// 	// condition=COND_ISNUMBER(JVMF_TYPE,0);
+// 	condition="0";
+// 	#include "jvmf\jvmf_shared.hpp"
+// };
 
 #define BOTTOM_TEXT_Y 0.96
 TEXT_LEFT_SMALL(B1,0.095,BOTTOM_TEXT_Y,"PFD")
