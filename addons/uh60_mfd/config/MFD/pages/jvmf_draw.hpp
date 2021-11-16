@@ -50,26 +50,23 @@ class reply_options_blue {
     };
 
 class jvmf_type_0 {
-	// condition=COND_ISNUMBER(JVMF_TYPE,0);
-	condition="0";
+	condition=COND_ISNUMBER(JVMF_TYPE,0);
 	#include "jvmf\jvmf_0.hpp"
 };
 
 class jvmf_type_1 {
-	// condition=COND_ISNUMBER(JVMF_TYPE,1);
-	condition="0";
+	condition=COND_ISNUMBER(JVMF_TYPE,1);
 	#include "jvmf\jvmf_1.hpp"
 };
 
 class jvmf_type_2 {
-	// condition=COND_ISNUMBER(JVMF_TYPE,2);
-	condition="0";
+	condition=COND_ISNUMBER(JVMF_TYPE,2);
 	#include "jvmf\jvmf_2.hpp"
 };
 
 class jvmf_text {
 	// condition=COND_ISNUMBER(JVMF_TYPE,0);
-	condition="1";
+	condition="0";
 	#include "jvmf\jvmf_shared.hpp"
 };
 

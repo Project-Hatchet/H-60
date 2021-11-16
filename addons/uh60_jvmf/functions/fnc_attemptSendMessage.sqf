@@ -30,9 +30,6 @@ private _success = switch (_type) do {
     };
     case 2: {
         params ["", "", "", "", "_text", ["_data",[]], ["_replies",[]]];
-        _text params ["_grid", "_elevation", "_name"];
-        private _position = (_grid call BIS_fnc_gridToPos) # 0;
-        _this set [5, [_name, _position]];
         if (typeName _data != "array" || typeName _replies != "array") exitWith { false };
         true
     };

@@ -117,6 +117,31 @@ class HAS_WP1_2 {
         }; // WP1_Line
     }; // color
 }; // cond
+
+#define SHAPE_WAYPT(DIST,DIR) \
+    {DIST, 1, DIR, 1, { 0   , -0.001},1}, \
+    {DIST, 1, DIR, 1, { 0   ,  0.001},1},{}, \
+    {DIST, 1, DIR, 1, { 0   , -0.025},1}, \
+    {DIST, 1, DIR, 1, { 0.025, 0.0},1}, \
+    {DIST, 1, DIR, 1, { 0.015, 0.015},1}, \
+    {DIST, 1, DIR, 1, {-0.015, 0.015},1}, \
+    {DIST, 1, DIR, 1, {-0.025, 0.0},1}, \
+    {DIST, 1, DIR, 1, { 0   , -0.025},1}
+
+#define SHAPE_DIAMOND(DIST,DIR) \
+    {DIST, 1, DIR, 1,{0, 0.02},1}, \
+    {DIST, 1, DIR, 1,{0.02, 0},1}, \
+    {DIST, 1, DIR, 1,{0, -0.02},1}, \
+    {DIST, 1, DIR, 1,{-0.02, 0},1}, \
+    {DIST, 1, DIR, 1,{0, 0.02},1}
+
+#define SHAPE_SQUARE(DIST,DIR) \
+    {DIST, 1, DIR, 1,{-0.015, -0.015},1}, \
+    {DIST, 1, DIR, 1,{0.015, -0.015},1}, \
+    {DIST, 1, DIR, 1,{0.015, 0.015},1}, \
+    {DIST, 1, DIR, 1,{-0.015, 0.015},1}, \
+    {DIST, 1, DIR, 1,{-0.015, -0.015},1}
+
 class HAS_CUR_WP {
     condition = (user4 > -1);
     color[]={0,1,0,1};
@@ -125,14 +150,7 @@ class HAS_CUR_WP {
         type = "line";
         width = 2;
         points[]={
-            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1, { 0   , -0.001},1},
-            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1, { 0   ,  0.001},1},{},
-            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1, { 0   , -0.025},1},
-            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1, { 0.025, 0.0},1},
-            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1, { 0.015, 0.015},1},
-            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1, {-0.015, 0.015},1},
-            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1, {-0.025, 0.0},1},
-            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1, { 0   , -0.025},1}
+            SHAPE_SQUARE("TAC_WP2_DIST","TAC_WP2_Dir")
         };
     }; // WP_Circle
     class WP_TEXT {
@@ -156,7 +174,8 @@ class HAS_WP2_3 {
     	width = 6;
     	points[] ={
             {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1},
-    		{"TAC_WP3_DIST", 1, "TAC_WP3_Dir", 1}
+    		{"TAC_WP3_DIST", 1, "TAC_WP3_Dir", 1},{},
+            SHAPE_SQUARE("TAC_WP3_DIST","TAC_WP3_Dir")
     	};
     }; // WP2_Line
     class white {
@@ -166,7 +185,8 @@ class HAS_WP2_3 {
         	width = 2;
         	points[] ={
                 {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1},
-        		{"TAC_WP3_DIST", 1, "TAC_WP3_Dir", 1}
+        		{"TAC_WP3_DIST", 1, "TAC_WP3_Dir", 1},{},
+                SHAPE_SQUARE("TAC_WP3_DIST","TAC_WP3_Dir")
         	};
         }; // WP2_Line
     }; // color
@@ -179,7 +199,8 @@ class HAS_WP3 {
     	width = 6;
     	points[] ={
             {"TAC_WP3_DIST", 1, "TAC_WP3_Dir", 1},
-    		{"TAC_WP4_DIST", 1, "TAC_WP4_Dir", 1}
+    		{"TAC_WP4_DIST", 1, "TAC_WP4_Dir", 1},{},
+            SHAPE_SQUARE("TAC_WP4_DIST","TAC_WP4_Dir")
     	};
     }; // WP3_Line
     class black {
@@ -189,7 +210,8 @@ class HAS_WP3 {
         	width = 2;
         	points[] ={
                 {"TAC_WP3_DIST", 1, "TAC_WP3_Dir", 1},
-        		{"TAC_WP4_DIST", 1, "TAC_WP4_Dir", 1}
+        		{"TAC_WP4_DIST", 1, "TAC_WP4_Dir", 1},{},
+            SHAPE_SQUARE("TAC_WP4_DIST","TAC_WP4_Dir")
         	};
         }; // WP3_Line
     }; // black
@@ -202,7 +224,8 @@ class HAS_WP4 {
     	width = 6;
     	points[] ={
             {"TAC_WP4_DIST", 1, "TAC_WP4_Dir", 1},
-    		{"TAC_WP5_DIST", 1, "TAC_WP5_Dir", 1}
+    		{"TAC_WP5_DIST", 1, "TAC_WP5_Dir", 1},{},
+            SHAPE_SQUARE("TAC_WP5_DIST","TAC_WP5_Dir")
     	};
     }; // WP4_Line
     class black {
@@ -212,7 +235,8 @@ class HAS_WP4 {
         	width = 2;
         	points[] ={
                 {"TAC_WP4_DIST", 1, "TAC_WP4_Dir", 1},
-        		{"TAC_WP5_DIST", 1, "TAC_WP5_Dir", 1}
+        		{"TAC_WP5_DIST", 1, "TAC_WP5_Dir", 1},{},
+            SHAPE_SQUARE("TAC_WP5_DIST","TAC_WP5_Dir")
         	};
         }; // WP4_Line
     }; // black
@@ -225,7 +249,8 @@ class HAS_WP5 {
     	width = 6;
     	points[] ={
             {"TAC_WP5_DIST", 1, "TAC_WP5_Dir", 1},
-    		{"TAC_WP6_DIST", 1, "TAC_WP6_Dir", 1}
+    		{"TAC_WP6_DIST", 1, "TAC_WP6_Dir", 1},{},
+            SHAPE_SQUARE("TAC_WP6_DIST","TAC_WP6_Dir")
     	};
     }; // WP5_Line
     class black {
@@ -235,7 +260,8 @@ class HAS_WP5 {
         	width = 2;
         	points[] ={
                 {"TAC_WP5_DIST", 1, "TAC_WP5_Dir", 1},
-        		{"TAC_WP6_DIST", 1, "TAC_WP6_Dir", 1}
+        		{"TAC_WP6_DIST", 1, "TAC_WP6_Dir", 1},{},
+                SHAPE_SQUARE("TAC_WP6_DIST","TAC_WP6_Dir")
         	};
         }; // WP5_Line
     }; // black
@@ -249,11 +275,7 @@ class TGP_STABILIZED {
         type = "line";
         width = 6;
         points[]={
-            {"TAC_TGP_DIST", 1, "TAC_TGP_Dir", 1,{0, 0.02},1},
-            {"TAC_TGP_DIST", 1, "TAC_TGP_Dir", 1,{0.02, 0},1},
-            {"TAC_TGP_DIST", 1, "TAC_TGP_Dir", 1,{0, -0.02},1},
-            {"TAC_TGP_DIST", 1, "TAC_TGP_Dir", 1,{-0.02, 0},1},
-            {"TAC_TGP_DIST", 1, "TAC_TGP_Dir", 1,{0, 0.02},1}
+            SHAPE_DIAMOND("TAC_TGP_DIST","TAC_TGP_Dir")
         };
     }; // Mark_Circle
     class green {
@@ -263,11 +285,7 @@ class TGP_STABILIZED {
             type = "line";
             width = 2;
             points[]={
-                {"TAC_TGP_DIST", 1, "TAC_TGP_Dir", 1,{0, 0.02},1},
-                {"TAC_TGP_DIST", 1, "TAC_TGP_Dir", 1,{0.02, 0},1},
-                {"TAC_TGP_DIST", 1, "TAC_TGP_Dir", 1,{0, -0.02},1},
-                {"TAC_TGP_DIST", 1, "TAC_TGP_Dir", 1,{-0.02, 0},1},
-                {"TAC_TGP_DIST", 1, "TAC_TGP_Dir", 1,{0, 0.02},1}
+                SHAPE_DIAMOND("TAC_TGP_DIST","TAC_TGP_Dir")
             };
         }; // Mark_Circle
     };
@@ -282,11 +300,7 @@ class NEAREST_LOCATION {
         type = "line";
         width = 6;
         points[]={
-            {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0, 0.02},1},
-            {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0.02, 0},1},
-            {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0, -0.02},1},
-            {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{-0.02, 0},1},
-            {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0, 0.02},1}
+            SHAPE_DIAMOND("TAC_LOC_DIST","TAC_LOC_Dir")
         };
     }; // Mark_Circle
     class PolygonJet {
@@ -307,13 +321,10 @@ class NEAREST_LOCATION {
             type = "line";
             width = 2;
             points[]={
-                {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0, 0.02},1},
-                {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0.02, 0},1},
-                {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0, -0.02},1},
-                {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{-0.02, 0},1},
-                {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0, 0.02},1}
+                SHAPE_DIAMOND("TAC_LOC_DIST","TAC_LOC_Dir")
             };
         }; // Mark_Circle
+        
         class LOC_TEXT {
             type="text";
             source="userText";
@@ -327,6 +338,54 @@ class NEAREST_LOCATION {
             down[]= {"TAC_LOC_DIST", 1, "TAC_LOC_Dir", 1,{0.04 - 0.02, 0.045}, 1};
         };
     }; // green
+}; // Mark_TEXT
+
+
+class JVMF_STABILIZED {
+    condition = (user43 > -1);
+    color[]={0,0,0,0.05};
+    class Mark_Circle
+    {
+        type = "line";
+        width = 6;
+        points[]={
+            SHAPE_SQUARE("TAC_JVMF_DIST","TAC_JVMF_Dir")
+        };
+    }; // Mark_Circle
+    class textBackground {
+		type        = "polygon";
+		points[] ={
+			{
+                {"TAC_JVMF_DIST", 1, "TAC_JVMF_Dir", 1,{-0.08, 0.015},1},
+                {"TAC_JVMF_DIST", 1, "TAC_JVMF_Dir", 1,{ 0.08, 0.015},1},
+                {"TAC_JVMF_DIST", 1, "TAC_JVMF_Dir", 1,{ 0.08, 0.055},1},
+                {"TAC_JVMF_DIST", 1, "TAC_JVMF_Dir", 1,{-0.08, 0.055},1},
+			}
+		};
+    }; // textBackground
+    class blue {
+        color[] = common_blue;
+        class Mark_Circle
+        {
+            type = "line";
+            width = 2;
+            points[]={
+                SHAPE_SQUARE("TAC_JVMF_DIST","TAC_JVMF_Dir")
+            };
+        }; // Mark_Circle
+        class LOC_TEXT {
+            type="text";
+            source="userText";
+            sourceIndex=33;
+            scale=1;
+            sourceScale=1;
+            align = "center";
+            text="";
+            pos[]= {"TAC_JVMF_DIST", 1, "TAC_JVMF_Dir", 1,{0, 0+0.015}, 1};
+            right[]= {"TAC_JVMF_DIST", 1, "TAC_JVMF_Dir", 1,{0.035, 0+0.015}, 1};
+            down[]= {"TAC_JVMF_DIST", 1, "TAC_JVMF_Dir", 1,{0, 0.035+0.015}, 1};
+        };
+    };
 }; // Mark_TEXT
 
 
