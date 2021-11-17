@@ -8,6 +8,7 @@
  */
 
 params ["_vehicle"];
+if (!local _vehicle) exitWith {};
 
 // set tailrotor damage cautions
 private _trot = _vehicle getHitPointDamage "hitvrotor";

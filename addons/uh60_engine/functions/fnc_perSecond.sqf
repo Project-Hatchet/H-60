@@ -8,7 +8,10 @@
 #include "defines.hpp"
 params ["_vehicle"];
 
-if (!local _vehicle || vtx_uh60m_simpleStartup) exitWith {};
+private _esisCount = _vehicle getVariable ["ESIS_COUNTER", 0];
+if (!local _vehicle || vtx_uh60m_simpleStartup) exitWith {
+    _vehicle setUserMFDValue [49, _esisCount];
+};
 
 
 
@@ -23,7 +26,6 @@ _apuGenerator =     ANIMATED("Switch_apugen",0) && _apuPower;
 private _batteriesOn = BATT_ON;
 private _drainRate = GET("POWER_DRAIN_RATE",0);
 
-private _esisCount = _vehicle getVariable ["ESIS_COUNTER", 0];
 if (_esisCount > -1) then {
     _vehicle setVariable ["ESIS_COUNTER", _esisCount - 1, true];
     _vehicle setUserMFDValue [49, _esisCount];
