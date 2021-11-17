@@ -106,12 +106,14 @@ _unit setVariable [QGVAR(pfhID), [{
   private _distance = ((ropeEndPosition _rope) # 0) distance ((ropeEndPosition _rope) # 1);
   private _isRopeStretched = (_distance > _length + 1.5);
 
-  if (_isRopeStretched && {_hookAttachedToUnit} && {!_isUnitInHook}) then {
-    detach _helper;
-    _hook lockCargo [1, false];
-    _unit moveInCargo _hook;
+  if (_isRopeStretched) then {
+    if (!_isUnitInHook) then {
+      detach _helper;
+      _hook lockCargo [1, false];
+      _unit moveInCargo _hook;
+    };
   } else {
-    if (_isAboveGround) then {
+    if (_canStand) then {
       moveOut _unit;
       _hook lockCargo [1, true];
       _helper attachTo [_unit, [0,0.15,0.2], "pelvis"];
