@@ -101,19 +101,10 @@ _unit setVariable [QGVAR(pfhID), [{
   }; // Exit
 
   //private _isHookMoving = (speed _helper > 0.1); // Not used
+  private _canStand = getPos _hook # 2 < 1;
   private _length = ropeLength _rope;
   private _distance = ((ropeEndPosition _rope) # 0) distance ((ropeEndPosition _rope) # 1);
-  private _isRopeStretched = (_distance > _length + 0.7);
-  private _isAboveGround = getPos _hook # 2 < 0; // handle swimming
-  if !_isAboveGround then {
-    private _isAboveGroundIntersect = lineIntersectsSurfaces [
-      getPosASL _unit vectorAdd [0,-0.3,1],
-      (getPosASL _unit) vectorAdd [0,-0.3,-0.5],
-      _unit,
-      _hook
-    ];
-    _isAboveGround = (count _isAboveGroundIntersect) > 0;
-  };
+  private _isRopeStretched = (_distance > _length + 1.5);
 
   if (_isRopeStretched && {_hookAttachedToUnit} && {!_isUnitInHook}) then {
     detach _helper;
