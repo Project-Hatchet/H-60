@@ -29,7 +29,8 @@ private _strings = [
 {
     _x params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
     private _str = "";
-    _str = _str + (if (count _replies < 2) then [{">"}, {" "}]);
+    //_str = _str + (if (count _replies < 2) then [{">"}, {" "}]);
+    _str = _str + (if (_forEachIndex == VTX_JVMF_SELECTED_IDX) then [{"-"}, {" "}]);
     private _typeText = switch (_type) do {
         case 0: {"FRTXT "};
         case 1: {"CASREQ"};
@@ -48,11 +49,25 @@ private _message = VTX_JVMF_MESSAGES # VTX_JVMF_SELECTED_IDX;
 _message params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
 
 _vehicle setUserMFDValue [16, _type];
-_vehicle setUserMFDText [30, format["%1 TO %2: %3", _sender, _recipient, _ID]];
-{
-    _str = _strings # _forEachIndex;
-    _strings set [_forEachIndex, [_str + _x, 20 + 3 + 34] call _fixString];
-} forEach _text;
+_vehicle setUserMFDText [30, _sender];
+switch (_type) do {
+    case 0: {
+        {
+            _str = _strings # _forEachIndex;
+            _strings set [_forEachIndex, [_str + _x, 20 + 3 + 34] call _fixString];
+        } forEach _text;
+    };
+    case 2: {
+        for [{_i = 0}, {_i < 8}, {_i = _i + 1}] do {
+            _str = _strings # _i;
+            if (_i < 4) then {
+                _str = _str + "         ";
+            };
+            _strings set [_i, [_str + (_text # _i), 20 + 3 + 34] call _fixString];
+        };
+        _strings set [8, _text # 2];
+    };
+};
 {
     _vehicle setUserMFDText [31 + _foreachIndex, _x];
 } forEach _strings;

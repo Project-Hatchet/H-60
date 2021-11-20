@@ -376,7 +376,7 @@ class JVMF_STABILIZED {
         class LOC_TEXT {
             type="text";
             source="userText";
-            sourceIndex=33;
+            sourceIndex=39;
             scale=1;
             sourceScale=1;
             align = "center";

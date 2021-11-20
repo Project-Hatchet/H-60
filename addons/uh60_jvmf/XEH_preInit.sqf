@@ -37,32 +37,32 @@ VTX_JVMF_MESSAGES = [
             ]
         ] // REPLIES
    ],
-   [
-       "TEST MESSAGE", // TITLE
-       "IMAGINARY JTAC", // SENDER
-       "ALL", // RECIPIENTS
-       1, //MSG TYPE
-       [
-           "TYPE 2, USE ROCKETS",
-           "500M NORTH OF AGIA MARINA",
-           "AGIA MARINA - 123123/12m",
-           "2x BTR-80A PARKED ON ROAD", // description
-           "",
-           "ATTACK WEST TO EAST", // restrictions
-           "",
-           "",
-           "",
-           ""
-       ], //MSG TEXT
-       [], // MSG DATA
-       [
-            [
-                "12:00",
-                "System",
-                "SENT"
-            ]
-        ] // REPLIES
-   ],
+//    [
+//        "TEST MESSAGE", // TITLE
+//        "IMAGINARY JTAC", // SENDER
+//        "ALL", // RECIPIENTS
+//        1, //MSG TYPE
+//        [
+//            "TYPE 2, USE ROCKETS",
+//            "500M NORTH OF AGIA MARINA",
+//            "AGIA MARINA - 123123/12m",
+//            "2x BTR-80A PARKED ON ROAD", // description
+//            "",
+//            "ATTACK WEST TO EAST", // restrictions
+//            "",
+//            "",
+//            "",
+//            ""
+//        ], //MSG TEXT
+//        [], // MSG DATA
+//        [
+//             [
+//                 "12:00",
+//                 "System",
+//                 "SENT"
+//             ]
+//         ] // REPLIES
+//    ],
    [
        "NEW LZ", // TITLE
        "BLUESTONE 4-2", // SENDER
@@ -84,7 +84,7 @@ VTX_JVMF_MESSAGES = [
        [
             [
                 "12:00",
-                "System",
+                "BLUESTONE 4-2",
                 "SENT"
             ]
         ] // REPLIES
