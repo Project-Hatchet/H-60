@@ -95,5 +95,14 @@ fms_locations_page_open = (((getUserMFDValue _vehicle) # _fms) == FMS_PAGE_NAV_L
 
 private _locTypes =  ["Airport","Area","BorderCrossing","CityCenter","CivilDefense","CulturalProperty","DangerousForces","Flag","FlatArea","FlatAreaCity","FlatAreaCitySmall","HistoricalSite","Invisible","Name","NameCity","NameCityCapital","NameMarine","NameVillage","RockArea","SafetyZone","Strategic","StrongpointArea","VegetationBroadleaf","VegetationFir","VegetationPalm","VegetationVineyard","ViewPoint"];
 private _locations = nearestLocations [vtx_uh60_mfd_tac_mapPos, _locTypes, 2000];
-vtx_uh60_fms_nearestLocation = if (count _locations > 0) then [{_locations # 0},{nil}];
-vehicle player setUserMFDText [12, text vtx_uh60_fms_nearestLocation];
+private _nearestLocation = nil;
+{
+    if (text _x != "") then {
+        _nearestLocation = _x;
+        break;
+    };
+} forEach _locations;
+if (!isNil "_nearestLocation") then {
+    vtx_uh60_fms_nearestLocation = _nearestLocation;
+    vehicle player setUserMFDText [12, text vtx_uh60_fms_nearestLocation];
+};

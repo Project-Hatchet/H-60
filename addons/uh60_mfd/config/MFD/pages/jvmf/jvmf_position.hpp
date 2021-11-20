@@ -14,8 +14,8 @@ class jvmf_border {
             {{0.12,0.10}, 1}
         };
     }; // title_box
-    TEXT_MID_SCALED(freetext,1-0.3,0.1,"FREETEXT",0.04)
-	TEXT_LEFT_SCALED(from,0.45,0.2-(FREETEXT_LINE_SCALING*1),"FROM",0.04)
+    TEXT_MID_SCALED(freetext,1-0.3,0.1,"POSITION",0.04)
+	TEXT_LEFT_SCALED(fromLabel,0.45,0.2-(FREETEXT_LINE_SCALING*1),"FROM",0.04)
 	TEXT_LEFT_SCALED(reply,0.45,0.2+(FREETEXT_LINE_SCALING*16),"STATUS",0.04)
     class message_box {
         type="line";
@@ -27,9 +27,16 @@ class jvmf_border {
             {{1-0.05,0.900}, 1},
             {{1-0.05,0.100}, 1},{},
             {{1-0.05,0.205}, 1},
-            {{1-0.56,0.205}, 1}
+            {{1-0.56,0.205}, 1},{},
+            {{1-0.56+0.13,0.205}, 1},
+            {{1-0.56+0.13,0.365}, 1},
+            {{1-0.56,0.365}, 1}
         };
     }; // message_box
+	TEXT_LEFT_SCALED(grid,0.45,0.21+(FREETEXT_LINE_SCALING*0),"GRID",0.03)
+	TEXT_LEFT_SCALED(elev,0.45,0.21+(FREETEXT_LINE_SCALING*1),"ELEV",0.03)
+	TEXT_LEFT_SCALED(name,0.45,0.21+(FREETEXT_LINE_SCALING*2),"NAME",0.03)
+	TEXT_LEFT_SCALED(comments,0.45,0.21+(FREETEXT_LINE_SCALING*3),"COMMENTS",0.03)
 };
 TEXT_LEFT_SCALED_USERTEXT(fromText,0.58,0.2-(FREETEXT_LINE_SCALING*1),30,0.04)
 TEXT_LEFT_SCALED_USERTEXT(replyLabel,0.58,0.2+(FREETEXT_LINE_SCALING*16),41,0.04)

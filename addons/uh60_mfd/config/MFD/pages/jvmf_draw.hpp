@@ -60,8 +60,14 @@ class jvmf_type_1 {
 };
 
 class jvmf_type_2 {
+	// condition=COND_ISNUMBER(JVMF_TYPE,2);
+	condition="0";
+	#include "jvmf\jvmf_position.hpp"
+};
+
+class jvmf_position {
 	condition=COND_ISNUMBER(JVMF_TYPE,2);
-	#include "jvmf\jvmf_2.hpp"
+	#include "jvmf\jvmf_position.hpp"
 };
 
 // class jvmf_text {
