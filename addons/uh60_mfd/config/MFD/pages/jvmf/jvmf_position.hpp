@@ -40,6 +40,9 @@ class jvmf_border {
 };
 TEXT_LEFT_SCALED_USERTEXT(fromText,0.58,0.2-(FREETEXT_LINE_SCALING*1),30,0.04)
 TEXT_LEFT_SCALED_USERTEXT(replyLabel,0.58,0.2+(FREETEXT_LINE_SCALING*16),41,0.04)
+
+TEXT_LEFT_SCALED(SET,0.01,0.58,"SET",0.04)
+TEXT_LEFT_SCALED(WPT,0.01,0.58 + 0.04,"WAYPT",0.04)
 // class selected_background {
 // 	color[] = {0.02,0.05,0.02,0.1};
 // 	class polygon {

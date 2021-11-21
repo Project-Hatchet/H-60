@@ -22,8 +22,9 @@ switch (_action) do {
         private _autoNext = _vehicle getVariable ["vtx_uh60_fms_import_autoCycle", false];
         private _microDagrWaypoints = [] call ace_microdagr_fnc_deviceGetWaypoints;
         { // forEach _microDagrWaypoints
-            group player addWaypoint [_x # 1, -1, _forEachIndex, _x # 0];
-            [group player, _forEachIndex] setWaypointDescription (_x # 0);
+            _x params ["_label","_position",["_name",""]];
+            group player addWaypoint [_position, -1, _forEachIndex, _name];
+            [group player, _forEachIndex] setWaypointDescription _label;
             if (!_autoNext) then {
                 [group player, _forEachIndex] setWaypointStatements ["false", ""];
             };
@@ -67,7 +68,7 @@ switch (_action) do {
         private _messageContent = [
             mapGridPosition _position,
             str (_position # 2),
-            waypointName _wayPoint,
+            waypointDescription _wayPoint,
             "AUTO SENT FROM FMS",
             "", 
             "", 
