@@ -53,9 +53,10 @@ class tac {
 
 class jvmf {
     condition= USERVAL(MFD_PAGE_INDEX,MFD_PAGE_JVMF);
+    MFD_BTN(MFD_24,QUOTE(New message)) buttonUp="createDialog 'vtx_uh60_jvmf_writeDialog';"; };
     MFD_BTN(MFD_23,QUOTE(Prev MSG)) buttonUp="[vehicle player,'cycle', -1] call vtx_uh60_jvmf_fnc_mfdInteraction;"; };
     MFD_BTN(MFD_22,QUOTE(Next MSG)) buttonUp="[vehicle player,'cycle', 1] call vtx_uh60_jvmf_fnc_mfdInteraction;"; };
-    MFD_BTN(MFD_8,QUOTE(New message)) buttonUp="createDialog 'vtx_uh60_jvmf_writeDialog';"; };
+    MFD_BTN(MFD_21,QUOTE(Sel Waypt)) buttonUp="[vehicle player,'waypt'] call vtx_uh60_jvmf_fnc_mfdInteraction;"; };
     MFD_BTN(MFD_3,QUOTE(ACK)) buttonUp="[vehicle player, 'ACK'] call vtx_uh60_jvmf_fnc_reply"; };
     MFD_BTN(MFD_4,QUOTE(WILCO)) buttonUp="[vehicle player, 'WILCO'] call vtx_uh60_jvmf_fnc_reply"; };
     MFD_BTN(MFD_5,QUOTE(HAVECO)) buttonUp="[vehicle player, 'HAVECO'] call vtx_uh60_jvmf_fnc_reply"; };

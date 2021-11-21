@@ -144,26 +144,40 @@ class HAS_WP1_2 {
 
 class HAS_CUR_WP {
     condition = (user4 > -1);
-    color[]={0,1,0,1};
-    class WP_Circle
-    {
-        type = "line";
-        width = 2;
-        points[]={
-            SHAPE_SQUARE("TAC_WP2_DIST","TAC_WP2_Dir")
+    color[] = {0,0,0,1};
+    class textBackground {
+        type        = "polygon";
+        points[] ={
+            {
+                {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1,{-0.08, 0.015},1},
+                {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1,{ 0.08, 0.015},1},
+                {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1,{ 0.08, 0.055},1},
+                {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1,{-0.08, 0.055},1},
+            }
         };
-    }; // WP_Circle
-    class WP_TEXT {
-        type="text";
-        source="userText";
-        sourceIndex=7;
-        scale=1;
-        sourceScale=1;
-        align = "right";
-        text="0";
-        pos[]= {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1,{0.04 - 0.02, 0.0}, 1};
-        right[]= {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1,{0.085 - 0.02, 0.00}, 1};
-        down[]= {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1,{0.04 - 0.02, 0.045}, 1};
+    }; // textBackground
+    class green {
+        color[]={0,1,0,1};
+        class WP_Circle
+        {
+            type = "line";
+            width = 2;
+            points[]={
+                SHAPE_SQUARE("TAC_WP2_DIST","TAC_WP2_Dir")
+            };
+        }; // WP_Circle
+        class WP_TEXT {
+            type="text";
+            source="userText";
+            sourceIndex=7;
+            scale=1;
+            sourceScale=1;
+            align = "center";
+            text="0";
+            pos[]= {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1,{0, 0+0.015}, 1};
+            right[]= {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1,{0.035, 0+0.015}, 1};
+            down[]= {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1,{0, 0.035+0.015}, 1};
+        };
     };
 }; // HAS_CUR_WP
 class HAS_WP2_3 {
