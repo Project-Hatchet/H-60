@@ -13,7 +13,7 @@ class OpticsIn
         minFov = 0.3;
         maxFov = 0.3;
         visionMode[] = {"Normal","NVG","Ti"};
-        thermalMode[] = {0};
+        thermalMode[] = {0, 1};
         directionStabilized = 1;
         horizontallyStabilized = 1; 
         gunnerOpticsModel = "\A3\Weapons_F\empty";
@@ -51,7 +51,7 @@ class OpticsIn
 };
 stabilizedInAxes = 3;
 minElev = -40;
-maxElev = 180;
+maxElev = 90;
 initElev = 0;
 minTurn = -180;
 maxTurn = 180;
