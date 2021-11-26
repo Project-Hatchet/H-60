@@ -25,7 +25,7 @@ switch (_pageIndex) do {
         _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Overlay_ca.paa"];
     };
     case MFD_PAGE_FLIR: {
-        [_vehicle] call vtx_uh60_flir_fnc_startCamera;
+        [_vehicle] call vtx_uh60_flir_fnc_pipStart;
         _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), "#(argb,512,512,1)r2t(vtx_uh60_flir_feed,1.0)"];
     };
 };
@@ -35,4 +35,4 @@ private _anyFLIROpened = false;
  if ((getUserMFDValue _vehicle) # _x == MFD_PAGE_FLIR) exitWith {_anyFLIROpened = true };
 } forEach [MFD_1_PAGE_INDEX, MFD_2_PAGE_INDEX, MFD_3_PAGE_INDEX, MFD_4_PAGE_INDEX];
 
-if (!_anyFLIROpened) then {[_vehicle] call vtx_uh60_flir_fnc_stopCamera;};
+if (!_anyFLIROpened) then {[_vehicle] call vtx_uh60_flir_fnc_pipStop;};

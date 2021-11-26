@@ -65,5 +65,7 @@ class jvmf {
 
 class flir {
     condition= USERVAL(MFD_PAGE_INDEX,MFD_PAGE_FLIR);
-    MFD_BTN(MFD_5,QUOTE(NAV)) buttonUp="[vehicle player] call vtx_uh60_flir_fnc_nav"; };
+    MFD_BTN(MFD_4,QUOTE(WPT)) buttonUp="[vxf_vehicle] call vtx_uh60_flir_fnc_mfdWaypoint"; };
+    MFD_BTN(MFD_5,QUOTE(NAV)) buttonUp="[vxf_vehicle] call vtx_uh60_flir_fnc_mfdNav"; };
+    MFD_BTN(MFD_6,QUOTE(SLG)) buttonUp="[vxf_vehicle] call vtx_uh60_flir_fnc_mfdSling"; };
 };
