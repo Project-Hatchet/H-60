@@ -2,17 +2,17 @@ params ["_vehicle", "_frameTime"];
 private _ui = uiNamespace getVariable "vtx_uh60_flir_ui";
 private _controlsGroup = _ui displayCtrl 170;
 
-if (player != driver _vehicle) then {
-	if (isNil "vtx_uh60_flir_camera") exitWith {};
+if (vtx_uh60_flir_isInScriptedCamera) then {
+	//if (isNil "vtx_uh60_flir_camera") exitWith {};
 	(_controlsGroup controlsGroupCtrl 156) ctrlSetText str (round (getDir vtx_uh60_flir_camera)); // DIR
 
 
-	private _visText = ["DTV", "NVG", "WHT", "BHOT"] # (_vehicle getVariable ["vtx_flir_initVisionMode", 0]);
+	private _visText = vtx_uh60_flir_visionModeNamesHashMap get vtx_uh60_flir_pipEffect;
 	(_controlsGroup controlsGroupCtrl 153) ctrlSetText _visText; // VIS
 
 	(_controlsGroup controlsGroupCtrl 158) ctrlSetText (if (isLaserOn _vehicle) then [{"LRF ARMED"}, {""}]); // LSR
 
-	private _zoomRaw = ([0.5,0.5] distance2D  worldToScreen positionCameraToWorld [0,3,4]) 
+	private _zoomRaw = ([0.5,0.5] distance2D  worldToScreen positionCameraToWorld [0,3,4])
 	* (getResolution select 5) / 2;
 	(_controlsGroup controlsGroupCtrl 180) ctrlSetText format["%1x", _zoomRaw toFixed 1]; // zoom
 
@@ -35,7 +35,7 @@ if (player != driver _vehicle) then {
 		};
 	} forEach [1021, 1022, 1023, 1024, 1025];
 } else {
-	private _zoomRaw = ([0.5,0.5] distance2D  worldToScreen positionCameraToWorld [0,3,4]) 
+	private _zoomRaw = ([0.5,0.5] distance2D  worldToScreen positionCameraToWorld [0,3,4])
 	* (getResolution select 5) / 2;
 	if (cameraView != "GUNNER") exitWith {
 		{(_ui displayCtrl _x) ctrlShow false;} forEach [1021, 1022, 1023, 1024, 1025];
