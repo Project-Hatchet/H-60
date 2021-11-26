@@ -1,12 +1,12 @@
 
 class RscTitles {
-    class vtx_uh60_flir_cameraOverlay {
-        idd = 86005;
-        movingEnable = 1;
-        duration = 9999999;
-        fadein = 0;
-        fadeout = 0;
-        onLoad = "uiNamespace setVariable [""vtx_uh60_flir_ui"",(_this select 0)];"; // ((_this select 0) displayCtrl -1) progressSetPosition 0.5
+  class vtx_uh60_flir_cameraOverlay {
+    idd = 86005;
+    movingEnable = 1;
+    duration = 9999999;
+    fadein = 0;
+    fadeout = 0;
+    onLoad = "uiNamespace setVariable [""vtx_uh60_flir_ui"",(_this select 0)];"; // ((_this select 0) displayCtrl -1) progressSetPosition 0.5
 		class VScrollbar;
 		class HScrollbar;
 		class controls {
@@ -52,5 +52,5 @@ class RscTitles {
 			};
 			#include "MELB_GUI.hpp"
 		};
-    };
+  };
 };
