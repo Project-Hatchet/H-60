@@ -18,9 +18,9 @@ class cfgWeapons {
     class vtx_chaingun_hedp: autocannon_30mm_RCWS {
       displayName = "M230 Chaingun";
       displayNameShort = "M230 HEDP";
-      magazines[] = {"VTX_M230_Chaingun_L_HEI", "VTX_M230_Chaingun_R_HEI"};
+      magazines[] = {"VTX_M230_Chaingun_L_HEDP", "VTX_M230_Chaingun_R_HEDP"};
       class player: player {
-        displayName = "M230 HEI";
+        displayName = "M230 HEDP";
       };
       class gunParticles
       {
