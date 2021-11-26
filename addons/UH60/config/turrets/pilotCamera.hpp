@@ -59,4 +59,4 @@ initTurn = 0;
 maxXRotSpeed=0.5;
 maxYRotSpeed=0.5;
 pilotOpticsShowCursor=1;
-controllable="True";
+controllable=1;
