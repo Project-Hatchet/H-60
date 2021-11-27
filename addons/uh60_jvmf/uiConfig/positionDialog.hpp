@@ -1,16 +1,8 @@
 class vtx_uh60_jvmf_positionDialog {
     idd = 20001;
     movingEnable = true;
-    onLoad = "";
+    onLoad = "uiNamespace setVariable [""vtx_uh60_jvmf_display"", _this # 0];";
     class Controls {
-		class backgroundPicture: RscPicture {
-			idc = 999;
-			text = "z\vtx\addons\uh60_jvmf\data\screen.paa";
-        	x = 0.350562 * safezoneW + safezoneX;
-        	y = -0.07 * safezoneH + safezoneY;
-        	w = 0.305187 * safezoneW;
-        	h = 0.974 * safezoneH;
-		};
         class IGUIBack_2200: IGUIBack
         {
         	idc = 2200;
@@ -20,21 +12,29 @@ class vtx_uh60_jvmf_positionDialog {
         	h = 0.484 * safezoneH;
             colorBackground[] = {0.1,0.1,0.1,1};
         };
+		class backgroundPicture: RscPicture {
+			idc = 999;
+			text = "z\vtx\addons\uh60_jvmf\data\screen2.paa";
+        	x = 0.350562 * safezoneW + safezoneX;
+        	y = 0.065 * safezoneH + safezoneY;
+        	w = 0.305187 * safezoneW;
+        	h = 0.800 * safezoneH;
+		};
         class RscText_1001: RscText
         {
         	idc = 1001;
-        	text = "Message type"; //--- ToDo: Localize;
-        	x = 0.396875 * safezoneW + safezoneX;
-        	y = 0.269 * safezoneH + safezoneY;
-        	w = 0.0773437 * safezoneW;
+        	text = "NEW MSG"; //--- ToDo: Localize;
+        	x = 0.47875 * safezoneW + safezoneX;
+        	y = 0.235 * safezoneH + safezoneY;
+        	w = 0.825 * safezoneW;
         	h = 0.022 * safezoneH;
         };
         class RscButton_1602: RscButton
         {
         	idc = 1602;
-        	text = "Freetext"; //--- ToDo: Localize;
+        	text = "FREETEXT"; //--- ToDo: Localize;
         	x = 0.456875 * safezoneW + safezoneX;
-        	y = 0.269 * safezoneH + safezoneY;
+        	y = 0.255 * safezoneH + safezoneY;
         	w = 0.04125 * safezoneW;
         	h = 0.022 * safezoneH;
             onButtonClick="closeDialog 2;createDialog ""vtx_uh60_jvmf_writeDialog"";";
@@ -42,12 +42,22 @@ class vtx_uh60_jvmf_positionDialog {
         class RscButton_1603: RscButton
         {
         	idc = 1603;
-        	text = "Position"; //--- ToDo: Localize;
+        	text = "POSREP"; //--- ToDo: Localize;
         	x = 0.50 * safezoneW + safezoneX;
-        	y = 0.269 * safezoneH + safezoneY;
+        	y = 0.255 * safezoneH + safezoneY;
         	w = 0.04125 * safezoneW;
         	h = 0.022 * safezoneH;
             onButtonClick="";
+        };
+        class RscButton_1604: RscButton
+        {
+        	idc = 1604;
+        	text = "JVMF INBOX"; //--- ToDo: Localize;
+        	x = 0.4 * safezoneW + safezoneX;
+        	y = 0.235 * safezoneH + safezoneY;
+        	w = 0.054 * safezoneW;
+        	h = 0.044 * safezoneH;
+            onButtonClick="closeDialog 2;createDialog ""vtx_uh60_jvmf_inboxDialog"";";
         };
         class RscText_1002: RscText
         {
@@ -77,27 +87,10 @@ class vtx_uh60_jvmf_positionDialog {
         	h = 0.022 * safezoneH;
             onKeyUp="(_this select 0) ctrlSetText ((ctrlText (_this select 0)) select [0,18])";
         };
-        class RscText_1004: RscText
-        {
-        	idc = 1004;
-        	text = "MSG ID:"; //--- ToDo: Localize;
-        	x = 0.396875 * safezoneW + safezoneX;
-        	y = 0.335 * safezoneH + safezoneY;
-        	w = 0.04125 * safezoneW;
-        	h = 0.022 * safezoneH;
-        };
-        class RscEdit_1401: RscEdit
-        {
-        	idc = 1401;
-        	x = 0.438125 * safezoneW + safezoneX;
-        	y = 0.335 * safezoneH + safezoneY;
-        	w = 0.0721875 * safezoneW;
-        	h = 0.022 * safezoneH;
-        };
         class RscText_1005: RscText
         {
         	idc = 1005;
-        	text = "Every line has a character limit of 50"; //--- ToDo: Localize;
+        	text = "Every line has a character limit of 34"; //--- ToDo: Localize;
         	x = 0.396875 * safezoneW + safezoneX;
         	y = 0.401 * safezoneH + safezoneY;
         	w = 0.128906 * safezoneW;
@@ -130,7 +123,7 @@ class vtx_uh60_jvmf_positionDialog {
         	y = 0.423 * safezoneH + safezoneY;
         	w = 0.116563 * safezoneW;
         	h = 0.022 * safezoneH;
-            onKeyUp="(_this select 0) ctrlSetText ((ctrlText (_this select 0)) select [0,60])";
+            onKeyUp="(_this select 0) ctrlSetText ((ctrlText (_this select 0)) select [0,34])";
         };
         class RscEdit_1403: ContentTextShort
         {

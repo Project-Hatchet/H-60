@@ -49,7 +49,7 @@ private _message = VTX_JVMF_MESSAGES # VTX_JVMF_SELECTED_IDX;
 _message params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
 
 _vehicle setUserMFDValue [16, _type];
-_vehicle setUserMFDText [30, _sender];
+_vehicle setUserMFDText [30, _sender + "/" + _recipient];
 switch (_type) do {
     case 0: {
         {

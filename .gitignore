@@ -11,5 +11,5 @@ texHeaders.bin
 *.swo
 *.biprivatekey
 *.p3d
-*.paa
+UH60/*.paa
 Thumbs.db

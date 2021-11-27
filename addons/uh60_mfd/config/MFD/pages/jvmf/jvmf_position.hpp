@@ -15,7 +15,7 @@ class jvmf_border {
         };
     }; // title_box
     TEXT_MID_SCALED(freetext,1-0.3,0.1,"POSITION",0.04)
-	TEXT_LEFT_SCALED(fromLabel,0.45,0.2-(FREETEXT_LINE_SCALING*1),"FROM",0.04)
+	TEXT_LEFT_SCALED(fromLabel,0.45,0.2-(FREETEXT_LINE_SCALING*1),"FROM/TO",0.04)
 	TEXT_LEFT_SCALED(reply,0.45,0.2+(FREETEXT_LINE_SCALING*16),"STATUS",0.04)
     class message_box {
         type="line";
