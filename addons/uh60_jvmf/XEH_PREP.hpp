@@ -7,3 +7,5 @@ PREP(receiveReply);
 PREP(reply);
 PREP(setup);
 PREP(submitMessage);
+PREP(openMessage);
+PREP(prepareInboxDialog);

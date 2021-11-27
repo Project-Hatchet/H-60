@@ -68,6 +68,10 @@ class CfgVehicles
         #include "cfgVehiclesParts\fries.hpp"
         #include "cfgVehiclesParts\hitPoints.hpp"
         //#include "cfgVehiclesParts\vehicleCustomization.hpp"
+        
+        reportOwnPosition = 1;
+        reportRemoteTargets = 1;
+        receiveRemoteTargets = 1;
 
         irTargetSize = 1.2;
         radarTargetSize = 1.2;
