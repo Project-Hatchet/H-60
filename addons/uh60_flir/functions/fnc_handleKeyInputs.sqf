@@ -57,7 +57,18 @@ if (vtx_uh60_flir_playerIsCopilot) then {
 
   // Copilot Camera
   if (vtx_uh60_flir_isInScriptedCamera) then {
-    // Missiles
+    // Next Weapon
+    private _nextWeapon = inputAction "nextWeapon"; // Next Weapon
+    if (_nextWeapon > 0) then {
+      if (vtx_uh60_flir_inputNextWeapon == 0) then {
+        vtx_uh60_flir_inputNextWeapon = ceil _nextWeapon;
+        [vxf_vehicle, [0]] call vtx_uh60_flir_fnc_nextWeapon;
+      };
+    } else {
+      vtx_uh60_flir_inputNextWeapon = 0;
+    };
+
+    // Fire
     private _fireWeapon = inputAction "defaultAction"; // Click
     if (_fireWeapon > 0) then {
       if (vtx_uh60_flir_inputFireWeapon == 0) then {
