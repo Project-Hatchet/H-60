@@ -1,9 +1,10 @@
 /*
  * Author: Ampersand
- * Toggle the laser designator
+ * Fire the current weapon on the given turret of the given vehicle
  *
  * Arguments:
- * 0: Helicopter <OBJECT>
+ * 0: Vehicle <OBJECT>
+ * 1: Turret Path <ARRAY>
  *
  * Return Value:
  * 0: Success <BOOLEAN>
@@ -12,9 +13,8 @@
  * [_vehicle] call vtx_uh60_flir_fnc_fireWeapon
  */
 
-params ["_vehicle"];
+params ["_vehicle", ["_turretPath", [0]]];
 
-private _turretPath = [0];
 weaponState [_vehicle, _turretPath] params ["_weapon", "", "", "_magazine", "_ammo"];
 
 {
