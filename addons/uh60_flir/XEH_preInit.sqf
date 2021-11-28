@@ -8,6 +8,8 @@ ADDON = false;
 // stuff to hopefully speed up perFrame
 vtx_uh60_flir_aspectRatio = getResolution # 4;
 vtx_uh60_flir_playerEHs = [];
+vtx_uh60_flir_playerCBAEHs = [];
+vtx_uh60_flir_vehicleEHs = [];
 
 // inputs
 vtx_uh60_flir_inputZoom = 0;
@@ -54,6 +56,13 @@ vtx_uh60_flir_visionModeNamesHashMap = createHashMapFromArray [
   [[2], "WHOT"], // thermalMode[] white-hot
   [[7], "BHOT"], // thermalMode[] black-hot
   [[8], "GHOT"] // thermalMode[] green-hot
+];
+
+vtx_uh60_flir_visionModesHashMap = createHashMapFromArray [
+  [[0, -1], [0]],
+  [[1, -1], [1]],
+  [[2, 0], [2]], // thermalMode[] white-hot
+  [[2, 1], [7]] // thermalMode[] black-hot
 ];
 
 ADDON = true;

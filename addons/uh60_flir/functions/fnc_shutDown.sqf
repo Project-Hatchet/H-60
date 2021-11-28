@@ -11,4 +11,12 @@ _this call vtx_uh60_flir_fnc_stopMFD;
 
 {
   _x call CBA_fnc_removePlayerEventHandler;
+} count vtx_uh60_flir_playerCBAEHs;
+
+{
+  _vehicle removeEventHandler _x;
+} count vtx_uh60_flir_vehicleEHs;
+
+{
+  player removeEventHandler _x;
 } count vtx_uh60_flir_playerEHs;

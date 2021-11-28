@@ -15,6 +15,10 @@
 // Move to framework
 vxf_vehicle = vehicle player;
 if (!hasPilotCamera vxf_vehicle) exitWith {false};
+vtx_uh60_flir_turretPath = vxf_vehicle unitTurret player;
+vtx_uh60_flir_playerIsPilot = vtx_uh60_flir_turretPath isEqualTo [-1];
+vtx_uh60_flir_playerIsCopilot = vtx_uh60_flir_turretPath isEqualTo [0];
+vtx_uh60_flir_aspectRatio = getResolution # 4;
 
 //(getPilotCameraTarget vxf_vehicle) params ["_isTracking", "_trackPos", "_trackObj"];
 (getPilotCameraTarget vxf_vehicle) params ["_isTracking"];
@@ -56,25 +60,43 @@ vtx_uh60_flir_camDirAndUp = [
 vtx_uh60_flir_isVisibleMap = visibleMap;
 call vtx_uh60_flir_fnc_setIsPipHidden;
 
+if (vtx_uh60_flir_playerIsPilot) then {
+  // https://community.bistudio.com/wiki/Arma_3:_Event_Handlers#VisionModeChanged
+  _id = player addEventHandler ["VisionModeChanged", {
+  	params ["", "_visionMode", "_TIindex"];
+    if (cameraView == "GUNNER") then {
+      [vtx_uh60_flir_visionModesHashMap get [_visionMode, _TIindex]] call vtx_uh60_flir_fnc_setVisionMode;
+    };
+  }];
+  vtx_uh60_flir_playerEHs pushBack ["VisionModeChanged", _id];
+};
+
+// track SACLOS
+_id = vxf_vehicle addEventHandler ["Fired", {
+	//params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
+	params ["", "", "", "", "_ammo", "", "_projectile"];
+	if (cameraView != "GUNNER" && {getNumber (configFile >> "CfgAmmo" >> _ammo >> "manualControl") == 1}) then {
+		[{
+			params ["_projectile", "_pfhID"];
+			private _pos = screenToWorld [0.5, 0.5];
+			if (_pos distance positionCameraToWorld [0, 0, 0] > 5000) then {
+				_pos = positionCameraToWorld [0, 0, 5000];
+			};
+			_projectile setMissileTargetPos _pos;
+			if (!alive _projectile) then {
+				[_pfhID] call CBA_fnc_removePerFrameHandler;
+			};
+		}, 0, _projectile] call CBA_fnc_addPerFrameHandler;
+	};
+}];
+vtx_uh60_flir_vehicleEHs pushBack ["Fired", _id];
+
 //params ["_unit", "_newView", "_oldView"]; // "GUNNER", "INTERNAL", "EXTERNAL"
 _id = ["cameraView", {
   params ["_unit", "_newView", "_oldView"];
-  if (vtx_uh60_flir_playerIsPilot && {_newView == "GUNNER"}) then {
-    // Sync FOV and Vision Mode
-  };
   call vtx_uh60_flir_fnc_setIsPipHidden;
 }] call CBA_fnc_addPlayerEventHandler;
-vtx_uh60_flir_playerEHs pushBack ["cameraView", _id];
-
-//params ["_unit", "_newView", "_oldView"]; // "GUNNER", "INTERNAL", "EXTERNAL"
-_id = ["visionMode", {
-  params ["_unit", "_newView", "_oldView"];
-  if (vtx_uh60_flir_playerIsPilot && {_newView == "GUNNER"}) then {
-    // Sync FOV and Vision Mode
-  };
-  call vtx_uh60_flir_fnc_setIsPipHidden;
-}] call CBA_fnc_addPlayerEventHandler;
-vtx_uh60_flir_playerEHs pushBack ["cameraView", _id];
+vtx_uh60_flir_playerCBAEHs pushBack ["cameraView", _id];
 
 //params ["_unit", "_featureCamera"]; // "", "curator", "splendid", "nexus"
 _id = ["featureCamera", {
@@ -85,7 +107,7 @@ _id = ["featureCamera", {
     call vtx_uh60_flir_fnc_pipStart;
   };
 }] call CBA_fnc_addPlayerEventHandler;
-vtx_uh60_flir_playerEHs pushBack ["featureCamera", _id];
+vtx_uh60_flir_playerCBAEHs pushBack ["featureCamera", _id];
 
 //params ["_unit", "_isVisibleMap"]; // true, false
 _id = ["visibleMap", {
@@ -93,6 +115,6 @@ _id = ["visibleMap", {
   vtx_uh60_flir_isVisibleMap = _isVisibleMap;
   call vtx_uh60_flir_fnc_setIsPipHidden;
 }] call CBA_fnc_addPlayerEventHandler;
-vtx_uh60_flir_playerEHs pushBack ["visibleMap", _id];
+vtx_uh60_flir_playerCBAEHs pushBack ["visibleMap", _id];
 
 true
