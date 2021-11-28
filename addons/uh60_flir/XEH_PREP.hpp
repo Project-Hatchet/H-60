@@ -4,6 +4,7 @@ PREP(setup);
 PREP(shutDown);
 
 PREP(fireWeapon);
+PREP(nextWeapon);
 PREP(handleKeyInputs);
 PREP(handleSlew);
 PREP(keyFLIRSlewToHMD);
