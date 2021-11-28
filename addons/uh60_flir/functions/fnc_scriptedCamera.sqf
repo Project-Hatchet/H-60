@@ -23,6 +23,7 @@ if (_show) then {
   //vtx_uh60_flir_FOV = _initFovStep;
   vtx_uh60_flir_camera cameraEffect ["Internal", "BACK"];
   vtx_uh60_flir_camera camSetFocus [-1,-1];
+  vtx_uh60_flir_camera camCommit 0;
   15 cutRsc ["vtx_uh60_flir_cameraOverlay", "PLAIN"];
   showCinemaBorder false;
 

@@ -17,6 +17,8 @@ if (!isNil "vtx_uh60_flir_camera") then { call vtx_uh60_flir_fnc_pipStop };
 vtx_uh60_flir_camera = "camera" camCreate [0,0,0];
 vtx_uh60_flir_camera cameraEffect ["internal", "BACK", "vtx_uh60_flir_feed"];
 "vtx_uh60_flir_feed" setPiPEffect [3,0.6,0.7,0.2,0,[0,0,0,0],[1,1,1,0],[1,1,1,1]];
+vtx_uh60_flir_camera camSetFocus [-1,-1];
+vtx_uh60_flir_camera camCommit 0;
 
 call vtx_uh60_flir_fnc_setIsPipHidden;
 
