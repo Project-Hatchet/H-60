@@ -39,14 +39,15 @@
       if (vtx_uh60_flir_isPipHidden) exitWith {};
       vtx_uh60_flir_slewAim = true;
       if (vtx_uh60_flir_setting_AimSlewBlockMouse && {!ace_interact_menu_keyDown}) then {
-        if (uiNamespace getVariable ["vtx_uh60_flir_mouseBlocker", false]) then {
-        } else {
+        if (!(uiNamespace getVariable ["vtx_uh60_flir_mouseBlocker", false])) then {
           (findDisplay 46) createDisplay "vtx_uh60_flir_mouseBlocker";
           (finddisplay 86005) displayAddEventHandler ["KeyUp", {[_this,'keyup'] call CBA_events_fnc_keyHandler}];
         };
       };
     },{
-      (findDisplay 86005) closeDisplay 0;
+      if (uiNamespace getVariable ["vtx_uh60_flir_mouseBlocker", false]) then {
+        (findDisplay 86005) closeDisplay 0;
+      };
       vtx_uh60_flir_slewAim = false;
     }//,
     //[32, [false, true, false]],false
