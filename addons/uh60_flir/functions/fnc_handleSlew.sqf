@@ -126,7 +126,6 @@ if vtx_uh60_flir_isSlewing then {
         if !((_intersections # 0) isEqualTo []) then {
             (_intersections # 0) params ["_intersectPosASL", "_surfaceNormal", "_intersectObject", "_parentObject"];
             _vehicle setPilotCameraTarget _intersectPosASL;
-            [_intersectPosASL] call vtx_uh60_flir_fnc_syncAnimation;
 //systemChat format ["tracking %1", [_slewDir, _intersectPosASL]];
             [_slewDir, _intersectPosASL] call vtx_uh60_flir_fnc_syncPilotCamera;
         };
