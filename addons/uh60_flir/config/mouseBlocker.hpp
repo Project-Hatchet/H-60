@@ -6,7 +6,7 @@ class vtx_uh60_flir_mouseBlocker {
   //fadein = 0;
   //fadeout = 0;
   //hideCursor = 1;
-  onLoad = "uiNamespace setVariable [""vtx_uh60_flir_mouseBlocker"",(_this select 0)]; uiNamespace setVariable [""vtx_uh60_flir_mouseBlocked"",true];";
+  onLoad = "uiNamespace setVariable [""vtx_uh60_flir_mouseBlocker"",true];";
   onUnload = "uiNamespace setVariable [""vtx_uh60_flir_mouseBlocker"",false];";
   //class controls { };
 };
