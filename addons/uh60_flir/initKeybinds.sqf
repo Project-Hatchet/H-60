@@ -1,7 +1,7 @@
 [
     "UH-60M Blackhawk","vtx_uh60_flir_copilotCamera","Copilot Camera", // Control + Right click
     {
-      if (!vtx_uh60_flir_controllable) exitWith {};
+      if (!vtx_uh60_flir_playerIsCopilot || {!vtx_uh60_flir_controllable}) exitWith {};
       vtx_uh60_flir_isInScriptedCamera = !vtx_uh60_flir_isInScriptedCamera;
       [vtx_uh60_flir_isInScriptedCamera] call vtx_uh60_flir_fnc_scriptedCamera;
     },{},
@@ -50,7 +50,10 @@
 
 [
     "UH-60M Blackhawk","vtx_uh60_flir_c_slewHMD","FLIR Slew To HMD", // Shift + T
-    vtx_uh60_flir_fnc_keyFLIRSlewToHMD,{},
+    {
+      if (vtx_uh60_flir_isPipHidden) exitWith {};
+      call vtx_uh60_flir_fnc_keyFLIRSlewToHMD
+    },{},
     [20, [true, false, false]],false
 ] call CBA_fnc_addKeybind;
 
