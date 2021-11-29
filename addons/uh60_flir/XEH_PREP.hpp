@@ -25,4 +25,5 @@ PREP(syncAnimation);
 PREP(syncPilotCamera);
 PREP(toggleLaser);
 PREP(updateCamera);
+PREP(syncPilots);
 PREP(updateUIValues);

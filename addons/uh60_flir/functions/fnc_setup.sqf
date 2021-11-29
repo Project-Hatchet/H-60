@@ -12,20 +12,16 @@
  * call vtx_uh60_flir_fnc_setup
  */
 
-// Move to framework
-vxf_vehicle = vehicle player;
-if (!hasPilotCamera vxf_vehicle) exitWith {false};
-vtx_uh60_flir_turretPath = vxf_vehicle unitTurret player;
-vtx_uh60_flir_playerIsPilot = vtx_uh60_flir_turretPath isEqualTo [-1];
-vtx_uh60_flir_playerIsCopilot = vtx_uh60_flir_turretPath isEqualTo [0];
+params ["_vehicle"];
+if (!hasPilotCamera _vehicle) exitWith {false};
+private _isNotInCockpit = [_vehicle] call vtx_uh60_flir_fnc_syncPilots;
+if (_isNotInCockpit) exitWith {false};
+
 vtx_uh60_flir_aspectRatio = getResolution # 4;
 vtx_uh60_flir_featureCamera = "";
+vtx_uh60_flir_pilotCameraTarget = getPilotCameraTarget _vehicle;
 
-//(getPilotCameraTarget vxf_vehicle) params ["_isTracking", "_trackPos", "_trackObj"];
-(getPilotCameraTarget vxf_vehicle) params ["_isTracking"];
-vtx_uh60_flir_isStabilized = _isTracking;
-
-private _vehicleConfig = configOf vxf_vehicle;
+private _vehicleConfig = configOf _vehicle;
 private _pilotCameraConfig = _vehicleConfig >> "pilotCamera";
 if (!isClass _pilotCameraConfig) exitWith {false};
 
@@ -51,8 +47,8 @@ vtx_uh60_flir_camFOVLevels = keys vtx_uh60_flir_OpticsInfo;
 vtx_uh60_flir_camFOVLevels sort false; // Descending
 vtx_uh60_flir_FOV = vtx_uh60_flir_camFOVLevels # 0;
 
-vtx_uh60_flir_camPos = getPilotCameraPosition vxf_vehicle;
-private _dir = getPilotCameraDirection vxf_vehicle;
+vtx_uh60_flir_camPos = getPilotCameraPosition _vehicle;
+private _dir = getPilotCameraDirection _vehicle;
 vtx_uh60_flir_camDirAndUp = [
   _dir,
   _dir vectorCrossProduct (_dir vectorCrossProduct [0, 0, -1])
@@ -73,7 +69,7 @@ if (vtx_uh60_flir_playerIsPilot) then {
 };
 
 // track SACLOS
-_id = vxf_vehicle addEventHandler ["Fired", {
+_id = _vehicle addEventHandler ["Fired", {
 	//params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
 	params ["", "", "", "", "_ammo", "", "_projectile"];
 	if (cameraView != "GUNNER" && {getNumber (configFile >> "CfgAmmo" >> _ammo >> "manualControl") == 1}) then {
