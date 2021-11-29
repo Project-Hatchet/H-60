@@ -87,6 +87,7 @@ class nav {
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_NAV_IMPORT], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
   FMS_BTN(FMS_6,"Previous waypoint","") buttonUp="[vehicle player,""cycle"", -1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
+  FMS_BTN(FMS_9,"FLIR","") buttonUp="[vehicle player,""flir""] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
   FMS_BTN(FMS_10,"Main Menu","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_MENU], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
@@ -173,19 +174,19 @@ class FLIR {
 
 class hmd {
   condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_HMD);
-  FMS_BTN(FMS_6,"OFF","") 
+  FMS_BTN(FMS_6,"OFF","")
     buttonUp = "[-1] call vtx_uh60_anvishud_fnc_toggleHud;";
   };
-  FMS_BTN(FMS_7,"IMPERIAL ON","") 
+  FMS_BTN(FMS_7,"IMPERIAL ON","")
     buttonUp = "[1] call vtx_uh60_anvishud_fnc_toggleHud;";
   };
-  FMS_BTN(FMS_8,"IMPERIAL DCLT","") 
+  FMS_BTN(FMS_8,"IMPERIAL DCLT","")
     buttonUp = "[2] call vtx_uh60_anvishud_fnc_toggleHud;";
   };
-  FMS_BTN(FMS_2,"METRIC ON","") 
+  FMS_BTN(FMS_2,"METRIC ON","")
     buttonUp = "[3] call vtx_uh60_anvishud_fnc_toggleHud;";
   };
-  FMS_BTN(FMS_3,"METRIC DCLT","") 
+  FMS_BTN(FMS_3,"METRIC DCLT","")
     buttonUp = "[4] call vtx_uh60_anvishud_fnc_toggleHud;";
   };
   FMS_BTN(FMS_10,"Mission Systems","")

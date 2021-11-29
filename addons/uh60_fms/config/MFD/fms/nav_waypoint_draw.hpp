@@ -14,6 +14,11 @@ TEXT_FMS_L(L1,FMS_MARGIN_L,FMS_Y1)
 	text = "< PRV";
 }; // L1
 
+TEXT_FMS_L(L4,FMS_MARGIN_L,FMS_Y4)
+	source = "static";
+	text = "< FLIR";
+}; // L4
+
 TEXT_FMS_R(R1,FMS_MARGIN_R,FMS_Y1)
 	source = "static";
 	text = "NXT >";
