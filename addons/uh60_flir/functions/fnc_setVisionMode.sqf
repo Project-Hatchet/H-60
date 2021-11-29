@@ -10,10 +10,10 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_vehicle] call vtx_uh60_flir_fnc_setVisionMode
+ * [_effect] call vtx_uh60_flir_fnc_setVisionMode
  */
 
-params ["_effect", ["_sync", false]];
+params ["_effect", ["_sync", true]];
 
 vtx_uh60_flir_pipEffect = _effect;
 "vtx_uh60_flir_feed" setPiPEffect vtx_uh60_flir_pipEffect;

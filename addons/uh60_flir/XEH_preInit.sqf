@@ -12,6 +12,7 @@ vtx_uh60_flir_playerEHs = [];
 vtx_uh60_flir_playerCBAEHs = [];
 vtx_uh60_flir_vehicleEHs = [];
 vtx_uh60_flir_isPipHidden = true;
+vtx_uh60_flir_pipIsFixed = false;
 
 // inputs
 vtx_uh60_flir_inputZoom = 0;
