@@ -4,14 +4,14 @@ if (hasInterface) then {
     #include "initKeybinds.sqf"
 };
 
-// move to framework
-["vtx_h60_base","GetIn",{call vtx_uh60_flir_fnc_setup},true,[]] call CBA_fnc_addClassEventHandler;
-["vtx_h60_base","GetOut",{call vtx_uh60_flir_fnc_setup},true,[]] call CBA_fnc_addClassEventHandler;
-["vtx_h60_base","SeatSwitched",{call vtx_uh60_flir_fnc_setup},true,[]] call CBA_fnc_addClassEventHandler;
-
 ["vtx_uh60_flir_syncFixedPIP", {
   _this set [5, false]; // don't sync again
   _this call vtx_uh60_flir_fnc_setFixedPIP;
+}] call CBA_fnc_addEventHandler;
+
+["vtx_uh60_flir_syncPilots", {
+  params ["_vehicle"];
+  [_vehicle, false] call vtx_uh60_flir_fnc_syncPilots;
 }] call CBA_fnc_addEventHandler;
 
 ["vtx_uh60_flir_syncFOV", {
