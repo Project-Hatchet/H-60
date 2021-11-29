@@ -19,6 +19,7 @@ vtx_uh60_flir_turretPath = vxf_vehicle unitTurret player;
 vtx_uh60_flir_playerIsPilot = vtx_uh60_flir_turretPath isEqualTo [-1];
 vtx_uh60_flir_playerIsCopilot = vtx_uh60_flir_turretPath isEqualTo [0];
 vtx_uh60_flir_aspectRatio = getResolution # 4;
+vtx_uh60_flir_featureCamera = "";
 
 //(getPilotCameraTarget vxf_vehicle) params ["_isTracking", "_trackPos", "_trackObj"];
 (getPilotCameraTarget vxf_vehicle) params ["_isTracking"];
@@ -101,6 +102,7 @@ vtx_uh60_flir_playerCBAEHs pushBack ["cameraView", _id];
 //params ["_unit", "_featureCamera"]; // "", "curator", "splendid", "nexus"
 _id = ["featureCamera", {
   params ["", "_featureCamera"];
+  vtx_uh60_flir_featureCamera = _featureCamera;
   call vtx_uh60_flir_fnc_setIsPipHidden;
   // Fix pip black screen
   if (_featureCamera == "" && {call vtx_uh60_mfd_fnc_isAnyFlirOpened}) then {
