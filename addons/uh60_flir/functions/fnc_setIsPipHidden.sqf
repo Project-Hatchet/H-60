@@ -15,4 +15,5 @@
 vtx_uh60_flir_isPipHidden = isNil "vtx_uh60_flir_camera" ||
   {cameraView isNotEqualTo "INTERNAL"} ||
   {vtx_uh60_flir_isVisibleMap} ||
+  {vtx_uh60_flir_featureCamera != ""} ||
   {!isNull curatorCamera}
