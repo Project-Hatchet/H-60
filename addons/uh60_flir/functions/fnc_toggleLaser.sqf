@@ -14,7 +14,10 @@
 
 params ["_vehicle"];
 private _pilot = driver _vehicle;
-if (isNull _pilot) exitWith {false};
+if (isNull _pilot) exitWith {
+  systemChat "Cannot toggle laser if pilot seat is empty.";
+  false
+};
 
 private _turretPath = [-1];
 private _magazine = "Laserbatteries";

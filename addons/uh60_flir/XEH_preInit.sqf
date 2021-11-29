@@ -11,6 +11,7 @@ vtx_uh60_flir_featureCamera = "";
 vtx_uh60_flir_playerEHs = [];
 vtx_uh60_flir_playerCBAEHs = [];
 vtx_uh60_flir_vehicleEHs = [];
+vtx_uh60_flir_isPipHidden = true;
 
 // inputs
 vtx_uh60_flir_inputZoom = 0;
