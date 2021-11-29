@@ -22,12 +22,12 @@ params [
 
 //if (vtx_uh60_flir_playerIsPilot && {vtx_uh60_flir_isCopilotInGunnerView}) exitWith {false};
 
-vtx_uh60_flir_pilotCameraTarget params ["_isTracking", "_trackPos", "_trackObj"];
+vtx_uh60_flir_pilotCameraTarget params ["_isTracking", "", "_trackObj"];
 
 if (_camPosASL isEqualTo []) then {
   _camPosASL = AGLToASL (vxf_vehicle modelToWorldVisual (vtx_uh60_flir_camPos));
 };
-if (_tgtPosASL isEqualTo []) then {
+if (_tgtPosASL in [[0, 0, 0], []]) then {
   private _flirDir = vxf_vehicle vectorModelToWorldVisual (getPilotCameraDirection vxf_vehicle);
   _tgtPosASL = _camPosASL vectorAdd (_flirDir vectorMultiply 5000);
 };
@@ -41,7 +41,13 @@ if !((_intersections # 0) isEqualTo []) then {
     _target = [_intersectPosASL, objNull] select _isTracking; // if already tracking position, untrack
   } else {
     // Object
-    _target = [objNull, _intersectObject] select (_trackObj != _intersectObject); // if already tracking same object, untrack
+    if (speed _intersectObject > 0) then {
+      // Moving vehicle
+      _target = [objNull, _intersectObject] select (_trackObj != _intersectObject); // if already tracking same object, untrack
+    } else {
+      // Stationary target
+      _target = [objNull, _intersectPosASL] select (_trackObj != _intersectObject); // if already tracking same object, untrack
+    };
   };
 };
 
