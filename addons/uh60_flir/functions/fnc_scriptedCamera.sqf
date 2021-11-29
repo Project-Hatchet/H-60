@@ -33,6 +33,7 @@ if (_show) then {
 
   [vtx_uh60_flir_pipEffect, false] call vtx_uh60_flir_fnc_setVisionMode;
   vtx_uh60_flir_isInScriptedCamera = true;
+  call vtx_uh60_flir_fnc_setIsPipHidden;
 
 } else {
 
