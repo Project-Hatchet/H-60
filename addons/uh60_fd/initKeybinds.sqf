@@ -3,6 +3,7 @@
   "vtx_uh60m_c_rmtsby",
   LSTRING(Standby),
   {},{
+    if (!difficultyEnabledRTD) exitWith {};
     ZEUS_EXIT
     private _vehicle = vehicle player;
     if ([_vehicle, "ui", "vtx_H60_base"] call vxf_core_fnc_hasModule) then {
@@ -18,6 +19,7 @@
   "vtx_uh60_fd_raltToggle",
   LSTRING(RALTToggle),
   {},{
+    if (!difficultyEnabledRTD) exitWith {};
     ZEUS_EXIT
     private _vehicle = vehicle player;
     if ([_vehicle, "ui", "vtx_H60_base"] call vxf_core_fnc_hasModule) then {
