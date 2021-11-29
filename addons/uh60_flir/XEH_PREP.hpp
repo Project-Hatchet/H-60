@@ -21,6 +21,7 @@ PREP(setFOV);
 PREP(setIsPipHidden);
 PREP(setStabilization);
 PREP(setVisionMode);
+PREP(syncAnimation);
 PREP(syncPilotCamera);
 PREP(toggleLaser);
 PREP(updateCamera);

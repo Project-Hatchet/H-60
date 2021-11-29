@@ -52,7 +52,6 @@ vxf_vehicle setPilotCameraTarget _target;
 if (vtx_uh60_flir_playerIsCopilot && {vtx_uh60_flir_isCopilotInGunnerView}) then {
   vxf_vehicle lockCameraTo [_target, [0]];
 };
-if !(_target isEqualTo objNull) then { [_target] call vtx_uh60_flir_fnc_syncAnimation; };
 [[], _target] call vtx_uh60_flir_fnc_syncPilotCamera;
 
 true
