@@ -5,7 +5,7 @@
       vtx_uh60_flir_isInScriptedCamera = !vtx_uh60_flir_isInScriptedCamera;
       [vtx_uh60_flir_isInScriptedCamera] call vtx_uh60_flir_fnc_scriptedCamera;
     },{},
-    [nil, [false, true, false]],false
+    [241, [false, true, false]],false
 ] call CBA_fnc_addKeybind;
 
 [
