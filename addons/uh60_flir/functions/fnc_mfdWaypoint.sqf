@@ -16,7 +16,7 @@
 
 params ["_vehicle"];
 
-if (!vtx_uh60_flir_controllable) exitWith {};
+if (!vtx_uh60_flir_controllable) exitWith {false};
 
 [
   false,
@@ -28,15 +28,24 @@ if (!vtx_uh60_flir_controllable) exitWith {};
 
 if (customWaypointPosition isNotEqualTo []) exitWith {
   _vehicle setPilotCameraTarget AGLToASL customWaypointPosition;
-  vtx_uh60_flir_isStabilized = true;
+  [[], _target] call vtx_uh60_flir_fnc_syncPilotCamera;
   true
 };
 
-private _index = currentWaypoint group player;
+private _currentWaypointIndex = currentWaypoint group player;
 private _waypoints = waypoints group player;
-if (ace_microdagr_currentwaypoint > -1) then {
+
+if (_currentWaypointIndex < count _waypoints) exitWith { // valid base game waypoint
+  private _target = AGLToASL waypointPosition [group player, _currentWaypointIndex];
+  _vehicle setPilotCameraTarget _target;
+  [[], _target] call vtx_uh60_flir_fnc_syncPilotCamera;
+  true
+};
+
+if (ace_microdagr_currentwaypoint > -1) exitWith {
   _vehicle setPilotCameraTarget ((player getVariable "ace_microdagr_waypoints") # ace_microdagr_currentwaypoint # 1);
-  vtx_uh60_flir_isStabilized = true;
+  [[], _target] call vtx_uh60_flir_fnc_syncPilotCamera;
+  true
 };
 
 false
