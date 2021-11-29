@@ -20,10 +20,9 @@ params [
   ["_sync", true]
 ];
 
-if (vtx_uh60_flir_isPipHidden) exitWith {};
-if (vtx_uh60_flir_playerIsPilot && {vtx_uh60_flir_isCopilotInGunnerView}) exitWith {false};
+//if (vtx_uh60_flir_playerIsPilot && {vtx_uh60_flir_isCopilotInGunnerView}) exitWith {false};
 
-(getPilotCameraTarget vxf_vehicle) params ["_isTracking", "_trackPos", "_trackObj"];
+vtx_uh60_flir_pilotCameraTarget params ["_isTracking", "_trackPos", "_trackObj"];
 
 if (_camPosASL isEqualTo []) then {
   _camPosASL = AGLToASL (vxf_vehicle modelToWorldVisual (vtx_uh60_flir_camPos));
@@ -39,19 +38,15 @@ if !((_intersections # 0) isEqualTo []) then {
   (_intersections # 0) params ["_intersectPosASL", "_surfaceNormal", "_intersectObject", "_parentObject"];
   if (isNull _intersectObject) then {
     // Terrain
-    vtx_uh60_flir_isStabilized = !vtx_uh60_flir_isStabilized;
-    _target = [objNull, _intersectPosASL] select vtx_uh60_flir_isStabilized; // if already tracking position, untrack
+    _target = [_intersectPosASL, objNull] select _isTracking; // if already tracking position, untrack
   } else {
     // Object
-    vtx_uh60_flir_isStabilized = _trackObj != _intersectObject;
-    _target = [objNull, _intersectObject] select vtx_uh60_flir_isStabilized; // if already tracking same object, untrack
+    _target = [objNull, _intersectObject] select (_trackObj != _intersectObject); // if already tracking same object, untrack
   };
 };
+
 vxf_vehicle setPilotCameraTarget _target;
 
-if (vtx_uh60_flir_playerIsCopilot && {vtx_uh60_flir_isCopilotInGunnerView}) then {
-  vxf_vehicle lockCameraTo [_target, [0]];
-};
 [[], _target] call vtx_uh60_flir_fnc_syncPilotCamera;
 
 true
