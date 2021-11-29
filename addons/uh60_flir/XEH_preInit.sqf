@@ -19,7 +19,6 @@ vtx_uh60_flir_inputStabilize = 0;
 vtx_uh60_flir_inputVisionMode = 0;
 vtx_uh60_flir_isFixed = false; // For Sling cam
 vtx_uh60_flir_isSlewing = false;
-vtx_uh60_flir_isStabilized = false;
 vtx_uh60_flir_slewAim = false;
 vtx_uh60_flir_up = 0;
 vtx_uh60_flir_down = 0;
@@ -27,6 +26,7 @@ vtx_uh60_flir_left = 0;
 vtx_uh60_flir_right = 0;
 
 // FLIR state
+vtx_uh60_flir_pilotCameraTarget = [false, [0, 0, 0], objNull];
 vtx_uh60_flir_controllable = false;
 vtx_uh60_flir_isInScriptedCamera = false;
 
