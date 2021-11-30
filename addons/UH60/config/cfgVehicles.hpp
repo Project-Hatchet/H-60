@@ -64,7 +64,6 @@ class CfgVehicles
         #include "cfgVehiclesParts\reflectors.hpp"
         #include "cfgVehiclesParts\fries.hpp"
         #include "cfgVehiclesParts\hitPoints.hpp"
-        //#include "cfgVehiclesParts\vehicleCustomization.hpp"
 
         irTargetSize = 1.2;
         radarTargetSize = 1.2;
