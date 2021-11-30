@@ -43,7 +43,11 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
         private _gridArea = [worldName] call ace_common_fnc_getMGRSdata;
         private _grid = [_position] call ace_common_fnc_getMapGridFromPos;
         private _str = format ["%1    %2    %3    %4", _gridArea select 0, _gridArea select 1, _grid select 0, _grid select 1];
-        [_str, format["%1/%2", _waypointIndex + 1, count (waypoints group player)], "", "",""]
+        if (_waypointIndex < count (waypoints group player)) then {
+          [_str, format["%1/%2", _waypointIndex + 1, count (waypoints group player)], "", "",""]
+        } else {
+          [_str, format["%1/%2", 0, 0], "", "",""]
+        }
     };
     case FMS_PAGE_NAV_IMPORT: {
         private _autoCycle = _vehicle getVariable ["vtx_uh60_fms_import_autoCycle", false];
