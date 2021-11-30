@@ -58,3 +58,5 @@ if (_animName == "STARTER2") then {
         if (!isNil "vtx_uh60_start2_dummy") then {deleteVehicle vtx_uh60_start2_dummy};
     };
 };
+
+[_vehicle] call vtx_uh60_cas_fnc_updateCautions;

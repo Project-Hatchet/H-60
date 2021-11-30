@@ -18,5 +18,3 @@ for "_i" from 0 to 6 do {
         _vehicle setUserMFDtext [6 - _i, _casList # (((count _casList) - 1) - _i) # 0];
     };
 };
-
-_vehicle animate ["CautionMasterCaution",1];
