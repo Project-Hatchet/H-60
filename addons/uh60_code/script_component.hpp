@@ -21,13 +21,13 @@
 #define MASS_COCKPITDOORS 100
 #define MASS_ERFS 100
 #define MASS_ESSS 100
-#define MASS_FLIR 100
+#define MASS_FLIR 54 // ???
 #define MASS_GAU21 67 // 37 kg (81.6 lb) + 50 g/rnd x 600 rnd
 #define MASS_GUNMOUNT 105 // 25.4 g/rnd x 4000 rnd = 101.6 kg, then add box/struts
 #define MASS_GUNNERSEATS 25 // (10 kg/seat + a bit) x2
 #define MASS_LASS 100
-#define MASS_MAWS 100
+#define MASS_MAWS 5 // ???
 #define MASS_MINIGUN 39 // 39 kg, 85 lb
 #define MASS_PROBE 100
-#define MASS_RADAR 100
-#define MASS_SKIS 100
+#define MASS_RADAR 50 // ???
+#define MASS_SKIS 10 // ???
