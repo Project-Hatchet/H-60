@@ -39,12 +39,12 @@ class textureSources {
     displayName = "UH-60M";
     author = "RiverX";
     textures[] = {
-        "","","","","","","","","","","","","","","","",
-        "z\vtx\addons\UH60\Data\Exterior\Hull Main_co.paa",
-        "z\vtx\addons\UH60\Data\Exterior\Misc_co.paa",
-        "z\vtx\addons\UH60\Data\Exterior\Hull Tail_co.paa",
-        "","","","","", // Markings, door numbers L1, L2, R1, R2
-        "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
+      "","","","","","","","","","","","","","","","",
+      "z\vtx\addons\UH60\Data\Exterior\Hull Main_co.paa",
+      "z\vtx\addons\UH60\Data\Exterior\Misc_co.paa",
+      "z\vtx\addons\UH60\Data\Exterior\Hull Tail_co.paa",
+      "","","","","", // Markings, door numbers L1, L2, R1, R2
+      "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
     };
   };
   class s70a9_aus {
@@ -56,7 +56,7 @@ class textureSources {
       "z\vtx\addons\uh60_misc\data\textures\S-70A-9_Australia\misc_co.paa",
       "z\vtx\addons\uh60_misc\data\textures\S-70A-9_Australia\tail_co.paa",
       "","","","","", // Markings, door numbers L1, L2, R1, R2
-      "" // Probe
+      "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
     };
   };
   class s70a9_aus_med {
@@ -68,7 +68,7 @@ class textureSources {
       "z\vtx\addons\uh60_misc\data\textures\S-70A-9_Australia_Medevac\misc_co.paa",
       "z\vtx\addons\uh60_misc\data\textures\S-70A-9_Australia_Medevac\tail_co.paa",
       "","","","","", // Markings, door numbers L1, L2, R1, R2
-      "" // Probe
+      "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
     };
   };
   class uh60_swe {
@@ -80,7 +80,7 @@ class textureSources {
       "z\vtx\addons\UH60\Data\Exterior\Misc_co.paa",
       "z\vtx\addons\uh60_misc\data\textures\UH-60_Sweden\tail_co.paa",
       "","","","","", // Markings, door numbers L1, L2, R1, R2
-      "" // Probe
+      "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
     };
   };
   class uh60_swe_med {
@@ -92,7 +92,7 @@ class textureSources {
       "z\vtx\addons\UH60\Data\Exterior\Misc_co.paa",
       "z\vtx\addons\uh60_misc\data\textures\UH-60_Sweden_Medevac\tail_co.paa",
       "","","","","", // Markings, door numbers L1, L2, R1, R2
-      "" // Probe
+      "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
     };
   };
   class uh60m_usa {
@@ -104,7 +104,7 @@ class textureSources {
       "z\vtx\addons\UH60\Data\Exterior\Misc_co.paa",
       "z\vtx\addons\uh60_misc\data\textures\UH-60M_US_Army\tail_co.paa",
       "","","","","", // Markings, door numbers L1, L2, R1, R2
-      "" // Probe
+      "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
     };
   };
   class uh60m_usa_med {
@@ -116,7 +116,7 @@ class textureSources {
       "z\vtx\addons\UH60\Data\Exterior\Misc_co.paa",
       "z\vtx\addons\uh60_misc\data\textures\UH-60M_US_Army_Medevac\tail_co.paa",
       "","","","","", // Markings, door numbers L1, L2, R1, R2
-      "" // Probe
+      "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
     };
   };
 
