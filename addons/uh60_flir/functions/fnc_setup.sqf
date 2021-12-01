@@ -57,7 +57,7 @@ vtx_uh60_flir_camDirAndUp = [
 vtx_uh60_flir_isVisibleMap = visibleMap;
 call vtx_uh60_flir_fnc_setIsPipHidden;
 
-if (vtx_uh60_flir_playerIsPilot) then {
+if (vtx_uh60_flir_playerIsPilot && {productVersion # 3 > 207}) then {
   // https://community.bistudio.com/wiki/Arma_3:_Event_Handlers#VisionModeChanged
   _id = player addEventHandler ["VisionModeChanged", {
   	params ["", "_visionMode", "_TIindex"];
