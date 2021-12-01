@@ -17,16 +17,17 @@
 
 #include "\z\vtx\addons\main\script_macros.hpp"
 
-#define MASS_ERFS 100
-#define MASS_LASS 100
-#define MASS_ESSS 100
-#define MASS_RADAR 100
-#define MASS_FLIR 100
-#define MASS_PROBE 100
-#define MASS_CABINSEATS 100
-#define MASS_GUNNERSEATS 100
-#define MASS_GUNMOUNT 100
-#define MASS_MINIGUN 100
-#define MASS_GAU21 100
-#define MASS_MAWS 100
+#define MASS_CABINSEATS 1100 // 10 kg/seat x11
 #define MASS_COCKPITDOORS 100
+#define MASS_ERFS 100
+#define MASS_ESSS 100
+#define MASS_FLIR 100
+#define MASS_GAU21 67 // 37 kg (81.6 lb) + 50 g/rnd x 600 rnd
+#define MASS_GUNMOUNT 105 // 25.4 g/rnd x 4000 rnd = 101.6 kg, then add box/struts
+#define MASS_GUNNERSEATS 25 // (10 kg/seat + a bit) x2
+#define MASS_LASS 100
+#define MASS_MAWS 100
+#define MASS_MINIGUN 39 // 39 kg, 85 lb
+#define MASS_PROBE 100
+#define MASS_RADAR 100
+#define MASS_SKIS 100
