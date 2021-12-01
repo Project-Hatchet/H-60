@@ -16,3 +16,16 @@
 #endif
 
 #include "\z\vtx\addons\main\script_macros.hpp"
+
+#define MASS_ERFS 100
+#define MASS_LASS 100
+#define MASS_ESSS 100
+#define MASS_RADAR 100
+#define MASS_FLIR 100
+#define MASS_PROBE 100
+#define MASS_CABINSEATS 100
+#define MASS_GUNNERSEATS 100
+#define MASS_GUNMOUNT 100
+#define MASS_MINIGUN 100
+#define MASS_GAU21 100
+#define MASS_MAWS 100
