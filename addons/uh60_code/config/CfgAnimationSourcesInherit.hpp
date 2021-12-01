@@ -1,0 +1,20 @@
+class AnimationSources: AnimationSources {
+  class GAU21_L_Hide;
+  class GAU21_R_Hide;
+  class RADAR_HIDE;
+  class FLIR_HIDE;
+  //class Fuelprobe_Show;
+  class Cockpitdoors_Hide;
+  //class ERFS_Show;
+  class MAWS_Tubes_Show;
+  //class LASS_Show;
+  //class ESSS_Show;
+  class GunnerSeats_Hide;
+  class CabinSeats_Hide;
+  class Minigun_Mount_L_hide;
+  class Minigun_Mount_R_hide;
+  class Minigun_L_hide;
+  class Minigun_R_hide;
+  class cabindoor_L;
+  class cabindoor_R;
+};

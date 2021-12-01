@@ -3,53 +3,63 @@ class AnimationSources {
     source="user";
     animPeriod=1;
     initPhase=1;
+    mass = -MASS_GAU21;
   };
   class GAU21_R_Hide {
     source="user";
     animPeriod=1;
     initPhase=1;
+    mass = -MASS_GAU21;
   };
   class RADAR_HIDE {
     source="user";
     animPeriod=1;
     initPhase=1;
+    mass = -MASS_RADAR;
   };
   class FLIR_HIDE {
     source="user";
     animPeriod=1;
     initPhase=1;
+    mass = -MASS_FLIR;
   };
   class Fuelprobe_Show {
     displayName = "Show Fuel Probe";
     source="user";
     animPeriod=1;
     initPhase=0;
+    mass = MASS_PROBE;
   };
   class Cockpitdoors_Hide {
     displayName = "Hide Cockpit doors";
     source="user";
     animPeriod=1;
     initPhase=0;
+    mass = -MASS_COCKPITDOORS;
   };
   class ERFS_Show {
     source="user";
     animPeriod=1;
     initPhase=0;
+    mass = MASS_ERFS;
   };
   class MAWS_Tubes_Show {
     source="user";
     animPeriod=1;
     initPhase=0;
+    mass = MASS_MAWS;
   };
   class LASS_Show {
     source="user";
     animPeriod=1;
     initPhase=0;
+    mass = MASS_LASS;
   };
   class ESSS_Show {
     source="user";
     animPeriod=1;
     initPhase=0;
+    mass = MASS_ESSS;
   };
   //exterior parts
   class GunnerSeats_Hide {
@@ -57,13 +67,15 @@ class AnimationSources {
     source="user";
     animPeriod=1;
     initPhase=0;
-    onPhaseChanged = "params ['_vehicle', '_phase']; _vehicle lockTurret [[1], _phase == 1];  _vehicle lockTurret [[2], _phase == 1];";
+    mass = MASS_GUNNERSEATS;
+    onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[1], [2]] ;";
   };
   class CabinSeats_Hide {
     displayName = "Hide Cabin Seats";
     source="user";
     animPeriod=1;
     initPhase=0;
+    mass = MASS_CABINSEATS;
     lockCargoAnimationPhase = 1;
     lockCargo[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
   };
@@ -76,6 +88,7 @@ class AnimationSources {
     source="user";
     animPeriod=1;
     initPhase=0;
+    mass = MASS_GUNMOUNT;
   };
   class Minigun_Mount_R_hide {
     displayName = "Hide Gun Mount (R)";
@@ -86,29 +99,32 @@ class AnimationSources {
     source="user";
     animPeriod=1;
     initPhase=0;
+    mass = MASS_GUNMOUNT;
   };
   class Minigun_L_hide {
     displayName = "Hide Minigun (L)";
     source="user";
     animPeriod=1;
     initPhase=0;
+    mass = MASS_MINIGUN;
   };
   class Minigun_R_hide {
     displayName = "Hide Minigun (R)";
     source="user";
     animPeriod=1;
     initPhase=0;
+    mass = MASS_MINIGUN;
   };
   class cabindoor_L {
+    displayName = "Close Cabin Door (L)";
     source="user";
     animPeriod=1;
     initPhase=0;
-    onPhaseChanged = "systemChat str _this";
   };
   class cabindoor_R {
+    displayName = "Close Cabin Door (R)";
     source="user";
     animPeriod=1;
     initPhase=0;
-    onPhaseChanged = "systemChat str _this";
   };
 };
