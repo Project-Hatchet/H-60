@@ -1,6 +1,7 @@
 class cfgVehicles {
     class Land_Screwdriver_V1_F;
     class vtx_aar_basket : Land_Screwdriver_V1_F {
+        author = "Project Hatchet Studio";
         displayName = "AAR Basket";
         model = "z\vtx\addons\uh60_aar\Data\Basket\Basket.p3d";
     };

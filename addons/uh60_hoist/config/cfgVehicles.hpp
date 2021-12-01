@@ -76,7 +76,7 @@ class CfgVehicles
     };
     class vtx_hook_helper: vtx_hook_base{
         displayName = "Rescue Hoist Hook Helper";
-        author = "Ampersand";
+        author = "Project Hatchet Studio";
         scope = 1;
         model = "z\vtx\addons\uh60_hoist\data\vtx_hook_helper.p3d";
         slingLoadCargoMemoryPoints[] = {"sling_point"};
@@ -113,7 +113,7 @@ class CfgVehicles
         class AcreRacks {};
         class AcreIntercoms {};
         armor = 1000000;
-        author = "vtx";
+        author = "Project Hatchet Studio";
         cargoAction[] = {"ChopperLight_CB_static_H"};
         memoryPointsGetInCargo = "pos cargo";
         memoryPointsGetInCargoDir = "pos cargo dir";
