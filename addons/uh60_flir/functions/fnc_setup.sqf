@@ -57,15 +57,26 @@ vtx_uh60_flir_camDirAndUp = [
 vtx_uh60_flir_isVisibleMap = visibleMap;
 call vtx_uh60_flir_fnc_setIsPipHidden;
 
-if (vtx_uh60_flir_playerIsPilot && {productVersion # 3 > 207}) then {
-  // https://community.bistudio.com/wiki/Arma_3:_Event_Handlers#VisionModeChanged
-  _id = player addEventHandler ["VisionModeChanged", {
-  	params ["", "_visionMode", "_TIindex"];
-    if (cameraView == "GUNNER") then {
-      [vtx_uh60_flir_visionModesHashMap get [_visionMode, _TIindex]] call vtx_uh60_flir_fnc_setVisionMode;
-    };
-  }];
-  vtx_uh60_flir_playerEHs pushBack ["VisionModeChanged", _id];
+if (vtx_uh60_flir_playerIsPilot) then {
+  if (productVersion # 2 > 207) then {
+    // https://community.bistudio.com/wiki/Arma_3:_Event_Handlers#VisionModeChanged
+    _id = player addEventHandler ["VisionModeChanged", {
+    	params ["", "_visionMode", "_TIindex"];
+      if (cameraView == "GUNNER") then {
+        [vtx_uh60_flir_visionModesHashMap get [_visionMode, _TIindex]] call vtx_uh60_flir_fnc_setVisionMode;
+      };
+    }];
+    vtx_uh60_flir_playerEHs pushBack ["VisionModeChanged", _id];
+  } else {
+    _id = ["visionMode", {
+      params ["_unit", "_newvVsionMode", "_oldVisionMode"];
+      if (cameraView == "GUNNER") then {
+        // Sync Vision Mode
+        [vtx_uh60_flir_visionModesHashMap get [_newvVsionMode, [-1, 0] select (_newvVsionMode > 1)]] call vtx_uh60_flir_fnc_setVisionMode;
+      };
+    }] call CBA_fnc_addPlayerEventHandler;
+    vtx_uh60_flir_playerCBAEHs pushBack ["visionMode", _id];
+  };
 };
 
 // track SACLOS
