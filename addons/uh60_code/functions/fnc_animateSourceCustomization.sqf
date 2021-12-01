@@ -13,12 +13,20 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_vehicle, "cabindoor_L", 1] call vtx_uh60_hoist_fnc_animateSourceCustomization
+ * [_vehicle, "ERFS_Show", 1] call vtx_uh60_hoist_fnc_animateSourceCustomization
  */
 
-params ["_vehicle", "_name", "_phase", ["_speed", 0]];
+params ["_vehicle", "_name", "_phase", ["_speed", 1]];
 
 _vehicle animateSource [_name, _phase, _speed];
-private _onPhaseChanged = getText (configOf _vehicle >> "AnimationSources" >> _name >> "onPhaseChanged");
-if (_onPhaseChanged == "") exitWith {};
-[_vehicle, _phase] call compile _onPhaseChanged;
+private _cfgAnimSrc = configOf _vehicle >> "AnimationSources" >> _name;
+
+private _onPhaseChanged = getText (_cfgAnimSrc >> "onPhaseChanged");
+if (_onPhaseChanged != "") then {
+  [_vehicle, _phase] call compile _onPhaseChanged;
+};
+
+private _mass = getNumber (_cfgAnimSrc >> "mass");
+if (_mass != 0) then {
+  _vehicle setMass (_mass * ([-1, 1] select _phase) + getMass _vehicle);
+};
