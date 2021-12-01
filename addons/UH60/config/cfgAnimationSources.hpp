@@ -1,7 +1,6 @@
 class AnimationSources
 {
     //#define ANIMSRC(name,src,per,init)
-    ANIMSRC(Skis_Show,user,1,0);
     ANIMSRC(cockpitlight_show,user,1,0);
     ANIMSRC(hoist_hook_hide,user,1,0);
     class recoil_source
@@ -38,8 +37,28 @@ class AnimationSources
         animPeriod=1;
         initPhase=1;
     };
-    class LandingLight_Show : GAU21_R_Hide {};
-    class CabinLight_Show : GAU21_R_Hide {};
+    class Skis_Show {
+        displayName = "Show Skis";
+        source="user";
+        animPeriod=1;
+        initPhase=0;
+    };
+    class HH60Flares_Show {
+        displayName = "Show HH-60 Flares";
+        source="user";
+        animPeriod=1;
+        initPhase=0;
+    };
+    class LandingLight_Show {
+        source="user";
+        animPeriod=1;
+        initPhase=0;
+    };
+    class CabinLight_Show {
+        source="user";
+        animPeriod=1;
+        initPhase=0;
+    };
     class RADAR_HIDE {
         source="user";
         animPeriod=1;

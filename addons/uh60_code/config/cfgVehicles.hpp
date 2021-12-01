@@ -1,5 +1,3 @@
-#define ANIM_INIT(name,init) class name : name {initPhase = init;}
-
 class CfgVehicles {
   class Helicopter_Base_H;
   class Heli_Transport_01_base_F: Helicopter_Base_H {
@@ -53,15 +51,58 @@ class CfgVehicles {
       };
     };
   };
-  /* Each model still needs its custom initPase onPhaseChanged
   class vtx_MH60M: vtx_H60_base {
-    class AnimationSources: AnimationSources {};
+    class AnimationSources: AnimationSources {
+      ANIM_INIT(Cockpitdoors_Hide,1);
+      ANIM_INIT(RADAR_HIDE,0);
+      ANIM_INIT(FLIR_HIDE,0);
+      ANIM_INIT(Fuelprobe_Show,1);
+      ANIM_INIT(CabinSeats_Hide,1);
+      ANIM_INIT(MAWS_Tubes_Show,1);
+      ANIM_INIT(ERFS_Show,1);
+    };
   };
-  class vtx_MH60M: vtx_H60_base {
-    class AnimationSources: AnimationSources {};
+  class vtx_MH60M_DAP: vtx_MH60M {
+    class AnimationSources: AnimationSources {
+      ANIM_INIT(Cockpitdoors_Hide,1);
+      ANIM_INIT(LASS_Show,1);
+      ANIM_INIT(GunnerSeats_Hide,1);
+      ANIM_INIT(CabinSeats_Hide,1);
+    };
   };
-  class vtx_UH60M: vtx_H60_base {
-    class AnimationSources: AnimationSources {};
+  class vtx_MH60S_Pylons_GAU21L: vtx_H60_base {
+    class AnimationSources: AnimationSources {
+      ANIM_INIT(ESSS_Show,1);
+      ANIM_INIT(CabinSeats_Hide,1);
+      ANIM_INIT(GAU21_L_Hide,0);
+      ANIM_INIT(MAWS_Tubes_Show,1);
+      ANIM_INIT(FLIR_HIDE,0);
+      ANIM_INIT(FLIR_BACK,1);
+    };
   };
-  */
+  class vtx_MH60S_GAU21L: vtx_H60_base {
+    class AnimationSources: AnimationSources {
+      ANIM_INIT(CabinSeats_Hide,1);
+      ANIM_INIT(GAU21_L_Hide,0);
+      ANIM_INIT(MAWS_Tubes_Show,1);
+      ANIM_INIT(FLIR_HIDE,0);
+      ANIM_INIT(FLIR_BACK,1);
+    };
+  };
+  class vtx_MH60S_Pylons: vtx_H60_base {
+    class AnimationSources: AnimationSources {
+      ANIM_INIT(ESSS_Show,1);
+      ANIM_INIT(CabinSeats_Hide,1);
+      ANIM_INIT(MAWS_Tubes_Show,1);
+      ANIM_INIT(FLIR_HIDE,0);
+      ANIM_INIT(FLIR_BACK,1);
+    };
+  };
+  class vtx_MH60S: vtx_H60_base {
+    class AnimationSources: AnimationSources {
+      ANIM_INIT(MAWS_Tubes_Show,1);
+      ANIM_INIT(FLIR_HIDE,0);
+      ANIM_INIT(FLIR_BACK,1);
+    };
+  };
 };

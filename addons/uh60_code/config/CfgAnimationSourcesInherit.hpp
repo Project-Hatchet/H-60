@@ -3,6 +3,7 @@ class AnimationSources: AnimationSources {
   class GAU21_R_Hide;
   class RADAR_HIDE;
   class FLIR_HIDE;
+  class FLIR_BACK;
   //class Fuelprobe_Show;
   class Cockpitdoors_Hide;
   //class ERFS_Show;
@@ -17,4 +18,6 @@ class AnimationSources: AnimationSources {
   class Minigun_R_hide;
   class cabindoor_L;
   class cabindoor_R;
+  class Skis_Show;
+  class HH60Flares_Show;
 };

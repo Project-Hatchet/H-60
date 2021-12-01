@@ -49,6 +49,14 @@ class CfgVehicles {
             #include "sensors.hpp"
         }; // Components
         class AnimationSources: AnimationSources {
+            /*
+            ANIM_INIT(Cockpitdoors_Hide,1);
+            ANIM_INIT(RADAR_HIDE,0);
+            ANIM_INIT(FLIR_HIDE,0);
+            ANIM_INIT(Fuelprobe_Show,1);
+            ANIM_INIT(CabinSeats_Hide,1);
+            ANIM_INIT(MAWS_Tubes_Show,1);
+            ANIM_INIT(ERFS_Show,1);
             class Cockpitdoors_Hide {
                 source="user";
                 animPeriod=1;
@@ -82,6 +90,7 @@ class CfgVehicles {
             class ERFS_Show: MAWS_Tubes_Show {
                 initPhase=1;
             };
+            */
         }; // AnimationSources
         class CargoTurret;
         class Turrets: Turrets
@@ -130,6 +139,11 @@ class CfgVehicles {
                 source="ammorandom";
                 weapon="vtx_MH60M_M134_minigun";
             };
+            /*
+            ANIM_INIT(Cockpitdoors_Hide,1);
+            ANIM_INIT(LASS_Show,1);
+            ANIM_INIT(GunnerSeats_Hide,1);
+            ANIM_INIT(CabinSeats_Hide,1);
             class Cockpitdoors_Hide {
                 source="user";
                 animPeriod=1;
@@ -173,6 +187,7 @@ class CfgVehicles {
             class ERFS_Show: MAWS_Tubes_Show {
                 initPhase=1;
             };
+            */
         }; // AnimationSources
         class Turrets: Turrets
         {

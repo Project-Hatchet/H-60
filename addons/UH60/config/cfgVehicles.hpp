@@ -423,11 +423,14 @@ class CfgVehicles
         displayName = "$STR_VTX_UH60_UHMBlackhawkProbe";
         class AnimationSources: AnimationSources
         {
+            ANIM_INIT(Fuelprobe_Show,1);
+            /*
             class Fuelprobe_Show {
                 source="user";
                 animPeriod=1;
                 initPhase=1;
             };
+            */
         };
     };
     class vtx_HH60 : vtx_UH60M
@@ -480,6 +483,14 @@ class CfgVehicles
         cargoAction[] = {};
         class AnimationSources: AnimationSources
         {
+            ANIM_INIT(Fuelprobe_Show,1);
+            ANIM_INIT(CabinSeats_Hide,1);
+            ANIM_INIT(HH60Flares_Show,1);
+            ANIM_INIT(MAWS_Tubes_Show,1);
+            ANIM_INIT(ERFS_Show,1);
+            ANIM_INIT(FLIR_HIDE,0);
+            ANIM_INIT(FLIR_BACK,1);
+            /*
             class Fuelprobe_Show {
                 source="user";
                 animPeriod=1;
@@ -509,6 +520,7 @@ class CfgVehicles
             class FLIR_BACK: MAWS_Tubes_Show {
                 initPhase=1;
             };
+            */
         };
         #include "vehicleTransport.hpp"
     };
@@ -521,6 +533,7 @@ class CfgVehicles
       typicalCargo[] = {"vtx_uh60_doorgunner"};
 
       class AnimationSources: AnimationSources {
+        /*
         //#define ANIMSRC(name,src,per,init)
         ANIMSRC(CabinSeats_Hide,user,1,1);
         ANIMSRC(GunnerSeats_Hide,user,1,1);
@@ -528,6 +541,13 @@ class CfgVehicles
         ANIMSRC(Minigun_Mount_R_hide,user,1,1);
         ANIMSRC(Minigun_L_hide,user,1,1);
         ANIMSRC(Minigun_R_hide,user,1,1);
+        */
+        ANIM_INIT(CabinSeats_Hide,1);
+        ANIM_INIT(GunnerSeats_Hide,1);
+        ANIM_INIT(Minigun_Mount_L_hide,1);
+        ANIM_INIT(Minigun_Mount_R_hide,1);
+        ANIM_INIT(Minigun_L_hide,1);
+        ANIM_INIT(Minigun_R_hide,1);
       };
       class Turrets: Turrets {
         class CopilotTurret: CopilotTurret {};
