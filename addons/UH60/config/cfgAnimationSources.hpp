@@ -80,7 +80,7 @@ class AnimationSources
         initPhase=0;
     };
     class Fuelprobe_Show {
-        displayName = "Show Fuel Probe";
+        // proxy part, garage doesn't work displayName = "Show Fuel Probe";
         source="user";
         animPeriod=1;
         initPhase=0;
