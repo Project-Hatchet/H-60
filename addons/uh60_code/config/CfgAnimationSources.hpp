@@ -15,6 +15,10 @@ class AnimationSources {
     mass = -MASS_CABINSEATS;
     lockCargoAnimationPhase = 1;
     lockCargo[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    // if forceAnimatePhase is equal to the phase of this animation sources, every sources from forceAnimate will be changed with their given phase
+    forceAnimatePhase = 0;
+    // animationSource1, phase, animationSource2, phase... No probabilities here, only true or false
+    forceAnimate[] = { "ERFS", 0 };
   };
   class Minigun_Mount_L_hide {
     displayName = "Hide Gun Mount (L)";
@@ -108,6 +112,10 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0;
     mass = MASS_ERFS;
+    // if forceAnimatePhase is equal to the phase of this animation sources, every sources from forceAnimate will be changed with their given phase
+    forceAnimatePhase = 1;
+    // animationSource1, phase, animationSource2, phase... No probabilities here, only true or false
+    forceAnimate[] = { "CabinSeats_Hide", 1 };
   };
   class MAWS_Tubes_Show {
     displayName = "Show MAWS";
