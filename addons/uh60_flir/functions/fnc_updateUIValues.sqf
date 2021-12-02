@@ -26,7 +26,7 @@ if (vtx_uh60_flir_isInScriptedCamera) then {
 
 	private _time = [dayTime] call BIS_fnc_timeToString;
 	(_controlsGroup controlsGroupCtrl 190) ctrlSetText _time; // time
-
+  /*
 	private _fovShowIndex = 1021 + (_vehicle getVariable "vtx_flir_initFovMode");
 	(_ui displayCtrl _fovShowIndex) ctrlShow true;
 	{
@@ -45,6 +45,7 @@ if (vtx_uh60_flir_isInScriptedCamera) then {
 	(_ui displayCtrl 1023) ctrlShow (_zoomRaw > 2.4 && _zoomRaw < 2.6);
 	(_ui displayCtrl 1024) ctrlShow (_zoomRaw > 11.3 && _zoomRaw < 11.5);
 	(_ui displayCtrl 1025) ctrlShow (_zoomRaw > 26);
+  */
 };
 
 
