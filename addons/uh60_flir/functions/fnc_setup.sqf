@@ -100,9 +100,31 @@ _id = _vehicle addEventHandler ["Fired", {
 vtx_uh60_flir_vehicleEHs pushBack ["Fired", _id];
 
 //params ["_unit", "_newView", "_oldView"]; // "GUNNER", "INTERNAL", "EXTERNAL"
+_id = ["vehicle", {
+  params ["_unit", "_newVehicle", "_oldVehicle"];
+  if (vtx_uh60_flir_playerIsPilot && {_unit == _newVehicle}) then {
+    "filmGrain" ppEffectEnable false;
+    15 cutText ["", "PLAIN"];
+  };
+}] call CBA_fnc_addPlayerEventHandler;
+vtx_uh60_flir_playerCBAEHs pushBack ["vehicle", _id];
+
+//params ["_unit", "_newView", "_oldView"]; // "GUNNER", "INTERNAL", "EXTERNAL"
 _id = ["cameraView", {
   params ["_unit", "_newView", "_oldView"];
   call vtx_uh60_flir_fnc_setIsPipHidden;
+
+  if (vtx_uh60_flir_playerIsPilot) then {
+    if (_newView == "GUNNER") then {
+      15 cutRsc ["vtx_uh60_flir_crossHair", "PLAIN"];
+      "filmGrain" ppEffectAdjust [0.5, 2, 1, 1, 1];
+      "filmGrain" ppEffectCommit 0;
+      "filmGrain" ppEffectEnable true;
+    } else {
+      "filmGrain" ppEffectEnable false;
+      15 cutText ["", "PLAIN"];
+    };
+  };
 }] call CBA_fnc_addPlayerEventHandler;
 vtx_uh60_flir_playerCBAEHs pushBack ["cameraView", _id];
 
