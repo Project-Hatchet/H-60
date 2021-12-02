@@ -423,9 +423,9 @@ class CfgVehicles
         displayName = "$STR_VTX_UH60_UHMBlackhawkProbe";
         class AnimationSources: AnimationSources
         {
-            ANIM_INIT(Fuelprobe_Show,1);
+            ANIM_INIT(Fuelprobe,1);
             /*
-            class Fuelprobe_Show {
+            class Fuelprobe {
                 source="user";
                 animPeriod=1;
                 initPhase=1;
@@ -483,15 +483,15 @@ class CfgVehicles
         cargoAction[] = {};
         class AnimationSources: AnimationSources
         {
-            ANIM_INIT(Fuelprobe_Show,1);
+            ANIM_INIT(Fuelprobe,1);
             ANIM_INIT(CabinSeats_Hide,1);
-            ANIM_INIT(HH60Flares_Show,1);
+            ANIM_INIT(HH60Flares,1);
             ANIM_INIT(MAWS_Tubes_Show,1);
-            ANIM_INIT(ERFS_Show,1);
+            ANIM_INIT(ERFS,1);
             ANIM_INIT(FLIR_HIDE,0);
             ANIM_INIT(FLIR_BACK,1);
             /*
-            class Fuelprobe_Show {
+            class Fuelprobe {
                 source="user";
                 animPeriod=1;
                 initPhase=1;
@@ -501,7 +501,7 @@ class CfgVehicles
                 animPeriod=1;
                 initPhase=1;
             };
-            class HH60Flares_Show {
+            class HH60Flares {
                 source="user";
                 animPeriod=1;
                 initPhase=1;
@@ -511,7 +511,7 @@ class CfgVehicles
                 animPeriod=1;
                 initPhase=1;
             };
-            class ERFS_Show: MAWS_Tubes_Show {
+            class ERFS: MAWS_Tubes_Show {
                 initPhase=1;
             };
             class FLIR_HIDE: MAWS_Tubes_Show {

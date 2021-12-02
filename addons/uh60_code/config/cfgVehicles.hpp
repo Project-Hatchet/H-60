@@ -38,6 +38,7 @@ class CfgVehicles {
   };
   class vtx_HH60 : vtx_UH60M {
     class AnimationSources: AnimationSources {
+      ANIM_INIT(HH60Flares,1);
       class GunnerSeats_Hide: GunnerSeats_Hide {
         initPhase = 0;
         onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[1], [2]] ;";
@@ -56,10 +57,10 @@ class CfgVehicles {
       ANIM_INIT(Cockpitdoors_Hide,1);
       ANIM_INIT(RADAR_HIDE,0);
       ANIM_INIT(FLIR_HIDE,0);
-      ANIM_INIT(Fuelprobe_Show,1);
+      ANIM_INIT(Fuelprobe,1);
       ANIM_INIT(CabinSeats_Hide,1);
       ANIM_INIT(MAWS_Tubes_Show,1);
-      ANIM_INIT(ERFS_Show,1);
+      ANIM_INIT(ERFS,1);
     };
   };
   class vtx_MH60M_DAP: vtx_MH60M {

@@ -13,7 +13,7 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_vehicle, "ERFS_Show", 1] call vtx_uh60_hoist_fnc_animateSourceCustomization
+ * [_vehicle, "ERFS", 1] call vtx_uh60_hoist_fnc_animateSourceCustomization
  */
 
 params ["_vehicle", "_name", "_phase", ["_speed", 1]];

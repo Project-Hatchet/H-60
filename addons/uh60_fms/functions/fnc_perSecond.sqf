@@ -20,7 +20,7 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
         private _weight = weightRTD _vehicle;
         private _state = _vehicle animationPhase "Fuelprobe_Extend";
         private _stateText = "NOT INSTALLED";
-        if (_vehicle animationSourcePhase "Fuelprobe_Show" > 0) then {
+        if (_vehicle animationSourcePhase "Fuelprobe" > 0) then {
             _stateText = "RETRACTED";
             if (_state > 0.05 && _state < 0.95) then {
                 _stateText = "MOVING";

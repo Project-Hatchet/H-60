@@ -37,13 +37,13 @@ class AnimationSources
         animPeriod=1;
         initPhase=1;
     };
-    class Skis_Show {
+    class Skis {
         displayName = "Show Skis";
         source="user";
         animPeriod=1;
         initPhase=0;
     };
-    class HH60Flares_Show {
+    class HH60Flares {
         displayName = "Show HH-60 Flares";
         source="user";
         animPeriod=1;
@@ -79,7 +79,7 @@ class AnimationSources
         animPeriod=1;
         initPhase=0;
     };
-    class Fuelprobe_Show {
+    class Fuelprobe {
         // proxy part, garage doesn't work displayName = "Show Fuel Probe";
         source="user";
         animPeriod=1;
@@ -91,7 +91,7 @@ class AnimationSources
         animPeriod=1;
         initPhase=0;
     };
-    class ERFS_Show {
+    class ERFS {
         source="user";
         animPeriod=1;
         initPhase=0;

@@ -4,12 +4,12 @@ class AnimationSources: AnimationSources {
   class RADAR_HIDE;
   class FLIR_HIDE;
   class FLIR_BACK;
-  //class Fuelprobe_Show;
+  class Fuelprobe;
   class Cockpitdoors_Hide;
-  //class ERFS_Show;
+  class ERFS;
   class MAWS_Tubes_Show;
-  //class LASS_Show;
-  //class ESSS_Show;
+  class LASS_Show;
+  class ESSS_Show;
   class GunnerSeats_Hide;
   class CabinSeats_Hide;
   class Minigun_Mount_L_hide;
@@ -18,6 +18,6 @@ class AnimationSources: AnimationSources {
   class Minigun_R_hide;
   class cabindoor_L;
   class cabindoor_R;
-  class Skis_Show;
-  class HH60Flares_Show;
+  class Skis;
+  class HH60Flares;
 };
