@@ -211,8 +211,6 @@ class AnimationSources {
   class FD_3_ROT:FD_1_ROT{};
   class FD_4_ROT:FD_1_ROT{};
   class FD_5_ROT:FD_1_ROT{};
->>>>>>> Stashed changes
-
   class ACCLow {
     source="user";
     animPeriod=0.00001;
