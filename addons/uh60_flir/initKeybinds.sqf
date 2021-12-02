@@ -36,7 +36,7 @@
     "UH-60M Blackhawk","vtx_uh60_flir_c_slew",
     ["FLIR Slew Aim", "Hold this key and use mouse or 'Aim <Up|Down|Left|Right>' input to slew the FLIR."], // Unbound
     {
-      if (vtx_uh60_flir_isPipHidden) exitWith {};
+      if (vtx_uh60_flir_isPipHidden || {vtx_uh60_flir_isInScriptedCamera}) exitWith {};
       vtx_uh60_flir_slewAim = true;
       if (vtx_uh60_flir_setting_AimSlewBlockMouse && {!ace_interact_menu_keyDown}) then {
         if (!(uiNamespace getVariable ["vtx_uh60_flir_mouseBlocker", false])) then {
