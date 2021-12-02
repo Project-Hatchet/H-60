@@ -27,9 +27,10 @@
 #define MASS_GAU21 67 // 37 kg (81.6 lb) + 50 g/rnd x 600 rnd
 #define MASS_GUNMOUNT 105 // 25.4 g/rnd x 4000 rnd = 101.6 kg, then add box/struts
 #define MASS_GUNNERSEATS 40 // 20 kg/seat x2
+#define MASS_HH60FLARES 5 // ???
 #define MASS_LASS 103
 #define MASS_MAWS 5 // ???
 #define MASS_MINIGUN 39 // 39 kg, 85 lb
-#define MASS_PROBE 30 //???
+#define MASS_PROBE 30 // ???
 #define MASS_RADAR 74 // AN/APQ-187 Silent Knight
 #define MASS_SKIS 5 // ???
