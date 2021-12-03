@@ -86,11 +86,23 @@ _id = _vehicle addEventHandler ["Fired", {
 	if (cameraView != "GUNNER" && {getNumber (configFile >> "CfgAmmo" >> _ammo >> "manualControl") == 1}) then {
 		[{
 			params ["_projectile", "_pfhID"];
-			private _pos = screenToWorld [0.5, 0.5];
-			if (_pos distance positionCameraToWorld [0, 0, 0] > 5000) then {
-				_pos = positionCameraToWorld [0, 0, 5000];
-			};
-			_projectile setMissileTargetPos _pos;
+      private _laserTarget = laserTarget vxf_vehicle;
+      if (isNull _laserTarget) then {
+        vtx_uh60_flir_pilotCameraTarget params ["_isTracking", "_tgtPosASL", "_tgtObject"];
+        if (_isTracking) then {
+          // If stabilized, track it
+          _projectile setMissileTargetPos ASLToAGL _tgtPosASL;
+        } else {
+          private _pos = screenToWorld [0.5, 0.5];
+          if (_pos distance positionCameraToWorld [0, 0, 0] > 5000) then {
+            _pos = positionCameraToWorld [0, 0, 5000];
+          };
+          _projectile setMissileTargetPos _pos;
+        }
+      } else {
+        // If laser on, track it
+        _projectile setMissileTarget _laserTarget;
+      };
 			if (!alive _projectile) then {
 				[_pfhID] call CBA_fnc_removePerFrameHandler;
 			};
