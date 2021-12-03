@@ -1,7 +1,7 @@
 class cas_panel {
     class MasterCaution {
         positionType="coordinates";
-        position[]={-0.589549,5.10359,-0.433627};
+        position[]={-0.58,5.1,-0.23};
         label="Master Caution";
         radius=0.1;
         clickSound="vxf_Switch_Sound";
