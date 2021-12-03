@@ -8,7 +8,12 @@
 #include "defines.hpp"
 params ["_vehicle"];
 
-if (!local _vehicle || vtx_uh60m_simpleStartup) exitWith {};
+private _esisCount = _vehicle getVariable ["ESIS_COUNTER", 0];
+if (!local _vehicle || vtx_uh60m_simpleStartup) exitWith {
+    _vehicle setUserMFDValue [49, _esisCount];
+};
+
+
 
 private _eng1Powered = _vehicle getVariable ["ENG1_PWR",0] > 0;
 private _eng2Powered = _vehicle getVariable ["ENG2_PWR",0] > 0;
@@ -20,6 +25,11 @@ _apuGenerator =     ANIMATED("Switch_apugen",0) && _apuPower;
 
 private _batteriesOn = BATT_ON;
 private _drainRate = GET("POWER_DRAIN_RATE",0);
+
+if (_esisCount > -1) then {
+    _vehicle setVariable ["ESIS_COUNTER", _esisCount - 1, true];
+    _vehicle setUserMFDValue [49, _esisCount];
+};
 
 #define CONSUMPTION(POWER) (0.00158675799 * POWER + 0.092)
 private _temp = ((getPosASL player) # 2) call ace_weather_fnc_calculateTemperatureAtHeight;
@@ -56,6 +66,18 @@ if (isEngineOn _vehicle) then {
     _vehicle setWantedRPMRTD [_wantedRPM1, 30, 0];
     _vehicle setWantedRPMRTD [_wantedRPM2, 30, 1];
     vtx_uh60_engine_stateChanged = false;
+    if (_vehicle getVariable "ENG_START1") then {
+        if (enginesRpmRTD _vehicle # 0 > 5000) then {
+             _vehicle setVariable ["ENG_START1", false, true];
+             [_vehicle] call vtx_uh60_cas_fnc_updateCautions;
+        };
+    };
+    if (_vehicle getVariable "ENG_START2") then {
+        if (enginesRpmRTD _vehicle # 1 > 5000) then {
+             _vehicle setVariable ["ENG_START2", false, true];
+             [_vehicle] call vtx_uh60_cas_fnc_updateCautions;
+        };
+    };
 } else {
     _vehicle setWantedRPMRTD [0, 10, 0];
     _vehicle setWantedRPMRTD [0, 10, 1];

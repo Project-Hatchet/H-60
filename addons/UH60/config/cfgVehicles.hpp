@@ -26,6 +26,7 @@ class CfgVehicles
 
     class vtx_H60_base: Heli_Transport_01_base_F
     {
+        author = "Project Hatchet Studio";
         class VTX_H60_HDTS_Copilot;
         #include "cfgVxf.hpp"
         memoryPointDriverOptics = "slingcam";
@@ -328,7 +329,8 @@ class CfgVehicles
         #include "cfgAnimationSources.hpp"
         gearRetracting		= 0;
         gearMinAlt			= 999999;
-        turnCoef			= 1.6;
+
+        turnCoef			= 4; // Rolling Friction, higher stops more quickly
         terrainCoef 		= 1;
         damperSize 			= 1;
         damperForce 		= 10;
@@ -407,7 +409,7 @@ class CfgVehicles
                 suspTravelDirection[]		= {0, -1.0, 0.0};
 
                 sprungMass					= 500;
-                springStrength				= 2000;
+                springStrength				= 1000;
                 springDamperRate			= 2000;
             };
         };

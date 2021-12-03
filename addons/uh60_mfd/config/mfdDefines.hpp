@@ -7,8 +7,9 @@
 #define common_blue RGBA256(40,140,180,1.0)
 #define common_green RGBA256(110,150,65,1.0)
 #define common_purple RGBA256(200,31,120,1.0)
-#define common_yellow RGBA256(230,230,40,1.0)
+#define common_yellow RGBA256(230,230,40,0.1)
 #define common_red RGBA256(160,30,30,1.0)
+#define common_black RGBA256(0,0,0,1.0)
 
 //pitch-attitude scale
 #define pitch_att_blue RGBA256(5,60,140,0.2)
@@ -48,6 +49,15 @@
         type = "text"; \
         source = "static"; \
         align = "left"; \
+        scale = 1; \
+        sourceScale = 1;
+
+
+#define TEXT_RIGHT_OPEN(CLASS) \
+    class CLASS { \
+        type = "text"; \
+        source = "static"; \
+        align = "right"; \
         scale = 1; \
         sourceScale = 1;
 
@@ -94,6 +104,15 @@
     //ELEMENTS
     #define TEXT_LEFT_SMALL(CLASS,X,Y,TEXT) \
         TEXT_LEFT_OPEN(CLASS) \
+            pos[] = {{X, Y}, 1}; \
+            right[] = {{X + 0.04, Y}, 1}; \
+            down[] = {{X, Y + 0.033}, 1}; \
+            text = TEXT; \
+        };
+
+    //ELEMENTS
+    #define TEXT_RIGHT_SMALL(CLASS,X,Y,TEXT) \
+        TEXT_RIGHT_OPEN(CLASS) \
             pos[] = {{X, Y}, 1}; \
             right[] = {{X + 0.04, Y}, 1}; \
             down[] = {{X, Y + 0.033}, 1}; \
@@ -260,3 +279,19 @@
                 } \
             }; \
         };
+
+    #define POLYGON(CLASS,X,Y,W,H) \
+    	class CLASS { \
+		type="polygon"; \
+		points[] ={ \
+			{ \
+				{{X +-W, Y-H},1}, \
+				{{X + W, Y-H},1}, \
+				{{X + W, Y+H},1}, \
+				{{X - W, Y+H},1} \
+			} \
+		}; \
+	};
+
+#define MID_LINE_HEIGHT 0.06
+#define SMALL_LINE_HEIGHT 0.03

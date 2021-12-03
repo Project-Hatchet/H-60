@@ -27,6 +27,4 @@ if ((_this # 0) magazineTurretAmmo ["60Rnd_CMFlareMagazine",[-1]] == 0) then {
 
 ADVISORY("LANDING LIGHT ON",(isLightOn (_this # 0)))
 
-
-
 [_vehicle, true] call vtx_uh60_cas_fnc_clearCautionsList;

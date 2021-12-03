@@ -302,6 +302,20 @@ class CfgVehicles {
                     topLeft="MFD4_LH";topRight="MFD4_RH";bottomLeft="MFD4_LD";
                     #include "MFD\pages\tac_cmws.hpp"
             }; // MFD_4
+            class ESIS_BOOT
+            {
+                #include "MFD\ESIS_BOOT.hpp"
+            };
+            class ESIS_Horizon {
+                class Draw {
+                    condition = "user49 < 0.1";
+                };
+            };
+            class ESIS_Misc {
+                class Draw {
+                    condition = "user49 < 0.1";
+                };
+            };
         }; // MFD
     }; // vtx_H60_base
 }; // CfgVehicles

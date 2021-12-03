@@ -8,7 +8,7 @@
     <a href="https://github.com/Project-Hatchet/public_h-60/issues">
         <img src="https://img.shields.io/github/issues-raw/Project-Hatchet/public_h-60.svg?label=Issues" alt="H-60 Pack Issues">
     </a>
-    <a href="https://discord.gg/4AYEfFD">
+    <a href="https://discord.gg/58Pt5EGjvQ">
         <img src="https://img.shields.io/discord/487939925938012161.svg?label=Discord&colorB=7683D5" alt="H-60 Pack Discord">
     </a>
 </p>
@@ -16,7 +16,7 @@
     <sup><strong>Requires the latest versions of <a href="https://github.com/CBATeam/CBA_A3/releases">CBA A3</a>, <a href="https://github.com/acemod/ACE3/releases">ACE3</a> and <a href="https://github.com/Project-Hatchet/hatchet-framework">Hatchet Framework</a>.<br/></strong></sup>
 </p>
 
-The **Hatchet H-60 Pack** is a helicopter pack that brings realistic H-60 series helicopters to Arma 3, using our custom made Hatchet Framework to add detailed interactive cockpits, we strive to bring the player's experience as close to a flight sim as possible.
+The **Hatchet H-60 Pack** is a helicopter pack that brings realistic H-60 series helicopters to Arma 3, using our custom made Hatchet Framework to add detailed interactive cockpits, we strive to create an authentic representation of the H-60 series helicopter.
 
 
 ## Features

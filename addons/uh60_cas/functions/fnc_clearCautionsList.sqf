@@ -6,7 +6,7 @@
  * params (array)[(object) vehicle]
  */
 
-params ["_vehicle", "_autoClearOnly"];
+params ["_vehicle", ["_autoClearOnly", false]];
 
 private _casList = (_vehicle getVariable ["vtx_cas_list",[]]);
 
