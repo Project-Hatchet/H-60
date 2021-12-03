@@ -18,7 +18,6 @@ vtx_uh60_flir_pipIsFixed = false;
 vtx_uh60_flir_inputZoom = 0;
 vtx_uh60_flir_inputStabilize = 0;
 vtx_uh60_flir_inputVisionMode = 0;
-vtx_uh60_flir_isFixed = false; // For Sling cam
 vtx_uh60_flir_isSlewing = false;
 vtx_uh60_flir_slewAim = false;
 vtx_uh60_flir_up = 0;

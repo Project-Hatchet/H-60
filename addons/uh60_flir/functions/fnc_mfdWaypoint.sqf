@@ -18,13 +18,8 @@ params ["_vehicle"];
 
 if (!vtx_uh60_flir_controllable) exitWith {false};
 
-[
-  false,
-  vtx_uh60_flir_camPos,
-  [[0, 1, 0], [0, 0, 1]],
-  0.3,
-  vtx_uh60_flir_pipEffect
-] call vtx_uh60_flir_fnc_setFixedPIP;
+[_vehicle, false] call vtx_uh60_mfd_fnc_slingCam;
+vtx_uh60_flir_pipIsFixed = false;
 
 if (customWaypointPosition isNotEqualTo []) exitWith {
   _vehicle setPilotCameraTarget AGLToASL customWaypointPosition;

@@ -5,5 +5,6 @@ PREP(perSecond);
 PREP(perFrame);
 PREP(setup);
 PREP(shutDown);
+PREP(slingCam);
 PREP(switchPage);
 PREP(tac_cursorToWorld);

@@ -18,15 +18,11 @@ params ["_vehicle"];
 
 if (!vtx_uh60_flir_controllable) exitWith {};
 
+[_vehicle, false] call vtx_uh60_mfd_fnc_slingCam;
+vtx_uh60_flir_pipIsFixed = false;
+
 _vehicle setPilotCameraTarget objNull;
 _vehicle setPilotCameraDirection [0, 1, 0];
-[
-  false,
-  vtx_uh60_flir_camPos,
-  [[0, 1, 0], [0, 0, 1]],
-  0.3,
-  vtx_uh60_flir_pipEffect
-] call vtx_uh60_flir_fnc_setFixedPIP;
 
 // sync to other pilot
 [[0, 1, 0], objNull] call vtx_uh60_flir_fnc_syncPilotCamera;
