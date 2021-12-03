@@ -15,7 +15,7 @@
 
 params ["_change"];
 
-if (vtx_uh60_flir_pipIsFixed) exitWith {false};
+if (vtx_uh60_flir_pipIsFixed && {!vtx_uh60_flir_isInScriptedCamera}) exitWith {false};
 private _currStep = vtx_uh60_flir_camFOVLevels findIf {_x == vtx_uh60_flir_FOV};
 private _newStep = 0 max (_currStep + _change) min (count vtx_uh60_flir_camFOVLevels - 1);
 

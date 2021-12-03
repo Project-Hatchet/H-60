@@ -4,11 +4,6 @@ if (hasInterface) then {
     #include "initKeybinds.sqf"
 };
 
-["vtx_uh60_flir_syncFixedPIP", {
-  _this set [5, false]; // don't sync again
-  _this call vtx_uh60_flir_fnc_setFixedPIP;
-}] call CBA_fnc_addEventHandler;
-
 ["vtx_uh60_flir_syncPilots", {
   params ["_vehicle"];
   [_vehicle, false] call vtx_uh60_flir_fnc_syncPilots;

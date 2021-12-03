@@ -16,8 +16,7 @@ if (_propagate) exitWith {
 
 _vehicle setUserMFDValue [_mfdIndex, _pageIndex];
 
-_vehicle setObjectTexture [MAP_SELECTION(_mfdIndex), ""];
-_vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), ""];
+private _slingCam = false;
 switch (_pageIndex) do {
     case MFD_PAGE_TAC: {
         _map = getText (configFile >> "CfgWorlds" >> worldName >> "pictureMap");
@@ -25,10 +24,21 @@ switch (_pageIndex) do {
         _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Overlay_ca.paa"];
     };
     case MFD_PAGE_FLIR: {
+      _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), "#(argb,512,512,1)r2t(vtx_uh60_flir_feed,1.0)"];
+      if (isNil "vtx_uh60_flir_controllable" || {!vtx_uh60_flir_controllable}) then {
+        _slingCam = true;
+      } else {
+
         [_vehicle] call vtx_uh60_flir_fnc_pipStart;
-        _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), "#(argb,512,512,1)r2t(vtx_uh60_flir_feed,1.0)"];
+      };
+    };
+    default {
+      _vehicle setObjectTexture [MAP_SELECTION(_mfdIndex), ""];
+      _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), ""];
     };
 };
+
+[_vehicle, _slingCam] call vtx_uh60_mfd_fnc_slingCam;
 
 private _anyFLIROpened = false;
 {

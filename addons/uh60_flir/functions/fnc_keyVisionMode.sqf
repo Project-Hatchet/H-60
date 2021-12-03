@@ -14,7 +14,7 @@
 
 // Get modes available at this FOV
 private _pipEffects = [];
-if (vtx_uh60_flir_pipIsFixed) then {
+if (vtx_uh60_flir_pipIsFixed && {!vtx_uh60_flir_isInScriptedCamera}) then {
   _pipEffects = [[0], [1]]; // Sling cam
 } else {
   private _opticsInfo = vtx_uh60_flir_OpticsInfo get vtx_uh60_flir_FOV;
