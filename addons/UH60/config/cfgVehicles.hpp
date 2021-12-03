@@ -329,7 +329,8 @@ class CfgVehicles
         #include "cfgAnimationSources.hpp"
         gearRetracting		= 0;
         gearMinAlt			= 999999;
-        turnCoef			= 1.6;
+
+        turnCoef			= 4; // Rolling Friction, higher stops more quickly
         terrainCoef 		= 1;
         damperSize 			= 1;
         damperForce 		= 10;
@@ -408,7 +409,7 @@ class CfgVehicles
                 suspTravelDirection[]		= {0, -1.0, 0.0};
 
                 sprungMass					= 500;
-                springStrength				= 2000;
+                springStrength				= 1000;
                 springDamperRate			= 2000;
             };
         };
