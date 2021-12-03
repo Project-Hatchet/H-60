@@ -1413,12 +1413,12 @@
             <Features isBrakable="true" isRetractable="true" isSteerable="false"    />
             <Aerodynamics equivalentFlatPlateArea ="0.295" />
             <Suspension>
-                <MountStation    x="-1.402" y="2.746" z="-1.279"/>
+                <MountStation    x="-1.402" y="2.746" z="-1.079"/>
                 <SliderAxis x="0" y="0" z="1" />
-                <SuspensionLength length="0.63" />
-                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.13" />
+                <SuspensionLength length="0.75487" />
+                <SpringParameters springConstant="170000" damperConstant="50000" maxCompression="0.31932" />
             </Suspension>
-            <Wheel mass="1" radius="0.23" >
+            <Wheel mass="1" radius="0.31" >
                 <RollAxis x="1" y="0" z="0" />
                 <Friction slidingFriction="0.7" resistanceTorqueNoBrake="1" resistanceTorqueFullBrake="3000" />
             </Wheel>
@@ -1429,12 +1429,12 @@
             <Features isBrakable="true" isRetractable="true" isSteerable="false"    />
             <Aerodynamics equivalentFlatPlateArea ="0.295" />
             <Suspension>
-                <MountStation    x="1.402" y="2.746" z="-1.279"/>
+                <MountStation    x="1.402" y="2.746" z="-1.079"/>
                 <SliderAxis x="0" y="0" z="1" />
-                <SuspensionLength length="0.63" />
-                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.13" />
+                <SuspensionLength length="0.75487" />
+                <SpringParameters springConstant="170000" damperConstant="50000" maxCompression="0.31932" />
             </Suspension>
-            <Wheel mass="1" radius="0.23" >
+            <Wheel mass="1" radius="0.31" >
                 <RollAxis x="1" y="0" z="0" />
                 <Friction slidingFriction="0.7" resistanceTorqueNoBrake="1" resistanceTorqueFullBrake="3000" />
             </Wheel>
@@ -1446,12 +1446,12 @@
             <Features isBrakable="true" isRetractable="true" isSteerable="true"    />
             <Aerodynamics equivalentFlatPlateArea ="0.067" />
             <Suspension>
-                <MountStation    x="0" y="-5.8" z="-1.2"/>
+                <MountStation    x="0" y="-6.272" z="-1.458"/>
                 <SliderAxis x="0" y="0" z="1" />
-                <SuspensionLength length="0.74" />
-                <SpringParameters springConstant="150000" damperConstant="50000" maxCompression="0.24" />
+                <SuspensionLength length="0.46872" />
+                <SpringParameters springConstant="100000" damperConstant="50000" maxCompression="0.245" />
             </Suspension>
-            <Wheel mass="1" radius="0.21" >
+            <Wheel mass="1" radius="0.222" >
                 <RollAxis x="1" y="0" z="0" />
                 <Friction slidingFriction="0.7" resistanceTorqueNoBrake="1" resistanceTorqueFullBrake="1000" />
             </Wheel>
@@ -1600,7 +1600,7 @@
             <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
             <Aerodynamics equivalentFlatPlateArea ="0.0" />
             <Suspension>
-                <MountStation    x="0" y="-7.055" z="-0.969"/>
+                <MountStation    x="0" y="-6" z="-0.969"/>
                 <SliderAxis x="0" y="0" z="1" />
                 <SuspensionLength length="0" />
                 <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0" />
@@ -1617,7 +1617,7 @@
             <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
             <Aerodynamics equivalentFlatPlateArea ="0.0" />
             <Suspension>
-                <MountStation    x="0" y="-9.279" z="-0.579"/>
+                <MountStation    x="0" y="-7.49121" z="-0.86356"/>
                 <SliderAxis x="0" y="0" z="1" />
                 <SuspensionLength length="0" />
                 <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0" />
