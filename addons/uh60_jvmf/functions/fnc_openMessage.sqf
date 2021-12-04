@@ -20,4 +20,12 @@ if (isNil "_newDisplay") exitWith {systemChat "NO DISPLAY";};
 for "_i" from 0 to 9 do {
     (_newDisplay displayCtrl (1402 + _i)) ctrlSetText (_text # _i);
 };
-systemChat str [_ctrl, _curSel];
+
+if (count _replies > 0) then {
+    private _lastReply = _replies # ((count _replies) - 1);
+	private _status = format["%1 %2 %3", _lastReply # 0, _lastReply # 1, _lastReply # 2];
+    (_newDisplay displayCtrl (1101)) ctrlSetText _status;
+};
+
+(_newDisplay displayCtrl (1600)) ctrlShow false;
+(_newDisplay displayCtrl (1601)) ctrlShow false;

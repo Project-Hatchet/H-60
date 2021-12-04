@@ -187,5 +187,14 @@ class vtx_uh60_jvmf_writeDialog {
         	h = 0.022 * safezoneH;
             onButtonClick="closeDialog 2";
         };
+        class RscText_1101: RscText
+        {
+        	idc = 1101;
+        	text = ""; //--- ToDo: Localize;
+        	x = 0.396875 * safezoneW + safezoneX;
+        	y = 0.640 * safezoneH + safezoneY;
+        	w = 0.825 * safezoneW;
+        	h = 0.022 * safezoneH;
+        };
     };
 };
