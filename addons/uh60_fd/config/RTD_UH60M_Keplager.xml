@@ -1413,7 +1413,7 @@
             <Features isBrakable="true" isRetractable="true" isSteerable="false"    />
             <Aerodynamics equivalentFlatPlateArea ="0.295" />
             <Suspension>
-                <MountStation    x="-1.402" y="2.746" z="-0.779"/>
+                <MountStation    x="-1.5" y="2.746" z="-0.779"/>
                 <SliderAxis x="0" y="0" z="1" />
                 <SuspensionLength length="0.75487" />
                 <SpringParameters springConstant="200000" damperConstant="50000" maxCompression="0.31932" />
@@ -1429,7 +1429,7 @@
             <Features isBrakable="true" isRetractable="true" isSteerable="false"    />
             <Aerodynamics equivalentFlatPlateArea ="0.295" />
             <Suspension>
-                <MountStation    x="1.402" y="2.746" z="-0.779"/>
+                <MountStation    x="1.5" y="2.746" z="-0.779"/>
                 <SliderAxis x="0" y="0" z="1" />
                 <SuspensionLength length="0.75487" />
                 <SpringParameters springConstant="200000" damperConstant="50000" maxCompression="0.31932" />
@@ -1446,7 +1446,7 @@
             <Features isBrakable="true" isRetractable="true" isSteerable="true"    />
             <Aerodynamics equivalentFlatPlateArea ="0.067" />
             <Suspension>
-                <MountStation    x="0" y="-6.272" z="-0.958"/>
+                <MountStation    x="0" y="-5.922" z="-0.958"/>
                 <SliderAxis x="0" y="0" z="1" />
                 <SuspensionLength length="0.46872" />
                 <SpringParameters springConstant="70000" damperConstant="50000" maxCompression="0.245" />
@@ -1459,6 +1459,7 @@
             <Damage thresholdLoad="20000000" />
         </GroundContact>
 
+        <!-- hull -->
         <GroundContact type="FGGroundContact200" >
             <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
             <Aerodynamics equivalentFlatPlateArea ="0.0" />
