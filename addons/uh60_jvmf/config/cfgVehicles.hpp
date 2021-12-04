@@ -3,7 +3,7 @@
   class CLASS { \
     displayName = NAME; \
     condition = [_player,STRINGIFY(CLASS)] call ace_common_fnc_hasItem; \
-    statement = [STRINGIFY(CLASS)] call vtx_uh60_tab_tablet_fnc_open; \
+    statement = STRINGIFY(createDialog ""vtx_uh60_jvmf_inboxDialog"";); \
     priority = 2.6; \
     showDisabled = 1; \
     exceptions[] = {"isNotInside","isNotSitting"}; \
@@ -14,14 +14,7 @@ class cfgVehicles {
   class CAManBase: Man {
     class ACE_SelfActions {
       class ACE_Equipment {
-        class uh60_tab_Open {
-          displayName = "Open JVMF Tablet";
-          condition = "false";
-          statement = "createDialog ""vtx_uh60_jvmf_inboxDialog"";";
-          priority = 2.6;
-          showDisabled = 1;
-          exceptions[] = {};
-        };
+        action_tablet_open(uh60_jvmf_tablet, "JVMF Tablet")
       };
     };
   };
