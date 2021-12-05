@@ -5,9 +5,6 @@ class cfgWeapons {
     class vtx_hellfire_launcher: ace_hellfire_launcher {
       magazines[] = {"VTX_4Rnd_ACE_Hellfire_AGM114K"};
     };
-    class vtx_hellfire_launcher_L: ace_hellfire_launcher_L {
-      magazines[] = {"VTX_4Rnd_ACE_Hellfire_AGM114L"};
-    };
     class vtx_hellfire_launcher_N: ace_hellfire_launcher_N {
       magazines[] = {"VTX_4Rnd_ACE_Hellfire_AGM114N"};
     };
@@ -38,11 +35,22 @@ class cfgWeapons {
           };
       };
     };
-  class RocketPods;
-  class missiles_DAR: RocketPods {
-    magazines[] += {"VTX_PylonRack_M261_M229"};
+  class Rocket_04_HE_Plane_CAS_01_F ;
+  class vtx_m229_he: Rocket_04_HE_Plane_CAS_01_F  {
+    magazines[] = {"VTX_PylonRack_M261_M229"};
   };
-	class missiles_DAGR: RocketPods {
-    magazines[] += {"VTX_PylonRack_M261_DAGR"};
+	class vtx_rocket_apkws: Rocket_04_HE_Plane_CAS_01_F  {
+    magazines[] = {"VTX_PylonRack_M261_DAGR"};
+  };
+	class vtx_rocket_wp: Rocket_04_HE_Plane_CAS_01_F  {
+    magazines[] = {"VTX_PylonRack_M261_M156"};
+  };
+	class vtx_rocket_illum: Rocket_04_HE_Plane_CAS_01_F  {
+    magazines[] = {"VTX_PylonRack_M261_M257"};
+    class EventHandlers {
+      class vtx_fired {
+        fired = "";
+      };
+    };
   };
 };
