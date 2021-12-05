@@ -13,8 +13,9 @@ private _casList = (_vehicle getVariable ["vtx_cas_list",[]]);
 
 for "_i" from 0 to 6 do {
     if (_i >= count _casList) then {
-        _vehicle setUserMFDtext [6 - _i, ""];
+        [_vehicle, 6 - _i, ""] call vtx_uh60_mfd_fnc_setUserText;
     } else {
-        _vehicle setUserMFDtext [6 - _i, _casList # (((count _casList) - 1) - _i) # 0];
+         [_vehicle, 6 - _i, _casList # (((count _casList) - 1) - _i) # 0] call vtx_uh60_mfd_fnc_setUserText;
+        
     };
 };

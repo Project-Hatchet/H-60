@@ -8,8 +8,11 @@ PREP(shutDown);
 PREP(slingCam);
 PREP(switchPage);
 PREP(tac_cursorToWorld);
+<<<<<<< HEAD
 PREP(storePylons);
 PREP(restorePylons);
+PREP(setPylonValue);
+=======
 PREP(setUserText);
 PREP(ivhms);
-PREP(setPylonValue);
+>>>>>>> dd00290 (IVHMS functional)
