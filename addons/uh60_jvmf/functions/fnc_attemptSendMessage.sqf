@@ -28,6 +28,11 @@ private _success = switch (_type) do {
         if (!_validTexts || typeName _data != "array" || typeName _replies != "array") exitWith { false };
         true
     };
+    case 2: {
+        params ["", "", "", "", "_text", ["_data",[]], ["_replies",[]]];
+        if (typeName _data != "array" || typeName _replies != "array") exitWith { false };
+        true
+    };
     default {
         false
     };

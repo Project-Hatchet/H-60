@@ -8,10 +8,6 @@
 
 params ["_vehicle"];
 
-if (missionNamespace getVariable ["vtx_uh60m_enabled_waypts", false]) then {
-    _this call vtx_uh60_fms_fnc_updateWaypointInfo;
-};
-
 #include "..\config\fmsDefines.hpp"
 
 private _fms = if (player == driver _vehicle) then [{ FMS_R_PAGE_INDEX }, { FMS_L_PAGE_INDEX }];
@@ -43,7 +39,11 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
         private _gridArea = [worldName] call ace_common_fnc_getMGRSdata;
         private _grid = [_position] call ace_common_fnc_getMapGridFromPos;
         private _str = format ["%1    %2    %3    %4", _gridArea select 0, _gridArea select 1, _grid select 0, _grid select 1];
-        [_str, format["%1/%2", _waypointIndex + 1, count (waypoints group player)], "", "",""]
+        if (_waypointIndex < count (waypoints group player)) then {
+          [_str, format["%1/%2", _waypointIndex + 1, count (waypoints group player)], "", "",""]
+        } else {
+          [_str, format["%1/%2", 0, 0], "", "",""]
+        }
     };
     case FMS_PAGE_NAV_IMPORT: {
         private _autoCycle = _vehicle getVariable ["vtx_uh60_fms_import_autoCycle", false];
@@ -92,3 +92,17 @@ fms_locations_page_open = (((getUserMFDValue _vehicle) # _fms) == FMS_PAGE_NAV_L
 { // forEach [20, 21, 22, 23,24];
     _vehicle setUserMFDText [_x, _strings # _forEachIndex];
 } forEach [20, 21, 22, 23,24];
+
+private _locTypes =  ["Airport","Area","BorderCrossing","CityCenter","CivilDefense","CulturalProperty","DangerousForces","Flag","FlatArea","FlatAreaCity","FlatAreaCitySmall","HistoricalSite","Invisible","Name","NameCity","NameCityCapital","NameMarine","NameVillage","RockArea","SafetyZone","Strategic","StrongpointArea","VegetationBroadleaf","VegetationFir","VegetationPalm","VegetationVineyard","ViewPoint"];
+private _locations = nearestLocations [vtx_uh60_mfd_tac_mapPos, _locTypes, 2000];
+private _nearestLocation = nil;
+{
+    if (text _x != "") then {
+        _nearestLocation = _x;
+        break;
+    };
+} forEach _locations;
+if (!isNil "_nearestLocation") then {
+    vtx_uh60_fms_nearestLocation = _nearestLocation;
+    vehicle player setUserMFDText [12, text vtx_uh60_fms_nearestLocation];
+};

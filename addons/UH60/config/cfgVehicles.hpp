@@ -14,6 +14,7 @@ class CfgVehicles
             class MainTurret;
             class CopilotTurret;
         };
+        class Attributes;
         class Eventhandlers;
         class Viewoptics;
         class ViewPilot;
@@ -26,6 +27,8 @@ class CfgVehicles
 
     class vtx_H60_base: Heli_Transport_01_base_F
     {
+        #include "edenAttributes.hpp"
+        author = "Project Hatchet Studio";
         class VTX_H60_HDTS_Copilot;
         #include "cfgVxf.hpp"
         memoryPointDriverOptics = "slingcam";
@@ -64,6 +67,11 @@ class CfgVehicles
         #include "cfgVehiclesParts\reflectors.hpp"
         #include "cfgVehiclesParts\fries.hpp"
         #include "cfgVehiclesParts\hitPoints.hpp"
+        //#include "cfgVehiclesParts\vehicleCustomization.hpp"
+
+        reportOwnPosition = 1;
+        reportRemoteTargets = 1;
+        receiveRemoteTargets = 1;
 
         irTargetSize = 1.2;
         radarTargetSize = 1.2;
@@ -327,7 +335,8 @@ class CfgVehicles
         #include "cfgAnimationSources.hpp"
         gearRetracting		= 0;
         gearMinAlt			= 999999;
-        turnCoef			= 1.6;
+
+        turnCoef			= 4; // Rolling Friction, higher stops more quickly
         terrainCoef 		= 1;
         damperSize 			= 1;
         damperForce 		= 10;
@@ -406,7 +415,7 @@ class CfgVehicles
                 suspTravelDirection[]		= {0, -1.0, 0.0};
 
                 sprungMass					= 500;
-                springStrength				= 2000;
+                springStrength				= 1000;
                 springDamperRate			= 2000;
             };
         };

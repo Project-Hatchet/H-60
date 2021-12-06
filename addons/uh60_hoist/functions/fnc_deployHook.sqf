@@ -16,7 +16,7 @@ params ["_heli"];
 if !(local _heli) exitWith {[_heli] remoteExecCall ["vtx_uh60_hoist_fnc_deployHook", _heli]};
 
 private _hoist_vars = _heli getVariable ["vtx_uh60_hoist_vars", []];
-if !(_hoist_vars isEqualTo []) exitWith{};
+if !(_hoist_vars isEqualTo []) exitWith {};
 
 _heli animateSource ["hoist_hook_hide", 1];
 private _hoistPos = [1.405, 2.03, 0.45]; // this memorypoint needs to be set in UH60 model
@@ -37,19 +37,23 @@ _hook setVariable ["vtx_uh60_hoist_heli", _heli, true];
 
 // handle rope break
 _heli addEventHandler ["RopeBreak",{
-    params ["_heli", "_rope", "_dummy"];
-    _heli removeEventHandler ["RopeBreak", _thisEventHandler];
-    //systemChat "Rope broke";
-    //systemChat str _this;
+  params ["_heli", "_ropeEH", "_dummyEH"];
+  (_heli getVariable ["vtx_uh60_hoist_vars", []]) params [
+    ["_rope", objNull], ["_dummy", objNull], ["_hook", objNull]
+  ];
+  if (_ropeEH != _rope) exitWith {};
+  _heli removeEventHandler ["RopeBreak", _thisEventHandler];
+  //systemChat "Rope broke";
+  //systemChat str _this;
 
-    private _hook = attachedObjects _dummy # 0;
-    detach _hook;
-    _hook setVariable ["vtx_uh60_hoist_heli", nil, true];
-    (crew _hook) apply {moveOut _x};
-    deleteVehicle _hook;
-    deleteVehicle _dummy;
-    ropeDestroy _rope;
-    _heli setVariable ["vtx_uh60_hoist_vars", [], true];
+  private _hook = attachedObjects _dummy # 0;
+  detach _hook;
+  _hook setVariable ["vtx_uh60_hoist_heli", nil, true];
+  (crew _hook) apply {moveOut _x};
+  deleteVehicle _hook;
+  deleteVehicle _dummy;
+  ropeDestroy _rope;
+  _heli setVariable ["vtx_uh60_hoist_vars", [], true];
 }];
 
 true

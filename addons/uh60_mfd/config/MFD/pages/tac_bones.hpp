@@ -32,10 +32,32 @@ class TAC_HeadingRotation {
 	source="heading";
 	sourceScale = 1;
 	center[] = {0,0};
-	min = "0";
+	min = "-360";
 	max = "360";
 	minAngle = 360;
-	maxAngle = 0;
+	maxAngle = -360;
+	aspectRatio = 1/0.725;
+};
+class TAC_North {
+	type="rotational";
+	source="heading";
+	sourceScale = 1;
+	center[] = {0.5,0.5};
+	min = "0";
+	max = "360";
+	minAngle = 0;
+	maxAngle = -360;
+	aspectRatio = 1/0.725;
+};
+class TAC_HeadingRotationHeli {
+	type="rotational";
+	source="heading";
+	sourceScale = 1;
+	center[] = {0,0};
+	min = "-360";
+	max = "360";
+	minAngle = -360;
+	maxAngle = 360;
 	aspectRatio = 1/0.725;
 };
 class TAC_WP1_Dir {
@@ -44,9 +66,9 @@ class TAC_WP1_Dir {
 	sourceIndex=2;
 	sourceScale = 1;
 	center[] = {0.5,0.5};
-	min = "0";
+	min = "-360";
 	max = "360";
-	minAngle = 0;
+	minAngle = -360;
 	maxAngle = 360;
 	aspectRatio = 1/0.725;
 };
@@ -105,13 +127,29 @@ class TAC_WP6_DIST: TAC_WP1_DIST {
 	source="user";
 	sourceIndex=36;
 };
-class TAC_MARK_Dir: TAC_WP1_Dir {
+class TAC_TGP_Dir: TAC_WP1_Dir {
 	source="user";
 	sourceIndex=10;
 };
-class TAC_MARK_DIST: TAC_WP1_DIST {
+class TAC_TGP_DIST: TAC_WP1_DIST {
 	source="user";
 	sourceIndex=11;
+};
+class TAC_LOC_Dir: TAC_WP1_Dir {
+	source="user";
+	sourceIndex=41;
+};
+class TAC_LOC_DIST: TAC_WP1_DIST {
+	source="user";
+	sourceIndex=42;
+};
+class TAC_JVMF_Dir: TAC_WP1_Dir {
+	source="user";
+	sourceIndex=43;
+};
+class TAC_JVMF_DIST: TAC_WP1_DIST {
+	source="user";
+	sourceIndex=44;
 };
 class BFT_CENTER
 {
@@ -151,4 +189,24 @@ class TAC_PCAS_OFFCENTER
 {
     type	= fixed;
     pos[]	= {-0.5,-0.5};
+};
+class TAC_CURSOR_X {
+    type="linear";
+	source="user";
+	sourceIndex=29;
+	sourceScale=1;
+	min=0;
+	max=1;
+	minPos[]={0,0};
+	maxPos[]={1,0};
+};
+class TAC_CURSOR_Y {
+    type="linear";
+	source="user";
+	sourceIndex=30;
+	sourceScale=1;
+	min=0;
+	max=1;
+	minPos[]={0,0};
+	maxPos[]={0,1};
 };

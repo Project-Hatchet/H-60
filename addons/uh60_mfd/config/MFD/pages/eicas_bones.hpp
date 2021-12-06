@@ -117,6 +117,13 @@ class EICAS_RPM: EICAS_RPM1 {
             max=10;
             source="rpm";
 };
+
+#ifdef FUEL_BARS_Y1
+    #undef FUEL_BARS_Y1
+#endif
+#ifdef FUEL_BARS_Y2
+    #undef FUEL_BARS_Y2
+#endif
 #define FUEL_BARS_Y1 0.635
 #define FUEL_BARS_Y2 0.775
 class EICAS_Fuel
