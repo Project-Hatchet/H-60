@@ -16,7 +16,7 @@ private _newDir = [
 
 private _intersect = [(getPosASL vtx_uh60_flir_camera), _newDir # 0, _newDir # 1] call vtx_uh60_flir_fnc_intersectAtPolar;
 
-systemChat str _intersect;
+if(vtx_uh60m_trackIR_interaction_systemChat) then {systemChat str _intersect;};
 if (!isNil "_intersect") then {
 	_vehicle setPilotCameraTarget _intersect;
 };
