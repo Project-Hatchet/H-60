@@ -18,7 +18,7 @@ if(
 ) exitWith {
     _vehicle setVariable ["ENG1_PWR", 0, true];
     _vehicle setVariable ["ENG2_PWR", 0, true];
-    systemChat "damage start cancel";
+    if(vtx_uh60m_trackIR_interaction_systemChat) then {systemChat "damage start cancel";};
     _vehicle engineOn false;
 };
 
@@ -66,6 +66,6 @@ if (_fuelFlow2 > 0) then {
 _turnedOn = (_power > 0);
 
 _vehicle engineOn _turnedOn;
-systemChat "ENGINE STATE CHANGE";
+if(vtx_uh60m_trackIR_interaction_systemChat) then {systemChat "ENGINE STATE CHANGE";};
 _this call vtx_uh60_engine_fnc_batteryState;
 [_vehicle] call vtx_uh60_cas_fnc_updateCautionPanel;

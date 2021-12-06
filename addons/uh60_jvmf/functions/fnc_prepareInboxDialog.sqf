@@ -4,7 +4,7 @@
 
 params ["_display"];
 private _ctrl = _display displayCtrl 1337;
-systemChat str _ctrl;
+if(vtx_uh60m_trackIR_interaction_systemChat) then {systemChat str _ctrl;};
 private _fixString = {
     params ["_str", "_length"];
     private _str = _str select [0,_length];
@@ -30,7 +30,7 @@ private _fixString = {
     if (count _replies > 0) then {
         _str = _str + ((_replies # 0) # 0);
 	};
-	systemChat _str;
+	if(vtx_uh60m_trackIR_interaction_systemChat) then {systemChat _str;};
 	_ctrl lbAdd _str;
 } forEach VTX_JVMF_MESSAGES;
 

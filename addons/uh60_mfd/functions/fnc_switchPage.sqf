@@ -10,7 +10,7 @@ params ["_vehicle", "_mfdIndex", "_pageIndex", "_propagate"];
 #include "..\config\mfdDefines.hpp"
 
 if (_propagate) exitWith {
-    systemChat "MFD MP Sync";
+    if(vtx_uh60m_trackIR_interaction_systemChat) then {systemChat "MFD MP Sync";};
     [_vehicle, _mfdIndex, _pageIndex, false] remoteExecCall ["vtx_uh60_mfd_fnc_switchPage", crew _vehicle];diag_log "switchPage mfd";
 };
 

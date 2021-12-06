@@ -2,7 +2,7 @@ params ["_displayorcontrol", "_button", "_xPos", "_yPos", "_shift", "_ctrl", "_a
 // driver has the real pilotcam
 if (player == driver (vehicle player)) exitWith {};
 private _standardButtonPressed = (_button == 1) && _ctrl;
-systemChat str _standardButtonPressed;
+if(vtx_uh60m_trackIR_interaction_systemChat) then {systemChat str _standardButtonPressed;};
 if (!_standardButtonPressed) exitWith {
 	!(isNil "vtx_uh60_flir_camera")
 };
