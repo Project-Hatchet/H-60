@@ -1,5 +1,5 @@
 class FLIR {
-    condition = "user42<0";
+    condition = "1";
     class noTrack {
         condition = "pilotcameralock<1";
     	class polygon {
@@ -106,7 +106,7 @@ TEXT_LEFT_MID_SRC(RNG_VAL,0.92,RIGHT_LIST_Y + (0.06 * 1))
 };
 };
 class IsNav {
-    condition = "user42>-1";
+    condition = "0";
     #include "flir_nav_draw.hpp"
 };
 
