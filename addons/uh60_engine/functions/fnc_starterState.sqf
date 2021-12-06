@@ -34,7 +34,7 @@ if (_temp > -55 && _temp < 52) then {
     _canStartTwin = _underTwinStartSlope && _underTwinStartLimit && _airFlow;
 };
 
-if(vtx_uh60m_trackIR_interaction_systemChat) then {systemChat str [_canStartSingle, _canStartTwin];};
+if(vtx_uh60_hui_showDebugMessages) then {systemChat str [_canStartSingle, _canStartTwin];};
 
 if (_animName == "STARTER1") then {
     if((_vehicle getVariable ["ENG_START2", false] && _canStartSingle) || _canStartTwin) then {
