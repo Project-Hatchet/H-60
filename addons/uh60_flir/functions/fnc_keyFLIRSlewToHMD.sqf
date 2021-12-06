@@ -13,8 +13,7 @@
  */
 
 if (
-  !vtx_uh60_flir_controllable ||
-  {vtx_uh60_flir_isPipHidden}
+  !vtx_uh60_flir_controllable
 ) exitWith {};
 
 [

@@ -34,7 +34,13 @@ if (_tgtPosASL in [[0, 0, 0], []]) then {
 
 private _intersections = lineIntersectsSurfaces [_camPosASL, _tgtPosASL, vxf_vehicle];
 private _target = objNull;
-if !((_intersections # 0) isEqualTo []) then {
+if (_intersections isEqualTo []) then {
+  if (_tgtPosASL # 2 > _camPosASL # 2) then {
+    _target = [_tgtPosASL, objNull] select _isTracking; // Looking up
+  } else {
+    _target = [AGLToASL screenToWorld [0.5, 0.5], objNull] select _isTracking; // Looking down
+  };
+} else {
   (_intersections # 0) params ["_intersectPosASL", "_surfaceNormal", "_intersectObject", "_parentObject"];
   if (isNull _intersectObject) then {
     // Terrain
