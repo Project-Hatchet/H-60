@@ -14,6 +14,9 @@
 
 params ["_vehicle"];
 
+// Pavehawk and Seahawk FLIR turrets don't animate properly yet
+if (!(_vehicle isKindOf "vtx_MH60M")) exitWith {};
+
 private _rotation = getPilotCameraRotation _vehicle;
 if (_rotation isNotEqualTo [
   _vehicle animationSourcePhase "FLIR_DIRECTION",
