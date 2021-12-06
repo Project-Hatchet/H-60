@@ -14,7 +14,7 @@ private _racks = [_vehicle] call acre_sys_rack_fnc_getVehicleRacks;
 private _radio = [_racks # _index] call acre_sys_rack_fnc_getMountedRadio;
 private _activeRadios = [] call acre_api_fnc_getCurrentRadioList;
 
-if(vtx_uh60m_trackIR_interaction_systemChat) then {
+if(vtx_uh60_hui_showDebugMessages) then {
     systemChat str [
         [_radio, player] call acre_sys_rack_fnc_isRadioAccessible,
         [_radio, player] call acre_sys_rack_fnc_isRadioHearable

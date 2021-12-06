@@ -21,11 +21,11 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "vtx_uh60m_trackIR_interaction_systemChat",
+    "vtx_uh60_hui_showDebugMessages",
     "CHECKBOX",
     [LSTRING(Enable_systemChat), LSTRING(Enable_systemChat)],
     "UH-60M",
-    [false],
+    [true],
     nil,
     {}
 ] call CBA_Settings_fnc_init;

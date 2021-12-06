@@ -10,7 +10,7 @@ for "_i" from 0 to 15 step 1 do {
   private _endPos = _startPos vectorAdd _vectorIntersect;
   private _intersect = terrainIntersectAtASL  [_startPos, _endPos];
   if(!([0,0,0] isEqualTo _intersect)) then {
-	  if(vtx_uh60m_trackIR_interaction_systemChat) then {systemChat str _intersect;};
+	  if(vtx_uh60_hui_showDebugMessages) then {systemChat str _intersect;};
     _intersect breakOut "return";
   };
 };
