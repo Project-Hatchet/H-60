@@ -5,40 +5,9 @@ ADDON = false;
 #include "XEH_PREP.hpp"
 #include "initSettings.sqf";
 
-// stuff to hopefully speed up perFrame
+call vtx_uh60_flir_fnc_initVars;
+
 vtx_uh60_flir_aspectRatio = getResolution # 4;
-vtx_uh60_flir_featureCamera = "";
-vtx_uh60_flir_playerEHs = [];
-vtx_uh60_flir_playerCBAEHs = [];
-vtx_uh60_flir_vehicleEHs = [];
-vtx_uh60_flir_isPipHidden = true;
-vtx_uh60_flir_pipIsFixed = false;
-
-// inputs
-vtx_uh60_flir_inputZoom = 0;
-vtx_uh60_flir_inputStabilize = 0;
-vtx_uh60_flir_inputVisionMode = 0;
-vtx_uh60_flir_isSlewing = false;
-vtx_uh60_flir_slewAim = false;
-vtx_uh60_flir_up = 0;
-vtx_uh60_flir_down = 0;
-vtx_uh60_flir_left = 0;
-vtx_uh60_flir_right = 0;
-
-// FLIR state
-vtx_uh60_flir_pilotCameraTarget = [false, [0, 0, 0], objNull];
-vtx_uh60_flir_controllable = false;
-vtx_uh60_flir_isInScriptedCamera = false;
-
-vtx_uh60_flir_playerIsPilot = false;
-vtx_uh60_flir_playerIsCopilot = false;
-vtx_uh60_flir_otherPilot = objNull;
-vtx_uh60_flir_otherPilotIsPlayer = false;
-vtx_uh60_flir_isCopilotInGunnerView = false;
-vtx_uh60_flir_lastSyncTimePilotCamera = 0;
-vtx_uh60_flir_lastSyncTimeAnimation = 0;
-
-vtx_uh60_flir_pipEffect = [];
 vtx_uh60_flir_pipEffectsHashMap = createHashMapFromArray [
   ["Normal", [0]],
   ["NVG", [1]],

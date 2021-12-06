@@ -1,5 +1,6 @@
 // Framework
 PREP(perFrame);
+PREP(perSecond);
 PREP(setup);
 PREP(shutDown);
 
@@ -7,6 +8,7 @@ PREP(fireWeapon);
 PREP(nextWeapon);
 PREP(handleKeyInputs);
 PREP(handleSlew);
+PREP(initVars);
 PREP(keyFLIRSlewToHMD);
 PREP(keyVisionMode);
 PREP(keyZoom);
