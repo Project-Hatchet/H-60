@@ -8,3 +8,4 @@ class RscFrame;
 class RscListBox;
 class RscButton;
 class RscPicture;
+class RscCombo;
