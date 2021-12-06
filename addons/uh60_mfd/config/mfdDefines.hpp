@@ -44,6 +44,46 @@
 #define STR(A) #A
 
 //ELEMENTS
+
+
+#define TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
+	class CLASS { \
+		type = "text"; \
+		align = "center"; \
+		scale = 1; \
+		pos[] = {{X, Y}, 1}; \
+		right[] = {{X + SCALE, Y}, 1}; \
+		down[] = {{X, Y + SCALE}, 1};
+
+#define TEXT_MID_SCALED(CLASS,X,Y,TEXT,SCALE) \
+	TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
+		source = "static"; \
+		text = TEXT; \
+	};
+
+#define TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
+	class CLASS { \
+		type = "text"; \
+		align = "right"; \
+		scale = 1; \
+		pos[] = {{X, Y}, 1}; \
+		right[] = {{X + SCALE, Y}, 1}; \
+		down[] = {{X, Y + SCALE}, 1};
+
+#define TEXT_LEFT_SCALED(CLASS,X,Y,TEXT,SCALE) \
+	TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
+		source = "static"; \
+		text = TEXT; \
+	};
+
+#define TEXT_LEFT_SCALED_USERTEXT(CLASS,X,Y,IDX,SCALE) \
+	TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
+		source = "userText"; \
+        sourceIndex = IDX; \
+        sourceScale = 1; \
+		text = ""; \
+	};
+
 #define TEXT_LEFT_OPEN(CLASS) \
     class CLASS { \
         type = "text"; \
@@ -176,6 +216,27 @@
             right[] = {{X + 0.0466, Y}, 1}; \
             down[] = {{X, Y + 0.052}, 1};\
             text = TEXT; \
+        };
+    
+    #define TEXT_MFD_SCALE(CLASS,X,Y,SIZE,ALIGN) \
+        class CLASS { \
+            type = "text"; \
+            align = ALIGN; \
+            scale = 1; \
+            pos[] = {{X-0.002*SIZE, Y-0.035*SIZE}, 1}; \
+            right[] = {{X + 0.06*SIZE, Y-0.035*SIZE}, 1}; \
+            down[] = {{X-0.002*SIZE, Y + 0.035*SIZE}, 1};
+
+    #define TEXT_MFD_SCALE_STATIC(CLASS,X,Y,SIZE,ALIGN,TEXT) \
+        class CLASS { \
+            type = "text"; \
+            source = "static"; \
+            text = TEXT; \
+            align = ALIGN; \
+            scale = 1; \
+            pos[] = {{X-0.002*SIZE, Y-0.035*SIZE}, 1}; \
+            right[] = {{X + 0.06*SIZE, Y-0.035*SIZE}, 1}; \
+            down[] = {{X-0.002*SIZE, Y + 0.035*SIZE}, 1}; \
         };
 
     #define TEXT_MID_MID(CLASS,X,Y,TEXT) \

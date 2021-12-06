@@ -173,7 +173,7 @@ class blackTextWrapper {
 		TEXT_RIGHT_SMALL(TEXT,0.65,0.47-0.025+(SMALL_LINE_HEIGHT*1),"CHIP MAIN MDL SUMP")
 	};
 	class starter2 {
-		condition = "(pylonammo5>2.5)+((pylonammo5>1.9)*(pylonammo5<1.1))";
+		condition = "(pylonammo5>2.5)+((pylonammo5>1.9)*(pylonammo5<2.1))";
 		TEXT_RIGHT_SMALL(TEXT,0.65,0.47-0.025+(SMALL_LINE_HEIGHT*2),"STARTER ENG 2")
 	};
 	// ZONE 5

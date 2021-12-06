@@ -54,7 +54,7 @@ _action = ["vtx_hoist_Working", _displayName, "", _statement, _condition] call a
 
 _displayName = localize LSTRING(RepairHoistHook);
 _condition = vtx_uh60_hoist_fnc_isHookDamaged;
-_statement = {_target animateSource ["hoist_hook_hide", 0];};
+_statement = vtx_uh60_hoist_fnc_resetHook;
 _action = ["vtx_hoist_RepairHoistHook", _displayName, "", _statement, _condition, {}, [], "hoist_hook_pos"] call ace_interact_menu_fnc_createAction;
 ["vtx_H60_base", 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
 

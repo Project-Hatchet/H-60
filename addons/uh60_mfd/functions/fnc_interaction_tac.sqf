@@ -21,4 +21,23 @@ switch (_action) do {
         _vehicle setVariable ["MAP_ZoomMult", _scales # _newIndex, true];
         _vehicle animateSource ["MAP1_Scale", _zoomStages # _newIndex, 1];
     };
+    case "waypt": {
+        private _cursorPos = [] call vtx_uh60_mfd_fnc_tac_cursorToWorld;
+        [
+            format ["%1/%2", name player, vtx_uh60_mfd_marks],
+            _cursorPos,
+            ""
+        ] call vtx_uh60_fms_fnc_addWaypoint;
+        vtx_uh60_mfd_marks = vtx_uh60_mfd_marks + 1;
+    };
+    case "flir": {
+        private _cursorPos = [] call vtx_uh60_mfd_fnc_tac_cursorToWorld;
+        _vehicle setPilotCameraTarget (AGLtoASL _cursorPos);
+		[true, (AGLtoASL _cursorPos)] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", crew _vehicle];
+    };
+    case "centerMode": {
+        private _centerMode = _vehicle getVariable ["vtx_uh60_mfd_tac_center_mode", 0];
+        if (_centerMode == 3) then {_centerMode = 0} else {_centerMode = _centerMode + 1};
+        _vehicle setVariable ["vtx_uh60_mfd_tac_center_mode", _centerMode, true];
+    };
 };

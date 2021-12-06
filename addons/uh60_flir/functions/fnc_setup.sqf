@@ -48,5 +48,6 @@ vtx_uh60_flir_stabilizedSlewSpeed = 0.5;
 
 vtx_uh60_flir_syncInterval = 0.05;
 vtx_uh60_flir_lastSync = 0;
+vtx_uh60_flir_camera_opened = false;
 
 true
