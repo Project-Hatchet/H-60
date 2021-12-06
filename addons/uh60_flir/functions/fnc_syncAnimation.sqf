@@ -14,8 +14,14 @@
 
 params ["_vehicle"];
 
-(getPilotCameraRotation _vehicle) params ["_azimuth", "_elevation"];
-_vehicle animateSource ["FLIR_DIRECTION", _azimuth, true];
-_vehicle animateSource ["FLIR_ELEVATION", _elevation, true];
+private _rotation = getPilotCameraRotation _vehicle;
+if (_rotation isNotEqualTo [
+  _vehicle animationSourcePhase "FLIR_DIRECTION",
+  _vehicle animationSourcePhase "FLIR_ELEVATION"
+]) then {
+  _rotation params ["_azimuth", "_elevation"];
+  _vehicle animateSource ["FLIR_DIRECTION", _azimuth, true];
+  _vehicle animateSource ["FLIR_ELEVATION", _elevation, true];
+};
 
 true
