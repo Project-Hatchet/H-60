@@ -23,7 +23,7 @@ switch (_mode) do {
     };
     case "RALT": {
         CYCLE_RALT_STATE; 
-        if(vtx_uh60_hui_showDebugMessages) then {systemChat str ["RALT", GET_RALT_STATE];};
+        if(vtx_uh60_ui_showDebugMessages) then {systemChat str ["RALT", GET_RALT_STATE];};
         SET_ALT_STATE(false);
         SET_ALTP_STATE(false);
         SET_VS_STATE(false);
@@ -31,7 +31,7 @@ switch (_mode) do {
     };
     case "ALT": {
         CYCLE_ALT_STATE; 
-        if(vtx_uh60_hui_showDebugMessages) then {systemChat str ["ALT", GET_ALT_STATE];};
+        if(vtx_uh60_ui_showDebugMessages) then {systemChat str ["ALT", GET_ALT_STATE];};
         SET_RALT_STATE(false);
         SET_ALTP_STATE(false);
         SET_VS_STATE(false);
@@ -39,7 +39,7 @@ switch (_mode) do {
     };
     case "ALTP": {
         CYCLE_ALTP_STATE; 
-        if(vtx_uh60_hui_showDebugMessages) then {systemChat str ["ALTP", GET_ALTP_STATE];};
+        if(vtx_uh60_ui_showDebugMessages) then {systemChat str ["ALTP", GET_ALTP_STATE];};
         SET_RALT_STATE(false);
         SET_ALT_STATE(false);
         SET_VS_STATE(false);
@@ -47,7 +47,7 @@ switch (_mode) do {
     };
     case "VS": {
         CYCLE_VS_STATE; 
-        if(vtx_uh60_hui_showDebugMessages) then {systemChat str ["ALTP", GET_VS_STATE];};
+        if(vtx_uh60_ui_showDebugMessages) then {systemChat str ["ALTP", GET_VS_STATE];};
         SET_RALT_STATE(false);
         SET_ALT_STATE(false);
         SET_ALTP_STATE(false);
