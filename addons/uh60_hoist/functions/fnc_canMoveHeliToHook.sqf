@@ -18,6 +18,7 @@ if !(local _unit) exitWith {[_unit] remoteExecCall ["vtx_uh60_hoist_fnc_canMoveH
 
 private _heli = vehicle _unit;
 if (_heli animationPhase "cabindoor_R" == 1) exitWith {false};
+if (_unit == driver _heli) exitWith {false};
 
 private _hoist_vars = _heli getVariable ["vtx_uh60_hoist_vars", []];
 if (_hoist_vars isEqualTo []) exitWith{false};

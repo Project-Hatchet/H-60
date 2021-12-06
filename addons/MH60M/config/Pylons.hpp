@@ -19,7 +19,7 @@ class TransportPylonsComponent {
                 attachment = "vtx_1000rnd_dummy"; \
                 priority = 5; \
                 hardpoints[] = {}; \
-                UIposition[] = {0.1, 0.1}; \
+                UIposition[] = {10, 10}; \
             };
         DUMMY_PYLON(dummy1)
         DUMMY_PYLON(dummy2)

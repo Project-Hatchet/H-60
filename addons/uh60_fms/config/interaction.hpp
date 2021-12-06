@@ -80,14 +80,15 @@ class shutdown_2 {
 class nav {
   condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT);
   FMS_BTN(FMS_1,"Next Waypoint","") buttonUp="[vehicle player,""cycle"", 1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
+  FMS_BTN(FMS_2,"Previous waypoint","") buttonUp="[vehicle player,""cycle"", -1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
   FMS_BTN(FMS_4,"Location Stores","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_NAV_LOCATIONS_LIST], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
   FMS_BTN(FMS_5,"Microdagr Import","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_NAV_IMPORT], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
-  FMS_BTN(FMS_6,"Previous waypoint","") buttonUp="[vehicle player,""cycle"", -1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
-  FMS_BTN(FMS_9,"FLIR","") buttonUp="[vehicle player,""flir""] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
+  FMS_BTN(FMS_8,"Slew FLIR","") buttonUp="[vehicle player,""slew_flir_waypt""] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
+  FMS_BTN(FMS_9,"Send WP","") buttonUp="[vehicle player,""send""] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
   FMS_BTN(FMS_10,"Main Menu","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_MENU], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
@@ -120,7 +121,7 @@ class nav_location_stores {
 };
 class nav_location_sel {
   condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_NAV_LOCATIONS_SEL);
-  FMS_BTN(FMS_3,"Set as markpoint","") buttonUp=[vehicle player,"store_save_mark", nil, [FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT]] call vtx_uh60_fms_fnc_interaction_waypoint; };
+  FMS_BTN(FMS_3,"Slew FLIR","") buttonUp=[vehicle player,"slew_flir", nil, [FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT]] call vtx_uh60_fms_fnc_interaction_waypoint; };
   FMS_BTN(FMS_4,"Add to waypoints","") buttonUp=[vehicle player,"store_save_waypoint", nil, [FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT]] call vtx_uh60_fms_fnc_interaction_waypoint; };
   FMS_BTN(FMS_10,"Location Stores","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_NAV_LOCATIONS_LIST], true] call vtx_uh60_fms_fnc_interaction_pageChange;
@@ -152,28 +153,28 @@ class MSN {
 };
 
 class wpn {
-  condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_WPN);
+  condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_WPN);
   FMS_BTN(FMS_10,"Mission Systems","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_MSN], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
 };
 
 class radar {
-  condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_RDR);
+  condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_RDR);
   FMS_BTN(FMS_10,"Mission Systems","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_MSN], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
 };
 
 class FLIR {
-  condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_FLIR);
+  condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_FLIR);
   FMS_BTN(FMS_10,"Mission Systems","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_MSN], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
 };
 
 class hmd {
-  condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_HMD);
+  condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_HMD);
   FMS_BTN(FMS_6,"OFF","")
     buttonUp = "[-1] call vtx_uh60_anvishud_fnc_toggleHud;";
   };

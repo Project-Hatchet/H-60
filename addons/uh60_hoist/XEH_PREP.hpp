@@ -20,5 +20,6 @@ PREP(moveHeliToHook);
 PREP(moveHookToHeli);
 PREP(raiseHookToHeli);
 PREP(recoverPerson);
+PREP(resetHook);
 PREP(secureHook);
 PREP(stabilizeHook);
