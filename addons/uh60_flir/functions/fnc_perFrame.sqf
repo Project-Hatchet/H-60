@@ -6,10 +6,6 @@
 
 params ["_vehicle", "_frameTime"];
 
-if (vtx_uh60_flir_setting_animateTurret && {local _vehicle}) then {
-  [_vehicle] call vtx_uh60_flir_fnc_syncAnimation;
-};
-
 if (!vtx_uh60_flir_isPipHidden || {vtx_uh60_flir_playerIsPilot && cameraView == "GUNNER"}) then {
   [_vehicle] call vtx_uh60_flir_fnc_handleKeyInputs;
   [_vehicle] call vtx_uh60_flir_fnc_handleSlew;
