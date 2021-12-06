@@ -1,1 +1,1 @@
-#include "\z\vtx\addons\uh60_code\script_component.hpp"
+#include "\z\vtx\addons\uh60_config\script_component.hpp"

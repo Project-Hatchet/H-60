@@ -1,5 +1,5 @@
-#define COMPONENT uh60_code
-#define COMPONENT_BEAUTIFIED UH60_CODE
+#define COMPONENT uh60_config
+#define COMPONENT_BEAUTIFIED UH60_CONFIG
 #include "\z\vtx\addons\main\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL
@@ -7,12 +7,12 @@
 // #define CBA_DEBUG_SYNCHRONOUS
 // #define ENABLE_PERFORMANCE_COUNTERS
 
-#ifdef DEBUG_ENABLED_UH60_CODE
+#ifdef DEBUG_ENABLED_UH60_CONFIG
     #define DEBUG_MODE_FULL
 #endif
 
-#ifdef DEBUG_SETTINGS_UH60_CODE
-    #define DEBUG_SETTINGS DEBUG_SETTINGS_UH60_CODE
+#ifdef DEBUG_SETTINGS_UH60_CONFIG
+    #define DEBUG_SETTINGS DEBUG_SETTINGS_UH60_CONFIG
 #endif
 
 #include "\z\vtx\addons\main\script_macros.hpp"
