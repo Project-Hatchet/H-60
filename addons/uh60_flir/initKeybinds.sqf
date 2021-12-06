@@ -1,7 +1,13 @@
 [
     "UH-60M Blackhawk","vtx_uh60_flir_copilotCamera","Copilot Camera", // Control + Right click
     {
-      if (!vtx_uh60_flir_playerIsCopilot || {!vtx_uh60_flir_controllable}) exitWith {false};
+      if (
+        !vtx_uh60_flir_playerIsCopilot ||
+        {!vtx_uh60_flir_controllable} ||
+        {vtx_uh60_flir_isVisibleMap} ||
+        {vtx_uh60_flir_featureCamera != ""} ||
+        {!isNull curatorCamera}
+      ) exitWith {false};
       vtx_uh60_flir_isInScriptedCamera = !vtx_uh60_flir_isInScriptedCamera;
       [vtx_uh60_flir_isInScriptedCamera] call vtx_uh60_flir_fnc_scriptedCamera;
       false

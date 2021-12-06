@@ -14,14 +14,6 @@
 
 params ["_vehicle"];
 
-if (
-  isNil "vtx_uh60_flir_camera" ||
-  {vtx_uh60_flir_pipIsFixed && {!vtx_uh60_flir_isInScriptedCamera}} || // Sling cam
-  {cameraView isNotEqualTo "INTERNAL"} ||
-  {visibleMap} ||
-  {!isNull curatorCamera}
-) exitWith { false };
-
 private _camPosASL = vxf_vehicle modelToWorldVisualWorld vtx_uh60_flir_camPos;
 vtx_uh60_flir_camera setPosASL _camPosASL;
 vtx_uh60_flir_pilotCameraTarget params ["_isTracking", "_tgtPosASL", ""];
