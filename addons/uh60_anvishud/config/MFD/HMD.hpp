@@ -106,8 +106,8 @@ class Bones {
 		sourceScale=1.9685;
 		min=-20.32;
 		max=20.32;
-		minPos[]={0.9,0.2};
-		maxPos[]={0.9,0.4};
+		minPos[]={0.85,0.55};
+		maxPos[]={0.85,0.75};
 	};
 	class AltitudeEdge
 	{
