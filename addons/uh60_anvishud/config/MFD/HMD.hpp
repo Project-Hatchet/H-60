@@ -114,7 +114,7 @@ class Bones {
 		type="linear";
 	    source="altitudeAGL";
 		min=0;
-		max=305;
+		max=50;
 		sourceScale=1;
 		minPos[]={0.95,0.5};
 		maxPos[]={0.95,0.8};
