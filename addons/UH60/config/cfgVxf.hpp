@@ -34,13 +34,13 @@ class vxf_cargo {
             radius=0.1;
             animSpeed=1;
         }; // r_door
-        class toPilot {
-            condition = "private _p = driver vxf_vehicle; isNull _p || {!isPlayer _p} || {!alive _p} || {lifeState _p == 'INCAPACITATED'}";
-            positionType = "coordinates";
-            position[] = {0.023875,4.2461,-0.577079};
-            label = "To Pilot Seat";
-            radius = 0.1;
-            buttonDown = "call vtx_uh60_misc_fnc_switchPilot";
-        }; // toPilot
+        class toCockpit {
+          condition = "isNull driver vxf_vehicle || {isNull (vxf_vehicle turretUnit [0])}";
+          positionType = "coordinates";
+          position[] = POS_MOVE_CABIN_COCKPIT;
+          label = "Move To Cockpit";
+          radius = 0.1;
+          buttonDown = "call vtx_uh60_misc_fnc_moveToCockpit";
+        }; // toCockpit
     };
 };

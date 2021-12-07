@@ -20,6 +20,14 @@ class CfgVehicles {
                     buttonUp="hint format[""%1 Rounds remaining"", (_this # 0) magazineTurretAmmo [""vtx_2000Rnd_65x39_Belt_Tracer_Red"", [1]]];";
                     clickSound="vxf_Switch_Sound";
                 }; // ammoCan
+                class toCockpit {
+                  condition = "isNull driver vxf_vehicle || {isNull (vxf_vehicle turretUnit [0])}";
+                  positionType = "coordinates";
+                  position[] = POS_MOVE_CABIN_COCKPIT;
+                  label = "Move To Cockpit";
+                  radius = 0.1;
+                  buttonDown = "call vtx_uh60_misc_fnc_moveToCockpit";
+                }; // toCockpit
                 class coverUp {
                     condition="(_this animationPhase ""Switch_minigun_safe_cover_l"") > 0.5";
                     class safetyCover {
@@ -85,6 +93,14 @@ class CfgVehicles {
                     buttonUp="hint format[""%1 Rounds remaining"", (_this # 0) magazineTurretAmmo [""vtx_2000Rnd_65x39_Belt_Tracer_Red"", [2]]];";
                     clickSound="vxf_Switch_Sound";
                 }; // ammoCan
+                class toCockpit {
+                  condition = "isNull driver vxf_vehicle || {isNull (vxf_vehicle turretUnit [0])}";
+                  positionType = "coordinates";
+                  position[] = POS_MOVE_CABIN_COCKPIT;
+                  label = "Move To Cockpit";
+                  radius = 0.1;
+                  buttonDown = "call vtx_uh60_misc_fnc_moveToCockpit";
+                }; // toCockpit
                 class coverUp {
                     condition="(_this animationPhase ""Switch_minigun_safe_cover_r"") > 0.5";
                     class safetyCover {
