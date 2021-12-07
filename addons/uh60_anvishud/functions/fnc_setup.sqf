@@ -11,4 +11,7 @@ params ["_vehicle"];
 if (!(typeOf _vehicle in ["vtx_MH60S_Pylons_GAU21L","vtx_MH60S_GAU21L","vtx_MH60S_Pylons","vtx_MH60S","vtx_MH60M_DAP","vtx_MH60M"])) exitWith { false };
 
 _vehicle setUserMFDValue [15, vtx_uh60_anvishud_defaultMode];
+
+vehicle player setAmmoOnPylon [11, 600];	//Configure the default HUD brightness
+
 true

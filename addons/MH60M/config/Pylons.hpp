@@ -31,6 +31,7 @@ class TransportPylonsComponent {
         DUMMY_PYLON(dummy8)
         DUMMY_PYLON(dummy9)
         DUMMY_PYLON(dummy10)
+        DUMMY_PYLON(dummy11)    //HMD Alpha
     };
     class Presets {
         class Empty {

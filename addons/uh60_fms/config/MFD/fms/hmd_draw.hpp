@@ -43,3 +43,12 @@ TEXT_FMS_R(R3,FMS_MARGIN_R,FMS_Y3)
 	source = "static";
 	text = "DCLT";
 }; // L5
+
+TEXT_FMS_L(L4,FMS_MARGIN_L,FMS_Y4)
+	source = "static";
+	text = "DIM";
+}; // L3
+TEXT_FMS_R(R4,FMS_MARGIN_R,FMS_Y4)
+	source = "static";
+	text = "BRT";
+}; // L5
