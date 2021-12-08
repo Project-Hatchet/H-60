@@ -11,3 +11,17 @@
     ], 0],
     false // isGlobal
 ] call CBA_settings_fnc_init;
+
+[
+    "vtx_uh60_anvishud_setting_colorSet", "LIST",
+    "HMD Color and Brightness",
+    ["UH-60M", "HMD"],
+    [[1, -1, 2, -2], [
+        "Green Bright",
+        "Green Dimmed",
+        "Yellow Bright",
+        "Yellow Dimmed"
+    ], 0],
+    false // isGlobal
+] call CBA_settings_fnc_init;
+

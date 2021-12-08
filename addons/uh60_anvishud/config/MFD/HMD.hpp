@@ -2,7 +2,13 @@ borderBottom = 0;
 borderLeft = 0;
 borderRight = 0;
 borderTop = 0;
-color[] = {0.082,0.608,0.039,1};
+// Hard coded color modes
+color[] = {
+  "((abs(abs(user48)-1))<1)*0.082+((abs(abs(user48)-2))<1)*1.00",
+  "((abs(abs(user48)-1))<1)*0.608+((abs(abs(user48)-2))<1)*0.70",
+  "((abs(abs(user48)-1))<1)*0.039+((abs(abs(user48)-2))<1)*0.04",
+  "0.1+0.9*(user48>0)"
+};
 enableParallax = 0;
 helmetDown[] = {0,-0.065,0};
 helmetMountedDisplay = 1;

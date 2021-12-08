@@ -1,6 +1,5 @@
 class torqueWrapper {
 	condition = "1";
-	color[] = {0.082,0.608,0.039,1};
 	#define COLLECTIVE_X 0.95
 	#define COLLECTIVE_OFFSET 0.05
 	class DCLT_HIDE {
