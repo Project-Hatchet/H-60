@@ -7,6 +7,5 @@ PREP(perSecond);
 PREP(rotorBrakeInterlock);
 PREP(setup);
 PREP(shutdown);
-PREP(shutdown);
 PREP(starterState);
 PREP(wheelBrakes);
