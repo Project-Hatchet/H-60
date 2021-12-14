@@ -1,4 +1,4 @@
-class textureSources {
+class TextureSources {
   class hh60g {
     displayName = "HH-60G Pavehawk";
     author = "JLorion";
