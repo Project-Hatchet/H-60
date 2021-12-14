@@ -123,7 +123,7 @@
 	vtx_uh60_flir_fnc_handleStabilization = {
 		params ["_vehicle", "_frameTime"];
 		if (inputAction "vehLockTurretView" > 0 && !vtx_uh60_flir_stabilizing) then {
-			systemChat str time;
+			if(vtx_uh60_ui_showDebugMessages) then {systemChat str time;};
 			_this call vtx_uh60_flir_fnc_toggleStabilization;
 		};
 		if (vtx_uh60_flir_stabilized) then {
@@ -140,12 +140,12 @@
 	vtx_uh60_flir_fnc_toggleStabilization = {
 		params ["_vehicle"];
 		if (!vtx_uh60_flir_stabilized) then {
-			systemChat "STAB ON";
+			if(vtx_uh60_ui_showDebugMessages) then {systemChat "STAB ON";};
 			private _target = screenToWorld [0.5, 0.5];
 			vtx_uh60_flir_stabTarget = _target;
 			vtx_uh60_flir_stabilized = true;
 		} else {
-			systemChat "STAB OFF";
+			if(vtx_uh60_ui_showDebugMessages) then {systemChat "STAB OFF";};
 			vtx_uh60_flir_stabilized = false;
 		};
 		vtx_uh60_flir_camera camCommit 0;
