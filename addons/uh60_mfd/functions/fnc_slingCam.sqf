@@ -26,7 +26,6 @@ if (_show) then {
   vtx_uh60_mfd_slingCam attachTo [_vehicle, _vehicle selectionPosition "slingcam"];
   vtx_uh60_mfd_slingCam setVectorDirAndUp [[0, 0, -1], [0, 1, 0]];
   vtx_uh60_mfd_slingCam cameraEffect ["internal", "BACK", "vtx_uh60_flir_feed"];
-  "vtx_uh60_flir_feed" setPiPEffect [3,0.6,0.7,0.2,0,[0,0,0,0],[1,1,1,0],[1,1,1,1]];
   vtx_uh60_mfd_slingCam camSetFocus [-1,-1];
   vtx_uh60_mfd_slingCam camCommit 0;
 } else {
@@ -37,7 +36,6 @@ if (_show) then {
   };
   if (!isNil "vtx_uh60_flir_camera") then {
     vtx_uh60_flir_camera cameraEffect ["internal", "BACK", "vtx_uh60_flir_feed"];
-    "vtx_uh60_flir_feed" setPiPEffect [3,0.6,0.7,0.2,0,[0,0,0,0],[1,1,1,0],[1,1,1,1]];
   };
 };
 vtx_uh60_flir_pipIsFixed = _show;
