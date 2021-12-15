@@ -17,3 +17,4 @@ if(_ammoCount > 0) then {
  	vehicle player setAmmoOnPylon [_index, _ammoCount - 100];
 };
 
+if(vtx_uh60_ui_showDebugMessages) then {systemChat Format["HMD Brightness: %1%2", (vehicle player ammoOnPylon _index)/10, "%"]};
