@@ -21,7 +21,7 @@ if ((abs _altDiff) > 3) then {
     };
     vtx_uh60_fd_lastAltMatch = false;
     private _timeSinceChange = cba_missionTime - vtx_uh60_fd_lastAltChangeTime;
-    systemChat str _timeSinceChange;
+    if(vtx_uh60_ui_showDebugMessages) then {systemChat str _timeSinceChange;};
     _verticalVelocityGoal = (_altDiff max -1 min 1) * (if (_timeSinceChange < 5) then [{1.21}, {4.87}]);
 } else {
     vtx_uh60_fd_lastAltMatch = true;

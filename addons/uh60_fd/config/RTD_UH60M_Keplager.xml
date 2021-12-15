@@ -1409,16 +1409,16 @@
     <GroundContacts>
         <GeneralConfiguration	gearExtensionTime="3"	maxSteerableGearDeflection="80" 	steerableGearSpeedCorrectionFactor="0.0"/>
 
- 		<GroundContact type="FGGroundContact200" >
+     		<GroundContact type="FGGroundContact200" >
             <Features isBrakable="true" isRetractable="true" isSteerable="false"    />
             <Aerodynamics equivalentFlatPlateArea ="0.295" />
             <Suspension>
-                <MountStation    x="-1.402" y="2.746" z="-1.279"/>
+                <MountStation    x="-1.5" y="2.746" z="-0.779"/>
                 <SliderAxis x="0" y="0" z="1" />
-                <SuspensionLength length="0.394" />
-                <SpringParameters springConstant="200000" damperConstant="50000" maxCompression="0.359" />
+                <SuspensionLength length="0.75487" />
+                <SpringParameters springConstant="200000" damperConstant="50000" maxCompression="0.31932" />
             </Suspension>
-            <Wheel mass="1" radius="0.318" >
+            <Wheel mass="1" radius="0.31" >
                 <RollAxis x="1" y="0" z="0" />
                 <Friction slidingFriction="0.7" resistanceTorqueNoBrake="1" resistanceTorqueFullBrake="3000" />
             </Wheel>
@@ -1429,12 +1429,12 @@
             <Features isBrakable="true" isRetractable="true" isSteerable="false"    />
             <Aerodynamics equivalentFlatPlateArea ="0.295" />
             <Suspension>
-                <MountStation    x="1.402" y="2.746" z="-1.279"/>
+                <MountStation    x="1.5" y="2.746" z="-0.779"/>
                 <SliderAxis x="0" y="0" z="1" />
-                <SuspensionLength length="0.394" />
-                <SpringParameters springConstant="200000" damperConstant="50000" maxCompression="0.359" />
+                <SuspensionLength length="0.75487" />
+                <SpringParameters springConstant="200000" damperConstant="50000" maxCompression="0.31932" />
             </Suspension>
-            <Wheel mass="1" radius="0.318" >
+            <Wheel mass="1" radius="0.31" >
                 <RollAxis x="1" y="0" z="0" />
                 <Friction slidingFriction="0.7" resistanceTorqueNoBrake="1" resistanceTorqueFullBrake="3000" />
             </Wheel>
@@ -1446,12 +1446,12 @@
             <Features isBrakable="true" isRetractable="true" isSteerable="true"    />
             <Aerodynamics equivalentFlatPlateArea ="0.067" />
             <Suspension>
-                <MountStation    x="0" y="-6.272" z="-1.458"/>
+                <MountStation    x="0" y="-5.922" z="-0.958"/>
                 <SliderAxis x="0" y="0" z="1" />
-                <SuspensionLength length="0.279" />
-                <SpringParameters springConstant="150000" damperConstant="50000" maxCompression="0.245" />
+                <SuspensionLength length="0.46872" />
+                <SpringParameters springConstant="70000" damperConstant="50000" maxCompression="0.245" />
             </Suspension>
-            <Wheel mass="1" radius="0.231" >
+            <Wheel mass="1" radius="0.222" >
                 <RollAxis x="1" y="0" z="0" />
                 <Friction slidingFriction="0.7" resistanceTorqueNoBrake="1" resistanceTorqueFullBrake="1000" />
             </Wheel>
@@ -1459,12 +1459,12 @@
             <Damage thresholdLoad="20000000" />
         </GroundContact>
 
-        <!-- nose left -->
+        <!-- hull -->
         <GroundContact type="FGGroundContact200" >
             <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
             <Aerodynamics equivalentFlatPlateArea ="0.0" />
             <Suspension>
-                <MountStation    x="1.054" y="4.437" z="-1.142"/>
+                <MountStation    x="2.09924" y="-7.76367" z="-0.845191"/>
                 <SliderAxis x="0" y="0" z="1" />
                 <SuspensionLength length="0.1" />
                 <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
@@ -1475,13 +1475,11 @@
             </Wheel>
             <Damage thresholdLoad="20000000" />
         </GroundContact>
-
-        <!-- nose left -->
         <GroundContact type="FGGroundContact200" >
             <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
             <Aerodynamics equivalentFlatPlateArea ="0.0" />
             <Suspension>
-                <MountStation    x="-1.054" y="4.437" z="-1.142"/>
+                <MountStation    x="-2.09924" y="-7.76367" z="-0.845191"/>
                 <SliderAxis x="0" y="0" z="1" />
                 <SuspensionLength length="0.1" />
                 <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
@@ -1492,13 +1490,11 @@
             </Wheel>
             <Damage thresholdLoad="20000000" />
         </GroundContact>
-
-        <!-- belly left -->
         <GroundContact type="FGGroundContact200" >
             <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
             <Aerodynamics equivalentFlatPlateArea ="0.0" />
             <Suspension>
-                <MountStation    x="-1.05" y="-1.05" z="-1.232"/>
+                <MountStation    x="0.279907" y="-5.78174" z="-1.15044"/>
                 <SliderAxis x="0" y="0" z="1" />
                 <SuspensionLength length="0.1" />
                 <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
@@ -1509,13 +1505,11 @@
             </Wheel>
             <Damage thresholdLoad="20000000" />
         </GroundContact>
-
-        <!-- belly mid right -->
         <GroundContact type="FGGroundContact200" >
             <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
             <Aerodynamics equivalentFlatPlateArea ="0.0" />
             <Suspension>
-                <MountStation    x="1.05" y="1" z="-1.232"/>
+                <MountStation    x="-0.279907" y="-5.78174" z="-1.15044"/>
                 <SliderAxis x="0" y="0" z="1" />
                 <SuspensionLength length="0.1" />
                 <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
@@ -1526,13 +1520,11 @@
             </Wheel>
             <Damage thresholdLoad="20000000" />
         </GroundContact>
-
-        <!-- belly mid left -->
         <GroundContact type="FGGroundContact200" >
             <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
             <Aerodynamics equivalentFlatPlateArea ="0.0" />
             <Suspension>
-                <MountStation    x="-1.05" y="1" z="-1.232"/>
+                <MountStation    x="0.44812" y="-1.85547" z="-1.51606"/>
                 <SliderAxis x="0" y="0" z="1" />
                 <SuspensionLength length="0.1" />
                 <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
@@ -1543,13 +1535,11 @@
             </Wheel>
             <Damage thresholdLoad="20000000" />
         </GroundContact>
-
-        <!-- belly right -->
         <GroundContact type="FGGroundContact200" >
             <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
             <Aerodynamics equivalentFlatPlateArea ="0.0" />
             <Suspension>
-                <MountStation    x="1.05" y="-1.05" z="-1.232"/>
+                <MountStation    x="-0.44812" y="-1.85547" z="-1.51606"/>
                 <SliderAxis x="0" y="0" z="1" />
                 <SuspensionLength length="0.1" />
                 <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
@@ -1560,75 +1550,246 @@
             </Wheel>
             <Damage thresholdLoad="20000000" />
         </GroundContact>
-
-        <!-- tail mid 1 -->
         <GroundContact type="FGGroundContact200" >
             <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
             <Aerodynamics equivalentFlatPlateArea ="0.0" />
             <Suspension>
-                <MountStation    x="0" y="-2" z="-1.2"/>
+                <MountStation    x="1.23059" y="-0.730469" z="-1.54571"/>
                 <SliderAxis x="0" y="0" z="1" />
-                <SuspensionLength length="0" />
-                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0" />
+                <SuspensionLength length="0.1" />
+                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
             </Suspension>
-            <Wheel mass="0.1" radius="0.1" >
+            <Wheel mass="1" radius="0.1" >
                 <RollAxis x="1" y="0" z="0" />
-                <Friction slidingFriction="0.5" resistanceTorqueNoBrake="1000" resistanceTorqueFullBrake="1000" />
+                <Friction slidingFriction="2" resistanceTorqueNoBrake="1000" resistanceTorqueFullBrake="1000" />
             </Wheel>
             <Damage thresholdLoad="20000000" />
         </GroundContact>
-
-        <!-- tail mid 2 -->
         <GroundContact type="FGGroundContact200" >
             <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
             <Aerodynamics equivalentFlatPlateArea ="0.0" />
             <Suspension>
-                <MountStation    x="0" y="-4" z="-1.2"/>
+                <MountStation    x="-1.23059" y="-0.730469" z="-1.54571"/>
                 <SliderAxis x="0" y="0" z="1" />
-                <SuspensionLength length="0" />
-                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0" />
+                <SuspensionLength length="0.1" />
+                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
             </Suspension>
-            <Wheel mass="0.1" radius="0.1" >
+            <Wheel mass="1" radius="0.1" >
                 <RollAxis x="1" y="0" z="0" />
-                <Friction slidingFriction="0.5" resistanceTorqueNoBrake="1000" resistanceTorqueFullBrake="1000" />
+                <Friction slidingFriction="2" resistanceTorqueNoBrake="1000" resistanceTorqueFullBrake="1000" />
             </Wheel>
             <Damage thresholdLoad="20000000" />
         </GroundContact>
-
-        <!-- tail 1 -->
         <GroundContact type="FGGroundContact200" >
             <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
             <Aerodynamics equivalentFlatPlateArea ="0.0" />
             <Suspension>
-                <MountStation    x="0" y="-7.055" z="-0.969"/>
+                <MountStation    x="1.23474" y="1.05127" z="-1.53351"/>
                 <SliderAxis x="0" y="0" z="1" />
-                <SuspensionLength length="0" />
-                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0" />
+                <SuspensionLength length="0.1" />
+                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
             </Suspension>
-            <Wheel mass="0.1" radius="0.1" >
+            <Wheel mass="1" radius="0.1" >
                 <RollAxis x="1" y="0" z="0" />
-                <Friction slidingFriction="0.5" resistanceTorqueNoBrake="1000" resistanceTorqueFullBrake="1000" />
+                <Friction slidingFriction="2" resistanceTorqueNoBrake="1000" resistanceTorqueFullBrake="1000" />
             </Wheel>
             <Damage thresholdLoad="20000000" />
         </GroundContact>
-
-        <!-- tail tip -->
         <GroundContact type="FGGroundContact200" >
             <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
             <Aerodynamics equivalentFlatPlateArea ="0.0" />
             <Suspension>
-                <MountStation    x="0" y="-9.279" z="-0.579"/>
+                <MountStation    x="-1.23474" y="1.05127" z="-1.53351"/>
                 <SliderAxis x="0" y="0" z="1" />
-                <SuspensionLength length="0" />
-                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0" />
+                <SuspensionLength length="0.1" />
+                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
             </Suspension>
-            <Wheel mass="0.1" radius="0.1" >
+            <Wheel mass="1" radius="0.1" >
                 <RollAxis x="1" y="0" z="0" />
-                <Friction slidingFriction="0.5" resistanceTorqueNoBrake="1000" resistanceTorqueFullBrake="1000" />
+                <Friction slidingFriction="2" resistanceTorqueNoBrake="1000" resistanceTorqueFullBrake="1000" />
             </Wheel>
             <Damage thresholdLoad="20000000" />
         </GroundContact>
-
+        <GroundContact type="FGGroundContact200" >
+            <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
+            <Aerodynamics equivalentFlatPlateArea ="0.0" />
+            <Suspension>
+                <MountStation    x="1.43677" y="2.75" z="-1.54571"/>
+                <SliderAxis x="0" y="0" z="1" />
+                <SuspensionLength length="0.1" />
+                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
+            </Suspension>
+            <Wheel mass="1" radius="0.1" >
+                <RollAxis x="1" y="0" z="0" />
+                <Friction slidingFriction="2" resistanceTorqueNoBrake="1000" resistanceTorqueFullBrake="1000" />
+            </Wheel>
+            <Damage thresholdLoad="20000000" />
+        </GroundContact>
+        <GroundContact type="FGGroundContact200" >
+            <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
+            <Aerodynamics equivalentFlatPlateArea ="0.0" />
+            <Suspension>
+                <MountStation    x="-1.43677" y="2.75" z="-1.54571"/>
+                <SliderAxis x="0" y="0" z="1" />
+                <SuspensionLength length="0.1" />
+                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
+            </Suspension>
+            <Wheel mass="1" radius="0.1" >
+                <RollAxis x="1" y="0" z="0" />
+                <Friction slidingFriction="2" resistanceTorqueNoBrake="1000" resistanceTorqueFullBrake="1000" />
+            </Wheel>
+            <Damage thresholdLoad="20000000" />
+        </GroundContact>
+        <GroundContact type="FGGroundContact200" >
+            <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
+            <Aerodynamics equivalentFlatPlateArea ="0.0" />
+            <Suspension>
+                <MountStation    x="1.39746" y="4.13623" z="-1.54571"/>
+                <SliderAxis x="0" y="0" z="1" />
+                <SuspensionLength length="0.1" />
+                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
+            </Suspension>
+            <Wheel mass="1" radius="0.1" >
+                <RollAxis x="1" y="0" z="0" />
+                <Friction slidingFriction="2" resistanceTorqueNoBrake="1000" resistanceTorqueFullBrake="1000" />
+            </Wheel>
+            <Damage thresholdLoad="20000000" />
+        </GroundContact>
+        <GroundContact type="FGGroundContact200" >
+            <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
+            <Aerodynamics equivalentFlatPlateArea ="0.0" />
+            <Suspension>
+                <MountStation    x="-1.39746" y="4.13623" z="-1.54571"/>
+                <SliderAxis x="0" y="0" z="1" />
+                <SuspensionLength length="0.1" />
+                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
+            </Suspension>
+            <Wheel mass="1" radius="0.1" >
+                <RollAxis x="1" y="0" z="0" />
+                <Friction slidingFriction="2" resistanceTorqueNoBrake="1000" resistanceTorqueFullBrake="1000" />
+            </Wheel>
+            <Damage thresholdLoad="20000000" />
+        </GroundContact>
+        <GroundContact type="FGGroundContact200" >
+            <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
+            <Aerodynamics equivalentFlatPlateArea ="0.0" />
+            <Suspension>
+                <MountStation    x="1.08167" y="5.11084" z="-1.38921"/>
+                <SliderAxis x="0" y="0" z="1" />
+                <SuspensionLength length="0.1" />
+                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
+            </Suspension>
+            <Wheel mass="1" radius="0.1" >
+                <RollAxis x="1" y="0" z="0" />
+                <Friction slidingFriction="2" resistanceTorqueNoBrake="1000" resistanceTorqueFullBrake="1000" />
+            </Wheel>
+            <Damage thresholdLoad="20000000" />
+        </GroundContact>
+        <GroundContact type="FGGroundContact200" >
+            <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
+            <Aerodynamics equivalentFlatPlateArea ="0.0" />
+            <Suspension>
+                <MountStation    x="-1.08167" y="5.11084" z="-1.38921"/>
+                <SliderAxis x="0" y="0" z="1" />
+                <SuspensionLength length="0.1" />
+                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
+            </Suspension>
+            <Wheel mass="1" radius="0.1" >
+                <RollAxis x="1" y="0" z="0" />
+                <Friction slidingFriction="2" resistanceTorqueNoBrake="1000" resistanceTorqueFullBrake="1000" />
+            </Wheel>
+            <Damage thresholdLoad="20000000" />
+        </GroundContact>
+        <GroundContact type="FGGroundContact200" >
+            <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
+            <Aerodynamics equivalentFlatPlateArea ="0.0" />
+            <Suspension>
+                <MountStation    x="0.730103" y="5.92578" z="-1.40356"/>
+                <SliderAxis x="0" y="0" z="1" />
+                <SuspensionLength length="0.1" />
+                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
+            </Suspension>
+            <Wheel mass="1" radius="0.1" >
+                <RollAxis x="1" y="0" z="0" />
+                <Friction slidingFriction="2" resistanceTorqueNoBrake="1000" resistanceTorqueFullBrake="1000" />
+            </Wheel>
+            <Damage thresholdLoad="20000000" />
+        </GroundContact>
+        <GroundContact type="FGGroundContact200" >
+            <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
+            <Aerodynamics equivalentFlatPlateArea ="0.0" />
+            <Suspension>
+                <MountStation    x="-0.730103" y="5.92578" z="-1.40356"/>
+                <SliderAxis x="0" y="0" z="1" />
+                <SuspensionLength length="0.1" />
+                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
+            </Suspension>
+            <Wheel mass="1" radius="0.1" >
+                <RollAxis x="1" y="0" z="0" />
+                <Friction slidingFriction="2" resistanceTorqueNoBrake="1000" resistanceTorqueFullBrake="1000" />
+            </Wheel>
+            <Damage thresholdLoad="20000000" />
+        </GroundContact>
+        <GroundContact type="FGGroundContact200" >
+            <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
+            <Aerodynamics equivalentFlatPlateArea ="0.0" />
+            <Suspension>
+                <MountStation    x="0.258667" y="6.21924" z="-1.27843"/>
+                <SliderAxis x="0" y="0" z="1" />
+                <SuspensionLength length="0.1" />
+                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
+            </Suspension>
+            <Wheel mass="1" radius="0.1" >
+                <RollAxis x="1" y="0" z="0" />
+                <Friction slidingFriction="2" resistanceTorqueNoBrake="1000" resistanceTorqueFullBrake="1000" />
+            </Wheel>
+            <Damage thresholdLoad="20000000" />
+        </GroundContact>
+        <GroundContact type="FGGroundContact200" >
+            <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
+            <Aerodynamics equivalentFlatPlateArea ="0.0" />
+            <Suspension>
+                <MountStation    x="-0.258667" y="6.21924" z="-1.27843"/>
+                <SliderAxis x="0" y="0" z="1" />
+                <SuspensionLength length="0.1" />
+                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
+            </Suspension>
+            <Wheel mass="1" radius="0.1" >
+                <RollAxis x="1" y="0" z="0" />
+                <Friction slidingFriction="2" resistanceTorqueNoBrake="1000" resistanceTorqueFullBrake="1000" />
+            </Wheel>
+            <Damage thresholdLoad="20000000" />
+        </GroundContact>
+        <GroundContact type="FGGroundContact200" >
+            <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
+            <Aerodynamics equivalentFlatPlateArea ="0.0" />
+            <Suspension>
+                <MountStation    x="0.0600586" y="-7.48047" z="-0.845191"/>
+                <SliderAxis x="0" y="0" z="1" />
+                <SuspensionLength length="0.1" />
+                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
+            </Suspension>
+            <Wheel mass="1" radius="0.1" >
+                <RollAxis x="1" y="0" z="0" />
+                <Friction slidingFriction="2" resistanceTorqueNoBrake="1000" resistanceTorqueFullBrake="1000" />
+            </Wheel>
+            <Damage thresholdLoad="20000000" />
+        </GroundContact>
+        <GroundContact type="FGGroundContact200" >
+            <Features isBrakable="false" isRetractable="false" isSteerable="false"    />
+            <Aerodynamics equivalentFlatPlateArea ="0.0" />
+            <Suspension>
+                <MountStation    x="-0.0600586" y="-7.48047" z="-0.845191"/>
+                <SliderAxis x="0" y="0" z="1" />
+                <SuspensionLength length="0.1" />
+                <SpringParameters springConstant="420000" damperConstant="50000" maxCompression="0.09" />
+            </Suspension>
+            <Wheel mass="1" radius="0.1" >
+                <RollAxis x="1" y="0" z="0" />
+                <Friction slidingFriction="2" resistanceTorqueNoBrake="1000" resistanceTorqueFullBrake="1000" />
+            </Wheel>
+            <Damage thresholdLoad="20000000" />
+        </GroundContact>
     </GroundContacts>
 
 </GenHeli600>

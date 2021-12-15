@@ -13,5 +13,8 @@
         <Key ID="STR_VTX_UH60_UI_DetachedCursorSensitivity">
             <English>Detached Cursor Sensitivity</English>
         </Key>
+        <Key ID="STR_VTX_UH60_UI_Enable_systemChat">
+            <English>(DEBUG) Enable systemChat messages</English>
+        </Key>
     </Package>
 </Project>
