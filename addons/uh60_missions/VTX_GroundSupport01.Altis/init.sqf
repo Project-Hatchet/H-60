@@ -63,7 +63,7 @@ if (hasInterface) then {
                         _heli action ["UseMagazine", _heli, _unit, _owner, _id];
                     };
                 } forEach magazinesAllTurrets _heli;
-                    systemChat str _aimTarget;
+                    if(vtx_uh60_ui_showDebugMessages) then {systemChat str _aimTarget;};
                 };
             };
         } forEach [[1], [2]];
