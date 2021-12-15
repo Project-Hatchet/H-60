@@ -22,9 +22,11 @@ switch (_pageIndex) do {
         _map = getText (configFile >> "CfgWorlds" >> worldName >> "pictureMap");
         _vehicle setObjectTexture [MAP_SELECTION(_mfdIndex), _map];
         _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Overlay_ca.paa"];
+        _vehicle setObjectMaterial [MAP_SELECTION(_mfdIndex), "\A3\Structures_F\Items\Electronics\Data\electronics_screens.rvmat"];
     };
     case MFD_PAGE_FLIR: {
       _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), "#(argb,512,512,1)r2t(vtx_uh60_flir_feed,1.0)"];
+      _vehicle setObjectMaterial [MFD_OVERLAY(_mfdIndex), "\A3\Structures_F\Items\Electronics\Data\electronics_screens.rvmat"];
       if (isNil "vtx_uh60_flir_controllable" || {!vtx_uh60_flir_controllable}) then {
         _slingCam = true;
       } else {
@@ -35,6 +37,8 @@ switch (_pageIndex) do {
     default {
       _vehicle setObjectTexture [MAP_SELECTION(_mfdIndex), ""];
       _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), ""];
+      _vehicle setObjectMaterial [MAP_SELECTION(_mfdIndex), ""];
+      _vehicle setObjectMaterial [MFD_OVERLAY(_mfdIndex), ""];
     };
 };
 
