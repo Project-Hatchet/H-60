@@ -21,8 +21,6 @@ class TransportPylonsComponent {
                 hardpoints[] = {}; \
                 UIposition[] = {10, 10}; \
             };
-        DUMMY_PYLON(dummy1)
-        DUMMY_PYLON(dummy2)
         DUMMY_PYLON(dummy3)
         DUMMY_PYLON(dummy4)
         DUMMY_PYLON(dummy5)
@@ -31,6 +29,9 @@ class TransportPylonsComponent {
         DUMMY_PYLON(dummy8)
         DUMMY_PYLON(dummy9)
         DUMMY_PYLON(dummy10)
+  			DUMMY_PYLON(dummy11)
+  			DUMMY_PYLON(dummy12)
+  			DUMMY_PYLON(dummy13)
     };
     class Presets {
         class Empty {

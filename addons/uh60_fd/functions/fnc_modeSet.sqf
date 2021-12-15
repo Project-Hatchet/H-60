@@ -22,28 +22,32 @@ switch (_mode) do {
         SET_GLOBAL("roll_mode",nil);
     };
     case "RALT": {
-        CYCLE_RALT_STATE; systemChat str ["RALT", GET_RALT_STATE];
+        CYCLE_RALT_STATE; 
+        if(vtx_uh60_ui_showDebugMessages) then {systemChat str ["RALT", GET_RALT_STATE];};
         SET_ALT_STATE(false);
         SET_ALTP_STATE(false);
         SET_VS_STATE(false);
         if (GET_RALT_STATE) then {SET_GLOBAL("alt_mode",vtx_uh60_fd_fnc_ralt)}else{SET_GLOBAL("alt_mode",nil)};
     };
     case "ALT": {
-        CYCLE_ALT_STATE; systemChat str ["ALT", GET_ALT_STATE];
+        CYCLE_ALT_STATE; 
+        if(vtx_uh60_ui_showDebugMessages) then {systemChat str ["ALT", GET_ALT_STATE];};
         SET_RALT_STATE(false);
         SET_ALTP_STATE(false);
         SET_VS_STATE(false);
         if (GET_ALT_STATE) then {SET_GLOBAL("alt_mode",vtx_uh60_fd_fnc_alt)}else{SET_GLOBAL("alt_mode",nil)};
     };
     case "ALTP": {
-        CYCLE_ALTP_STATE; systemChat str ["ALTP", GET_ALTP_STATE];
+        CYCLE_ALTP_STATE; 
+        if(vtx_uh60_ui_showDebugMessages) then {systemChat str ["ALTP", GET_ALTP_STATE];};
         SET_RALT_STATE(false);
         SET_ALT_STATE(false);
         SET_VS_STATE(false);
         if (GET_ALTP_STATE) then {SET_GLOBAL("alt_mode",vtx_uh60_fd_fnc_altp)}else{SET_GLOBAL("alt_mode",nil)};
     };
     case "VS": {
-        CYCLE_VS_STATE; systemChat str ["ALTP", GET_VS_STATE];
+        CYCLE_VS_STATE; 
+        if(vtx_uh60_ui_showDebugMessages) then {systemChat str ["ALTP", GET_VS_STATE];};
         SET_RALT_STATE(false);
         SET_ALT_STATE(false);
         SET_ALTP_STATE(false);
