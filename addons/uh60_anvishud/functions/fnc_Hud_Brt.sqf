@@ -1,12 +1,18 @@
 /*
  * vtx_uh60_anvishud_fnc_Hud_Brt
  *
- * Dims the HMD
+ * Brightens the HMD
  *
  * params []
  */
 
-_ammoCount = (vehicle player) ammoOnPylon 11;
-if(_ammoCount <1000) then {
- 	vehicle player setAmmoOnPylon [11, _ammoCount + 100];
+//Determine correct pylon index based on L or R seat
+_index = 8;
+_turretPath = player call CBA_fnc_turretPath;
+if (_turretPath isEqualTo []) then {_index = 9};
+
+//Adjust ammo at pylon index to manipulate HMD alpha
+_ammoCount = (vehicle player) ammoOnPylon _index;
+if(_ammoCount < 1000) then {
+ 	vehicle player setAmmoOnPylon [_index, _ammoCount + 100];
 };

@@ -21,17 +21,13 @@ class Components: Components {
 				hardpoints[] = {};
 				UIposition[] = {0.08, 0.41};
 			};
-			DUMMY_PYLON(dummy3)
-			DUMMY_PYLON(dummy4)
-			DUMMY_PYLON(dummy5)
-			DUMMY_PYLON(dummy6)
-			DUMMY_PYLON(dummy7)
-			DUMMY_PYLON(dummy8)
-			DUMMY_PYLON(dummy9)
-			DUMMY_PYLON(dummy10)
-			DUMMY_PYLON(dummy11)
-			DUMMY_PYLON(dummy12)
-			DUMMY_PYLON(dummy13)
+      DUMMY_PYLON(dummy3) //Yax
+      DUMMY_PYLON(dummy4) //Yax
+      DUMMY_PYLON(dummy5) //Yax
+      DUMMY_PYLON(dummy6) //Yax
+      DUMMY_PYLON(dummy7) //Yax
+      DUMMY_PYLON(dummy8) //Left HMD Brightness (Alpha)
+      DUMMY_PYLON(dummy9) //Right HMD Brightness (Alpha)
 		};
 		class Presets {
 		};
