@@ -19,3 +19,13 @@
     nil,
     {}
 ] call CBA_Settings_fnc_init;
+
+[
+    "vtx_uh60_ui_showDebugMessages",
+    "CHECKBOX",
+    [LSTRING(Enable_systemChat), LSTRING(Enable_systemChat)],
+    "UH-60M",
+    [true],
+    nil,
+    {}
+] call CBA_Settings_fnc_init;

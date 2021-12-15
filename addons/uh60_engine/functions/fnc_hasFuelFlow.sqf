@@ -21,7 +21,7 @@ if (_isCrossFeed && !(_boosterEnabled)) then {_fuelFlow = _fuelFlow / 2};
 if (_altASLKFt > 5 && !(_boosterEnabled)) then {
     private _altOverMin = (_altASLKFt - 5);
     private _altDivision = (_altOverMin / 2) max 1;
-    systemChat str [_altOverMin, _altDivision];
+    if(vtx_uh60_ui_showDebugMessages) then {systemChat str [_altOverMin, _altDivision];};
     _fuelFlow = _fuelFlow / _altDivision;
 };
 

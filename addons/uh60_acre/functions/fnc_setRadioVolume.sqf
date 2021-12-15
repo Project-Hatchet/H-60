@@ -14,10 +14,12 @@ private _racks = [_vehicle] call acre_sys_rack_fnc_getVehicleRacks;
 private _radio = [_racks # _index] call acre_sys_rack_fnc_getMountedRadio;
 private _activeRadios = [] call acre_api_fnc_getCurrentRadioList;
 
-systemChat str [
-    [_radio, player] call acre_sys_rack_fnc_isRadioAccessible,
-    [_radio, player] call acre_sys_rack_fnc_isRadioHearable
-];
+if(vtx_uh60_ui_showDebugMessages) then {
+    systemChat str [
+        [_radio, player] call acre_sys_rack_fnc_isRadioAccessible,
+        [_radio, player] call acre_sys_rack_fnc_isRadioHearable
+    ];
+};
 
 [_radio, _value] call acre_sys_radio_fnc_setRadioVolume;
 if (_value == 0 && (_radio in _activeRadios)) then {

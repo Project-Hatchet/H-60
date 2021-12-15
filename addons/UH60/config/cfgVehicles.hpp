@@ -184,8 +184,32 @@ class CfgVehicles
 
 		memoryPointsGetInGunner[] = {"pos Cargo L","pos Cargo R"};
 		memoryPointsGetInGunnerDir[] = {"pos Cargo L dir","pos Cargo R dir"};
-		memoryPointsGetInCargo[] = {"pos Cargo L","pos Cargo R"};
-		memoryPointsGetInCargoDir[] = {"pos Cargo L dir","pos Cargo R dir"};
+		memoryPointsGetInCargo[] = {
+      "pos Cargo L5",
+      "pos Cargo L5",
+      "pos Cargo R5",
+      "pos Cargo R5",
+      "pos Cargo R3",
+      "pos Cargo R3",
+      "pos Cargo L3",
+      "pos Cargo L3",
+      "pos Cargo L",
+      "pos Cargo R",
+      "pos Cargo R"
+    };
+		memoryPointsGetInCargoDir[] = {
+      "pos Cargo L5 dir",
+      "pos Cargo L5 dir",
+      "pos Cargo R5 dir",
+      "pos Cargo R5 dir",
+      "pos Cargo R3 dir",
+      "pos Cargo R3 dir",
+      "pos Cargo L3 dir",
+      "pos Cargo L3 dir",
+      "pos Cargo L dir",
+      "pos Cargo R dir",
+      "pos Cargo R dir"
+    };
         hideWeaponsCargo = 1;
         cargoCanEject = 1;
         driverCanEject = 0;

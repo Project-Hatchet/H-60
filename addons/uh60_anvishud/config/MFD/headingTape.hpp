@@ -58,6 +58,7 @@ class HEADINGTAPE_DCLT {
     }; // altitude_caret
     class altitude_AP_caret {
         color[] = common_purple;
+        condition="simulRTD";
         class altitude_caret {
             type="line";
             width = 3;
