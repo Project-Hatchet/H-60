@@ -7,6 +7,7 @@ class UserActions: UserActions
     statement = "this SetUserMFDvalue [0,1]";
     position = "pilotcontrol";
     radius = 20;
+    onlyforplayer = 1;
     showWindow = 1;
     hideOnUse = 1;
     priority = -1;
