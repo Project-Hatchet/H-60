@@ -96,7 +96,7 @@ if ( // pilot is moving pilotCamera
     //[_vehicle] call vtx_uh60_flir_fnc_updateCamera;
 };
 
-if vtx_uh60_flir_isSlewing then {
+if (vtx_uh60_flir_isSlewing) then {
     // check if in turret, apply different zoom-based slew speed
     private _rate = ([0.04 * vtx_uh60_flir_setting_AimSlewSpeed, 0.08 * vtx_uh60_flir_setting_KeySlewSpeed] select _keySlew) * vtx_uh60_flir_FOV;
     // customize x axis speed for better feel
@@ -116,14 +116,21 @@ if vtx_uh60_flir_isSlewing then {
 
     if !(_pilotCameraTarget # 0) then { // not tracking
 //systemChat format ["free %1", [[_azimuth, _elevation], objNull]];
-        [[_azimuth, _elevation], objNull] call vtx_uh60_flir_fnc_syncPilotCamera;
+      [[_azimuth, _elevation], objNull] call vtx_uh60_flir_fnc_syncPilotCamera;
 
     } else { // tracking
         private _flirPosWorld = _vehicle modelToWorldVisualWorld vtx_uh60_flir_camPos;
-        private _slewDir = (getPilotCameraDirection _vehicle) vectorMultiply 5000;
+        private _slewDir = (getPilotCameraDirection _vehicle) vectorMultiply worldSize;
         private _position1 = _vehicle modelToWorldVisual (vtx_uh60_flir_camPos vectorAdd _slewDir);
         private _intersections = lineIntersectsSurfaces [_flirPosWorld, AGLToASL _position1, _vehicle];
-        if !((_intersections # 0) isEqualTo []) then {
+        if (_intersections isEqualTo []) then {
+            private _target = terrainIntersectAtASL [_flirPosWorld, _position1];
+            if (_target isEqualTo [0,0,0]) then {
+                _target = _position1;
+            };
+            _vehicle setPilotCameraTarget _target;
+            [_slewDir, _intersectPosASL] call vtx_uh60_flir_fnc_syncPilotCamera;
+        } else {
             (_intersections # 0) params ["_intersectPosASL", "_surfaceNormal", "_intersectObject", "_parentObject"];
             _vehicle setPilotCameraTarget _intersectPosASL;
 //systemChat format ["tracking %1", [_slewDir, _intersectPosASL]];

@@ -29,16 +29,18 @@ if (_camPosASL isEqualTo []) then {
 };
 if (_tgtPosASL in [[0, 0, 0], []]) then {
   private _flirDir = vxf_vehicle vectorModelToWorldVisual (getPilotCameraDirection vxf_vehicle);
-  _tgtPosASL = _camPosASL vectorAdd (_flirDir vectorMultiply 5000);
+  _tgtPosASL = _camPosASL vectorAdd (_flirDir vectorMultiply worldSize);
 };
 
 private _intersections = lineIntersectsSurfaces [_camPosASL, _tgtPosASL, vxf_vehicle];
 private _target = objNull;
+private _targetObject = objNull;
 if (_intersections isEqualTo []) then {
-  if (_tgtPosASL # 2 > _camPosASL # 2) then {
-    _target = [_tgtPosASL, objNull] select _isTracking; // Looking up
-  } else {
-    _target = [AGLToASL screenToWorld [0.5, 0.5], objNull] select _isTracking; // Looking down
+  if (!_isTracking) then {
+    _target = terrainIntersectAtASL [_camPosASL, _tgtPosASL];
+    if (_target isEqualTo [0,0,0]) then {
+      _target = _tgtPosASL;
+    };
   };
 } else {
   (_intersections # 0) params ["_intersectPosASL", "_surfaceNormal", "_intersectObject", "_parentObject"];
@@ -46,6 +48,7 @@ if (_intersections isEqualTo []) then {
     // Terrain
     _target = [_intersectPosASL, objNull] select _isTracking; // if already tracking position, untrack
   } else {
+    _targetObject = _intersectObject;
     // Object
     if (speed _intersectObject > 0) then {
       // Moving vehicle
@@ -59,6 +62,6 @@ if (_intersections isEqualTo []) then {
 
 vxf_vehicle setPilotCameraTarget _target;
 
-[[], _target] call vtx_uh60_flir_fnc_syncPilotCamera;
+[[], _target, _targetObject] call vtx_uh60_flir_fnc_syncPilotCamera;
 
 true
