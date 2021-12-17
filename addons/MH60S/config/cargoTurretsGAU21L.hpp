@@ -32,7 +32,7 @@ class CargoTurret_02: CargoTurret_01 {
         memoryPointsGetInGunnerDir = pos Cargo MEMPT dir; \
         proxyIndex = INDEX; \
     };
-KNEELING_SEAT(CargoTurret_07,"Cabin (right back)",L2,18)
+KNEELING_SEAT(CargoTurret_07,"Cabin (right back)",R2,18)
 //KNEELING_SEAT(CargoTurret_11,"Cabin (right, front)",21)
-KNEELING_SEAT(CargoTurret_14,"Cabin (right center 1)",L3,22)
-KNEELING_SEAT(CargoTurret_15,"Cabin (right center 2)",L4,23)
+KNEELING_SEAT(CargoTurret_14,"Cabin (right center 1)",R3,22)
+KNEELING_SEAT(CargoTurret_15,"Cabin (right center 2)",R4,23)
