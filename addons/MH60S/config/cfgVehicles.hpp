@@ -98,7 +98,18 @@ class CfgVehicles {
             };
             */
         }; // AnimationSources
-        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa"};
+        hiddenSelectionsTextures[] = {
+          "","","","","","","","","","","","","","","","",
+          "z\vtx\addons\MH60S\data\mh60s_main_co.paa",
+          "z\vtx\addons\MH60S\data\mh60s_misc_co.paa",
+          "z\vtx\addons\MH60S\data\mh60s_tail_co.paa",
+          "", // "markings",
+          "", // "left_num_1",
+          "", // "left_num_2",
+          "", // "right_num_1",
+          "", // "right_num_2",
+          "z\vtx\addons\UH60\Data\JLorion_HH60\Fuel_probe_co.paa"
+        };
     }; // vtx_MH60S_Pylons_GAU21L
     class vtx_MH60S_GAU21L: vtx_H60_base {
         class pilotCamera: vtx_templateFLIR {};
