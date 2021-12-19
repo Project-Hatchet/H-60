@@ -24,7 +24,7 @@ if (
     vtx_uh60_flir_otherPilotIsPlayer
     && {_immediate || {CBA_missionTime - vtx_uh60_flir_lastSyncTimePilotCamera > vtx_uh60_flir_setting_syncDelay}}
 ) exitWith {
-    ["vtx_uh60_flir_syncPilotCamera", [_rot_dir, _target], [vtx_uh60_flir_otherPilot]] call CBA_fnc_targetEvent;
+    ["vtx_uh60_flir_syncPilotCamera", [_rot_dir, _target, _targetObject], [vtx_uh60_flir_otherPilot]] call CBA_fnc_targetEvent;
     vtx_uh60_flir_lastSyncTimePilotCamera = CBA_missionTime;
 
     true

@@ -24,11 +24,14 @@ if (hasInterface) then {
 }] call CBA_fnc_addEventHandler;
 
 ["vtx_uh60_flir_syncPilotCamera", {
-  params ["_rot_dir", "_target"];
-  private _vehicle = vehicle player;
+  params ["_rot_dir", "_target", "_targetObject"];
   switch (count _rot_dir) do {
-    case 2: { _vehicle setPilotCameraRotation _rot_dir; };
-    case 3: { _vehicle setPilotCameraDirection _rot_dir; };
+    case 2: { vxf_vehicle setPilotCameraRotation _rot_dir; };
+    case 3: { vxf_vehicle setPilotCameraDirection _rot_dir; };
   };
-  _vehicle setPilotCameraTarget _target;
+  vxf_vehicle setPilotCameraTarget _target;
+  vtx_uh60_flir_pilotCameraTarget = getPilotCameraTarget vxf_vehicle;
+  if (vtx_uh60_flir_pilotCameraTarget # 0) then {
+    vtx_uh60_flir_pilotCameraTarget set [2, _targetObject];
+  };
 }] call CBA_fnc_addEventHandler;
