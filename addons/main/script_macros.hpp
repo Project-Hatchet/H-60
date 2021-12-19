@@ -12,4 +12,5 @@ class name { \
 //#undef PREP
 //#define PREP(var1) TRIPLES(ADDON,fnc,var1) = { call compile preProcessFileLineNumbers '\MAINPREFIX\PREFIX\SUBPREFIX\COMPONENT_F\functions\DOUBLES(fnc,var1).sqf' }
 
+#define POS_MOVE_CABIN_COCKPIT {0.023875,4.2461,-0.577079}
 #define ZEUS_EXIT if !(isNull curatorCamera) exitWith {};

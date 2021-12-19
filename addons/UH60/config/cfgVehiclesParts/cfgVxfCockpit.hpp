@@ -378,6 +378,14 @@ class interaction {
         //    buttonUp="[(_this # 0), ""HDG""] call vtx_uh60_fd_fnc_psync;";
         //}; // KnobFDRight_IAS
         //class KnobFDLeftHDG : KnobFDRightHDG {position="knob_fdL_5";};// KnobFDLeftHDG
+        class toCabin {
+          condition = "isNull (vxf_vehicle turretUnit [1]) || {isNull (vxf_vehicle turretUnit [2])}";
+          positionType = "coordinates";
+          position[] = POS_MOVE_CABIN_COCKPIT;
+          label = "Move To Cabin";
+          radius = 0.1;
+          buttonDown = "call vtx_uh60_misc_fnc_moveToCabin";
+        }; // toCabin
     }; // misc
     class MFDs {
     };
