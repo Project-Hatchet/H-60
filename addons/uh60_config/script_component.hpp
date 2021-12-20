@@ -20,6 +20,7 @@
 #define MASS_CABINSEATS 110 // 10 kg/seat x11
 #define MASS_COCKPITDOORS 10 // ???
 //#define MASS_EFS 198 // External Fuel System, 2-station, mistakenly labelled ESSS for now
+#define MASS_EGMS 100 // External Gun Mount System, CFD International
 #define MASS_ESSS 198 // External Stores Support System
 //#define MASS_ESSS 368 // External Stores Support System, 4-station, don't have this yet
 #define MASS_ERFS 167 // Robertson Guardian 200 Internal Auxiliary Fuel Tank System
@@ -28,6 +29,7 @@
 #define MASS_GUNMOUNT 105 // 25.4 g/rnd x 4000 rnd = 101.6 kg, then add box/struts
 #define MASS_GUNNERSEATS 40 // 20 kg/seat x2
 #define MASS_HH60FLARES 5 // ???
+#define MASS_HOIST 50 // Collins Aerospace model 42325
 #define MASS_LASS 103
 #define MASS_MAWS 5 // ???
 #define MASS_MINIGUN 39 // 39 kg, 85 lb
