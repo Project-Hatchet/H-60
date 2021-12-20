@@ -1,7 +1,13 @@
 class AnimationSources {
   //#define ANIMSRC(name,src,per,init)
   ANIMSRC(cockpitlight_show,user,1,0);
-  ANIMSRC(hoist_hook_hide,user,1,0);
+  ANIMSRC(Hoist_Hook_hide,user,1,0);
+  class Hoist_hide {
+    displayName = "Hide Hoist";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
   class recoil_source {
     source="reload";
     weapon="vtx_chaingun";
@@ -33,13 +39,13 @@ class AnimationSources {
     animPeriod=1;
     initPhase=1;
   };
-  class Skis {
+  class Skis_show {
     displayName = "Show Skis";
     source="user";
     animPeriod=1;
     initPhase=0;
   };
-  class HH60Flares {
+  class HH60Flares_show {
     displayName = "Show HH-60 Flares";
     source="user";
     animPeriod=1;
@@ -75,7 +81,7 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0;
   };
-  class Fuelprobe {
+  class Fuelprobe_show {
     displayName = "Show Fuel Probe";
     source="user";
     animPeriod=1;
@@ -87,7 +93,7 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0;
   };
-  class ERFS {
+  class ERFS_show {
     source="user";
     animPeriod=1;
     initPhase=0;
@@ -102,12 +108,12 @@ class AnimationSources {
     animPeriod=5;
     initPhase=0;
   };
-  class LASS_Show {
+  class LASS_show {
     source="user";
     animPeriod=1;
     initPhase=0;
   };
-  class ESSS_Show {
+  class ESSS_show {
     source="user";
     animPeriod=1;
     initPhase=0;
@@ -119,6 +125,21 @@ class AnimationSources {
     initPhase=0;
   };
   class CabinSeats_Hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class CabinSeats_1_Hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class CabinSeats_2_Hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class CabinSeats_3_Hide {
     source="user";
     animPeriod=1;
     initPhase=0;
@@ -139,11 +160,6 @@ class AnimationSources {
     initPhase=0;
   };
   class Minigun_R_hide {
-    source="user";
-    animPeriod=1;
-    initPhase=0;
-  };
-  class Hoist_hook {
     source="user";
     animPeriod=1;
     initPhase=0;

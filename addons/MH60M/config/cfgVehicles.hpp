@@ -53,10 +53,10 @@ class CfgVehicles {
             ANIM_INIT(Cockpitdoors_Hide,1);
             ANIM_INIT(RADAR_HIDE,0);
             ANIM_INIT(FLIR_HIDE,0);
-            ANIM_INIT(Fuelprobe,1);
+            ANIM_INIT(FuelProbe_show,1);
             ANIM_INIT(CabinSeats_Hide,1);
             ANIM_INIT(MAWS_Tubes_Show,1);
-            ANIM_INIT(ERFS,1);
+            ANIM_INIT(ERFS_show,1);
             class Cockpitdoors_Hide {
                 source="user";
                 animPeriod=1;
@@ -141,7 +141,7 @@ class CfgVehicles {
             };
             /*
             ANIM_INIT(Cockpitdoors_Hide,1);
-            ANIM_INIT(LASS_Show,1);
+            ANIM_INIT(LASS_show,1);
             ANIM_INIT(GunnerSeats_Hide,1);
             ANIM_INIT(CabinSeats_Hide,1);
             class Cockpitdoors_Hide {
@@ -159,7 +159,7 @@ class CfgVehicles {
                 animPeriod=1;
                 initPhase=0;
             };
-            class LASS_Show {
+            class LASS_show {
                 source="user";
                 animPeriod=1;
                 initPhase=1;
