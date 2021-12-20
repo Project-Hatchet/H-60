@@ -1,5 +1,5 @@
 class FLIR {
-    condition = "user42<0";
+    condition = "1";
     class noTrack {
         condition = "pilotcameralock<1";
     	class polygon {
@@ -106,7 +106,7 @@ TEXT_LEFT_MID_SRC(RNG_VAL,0.92,RIGHT_LIST_Y + (0.06 * 1))
 };
 };
 class IsNav {
-    condition = "user42>-1";
+    condition = "0";
     #include "flir_nav_draw.hpp"
 };
 
@@ -126,7 +126,9 @@ class LaserOn {
     }; // Border
 }; // LaserOn
 
+TEXT_MID_MID(FLIR_WPT,0.63,0.06 * 0.2,"WPT")
 TEXT_MID_MID(FLIR_FWD,0.74,0.06 * 0.2,"NAV")
+TEXT_MID_MID(FLIR_SLG,0.85,0.06 * 0.2,"SLG")
 
 #define BOTTOM_TEXT_Y 0.96
 TEXT_LEFT_SMALL(B1,0.095,BOTTOM_TEXT_Y,"PFD")

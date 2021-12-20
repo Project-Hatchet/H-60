@@ -51,12 +51,12 @@ class AnimationSources
         initPhase=1;
     };
     class FLIR_DIRECTION {
-        source="pilotCameraRotX";
+        source="user";
         animPeriod=1;
         initPhase=0;
     };
     class FLIR_ELEVATION {
-        source="pilotCameraRotY";
+        source="user";
         animPeriod=1;
         initPhase=0;
     };
