@@ -37,8 +37,8 @@ class RightWindow: LeftWindow {
   minOutElev = -80; maxOutElev = 40; initOutElev = 0;
   minOutTurn = -90; maxOutTurn = 90; initOutTurn = 0;
   class TurnIn {
-    limitsArrayTop[] = {{40, 95}, {45, 0}, {40, -95}};
-    limitsArrayBottom[] = {{0, 35}, {-20, 25}, {-25, 0}, {-20, -20}, {0, -30}};
+    limitsArrayTop[] = {{40, 65}, {45, 0}, {40, -95}};
+    limitsArrayBottom[] = {{-1, 45}, {-20, 25}, {-25, 0}, {-20, -20}, {0, -30}};
   };
 	class TurnOut: TurnIn {
     limitsArrayTop[] = {{20, 125}, {80, 90}, {45, 0}, {40, -95}};
