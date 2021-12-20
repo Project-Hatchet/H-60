@@ -16,6 +16,16 @@ class AnimationSources {
     source="ammorandom";
     weapon="vtx_chaingun";
   };
+  class gunner_ffv_l {
+    source="user";
+    animPeriod=0.1;
+    initPhase=0;
+  };
+  class gunner_ffv_r {
+    source="user";
+    animPeriod=0.1;
+    initPhase=0;
+  };
   class Switch_minigun_safe_cover_l {
     source="user";
     animPeriod=0.2;
