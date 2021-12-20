@@ -13,7 +13,6 @@ class CfgVehicles {
   };
 
   class vtx_UH60M: vtx_H60_base {
-    #include "CfgAnimationSourcesInherit.hpp"
   };
   class vtx_UH60M_SLICK: vtx_H60_base {
     class AnimationSources: AnimationSources {
