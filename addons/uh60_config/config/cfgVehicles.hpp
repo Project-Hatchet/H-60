@@ -24,6 +24,7 @@ class CfgVehicles {
     class AnimationSources: AnimationSources {
       ANIM_INIT(Hoist_hide,1);
       class CabinSeats_1_Hide {
+        displayName = "Hide Cabin Seats (Front)";
         source="user";
         animPeriod=1;
         initPhase=0;
@@ -32,6 +33,7 @@ class CfgVehicles {
         lockCargo[] = { 8, 9, 10 };
       };
       class CabinSeats_2_Hide {
+        displayName = "Hide Cabin Seats (Middle)";
         source="user";
         animPeriod=1;
         initPhase=0;
@@ -45,6 +47,7 @@ class CfgVehicles {
         };
       };
       class CabinSeats_3_Hide {
+        displayName = "Hide Cabin Seats (Rear)";
         source="user";
         animPeriod=1;
         initPhase=0;
@@ -60,6 +63,7 @@ class CfgVehicles {
       };
     };
   };
+
   class vtx_UH60M_MEDEVAC: vtx_H60_base {
     scope = 2;
     cargoAction[] = {
