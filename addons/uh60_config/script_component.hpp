@@ -18,6 +18,8 @@
 #include "\z\vtx\addons\main\script_macros.hpp"
 
 #define MASS_CABINSEATS 110 // 10 kg/seat x11
+#define MASS_CABINSEATS3 30 // 10 kg/seat x3
+#define MASS_CABINSEATS4 40 // 10 kg/seat x4
 #define MASS_COCKPITDOORS 10 // ???
 //#define MASS_EFS 198 // External Fuel System, 2-station, mistakenly labelled ESSS for now
 #define MASS_EGMS 100 // External Gun Mount System, CFD International

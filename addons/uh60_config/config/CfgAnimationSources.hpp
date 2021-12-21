@@ -8,13 +8,13 @@ class AnimationSources: AnimationSources {
     onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[1], [2]] ;";
   };
   class CabinSeats_Hide {
-    displayName = "Hide Cabin Seats";
+    //displayName = "Hide Cabin Seats";
     source="user";
     animPeriod=1;
     initPhase=0;
     mass = -MASS_CABINSEATS;
     lockCargoAnimationPhase = 1;
-    lockCargo[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    //lockCargo[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     // if forceAnimatePhase is equal to the phase of this animation sources, every sources from forceAnimate will be changed with their given phase
     forceAnimatePhase = 0;
     // animationSource1, phase, animationSource2, phase... No probabilities here, only true or false
@@ -28,16 +28,36 @@ class AnimationSources: AnimationSources {
     source="user";
     animPeriod=1;
     initPhase=0;
+    mass = -MASS_CABINSEATS3;
+    //lockCargoAnimationPhase = 1;
+    //lockCargo[] = { 8, 9, 10 };
   };
   class CabinSeats_2_Hide {
     source="user";
     animPeriod=1;
     initPhase=0;
+    mass = -MASS_CABINSEATS4;
+    //lockCargoAnimationPhase = 1;
+    //lockCargo[] = { 4, 5, 6, 7 };
+    forceAnimatePhase = 0;
+    forceAnimate[] = {
+      "GAU21_L_Hide", 1,
+      "GAU21_R_Hide", 1
+    };
   };
   class CabinSeats_3_Hide {
     source="user";
     animPeriod=1;
     initPhase=0;
+    mass = -MASS_CABINSEATS4;
+    //lockCargoAnimationPhase = 1;
+    //lockCargo[] = { 0, 1, 2, 3 };
+    forceAnimatePhase = 0;
+    forceAnimate[] = {
+      "ERFS_show", 0,
+      "GAU21_L_Hide", 1,
+      "GAU21_R_Hide", 1
+    };
   };
   class Minigun_Mount_L_hide {
     displayName = "Hide Gun Mount (L)";

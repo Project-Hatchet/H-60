@@ -466,7 +466,7 @@ class CfgVehicles
             */
         };
     };
-    class vtx_HH60 : vtx_UH60M
+    class vtx_HH60 : vtx_H60_base
     {
         scope = 2;
         editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_HH60.jpg";

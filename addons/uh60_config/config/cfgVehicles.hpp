@@ -23,6 +23,41 @@ class CfgVehicles {
   class vtx_UH60M: vtx_H60_base {
     class AnimationSources: AnimationSources {
       ANIM_INIT(Hoist_hide,1);
+      class CabinSeats_1_Hide {
+        source="user";
+        animPeriod=1;
+        initPhase=0;
+        mass = -MASS_CABINSEATS3;
+        lockCargoAnimationPhase = 1;
+        lockCargo[] = { 8, 9, 10 };
+      };
+      class CabinSeats_2_Hide {
+        source="user";
+        animPeriod=1;
+        initPhase=0;
+        mass = -MASS_CABINSEATS4;
+        lockCargoAnimationPhase = 1;
+        lockCargo[] = { 4, 5, 6, 7 };
+        forceAnimatePhase = 0;
+        forceAnimate[] = {
+          "GAU21_L_Hide", 1,
+          "GAU21_R_Hide", 1
+        };
+      };
+      class CabinSeats_3_Hide {
+        source="user";
+        animPeriod=1;
+        initPhase=0;
+        mass = -MASS_CABINSEATS4;
+        lockCargoAnimationPhase = 1;
+        lockCargo[] = { 0, 1, 2, 3 };
+        forceAnimatePhase = 0;
+        forceAnimate[] = {
+          "ERFS_show", 0,
+          "GAU21_L_Hide", 1,
+          "GAU21_R_Hide", 1
+        };
+      };
     };
   };
   class vtx_UH60M_MEDEVAC: vtx_H60_base {
@@ -52,6 +87,13 @@ class CfgVehicles {
       ANIM_INIT(Minigun_Mount_R_hide,1);
       ANIM_INIT(Minigun_L_hide,1);
       ANIM_INIT(Minigun_R_hide,1);
+      // Door seats
+      class cabindoor_L: cabindoor_L {
+        onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[5], [6]] ;";
+      };
+      class cabindoor_R: cabindoor_R {
+        onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[3], [4]] ;";
+      };
     };
     class Turrets: Turrets {
       class CopilotTurret: CopilotTurret {};
@@ -64,10 +106,9 @@ class CfgVehicles {
   };
   class vtx_UH60M_SLICK: vtx_H60_base {
     class AnimationSources: AnimationSources {
-      class CabinSeats_Hide: CabinSeats_Hide {
-        initPhase = 1;
-        lockCargo[] = {};
-      };
+      ANIM_INIT(CabinSeats_1_Hide,1);
+      ANIM_INIT(CabinSeats_2_Hide,1);
+      ANIM_INIT(CabinSeats_3_Hide,1);
       // Guns
       ANIM_INIT(Minigun_Mount_L_hide,1);
       ANIM_INIT(Minigun_Mount_R_hide,1);
@@ -86,7 +127,7 @@ class CfgVehicles {
       };
     };
   };
-  class vtx_HH60 : vtx_UH60M {
+  class vtx_HH60 : vtx_H60_base {
     class AnimationSources: AnimationSources {
       ANIM_INIT(FuelProbe_show,1);
       ANIM_INIT(HH60Flares_show,1);
@@ -95,9 +136,12 @@ class CfgVehicles {
         onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[1], [2]] ;";
       };
       class CabinSeats_Hide: CabinSeats_Hide {
-        initPhase = 1;
+        initPhase = 0;
         onPhaseChanged = "";
       };
+      ANIM_INIT(CabinSeats_1_Hide,1);
+      ANIM_INIT(CabinSeats_2_Hide,1);
+      ANIM_INIT(CabinSeats_3_Hide,1);
       // Door seats
       class cabindoor_L: cabindoor_L {
         onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[5], [6]] ;";
@@ -109,10 +153,9 @@ class CfgVehicles {
   };
   class vtx_MH60M: vtx_H60_base {
     class AnimationSources: AnimationSources {
-      class CabinSeats_Hide: CabinSeats_Hide {
-        initPhase = 1;
-        lockCargo[] = {};
-      };
+      ANIM_INIT(CabinSeats_1_Hide,1);
+      ANIM_INIT(CabinSeats_2_Hide,1);
+      ANIM_INIT(CabinSeats_3_Hide,1);
       ANIM_INIT(Cockpitdoors_Hide,1);
       ANIM_INIT(RADAR_HIDE,0);
       ANIM_INIT(FLIR_HIDE,0);
@@ -131,10 +174,9 @@ class CfgVehicles {
   };
   class vtx_MH60S_Pylons_GAU21L: vtx_H60_base {
     class AnimationSources: AnimationSources {
-      class CabinSeats_Hide: CabinSeats_Hide {
-        initPhase = 1;
-        lockCargo[] = {};
-      };
+      ANIM_INIT(CabinSeats_1_Hide,1);
+      ANIM_INIT(CabinSeats_2_Hide,1);
+      ANIM_INIT(CabinSeats_3_Hide,1);
       ANIM_INIT(ESSS_show,1);
       ANIM_INIT(GAU21_L_Hide,0);
       ANIM_INIT(MAWS_Tubes_Show,1);
@@ -144,10 +186,9 @@ class CfgVehicles {
   };
   class vtx_MH60S_GAU21L: vtx_H60_base {
     class AnimationSources: AnimationSources {
-      class CabinSeats_Hide: CabinSeats_Hide {
-        initPhase = 1;
-        lockCargo[] = {};
-      };
+      ANIM_INIT(CabinSeats_1_Hide,1);
+      ANIM_INIT(CabinSeats_2_Hide,1);
+      ANIM_INIT(CabinSeats_3_Hide,1);
       ANIM_INIT(GAU21_L_Hide,0);
       ANIM_INIT(MAWS_Tubes_Show,1);
       ANIM_INIT(FLIR_HIDE,0);
