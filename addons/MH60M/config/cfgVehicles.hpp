@@ -96,7 +96,7 @@ class CfgVehicles {
         class Turrets: Turrets
         {
             class CopilotTurret: CopilotTurret {};
-            #include "\z\vtx\addons\UH60\config\turrets\doorguns.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\doorgunsTurnOut.hpp"
             #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
         };
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\tail_co.paa","","","","","","z\vtx\addons\UH60\data\FuelProbe\Fuel_probe_co.paa"};

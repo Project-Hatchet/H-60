@@ -126,7 +126,7 @@ class CfgVehicles {
         class Turrets: Turrets
         {
             #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
-            #include "\z\vtx\addons\UH60\config\turrets\doorguns.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\doorgunsTurnOut.hpp"
             #include "gau21L_free.hpp"
             #include "cargoTurretsGAU21L.hpp"
         };
@@ -260,7 +260,7 @@ class CfgVehicles {
         class Turrets: Turrets
         {
             #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
-            #include "\z\vtx\addons\UH60\config\turrets\doorguns.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\doorgunsTurnOut.hpp"
         };
         class AnimationSources: AnimationSources {
             /*
