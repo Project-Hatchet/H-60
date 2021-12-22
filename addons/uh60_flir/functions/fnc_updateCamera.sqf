@@ -16,7 +16,7 @@ params ["_vehicle"];
 
 private _camPosASL = vxf_vehicle modelToWorldVisualWorld vtx_uh60_flir_camPos;
 vtx_uh60_flir_camera setPosASL _camPosASL;
-vtx_uh60_flir_pilotCameraTarget params ["_isTracking", "_tgtPosASL", ""];
+getPilotCameraTarget _vehicle params ["_isTracking", "_tgtPosASL", ""];
 if (_isTracking) then {
   if (vtx_uh60_flir_isInScriptedCamera) then { // Fix laser target wandering off
     private _laserTarget = laserTarget vxf_vehicle;
