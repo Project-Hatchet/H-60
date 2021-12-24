@@ -28,12 +28,7 @@ class ATMissile
         points[] = {{"ForwardVector", 1, "HUDCenter", {-0.15, -0.147436}, 1}, {"ForwardVector", 1, "HUDCenter", {-0.15, -0.127778}, 1}, {}, {"ForwardVector", 1, "HUDCenter", {-0.15, 0.147436}, 1}, {"ForwardVector", 1, "HUDCenter", {-0.15, 0.127778}, 1}, {}, {"ForwardVector", 1, "HUDCenter", {0.15, -0.147436}, 1}, {"ForwardVector", 1, "HUDCenter", {0.15, -0.127778}, 1}, {}, {"ForwardVector", 1, "HUDCenter", {0.15, 0.147436}, 1}, {"ForwardVector", 1, "HUDCenter", {0.15, 0.127778}, 1}, {}, {"ForwardVector", 1, "HUDCenter", {-0.15, -0.147436}, 1}, {"ForwardVector", 1, "HUDCenter", {-0.13, -0.147436}, 1}, {}, {"ForwardVector", 1, "HUDCenter", {-0.15, 0.147436}, 1}, {"ForwardVector", 1, "HUDCenter", {-0.13, 0.147436}, 1}, {}, {"ForwardVector", 1, "HUDCenter", {0.15, -0.147436}, 1}, {"ForwardVector", 1, "HUDCenter", {0.13, -0.147436}, 1}, {}, {"ForwardVector", 1, "HUDCenter", {0.15, 0.147436}, 1}, {"ForwardVector", 1, "HUDCenter", {0.13, 0.147436}, 1}};
     };
 };
-#define MARGIN_L 0.02
-TEXT_HMD_L(WEAPON_NAME,MARGIN_L,0.87)
-    source = "weapon";
-    sourceScale = 1;
-    text = "";
-}; // MARGIN_L
+
 // class weapons_selected {
 //     condition = "mgun+rocket+bomb+missile";
 //     class STA1_SEL {
