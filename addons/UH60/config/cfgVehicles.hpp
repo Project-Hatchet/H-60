@@ -23,10 +23,12 @@ class CfgVehicles
         class Components;
         class Sounds;
         class HitPoints;
+        class UserActions;
     };
 
     class vtx_H60_base: Heli_Transport_01_base_F
     {
+        #include "CfgUserActions.hpp"
         #include "edenAttributes.hpp"
         author = "Project Hatchet Studio";
         class VTX_H60_HDTS_Copilot;

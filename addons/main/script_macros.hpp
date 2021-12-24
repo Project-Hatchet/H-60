@@ -13,6 +13,7 @@ class name { \
 
 #define ANIM_INIT(name,init) class name : name {initPhase = init;}
 
+#define POS_MOVE_CABIN_COCKPIT {0.023875,4.2461,-0.577079}
 #define ZEUS_EXIT if !(isNull curatorCamera) exitWith {};
 
 #define HIDDEN_SELECTION_MAIN 16
