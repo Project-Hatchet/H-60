@@ -1,6 +1,8 @@
 class CfgMagazines {
 	class ACE_FakeMagazine;
 	class vtx_1000rnd_dummy : ACE_FakeMagazine {
-		count = 1000;
+    ammo = "vtx_pylon_ammo";
+    count = 1000;
+    displayName = "MFD Fluid";
 	};
 };
