@@ -6,9 +6,9 @@ class RscInGameUI
     {
         onLoad="[(vehicle player), ""ui"", _this # 0] call vxf_core_fnc_start;";
         controls[] = {
-            "CA_BackgroundVehicle",
-            "CA_BackgroundVehicleTitle",
-            "CA_Vehicle",
+            //"CA_BackgroundVehicle",
+            //"CA_BackgroundVehicleTitle",
+            //"CA_Vehicle",
             "CA_VehicleRole",
             "HelpText",
             "Interaction",
