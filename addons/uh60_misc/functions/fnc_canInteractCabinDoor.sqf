@@ -15,11 +15,17 @@
 params ["_caller", "_animName", "_animPhase", "_interactionName"];
 private _vehicle = vehicle _caller;
 
+private _side = str _animName select [count _animName, 1]; // Match "L" or "R"
+if (_vehicle animationPhase format ["GAU21_%1_Hide", _side] == 0) exitWith {
+  hint "Door is blocked";
+  false
+};
+
 private _doorSeats = [];
 {
     private _gunnerName = getText (_x >> "gunnerName");
     if (_gunnerName select [0, 5] == "Door " && {
-        (_gunnerName select [5, 1]) == (str _animName select [count _animName, 1]) // Match "L" or "R"
+        (_gunnerName select [5, 1]) == _side // Match "L" or "R"
     }) then {
         _doorSeats pushBack [_forEachIndex];
     };
