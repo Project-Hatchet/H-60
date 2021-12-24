@@ -32,23 +32,6 @@ switch (_action) do {
         } forEach _microDagrWaypoints;
         _vehicle setUserMFDvalue _value;
     };
-    case "flir": {
-        getPilotCameraTarget _vehicle params ["_isTracking", "_tgtPosASL", ""];
-        if (_isTracking) then {
-            private _group = group player;
-            private _waypoints = waypoints _group;
-            private _waypointIndex = currentWaypoint _group;
-
-            private _wp = _group addWaypoint [_tgtPosASL, -1, count _waypoints, "Track Pos"];
-            _wp setWaypointDescription "Track Pos";
-            if (!_autoNext) then {
-              _wp setWaypointStatements ["false", ""];
-            };
-            _wp setWaypointVisible false;
-            _wp setWaypointType "HOLD";
-            //_vehicle setUserMFDvalue _value;
-        };
-    };
     case "location": {
         // fms_locations_page_list
         private _index = fms_locations_page_index * 4 + _value;

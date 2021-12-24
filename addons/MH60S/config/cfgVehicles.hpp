@@ -58,6 +58,13 @@ class CfgVehicles {
           #include "\z\vtx\addons\MH60M\config\missileCam.hpp"
         }; // Components
         class AnimationSources: AnimationSources {
+            /*
+            ANIM_INIT(ESSS_Show,1);
+            ANIM_INIT(CabinSeats_Hide,1);
+            ANIM_INIT(GAU21_L_Hide,0);
+            ANIM_INIT(MAWS_Tubes_Show,1);
+            ANIM_INIT(FLIR_HIDE,0);
+            ANIM_INIT(FLIR_BACK,1);
             class ESSS_Show {
                 source="user";
                 animPeriod=1;
@@ -89,8 +96,20 @@ class CfgVehicles {
             class FLIR_BACK: FLIR_HIDE {
                 initPhase=1;
             };
+            */
         }; // AnimationSources
-        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa"};
+        hiddenSelectionsTextures[] = {
+          "","","","","","","","","","","","","","","","",
+          "z\vtx\addons\MH60S\data\mh60s_main_co.paa",
+          "z\vtx\addons\MH60S\data\mh60s_misc_co.paa",
+          "z\vtx\addons\MH60S\data\mh60s_tail_co.paa",
+          "", // "markings",
+          "", // "left_num_1",
+          "", // "left_num_2",
+          "", // "right_num_1",
+          "", // "right_num_2",
+          "z\vtx\addons\UH60\Data\JLorion_HH60\Fuel_probe_co.paa"
+        };
     }; // vtx_MH60S_Pylons_GAU21L
     class vtx_MH60S_GAU21L: vtx_H60_base {
         class pilotCamera: vtx_templateFLIR {};
@@ -107,11 +126,17 @@ class CfgVehicles {
         class Turrets: Turrets
         {
             #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
-            #include "\z\vtx\addons\UH60\config\turrets\doorguns.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\doorgunsTurnOut.hpp"
             #include "gau21L_free.hpp"
             #include "cargoTurretsGAU21L.hpp"
         };
         class AnimationSources: AnimationSources {
+            /*
+            ANIM_INIT(CabinSeats_Hide,1);
+            ANIM_INIT(GAU21_L_Hide,0);
+            ANIM_INIT(MAWS_Tubes_Show,1);
+            ANIM_INIT(FLIR_HIDE,0);
+            ANIM_INIT(FLIR_BACK,1);
             class ESSS_Show {
                 source="user";
                 animPeriod=1;
@@ -138,6 +163,7 @@ class CfgVehicles {
             class FLIR_BACK: FLIR_HIDE {
                 initPhase=1;
             };
+            */
         }; // AnimationSources
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa"};
     }; // vtx_MH60S_GAU21L
@@ -184,6 +210,12 @@ class CfgVehicles {
                 source="ammorandom";
                 weapon="vtx_MH60M_M134_minigun";
             };
+            /*
+            ANIM_INIT(ESSS_Show,1);
+            ANIM_INIT(CabinSeats_Hide,1);
+            ANIM_INIT(MAWS_Tubes_Show,1);
+            ANIM_INIT(FLIR_HIDE,0);
+            ANIM_INIT(FLIR_BACK,1);
             class ESSS_Show {
                 source="user";
                 animPeriod=1;
@@ -210,6 +242,7 @@ class CfgVehicles {
             class FLIR_BACK: FLIR_HIDE {
                 initPhase=1;
             };
+            */
         }; // AnimationSources
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa"};
     }; // vtx_MH60S_Pylons_GAU21L
@@ -227,9 +260,13 @@ class CfgVehicles {
         class Turrets: Turrets
         {
             #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
-            #include "\z\vtx\addons\UH60\config\turrets\doorguns.hpp"
+            #include "\z\vtx\addons\UH60\config\turrets\doorgunsTurnOut.hpp"
         };
         class AnimationSources: AnimationSources {
+            /*
+            ANIM_INIT(MAWS_Tubes_Show,1);
+            ANIM_INIT(FLIR_HIDE,0);
+            ANIM_INIT(FLIR_BACK,1);
             class MAWS_Tubes_Show {
                 source="user";
                 animPeriod=1;
@@ -241,6 +278,7 @@ class CfgVehicles {
             class FLIR_BACK: FLIR_HIDE {
                 initPhase=1;
             };
+            */
         }; // AnimationSources
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa"};
     }; // vtx_MH60S

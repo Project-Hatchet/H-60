@@ -14,4 +14,3 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
-#include "config\mouseBlocker.hpp"
