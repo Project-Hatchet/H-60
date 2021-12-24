@@ -71,6 +71,18 @@ class TextureSources {
       "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
     };
   };
+  class mh60m_aus {
+    displayName = "MH-60M (Australia)";
+    author = "seven10";
+    textures[] = {
+      "","","","","","","","","","","","","","","","",
+      "z\vtx\addons\uh60_misc\data\textures\MH-60M_Australia\main_co.paa",
+      "z\vtx\addons\uh60_misc\data\textures\MH-60M_Australia\misc_co.paa",
+      "z\vtx\addons\uh60_misc\data\textures\MH-60M_Australia\tail_co.paa",
+      "","","","","", // Markings, door numbers L1, L2, R1, R2
+      "z\vtx\addons\UH60\data\FuelProbe\Fuel_probe_co.paa"
+    };
+  };
   class uh60_swe {
     displayName = "UH-60 (Sweden)";
     author = "seven10";
