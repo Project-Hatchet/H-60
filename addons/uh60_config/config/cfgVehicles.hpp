@@ -201,6 +201,9 @@ class CfgVehicles {
   };
   class vtx_MH60S_Pylons: vtx_H60_base {
     class AnimationSources: AnimationSources {
+      ANIM_INIT(CabinSeats_1_Hide,1);
+      ANIM_INIT(CabinSeats_2_Hide,1);
+      ANIM_INIT(CabinSeats_3_Hide,1);
       ANIM_INIT(ESSS_show,1);
       ANIM_INIT(MAWS_Tubes_Show,1);
       ANIM_INIT(FLIR_HIDE,0);
