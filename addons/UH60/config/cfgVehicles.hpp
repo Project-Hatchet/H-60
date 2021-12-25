@@ -508,8 +508,9 @@ class CfgVehicles
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         class Turrets: Turrets
         {
-            #include "turrets\copilot.hpp"
-            #include "turrets\doorgunsTurnOut.hpp"
+            class CopilotTurret: CopilotTurret {};
+            class MainTurret: MainTurret {};
+            class RightDoorGun: RightDoorGun {};
             #include "turrets\cargoTurrets.hpp"
         };
 
@@ -588,7 +589,8 @@ class CfgVehicles
         class CopilotTurret: CopilotTurret {};
         #include "turrets\cargoTurretsDoor.hpp"
       };
-      #include "vehicleTransportSlick.hpp"
+      //#include "vehicleTransportSlick.hpp" // model missing mempoints
+      #include "vehicleTransport.hpp"
     };
 };
 

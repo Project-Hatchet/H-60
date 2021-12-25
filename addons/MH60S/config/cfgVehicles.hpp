@@ -25,13 +25,12 @@ class CfgVehicles {
         class AnimationSources;
         class Turrets: Turrets
         {
+            class CopilotTurret: CopilotTurret {
+              class Components;
+            };
             class MainTurret;
             class RightDoorGun: MainTurret {};
-            class CopilotTurret: CopilotTurret {
-                class Components;
-            };
         };
-        class ViewPilot;
     }; // Heli_Transport_01_base_F
     class vtx_MH60S_Pylons_GAU21L: vtx_H60_base {
         class pilotCamera: vtx_templateFLIR {};
@@ -47,7 +46,7 @@ class CfgVehicles {
         class CargoTurret;
         class Turrets: Turrets
         {
-            #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
+            class CopilotTurret: CopilotTurret {};
             #include "doorguns_pylons.hpp"
             #include "GAU21L.hpp"
             #include "cargoTurretsGAU21L.hpp"
@@ -125,8 +124,9 @@ class CfgVehicles {
         class CargoTurret;
         class Turrets: Turrets
         {
-            #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
-            #include "\z\vtx\addons\UH60\config\turrets\doorgunsTurnOut.hpp"
+            class CopilotTurret: CopilotTurret {};
+            class MainTurret: MainTurret {};
+            class RightDoorGun: RightDoorGun {};
             #include "gau21L_free.hpp"
             #include "cargoTurretsGAU21L.hpp"
         };
@@ -184,7 +184,7 @@ class CfgVehicles {
         class CargoTurret;
         class Turrets: Turrets
         {
-            #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
+            class CopilotTurret: CopilotTurret {};
             #include "doorguns_pylons.hpp"
             #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
         };
@@ -259,8 +259,9 @@ class CfgVehicles {
         editorPreview = "z\vtx\addons\MH60S\Data\Preview\vtx_MH60S.jpg";
         class Turrets: Turrets
         {
-            #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
-            #include "\z\vtx\addons\UH60\config\turrets\doorgunsTurnOut.hpp"
+          class CopilotTurret: CopilotTurret {};
+          class MainTurret: MainTurret {};
+          class RightDoorGun: RightDoorGun {};
         };
         class AnimationSources: AnimationSources {
             /*

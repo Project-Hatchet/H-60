@@ -21,8 +21,9 @@ class CfgVehicles {
         class AnimationSources;
         class Turrets: Turrets
         {
-            class MainTurret;
             class CopilotTurret;
+            class MainTurret;
+            class RightDoorGun;
         };
     }; // vtx_H60_base
     class vtx_MH60M: vtx_H60_base {
@@ -41,10 +42,6 @@ class CfgVehicles {
 
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
-        class ViewPilot: ViewPilot
-        {
-            initAngleX=0;
-        };
         class Components: Components {
             #include "sensors.hpp"
         }; // Components
@@ -96,7 +93,8 @@ class CfgVehicles {
         class Turrets: Turrets
         {
             class CopilotTurret: CopilotTurret {};
-            #include "\z\vtx\addons\UH60\config\turrets\doorgunsTurnOut.hpp"
+            class MainTurret: MainTurret {};
+            class RightDoorGun: RightDoorGun {};
             #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
         };
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\tail_co.paa","","","","","","z\vtx\addons\UH60\data\FuelProbe\Fuel_probe_co.paa"};
@@ -109,10 +107,6 @@ class CfgVehicles {
         displayName = "MH-60M DAP";
         editorPreview = "z\vtx\addons\MH60M\Data\Preview\vtx_MH60M_DAP.jpg";
         cargoProxyIndexes[] = {};
-        class ViewPilot: ViewPilot
-        {
-            initAngleX=0;
-        };
         class Components: Components {
           #include "Pylons.hpp"
           #include "sensors.hpp"
