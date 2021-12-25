@@ -568,7 +568,8 @@ class CfgVehicles
         class CopilotTurret: CopilotTurret {};
         #include "turrets\cargoTurretsDoor.hpp"
       };
-      #include "vehicleTransportSlick.hpp"
+      //#include "vehicleTransportSlick.hpp" // model missing mempoints
+      #include "vehicleTransport.hpp"
     };
 };
 
