@@ -19,10 +19,12 @@ class CfgVehicles {
         class VTX_H60_HDTS_Copilot {
         		#include "MFD\HMD.hpp"
                 turret[] = {0};
+                color[]={pylonAmmoRelative8, pylonAmmoRelative9, pylonAmmoRelative10, pylonAmmoRelative11};
         }; // VTX_H60_HDTS_Pilot
         class VTX_H60_HDTS_Pilot {
         		#include "MFD\HMD.hpp"
                 turret[] = {-1};
+                color[]={pylonAmmoRelative12, pylonAmmoRelative13, pylonAmmoRelative14, pylonAmmoRelative15};
         }; // VTX_H60_HDTS_Pilot
         class MFD: MFD {
             class HMD3: VTX_H60_HDTS_Pilot {};

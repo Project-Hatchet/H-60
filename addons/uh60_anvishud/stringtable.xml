@@ -19,5 +19,17 @@
         <Key ID="STR_VTX_UH60_ANVISHUD_MetricDecluttered">
             <English>Metric Decluttered</English>
         </Key>
+        <Key ID="STR_VTX_UH60_ANVISHUD_Color">
+            <English>Color</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_ANVISHUD_Color_Description">
+            <English>HMD Color</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_ANVISHUD_Brightness">
+            <English>Brightness (%)</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_ANVISHUD_Brightness_Description">
+            <English>HMD Brightness</English>
+        </Key>
     </Package>
 </Project>
