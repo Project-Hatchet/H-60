@@ -12,8 +12,10 @@ params ["_vehicle"];
 private _pylonArray = [];
 
 {
-	if (_x select 3 == "vtx_1000rnd_dummy") then {
-		_pylonArray pushBack [_x select 0, _x select 4];
+  _x params ["_index", "", "", "_mag", "_value"];
+
+	if (_mag == "vtx_1000rnd_dummy") then {
+		_pylonArray pushBack [_index, _value];
 	};
 } forEach getAllPylonsInfo _vehicle;
 
