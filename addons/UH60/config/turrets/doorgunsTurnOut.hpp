@@ -32,7 +32,6 @@ class MainTurret: MainTurret { //Left Doorgun
     commanding=-2;
     forceHideGunner = 0;
     gunnerType = "vtx_uh60_doorgunner";
-    gunnerCompartments = Compartment2;
     gunnerLeftHandAnimName = "";
     gunnerRightHandAnimName = "";
     gunnerLeftLegAnimName = "";

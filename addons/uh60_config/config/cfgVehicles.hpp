@@ -7,7 +7,6 @@ class CfgVehicles {
   };
 
   class vtx_H60_base: Heli_Transport_01_base_F {
-    cargoCompartments[] = {"Compartment1"};
     #include "CfgAnimationSources.hpp"
     #include "CfgTextureSources.hpp"
     class Armory {
