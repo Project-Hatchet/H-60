@@ -26,7 +26,7 @@ private _center = switch (_centerMode) do {
 };
 private _startDir = if (_centerMode == 0) then {getDir _vehicle} else {0};
 
-private _waypointDirection = (_center getDir _position) - _startDir;
+private _waypointDirection = ((_center getDir _position) - _startDir + 360) mod 360;
 _vehicle setUserMFDvalue [0, _waypointDirection];
 _vehicle setUserMFDvalue [1, _center distance2D _position];
 
