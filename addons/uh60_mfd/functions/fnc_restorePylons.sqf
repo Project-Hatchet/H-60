@@ -10,6 +10,8 @@
 params ["_vehicle"];
 
 {
-	_vehicle setPylonLoadout [_x select 0, "vtx_1000rnd_dummy", true];
-	_vehicle setAmmoOnPylon [_x select 0, _x select 1];
+  _x params["_index", "_value"];
+
+	_vehicle setPylonLoadout [_index, "vtx_1000rnd_dummy", true];
+	_vehicle setAmmoOnPylon [_index, _value];
 } forEach (_vehicle getVariable[QGVAR(pylonConfig), []]);
