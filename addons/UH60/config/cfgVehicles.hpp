@@ -47,19 +47,19 @@ class CfgVehicles
         altFullForce = 1500;	/// in what height do the engines still have full thrust
         altNoForce = 4000;		/// thrust of the engines interpolates to zero between altFullForce and altNoForce
         maxSpeed = 300;			/// what is the maximum speed of the vehicle
-        maxFordingDepth = 0.55;	/// how deep could the vehicle be in water without getting some damage
-        mainBladeRadius = 7.0;	/// describes the radius of main rotor - used for collision detection
+        maxFordingDepth = 2.0;	/// how deep could the vehicle be in water without getting some damage
+        mainBladeRadius = 8.0;	/// describes the radius of main rotor - used for collision detection
         fuelConsumptionRate = 0;
         //multiplier of lift force
         liftForceCoef = 1.1;
         //multiplier of body friction
         bodyFrictionCoef = 0.7;
         //multiplier of bank force
-        cyclicAsideForceCoef = 1.0;
+        cyclicAsideForceCoef = 0.5;
         //multiplier of dive force
-        cyclicForwardForceCoef = 1.0;
+        cyclicForwardForceCoef = 0.6;
         //multiplier of back rotor force
-        backRotorForceCoef = 1.0;
+        backRotorForceCoef = 0.8;
         simulation = "helicopterRTD";
         #include "cfgVehiclesParts\RotorLibHelicopterProperties.hpp"
         #include "cfgVehiclesParts\sounds.hpp"
@@ -215,6 +215,7 @@ class CfgVehicles
         hideWeaponsCargo = 1;
         cargoCanEject = 1;
         driverCanEject = 0;
+        selectionFireAnim = "";
         selectionHRotorStill	="rotorBlades";
 		selectionHRotorMove		="rotorBlurred";
         selectionVRotorStill	="VrotorBlades";
@@ -401,9 +402,9 @@ class CfgVehicles
                 maxCompression				= 0.2;
                 maxDroop					= 0.05;
 
-                sprungMass					= 6000;
-                springStrength				= 90000;
-                springDamperRate			= 4000;
+                sprungMass					= 4000;
+                springStrength				= 100000;
+                springDamperRate			= 20000;
 
                 longitudinalStiffnessPerUnitGravity	= 10000;
                 latStiffX					= 2.5;
@@ -422,7 +423,6 @@ class CfgVehicles
                 tireForceAppPointOffset		= "wheel_1_2_center";
                 center						= "wheel_1_2_center";
                 boundary					= "wheel_1_2_rim";
-                sprungMass					= 8500;
             };
             class Wheel_3: Wheel_2
             {
@@ -440,9 +440,9 @@ class CfgVehicles
                 maxBrakeTorque				= 1000;
                 suspTravelDirection[]		= {0, -1.0, 0.0};
 
-                sprungMass					= 500;
-                springStrength				= 1000;
-                springDamperRate			= 2000;
+                sprungMass					= 200;
+                springStrength				= 5000;
+                springDamperRate			= 1000;
             };
         };
 
@@ -451,22 +451,6 @@ class CfgVehicles
     {
         scope = 2;
         editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_UH60M.jpg";
-    };
-    class vtx_UH60M_Probe : vtx_UH60M
-    {
-        scope = 1;
-        displayName = "$STR_VTX_UH60_UHMBlackhawkProbe";
-        class AnimationSources: AnimationSources
-        {
-            ANIM_INIT(FuelProbe_show,1);
-            /*
-            class Fuelprobe {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            */
-        };
     };
     class vtx_HH60 : vtx_H60_base
     {
