@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * vtx_uh60_mfd_fnc_restorePylons
  *
@@ -9,9 +10,6 @@
 params ["_vehicle"];
 
 {
-	private _index = _x;
-
-	_vehicle setPylonLoadout [_index select 0, "vtx_1000rnd_dummy", true];
-	_vehicle setAmmoOnPylon [_index select 0, _index select 1];
-
-} forEach (_vehicle getVariable["pylonConfig", []]);
+	_vehicle setPylonLoadout [_x select 0, "vtx_1000rnd_dummy", true];
+	_vehicle setAmmoOnPylon [_x select 0, _x select 1];
+} forEach (_vehicle getVariable[QGVAR(pylonConfig), []]);
