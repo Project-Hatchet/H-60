@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * vtx_uh60_mfd_fnc_storePylons
  *
@@ -11,11 +12,9 @@ params ["_vehicle"];
 private _pylonArray = [];
 
 {
-	private _index = _x;
-
-	if(_index select 3 == "vtx_1000rnd_dummy") then {
-		_pylonArray pushBack [_index select 0, _index select 4];
+	if (_x select 3 == "vtx_1000rnd_dummy") then {
+		_pylonArray pushBack [_x select 0, _x select 4];
 	};
-}forEach getAllPylonsInfo _vehicle;
+} forEach getAllPylonsInfo _vehicle;
 
-_vehicle setVariable ["pylonConfig", _pylonArray];
+_vehicle setVariable [QGVAR(pylonConfig), _pylonArray];

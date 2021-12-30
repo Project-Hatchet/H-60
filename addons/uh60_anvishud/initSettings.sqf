@@ -31,7 +31,7 @@
     "SLIDER",
     [localize LSTRING(Brightness), LSTRING(Brightness_Description)],
     ["UH-60M", "HMD"],
-    [0, 1, 0.6, 0, true],
+    [0, 1, 0.6, 2, true], //4th parameter (boolean) expresses slider value as % in settings
     false, // "_isGlobal"
     {
         private _vehicle = vehicle player;
