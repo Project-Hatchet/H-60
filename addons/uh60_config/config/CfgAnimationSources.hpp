@@ -137,6 +137,16 @@ class AnimationSources: AnimationSources {
     animPeriod=1;
     initPhase=0;
   };
+  class PylonForward_L {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class PylonForward_R {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
   class Fuelprobe_show {
     displayName = "Show Fuel Probe";
     source="user";
