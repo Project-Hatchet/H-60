@@ -170,7 +170,10 @@ class CfgVehicles {
   class vtx_MH60M_DAP: vtx_MH60M {
     class AnimationSources: AnimationSources {
       ANIM_INIT(LASS_show,1);
-      ANIM_INIT(GunnerSeats_Hide,1);
+      class GunnerSeats_Hide: GunnerSeats_Hide {
+        initPhase = 0;
+        onPhaseChanged = "";
+      };
       ANIM_INIT(Minigun_Sight_L_hide,1);
       ANIM_INIT(Minigun_Sight_R_hide,1);
     };
