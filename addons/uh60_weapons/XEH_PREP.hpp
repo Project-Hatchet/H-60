@@ -1,1 +1,2 @@
 PREP(adjustPylonPosition);
+PREP(canAdjustPylonPosition);

@@ -1,6 +1,5 @@
 private _displayName = "Adjust Pylon Position";
-private _condition = {true};
-//private _condition = {[_player, _target] call ace_pylons_fnc_canConfigurePylons && {getPylonMagazines _target select _actionParams != ""}};
+private _condition = {_this call vtx_uh60_weapons_fnc_canAdjustPylonPosition};
 private _statement = {_this call vtx_uh60_weapons_fnc_adjustPylonPosition};
 // Left Pylon
 private _action = [
