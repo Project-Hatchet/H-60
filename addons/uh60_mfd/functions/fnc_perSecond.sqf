@@ -8,8 +8,6 @@
 
 params ["_vehicle"];
 
-[_vehicle] call vtx_uh60_mfd_fnc_storePylons;
-
 _vehicle setUserMFDText [9, str round ((vectorMagnitude wind) * 1.94384)];
 private _stabAnim = _vehicle animationPhase "Stabilator_rotate";
 private _stabAngle = ceil (80 - (_stabAnim * 1.1111111 + 13));
