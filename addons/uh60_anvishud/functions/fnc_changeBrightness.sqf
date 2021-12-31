@@ -7,7 +7,9 @@
  *
  */
 
-params ["_vehicle", "_isDriver", "_polarity"];
+params ["_vehicle", "_polarity"];
+
+private _isDriver = (driver vehicle player) isEqualTo player;
 
 //Determine correct pylon index based on L or R seat
 private _index = if(_isDriver) then [{15}, {11}];
