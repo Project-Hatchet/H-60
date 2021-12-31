@@ -191,10 +191,10 @@ class hmd {
     buttonUp = "[4] call vtx_uh60_anvishud_fnc_toggleHud;";
   };
   FMS_BTN(FMS_4,"BRT","")
-    buttonUp = [(_this select 0), ((driver vehicle player) isEqualTo player), 1] call vtx_uh60_anvishud_fnc_changeBrightness;
+    buttonUp = [(_this select 0), 1] call vtx_uh60_anvishud_fnc_changeBrightness;
   };
   FMS_BTN(FMS_9,"DIM","")
-    buttonUp = [(_this select 0), ((driver vehicle player) isEqualTo player), -1] call vtx_uh60_anvishud_fnc_changeBrightness;
+    buttonUp = [(_this select 0), -1] call vtx_uh60_anvishud_fnc_changeBrightness;
   };
   FMS_BTN(FMS_10,"Mission Systems","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_MSN], true] call vtx_uh60_fms_fnc_interaction_pageChange;
