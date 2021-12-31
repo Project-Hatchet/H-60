@@ -19,7 +19,11 @@ _ammoCount = (_vehicle) ammoOnPylon _index;
 //Adjust change amount based on current brightness and polarity passed to the function
 private _change = (if(_ammocount >= 300) then [{100}, {50}]) * _polarity;
 
+private _value = (_ammoCount + _change) max 0 min 1000;
+
 //Adjust ammo at pylon index to manipulate HMD brightness (alpha)
-_vehicle setAmmoOnPylon [_index, (_ammoCount + _change) max 0 min 1000];
+[_vehicle, _index, _value] call vtx_uh60_mfd_fnc_setPylonValue;
 
 if(vtx_uh60_ui_showDebugMessages) then {systemChat Format["HMD Brightness: %1%2", (_vehicle ammoOnPylon _index)/10, "%"]};
+
+
