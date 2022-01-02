@@ -22,6 +22,8 @@ params ["_heli", "_deltaTime"];
 
 private _config = configFile >> "CfgVehicles" >> typeof _heli >> "vtx_SfmPlus";
 
+//systemChat format ["In the stab!"];
+
 if (!local _heli) exitWith {};
 
 private _colorRed = [1,0,0,1]; private _colorGreen = [0,1,0,1]; private _colorBlue = [0,0,1,1]; private _colorWhite = [1,1,1,1];
@@ -31,7 +33,8 @@ DRAW_LINE = {
 	drawLine3D [_heli modelToWorldVisual _p1, _heli modelToWorldVisual _p2, _col];
 };
 
-private _objCtr  = _heli selectionPosition ["modelCenter", "Memory"];
+//private _objCtr  = _heli selectionPosition ["modelCenter", "Memory"];
+private _objCtr  = _heli modelToWorldVisual [0,0,0];
 private _stabPos = _heli getVariable "vtx_sfmplus_stabPos";
 private _stabPvt = _objCtr vectorAdd _stabPos;
 
@@ -48,10 +51,8 @@ private _V_mps = abs vectorMagnitude [velocity _heli select 0, velocity _heli se
 private _theta = 0.0;
 if (vtx_uh60_sfmPlusKeyboardOnly) then {
     _theta = getNumber (_config >> "stabKeyTheta");
-    //systemChat format ["Stab keyboard!"];
 } else {
     _theta = [_stabOutputTable, _V_mps] call vtx_fnc_linearInterp select 1;
-    //systemChat format ["Stab joystick!"];
 };
 
 //Stab coords    |     |
@@ -100,9 +101,15 @@ private _area = [_A, _B, _C, _D] call vtx_sfmplus_fnc_getArea;
 private _liftForce = -_CL * 0.5 * 1.225 * _area * (_V_mps * _V_mps);
 
 private _lift = _liftVec vectorMultiply (_liftForce * _deltaTime);
-_heli addForce[_heli vectorModelToWorld _lift, _G];
+//_heli addForce[_heli vectorModelToWorld _lift, _G];
 
 #ifdef __A3_DEBUG__
+hintsilent format ["A = %1
+                    \nB = %2
+                    \nC = %3
+                    \nD = %4
+                    \n_objCtr = %5", _A, _B, _C, _D, _objCtr];
+
 /*
 hintsilent format ["Collective Out = %1
                    \nStab Pos = %2

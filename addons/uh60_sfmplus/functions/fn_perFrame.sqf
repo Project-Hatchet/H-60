@@ -1,5 +1,5 @@
 // vtx_uh60_sfmplus_fnc_perFrame
-params ["_vehicle", "_frameTime"]
+params ["_vehicle", "_frameTime"];
 
 if !(
 	alive _vehicle &&

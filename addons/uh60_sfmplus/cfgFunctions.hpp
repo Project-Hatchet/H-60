@@ -46,8 +46,10 @@ class CfgFunctions
 			file = "\z\vtx\addons\uh60_sfmplus\functions";
 			class clampedMove {R;};
 			class getArea {R;};
-			class getInput   {R;};
+			class getInput {R;};
+			class perFrame {R;};
 			class setArrayVariable {R;};
+			class setup {R;};
 		};
     };
 };

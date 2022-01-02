@@ -80,7 +80,7 @@ if(vtx_uh60_sfmPlusStabilatorEnabled == STABILTOR_MODE_ALWAYSENABLED
 };
 
 #ifdef __A3_DEBUG_
-/*
+
 hintsilent format ["v0.11
 					\nEngine 1 Ng = %1
 					\nEngine 1 TQ = %2
@@ -113,5 +113,5 @@ hintsilent format ["v0.11
 					vtx_sfmplus_collectiveOutput,
 					_heli getVariable "vtx_sfmplus_engFF",
 					_heli getVariable "vtx_sfmplus_engBaseNG"];
-*/
+
 #endif
