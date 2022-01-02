@@ -3,15 +3,25 @@ class TransportPylonsComponent {
     uiPicture = "z\vtx\addons\MH60M\Data\UI\vtx_mh60m_dap_3den_ca.paa";
     class Pylons {
         class pylons1 {
-            attachment = "VTX_M230_Chaingun_L";
+            attachment = "VTX_M230_Chaingun_L"; // 30mm
             priority = 5;
-            hardpoints[] = {"O_SKYFIRE", "DAR", "DAGR", "B_SHIEKER", "RHS_HP_LONGBOW_RACK", "RHS_HP_FFAR_ARMY", "RHS_HP_MELB", "RHS_HP_MELB_L", "CUP_NATO_HELO_UH60", "VTX_ST_L"};
+            hardpoints[] = {
+              "DAR", "DAGR", "B_SHIEKER", "20MM_TWIN_CANNON",
+              "VTX_ST_L",
+              "RHS_HP_LONGBOW_RACK", "RHS_HP_FFAR_ARMY", "RHS_HP_MELB", "RHS_HP_MELB_L",
+              "CUP_NATO_HELO_UH60"
+            };
             UIposition[] = {0.59, 0.41};
         };
         class pylons2: pylons1 {
-            attachment = "VTX_PylonRack_M261_M229";
+            attachment = "VTX_PylonRack_M261_M229"; // 19rnd 70mm rockets
             mirroredMissilePos = 1;
-            hardpoints[] = {"O_SKYFIRE", "DAR", "DAGR", "B_SHIEKER", "RHS_HP_LONGBOW_RACK", "RHS_HP_FFAR_ARMY", "RHS_HP_MELB", "RHS_HP_MELB_R", "CUP_NATO_HELO_UH60", "VTX_ST_R"};
+            hardpoints[] = {
+              "DAR", "DAGR", "B_SHIEKER", "20MM_TWIN_CANNON",
+              "VTX_ST_R",
+              "RHS_HP_LONGBOW_RACK", "RHS_HP_FFAR_ARMY", "RHS_HP_MELB", "RHS_HP_MELB_R",
+              "CUP_NATO_HELO_UH60"
+            };
             UIposition[] = {0.08, 0.41};
         };
         #define DUMMY_PYLON(CLASS) \
