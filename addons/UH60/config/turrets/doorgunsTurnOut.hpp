@@ -19,6 +19,7 @@ class MainTurret: MainTurret { //Left Doorgun
     // AimDownSights while turned out can see gunner body
     //memoryPointGunnerOutOptics = "gunnerview_1";
     //gunnerOutOpticsModel = "\A3\Weapons_F\empty.p3d";
+    gunnerOpticsModel = "\A3\Weapons_F\empty.p3d";
     memoryPointGunnerOptics="gunnerview_1";
     memoryPointsGetInGunner = "pos gunner L";
     memoryPointsGetInGunnerDir = "pos gunner L dir";
@@ -29,7 +30,6 @@ class MainTurret: MainTurret { //Left Doorgun
     selectionFireAnim="zasleh";
     // shared properties
     canHideGunner = 1;
-    commanding=-2;
     forceHideGunner = 0;
     gunnerType = "vtx_uh60_doorgunner";
     gunnerLeftHandAnimName = "";
@@ -39,9 +39,8 @@ class MainTurret: MainTurret { //Left Doorgun
     hideWeaponsGunner = 1;
     isPersonTurret = 0;
     outGunnerMayFire = 1;
-    primaryGunner=0;
+    primaryGunner = 0;
     stabilizedInAxes = 0;
-    usePip = 0;
     viewGunnerInExternal = 1;
     weapons[]=
     {
