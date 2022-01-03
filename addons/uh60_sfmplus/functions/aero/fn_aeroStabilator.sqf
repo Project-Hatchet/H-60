@@ -22,8 +22,6 @@ params ["_heli", "_deltaTime"];
 
 private _config = configFile >> "CfgVehicles" >> typeof _heli >> "vtx_SfmPlus";
 
-//systemChat format ["In the stab!"];
-
 if (!local _heli) exitWith {};
 
 private _colorRed = [1,0,0,1]; private _colorGreen = [0,1,0,1]; private _colorBlue = [0,0,1,1]; private _colorWhite = [1,1,1,1];
@@ -33,12 +31,11 @@ DRAW_LINE = {
 	drawLine3D [_heli modelToWorldVisual _p1, _heli modelToWorldVisual _p2, _col];
 };
 
-//private _objCtr  = _heli selectionPosition ["modelCenter", "Memory"];
-private _objCtr  = _heli modelToWorldVisual [0,0,0];
+private _objCtr  = _heli selectionPosition ["modelCenter", "Memory"];
 private _stabPos = _heli getVariable "vtx_uh60_sfmplus_stabPos";
 private _stabPvt = _objCtr vectorAdd _stabPos;
 
-private _intStabTable = [getArray (_config >> "stabTable"), vtx_uh60_sfmplus_collectiveOutput] call vtx_fnc_linearInterp;
+private _intStabTable = [getArray (_config >> "stabTable"), vtx_uh60_sfmplus_collectiveOutput] call vtx_uh60_sfmplus_fnc_linearInterp;
 
 private _stabOutputTable = [[15.43, _intStabTable select 1],  //30kts
 							[36.01, _intStabTable select 2],  //70kts
@@ -52,7 +49,7 @@ private _theta = 0.0;
 if (vtx_uh60_sfmPlusKeyboardOnly) then {
     _theta = getNumber (_config >> "stabKeyTheta");
 } else {
-    _theta = [_stabOutputTable, _V_mps] call vtx_fnc_linearInterp select 1;
+    _theta = [_stabOutputTable, _V_mps] call vtx_uh60_sfmplus_fnc_linearInterp select 1;
 };
 
 //Stab coords    |     |
@@ -94,7 +91,7 @@ _relWind = _relWind;
 private _AoA = (_relWind # 2 atan2 _relWind # 1) + _theta;
 _AoA = [_AoA] call CBA_fnc_simplifyAngle180;
 
-private _intAirfoilTable = [getArray (_config >> "stabAirfoilTable"), _AoA] call vtx_fnc_linearInterp;
+private _intAirfoilTable = [getArray (_config >> "stabAirfoilTable"), _AoA] call vtx_uh60_sfmplus_fnc_linearInterp;
 private _CL = _intAirfoilTable select 1;
 
 private _area = [_A, _B, _C, _D] call vtx_uh60_sfmplus_fnc_getArea;

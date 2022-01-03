@@ -22,13 +22,13 @@ Author:
 params ["_heli"];
 
 private _percentFuel    = fuel _heli;
-private _maxFwdFuelMass = _heli getVariable "vtx_uh60_sfmplus_maxFwdFuelMass";
-private _maxAftFuelMass = _heli getVariable "vtx_uh60_sfmplus_maxAftFuelMass";
-private _maxTotFuelMass = _maxFwdFuelMass + _maxAftFuelMass;
+private _maxTank1FuelMass = _heli getVariable "vtx_uh60_sfmplus_maxTank1FuelMass";
+private _maxTank2FuelMass = _heli getVariable "vtx_uh60_sfmplus_maxTank2FuelMass";
+private _maxTotFuelMass = _maxTank1FuelMass + _maxTank2FuelMass;
 _heli setVariable ["vtx_uh60_sfmplus_maxTotFuelMass", _maxTotFuelMass];
 
 private _totFuelMass = _maxTotFuelMass * _percentFuel;
-private _fwdFuelMass = [_totFuelMass / 2, 0, _maxFwdFuelMass] call BIS_fnc_clamp;
+private _fwdFuelMass = [_totFuelMass / 2, 0, _maxTank1FuelMass] call BIS_fnc_clamp;
 private _aftFuelMass = _totFuelMass - _fwdFuelMass;
 
 [_fwdFuelMass, _aftFuelMass];

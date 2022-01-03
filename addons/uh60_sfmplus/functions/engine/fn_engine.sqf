@@ -108,14 +108,14 @@ switch (_engState) do {
 	};
 };
 
-private _intEngBaseTable = [getArray (_config >> "engBaseTable"), _engPctNG] call vtx_fnc_linearInterp;
+private _intEngBaseTable = [getArray (_config >> "engBaseTable"), _engPctNG] call vtx_uh60_sfmplus_fnc_linearInterp;
 //Base TGT
 private _engBaseTGT      = _intEngBaseTable select 1;
 //Base Oil
 private _engBaseOilPSI   = _intEngBaseTable select 4;
 //Torque
 private _curGWT_kg     = getMass _heli;
-private _intHvrTQTable = [getArray (_config >> "hvrTqTable"), _curGWT_kg] call vtx_fnc_linearInterp;
+private _intHvrTQTable = [getArray (_config >> "hvrTqTable"), _curGWT_kg] call vtx_uh60_sfmplus_fnc_linearInterp;
 private _hvrIGE        = _intHvrTQTable select 1;
 private _hvrOGE        = _intHvrTQTable select 2;
 
@@ -135,7 +135,7 @@ if (vtx_uh60_sfmPlusKeyboardOnly) then {
 					  [ 0.670,     _hvrTQ],
 					  [ 1.00,       1.34]];
 };
-private _intCruiseTQTable = [getArray (_config >> "cruiseTable"), _curGWT_kg] call vtx_fnc_linearInterp;
+private _intCruiseTQTable = [getArray (_config >> "cruiseTable"), _curGWT_kg] call vtx_uh60_sfmplus_fnc_linearInterp;
 
 private _engCruiseTQTable = [[]];
 //-------------------------Coll-----TQ---
@@ -151,8 +151,8 @@ if (vtx_uh60_sfmPlusKeyboardOnly) then {
 						 [ 1.00, _intCruiseTQTable select 9]];
 };
 
-private _curHvrTQ = [_engHvrTQTable,    vtx_uh60_sfmplus_collectiveOutput] call vtx_fnc_linearInterp select 1;
-private _cruiseTQ = [_engCruiseTQTable, vtx_uh60_sfmplus_collectiveOutput] call vtx_fnc_linearInterp select 1;
+private _curHvrTQ = [_engHvrTQTable,    vtx_uh60_sfmplus_collectiveOutput] call vtx_uh60_sfmplus_fnc_linearInterp select 1;
+private _cruiseTQ = [_engCruiseTQTable, vtx_uh60_sfmplus_collectiveOutput] call vtx_uh60_sfmplus_fnc_linearInterp select 1;
 
 private _V_mps = abs vectorMagnitude [velocity _heli select 0, velocity _heli select 1];
 _engSetTQ      = linearConversion [0.00, 12.35, _V_mps, _curHvrTQ, _cruiseTQ, true];
@@ -167,9 +167,9 @@ private _engTable = [[_engBaseTQ, _engBaseTGT,	_engBaseNG, _engBaseOilPSI],
 					 [1.29, 	  867,			0.990	  , 0.94          ],	//10 min
 					 [1.34, 	  896,			0.997	  , 0.99          ]];	//2.5 Min
 
-_engTGT    = [_engTable,   _engPctTQ] call vtx_fnc_linearInterp select 1;
-_engOilPSI = [_engTable,   _engPctTQ] call vtx_fnc_linearInterp select 3;
-_engFF     = [getArray (_config >> "engFFTable"), _engPctTQ] call vtx_fnc_linearInterp select 1;
+_engTGT    = [_engTable,   _engPctTQ] call vtx_uh60_sfmplus_fnc_linearInterp select 1;
+_engOilPSI = [_engTable,   _engPctTQ] call vtx_uh60_sfmplus_fnc_linearInterp select 3;
+_engFF     = [getArray (_config >> "engFFTable"), _engPctTQ] call vtx_uh60_sfmplus_fnc_linearInterp select 1;
 
 //Update variables
 [_heli, "vtx_uh60_sfmplus_engPctNG",      _engNum, _engPctNG] call vtx_uh60_sfmplus_fnc_setArrayVariable;

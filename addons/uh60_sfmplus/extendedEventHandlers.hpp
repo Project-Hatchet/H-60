@@ -11,11 +11,3 @@ class Extended_GetIn_EventHandlers {
 		};
 	};
 };
-
-class Extended_Init_EventHandlers {
-    class vtx_h60_base {
-        class vtx_uh60_sfmplus {
-            init = "[_this] spawn vtx_uh60_sfmplus_fnc_coreConfig";
-        };
-    };
-};

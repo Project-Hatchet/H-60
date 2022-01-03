@@ -1,15 +1,14 @@
 class vtx_SfmPlus {
-    emptyMassFCR    = 6609; //kg
-    emptyMassNonFCR = 6314; //kg
+    emptyMassMass    = 5896; //kg
 
-    stabPos[]  = {0.0, -7.207, -0.50};
-    stabWidth  = 3.22;  //m
-    stabLength = 1.07; //m
+    stabPos[]  = {0.0, -7.041, -0.084};
+    stabWidth  = 4.18;  //m
+    stabLength = 1.18; //m
 
-    maxFwdFuelMass = 473; //1043lbs in kg
+    maxTank1FuelMass = 547; //1206lbs in kg
     //maxCtrFuelMass = 300;	//663lbs in kg, net yet implemented, center robbie
-    maxAftFuelMass = 669; 	//1474lbs in kg
-    //maxExtFuelMass = 690;     //1541lbs in kg, not yet implemented, 230gal external tank
+    maxTank2FuelMass = 547; //1206lbs in kg
+    //maxExtFuelMass = 690; //1541lbs in kg, not yet implemented, 230gal external tank
 
     //Engine Data
     engSimTime  = 8.0;
