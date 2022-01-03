@@ -444,47 +444,31 @@ class CfgVehicles
                 springStrength				= 5000;
                 springDamperRate			= 1000;
             };
-        };
+        }; // Wheels
+    }; // vtx_H60_base
 
-    };
-    class vtx_UH60M : vtx_H60_base
-    {
+    class vtx_UH60M : vtx_H60_base {
         scope = 2;
         editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_UH60M.jpg";
     };
-    class vtx_HH60 : vtx_H60_base
-    {
+
+    class vtx_HH60 : vtx_H60_base {
         scope = 2;
         editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_HH60.jpg";
         displayName = "$STR_VTX_UH60_HHGMPavehawk";
         memoryPointDriverOptics = "pilotcamera_flir_pos";
 
         hiddenSelectionsTextures[] = {
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "z\vtx\addons\UH60\Data\JLorion_HH60\Hull Main_co.paa",
-                "z\vtx\addons\UH60\Data\JLorion_HH60\Misc_co.paa",
-                "z\vtx\addons\UH60\Data\JLorion_HH60\Hull Tail_co.paa",
-                "", // "markings",
-                "", // "left_num_1",
-                "", // "left_num_2",
-                "", // "right_num_1",
-                "", // "right_num_2",
-                "z\vtx\addons\UH60\Data\JLorion_HH60\Fuel_probe_co.paa"
+          "","","","","","","","","","","","","","","","",
+          "z\vtx\addons\UH60\Data\JLorion_HH60\Hull Main_co.paa",
+          "z\vtx\addons\UH60\Data\JLorion_HH60\Misc_co.paa",
+          "z\vtx\addons\UH60\Data\JLorion_HH60\Hull Tail_co.paa",
+          "", // "markings",
+          "", // "left_num_1",
+          "", // "left_num_2",
+          "", // "right_num_1",
+          "", // "right_num_2",
+          "z\vtx\addons\UH60\Data\JLorion_HH60\Fuel_probe_co.paa"
         };
         class pilotCamera: vtx_templateFLIR {};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
@@ -510,40 +494,10 @@ class CfgVehicles
             ANIM_INIT(ERFS_show,1);
             ANIM_INIT(FLIR_HIDE,0);
             ANIM_INIT(FLIR_BACK,1);
-            /*
-            class Fuelprobe {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class CabinSeats_Hide {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class HH60Flares_show {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class MAWS_Tubes_Show {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class ERFS: MAWS_Tubes_Show {
-                initPhase=1;
-            };
-            class FLIR_HIDE: MAWS_Tubes_Show {
-                initPhase=0;
-            };
-            class FLIR_BACK: MAWS_Tubes_Show {
-                initPhase=1;
-            };
-            */
         };
         #include "vehicleTransport.hpp"
-    };
+    }; // vtx_HH60
+
     class vtx_UH60M_SLICK : vtx_H60_base {
       scope = 2;
       displayName = "UH-60M Slick";
@@ -553,15 +507,6 @@ class CfgVehicles
       typicalCargo[] = {"vtx_uh60_doorgunner"};
 
       class AnimationSources: AnimationSources {
-        /*
-        //#define ANIMSRC(name,src,per,init)
-        ANIMSRC(CabinSeats_Hide,user,1,1);
-        ANIMSRC(GunnerSeats_Hide,user,1,1);
-        ANIMSRC(Minigun_Mount_L_hide,user,1,1);
-        ANIMSRC(Minigun_Mount_R_hide,user,1,1);
-        ANIMSRC(Minigun_L_hide,user,1,1);
-        ANIMSRC(Minigun_R_hide,user,1,1);
-        */
         ANIM_INIT(CabinSeats_Hide,1);
         ANIM_INIT(GunnerSeats_Hide,1);
         ANIM_INIT(Minigun_Mount_L_hide,1);
@@ -575,7 +520,7 @@ class CfgVehicles
       };
       //#include "vehicleTransportSlick.hpp" // model missing mempoints
       #include "vehicleTransport.hpp"
-    };
+    }; // vtx_UH60M_SLICK
 };
 
 class cfgNonAIVehicles{
