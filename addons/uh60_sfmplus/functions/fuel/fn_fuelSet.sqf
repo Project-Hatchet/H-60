@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_sfmplus_fnc_fuelSet
+Function: vtx_uh60_sfmplus_fnc_fuelSet
 
 Description:
 	Sets the initial fuel state of the aircraft.
@@ -22,10 +22,10 @@ Author:
 params ["_heli"];
 
 private _percentFuel    = fuel _heli;
-private _maxFwdFuelMass = _heli getVariable "vtx_sfmplus_maxFwdFuelMass";
-private _maxAftFuelMass = _heli getVariable "vtx_sfmplus_maxAftFuelMass";
+private _maxFwdFuelMass = _heli getVariable "vtx_uh60_sfmplus_maxFwdFuelMass";
+private _maxAftFuelMass = _heli getVariable "vtx_uh60_sfmplus_maxAftFuelMass";
 private _maxTotFuelMass = _maxFwdFuelMass + _maxAftFuelMass;
-_heli setVariable ["vtx_sfmplus_maxTotFuelMass", _maxTotFuelMass];
+_heli setVariable ["vtx_uh60_sfmplus_maxTotFuelMass", _maxTotFuelMass];
 
 private _totFuelMass = _maxTotFuelMass * _percentFuel;
 private _fwdFuelMass = [_totFuelMass / 2, 0, _maxFwdFuelMass] call BIS_fnc_clamp;

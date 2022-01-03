@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_sfmplus_fnc_engine
+Function: vtx_uh60_sfmplus_fnc_engine
 
 Description:
 	Provides a visually accurate simulation of a turbine engine based on table
@@ -23,15 +23,15 @@ params ["_heli", "_engNum", "_deltaTime"];
 
 private _config = configFile >> "CfgVehicles" >> typeof _heli >> "vtx_SfmPlus";
 
-private _engState            = _heli getVariable "vtx_sfmplus_engState" select _engNum;
-private _isSingleEng         = _heli getVariable "vtx_sfmplus_isSingleEng";
-private _engPowerLeverState  = _heli getVariable "vtx_sfmplus_engPowerLeverState" select _engNum;
-private _engPctNG            = _heli getVariable "vtx_sfmplus_engPctNG" select _engNum;
-private _engPctNP            = _heli getVariable "vtx_sfmplus_engPctNP" select _engNum;
-private _engPctTQ            = _heli getVariable "vtx_sfmplus_engPctTQ" select _engNum;
-private _engTGT              = _heli getVariable "vtx_sfmplus_engTGT" select _engNum;
-private _engOilPSI           = _heli getVariable "vtx_sfmplus_engOilPSI" select _engNum; 
-private _engFF               = _heli getVariable "vtx_sfmplus_engFF" select _engNum;
+private _engState            = _heli getVariable "vtx_uh60_sfmplus_engState" select _engNum;
+private _isSingleEng         = _heli getVariable "vtx_uh60_sfmplus_isSingleEng";
+private _engPowerLeverState  = _heli getVariable "vtx_uh60_sfmplus_engPowerLeverState" select _engNum;
+private _engPctNG            = _heli getVariable "vtx_uh60_sfmplus_engPctNG" select _engNum;
+private _engPctNP            = _heli getVariable "vtx_uh60_sfmplus_engPctNP" select _engNum;
+private _engPctTQ            = _heli getVariable "vtx_uh60_sfmplus_engPctTQ" select _engNum;
+private _engTGT              = _heli getVariable "vtx_uh60_sfmplus_engTGT" select _engNum;
+private _engOilPSI           = _heli getVariable "vtx_uh60_sfmplus_engOilPSI" select _engNum; 
+private _engFF               = _heli getVariable "vtx_uh60_sfmplus_engFF" select _engNum;
 
 private _engThrottle         = 0.0;
 private _engSimTime 		 = getNumber (_config >> "engSimTime");
@@ -92,16 +92,16 @@ switch (_engState) do {
 		//Transition state to ON
 		if (_engPctNG > 0.52) then {
 			_engState = "ON";
-			[_heli, "vtx_sfmplus_engState", _engNum, "ON", true] call vtx_sfmplus_fnc_setArrayVariable;
+			[_heli, "vtx_uh60_sfmplus_engState", _engNum, "ON", true] call vtx_uh60_sfmplus_fnc_setArrayVariable;
 		};
 	};
 	case "ON": {
 		if (_engPowerLeverState == "OFF") then {
 			_engState = "OFF";
-			[_heli, "vtx_sfmplus_engState", _engNum, "ON", true] call vtx_sfmplus_fnc_setArrayVariable;
+			[_heli, "vtx_uh60_sfmplus_engState", _engNum, "ON", true] call vtx_uh60_sfmplus_fnc_setArrayVariable;
 		};
 		//Ng
-		_engSetNG = _engBaseNG + (_engMaxNG - _engBaseNG) * _engThrottle * vtx_sfmplus_collectiveOutput;
+		_engSetNG = _engBaseNG + (_engMaxNG - _engBaseNG) * _engThrottle * vtx_uh60_sfmplus_collectiveOutput;
 		_engPctNG = [_engPctNG, _engSetNG, _deltaTime] call BIS_fnc_lerp;
 		//Np
 		_engPctNP = [_engPctNP, _engBaseNP, _deltaTime] call BIS_fnc_lerp;
@@ -151,8 +151,8 @@ if (vtx_uh60_sfmPlusKeyboardOnly) then {
 						 [ 1.00, _intCruiseTQTable select 9]];
 };
 
-private _curHvrTQ = [_engHvrTQTable,    vtx_sfmplus_collectiveOutput] call vtx_fnc_linearInterp select 1;
-private _cruiseTQ = [_engCruiseTQTable, vtx_sfmplus_collectiveOutput] call vtx_fnc_linearInterp select 1;
+private _curHvrTQ = [_engHvrTQTable,    vtx_uh60_sfmplus_collectiveOutput] call vtx_fnc_linearInterp select 1;
+private _cruiseTQ = [_engCruiseTQTable, vtx_uh60_sfmplus_collectiveOutput] call vtx_fnc_linearInterp select 1;
 
 private _V_mps = abs vectorMagnitude [velocity _heli select 0, velocity _heli select 1];
 _engSetTQ      = linearConversion [0.00, 12.35, _V_mps, _curHvrTQ, _cruiseTQ, true];
@@ -172,13 +172,13 @@ _engOilPSI = [_engTable,   _engPctTQ] call vtx_fnc_linearInterp select 3;
 _engFF     = [getArray (_config >> "engFFTable"), _engPctTQ] call vtx_fnc_linearInterp select 1;
 
 //Update variables
-[_heli, "vtx_sfmplus_engPctNG",      _engNum, _engPctNG] call vtx_sfmplus_fnc_setArrayVariable;
-[_heli, "vtx_sfmplus_engPctNP",      _engNum, _engPctNP] call vtx_sfmplus_fnc_setArrayVariable;
-[_heli, "vtx_sfmplus_engPctTQ",      _engNum, _engPctTQ] call vtx_sfmplus_fnc_setArrayVariable;
+[_heli, "vtx_uh60_sfmplus_engPctNG",      _engNum, _engPctNG] call vtx_uh60_sfmplus_fnc_setArrayVariable;
+[_heli, "vtx_uh60_sfmplus_engPctNP",      _engNum, _engPctNP] call vtx_uh60_sfmplus_fnc_setArrayVariable;
+[_heli, "vtx_uh60_sfmplus_engPctTQ",      _engNum, _engPctTQ] call vtx_uh60_sfmplus_fnc_setArrayVariable;
 
-[_heli, "vtx_sfmplus_engBaseTGT",    _engNum, _engBaseTGT] call vtx_sfmplus_fnc_setArrayVariable;
-[_heli, "vtx_sfmplus_engBaseOilPSI", _engNum, _engBaseOilPSI] call vtx_sfmplus_fnc_setArrayVariable;
+[_heli, "vtx_uh60_sfmplus_engBaseTGT",    _engNum, _engBaseTGT] call vtx_uh60_sfmplus_fnc_setArrayVariable;
+[_heli, "vtx_uh60_sfmplus_engBaseOilPSI", _engNum, _engBaseOilPSI] call vtx_uh60_sfmplus_fnc_setArrayVariable;
 
-[_heli, "vtx_sfmplus_engTGT",        _engNum, _engTGT] call vtx_sfmplus_fnc_setArrayVariable;
-[_heli, "vtx_sfmplus_engOilPSI",     _engNum, _engOilPSI] call vtx_sfmplus_fnc_setArrayVariable;
-[_heli, "vtx_sfmplus_engFF",         _engNum, _engFF] call vtx_sfmplus_fnc_setArrayVariable;
+[_heli, "vtx_uh60_sfmplus_engTGT",        _engNum, _engTGT] call vtx_uh60_sfmplus_fnc_setArrayVariable;
+[_heli, "vtx_uh60_sfmplus_engOilPSI",     _engNum, _engOilPSI] call vtx_uh60_sfmplus_fnc_setArrayVariable;
+[_heli, "vtx_uh60_sfmplus_engFF",         _engNum, _engFF] call vtx_uh60_sfmplus_fnc_setArrayVariable;

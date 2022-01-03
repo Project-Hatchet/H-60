@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_sfmplus_fnc_engineController
+Function: vtx_uh60_sfmplus_fnc_engineController
 
 Description:
 	Monitors and controls engine states.
@@ -19,7 +19,7 @@ Author:
 ---------------------------------------------------------------------------- */
 params ["_heli", "_deltaTime"];
 
-private _engState  = _heli getVariable "vtx_sfmplus_engState";
+private _engState  = _heli getVariable "vtx_uh60_sfmplus_engState";
 private _eng1State = _engState select 0;
 private _eng2State = _engState select 1;
 
@@ -28,8 +28,8 @@ if ((_eng1State == "STARTING" || _eng2State == "STARTING") && local _heli) then 
 	_heli engineOn true;
 };
 
-private _isSingleEng     = _heli getVariable "vtx_sfmplus_isSingleEng";
-private _engPwrLvrState  = _heli getVariable "vtx_sfmplus_engPowerLeverState";
+private _isSingleEng     = _heli getVariable "vtx_uh60_sfmplus_isSingleEng";
+private _engPwrLvrState  = _heli getVariable "vtx_uh60_sfmplus_engPowerLeverState";
 private _eng1PwrLvrState = _engPwrLvrState select 0;
 private _eng2PwrLvrState = _engPwrLvrState select 1;
 
@@ -38,39 +38,39 @@ if ((_eng1PwrLvrState isEqualTo _eng2PwrLvrState) && (_eng1State == "ON" && _eng
 } else {
 	_isSingleEng = true;
 };
-_heli setVariable ["vtx_sfmplus_isSingleEng", _isSingleEng];
+_heli setVariable ["vtx_uh60_sfmplus_isSingleEng", _isSingleEng];
 
-if (isMultiplayer && local _heli && (_heli getVariable "vtx_sfmplus_lastTimePropagated") + 5 < time) then {
+if (isMultiplayer && local _heli && (_heli getVariable "vtx_uh60_sfmplus_lastTimePropagated") + 5 < time) then {
 	{
 		_heli setVariable [_x, _heli getVariable _x, true];
 	} forEach [
-		"vtx_sfmplus_engFF",
-		"vtx_sfmplus_engBaseNG",
-		"vtx_sfmplus_engPctNG",
-		"vtx_sfmplus_engBaseNP",
-		"vtx_sfmplus_engPctNP",
-		"vtx_sfmplus_engBaseTQ",
-		"vtx_sfmplus_engPctTQ",
-		"vtx_sfmplus_engBaseTGT",
-		"vtx_sfmplus_engTGT",
-		"vtx_sfmplus_engBaseOilPSI",
-		"vtx_sfmplus_engOilPSI"
+		"vtx_uh60_sfmplus_engFF",
+		"vtx_uh60_sfmplus_engBaseNG",
+		"vtx_uh60_sfmplus_engPctNG",
+		"vtx_uh60_sfmplus_engBaseNP",
+		"vtx_uh60_sfmplus_engPctNP",
+		"vtx_uh60_sfmplus_engBaseTQ",
+		"vtx_uh60_sfmplus_engPctTQ",
+		"vtx_uh60_sfmplus_engBaseTGT",
+		"vtx_uh60_sfmplus_engTGT",
+		"vtx_uh60_sfmplus_engBaseOilPSI",
+		"vtx_uh60_sfmplus_engOilPSI"
 	];
-	_heli setVariable ["vtx_sfmplus_lastTimePropagated", time, true];
+	_heli setVariable ["vtx_uh60_sfmplus_lastTimePropagated", time, true];
 };
 
-[_heli, 0, _deltaTime] call vtx_sfmplus_fnc_engine;
-[_heli, 1, _deltaTime] call vtx_sfmplus_fnc_engine;
+[_heli, 0, _deltaTime] call vtx_uh60_sfmplus_fnc_engine;
+[_heli, 1, _deltaTime] call vtx_uh60_sfmplus_fnc_engine;
 
 private _no1EngDmg = _heli getHitPointDamage "HitEngine1";
 private _no2EngDmg = _heli getHitPointDamage "HitEngine2";
 
 if (_no1EngDmg > 0.5) then {
-	[_heli, "vtx_sfmplus_engState", 0, "OFF", true] call vtx_sfmplus_fnc_setArrayVariable;
+	[_heli, "vtx_uh60_sfmplus_engState", 0, "OFF", true] call vtx_uh60_sfmplus_fnc_setArrayVariable;
 };
 
 if (_no2EngDmg > 0.5) then {
-	[_heli, "vtx_sfmplus_engState", 1, "OFF", true] call vtx_sfmplus_fnc_setArrayVariable;
+	[_heli, "vtx_uh60_sfmplus_engState", 1, "OFF", true] call vtx_uh60_sfmplus_fnc_setArrayVariable;
 };
 
 if (_eng1State == "OFF" && _eng2State == "OFF" && local _heli) then {

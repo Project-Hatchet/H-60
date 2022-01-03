@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_sfmplus_fnc_coreUpdate
+Function: vtx_uh60_sfmplus_fnc_coreUpdate
 
 Description:
 	Updates all of the modules core functions.
@@ -20,27 +20,29 @@ params ["_heli"];
 #include "\z\vtx\addons\uh60_sfmplus\headers\core.hpp"
 private _deltaTime = ["sfmplus_deltaTime"] call BIS_fnc_deltaTime;
 
+systemChat format ["coreUpdate is running!"];
+
 //Input
-[_heli] call vtx_sfmplus_fnc_getInput;
+[_heli] call vtx_uh60_sfmplus_fnc_getInput;
 
 //Weight
 private _emptyMass = 0;
 if (_heli animationPhase "fcr_enable" == 1) then {
-	_emptyMass = _heli getVariable "vtx_sfmplus_emptyMassFCR";
+	_emptyMass = _heli getVariable "vtx_uh60_sfmplus_emptyMassFCR";
 } else {
-	_emptyMass = _heli getVariable "vtx_sfmplus_emptyMassNonFCR";
+	_emptyMass = _heli getVariable "vtx_uh60_sfmplus_emptyMassNonFCR";
 };
-private _maxTotFuelMass = _heli getVariable "vtx_sfmplus_maxTotFuelMass";
-private _fwdFuelMass    = [_heli] call vtx_sfmplus_fnc_fuelSet select 0;
-private _aftFuelMass    = [_heli] call vtx_sfmplus_fnc_fuelSet select 1;
+private _maxTotFuelMass = _heli getVariable "vtx_uh60_sfmplus_maxTotFuelMass";
+private _fwdFuelMass    = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet select 0;
+private _aftFuelMass    = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet select 1;
 
 //Engines
-[_heli, _deltaTime] call vtx_sfmplus_fnc_engineController;
+[_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_engineController;
 
 //Fuel
 private _apuFF  = 0;
-private _eng1FF = _heli getVariable "vtx_sfmplus_engFF" select 0;
-private _eng2FF = _heli getVariable "vtx_sfmplus_engFF" select 1;
+private _eng1FF = _heli getVariable "vtx_uh60_sfmplus_engFF" select 0;
+private _eng2FF = _heli getVariable "vtx_uh60_sfmplus_engFF" select 1;
 private _curFuelFlow = 0;
 
 if (_heli animationphase "plt_apu" > 0.5) then {
@@ -71,12 +73,12 @@ if (local _heli) then {
 };
 
 //Damage
-[_heli, _deltaTime] call vtx_sfmplus_fnc_damageApply;
+[_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_damageApply;
 
 //Stabilator
 if(vtx_uh60_sfmPlusStabilatorEnabled == STABILTOR_MODE_ALWAYSENABLED 
 	|| vtx_uh60_sfmPlusStabilatorEnabled == STABILTOR_MODE_JOYSTICKONLY && !vtx_uh60_sfmPlusKeyboardOnly) then {
-	[_heli, _deltaTime] call vtx_sfmplus_fnc_aeroStabilator;
+	[_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_aeroStabilator;
 };
 
 #ifdef __A3_DEBUG_
@@ -100,18 +102,18 @@ hintsilent format ["v0.11
 					\nColl Pos = %13
 					\nEng FF = %14
 					\nEngine Base NG = %15", 		
-					_heli getVariable "vtx_sfmplus_engPctNG" select 0, 
-					_heli getVariable "vtx_sfmplus_engPctTQ" select 0, 
-					_heli getVariable "vtx_sfmplus_engTGT" select 0,
-					_heli getVariable "vtx_sfmplus_engPctNG" select 1, 
-					_heli getVariable "vtx_sfmplus_engPctTQ" select 1, 
-					_heli getVariable "vtx_sfmplus_engTGT" select 1,
-					_heli getVariable "vtx_sfmplus_engState",
-					_heli getVariable "vtx_sfmplus_isSingleEng",
-					_heli getVariable "vtx_sfmplus_engPctNP",
-					_heli getVariable "vtx_sfmplus_engPowerLeverState",
-					vtx_sfmplus_collectiveOutput,
-					_heli getVariable "vtx_sfmplus_engFF",
-					_heli getVariable "vtx_sfmplus_engBaseNG"];
+					_heli getVariable "vtx_uh60_sfmplus_engPctNG" select 0, 
+					_heli getVariable "vtx_uh60_sfmplus_engPctTQ" select 0, 
+					_heli getVariable "vtx_uh60_sfmplus_engTGT" select 0,
+					_heli getVariable "vtx_uh60_sfmplus_engPctNG" select 1, 
+					_heli getVariable "vtx_uh60_sfmplus_engPctTQ" select 1, 
+					_heli getVariable "vtx_uh60_sfmplus_engTGT" select 1,
+					_heli getVariable "vtx_uh60_sfmplus_engState",
+					_heli getVariable "vtx_uh60_sfmplus_isSingleEng",
+					_heli getVariable "vtx_uh60_sfmplus_engPctNP",
+					_heli getVariable "vtx_uh60_sfmplus_engPowerLeverState",
+					vtx_uh60_sfmplus_collectiveOutput,
+					_heli getVariable "vtx_uh60_sfmplus_engFF",
+					_heli getVariable "vtx_uh60_sfmplus_engBaseNG"];
 */
 #endif

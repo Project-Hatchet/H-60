@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_sfmplus_fnc_massSet
+Function: vtx_uh60_sfmplus_fnc_massSet
 
 Description:
 	Sets the initial mass of the helicopter.
@@ -20,14 +20,14 @@ params ["_heli"];
 
 private _emptyMass = 0;
 if (_heli animationPhase "fcr_enable" == 1) then {
-	_emptyMass = _heli getVariable "vtx_sfmplus_emptyMassFCR";
+	_emptyMass = _heli getVariable "vtx_uh60_sfmplus_emptyMassFCR";
 } else {
-	_emptyMass = _heli getVariable "vtx_sfmplus_emptyMassNonFCR";
+	_emptyMass = _heli getVariable "vtx_uh60_sfmplus_emptyMassNonFCR";
 };
-_heli setVariable["vtx_sfmplus_emptyMass", _emptyMass];
+_heli setVariable["vtx_uh60_sfmplus_emptyMass", _emptyMass];
 
-private _fwdFuelMass = [_heli] call vtx_sfmplus_fnc_fuelSet select 0;
-private _aftFuelMass = [_heli] call vtx_sfmplus_fnc_fuelSet select 1;
+private _fwdFuelMass = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet select 0;
+private _aftFuelMass = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet select 1;
 
 private _pylonMass = 0;
 {

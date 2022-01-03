@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_sfmplus_fnc_interactStartSwitch
+Function: vtx_uh60_sfmplus_fnc_interactStartSwitch
 
 Description:
 	Sets start switch state for the engine sim.
@@ -21,18 +21,18 @@ params ["_heli", "_engNum"];
 
 if(_heli animationphase "plt_rtrbrake" != 0) exitWith {};
 
-private _engState    = _heli getVariable "vtx_sfmplus_engState" select _engNum;
+private _engState    = _heli getVariable "vtx_uh60_sfmplus_engState" select _engNum;
 
 switch (_engState) do {
 	case "STARTING": {
 		_engState = "OFF";
-		[_heli, "vtx_sfmplus_engState", _engNum, _engState, true] call vtx_sfmplus_fnc_setArrayVariable;
+		[_heli, "vtx_uh60_sfmplus_engState", _engNum, _engState, true] call vtx_uh60_sfmplus_fnc_setArrayVariable;
 
 		true;
 	};
 	case "OFF": {
 		_engState = "STARTING";
-		[_heli, "vtx_sfmplus_engState", _engNum, _engState, true] call vtx_sfmplus_fnc_setArrayVariable;
+		[_heli, "vtx_uh60_sfmplus_engState", _engNum, _engState, true] call vtx_uh60_sfmplus_fnc_setArrayVariable;
 
 		true;
 	};

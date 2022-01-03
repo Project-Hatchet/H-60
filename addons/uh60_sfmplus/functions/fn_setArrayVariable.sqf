@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_sfmplus_fnc_setArrayVariable
+Function: vtx_uh60_sfmplus_fnc_setArrayVariable
 
 Description:
   Sets a multi-variable array.

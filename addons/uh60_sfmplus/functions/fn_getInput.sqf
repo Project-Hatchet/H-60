@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_sfmplus_fnc_getInput
+Function: vtx_uh60_sfmplus_fnc_getInput
 
 Description:
 	Handles keyboard and HOTAS input for the simulation.
@@ -32,5 +32,5 @@ if (vtx_uh60_sfmPlusKeyboardOnly) then {
 	_collectiveOut = linearConversion[-1.0, 1.0, _collectiveVal, 0.0, 1.0];
 };
 
-vtx_sfmplus_collectiveOutput = _collectiveOut
+vtx_uh60_sfmplus_collectiveOutput = _collectiveOut
 

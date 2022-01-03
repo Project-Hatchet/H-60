@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_sfmplus_fnc_getArea
+Function: vtx_uh60_sfmplus_fnc_getArea
 
 Description:
 	Returns the area of a four point polygon.

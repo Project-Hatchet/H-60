@@ -21,3 +21,5 @@ private _eventTypes = ["Activate", "Deactivate", "Analog"];
     addUserActionEventHandler ["HeliCollectiveRaiseCont", _x, {vtx_uh60_sfmPlusKeyboardOnly = false;}];
     addUserActionEventHandler ["HeliCollectiveLowerCont", _x, {vtx_uh60_sfmPlusKeyboardOnly = false;}];
 } forEach _eventTypes;
+
+#include "..\..\XEH_PREP.hpp"

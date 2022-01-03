@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_sfmplus_fnc_aeroStabilator
+Function: vtx_uh60_sfmplus_fnc_aeroStabilator
 
 Description:
     Creates a stabilator object which automatically schedules as a function of
@@ -35,10 +35,10 @@ DRAW_LINE = {
 
 //private _objCtr  = _heli selectionPosition ["modelCenter", "Memory"];
 private _objCtr  = _heli modelToWorldVisual [0,0,0];
-private _stabPos = _heli getVariable "vtx_sfmplus_stabPos";
+private _stabPos = _heli getVariable "vtx_uh60_sfmplus_stabPos";
 private _stabPvt = _objCtr vectorAdd _stabPos;
 
-private _intStabTable = [getArray (_config >> "stabTable"), vtx_sfmplus_collectiveOutput] call vtx_fnc_linearInterp;
+private _intStabTable = [getArray (_config >> "stabTable"), vtx_uh60_sfmplus_collectiveOutput] call vtx_fnc_linearInterp;
 
 private _stabOutputTable = [[15.43, _intStabTable select 1],  //30kts
 							[36.01, _intStabTable select 2],  //70kts
@@ -62,8 +62,8 @@ if (vtx_uh60_sfmPlusKeyboardOnly) then {
 //    E-------------G-------------F
 //    |             |             |
 //    D-------------I-------------C
-private _width  = _heli getVariable "vtx_sfmplus_stabWidth";
-private _length = _heli getVariable "vtx_sfmplus_stabLength";
+private _width  = _heli getVariable "vtx_uh60_sfmplus_stabWidth";
+private _length = _heli getVariable "vtx_uh60_sfmplus_stabLength";
 
 private _halfWidth = _width / 2;
 
@@ -97,7 +97,7 @@ _AoA = [_AoA] call CBA_fnc_simplifyAngle180;
 private _intAirfoilTable = [getArray (_config >> "stabAirfoilTable"), _AoA] call vtx_fnc_linearInterp;
 private _CL = _intAirfoilTable select 1;
 
-private _area = [_A, _B, _C, _D] call vtx_sfmplus_fnc_getArea;
+private _area = [_A, _B, _C, _D] call vtx_uh60_sfmplus_fnc_getArea;
 private _liftForce = -_CL * 0.5 * 1.225 * _area * (_V_mps * _V_mps);
 
 private _lift = _liftVec vectorMultiply (_liftForce * _deltaTime);

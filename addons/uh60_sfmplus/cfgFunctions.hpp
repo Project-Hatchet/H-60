@@ -8,7 +8,7 @@ class CfgFunctions
 {
 	class vtx_uh60_project_sfmplus
 	{
-        tag = "vtx_sfmplus";
+        tag = "vtx_uh60_sfmplus";
 		class aero {
 			file = "\z\vtx\addons\uh60_sfmplus\functions\aero";
 			class aeroStabilator {R;};
@@ -47,9 +47,10 @@ class CfgFunctions
 			class clampedMove {R;};
 			class getArea {R;};
 			class getInput {R;};
-			class perFrame {R;};
+			class linearInterp {R;};
+			//class perFrame {R;};
 			class setArrayVariable {R;};
-			class setup {R;};
+			//class setup {R;};
 		};
     };
 };

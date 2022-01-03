@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_sfmplus_fnc_clampedMove
+Function: vtx_uh60_sfmplus_fnc_clampedMove
 
 Description:
   Interpolates between current and max values over time.

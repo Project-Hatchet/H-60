@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 class CfgPatches
 {
 	class vtx_uh60_sfmplus
