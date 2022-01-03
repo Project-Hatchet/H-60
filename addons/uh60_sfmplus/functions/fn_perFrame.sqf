@@ -7,4 +7,6 @@ if !(
 	{_vehicle isKindOf "vtx_h60_base"}
 ) exitwith {};
 
+systemChat format ["perFrame true"];
+
 [_vehicle] call vtx_uh60_sfmplus_fnc_coreUpdate;
