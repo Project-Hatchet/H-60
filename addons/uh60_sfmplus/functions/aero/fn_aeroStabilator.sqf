@@ -101,12 +101,6 @@ private _lift = _liftVec vectorMultiply (_liftForce * _deltaTime);
 //_heli addForce[_heli vectorModelToWorld _lift, _G];
 
 #ifdef __A3_DEBUG__
-hintsilent format ["A = %1
-                    \nB = %2
-                    \nC = %3
-                    \nD = %4
-                    \n_objCtr = %5", _A, _B, _C, _D, _objCtr];
-
 /*
 hintsilent format ["Collective Out = %1
                    \nStab Pos = %2

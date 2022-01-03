@@ -20,18 +20,45 @@ params ["_heli"];
 #include "\z\vtx\addons\uh60_sfmplus\headers\core.hpp"
 private _deltaTime = ["sfmplus_deltaTime"] call BIS_fnc_deltaTime;
 
-systemChat format ["coreUpdate is running!"];
-
 //Input
 [_heli] call vtx_uh60_sfmplus_fnc_getInput;
 
 //Weight
 private _emptyMass = 0;
-if (_heli animationPhase "fcr_enable" == 1) then {
-	_emptyMass = _heli getVariable "vtx_uh60_sfmplus_emptyMassFCR";
-} else {
-	_emptyMass = _heli getVariable "vtx_uh60_sfmplus_emptyMassNonFCR";
-};
+
+_emptyMass = _heli getVariable "vtx_uh60_sfmplus_emptyMass";
+
+private _cfgAnimationSources = configOf _heli >> "AnimationSources";
+{
+	private _phase = _heli animationSourcePhase _x;
+	private _partMass = getNumber (_cfgAnimationSources >> _x >> "mass");
+	_emptyMass = _emptyMass + _partMass * ([-1, 1] select _phase);
+} forEach [
+	"CabinSeats_1_Hide",
+	"CabinSeats_2_Hide",
+	"CabinSeats_3_Hide",
+	"Cockpitdoors_Hide",
+	"FLIR_HIDE",
+	"Fuelprobe_show",
+	"GunnerSeats_Hide",
+	"GAU21_L_Hide",
+	"HH60Flares_show",
+	"hoist_hide",
+	"ERFS_show",
+	"ESSS_show",
+	"LASS_show",
+	"Minigun_Mount_L_hide",
+	"Minigun_Mount_R_hide",
+	"Minigun_L_hide",
+	"Minigun_R_hide",
+	"RADAR_HIDE",
+	"Skis_show"
+];
+
+//Add ViV
+//Add passengers
+
+_heli setVariable["vtx_uh60_sfmplus_emptyMass", _emptyMass];
 private _maxTotFuelMass = _heli getVariable "vtx_uh60_sfmplus_maxTotFuelMass";
 private _fwdFuelMass    = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet select 0;
 private _aftFuelMass    = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet select 1;
@@ -46,7 +73,7 @@ private _eng2FF = _heli getVariable "vtx_uh60_sfmplus_engFF" select 1;
 private _curFuelFlow = 0;
 
 if (_heli animationphase "plt_apu" > 0.5) then {
-	_apuFF = 0.0220;	//175pph
+	_apuFF = 0.0151;	//120pph
 };
 _curFuelFlow    = (_apuFF + _eng1FF + _eng2FF) * _deltaTime;
 
@@ -81,8 +108,7 @@ if(vtx_uh60_sfmPlusStabilatorEnabled == STABILTOR_MODE_ALWAYSENABLED
 	[_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_aeroStabilator;
 };
 
-#ifdef __A3_DEBUG_
-/*
+#ifdef __A3_DEBUG__
 hintsilent format ["v0.11
 					\nEngine 1 Ng = %1
 					\nEngine 1 TQ = %2
@@ -115,5 +141,5 @@ hintsilent format ["v0.11
 					vtx_uh60_sfmplus_collectiveOutput,
 					_heli getVariable "vtx_uh60_sfmplus_engFF",
 					_heli getVariable "vtx_uh60_sfmplus_engBaseNG"];
-*/
+
 #endif

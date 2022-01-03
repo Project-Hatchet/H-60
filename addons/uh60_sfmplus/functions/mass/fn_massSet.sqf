@@ -19,11 +19,39 @@ Author:
 params ["_heli"];
 
 private _emptyMass = 0;
-if (_heli animationPhase "fcr_enable" == 1) then {
-	_emptyMass = _heli getVariable "vtx_uh60_sfmplus_emptyMassFCR";
-} else {
-	_emptyMass = _heli getVariable "vtx_uh60_sfmplus_emptyMassNonFCR";
-};
+
+_emptyMass = _heli getVariable "vtx_uh60_sfmplus_emptyMass";
+
+private _cfgAnimationSources = configOf _heli >> "AnimationSources";
+{
+	private _phase = _heli animationSourcePhase _x;
+	private _partMass = getNumber (_cfgAnimationSources >> _x >> "mass");
+	_emptyMass = _emptyMass + _partMass * ([-1, 1] select _phase);
+} forEach [
+	"CabinSeats_1_Hide",
+	"CabinSeats_2_Hide",
+	"CabinSeats_3_Hide",
+	"Cockpitdoors_Hide",
+	"FLIR_HIDE",
+	"Fuelprobe_show",
+	"GunnerSeats_Hide",
+	"GAU21_L_Hide",
+	"HH60Flares_show",
+	"hoist_hide",
+	"ERFS_show",
+	"ESSS_show",
+	"LASS_show",
+	"Minigun_Mount_L_hide",
+	"Minigun_Mount_R_hide",
+	"Minigun_L_hide",
+	"Minigun_R_hide",
+	"RADAR_HIDE",
+	"Skis_show"
+];
+
+//Add ViV
+//Add passengers
+
 _heli setVariable["vtx_uh60_sfmplus_emptyMass", _emptyMass];
 
 private _fwdFuelMass = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet select 0;
