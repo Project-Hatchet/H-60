@@ -89,12 +89,12 @@ if (!isNil {VTX_JVMF_MESSAGES # VTX_JVMF_SELECTED_IDX}) then {
     [43, 44] call _clearPos;
 };
 
+private _tofStr = "";
 if (speed _vehicle > 2) then {
-    private _speedMS = vectorMagnitude (velocity _vehicle);
-    private _tofSecondsTotal = (_position distance _vehicle) / _speedMS;
-    private _tofHours = floor (_tofSecondsTotal / 60 / 60);
-    private _tofMinutes = floor (_tofSecondsTotal / 60 % 60);
-    private _tofSeconds = round (_tofSecondsTotal % 60);
-    private _tofStr = format["%1:%2:%3",_tofHours, _tofMinutes, _tofSeconds];
-    _vehicle setUserMFDText [8, _tofStr];
+  private _speedMS = vectorMagnitude (velocity _vehicle);
+  private _tofSecondsTotal = (_position distance _vehicle) / _speedMS;
+  _tofStr = [_tofSecondsTotal] call CBA_fnc_formatElapsedTime;
+} else {
+  _tofStr = "--:--:--";
 };
+_vehicle setUserMFDText [8, _tofStr];

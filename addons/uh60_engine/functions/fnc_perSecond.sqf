@@ -5,6 +5,7 @@
  *
  * params (array)[(object) vehicle]
  */
+
 #include "defines.hpp"
 params ["_vehicle"];
 
@@ -35,6 +36,7 @@ if (_esisCount > -1) then {
 private _temp = ((getPosASL player) # 2) call ace_weather_fnc_calculateTemperatureAtHeight;
 private _tempMultiplier = 1 + (_temp * 0.001);
 private _torqueMultiplier = 1 + ((collectiveRTD _vehicle) * 0.1);
+
 // Update fuel consumption
 { // forEach [GET("ENG1_PWR",0),GET("ENG2_PWR",0)]
     if(_x > 0) then {
@@ -43,14 +45,16 @@ private _torqueMultiplier = 1 + ((collectiveRTD _vehicle) * 0.1);
     };
 } forEach [GET("ENG1_PWR",0),GET("ENG2_PWR",0)];
 
+if(_apuPower) then {
+  _vehicle setFuel ((fuel _vehicle) - ((120/2040) / 60 / 60));
+};
+
 private _fuelConsumed = vtx_uh60_engine_lastFuelLevel - fuel _vehicle;
+
 vtx_uh60_engine_lastFuelLevel = fuel _vehicle;
 if (_fuelConsumed > 0) then {
     private _fuelTimeSecondsTotal = (fuel _vehicle) / _fuelConsumed;
-    private _fuelTimeHours = floor (_fuelTimeSecondsTotal / 60 / 60);
-    private _fuelTimeMinutes = floor (_fuelTimeSecondsTotal / 60 % 60);
-    private _fuelTimeSeconds = round (_fuelTimeSecondsTotal % 60);
-    private _fuelTimeStr = format["%1:%2:%3",_fuelTimeHours, _fuelTimeMinutes, _fuelTimeSeconds];
+    private _fuelTimeStr = [_fuelTimeSecondsTotal] call CBA_fnc_formatElapsedTime;
     vtx_uh60_engine_fuelTime = _fuelTimeStr;
     vtx_uh60_engine_fuelConsumption = _fuelConsumed * 2040 * 60;
     vtx_uh60_engine_fuelRange = round ((_fuelTimeSecondsTotal * (vectorMagnitude (velocity _vehicle))) * 0.000539957);
