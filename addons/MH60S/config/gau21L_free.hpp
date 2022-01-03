@@ -32,6 +32,7 @@ class GAU21_Left: MainTurret
           {-69.9961,155.202}
         };
     };
+    class TurnOut: TurnIn {};
     gunBeg="GAU21L_End"; //gunBeg=endpoint of the gun
     gunEnd="GAU21L_Beg"; //gunEnd=chamber of the gun
     gunnerLeftHandAnimName="GAU21_ELEV_L";
