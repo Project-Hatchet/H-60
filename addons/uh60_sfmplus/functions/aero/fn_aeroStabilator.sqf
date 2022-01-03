@@ -98,7 +98,7 @@ private _area = [_A, _B, _C, _D] call vtx_uh60_sfmplus_fnc_getArea;
 private _liftForce = -_CL * 0.5 * 1.225 * _area * (_V_mps * _V_mps);
 
 private _lift = _liftVec vectorMultiply (_liftForce * _deltaTime);
-//_heli addForce[_heli vectorModelToWorld _lift, _G];
+_heli addForce[_heli vectorModelToWorld _lift, _G];
 
 #ifdef __A3_DEBUG__
 /*

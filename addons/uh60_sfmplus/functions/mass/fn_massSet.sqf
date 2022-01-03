@@ -19,14 +19,14 @@ Author:
 params ["_heli"];
 
 private _emptyMass = 0;
-
+private _partsMass = 0;
 _emptyMass = _heli getVariable "vtx_uh60_sfmplus_emptyMass";
 
 private _cfgAnimationSources = configOf _heli >> "AnimationSources";
 {
 	private _phase = _heli animationSourcePhase _x;
 	private _partMass = getNumber (_cfgAnimationSources >> _x >> "mass");
-	_emptyMass = _emptyMass + _partMass * ([-1, 1] select _phase);
+	_partsMass = _partsMass + _partMass * _phase;
 } forEach [
 	"CabinSeats_1_Hide",
 	"CabinSeats_2_Hide",
@@ -52,10 +52,10 @@ private _cfgAnimationSources = configOf _heli >> "AnimationSources";
 //Add ViV
 //Add passengers
 
-_heli setVariable["vtx_uh60_sfmplus_emptyMass", _emptyMass];
+_heli setVariable["fza_sfmplus_emptyMass", _emptyMass];
 
-private _fwdFuelMass = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet select 0;
-private _aftFuelMass = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet select 1;
+private _tank1Mass = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet select 0;
+private _tank2Mass = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet select 1;
 
 private _pylonMass = 0;
 {
@@ -66,6 +66,6 @@ private _pylonMass = 0;
 	_pylonMass = _pylonMass + linearConversion [0, _magMaxAmmo, _magAmmo, 0, _magMaxWeight];
 } foreach magazinesAllTurrets _heli;
 
-private _totalMass = _emptyMass + _fwdFuelMass + _aftFuelMass + _pylonMass;
+private _totalMass = _emptyMass + _tank1Mass + _tank2Mass + _pylonMass + _partsMass;
 
 _heli setMass _totalMass;

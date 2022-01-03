@@ -25,14 +25,14 @@ private _deltaTime = ["sfmplus_deltaTime"] call BIS_fnc_deltaTime;
 
 //Weight
 private _emptyMass = 0;
-
+private _partsMass = 0;
 _emptyMass = _heli getVariable "vtx_uh60_sfmplus_emptyMass";
 
 private _cfgAnimationSources = configOf _heli >> "AnimationSources";
 {
 	private _phase = _heli animationSourcePhase _x;
 	private _partMass = getNumber (_cfgAnimationSources >> _x >> "mass");
-	_emptyMass = _emptyMass + _partMass * ([-1, 1] select _phase);
+	_partsMass = _partsMass + _partMass * _phase;
 } forEach [
 	"CabinSeats_1_Hide",
 	"CabinSeats_2_Hide",
@@ -58,10 +58,9 @@ private _cfgAnimationSources = configOf _heli >> "AnimationSources";
 //Add ViV
 //Add passengers
 
-_heli setVariable["vtx_uh60_sfmplus_emptyMass", _emptyMass];
 private _maxTotFuelMass = _heli getVariable "vtx_uh60_sfmplus_maxTotFuelMass";
-private _fwdFuelMass    = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet select 0;
-private _aftFuelMass    = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet select 1;
+private _tank1Mass    = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet select 0;
+private _tank2Mass    = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet select 1;
 
 //Engines
 [_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_engineController;
@@ -72,12 +71,12 @@ private _eng1FF = _heli getVariable "vtx_uh60_sfmplus_engFF" select 0;
 private _eng2FF = _heli getVariable "vtx_uh60_sfmplus_engFF" select 1;
 private _curFuelFlow = 0;
 
-if (_heli animationphase "plt_apu" > 0.5) then {
+if (_heli getVariable "APU_POWER" == true) then {
 	_apuFF = 0.0151;	//120pph
 };
 _curFuelFlow    = (_apuFF + _eng1FF + _eng2FF) * _deltaTime;
 
-private _totFuelMass  = _fwdFuelMass + _aftFuelMass;
+private _totFuelMass  = _tank1Mass + _tank2Mass;
 _totFuelMass          = _totFuelMass - _curFuelFlow;
 private _armaFuelFrac = _totFuelMass / _maxTotFuelMass;
 if (local _heli) then {
@@ -94,7 +93,7 @@ private _pylonMass = 0;
 	_pylonMass = _pylonMass + linearConversion [0, _magMaxAmmo, _magAmmo, 0, _magMaxWeight];
 } foreach magazinesAllTurrets _heli;
 
-private _curMass = _emptyMass + _totFuelMass + _pylonMass;
+private _curMass = _emptyMass + _totFuelMass + _pylonMass + _partsMass;
 if (local _heli) then {
 	_heli setMass _curMass;
 };
@@ -121,13 +120,11 @@ hintsilent format ["v0.11
 					\nEng State = %7
 					\nIs Single Engine? = %8
 					\nPercent NP = %9
-					\nEng Clutch State = %10
-					\nEng Start Switch = %11
-					\nEng Power Lever = %12;
+					\nEng Power Lever = %10;
 					\n-------------------
-					\nColl Pos = %13
-					\nEng FF = %14
-					\nEngine Base NG = %15", 		
+					\nColl Pos = %11
+					\nEng FF = %12
+					\nEngine Base NG = %13", 		
 					_heli getVariable "vtx_uh60_sfmplus_engPctNG" select 0, 
 					_heli getVariable "vtx_uh60_sfmplus_engPctTQ" select 0, 
 					_heli getVariable "vtx_uh60_sfmplus_engTGT" select 0,

@@ -13,8 +13,8 @@ Returns:
 Examples:
 	...
 	_fuelMass = [_heli] call vtx_fnc_setFuel;
-	_fwdFuelMass = _fuelMass select 0;
-	_aftFuelMass = _fuelMass select 1;
+	_tank1Mass = _fuelMass select 0;
+	_tank2Mass = _fuelMass select 1;
 
 Author:
 	BradMick
@@ -28,7 +28,7 @@ private _maxTotFuelMass = _maxTank1FuelMass + _maxTank2FuelMass;
 _heli setVariable ["vtx_uh60_sfmplus_maxTotFuelMass", _maxTotFuelMass];
 
 private _totFuelMass = _maxTotFuelMass * _percentFuel;
-private _fwdFuelMass = [_totFuelMass / 2, 0, _maxTank1FuelMass] call BIS_fnc_clamp;
-private _aftFuelMass = _totFuelMass - _fwdFuelMass;
+private _tank1Mass = [_totFuelMass / 2, 0, _maxTank1FuelMass] call BIS_fnc_clamp;
+private _tank2Mass = _totFuelMass - _tank1Mass;
 
-[_fwdFuelMass, _aftFuelMass];
+[_tank1Mass, _tank2Mass];
