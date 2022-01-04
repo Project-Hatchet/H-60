@@ -19,8 +19,6 @@ Author:
 ---------------------------------------------------------------------------- */
 params ["_heli", "_engNum"];
 
-systemChat format ["Made it boss!"];
-
 private _engState    = _heli getVariable "vtx_uh60_sfmplus_engState" select _engNum;
 
 switch (_engState) do {

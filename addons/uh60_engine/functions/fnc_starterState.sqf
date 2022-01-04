@@ -8,7 +8,7 @@
 
 params ["_vehicle", "_animName", "_animEndState"];
 
-private _batteriesOn = (_vehicle getVariable ["BATT1_POWER", 100]) + (_vehicle getVariable ["BATT2_POWER", 100]) > 0;
+private _batteriesOn   = (_vehicle getVariable ["BATT1_POWER", 100]) + (_vehicle getVariable ["BATT2_POWER", 100]) > 0;
 private _ignitionState = (_vehicle animationPhase "Switch_ignition" == 1) && _batteriesOn;
 if (!_ignitionState) exitWith {
     _vehicle setVariable ["ENG_START1", false, true];
@@ -46,11 +46,6 @@ if (_animName == "STARTER1") then {
     if (!isNil "vtx_uh60_start1_dummy") then {deleteVehicle vtx_uh60_start1_dummy};
         _vehicle setVariable ["ENG_START2", false, true];
     };
-
-    //SFM+
-    if (!difficultyEnableRTD) then {
-        [_vehicle, 0] call vtx_uh60_sfmplus_fnc_interactStartSwitch;
-    };
 };
 if (_animName == "STARTER2") then {
     if((_vehicle getVariable ["ENG_START1", false] && _canStartSingle) || _canStartTwin) then {
@@ -61,12 +56,18 @@ if (_animName == "STARTER2") then {
     } else {
         _vehicle setVariable ["ENG_START1", false, true];
         if (!isNil "vtx_uh60_start2_dummy") then {deleteVehicle vtx_uh60_start2_dummy};
-    };
-
-    //SFM+
-    if (!difficultyEnableRTD) then {
-        [_vehicle, 1] call vtx_uh60_sfmplus_fnc_interactStartSwitch;
-    };    
+    };   
 };
 
 [_vehicle] call vtx_uh60_cas_fnc_updateCautions;
+
+//SFM+
+if (!difficultyEnabledRTD) then {
+    if (_animName == "STARTER1") then {
+        [_vehicle, 0] call vtx_uh60_sfmplus_fnc_interactStartSwitch;
+    };
+
+    if (_animName == "STARTER2") then {
+        [_vehicle, 1] call vtx_uh60_sfmplus_fnc_interactStartSwitch;
+    };
+};

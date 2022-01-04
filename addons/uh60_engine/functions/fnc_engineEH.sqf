@@ -65,34 +65,41 @@ if (_fuelFlow2 > 0) then {
 
 _turnedOn = (_power > 0);
 
-//SFM+
-//--Engine 1
-private _eng1PCLState = "OFF";
-if (_vehicle animationPhase "Lever_engpower1" == 0.0) then {
-    _eng1PCLState = "OFF";
-};
-if ((_vehicle animationPhase "Lever_engpower1" >= 0.23) && (_vehicle animationPhase "Lever_engpower1" < 0.85)) then {
-    _eng1PCLState = "IDLE";
-};
-if (_vehicle animationPhase "Lever_engpower1" >= 0.85) then {
-    _eng1PCLState = "FLY";
-};
-[_vehicle, 0, _eng1PCLState] call vtx_uh60_sfmplus_fnc_interactPowerLever;
-
-//--Engine 2
-private _eng2PCLState = "OFF";
-if (_vehicle animationPhase "Lever_engpower2" == 0.0) then {
-    _eng2PCLState = "OFF";
-};
-if ((_vehicle animationPhase "Lever_engpower2" >= 0.23) && (_vehicle animationPhase "Lever_engpower2" < 0.85)) then {
-    _eng2PCLState = "IDLE";
-};
-if (_vehicle animationPhase "Lever_engpower2" >= 0.85) then {
-    _eng2PCLState = "FLY";
-};
-[_vehicle, 1, _eng2PCLState] call vtx_uh60_sfmplus_fnc_interactPowerLever;
-
 _vehicle engineOn _turnedOn;
 if(vtx_uh60_ui_showDebugMessages) then {systemChat "ENGINE STATE CHANGE";};
 _this call vtx_uh60_engine_fnc_batteryState;
 [_vehicle] call vtx_uh60_cas_fnc_updateCautionPanel;
+
+//SFM+
+if (!difficultyEnabledRTD) then {
+    //--Engine 1
+    private _eng1PCLPos = _vehicle animationPhase "Lever_engpower1";
+    private _eng1PCLState;
+    if (_eng1PCLPos < 0.23) then {
+        systemChat format ["Eng 1 OFF Pos"];
+        [_vehicle, 0, "OFF"] spawn vtx_uh60_sfmplus_fnc_interactPowerLever;
+    };
+    if ((_eng1PCLPos >= 0.23) && (_eng1PCLPos < 0.85)) then {
+        systemChat format ["Eng 1 IDLE Pos"];
+        [_vehicle, 0, "IDLE"] spawn vtx_uh60_sfmplus_fnc_interactPowerLever;
+    };
+    if (_eng1PCLPos >= 0.85) then {
+        systemChat format ["Eng 1 FLY Pos"];
+        [_vehicle, 0, "FLY"] spawn vtx_uh60_sfmplus_fnc_interactPowerLever;
+    };
+
+    //--Engine 2
+    private _eng2PCLPos = _vehicle animationPhase "Lever_engpower2";
+    if (_eng2PCLPos < 0.23) then {
+        systemChat format ["Eng 2 OFF Pos"];
+        [_vehicle, 1, "OFF"] spawn vtx_uh60_sfmplus_fnc_interactPowerLever;
+    };
+    if ((_eng2PCLPos >= 0.23) && (_eng2PCLPos < 0.85)) then {
+        systemChat format ["Eng 2 IDLE Pos"];
+        [_vehicle, 1, "IDLE"] spawn vtx_uh60_sfmplus_fnc_interactPowerLever;
+    };
+    if (_eng2PCLPos >= 0.85) then {
+        systemChat format ["Eng 2 FLY Pos"];
+        [_vehicle, 1, "FLY"] spawn vtx_uh60_sfmplus_fnc_interactPowerLever;
+    };
+};
