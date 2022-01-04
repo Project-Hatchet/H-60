@@ -61,7 +61,11 @@ if (_engPowerLeverState in ["OFF", "IDLE"]) then {
 } else { _engThrottle = 1.0; };
 
 //Tq
-_engBaseTQ = _engIdleTQ + (_engFlyTQ - _engIdleTQ) * _engThrottle;
+if (_engPowerLeverState != "OFF") then {
+	_engBaseTQ = _engIdleTQ + (_engFlyTQ - _engIdleTQ) * _engThrottle;
+} else {
+	_engBaseTQ = 0.0;
+};
 //Ng
 _engBaseNG = _engIdleNG + (_engFlyNG - _engIdleNG) * _engThrottle;
 //Np

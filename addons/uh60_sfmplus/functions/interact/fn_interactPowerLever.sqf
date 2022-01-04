@@ -21,13 +21,9 @@ Author:
 ---------------------------------------------------------------------------- */
 params ["_heli", "_engNum", "_state"];
 
-if(_heli animationphase "plt_rtrbrake" != 0) exitWith {};
-
 private _engState = _heli getVariable "vtx_uh60_sfmplus_engState" select _engNum;
-private _engPwrLeverAnimName = format["plt_eng%1_throttle", _engNum + 1]; 
 
 if (_state == "OFF") then {
-	_heli animateSource[_engPwrLeverAnimName, 0];
 	[_heli, "vtx_uh60_sfmplus_engPowerLeverState", _engNum, _state, true] call vtx_uh60_sfmplus_fnc_setArrayVariable;
 
 	if (_engState == "ON") then {
@@ -39,7 +35,6 @@ if (_state == "OFF") then {
 };
 
 if (_state == "IDLE") then {
-	_heli animateSource[_engPwrLeverAnimName, 0.25];
 	[_heli, "vtx_uh60_sfmplus_engPowerLeverState", _engNum, _state, true] call vtx_uh60_sfmplus_fnc_setArrayVariable;
 
 	//HeliSim
@@ -47,8 +42,6 @@ if (_state == "IDLE") then {
 };
 
 if (_state == "FLY") then {
-	//0.063 sets the power levers to fly in 16 seconds
-	_heli animateSource[_engPwrLeverAnimName, 1, 0.25];
 	[_heli, "vtx_uh60_sfmplus_engPowerLeverState", _engNum, _state, true] call vtx_uh60_sfmplus_fnc_setArrayVariable;
 
 	//HeliSim

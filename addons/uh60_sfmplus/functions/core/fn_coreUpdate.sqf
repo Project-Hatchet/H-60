@@ -125,18 +125,18 @@ hintsilent format ["v0.11
 					\nColl Pos = %11
 					\nEng FF = %12
 					\nEngine Base NG = %13", 		
-					_heli getVariable "vtx_uh60_sfmplus_engPctNG" select 0, 
-					_heli getVariable "vtx_uh60_sfmplus_engPctTQ" select 0, 
-					_heli getVariable "vtx_uh60_sfmplus_engTGT" select 0,
-					_heli getVariable "vtx_uh60_sfmplus_engPctNG" select 1, 
-					_heli getVariable "vtx_uh60_sfmplus_engPctTQ" select 1, 
-					_heli getVariable "vtx_uh60_sfmplus_engTGT" select 1,
-					_heli getVariable "vtx_uh60_sfmplus_engState",
-					_heli getVariable "vtx_uh60_sfmplus_isSingleEng",
-					_heli getVariable "vtx_uh60_sfmplus_engPctNP",
-					_heli getVariable "vtx_uh60_sfmplus_engPowerLeverState",
-					vtx_uh60_sfmplus_collectiveOutput,
-					_heli getVariable "vtx_uh60_sfmplus_engFF",
-					_heli getVariable "vtx_uh60_sfmplus_engBaseNG"];
+					_heli getVariable "vtx_uh60_sfmplus_engPctNG" select 0,	 //1 
+					_heli getVariable "vtx_uh60_sfmplus_engPctTQ" select 0,  //2
+					_heli getVariable "vtx_uh60_sfmplus_engTGT" select 0,	 //3
+					_heli getVariable "vtx_uh60_sfmplus_engPctNG" select 1,  //4
+					_heli getVariable "vtx_uh60_sfmplus_engPctTQ" select 1,  //5
+					_heli getVariable "vtx_uh60_sfmplus_engTGT" select 1,	 //6
+					_heli getVariable "vtx_uh60_sfmplus_engState",			 //7
+					_heli getVariable "vtx_uh60_sfmplus_isSingleEng",		 //8
+					_heli getVariable "vtx_uh60_sfmplus_engPctNP",			 //9
+					_heli getVariable "vtx_uh60_sfmplus_engPowerLeverState", //10
+					vtx_uh60_sfmplus_collectiveOutput,						 //11
+					_heli getVariable "vtx_uh60_sfmplus_engFF",			     //12
+					_heli getVariable "vtx_uh60_sfmplus_engBaseNG"];         //13
 
 #endif

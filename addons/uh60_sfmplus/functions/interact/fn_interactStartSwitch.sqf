@@ -19,7 +19,7 @@ Author:
 ---------------------------------------------------------------------------- */
 params ["_heli", "_engNum"];
 
-if(_heli animationphase "plt_rtrbrake" != 0) exitWith {};
+systemChat format ["Made it boss!"];
 
 private _engState    = _heli getVariable "vtx_uh60_sfmplus_engState" select _engNum;
 

@@ -65,6 +65,33 @@ if (_fuelFlow2 > 0) then {
 
 _turnedOn = (_power > 0);
 
+//SFM+
+//--Engine 1
+private _eng1PCLState = "OFF";
+if (_vehicle animationPhase "Lever_engpower1" == 0.0) then {
+    _eng1PCLState = "OFF";
+};
+if ((_vehicle animationPhase "Lever_engpower1" >= 0.23) && (_vehicle animationPhase "Lever_engpower1" < 0.85)) then {
+    _eng1PCLState = "IDLE";
+};
+if (_vehicle animationPhase "Lever_engpower1" >= 0.85) then {
+    _eng1PCLState = "FLY";
+};
+[_vehicle, 0, _eng1PCLState] call vtx_uh60_sfmplus_fnc_interactPowerLever;
+
+//--Engine 2
+private _eng2PCLState = "OFF";
+if (_vehicle animationPhase "Lever_engpower2" == 0.0) then {
+    _eng2PCLState = "OFF";
+};
+if ((_vehicle animationPhase "Lever_engpower2" >= 0.23) && (_vehicle animationPhase "Lever_engpower2" < 0.85)) then {
+    _eng2PCLState = "IDLE";
+};
+if (_vehicle animationPhase "Lever_engpower2" >= 0.85) then {
+    _eng2PCLState = "FLY";
+};
+[_vehicle, 1, _eng2PCLState] call vtx_uh60_sfmplus_fnc_interactPowerLever;
+
 _vehicle engineOn _turnedOn;
 if(vtx_uh60_ui_showDebugMessages) then {systemChat "ENGINE STATE CHANGE";};
 _this call vtx_uh60_engine_fnc_batteryState;
