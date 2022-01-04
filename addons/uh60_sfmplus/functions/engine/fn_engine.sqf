@@ -146,13 +146,15 @@ private _engCruiseTQTable = [[]];
 if (vtx_uh60_sfmPlusKeyboardOnly) then {
 	_engCruiseTQTable = [[ 0.00, 		               0.03],
 					 	 [ 0.82, _intCruiseTQTable select 5],
-					 	 [ 1.00, _intCruiseTQTable select 9]];
+					 	 [ 0.90, _intCruiseTQTable select 9],
+						 [ 1.00, 1.34                      ]];
 } else {
 	_engCruiseTQTable = [[ 0.00, 		               0.03],
 						 [ 0.67, _intCruiseTQTable select 4],
 						 [ 0.70, _intCruiseTQTable select 5],
-						 [ 0.89, _intCruiseTQTable select 7],
-						 [ 1.00, _intCruiseTQTable select 9]];
+						 [ 0.80, _intCruiseTQTable select 7],
+						 [ 0.90, _intCruiseTQTable select 9],
+						 [ 1.00, 1.34                      ]];
 };
 
 private _curHvrTQ = [_engHvrTQTable,    vtx_uh60_sfmplus_collectiveOutput] call vtx_uh60_sfmplus_fnc_linearInterp select 1;
@@ -168,7 +170,7 @@ if (_isSingleEng) then {
 
 private _engTable = [[_engBaseTQ, _engBaseTGT,	_engBaseNG, _engBaseOilPSI],
 					 [1.00,       810,			0.950	  ,	0.91		  ],	//Cont
-					 [1.29, 	  867,			0.990	  , 0.94          ],	//10 min
+					 [1.31, 	  867,			0.990	  , 0.94          ],	//10 min
 					 [1.34, 	  896,			0.997	  , 0.99          ]];	//2.5 Min
 
 _engTGT    = [_engTable,   _engPctTQ] call vtx_uh60_sfmplus_fnc_linearInterp select 1;
