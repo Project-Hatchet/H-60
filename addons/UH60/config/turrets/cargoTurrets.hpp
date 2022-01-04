@@ -6,8 +6,8 @@ class CargoTurret_01: CargoTurret {
     gunnerCompartments = Compartment2;
     proxyIndex = 12;
     isPersonTurret = 1;        /// this turret is able to fire both when turned in and out
-    disableSoundAttenuation = 0;
     selectionFireAnim = "";
+    disableSoundAttenuation = 0;
     class TurnIn /// limits for gunner turned in
     {
         limitsArrayBottom[] = {[-45,-94.9656],[-45,80.9904],[-31.9033,82.8465],[-31.7935,95]};
