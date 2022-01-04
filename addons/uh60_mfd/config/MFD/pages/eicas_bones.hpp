@@ -80,29 +80,57 @@ class EICAS_RPM1
     minPos[]={0,BARTOP};
     maxPos[]={0,BARBOTTOM};
 };
-class EICAS_RPM2: EICAS_RPM1 {
-            source="user";
-            sourceIndex=22;
+class EICAS_RPM2: EICAS_RPM1 {        
+    source="user";
+    sourceIndex=22;
 };
 class T1: EICAS_RPM1 {
     source="user";
-            sourceScale=1;
-            sourceIndex=21;
-            max=160;
+    sourceScale=1;
+    sourceIndex=21;
+    max=160;
 };
 class T2: EICAS_RPM1 {
     sourceIndex=22;
-            sourceScale=1;
-            max=160;
+    sourceScale=1;
+    max=160;
 };
-class NG1: T1 {max=120;sourceScale=1;};
-    class NG2: T2 {max=120;sourceScale=1;};
-    class TGT1: T1 {max=520;sourceScale=5;};
-    class TGT2: T2 {max=520;sourceScale=5;};
-    class Q1: T1 {max=120;sourceScale=1;};
-    class Q2: T2 {max=120;sourceScale=1;};
+class NG1: T1 {
+    max=120;
+    sourceScale=1;
+    source = "user";
+    sourceIndex = 45;
+    };
+    class NG2: T2 {
+        max=120;
+        sourceScale=1;
+        source = "user";
+        sourceIndex = 46;
+    };
+    class TGT1: T1 {
+        max=520;
+        sourceScale=5;
+    };
+    class TGT2: T2 {
+        max=520;
+        sourceScale=5;
+    };
+    class Q1: T1 {
+        max=120;
+        sourceScale=1;
+        source = "user";
+        sourceIndex = 47;
+    };
+    class Q2: T2 {
+        max=120;
+        sourceScale=1;
+        source = "user";
+        sourceIndex = 48;    
+    };
     class TRQ: EICAS_RPM1 {
-            source="rtdRotorTorque";
+            //source="rtdRotorTorque";
+            source = "user";
+            sourceIndex = 47;
             max=0.1;
     };
     class COLL: EICAS_RPM1 {

@@ -78,11 +78,11 @@ if (!difficultyEnabledRTD) then {
         systemChat format ["Eng 1 OFF Pos"];
         [_vehicle, 0, "OFF"] call vtx_uh60_sfmplus_fnc_interactPowerLever;
     };
-    if ((_eng1PCLPos >= 0.23) && (_eng1PCLPos < 0.84)) then {
+    if ((_eng1PCLPos >= 0.23) && (_eng1PCLPos < 0.85)) then {
         systemChat format ["Eng 1 IDLE Pos"];
         [_vehicle, 0, "IDLE"] call vtx_uh60_sfmplus_fnc_interactPowerLever;
     };
-    if (_eng1PCLPos >= 0.84) then {
+    if (_eng1PCLPos >= 0.85) then {
         systemChat format ["Eng 1 FLY Pos"];
         [_vehicle, 0, "FLY"] call vtx_uh60_sfmplus_fnc_interactPowerLever;
     };
@@ -93,11 +93,11 @@ if (!difficultyEnabledRTD) then {
         systemChat format ["Eng 2 OFF Pos"];
         [_vehicle, 1, "OFF"] call vtx_uh60_sfmplus_fnc_interactPowerLever;
     };
-    if ((_eng2PCLPos >= 0.23) && (_eng2PCLPos < 0.84)) then {
+    if ((_eng2PCLPos >= 0.23) && (_eng2PCLPos < 0.85)) then {
         systemChat format ["Eng 2 IDLE Pos"];
         [_vehicle, 1, "IDLE"] call vtx_uh60_sfmplus_fnc_interactPowerLever;
     };
-    if (_eng2PCLPos >= 0.84) then {
+    if (_eng2PCLPos >= 0.85) then {
         systemChat format ["Eng 2 FLY Pos"];
         [_vehicle, 1, "FLY"] call vtx_uh60_sfmplus_fnc_interactPowerLever;
     };

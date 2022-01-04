@@ -72,7 +72,9 @@ EICAS_LABEL_VAL(T2,0.96,"",22)
 TEXT_MID_SMALL(AFM_TRQ,0.42,LABELHEIGHT,"")
 TEXT_MID_MID_SRC(AFM_TRQ_V,0.42,VALUEHEIGHT)
 	sourceScale = 1000;
-	source="rtdRotorTorque";
+	//source="rtdRotorTorque";
+	source = "user";
+	sourceIndex = 47;
 };
 TEXT_MID_SMALL(AFM_COL,0.59,LABELHEIGHT,"")
 TEXT_MID_MID_SRC(AFM_COL_V,0.58,VALUEHEIGHT)
@@ -83,7 +85,9 @@ TEXT_MID_MID_SRC(AFM_COL_V,0.58,VALUEHEIGHT)
 TEXT_MID_SMALL(RPM,(0.5),LABELHEIGHT,"")
 TEXT_MID_MID_SRC(RPM_V,(0.5),VALUEHEIGHT)
 	sourceScale = 10;
-	source="rpm";
+	//source="rpm";
+	source = "user";
+	sourceIndex = 19;
 };
 
 class barsWrapper {
