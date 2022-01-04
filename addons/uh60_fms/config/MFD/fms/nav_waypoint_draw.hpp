@@ -50,6 +50,7 @@ TEXT_FMS_L(L4,FMS_MARGIN_L,FMS_Y4)
 	source = "static";
 	text = "SEND";
 }; // R3
+/*
 TEXT_FMS_R(R32,FMS_MARGIN_R,FMS_Y4-FMS_Y_HALF)
 	source = "static";
 	text = "LOCATION";
@@ -70,15 +71,20 @@ TEXT_FMS_R(R5,FMS_MARGIN_R+FMS_MARGIN_ARR,FMS_Y5)
 	source = "static";
 	text = ">";
 }; // L4
-TEXT_FMS_R(IMPORT,FMS_MARGIN_R,FMS_Y5+FMS_Y_HALF)
+*/
+TEXT_FMS_R(IMPORT,FMS_MARGIN_R,FMS_Y4)
 	source = "static";
-	text = "IMPORT";
+	text = "DEL WAYPT";
 }; // L32
+
+TEXT_FMS_R(R5,FMS_MARGIN_R,FMS_Y5)
+	source = "static";
+	text = "MENU >";
+}; // L4
 TEXT_FMS_L(L5,FMS_MARGIN_L,FMS_Y5)
 	source = "static";
 	text = "< MENU";
 }; // L5
-
 TEXT_FMS_L(WAYPOINT_NAME,FMS_MARGIN_L,FMS_Y1)
 	source = "userText";
   sourceIndex=7;

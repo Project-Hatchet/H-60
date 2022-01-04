@@ -75,39 +75,53 @@ switch (_action) do {
         };
         _vehicle setUserMFDvalue _pageData;
     };
-    case "send": { 
+    case "send": {
         private _wayPoint = [group player, currentWaypoint group player];
         private _position = waypointPosition _wayPoint;
 
-        private _sender = profileName; 
-        private _recipient = "ALL"; 
-        private _id = "XMIT WAYPT"; 
+        private _sender = profileName;
+        private _recipient = "ALL";
+        private _id = "XMIT WAYPT";
         private _messageContent = [
             mapGridPosition _position,
             str (_position # 2),
             waypointDescription _wayPoint,
             "AUTO SENT FROM FMS",
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
+            "",
+            "",
+            "",
+            "",
+            "",
             ""
-        ]; 
-        private _message = [_id, _sender, _recipient, 2, _messageContent, [_position], [[_timestamp, _sender, "SENT"]]]; 
+        ];
+        private _message = [_id, _sender, _recipient, 2, _messageContent, [_position], [[_timestamp, _sender, "SENT"]]];
         _message call vtx_uh60_jvmf_fnc_attemptSendMessage;
     };
-    case "slew_flir_waypt": { 
+    case "slew_flir_waypt": {
         private _wayPoint = [group player, currentWaypoint group player];
         private _position = waypointPosition _wayPoint;
         _vehicle setPilotCameraTarget (AGLtoASL (_position));
 		[true, (AGLtoASL _position)] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", crew _vehicle];
     };
-    case "slew_flir": { 
+    case "slew_flir": {
         if (isNil "fms_locations_selected") exitWith {};
         private _location = fms_locations_selected;
         _vehicle setPilotCameraTarget (AGLtoASL (locationPosition _location));
 		[true, (AGLtoASL (locationPosition _location))] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", crew _vehicle];
+    };
+
+    case "delete_waypoint":{
+      // Deleting waypoints from the microDAGR won't work if the player has added any waypoints since import - going to "no bid" deleting the microDAGR waypoints
+      deleteWaypoint [group player, currentWaypoint group player];
+      _vehicle setUserMFDvalue _value;
+    };
+
+    case "delete_all_waypoints":{
+      private _waypoints = waypoints group player;
+      {
+        deleteWaypoint [group player, 0];
+      } forEach _wayPoints;
+      _vehicle setUserMFDvalue _value;
     };
 };
 

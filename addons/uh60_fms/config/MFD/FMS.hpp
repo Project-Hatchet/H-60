@@ -87,4 +87,16 @@ class Draw {
 		condition = COND_ISNUMBER(FMS_PAGE_INDEX,FMS_PAGE_HMD);
 		#include "fms\hmd_draw.hpp"
 	}; // nav_wpn
+  class nav_menu2 {
+		condition = COND_ISNUMBER(FMS_PAGE_INDEX,FMS_PAGE_NAV_MENU2);
+		#include "fms\nav_menu2_draw.hpp"
+	};
+  class nav_del_wpt {
+		condition = COND_ISNUMBER(FMS_PAGE_INDEX,FMS_PAGE_NAV_DELETE_WAYPOINT);
+		#include "fms\nav_delete_waypoint_draw.hpp"
+	};
+  class nav_del_all_wpts {
+		condition = COND_ISNUMBER(FMS_PAGE_INDEX,FMS_PAGE_NAV_DELETE_ALL_WAYPOINTS);
+		#include "fms\nav_delete_all_waypoints_draw.hpp"
+	};
 }; // Draw

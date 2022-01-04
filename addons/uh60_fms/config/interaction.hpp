@@ -81,11 +81,17 @@ class nav {
   condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT);
   FMS_BTN(FMS_1,"Next Waypoint","") buttonUp="[vehicle player,""cycle"", 1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
   FMS_BTN(FMS_2,"Previous waypoint","") buttonUp="[vehicle player,""cycle"", -1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
-  FMS_BTN(FMS_4,"Location Stores","")
-    buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_NAV_LOCATIONS_LIST], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+
+  FMS_BTN(FMS_4,"Delete Current Waypoint","")
+    buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_NAV_DELETE_WAYPOINT], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
+   /*
   FMS_BTN(FMS_5,"Microdagr Import","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_NAV_IMPORT], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+  };
+  */
+  FMS_BTN(FMS_5,"Nav Menu","")
+    buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_NAV_MENU2], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
   FMS_BTN(FMS_8,"Slew FLIR","") buttonUp="[vehicle player,""slew_flir_waypt""] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
   FMS_BTN(FMS_9,"Send WP","") buttonUp="[vehicle player,""send""] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
@@ -191,6 +197,64 @@ class hmd {
     buttonUp = "[4] call vtx_uh60_anvishud_fnc_toggleHud;";
   };
   FMS_BTN(FMS_10,"Mission Systems","")
-    buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_MSN], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+    buttonUp = [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_MSN], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+  };
+};
+
+class nav2 {
+  condition = USERVAL(FMS_PAGE_INDEX,FMS_PAGE_NAV_MENU2);
+  /*
+  FMS_BTN(FMS_1,"FMS 1","") buttonUp="[vehicle player,""cycle"", 1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
+  FMS_BTN(FMS_2,"FMS 2","") buttonUp="[vehicle player,""cycle"", -1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
+  */
+
+  FMS_BTN(FMS_6,"Delete All Waypoints","")
+    buttonUp = [vehicle player, "delete_all_waypoints", [FMS_PAGE_INDEX,FMS_PAGE_NAV_DELETE_ALL_WAYPOINTS]] call vtx_uh60_fms_fnc_interaction_waypoint;
+  };
+  FMS_BTN(FMS_2,"Location Stores","")
+    buttonUp = [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_NAV_LOCATIONS_LIST], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+  };
+  FMS_BTN(FMS_7,"Microdagr Import","")
+    buttonUp = [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_NAV_IMPORT], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+  };
+  /*
+  FMS_BTN(FMS_5,"FMS 5","")
+    buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_NAV_MENU2], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+  };
+  FMS_BTN(FMS_8,"FMS 8","") buttonUp="[vehicle player,""slew_flir_waypt""] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
+  FMS_BTN(FMS_9,"FMS 9","") buttonUp="[vehicle player,""send""] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
+  */
+  FMS_BTN(FMS_10,"Navigation System","")
+      buttonUp = [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+  };
+};
+
+class nav_del_waypt {
+  condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_NAV_DELETE_WAYPOINT);
+
+  FMS_BTN(FMS_8,"YES","")
+  //buttonUp = [vehicle player,"import", [FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT]] call vtx_uh60_fms_fnc_interaction_waypoint;
+    buttonUp = [vehicle player, "delete_waypoint", [FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT]] call vtx_uh60_fms_fnc_interaction_waypoint;
+  };
+  FMS_BTN(FMS_3,"NO","")
+    buttonUp = [(_this select 0), [FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+  };
+  FMS_BTN(FMS_10,"Navigation System","")
+    buttonUp = [(_this select 0), [FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+  };
+};
+
+class nav_del_all_waypts {
+  condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_NAV_DELETE_ALL_WAYPOINTS);
+
+  FMS_BTN(FMS_8,"YES","")
+  //buttonUp = [vehicle player,"import", [FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT]] call vtx_uh60_fms_fnc_interaction_waypoint;
+    buttonUp = [vehicle player, "delete_all_waypoints", [FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT]] call vtx_uh60_fms_fnc_interaction_waypoint;
+  };
+  FMS_BTN(FMS_3,"NO","")
+    buttonUp = [(_this select 0), [FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+  };
+  FMS_BTN(FMS_10,"Navigation System","")
+    buttonUp = [(_this select 0), [FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
 };
