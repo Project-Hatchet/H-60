@@ -9,10 +9,22 @@
 #include "defines.hpp"
 params ["_vehicle", "_frameTime"];
 
-private _rpm = enginesRpmRTD _vehicle;
+private _rpm = 0.0;
+if (!difficultyEnabledRTD) then {
+    //RPM
+    _rpm = _vehicle getVariable "vtx_uh60_sfmplus_engPctNP";
+    _vehicle setUserMFDvalue [19, (_rpm # 0) * 100];
+    _vehicle setUserMFDvalue [20, (_rpm # 1) * 100];
+    //EICAS
+    _vehicle setUserMFDvalue [21, (_rpm # 0) * 100];
+    _vehicle setUserMFDvalue [22, (_rpm # 1) * 100];
+} else {
+    _rpm = enginesRpmRTD _vehicle;
+    _vehicle setUserMFDvalue [19, (_rpm # 0) / 210];
+_   _vehicle setUserMFDvalue [20, (_rpm # 1) / 210];
+};
 private _power = enginesPowerRTD _vehicle;
-_vehicle setUserMFDvalue [19, (_rpm # 0) / 210];
-_vehicle setUserMFDvalue [20, (_rpm # 1) / 210];
+
 if (count _power > 0) then {
     if (GET("ENG1_PWR",100) > 0 || (getUserMFDValue _vehicle) # 21 > 0) then {
         _vehicle setUserMFDvalue [21, ((_rpm # 0) / 60) min 100];
