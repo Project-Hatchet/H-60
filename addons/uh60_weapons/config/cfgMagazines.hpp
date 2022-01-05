@@ -5,25 +5,26 @@ class cfgMagazines {
   class PylonRack_4Rnd_ACE_Hellfire_AGM114N;
   class VTX_4Rnd_ACE_Hellfire_AGM114K: PylonRack_4Rnd_ACE_Hellfire_AGM114K { // 4x Launcher Support Rack
     displayName = "4x AGM-114K [H60]";
-    count = 4;
-    mass = 340;
-    hardpoints[] = {"UNI_SCALPEL", "CUP_NATO_HELO_LARGE", "RHS_HP_HELLFIRE_RACK", "RHS_HP_LONGBOW_RACK"};
+    //count = 4;
+    mass = 245; // 65 for launcher, 45 per missile
+    //hardpoints[] = {"UNI_SCALPEL", "CUP_NATO_HELO_LARGE", "RHS_HP_HELLFIRE_RACK", "RHS_HP_LONGBOW_RACK"};
     ammo = "VTX_Hellfire_AGM114K";
     pylonWeapon = "vtx_hellfire_launcher";
   };
   class VTX_4Rnd_ACE_Hellfire_AGM114L: PylonRack_4Rnd_ACE_Hellfire_AGM114L { // 4x Launcher Support Rack
     displayName = "4x AGM-114L [H60]";
-    count = 4;
-    mass = 340;
-    hardpoints[] = {"UNI_SCALPEL", "CUP_NATO_HELO_LARGE", "RHS_HP_HELLFIRE_RACK", "RHS_HP_LONGBOW_RACK"};
+    //count = 4;
+    mass = 261; // 65 for launcher, 49 per missile
+    //hardpoints[] = {"UNI_SCALPEL", "CUP_NATO_HELO_LARGE", "RHS_HP_HELLFIRE_RACK", "RHS_HP_LONGBOW_RACK"};
     ammo = "VTX_Hellfire_AGM114L";
     pylonWeapon = "vtx_hellfire_launcher_L";
   };
   class VTX_4Rnd_ACE_Hellfire_AGM114N: PylonRack_4Rnd_ACE_Hellfire_AGM114N { // 4x Launcher Support Rack
     displayName = "4x AGM-114N [H60]";
-    count = 4;
-    mass = 340;
-    hardpoints[] = {"UNI_SCALPEL", "CUP_NATO_HELO_LARGE", "RHS_HP_HELLFIRE_RACK", "RHS_HP_LONGBOW_RACK"};
+    //count = 4;
+    weight = 180;
+    mass = 257; // 65 for launcher, 48 per missile
+    //hardpoints[] = {"UNI_SCALPEL", "CUP_NATO_HELO_LARGE", "RHS_HP_HELLFIRE_RACK", "RHS_HP_LONGBOW_RACK"};
     ammo = "VTX_Hellfire_AGM114N";
     pylonWeapon = "vtx_hellfire_launcher_N";
   };
@@ -37,8 +38,7 @@ class cfgMagazines {
     pylonWeapon = "vtx_chaingun";
     muzzlePos = "muzzlePos";
     muzzleEnd = "muzzleEnd";
-    weight = 180;
-    mass = 180;
+    mass = 180; // cannon 60 kg, 300 * 0.34 kg per round
     tracersEvery = 1;
     lastRoundsTracer = 1;
     count = 300;
@@ -56,16 +56,20 @@ class cfgMagazines {
 		count = 19;
     displayName = "19x Hydra 70 M229 [H60]";
     displayNameShort = "19x Hydra 70 M229";
-    weight = 300;
+    mass = 300.4; // 36.3 kg launcher, 6.2 per motor, 7.7 per warhead
     model = QPATHTOF(fza_pod_m261.p3d);
 	};
   class PylonRack_12Rnd_PG_missiles;
   class VTX_PylonRack_M261_DAGR: PylonRack_12Rnd_PG_missiles {
+    ammo = "ACE_Hydra70_DAGR";
     author = "Ampersand";
     count = 19;
     displayName = "19x DAGR [H60]";
     displayNameShort = "19x DAGR";
-    weight = 300;
+    mass = 336.5; // 36.3 kg launcher, 15.8 per rocket
+    model = QPATHTOF(fza_pod_m261.p3d);
+    pylonWeapon = "ace_missileguidance_dagr";
+  };
   class VTX_PylonRack_M261_APKWS: PylonRack_12Rnd_PG_missiles {
     ammo = "VTX_APKWS";
     author = "Ampersand";
