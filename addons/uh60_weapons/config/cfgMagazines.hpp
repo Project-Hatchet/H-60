@@ -78,6 +78,14 @@ class cfgMagazines {
     displayName = "19x DAGR [H60]";
     displayNameShort = "19x DAGR";
     weight = 300;
+  class VTX_PylonRack_M261_APKWS: PylonRack_12Rnd_PG_missiles {
+    ammo = "VTX_APKWS";
+    author = "Ampersand";
+    count = 19;
+    displayName = "19x APKWS [H60]";
+    displayNameShort = "19x APKWS";
+    mass = 336.5; // 36.3 kg launcher, 15.8 per rocket
     model = QPATHTOF(fza_pod_m261.p3d);
+    pylonWeapon = "vtx_apkws";
   };
 };
