@@ -45,5 +45,12 @@ class cfgWeapons {
   };
 	class missiles_DAGR: RocketPods {
     magazines[] += {"VTX_PylonRack_M261_DAGR"};
+	class vtx_apkws: ace_missileguidance_dagr {
+    displayName = "APKWS";
+    displayNameShort = "APKWS";
+    magazines[] = {"VTX_PylonRack_M261_APKWS"};
+    class Burst: Burst {displayName = "APKWS";};
+    class Far_AI: Far_AI {displayName = "APKWS";};
+    class Medium_AI: Medium_AI {displayName = "APKWS";};
   };
 };
