@@ -60,7 +60,6 @@ class AnimationSources: AnimationSources {
     };
   };
   class Minigun_Mount_L_hide {
-    displayName = "Hide Gun Mount (L)";
     source="user";
     animPeriod=1;
     initPhase=0;
@@ -69,7 +68,6 @@ class AnimationSources: AnimationSources {
     forceAnimate[] = { "Minigun_L_hide", 1 };
   };
   class Minigun_Mount_R_hide {
-    displayName = "Hide Gun Mount (R)";
     source="user";
     animPeriod=1;
     initPhase=0;
@@ -78,14 +76,12 @@ class AnimationSources: AnimationSources {
     forceAnimate[] = { "Minigun_R_hide", 1 };
   };
   class Minigun_L_hide {
-    displayName = "Hide Minigun (L)";
     source="user";
     animPeriod=1;
     initPhase=0;
     mass = -MASS_MINIGUN;
   };
   class Minigun_R_hide {
-    displayName = "Hide Minigun (R)";
     source="user";
     animPeriod=1;
     initPhase=0;
@@ -219,7 +215,6 @@ class AnimationSources: AnimationSources {
     };
   };
   class GAU21_L_Hide {
-    displayName = "Hide GAU-21 (L)";
     source="user";
     animPeriod=1;
     initPhase=1;
@@ -231,7 +226,6 @@ class AnimationSources: AnimationSources {
     };
   };
   class GAU21_R_Hide {
-    displayName = "Hide GAU-21 (R)";
     source="user";
     animPeriod=1;
     initPhase=1;
