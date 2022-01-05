@@ -18,3 +18,5 @@ private _zoomLevel = _vehicle getVariable ["MAP_ZoomMult", 1];
 private _coverage = (4000 * _zoomLevel) / ((_world_size / 2) * 1.49);
 _vehicle setUserMFDvalue [27, 1 - _coverage];
 if (_coverage < 0 || _coverage > 1) exitWith {_vehicle setUserMFDvalue [27, -1];};
+
+
