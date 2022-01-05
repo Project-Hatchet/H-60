@@ -15,7 +15,7 @@ private _action = [
 ["vtx_H60_base", 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
 // Right Pylon
 _action = [
-  "vtx_pylonPositionR2",
+  "vtx_pylonPositionR",
   _displayName,
   "\a3\3den\Data\CfgWrapperUI\Cursors\3denMoveZ_ca.paa",
   _statement,

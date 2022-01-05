@@ -21,5 +21,5 @@ params ["_heli", "_player", "_side"];
   _heli animationSourcePhase "LASS_show" == 1 ||
   {_heli animationSourcePhase "ESSS_show" == 1}
 ) &&
-{[_player, _target] call ace_pylons_fnc_canConfigurePylons} &&
-{getPylonMagazines _target select _actionParams != ""}
+{[_player, _heli] call ace_pylons_fnc_canConfigurePylons} &&
+{getPylonMagazines _heli select _side != ""}
