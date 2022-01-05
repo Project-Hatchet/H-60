@@ -19,6 +19,7 @@ class cfgWeapons {
       displayName = "M230 Chaingun";
       displayNameShort = "M230";
       magazines[] = {"VTX_M230_Chaingun_L", "VTX_M230_Chaingun_R"};
+      reloadTime = 0.096; // 625 rpm
       class player: player {
         displayName = "M230";
       };

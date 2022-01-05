@@ -5,13 +5,19 @@ class TransportPylonsComponent {
         class pylons1 {
             attachment = "VTX_4Rnd_ACE_Hellfire_AGM114K";
             priority = 5;
-            hardpoints[] = {"O_SKYFIRE", "DAR", "DAGR", "B_SHIEKER", "RHS_HP_LONGBOW_RACK", "RHS_HP_FFAR_ARMY", "RHS_HP_MELB", "RHS_HP_MELB_L", "CUP_NATO_HELO_UH60", "VTX_ST_L"};
+            hardpoints[] = {
+              "DAR", "DAGR", "B_SHIEKER", "20MM_TWIN_CANNON",
+              "RHS_HP_LONGBOW_RACK", "RHS_HP_FFAR_ARMY", "RHS_HP_MELB", "RHS_HP_MELB_L", "CUP_NATO_HELO_UH60"
+            };
             UIposition[] = {0.59, 0.41};
         };
         class pylons2: pylons1 {
             attachment = "VTX_PylonRack_M261_APKWS";
             mirroredMissilePos = 1;
-            hardpoints[] = {"O_SKYFIRE", "DAR", "DAGR", "B_SHIEKER", "RHS_HP_LONGBOW_RACK", "RHS_HP_FFAR_ARMY", "RHS_HP_MELB", "RHS_HP_MELB_R", "CUP_NATO_HELO_UH60", "VTX_ST_R"};
+            hardpoints[] = {
+              "DAR", "DAGR", "B_SHIEKER", "20MM_TWIN_CANNON",
+              "RHS_HP_LONGBOW_RACK", "RHS_HP_FFAR_ARMY", "RHS_HP_MELB", "RHS_HP_MELB_R", "CUP_NATO_HELO_UH60"
+            };
             UIposition[] = {0.08, 0.41};
         };
         #define DUMMY_PYLON(CLASS) \
