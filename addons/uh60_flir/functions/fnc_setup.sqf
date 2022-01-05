@@ -82,8 +82,8 @@ if (vtx_uh60_flir_playerIsPilot) then {
 //params ["_unit", "_newView", "_oldView"]; // "GUNNER", "INTERNAL", "EXTERNAL"
 _id = ["vehicle", {
   params ["_unit", "_newVehicle", "_oldVehicle"];
-  if (vtx_uh60_flir_playerIsPilot && {_unit == _newVehicle}) then {
     "filmGrain" ppEffectEnable false;
+  if (_unit == _newVehicle) then {
     15 cutText ["", "PLAIN"];
   };
 }] call CBA_fnc_addPlayerEventHandler;
