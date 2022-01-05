@@ -19,7 +19,7 @@ params ["_heli", "", "_side"];
 
 private _anim = ["PylonForward_L", "PylonForward_R"] select _side;
 GVAR(pylonPositionParams) = [_heli, _anim];
-systemChat str GVAR(pylonPositionParams);
+
 createDialog QGVAR(pylonPosition);
 private _okButton = (findDisplay 7777) displayCtrl 1;
 private _currentPos = _heli animationSourcePhase _anim;
