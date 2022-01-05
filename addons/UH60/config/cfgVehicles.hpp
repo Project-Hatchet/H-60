@@ -403,8 +403,8 @@ class CfgVehicles
                 maxDroop					= 0.1337;
 
                 sprungMass					= 3000;
-                springStrength				= 75000;
-                springDamperRate			= 33000;
+                springStrength				= 200000;
+                springDamperRate			= 50000;
 
                 longitudinalStiffnessPerUnitGravity	= 10000;
                 latStiffX					= 2.5;
