@@ -24,6 +24,7 @@ TEXT_FMS_R(CHECKLISTS_Text,FMS_MARGIN_R,FMS_Y1)
 	source = "static";
 	text = "CHECKLISTS";
 }; // NAV_Text
+/*
 TEXT_FMS_R(NAV_Text,FMS_MARGIN_R,FMS_Y2)
 	source = "static";
 	text = "NAV";
@@ -32,7 +33,9 @@ TEXT_FMS_R(PERF_Text,FMS_MARGIN_R,FMS_Y3)
 	source = "static";
 	text = "FUEL";
 }; // MSN_Text
+
 TEXT_FMS_R(MSN_Text,FMS_MARGIN_R,FMS_Y4)
 	source = "static";
 	text = "MSN SYS";
 }; // WPN_Text
+*/

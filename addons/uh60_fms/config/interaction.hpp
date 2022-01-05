@@ -6,7 +6,28 @@
     radius=0.025; \
     clickSound="vxf_Switch_Sound_2";
 
+#define FMS_BTN_POS(BTN_VAL,LABEL,POS) \
+  class BTN_VAL { \
+    positionType="coordinates"; \
+    position[] = POS; \
+    label=LABEL; \
+    radius=0.025; \
+    clickSound="vxf_Switch_Sound_2";
+
 #define USERVAL(INDEX,VAL) QUOTE(((getUserMFDValue _this) select INDEX) == VAL)
+
+class function_keys {
+  condition = true;
+  FMS_BTN_POS(FMS_CLC,"Calculate", {0.134838,4.81597,-0.628373})
+    buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_PERFORMANCE], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+  };
+  FMS_BTN_POS(FMS_FPN,"Flight Plan", {0.108441,4.8154,-0.62805})
+    buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+  };
+  FMS_BTN_POS(FMS_MSN,"Missions Systmes", {0.186587,4.81556,-0.628078})
+    buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_MSN], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+  };
+};
 
 class menu {
   condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_MENU);
@@ -18,16 +39,19 @@ class menu {
   FMS_BTN(FMS_1,"Checklists","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_LISTS_MENU], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
+   /*
   FMS_BTN(FMS_2,"Navigation System","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
   FMS_BTN(FMS_3,"Fuel Data","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_PERFORMANCE], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
+
   FMS_BTN(FMS_4,"Mission Systems","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_MSN], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
   //FMS_BTN(FMS_4,"Weapon Systems","") buttonUp=""; };
+  */
 };
 
 class checklists {

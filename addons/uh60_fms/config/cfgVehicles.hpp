@@ -37,6 +37,24 @@ class CfgVehicles {
           #define FMS_10 FMS_R_10
           #include "interaction.hpp"
         }; // FMS
+        /*
+        class FMS_FPN {
+          condition = "true";
+          positionType = "coordinates";
+          position[] = {0.108441,4.8154,-0.62805};
+          label = "Flight Plan";
+          radius = 0.025;
+          buttonUp = systemChat "Flight Plan";
+        };
+        class FMS_CLC {
+          condition = "true";
+          positionType = "coordinates";
+          position[] = {0.134838,4.81597,-0.628373};
+          label = "Calculate";
+          radius = 0.025;
+          buttonUp = systemChat "Calculate";
+        };
+        */
       }; // interaction
     }; // vxf_driver
     class vxf_copilot: vxf_copilot {
