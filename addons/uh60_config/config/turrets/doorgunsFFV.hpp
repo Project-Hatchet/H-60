@@ -10,6 +10,10 @@ class LeftWindow: CargoTurret { //Left Doorgun
   gunnerType = "vtx_uh60_doorgunner";
   hideWeaponsGunner = 0;
   isPersonTurret = 2;
+  LODTurnedIn = 1200;
+  LODTurnedOut = 1200;
+  LODOpticsIn = 1200;
+  LODOpticsOut = 1200;
   memoryPointsGetInGunner = "pos gunner L";
   memoryPointsGetInGunnerDir = "pos gunner L dir";
   minElev=-80; maxElev=40; initElev=0;
