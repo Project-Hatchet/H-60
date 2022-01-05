@@ -399,8 +399,8 @@ class CfgVehicles
                 maxBrakeTorque				= 2500;
                 maxHandBrakeTorque			= 4000;
 
-                maxCompression				= 0.2;
-                maxDroop					= 0.05;
+                maxCompression				= 0.3;
+                maxDroop					= 0.1337;
 
                 sprungMass					= 4000;
                 springStrength				= 100000;
