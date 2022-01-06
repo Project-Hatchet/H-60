@@ -33,87 +33,88 @@ class overlayWrapper {
     TEXT_MID_SMALL(CLASS,X,LABELHEIGHT,LABEL) \
 	TEXT_MID_MID_SRC(DOUBLES(CLASS,V),X,VALUEHEIGHT) \
 		source="user"; \
-		sourceIndex=USERVAL;
+		sourceIndex=USERVAL; \
 
 //static left
-EICAS_LABEL_VAL(T1,0.04,"",21)
+//EICAS_LABEL_VAL(T1,0.04,"",21)
+//	sourceScale = 1;
+//};
+//EICAS_LABEL_VAL(AFM_RPM1,0.105,"",20)
+//	sourceScale=1;
+//};
+EICAS_LABEL_VAL(NG1,0.19,"",19)
 	sourceScale = 1;
 };
-EICAS_LABEL_VAL(AFM_RPM1,0.105,"",21)
-	sourceScale=1;
-};
-EICAS_LABEL_VAL(NG1,0.19,"",21)
+EICAS_LABEL_VAL(TGT1,0.27,"",21)
 	sourceScale = 1;
 };
-EICAS_LABEL_VAL(AFM_PWR1,0.27,"",21)
-	sourceScale = 4.82;
-};
-EICAS_LABEL_VAL(Q1,0.35,"",21)
+EICAS_LABEL_VAL(Q1,0.35,"",22)
 	sourceScale = 1;
 };
 
 //static right
-EICAS_LABEL_VAL(Q2,0.65,"",22)
+EICAS_LABEL_VAL(Q2,0.65,"",48)
 	sourceScale = 1;
 };
-EICAS_LABEL_VAL(AFM_PWR2,0.72,"",22)
-	sourceScale = 4.76;
-};
-EICAS_LABEL_VAL(NG2,0.81,"",22)
+EICAS_LABEL_VAL(TGT2,0.72,"",47)
 	sourceScale = 1;
 };
-EICAS_LABEL_VAL(AFM_RPM2,0.89,"",22)
-	sourceScale=1;
+EICAS_LABEL_VAL(NG2,0.81,"",45)
+	sourceScale = 1;
 };
-EICAS_LABEL_VAL(T2,0.96,"",22)
-	sourceScale = 1.4;
-};
+//EICAS_LABEL_VAL(AFM_RPM2,0.89,"",46)
+//	sourceScale=1;
+//};
+//EICAS_LABEL_VAL(T2,0.96,"",22)
+//	sourceScale = 1;
+//};
 
-TEXT_MID_SMALL(AFM_TRQ,0.42,LABELHEIGHT,"")
-TEXT_MID_MID_SRC(AFM_TRQ_V,0.42,VALUEHEIGHT)
-	sourceScale = 1000;
-	//source="rtdRotorTorque";
+TEXT_MID_SMALL(NP1,0.42,LABELHEIGHT,"")
+TEXT_MID_MID_SRC(NP1_V,0.42,VALUEHEIGHT)
+	sourceScale = 1;
 	source = "user";
-	sourceIndex = 47;
-};
-TEXT_MID_SMALL(AFM_COL,0.59,LABELHEIGHT,"")
-TEXT_MID_MID_SRC(AFM_COL_V,0.58,VALUEHEIGHT)
-	sourceScale = 100;
-	source="rtdCollective";
+	sourceIndex = 20;
 };
 
 TEXT_MID_SMALL(RPM,(0.5),LABELHEIGHT,"")
 TEXT_MID_MID_SRC(RPM_V,(0.5),VALUEHEIGHT)
-	sourceScale = 10;
-	//source="rpm";
+	sourceScale = 1;
 	source = "user";
-	sourceIndex = 19;
+	sourceIndex = 17;
 };
+
+TEXT_MID_SMALL(NP2,0.59,LABELHEIGHT,"")
+TEXT_MID_MID_SRC(NP2_V,0.58,VALUEHEIGHT)
+	sourceScale = 1;
+	source = "user";
+	sourceIndex = 46;
+};
+
 
 class barsWrapper {
     color[] = common_green;
 	#define BAR_WIDTH 0.012
 
-    BAR(T1BAR,"T1",0.042,BARBOTTOM,BAR_WIDTH)
-    BAR(RPM1BAR,"EICAS_RPM1",0.11,BARBOTTOM,BAR_WIDTH)
+    //BAR(T1BAR,   "T1",0.042,BARBOTTOM,BAR_WIDTH)
+    //BAR(RPM1BAR, "EICAS_RPM1",0.11,BARBOTTOM,BAR_WIDTH)
 
-    BAR(NG1BAR,"NG1",0.191,BARBOTTOM,BAR_WIDTH)
-    BAR(TGT1BAR,"TGT1",0.2775,BARBOTTOM,BAR_WIDTH)
-	BAR(Q1BAR,"Q1",0.353,BARBOTTOM,BAR_WIDTH)
+    BAR(NG1BAR,  "NG1",0.191,BARBOTTOM,BAR_WIDTH)
+    BAR(TGT1BAR, "TGT1",0.2775,BARBOTTOM,BAR_WIDTH)
+	BAR(Q1BAR,   "Q1",0.353,BARBOTTOM,BAR_WIDTH)
 
-    BAR(TRQBAR,"TRQ",0.422,BARBOTTOM,BAR_WIDTH)
-    BAR(RPMBAR,"EICAS_RPM",0.502,BARBOTTOM,BAR_WIDTH)
-    BAR(COLLBAR,"COLL",0.581,BARBOTTOM,BAR_WIDTH)
+    BAR(RPM1BAR, "EICAS_RPM1",0.422,BARBOTTOM,BAR_WIDTH)
+    BAR(RPMBAR,  "EICAS_RPM",0.502,BARBOTTOM,BAR_WIDTH)
+    BAR(RPM2BAR, "EICAS_RPM2",0.581,BARBOTTOM,BAR_WIDTH)
 
-	BAR(Q2BAR,"Q2",0.651,BARBOTTOM,BAR_WIDTH)
-	BAR(TGT2BAR,"TGT2",0.725,BARBOTTOM,BAR_WIDTH)
-	BAR(NG2BAR,"NG2",0.813,BARBOTTOM,BAR_WIDTH)
+	BAR(Q2BAR,   "Q2",0.651,BARBOTTOM,BAR_WIDTH)
+	BAR(TGT2BAR, "TGT2",0.725,BARBOTTOM,BAR_WIDTH)
+	BAR(NG2BAR,  "NG2",0.813,BARBOTTOM,BAR_WIDTH)
 
-    BAR(RPM2BAR,"EICAS_RPM2",0.893,BARBOTTOM,BAR_WIDTH)
-	BAR(T2BAR,"T2",0.962,BARBOTTOM,BAR_WIDTH)
+    //BAR(RPM2BAR, "EICAS_RPM2",0.893,BARBOTTOM,BAR_WIDTH)
+	//BAR(T2BAR,   "T2",0.962,BARBOTTOM,BAR_WIDTH)
 
-	BAR(FUEL1,"EICAS_Fuel",0.459,FUEL_BARS_Y2,BAR_WIDTH)
-	BAR(FUEL2,"EICAS_Fuel",0.545,FUEL_BARS_Y2,BAR_WIDTH)
+	BAR(FUEL1,   "EICAS_Fuel",0.459,FUEL_BARS_Y2,BAR_WIDTH)
+	BAR(FUEL2,   "EICAS_Fuel",0.545,FUEL_BARS_Y2,BAR_WIDTH)
 }; // barsWrapper
 
 #define TOP_TEXT_Y 0.03
@@ -210,7 +211,7 @@ class blackTextWrapper {
 };
 
 class eng1_out {
-	condition = "simulRTD*(user21<40)";
+	condition = "user19<40";
 	color[] = {1,0,0,1};
     class cross {
     	type="line";
@@ -224,7 +225,7 @@ class eng1_out {
     }; // Cross
 };
 class eng2_out {
-	condition = "simulRTD*(user22<40)";
+	condition = "user45<40";
 	color[] = {1,0,0,1};
     class cross {
     	type="line";

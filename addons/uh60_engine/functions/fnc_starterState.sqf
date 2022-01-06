@@ -62,12 +62,10 @@ if (_animName == "STARTER2") then {
 [_vehicle] call vtx_uh60_cas_fnc_updateCautions;
 
 //SFM+
-if (!difficultyEnabledRTD) then {
-    if (_animName == "STARTER1") then {
-        [_vehicle, 0] call vtx_uh60_sfmplus_fnc_interactStartSwitch;
-    };
+if (_animName == "STARTER1") then {
+    [_vehicle, 0] call vtx_uh60_sfmplus_fnc_interactStartSwitch;
+};
 
-    if (_animName == "STARTER2") then {
-        [_vehicle, 1] call vtx_uh60_sfmplus_fnc_interactStartSwitch;
-    };
+if (_animName == "STARTER2") then {
+    [_vehicle, 1] call vtx_uh60_sfmplus_fnc_interactStartSwitch;
 };

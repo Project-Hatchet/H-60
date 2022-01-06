@@ -18,7 +18,13 @@ Author:
 ---------------------------------------------------------------------------- */
 params ["_heli"];
 
-private _collectiveVal = _heli animationSourcePhase "collective";
+private _collectiveVal = 0.0;
+
+if (difficultyEnabledRTD) then {
+	_collectiveVal = _heli animationSourcePhase "collectiveRTD";
+} else {
+	_collectiveVal = _heli animationSourcePhase "collective";
+};
 
 private _collectiveOut = 0.0;
 if (vtx_uh60_sfmPlusKeyboardOnly) then {

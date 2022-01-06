@@ -104,10 +104,13 @@ if (local _heli) then {
 //Stabilator
 if(vtx_uh60_sfmPlusStabilatorEnabled == STABILTOR_MODE_ALWAYSENABLED 
 	|| vtx_uh60_sfmPlusStabilatorEnabled == STABILTOR_MODE_JOYSTICKONLY && !vtx_uh60_sfmPlusKeyboardOnly) then {
-	[_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_aeroStabilator;
+	if (!difficultyEnabledRTD) then {
+		[_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_aeroStabilator;
+	};
 };
 
 #ifdef __A3_DEBUG__
+/*
 hintsilent format ["v0.11
 					\nEngine 1 Ng = %1
 					\nEngine 1 TQ = %2
@@ -138,5 +141,5 @@ hintsilent format ["v0.11
 					vtx_uh60_sfmplus_collectiveOutput,						 //11
 					_heli getVariable "vtx_uh60_sfmplus_engFF",			     //12
 					_heli getVariable "vtx_uh60_sfmplus_engBaseNG"];         //13
-
+*/
 #endif

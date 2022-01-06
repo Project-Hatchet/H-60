@@ -589,9 +589,29 @@ class pitchLadderWrapper {
 
 }; // pitchLadderWrapper
 
+
+class powerPodTexWrap {
+	color[] = common_green;
+	TEXT_MID_MID_SRC(PFD_Q1_V,0.088,0.56)
+		source="user";
+		sourceIndex = 22;
+		sourceScale = 1;
+	};
+	TEXT_MID_MID_SRC(PFD_RPM_V,0.136,0.47)
+		source="user";
+		sourceIndex = 17;
+		sourceScale = 1;
+	};
+	TEXT_MID_MID_SRC(PFD_Q2_V,0.185,0.56)
+		source="user";
+		sourceIndex = 48;
+		sourceScale = 1;
+	};
+};
+
 class powerPodBarWrap {
 	color[] = common_green;
-    BAR(RPMBAR,"RPM",0.136,BARBOTTOM,0.02)
-    BAR(RPM1BAR,"RPM1",0.088,BARBOTTOM,0.01)
-    BAR(RPM2BAR,"RPM2",0.185,BARBOTTOM,0.01)
+    BAR(RPM1BAR,"PFD_Q1", 0.088,BARBOTTOM,0.01)
+	BAR(RPMBAR, "PFD_RPM",0.136,BARBOTTOM,0.01)
+    BAR(RPM2BAR,"PFD_Q2", 0.185,BARBOTTOM,0.01)
 }; // powerPodBarWrap
