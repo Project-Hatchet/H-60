@@ -211,7 +211,7 @@ class blackTextWrapper {
 };
 
 class eng1_out {
-	condition = "user19<40";
+	condition = "user19<52";
 	color[] = {1,0,0,1};
     class cross {
     	type="line";
@@ -225,7 +225,7 @@ class eng1_out {
     }; // Cross
 };
 class eng2_out {
-	condition = "user45<40";
+	condition = "user45<52";
 	color[] = {1,0,0,1};
     class cross {
     	type="line";
