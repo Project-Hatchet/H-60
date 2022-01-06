@@ -62,8 +62,8 @@ if (isMultiplayer && local _heli && (_heli getVariable "vtx_uh60_sfmplus_lastTim
 [_heli, 0, _deltaTime] call vtx_uh60_sfmplus_fnc_engine;
 [_heli, 1, _deltaTime] call vtx_uh60_sfmplus_fnc_engine;
 
-private _no1EngDmg = _heli getHitPointDamage "HitEngine1";
-private _no2EngDmg = _heli getHitPointDamage "HitEngine2";
+private _no1EngDmg = _heli getHitPointDamage "hitengine1";
+private _no2EngDmg = _heli getHitPointDamage "hitengine1";
 
 if (_no1EngDmg > 0.5) then {
 	[_heli, "vtx_uh60_sfmplus_engState", 0, "OFF", true] call vtx_uh60_sfmplus_fnc_setArrayVariable;
