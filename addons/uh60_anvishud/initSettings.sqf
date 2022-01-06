@@ -2,7 +2,7 @@
     "vtx_uh60_anvishud_defaultMode", "LIST",
     [localize LSTRING(HMDDefaultMode), LSTRING(HMDDefaultMode_Description)],
     ["UH-60M", "HMD"],
-    [[-1, 1, 2, 3, 4], [
+    [[0, 1, 2, 3, 4], [
         "STR_3DEN_Attributes_Radar_RadarOff_text",
         LSTRING(ImperialFull),
         LSTRING(ImperialDecluttered),

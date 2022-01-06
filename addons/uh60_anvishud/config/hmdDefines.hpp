@@ -65,23 +65,23 @@
 #define SMALL_LINEHEIGHT 0.035
 
 #define COND_ISNUMBER(INDEX,VALUE) (user##INDEX>(VALUE-1))*(user##INDEX<(VALUE+1))
+#define COND_PYLON_ISNUMBER(INDEX,VALUE) (pylonAmmo##INDEX>(VALUE-1))*(pylonAmmo##INDEX<(VALUE+1))
+#define PYLON_VAL(INDEX) (pylonAmmo##INDEX)
 
 /*
-    modes: 
-    -1 - unavailable
+    modes:
      0 - off
      1 - imperial
      2 - imperial dclt
      3 - metric
      4 - metric dclt
-
 */
 
-#define COND_METRIC_FULL_ONLY COND_ISNUMBER(15,3)
-#define COND_IMPERIAL_FULL_ONLY COND_ISNUMBER(15,1)
-#define COND_METRIC ((user15>2)*(user15<5))
-#define COND_IMPERIAL ((user15>0)*(user15<3))
-#define COND_FULL_ONLY (COND_ISNUMBER(15,1)+COND_ISNUMBER(15,3))
+#define COND_METRIC_FULL_ONLY COND_PYLON_ISNUMBER(HMDPylon,3)
+#define COND_IMPERIAL_FULL_ONLY COND_PYLON_ISNUMBER(HMDPylon,1)
+#define COND_METRIC ((PYLON_VAL(HMDPylon)>2)*(PYLON_VAL(HMDPylon)<5))
+#define COND_IMPERIAL ((PYLON_VAL(HMDPylon)>=0)*(PYLON_VAL(HMDPylon)<3))
+#define COND_FULL_ONLY (COND_PYLON_ISNUMBER(HMDPylon,1)+COND_PYLON_ISNUMBER(HMDPylon,3))
 
 #define BAR(CLASS,BONE,X,Y,W) \
     class CLASS { \

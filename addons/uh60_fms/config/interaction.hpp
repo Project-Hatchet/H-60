@@ -176,7 +176,7 @@ class FLIR {
 class hmd {
   condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_HMD);
   FMS_BTN(FMS_6,"OFF","")
-    buttonUp = "[-1] call vtx_uh60_anvishud_fnc_toggleHud;";
+    buttonUp = "[0] call vtx_uh60_anvishud_fnc_toggleHud;";
   };
   FMS_BTN(FMS_7,"IMPERIAL ON","")
     buttonUp = "[1] call vtx_uh60_anvishud_fnc_toggleHud;";

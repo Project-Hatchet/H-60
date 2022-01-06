@@ -34,6 +34,8 @@ class TransportPylonsComponent {
   			DUMMY_PYLON(dummy13)  //Right HMD Color G
         DUMMY_PYLON(dummy14)  //Right HMD Color B
         DUMMY_PYLON(dummy15)  //Right HMD Brightness
+        DUMMY_PYLON(dummy16)  //Left HMD Default Mode
+        DUMMY_PYLON(dummy17)  //Right HMD Default Mode
     };
     class Presets {
         class Empty {

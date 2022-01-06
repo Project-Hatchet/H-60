@@ -17,11 +17,14 @@ class CfgVehicles {
     }; // Heli_Transport_01_base_F
     class vtx_H60_base: Heli_Transport_01_base_F {
         class VTX_H60_HDTS_Copilot {
+            #define HMDPylon 16
         		#include "MFD\HMD.hpp"
                 turret[] = {0};
                 color[]={pylonAmmoRelative8, pylonAmmoRelative9, pylonAmmoRelative10, pylonAmmoRelative11};
         }; // VTX_H60_HDTS_Pilot
         class VTX_H60_HDTS_Pilot {
+            #undef HMDPylon
+            #define HMDPylon 17
         		#include "MFD\HMD.hpp"
                 turret[] = {-1};
                 color[]={pylonAmmoRelative12, pylonAmmoRelative13, pylonAmmoRelative14, pylonAmmoRelative15};

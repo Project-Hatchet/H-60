@@ -236,7 +236,8 @@ class Bones {
 	}; // WPPoint
 }; // Bones
 class Draw {
-	condition="(user15>-1)";
+  //condition = true;
+	condition=((PYLON_VAL(HMDPylon)>0)*(PYLON_VAL(HMDPylon)<5*(on)));
 	class Outline {
 		type="line";
 		width = 0;
