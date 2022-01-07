@@ -38,15 +38,4 @@ class HitPoints: HitPoints {
         name = "maws_hit";
         radius = 0.1;
     };
-    class HitVRotor {
-        armor = 1.3;
-        convexComponent = "tail_rotor_hit";
-        explosionShielding = 6;
-        material = 51;
-        minimalHit = 0.05;
-        name = "tail_rotor_hit";
-        passThrough = 0.3;
-        radius = 1;
-        visual = "tail rotor static";
-    };
 };
