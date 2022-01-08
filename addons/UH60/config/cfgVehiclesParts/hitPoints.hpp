@@ -50,3 +50,35 @@ class HitPoints: HitPoints {
         visual = "tail rotor static";
     };
 };
+/*
+Sizes of new hitpoints in lod by lost
+Air data comp 0.12
+apu 0.46
+auto stab hit 0.14
+battery hit #1 0.21
+battery hit #2 0.21
+nav systems 0.28
+engine 0.4
+flare bucket 0.3
+flight comp #1 0.35
+flight comp #2 0.35
+flir 0.35
+fuel tank 0.98
+fuel prop 0.21
+Glass 0.16 (i dont think we want glass)
+glass #2 0.12
+hoist 0.26
+Hoist Hook 0.13
+light hit 0.15
+rotor hit point 0.47
+main rotor gear 0.7
+main rotor hub 1.01
+Mfd #1-4 0.21
+search light 0.15
+Sling hook 0.2
+soar radar 0.34
+Tail intermediate gear box 0.22
+tail rotor Gear box 0.57
+Tail rotor 0.24
+wing Lass ammo 0.4
+*/
