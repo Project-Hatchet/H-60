@@ -15,23 +15,23 @@ class CfgVehicles {
         class Turrets;
     };
     class Heli_Transport_01_base_F: Helicopter_Base_H {
+        class AnimationSources;
         class Turrets: Turrets {
             class CopilotTurret;
         };
     }; // Helicopter_Base_H
     class vtx_H60_base: Heli_Transport_01_base_F {
+        #include "\z\vtx\addons\UH60\config\CfgAnimationSourcesInherit.hpp"
         class vtx_templateFLIR;
         class Components;
-        class AnimationSources;
         class Turrets: Turrets
         {
+            class CopilotTurret: CopilotTurret {
+              class Components;
+            };
             class MainTurret;
             class RightDoorGun: MainTurret {};
-            class CopilotTurret: CopilotTurret {
-                class Components;
-            };
         };
-        class ViewPilot;
     }; // Heli_Transport_01_base_F
     class vtx_MH60S_Pylons_GAU21L: vtx_H60_base {
         class pilotCamera: vtx_templateFLIR {};
@@ -47,7 +47,7 @@ class CfgVehicles {
         class CargoTurret;
         class Turrets: Turrets
         {
-            #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
+            class CopilotTurret: CopilotTurret {};
             #include "doorguns_pylons.hpp"
             #include "GAU21L.hpp"
             #include "cargoTurretsGAU21L.hpp"
@@ -58,39 +58,27 @@ class CfgVehicles {
           #include "\z\vtx\addons\MH60M\config\missileCam.hpp"
         }; // Components
         class AnimationSources: AnimationSources {
-            class ESSS_Show {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            }; // ESSS_Show
-            class CabinSeats_Hide {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class GunnerSeats_Hide {
-                source="user";
-                animPeriod=1;
-                initPhase=0;
-            };
-            class GAU21_L_Hide {
-                source="user";
-                animPeriod=1;
-                initPhase=0;
-            };
-            class MAWS_Tubes_Show {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class FLIR_HIDE: MAWS_Tubes_Show {
-                initPhase=0;
-            };
-            class FLIR_BACK: FLIR_HIDE {
-                initPhase=1;
-            };
+          ANIM_INIT(CabinSeats_1_Hide,1);
+          ANIM_INIT(CabinSeats_2_Hide,1);
+          ANIM_INIT(CabinSeats_3_Hide,1);
+          ANIM_INIT(ESSS_show,1);
+          ANIM_INIT(GAU21_L_Hide,0);
+          ANIM_INIT(MAWS_Tubes_Show,1);
+          ANIM_INIT(FLIR_HIDE,0);
+          ANIM_INIT(FLIR_BACK,1);
         }; // AnimationSources
-        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa"};
+        hiddenSelectionsTextures[] = {
+          "","","","","","","","","","","","","","","","",
+          "z\vtx\addons\MH60S\data\mh60s_main_co.paa",
+          "z\vtx\addons\MH60S\data\mh60s_misc_co.paa",
+          "z\vtx\addons\MH60S\data\mh60s_tail_co.paa",
+          "", // "markings",
+          "", // "left_num_1",
+          "", // "left_num_2",
+          "", // "right_num_1",
+          "", // "right_num_2",
+          "z\vtx\addons\UH60\Data\JLorion_HH60\Fuel_probe_co.paa"
+        };
     }; // vtx_MH60S_Pylons_GAU21L
     class vtx_MH60S_GAU21L: vtx_H60_base {
         class pilotCamera: vtx_templateFLIR {};
@@ -106,38 +94,20 @@ class CfgVehicles {
         class CargoTurret;
         class Turrets: Turrets
         {
-            #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
-            #include "\z\vtx\addons\UH60\config\turrets\doorguns.hpp"
+            class CopilotTurret: CopilotTurret {};
+            class MainTurret: MainTurret {};
+            class RightDoorGun: RightDoorGun {};
             #include "gau21L_free.hpp"
             #include "cargoTurretsGAU21L.hpp"
         };
         class AnimationSources: AnimationSources {
-            class ESSS_Show {
-                source="user";
-                animPeriod=1;
-                initPhase=0;
-            }; // ESSS_Show
-            class CabinSeats_Hide {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class GAU21_L_Hide {
-                source="user";
-                animPeriod=1;
-                initPhase=0;
-            };
-            class MAWS_Tubes_Show {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class FLIR_HIDE: MAWS_Tubes_Show {
-                initPhase=0;
-            };
-            class FLIR_BACK: FLIR_HIDE {
-                initPhase=1;
-            };
+          ANIM_INIT(CabinSeats_1_Hide,1);
+          ANIM_INIT(CabinSeats_2_Hide,1);
+          ANIM_INIT(CabinSeats_3_Hide,1);
+          ANIM_INIT(GAU21_L_Hide,0);
+          ANIM_INIT(MAWS_Tubes_Show,1);
+          ANIM_INIT(FLIR_HIDE,0);
+          ANIM_INIT(FLIR_BACK,1);
         }; // AnimationSources
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa"};
     }; // vtx_MH60S_GAU21L
@@ -158,7 +128,7 @@ class CfgVehicles {
         class CargoTurret;
         class Turrets: Turrets
         {
-            #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
+            class CopilotTurret: CopilotTurret {};
             #include "doorguns_pylons.hpp"
             #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
         };
@@ -168,48 +138,13 @@ class CfgVehicles {
           #include "\z\vtx\addons\MH60M\config\missileCam.hpp"
         }; // Components
         class AnimationSources: AnimationSources {
-            class Gatling_1 {
-                source="revolving";
-                weapon="vtx_MH60M_M134_minigun";
-            };
-            class Gatling_2 {
-                source="revolving";
-                weapon="vtx_MH60M_M134_minigun";
-            };
-            class Muzzle_flash1 {
-                source="ammorandom";
-                weapon="vtx_MH60M_M134_minigun";
-            };
-            class Muzzle_flash2 {
-                source="ammorandom";
-                weapon="vtx_MH60M_M134_minigun";
-            };
-            class ESSS_Show {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            }; // ESSS_Show
-            class CabinSeats_Hide {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class GAU21_L_Hide {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class MAWS_Tubes_Show {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class FLIR_HIDE: MAWS_Tubes_Show {
-                initPhase=0;
-            };
-            class FLIR_BACK: FLIR_HIDE {
-                initPhase=1;
-            };
+          ANIM_INIT(CabinSeats_1_Hide,1);
+          ANIM_INIT(CabinSeats_2_Hide,1);
+          ANIM_INIT(CabinSeats_3_Hide,1);
+          ANIM_INIT(ESSS_show,1);
+          ANIM_INIT(MAWS_Tubes_Show,1);
+          ANIM_INIT(FLIR_HIDE,0);
+          ANIM_INIT(FLIR_BACK,1);
         }; // AnimationSources
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa"};
     }; // vtx_MH60S_Pylons_GAU21L
@@ -226,21 +161,14 @@ class CfgVehicles {
         editorPreview = "z\vtx\addons\MH60S\Data\Preview\vtx_MH60S.jpg";
         class Turrets: Turrets
         {
-            #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
-            #include "\z\vtx\addons\UH60\config\turrets\doorguns.hpp"
+          class CopilotTurret: CopilotTurret {};
+          class MainTurret: MainTurret {};
+          class RightDoorGun: RightDoorGun {};
         };
         class AnimationSources: AnimationSources {
-            class MAWS_Tubes_Show {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class FLIR_HIDE: MAWS_Tubes_Show {
-                initPhase=0;
-            };
-            class FLIR_BACK: FLIR_HIDE {
-                initPhase=1;
-            };
+          ANIM_INIT(MAWS_Tubes_Show,1);
+          ANIM_INIT(FLIR_HIDE,0);
+          ANIM_INIT(FLIR_BACK,1);
         }; // AnimationSources
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa"};
     }; // vtx_MH60S

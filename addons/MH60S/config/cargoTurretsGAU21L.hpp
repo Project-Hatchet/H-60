@@ -7,6 +7,7 @@ class CargoTurret_01: CargoTurret
     gunnerCompartments = Compartment2;
     proxyIndex = 12;
     isPersonTurret = 1;        /// this turret is able to fire both when turned in and out
+    selectionFireAnim = "";
     disableSoundAttenuation = 0;
     LODTurnedIn = 1200;
     LODTurnedOut = 1200;

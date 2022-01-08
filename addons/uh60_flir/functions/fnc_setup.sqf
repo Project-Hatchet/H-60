@@ -58,6 +58,7 @@ vtx_uh60_flir_isVisibleMap = visibleMap;
 call vtx_uh60_flir_fnc_setIsPipHidden;
 
 if (vtx_uh60_flir_playerIsPilot) then {
+  player action ["TurnIn", vehicle player];
   if (productVersion # 2 >= 207) then {
     // https://community.bistudio.com/wiki/Arma_3:_Event_Handlers#VisionModeChanged
     _id = player addEventHandler ["VisionModeChanged", {
