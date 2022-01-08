@@ -5,19 +5,13 @@ class TransportPylonsComponent {
         class pylons1 {
             attachment = "VTX_4Rnd_ACE_Hellfire_AGM114K";
             priority = 5;
-            hardpoints[] = {
-              "DAR", "DAGR", "B_SHIEKER", "20MM_TWIN_CANNON",
-              "RHS_HP_LONGBOW_RACK", "RHS_HP_FFAR_ARMY", "RHS_HP_MELB", "RHS_HP_MELB_L", "CUP_NATO_HELO_UH60"
-            };
+            hardpoints[] = {"O_SKYFIRE", "DAR", "DAGR", "B_SHIEKER", "RHS_HP_LONGBOW_RACK", "RHS_HP_FFAR_ARMY", "RHS_HP_MELB", "RHS_HP_MELB_L", "CUP_NATO_HELO_UH60", "VTX_ST_L"};
             UIposition[] = {0.59, 0.41};
         };
         class pylons2: pylons1 {
-            attachment = "VTX_PylonRack_M261_APKWS";
+            attachment = "VTX_PylonRack_M261_DAGR";
             mirroredMissilePos = 1;
-            hardpoints[] = {
-              "DAR", "DAGR", "B_SHIEKER", "20MM_TWIN_CANNON",
-              "RHS_HP_LONGBOW_RACK", "RHS_HP_FFAR_ARMY", "RHS_HP_MELB", "RHS_HP_MELB_R", "CUP_NATO_HELO_UH60"
-            };
+            hardpoints[] = {"O_SKYFIRE", "DAR", "DAGR", "B_SHIEKER", "RHS_HP_LONGBOW_RACK", "RHS_HP_FFAR_ARMY", "RHS_HP_MELB", "RHS_HP_MELB_R", "CUP_NATO_HELO_UH60", "VTX_ST_R"};
             UIposition[] = {0.08, 0.41};
         };
         #define DUMMY_PYLON(CLASS) \
@@ -32,14 +26,12 @@ class TransportPylonsComponent {
         DUMMY_PYLON(dummy5)
         DUMMY_PYLON(dummy6)
         DUMMY_PYLON(dummy7)
-        DUMMY_PYLON(dummy8)   //Left HMD Color R
-        DUMMY_PYLON(dummy9)   //Left HMD Color G
-        DUMMY_PYLON(dummy10)  //Left HMD Color B
-  			DUMMY_PYLON(dummy11)  //Left HMD Brighhtness
-  			DUMMY_PYLON(dummy12)  //Right HMD Color R
-  			DUMMY_PYLON(dummy13)  //Right HMD Color G
-        DUMMY_PYLON(dummy14)  //Right HMD Color B
-        DUMMY_PYLON(dummy15)  //Right HMD Brightness
+        DUMMY_PYLON(dummy8)
+        DUMMY_PYLON(dummy9)
+        DUMMY_PYLON(dummy10)
+  			DUMMY_PYLON(dummy11)
+  			DUMMY_PYLON(dummy12)
+  			DUMMY_PYLON(dummy13)
     };
     class Presets {
         class Empty {
@@ -48,19 +40,19 @@ class TransportPylonsComponent {
         };
         class Default {
             displayName = "Default";
-            attachment[] = {"VTX_PylonRack_M261_APKWS", "VTX_4Rnd_ACE_Hellfire_AGM114K", EXTRAPYLONMAGS};
+            attachment[] = {"VTX_PylonRack_M261_DAGR", "VTX_4Rnd_ACE_Hellfire_AGM114K", EXTRAPYLONMAGS};
         };
         class Interdiction {
             displayName = "30mm + DAGR";
-            attachment[] = {"PylonWeapon_300Rnd_20mm_shells", "VTX_PylonRack_M261_APKWS", EXTRAPYLONMAGS};
+            attachment[] = {"PylonWeapon_300Rnd_20mm_shells", "VTX_PylonRack_M261_DAGR", EXTRAPYLONMAGS};
         };
         class Rocket {
             displayName = "Rocket";
             attachment[] = {"VTX_PylonRack_M261_M229", "VTX_PylonRack_M261_M229", EXTRAPYLONMAGS};
         };
-        class APKWS {
-            displayName = "APKWS";
-            attachment[] = {"VTX_PylonRack_M261_APKWS", "VTX_PylonRack_M261_APKWS", EXTRAPYLONMAGS};
+        class DAGR {
+            displayName = "DAGR";
+            attachment[] = {"VTX_PylonRack_M261_DAGR", "VTX_PylonRack_M261_DAGR", EXTRAPYLONMAGS};
         };
         class Hellfire {
             displayName = "Hellfire";

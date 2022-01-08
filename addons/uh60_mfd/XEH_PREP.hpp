@@ -8,6 +8,3 @@ PREP(shutDown);
 PREP(slingCam);
 PREP(switchPage);
 PREP(tac_cursorToWorld);
-PREP(storePylons);
-PREP(restorePylons);
-PREP(setPylonValue);

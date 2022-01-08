@@ -2,7 +2,7 @@ borderBottom = 0;
 borderLeft = 0;
 borderRight = 0;
 borderTop = 0;
-//color[] = {0.082,0.608,0.039,1};
+color[] = {0.082,0.608,0.039,1};
 enableParallax = 0;
 helmetDown[] = {0,-0.065,0};
 helmetMountedDisplay = 1;
@@ -12,13 +12,11 @@ topLeft = ""; // not used because HMD, but still needed
 topRight = ""; // not used because HMD, but still needed
 bottomLeft = ""; // not used because HMD, but still needed
 font="RobotoCondensedLight";
-/*
 class material {
 	ambient[] = {1, 1, 1, 1};
 	diffuse[] = {0.5, 0.5, 0.5, 1};
 	emissive[] = {100, 100, 100, 50};
 };
-*/
 class Bones {
 	#define POS10X 0.765
 	#define POS10Y 0.76
@@ -184,7 +182,7 @@ class Bones {
 		max=0.15;
 		min=-0.15;
 		minPos[]={"0.5+0.1","0.9-0.04-0.02"};
-		maxPos[]={"0.5-0.1","0.9-0.04-0.02"};
+		maxPos[]={"0.5-0.1","0.9-0.04-0.02"};						
 	};
 	class DVE_WP_VEH_DIR {
 		type="rotational";

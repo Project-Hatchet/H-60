@@ -1,6 +1,6 @@
 class torqueWrapper {
 	condition = "1";
-	//color[] = {0.082,0.608,0.039,1};
+	color[] = {0.082,0.608,0.039,1};
 	#define COLLECTIVE_X 0.95
 	#define COLLECTIVE_OFFSET 0.05
 	class DCLT_HIDE {
@@ -64,7 +64,7 @@ class torqueWrapper {
 	};
 
 
-
+	
 	class VSI_POLY
 	{
 		type="polygon";
@@ -107,7 +107,7 @@ class torqueWrapper {
 			sourceScale = 1;
 			text = "KMH";
 		}; // TORQUE_LBL
-
+		
 		TEXT_HMD_R(MSL_ALT_VAL,0.94,0.41)
 			source = "altitudeASL";
 			sourceIndex = 1;
@@ -135,7 +135,7 @@ class torqueWrapper {
 			sourceScale = 1;
 			text = "KTS";
 		}; // TORQUE_LBL
-
+		
 		TEXT_HMD_R(MSL_ALT_VAL,0.94,0.41)
 			source = "altitudeASL";
 			sourceIndex = 1;

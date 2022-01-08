@@ -27,9 +27,9 @@ if (_show) then {
   15 cutRsc ["vtx_uh60_flir_cameraOverlay", "PLAIN"];
   showCinemaBorder false;
 
-  //"filmGrain" ppEffectAdjust [0.5, 2, 1, 1, 1];
-  //"filmGrain" ppEffectCommit 0;
-  //"filmGrain" ppEffectEnable true;
+  "filmGrain" ppEffectAdjust [0.5, 2, 1, 1, 1];
+  "filmGrain" ppEffectCommit 0;
+  "filmGrain" ppEffectEnable true;
 
   [vtx_uh60_flir_pipEffect, false] call vtx_uh60_flir_fnc_setVisionMode;
   vtx_uh60_flir_isInScriptedCamera = true;
@@ -37,7 +37,7 @@ if (_show) then {
 } else {
 
   vtx_uh60_flir_camera cameraEffect ["terminate", "back"];
-  //"filmGrain" ppEffectEnable false;
+  "filmGrain" ppEffectEnable false;
   15 cutText ["", "PLAIN"];
 
   if (!(call vtx_uh60_mfd_fnc_isAnyFlirOpened)) then {

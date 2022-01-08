@@ -7,7 +7,10 @@ GVAR(loadAction) = [ // create action
     localize LSTRING(LoadCargo),
     "\a3\ui_f\data\IGUI\Cfg\VehicleToggles\VehicleCargoIconOn_ca.paa",
     {[_target, _player] call FUNC(startLoading)},
-    {[ace_player, _target] call FUNC(canConfigureCargo)}
+    {[ace_player, _target] call FUNC(canConfigureCargo)},
+    nil,
+    nil,
+    5
 ] call ace_interact_menu_fnc_createAction;
 
 ["AllVehicles", "init", { // on air vehicle init, add action to class if has pylons
