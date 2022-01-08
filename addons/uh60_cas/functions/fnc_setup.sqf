@@ -19,7 +19,7 @@ vtx_uh60_cas_hitEH = _vehicle addEventHandler ["hit", vtx_uh60_cas_fnc_updateCau
 SET_DEFAULT("vtx_cas_rotorIgnored", false);
 
 for [{ _i = 3 }, { _i < 20 }, { _i = _i + 1 }] do {
-	_vehicle setAmmoOnPylon [_i,0];
+  [_vehicle, _i, 0] call vtx_uh60_mfd_fnc_setPylonValue;
 };
 
 true

@@ -9,6 +9,10 @@ class CargoTurret_01: CargoTurret
     isPersonTurret = 1;        /// this turret is able to fire both when turned in and out
     selectionFireAnim = "";
     disableSoundAttenuation = 0;
+    LODTurnedIn = 1200;
+    LODTurnedOut = 1200;
+    LODOpticsIn = 1200;
+    LODOpticsOut = 1200;
     class TurnIn /// limits for gunner turned in
     {
         limitsArrayBottom[] = {[-45,-94.9656],[-45,80.9904],[-31.9033,82.8465],[-31.7935,95]};
