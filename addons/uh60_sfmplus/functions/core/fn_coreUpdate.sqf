@@ -61,6 +61,7 @@ private _cfgAnimationSources = configOf _heli >> "AnimationSources";
 private _maxTotFuelMass = _heli getVariable "vtx_uh60_sfmplus_maxTotFuelMass";
 private _tank1Mass    = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet select 0;
 private _tank2Mass    = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet select 1;
+private _tank3Mass    = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet select 2;
 
 //Engines
 [_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_engineController;
@@ -76,7 +77,7 @@ if (_heli getVariable "APU_POWER" == true) then {
 };
 _curFuelFlow    = (_apuFF + _eng1FF + _eng2FF) * _deltaTime;
 
-private _totFuelMass  = _tank1Mass + _tank2Mass;
+private _totFuelMass  = _tank1Mass + _tank2Mass + _tank3Mass;
 _totFuelMass          = _totFuelMass - _curFuelFlow;
 private _armaFuelFrac = _totFuelMass / _maxTotFuelMass;
 if (local _heli) then {
@@ -93,7 +94,11 @@ private _pylonMass = 0;
 	_pylonMass = _pylonMass + linearConversion [0, _magMaxAmmo, _magAmmo, 0, _magMaxWeight];
 } foreach magazinesAllTurrets _heli;
 
-private _curMass = _emptyMass + _totFuelMass + _pylonMass + _partsMass;
+//Crew and pax
+private _numPers  = count (fullCrew _heli);
+private _persMass = _numPers * 113.39;
+
+private _curMass = _emptyMass + _totFuelMass + _pylonMass + _partsMass + _persMass;
 if (local _heli) then {
 	_heli setMass _curMass;
 };

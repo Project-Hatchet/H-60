@@ -39,14 +39,14 @@ if (!difficultyEnabledRTD) then {
     //Rotor RPM
     _rtrRPM = (_engNp select 0) max (_engNp select 1);
     _vehicle setUserMFDvalue [17, _rtrRPM * 100];
-
+    /*
     HintSilent format ["SFM+
                         \nNg = %1
                         \nNp = %2
                         \nTGT = %3
                         \nTq = %4
                         \nRPM = %5", _engNg, _engNp, _engTGT, _engTq, _rtrRPM];
-
+    */
 } else {
     private _npScalar = 200;
     private _tqScalar = 3.71;
@@ -68,11 +68,14 @@ if (!difficultyEnabledRTD) then {
     //Rotor RPM
     _rtrRPM = (_engNp select 0) max (_engNp select 1);
     _vehicle setUserMFDvalue [17, _rtrRPM / _npScalar];
-
+    /*
     HintSilent format ["AFM
                         \nNg = %1
                         \nNp = %2
                         \nTGT = %3
                         \nTq = %4
                         \nRPM = %5", _engNg, _engNp, _engTGT, _engTq, _rtrRPM];
+    */
+    HintSilent format ["Eng Pwr RTD = %1
+                       \nEng Tq RTD = %2", enginesPowerRTD _vehicle, enginesTorqueRTD _vehicle];
 };

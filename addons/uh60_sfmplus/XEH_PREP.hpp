@@ -5,4 +5,4 @@ PREP(setup);
 PREP(perFrame);
 */
 vtx_uh60_sfmplus_fnc_perFrame = { call compile preProcessFileLineNumbers '\z\vtx\addons\uh60_sfmplus\functions\fnc_perFrame.sqf' };
-vtx_uh60_sfmplus_fnc_setUp    = { call compile preProcessFileLineNumbers '\z\vtx\addons\uh60_sfmplus\functions\fnc_setUp.sqf' };
+vtx_uh60_sfmplus_fnc_setUp     = { call compile preProcessFileLineNumbers '\z\vtx\addons\uh60_sfmplus\functions\fnc_setUp.sqf' };

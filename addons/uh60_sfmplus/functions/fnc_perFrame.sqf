@@ -1,4 +1,4 @@
-// vtx_uh60_sfmplus_fnc_perFrame
+// vtx_uh60_sfmplus_fnc_perSecond
 params ["_vehicle", "_frameTime"];
 
 if !(

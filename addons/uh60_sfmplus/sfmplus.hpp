@@ -6,8 +6,8 @@ class vtx_SfmPlus {
     stabLength = 1.18; //m
 
     maxTank1FuelMass = 547; //1206lbs in kg
-    //maxCtrFuelMass = 300;	//663lbs in kg, net yet implemented, center robbie
     maxTank2FuelMass = 547; //1206lbs in kg
+    maxTank3FuelMass = 607;	//1340lbs in kg, center robbie
     //maxExtFuelMass = 690; //1541lbs in kg, not yet implemented, 230gal external tank
 
     //Engine Data

@@ -39,7 +39,7 @@ private _torqueMultiplier = 1 + ((collectiveRTD _vehicle) * 0.1);
 { // forEach [GET("ENG1_PWR",0),GET("ENG2_PWR",0)]
     if(_x > 0) then {
         private _consumption = CONSUMPTION(_x) * _tempMultiplier * _torqueMultiplier;
-        _vehicle setFuel ((fuel _vehicle) - (_consumption / 60 / 60));
+        //_vehicle setFuel ((fuel _vehicle) - (_consumption / 60 / 60));
     };
 } forEach [GET("ENG1_PWR",0),GET("ENG2_PWR",0)];
 

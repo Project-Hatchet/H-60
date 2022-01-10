@@ -76,30 +76,30 @@ if (isNil "_animEndState") exitWith { systemChat format ["exit %1 and %2", _anim
 
 if (_animName == "Lever_engpower1") then {
     if (_animEndState == "OFF") then {
-        systemChat format ["Eng 1 OFF Pos"];
+        //systemChat format ["Eng 1 OFF Pos"];
         [_vehicle, 0, "OFF"] call vtx_uh60_sfmplus_fnc_interactPowerLever;
     };
     if (_animEndState == "IDLE") then {
-        systemChat format ["Eng 1 IDLE Pos"];
+        //systemChat format ["Eng 1 IDLE Pos"];
         [_vehicle, 0, "IDLE"] call vtx_uh60_sfmplus_fnc_interactPowerLever;
     };
     if (_animEndState == "FLY") then {
-        systemChat format ["Eng 1 FLY Pos"];
+        //systemChat format ["Eng 1 FLY Pos"];
         [_vehicle, 0, "FLY"] call vtx_uh60_sfmplus_fnc_interactPowerLever;
     };
 };
 //--Engine 2
 if (_animName == "Lever_engpower2") then {
     if (_animEndState == "OFF") then {
-        systemChat format ["Eng 2 OFF Pos"];
+        //systemChat format ["Eng 2 OFF Pos"];
         [_vehicle, 1, "OFF"] call vtx_uh60_sfmplus_fnc_interactPowerLever;
     };
     if (_animEndState == "IDLE") then {
-        systemChat format ["Eng 2 IDLE Pos"];
+        //systemChat format ["Eng 2 IDLE Pos"];
         [_vehicle, 1, "IDLE"] call vtx_uh60_sfmplus_fnc_interactPowerLever;
     };
     if (_animEndState == "FLY") then {
-        systemChat format ["Eng 2 FLY Pos"];
+        //systemChat format ["Eng 2 FLY Pos"];
         [_vehicle, 1, "FLY"] call vtx_uh60_sfmplus_fnc_interactPowerLever;
     };
 };

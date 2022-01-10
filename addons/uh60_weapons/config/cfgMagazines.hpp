@@ -6,7 +6,7 @@ class cfgMagazines {
   class VTX_4Rnd_ACE_Hellfire_AGM114K: PylonRack_4Rnd_ACE_Hellfire_AGM114K { // 4x Launcher Support Rack
     displayName = "4x AGM-114K [H60]";
     count = 4;
-    mass = 340;
+    mass = 251.92;
     hardpoints[] = {"UNI_SCALPEL", "CUP_NATO_HELO_LARGE", "RHS_HP_HELLFIRE_RACK", "RHS_HP_LONGBOW_RACK"};
     ammo = "VTX_Hellfire_AGM114K";
     pylonWeapon = "vtx_hellfire_launcher";
@@ -14,7 +14,7 @@ class cfgMagazines {
   class VTX_4Rnd_ACE_Hellfire_AGM114L: PylonRack_4Rnd_ACE_Hellfire_AGM114L { // 4x Launcher Support Rack
     displayName = "4x AGM-114L [H60]";
     count = 4;
-    mass = 340;
+    mass = 251.92;
     hardpoints[] = {"UNI_SCALPEL", "CUP_NATO_HELO_LARGE", "RHS_HP_HELLFIRE_RACK", "RHS_HP_LONGBOW_RACK"};
     ammo = "VTX_Hellfire_AGM114L";
     pylonWeapon = "vtx_hellfire_launcher_L";
@@ -22,7 +22,7 @@ class cfgMagazines {
   class VTX_4Rnd_ACE_Hellfire_AGM114N: PylonRack_4Rnd_ACE_Hellfire_AGM114N { // 4x Launcher Support Rack
     displayName = "4x AGM-114N [H60]";
     count = 4;
-    mass = 340;
+    mass = 251.92;
     hardpoints[] = {"UNI_SCALPEL", "CUP_NATO_HELO_LARGE", "RHS_HP_HELLFIRE_RACK", "RHS_HP_LONGBOW_RACK"};
     ammo = "VTX_Hellfire_AGM114N";
     pylonWeapon = "vtx_hellfire_launcher_N";
@@ -36,7 +36,7 @@ class cfgMagazines {
     pylonWeapon = "vtx_chaingun";
     muzzlePos = "muzzlePos";
     muzzleEnd = "muzzleEnd";
-    weight = 180;
+    weight = 164.3;
     mass = 180;
     tracersEvery = 1;
     lastRoundsTracer = 1;
@@ -53,7 +53,7 @@ class cfgMagazines {
     pylonWeapon = "vtx_chaingun";
     muzzlePos = "muzzlePos";
     muzzleEnd = "muzzleEnd";
-    weight = 180;
+    weight = 164.3;
     mass = 180;
     tracersEvery = 1;
     lastRoundsTracer = 1;
@@ -68,7 +68,7 @@ class cfgMagazines {
 		count = 19;
     displayName = "19x Hydra 70 M229 [H60]";
     displayNameShort = "19x Hydra 70 M229";
-    weight = 300;
+    weight = 435.81;
     model = QPATHTOF(fza_pod_m261.p3d);
 	};
   class PylonRack_12Rnd_PG_missiles;
@@ -77,7 +77,7 @@ class cfgMagazines {
     count = 19;
     displayName = "19x DAGR [H60]";
     displayNameShort = "19x DAGR";
-    weight = 300;
+    weight = 435.81;
     model = QPATHTOF(fza_pod_m261.p3d);
   };
 };

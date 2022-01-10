@@ -9,7 +9,7 @@ private _speedDiff = (vectorMagnitude velocity _vehicle) - (vectorMagnitude velo
 if(attachedTo _basket == _vehicle) then {
     private _ropeLength = (_tanker modelToWorldVisualWorld _ropePosModel) distance _probePos;
     ropeUnwind [_rope, 15, _ropeLength + 0.1];
-    _vehicle setFuel ((fuel _vehicle) + (vtx_aar_transferRate * _frameTime));
+    //_vehicle setFuel ((fuel _vehicle) + (vtx_aar_transferRate * _frameTime));
     if (_ropeLength > 30 || _speedDiff < -5) then {
         [_vehicle, _tanker, _basket, _rope] call vtx_uh60_aar_fnc_detachFromHelo;
     };
