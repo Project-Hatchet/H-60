@@ -24,33 +24,35 @@ _emptyMass = _heli getVariable "vtx_uh60_sfmplus_emptyMass";
 
 private _cfgAnimationSources = configOf _heli >> "AnimationSources";
 {
-	private _phase = _heli animationSourcePhase _x;
+	private _phase    = _heli animationSourcePhase _x;
 	private _partMass = getNumber (_cfgAnimationSources >> _x >> "mass");
-	_partsMass = _partsMass + _partMass * _phase;
+	_partsMass        = _partsMass + _partMass * _phase;
 } forEach [
+	"GunnerSeats_Hide",
+	"CabinSeats_Hide",
 	"CabinSeats_1_Hide",
 	"CabinSeats_2_Hide",
 	"CabinSeats_3_Hide",
-	"Cockpitdoors_Hide",
-	"FLIR_HIDE",
-	"Fuelprobe_show",
-	"GunnerSeats_Hide",
-	"GAU21_L_Hide",
-	"HH60Flares_show",
-	"hoist_hide",
-	"ERFS_show",
-	"ESSS_show",
-	"LASS_show",
 	"Minigun_Mount_L_hide",
 	"Minigun_Mount_R_hide",
 	"Minigun_L_hide",
 	"Minigun_R_hide",
 	"RADAR_HIDE",
-	"Skis_show"
+	"FLIR_HIDE",
+	"Fuelprobe_show",
+	"Cockpitdoors_Hide",
+	"ERFS_show",
+	"MAWS_Tubes_Show",
+	"LASS_show",
+	"ESSS_show",
+	"EGMS_show",
+	"GAU21_L_Hide",
+	"GAU21_R_Hide",
+	"Skis_show",
+	"HH60Flares_show"
 ];
 
 //Add ViV
-//Add passengers
 
 _heli setVariable["fza_sfmplus_emptyMass", _emptyMass];
 
@@ -68,9 +70,9 @@ private _pylonMass = 0;
 } foreach magazinesAllTurrets _heli;
 
 //Crew and pax
-private _numPers  = count (fullCrew _heli);
-private _persMass = _numPers * 113.39;	//250lbs per person
+private _numPers       = count (fullCrew _heli);
+private _crewAnPaxMass = _numPers * 113.5;	//250lbs per person
 
-private _totalMass = _emptyMass + _tank1Mass + _tank2Mass + _tank3Mass + _pylonMass + _partsMass + _persMass;
+private _totalMass = _emptyMass + _tank1Mass + _tank2Mass + _tank3Mass + _pylonMass + _partsMass + _crewAnPaxMass;
 
 _heli setMass _totalMass;

@@ -1,5 +1,5 @@
 class vtx_SfmPlus {
-    emptyMass  = 5896; //kg
+    emptyMass  = 5896;//kg
 
     stabPos[]  = {0.0, -7.041, -0.084};
     stabWidth  = 4.18;  //m

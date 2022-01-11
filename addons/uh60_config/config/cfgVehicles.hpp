@@ -107,6 +107,7 @@ class CfgVehicles {
     class vxf_turret_1 {};
     class vxf_turret_2 {};
   };
+  
   class vtx_UH60M_SLICK: vtx_H60_base {
     class AnimationSources: AnimationSources {
       ANIM_INIT(CabinSeats_1_Hide,1);
