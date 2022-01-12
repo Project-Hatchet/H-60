@@ -16,10 +16,6 @@ if (inputAction "headlights" > 0 && !vtx_uh60_misc_btn_hold) then {
     };
 };
 
-if (!vtx_uh60_misc_landingLightOn && !(_vehicle animationPhase "Switch_lights_position" > 0.5) && !(_vehicle animationPhase "Switch_lights_cockpit" > 0.5)) then {
-    _vehicle setPilotLight false;
-};
-
 private _attachedBoat = _vehicle getVariable ["vtx_crrc_attached", nil];
 if (!isNil "_attachedBoat") then {
     if (!isNull (getSlingLoad _vehicle)) then {
