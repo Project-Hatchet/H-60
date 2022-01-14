@@ -21,6 +21,9 @@ class mfd_any {
     MFD_BTN(MFD_16,QUOTE(EICAS))
         buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_EICAS, true)] call vtx_uh60_mfd_fnc_switchPage);
     };
+    MFD_BTN(MFD_17,QUOTE(ND))
+        buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_ND, true)] call vtx_uh60_mfd_fnc_switchPage);
+    };
     MFD_BTN(MFD_18,QUOTE(PFD))
         buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_PFD, true)] call vtx_uh60_mfd_fnc_switchPage);
     };

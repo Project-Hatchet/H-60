@@ -516,7 +516,7 @@ class AIRCRAFT_CENTERED {
 };
 class AIRCRAFT_CENTERED_NORTH {
     condition = ((user18 > 0) * (user18 < 2));
-    TEXT_LEFT_SMALL_SRC_CUSTOM(CENTER_MODE,0.665,0.025) source="static"; text="SELF"; sourceScale = 1;};
+    TEXT_LEFT_SMALL_SRC_CUSTOM(CENTER_MODE,0.665,0.025) source="static"; text="NORTH"; sourceScale = 1;};
     class cursor
     {
         type = "line";

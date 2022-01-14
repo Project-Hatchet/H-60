@@ -46,6 +46,9 @@ private _clearPos = {
 
 {
     _waypointPosition = waypointPosition [group player, (currentWaypoint group player) + _forEachIndex - 1];
+    if (_forEachIndex == (currentWaypoint group player) && (count customWaypointPosition) > 0) then {
+        _waypointPosition = customWaypointPosition;
+    };
     if (!(_waypointPosition isEqualTo [0,0,0])) then {
         [_waypointPosition, _x # 0, _x # 1] call _positionToMfd;
         // private _direction = (_center getDir _waypointPosition) - _startDir;
