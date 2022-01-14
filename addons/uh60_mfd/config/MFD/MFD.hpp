@@ -15,6 +15,7 @@ class Bones {
 	#include "pages\pfd_bones.hpp"
 	#include "pages\tac_bones.hpp"
 	#include "pages\flir_bones.hpp"
+	#include "pages\nd_bones.hpp"
 }; // Bones
 class Draw {
 	class eicas {
@@ -37,5 +38,9 @@ class Draw {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_FLIR);
 		#include "pages\flir_draw.hpp"
 	}; // jvmf
+	class nd {
+		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_ND);
+		#include "pages\nd_draw.hpp"
+	}; // nd
 	#include "pages\warning_overlay.hpp"
 }; // Draw

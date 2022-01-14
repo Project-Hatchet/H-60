@@ -1,6 +1,13 @@
 class VehicleSystemsTemplateLeftPilot;
 class VehicleSystemsTemplateRightPilot;
 class SensorTemplatePassiveRadar;
+class SensorTemplateAntiRadiation;
+class SensorTemplateActiveRadar;
+class SensorTemplateIR;
+class SensorTemplateVisual;
+class SensorTemplateMan;
+class SensorTemplateLaser;
+class SensorTemplateNV;
 class SensorTemplateDataLink;
 class CfgVehicles
 {
@@ -71,6 +78,8 @@ class CfgVehicles
         #include "cfgVehiclesParts\hitPoints.hpp"
         //#include "cfgVehiclesParts\vehicleCustomization.hpp"
 
+        incomingMissileDetectionSystem = 16;
+        lockDetectionSystem = 1+2+4+8+16;
         reportOwnPosition = 1;
         reportRemoteTargets = 1;
         receiveRemoteTargets = 1;
@@ -306,8 +315,6 @@ class CfgVehicles
 
         weapons[]={CMFlareLauncher};
         magazines[]={60Rnd_CMFlareMagazine};
-        lockDetectionSystem = CM_Lock_Radar + CM_Lock_Laser;
-        incommingMisslieDetectionSystem = CM_none; // or CM_Missile;
 
         class Damage
         {

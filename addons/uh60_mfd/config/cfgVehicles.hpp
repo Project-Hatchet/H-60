@@ -258,7 +258,7 @@ class CfgVehicles {
             class MFD_1_CMWS
             {
                     topLeft="MFD1_LH";topRight="MFD1_RH"; bottomLeft="MFD1_LD";
-                #include "MFD\pages\tac_cmws.hpp"
+                #include "MFD\pages\nd_cmws.hpp"
             }; // MFD_1
             class MFD_1_Monospace {
                 topLeft="MFD1_LH";topRight="MFD1_RH"; bottomLeft="MFD1_LD";
@@ -276,7 +276,7 @@ class CfgVehicles {
             class MFD_2_CMWS
             {
                 topLeft="MFD2_LH"; topRight="MFD2_RH"; bottomLeft="MFD2_LD";
-                #include "MFD\pages\tac_cmws.hpp"
+                #include "MFD\pages\nd_cmws.hpp"
             }; // MFD_2
             class MFD_2_Monospace {
                 topLeft="MFD2_LH";topRight="MFD2_RH"; bottomLeft="MFD2_LD";
@@ -294,7 +294,7 @@ class CfgVehicles {
             class MFD_3_CMWS
             {
                     topLeft="MFD3_LH";topRight="MFD3_RH";bottomLeft="MFD3_LD";
-                    #include "MFD\pages\tac_cmws.hpp"
+                    #include "MFD\pages\nd_cmws.hpp"
             }; // MFD_3
             class MFD_3_Monospace {
                 topLeft="MFD3_LH";topRight="MFD3_RH"; bottomLeft="MFD3_LD";
@@ -312,7 +312,7 @@ class CfgVehicles {
             class MFD_4_CMWS
             {
                     topLeft="MFD4_LH";topRight="MFD4_RH";bottomLeft="MFD4_LD";
-                    #include "MFD\pages\tac_cmws.hpp"
+                    #include "MFD\pages\nd_cmws.hpp"
             }; // MFD_4
             class MFD_4_Monospace {
                 topLeft="MFD4_LH";topRight="MFD4_RH"; bottomLeft="MFD4_LD";

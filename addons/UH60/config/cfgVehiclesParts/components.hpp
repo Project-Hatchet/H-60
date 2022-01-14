@@ -40,8 +40,19 @@ class Components: Components {
 	}; // TransportPylonsComponent
 	class SensorsManagerComponent {
 		class Components {
-			class PassiveRadarSensorComponent: SensorTemplatePassiveRadar {};
-			class DatalinkSensorComponent: SensorTemplateDataLink {};
+			class LaserSensorComponent: SensorTemplateLaser {};
+			class PassiveRadarSensorComponent: SensorTemplatePassiveRadar {
+				angleRangeHorizontal 	= 360;
+				angleRangeVertical 		= 360;
+			};
+			class DatalinkSensorComponent: SensorTemplateDataLink {
+				angleRangeHorizontal 	= 360;
+				angleRangeVertical 		= 360;
+			};
+			class VisualSensorComponent: SensorTemplateVisual {
+				angleRangeHorizontal 	= 360;
+				angleRangeVertical 		= 360;
+			};
 		};
 	};
 };
