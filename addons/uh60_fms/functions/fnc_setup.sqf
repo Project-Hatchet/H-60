@@ -20,5 +20,6 @@ fms_locations_selected = nil;
 fms_markpoint = nil;
 vtx_uh60_fms_mapSize = [] call BIS_fnc_mapSize;
 vtx_uh60_fms_nearestLocation = nil;
+vtx_uh60_fms_renderWaypointsOnTAC = true;
 
 true

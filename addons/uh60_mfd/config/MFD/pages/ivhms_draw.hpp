@@ -1,3 +1,4 @@
+alpha = 0.65;
 class HEADER_BARS_TOP {
   type="line";
   width = 3;
