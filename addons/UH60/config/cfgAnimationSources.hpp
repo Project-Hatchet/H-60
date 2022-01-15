@@ -66,6 +66,11 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0;
   };
+  class PositionLights_Show {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
   class CabinLight_Show {
     source="user";
     animPeriod=1;
