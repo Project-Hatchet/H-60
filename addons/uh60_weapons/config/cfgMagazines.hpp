@@ -68,7 +68,7 @@ class cfgMagazines {
     displayNameShort = "19x DAGR";
     mass = 336.5; // 36.3 kg launcher, 15.8 per rocket
     model = QPATHTOF(fza_pod_m261.p3d);
-    pylonWeapon = "ace_missileguidance_dagr";
+    pylonWeapon = "vtx_dagr";
   };
   class VTX_PylonRack_M261_APKWS: PylonRack_12Rnd_PG_missiles {
     ammo = "VTX_APKWS";
