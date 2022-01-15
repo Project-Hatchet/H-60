@@ -49,7 +49,22 @@ class cfgWeapons {
     };
   class RocketPods;
   class missiles_DAR: RocketPods {
-    magazines[] += {"VTX_PylonRack_M261_M229"};
+    class Burst;
+    class Far_AI;
+    class Medium_AI;
+  };
+  class vtx_hydra: missiles_DAR{
+    displayName = "M299";
+    displayNameShort = "M299";
+    magazines[] = {"VTX_PylonRack_M261_M229"};
+    class Burst: Burst {
+      displayName = "M299/Ripple";
+    };
+    class Single: Burst {
+      displayName = "M299/Single";
+      autoFire = 0;
+    };
+    modes[] = {"Far_AI","Medium_AI", "Single", "Burst"};
   };
 
   class ace_missileguidance_dagr;
@@ -63,7 +78,9 @@ class cfgWeapons {
     displayName = "APKWS";
     displayNameShort = "APKWS";
     magazines[] = {"VTX_PylonRack_M261_APKWS"};
-    class Burst: Burst {displayName = "APKWS";};
+    class Burst: Burst {
+      displayName = "APKWS";
+    };
     class Far_AI: Far_AI {displayName = "APKWS";};
     class Medium_AI: Medium_AI {displayName = "APKWS";};
   };

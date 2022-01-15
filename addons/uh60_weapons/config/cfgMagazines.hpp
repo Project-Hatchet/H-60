@@ -67,9 +67,10 @@ class cfgMagazines {
 		author = "Ampersand";
 		count = 19;
     displayName = "19x Hydra 70 M229 [H60]";
-    displayNameShort = "19x Hydra 70 M229";
+    displayNameShort = "Hydra 70 M229";
     mass = 300.4; // 36.3 kg launcher, 6.2 per motor, 7.7 per warhead
     model = QPATHTOF(fza_pod_m261.p3d);
+    pylonWeapon = "vtx_hydra";
 	};
   class PylonRack_12Rnd_PG_missiles;
   class VTX_PylonRack_M261_DAGR: PylonRack_12Rnd_PG_missiles {
@@ -77,7 +78,7 @@ class cfgMagazines {
     author = "Ampersand";
     count = 19;
     displayName = "19x DAGR [H60]";
-    displayNameShort = "19x DAGR";
+    displayNameShort = "DAGR";
     mass = 336.5; // 36.3 kg launcher, 15.8 per rocket
     model = QPATHTOF(fza_pod_m261.p3d);
     pylonWeapon = "vtx_dagr";
@@ -87,7 +88,7 @@ class cfgMagazines {
     author = "Ampersand";
     count = 19;
     displayName = "19x APKWS [H60]";
-    displayNameShort = "19x APKWS";
+    displayNameShort = "APKWS";
     mass = 336.5; // 36.3 kg launcher, 15.8 per rocket
     model = QPATHTOF(fza_pod_m261.p3d);
     pylonWeapon = "vtx_apkws";
