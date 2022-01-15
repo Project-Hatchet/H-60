@@ -47,5 +47,9 @@ class Draw {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_ND);
 		#include "pages\nd_draw.hpp"
 	}; // nd
+	class ccfs_menu {
+		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_CCFS_MENU);
+		#include "pages\ccfs_menu_draw.hpp"
+	}; // nd
 	#include "pages\warning_overlay.hpp"
 }; // Draw

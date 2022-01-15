@@ -36,7 +36,8 @@
 #define MFD_PAGE_JVMF 4
 #define MFD_PAGE_FLIR 5
 #define MFD_PAGE_IVHMS 6
-#define MFD_PAGE_CCFS 7
+#define MFD_PAGE_CCFS_MENU 7
+#define MFD_PAGE_CCFS 8
 
 // ND SUBPAGES
 #define ND_MODE_ALL (MFD_PAGE_ND+0.0)
