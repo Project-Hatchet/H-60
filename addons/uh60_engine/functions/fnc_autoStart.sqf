@@ -18,10 +18,11 @@ sleep 1;
 [_vehicle, ["startup", "powerContRTD", "b_engpowercont1"], "FLY"] call vxf_interaction_fnc_scriptedInteract;
 [_vehicle, ["startup", "b_starter2"]] call vxf_interaction_fnc_scriptedInteract;
 [_vehicle, ["startup", "powerContRTD", "b_engpowercont2"], "FLY"] call vxf_interaction_fnc_scriptedInteract;
-_vehicle setUserMFDvalue [49,0];
+_vehicle setUserMFDvalue [49,0];  //Set ESIS value
 _vehicle setVariable ["ESIS_COUNTER", -1];
 
 sleep 3;
 [_vehicle, ["startup", "apucont"], "OFF"] call vxf_interaction_fnc_scriptedInteract;
 [_vehicle, ["startup", "fuelPump"], "OFF"] call vxf_interaction_fnc_scriptedInteract;
 [_vehicle, ["startup", "b_airsce"], "OFF"] call vxf_interaction_fnc_scriptedInteract;
+[_vehicle, 5, 0] call vtx_uh60_mfd_fnc_setPylonValue; //Turn off starter enunciation
