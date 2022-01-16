@@ -8,14 +8,6 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0;
   };
-  class recoil_source {
-    source="reload";
-    weapon="vtx_chaingun";
-  };
-  class muzzle_rot {
-    source="ammorandom";
-    weapon="vtx_chaingun";
-  };
   class gunner_ffv_l {
     source="user";
     animPeriod=0.1;

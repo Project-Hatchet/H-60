@@ -549,14 +549,6 @@ class AnimationSources: AnimationSources {
     source="ammorandom";
     weapon="vtx_wpn_m134_2nd";
   };
-  class recoil_source {
-    source="reload";
-    weapon="vtx_chaingun";
-  };
-  class muzzle_rot {
-    source="ammorandom";
-    weapon="vtx_chaingun";
-  };
   class Switch_minigun_safe_cover_l {
     source="user";
     animPeriod=0.2;
