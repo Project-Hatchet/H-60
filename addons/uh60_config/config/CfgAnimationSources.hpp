@@ -541,12 +541,12 @@ class AnimationSources: AnimationSources {
     source="revolving";
     weapon="vtx_wpn_m134_2nd";
   };
-  class Muzzle_flash {
-    source="ammorandom";
+  class Muzzle_Flash_M134_L {
+    source="ammoRandom";
     weapon="vtx_wpn_m134";
   };
-  class Muzzle_flash2 {
-    source="ammorandom";
+  class Muzzle_Flash_M134_R {
+    source="ammoRandom";
     weapon="vtx_wpn_m134_2nd";
   };
   class Switch_minigun_safe_cover_l {
