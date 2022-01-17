@@ -14,8 +14,25 @@ class CfgVehicles {
             class modules;
         }; // vxf_copilot
         class MFD;
+        class UserActions;
     }; // Heli_Transport_01_base_F
     class vtx_H60_base: Heli_Transport_01_base_F {
+        class UserActions: UserActions {
+            class OpenIVHMS
+			{
+				displayName = "Open IVHMS";
+				displayNameDefault = "Open IVHMS";
+				priority = 0;
+				radius = 10; // A too small radius might cause the action to not be visible
+				position = "camera";
+				showWindow = 0;
+				hideOnUse = 1;
+				onlyForPlayer = 0;
+				shortcut = "";
+				condition = "player == driver this"; // Only show if the unit is alive and is not a player
+				statement = "[this] call vtx_uh60_mfd_fnc_ivhms";
+			};
+        };
         class vxf_driver: vxf_driver {
             class modules: modules {
                 class mfd {
@@ -262,7 +279,7 @@ class CfgVehicles {
             }; // MFD_1
             class MFD_1_Monospace {
                 topLeft="MFD1_LH";topRight="MFD1_RH"; bottomLeft="MFD1_LD";
-                #include "MFD\pages\jvmf\jvmf_monospace.hpp"
+                #include "MFD\pages\monospace.hpp"
             }; // MFD_1
             #undef MFD_PAGE_INDEX
             #define MFD_PAGE_INDEX MFD_2_PAGE_INDEX
@@ -280,7 +297,7 @@ class CfgVehicles {
             }; // MFD_2
             class MFD_2_Monospace {
                 topLeft="MFD2_LH";topRight="MFD2_RH"; bottomLeft="MFD2_LD";
-                #include "MFD\pages\jvmf\jvmf_monospace.hpp"
+                #include "MFD\pages\monospace.hpp"
             }; // MFD_2
             #undef MFD_PAGE_INDEX
             #define MFD_PAGE_INDEX MFD_3_PAGE_INDEX
@@ -298,7 +315,7 @@ class CfgVehicles {
             }; // MFD_3
             class MFD_3_Monospace {
                 topLeft="MFD3_LH";topRight="MFD3_RH"; bottomLeft="MFD3_LD";
-                #include "MFD\pages\jvmf\jvmf_monospace.hpp"
+                #include "MFD\pages\monospace.hpp"
             }; // MFD_3
             #undef MFD_PAGE_INDEX
             #define MFD_PAGE_INDEX MFD_4_PAGE_INDEX
@@ -316,7 +333,7 @@ class CfgVehicles {
             }; // MFD_4
             class MFD_4_Monospace {
                 topLeft="MFD4_LH";topRight="MFD4_RH"; bottomLeft="MFD4_LD";
-                #include "MFD\pages\jvmf\jvmf_monospace.hpp"
+                #include "MFD\pages\monospace.hpp"
             }; // MFD_1
             class ESIS_BOOT
             {

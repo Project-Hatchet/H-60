@@ -35,6 +35,7 @@
 #define MFD_PAGE_ND 3
 #define MFD_PAGE_JVMF 4
 #define MFD_PAGE_FLIR 5
+#define MFD_PAGE_IVHMS 6
 
 
 //HELPERS
@@ -46,13 +47,36 @@
 //ELEMENTS
 
 
+#define TEXT_RIGHT_SCALED_SRC(CLASS,X,Y,SCALE) \
+	class CLASS { \
+		type = "text"; \
+		align = "left"; \
+		scale = 1; \
+		pos[] = {{X, Y}, 1}; \
+		right[] = {{X + (SCALE*0.75), Y}, 1}; \
+		down[] = {{X, Y + SCALE}, 1};
+
+#define TEXT_RIGHT_SCALED(CLASS,X,Y,TEXT,SCALE) \
+	TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
+		source = "static"; \
+		text = TEXT; \
+	};
+
+#define TEXT_RIGHT_SCALED_USERTEXT(CLASS,X,Y,IDX,SCALE) \
+	TEXT_RIGHT_SCALED_SRC(CLASS,X,Y,SCALE) \
+		source = "userText"; \
+        sourceIndex = IDX; \
+        sourceScale = 1; \
+		text = ""; \
+	};
+
 #define TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
 	class CLASS { \
 		type = "text"; \
 		align = "center"; \
 		scale = 1; \
 		pos[] = {{X, Y}, 1}; \
-		right[] = {{X + SCALE, Y}, 1}; \
+		right[] = {{X + (SCALE*0.75), Y}, 1}; \
 		down[] = {{X, Y + SCALE}, 1};
 
 #define TEXT_MID_SCALED(CLASS,X,Y,TEXT,SCALE) \
@@ -61,13 +85,21 @@
 		text = TEXT; \
 	};
 
+#define TEXT_MID_SCALED_USERTEXT(CLASS,X,Y,IDX,SCALE) \
+	TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
+		source = "userText"; \
+        sourceIndex = IDX; \
+        sourceScale = 1; \
+		text = ""; \
+	};
+
 #define TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
 	class CLASS { \
 		type = "text"; \
 		align = "right"; \
 		scale = 1; \
 		pos[] = {{X, Y}, 1}; \
-		right[] = {{X + SCALE, Y}, 1}; \
+		right[] = {{X + (SCALE*0.75), Y}, 1}; \
 		down[] = {{X, Y + SCALE}, 1};
 
 #define TEXT_LEFT_SCALED(CLASS,X,Y,TEXT,SCALE) \

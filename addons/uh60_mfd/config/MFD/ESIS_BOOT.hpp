@@ -61,7 +61,8 @@ class Draw {
 			TEXT_MID_SCALED(Avionics,0.45,0.15,"Avionics Systems Inc.",0.13)
 			
 			TEXT_LEFT_SCALED(Aircraft,0.1,0.3,"Aircraft:",0.09)
-			TEXT_LEFT_SCALED(SerialNum,0.15,0.38,"UH60M 1921 031",0.09)
+			TEXT_LEFT_SCALED(SerialNum,0.15,0.38,"H60 1921 ",0.09)
+			TEXT_LEFT_SCALED(SerialNumVersion,0.4,0.38,STR(VERSION),0.09)
 			
 			TEXT_LEFT_SCALED(ElapsedTime,0.1,0.5,"Elapsed Time 1337.0 hrs",0.09)
 			

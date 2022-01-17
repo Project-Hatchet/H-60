@@ -40,6 +40,19 @@ switch (_pageIndex) do {
       _vehicle setObjectMaterial [MAP_SELECTION(_mfdIndex), ""];
       _vehicle setObjectMaterial [MFD_OVERLAY(_mfdIndex), ""];
     };
+    case MFD_PAGE_IVHMS: {
+        [_vehicle] call vtx_uh60_mfd_fnc_ivhms;
+    };
+};
+
+if (_pageIndex != MFD_PAGE_IVHMS) then {
+    vtx_uh60_mfd_allowText = true;
+    {
+        if ((getUserMFDValue _vehicle) # _x == MFD_PAGE_IVHMS) then {
+            _vehicle setUserMFDvalue [_x,[1,0,0,1] # _forEachIndex];
+        };
+    } forEach [MFD_1_PAGE_INDEX, MFD_2_PAGE_INDEX, MFD_3_PAGE_INDEX, MFD_4_PAGE_INDEX];
+    for "_i" from 0 to 19 step 1 do { _vehicle setUserMFDText [_i, ""]; };
 };
 
 [_vehicle, _slingCam] call vtx_uh60_mfd_fnc_slingCam;
