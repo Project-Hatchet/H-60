@@ -97,6 +97,20 @@ class cfgMagazines {
     displayNameShort = "30x113 AP";
     pylonWeapon = "vtx_chaingun_ap";
   };
+  class VTX_M230_Chaingun_L_AP: VTX_M230_Chaingun_L_HEDP {
+    scope = 2;
+    ammo = "vtx_300Rnd_30mm_shells_ap";
+    displayname = "30x113 mm AP";
+    displayNameShort = "30x113 AP";
+    pylonWeapon = "vtx_chaingun_ap";
+  };
+  class VTX_M230_Chaingun_R_AP: VTX_M230_Chaingun_R_HEDP {
+    scope = 2;
+    ammo = "vtx_300Rnd_30mm_shells_ap";
+    displayname = "30x113 mm AP";
+    displayNameShort = "30x113 AP";
+    pylonWeapon = "vtx_chaingun_ap";
+  };
   class VTX_PylonRack_M261_APKWS: PylonRack_12Rnd_PG_missiles {
     ammo = "VTX_APKWS";
     author = "Ampersand";
