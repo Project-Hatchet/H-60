@@ -49,10 +49,6 @@ class Components: Components {
 				angleRangeHorizontal 	= 360;
 				angleRangeVertical 		= 360;
 			};
-			class VisualSensorComponent: SensorTemplateVisual {
-				angleRangeHorizontal 	= 360;
-				angleRangeVertical 		= 360;
-			};
 		};
 	};
 };

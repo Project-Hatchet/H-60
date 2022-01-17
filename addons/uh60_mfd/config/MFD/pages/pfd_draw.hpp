@@ -419,7 +419,7 @@ class HSI_FMS {
 			{"HeadingRotation",{"WaypointDirection",-0.005,0.045},1},
 			{"HeadingRotation",{"WaypointDirection",-0.005,0.030},1},
 		};
-	}; // windArm
+	};
 }; // HSI_FMS
 
 class VSI_Polygon {

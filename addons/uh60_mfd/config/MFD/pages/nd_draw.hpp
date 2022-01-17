@@ -1,3 +1,4 @@
+#define HVR_CONDITION_PAGES ((COND_SUBPAGE(ND_MODE_ALL)*(speed<10)*(altitudeAGL > 2))+COND_SUBPAGE(ND_MODE_HOVER))
 
 alpha = 0.65;
 class overlayWrapper {
@@ -126,6 +127,21 @@ class flightdirector_purple {
 	}; // FD_RALTRotation3Cond
 }; // flightdirector_purple
 
+class HSI_WAYPOINTDIRECTION {
+	condition = "wpvalid";
+	color[] = common_green;
+	class Line {
+		type = "polygon";
+		points[] ={
+			{
+				{"ND_HeadingRotation",{"ND_WaypointDirection",-0.02, -0.22+0.02},1},
+				{"ND_HeadingRotation",{"ND_WaypointDirection",00.00, -0.22-0.02},1},
+				{"ND_HeadingRotation",{"ND_WaypointDirection",00.02, -0.22+0.02},1}
+			}
+		};
+	};
+}; // HSI_WAYPOINTDIRECTION
+
 
 class RALTRotation1Cond {
 	condition="(altitudeAGL*3.2808399) < 100";
@@ -236,150 +252,29 @@ TEXT_LEFT_MID_SRC(NAV_FMS_WP_TOF,MOVE_X+0.75,MOVE_Y+0.87)
 	sourceScale=1;
 	sourceIndex=8;
 };
+class upArrow {
+	type        = "polygon";
+	points[] ={
+		{
+			{{1-0.01, 0.62-0.13+0.02},1},
+			{{1-0.03, 0.62-0.13-0.02},1},
+			{{1-0.05, 0.62-0.13+0.02},1}
+		}
+	};
+};
+class downArrow {
+	type        = "polygon";
+	points[] ={
+		{
+			{{1-0.01, 0.76-0.13-0.02},1},
+			{{1-0.03, 0.76-0.13+0.02},1},
+			{{1-0.05, 0.76-0.13-0.02},1}
+		}
+	};
+};
 
-
-// CMWS
-class ND_CMWS
-{
-	type = "sensor";
-	pos[]	= {{0,0},1};
-	down[]	= {{0,0},1};
-	// pos[]	= {ND_CMWS_Offset,{(0+SIZE)*0.725, 0+SIZE}, 1};
-	// down[]	= {ND_CMWS_Offset,{(0-SIZE)*0.725, 0-SIZE}, 1};
-
-	showTargetTypes = 1+2+8+64+1024;    // RWR only
-	//showTargetTypes = 1+2+4+8+16+32+64+128+256+512+1024;
-	width = 1; // default width of lines can by different in case of class XXXX used instead of arrays
-	range=4000;
-	sensorLineType = 2; // same as "lineType"
-	sensorLineWidth = 3;
-	class MissileThreat
-	{
-		color[] = {1,0,0};
-		class MissleText{
-			type="text";
-			source="static";
-			text="M";
-			scale=1;
-			sourceScale=1;
-			align = "center";
-			pos[]= {{0.00, -0.015}, 1};
-			right[]= {{0.06, -0.015}, 1};
-			down[]= {{0.00, 0.015}, 1};
-		};
-		class MissileBox
-		{
-			type = "line";
-			width = 5.0000;
-			points[] ={
-				{{-0.015, -0.015},1},
-				{{0.015, -0.015},1},
-				{{0.015, 0.015},1},
-				{{-0.015, 0.015},1},
-				{{-0.015, -0.015},1}
-			};
-		};
-	};
-	class markingThreat
-	{
-		color[] = {1,1,0}; // radar is tracking you actively
-		class background {
-			type        = "polygon";
-			points[] ={
-				{
-					{{-0.015, 0.015},1},
-					{{0.015, 0.015},1},
-					{{0.015, -0.015},1},
-					{{-0.015, -0.015},1}
-				}
-			}; // points
-		}; // background
-		class unknownTarget
-		{
-			type = "line";
-			width = 5.0000;
-			points[] ={
-				{{-0.015, -0.015},1},
-				{{0.015, -0.015},1},
-				{{0.015, 0.015},1},
-				{{-0.015, 0.015},1},
-				{{-0.015, -0.015},1},{},
-				{{-0.002, -0.002},1},
-				{{0.002, 0.002},1},{},
-				{{-0.002, 0.002},1},
-				{{0.002, -0.002},1}
-			};
-		};
-	};
-	class lockingThreat
-	{
-		color[] = {1,0,0};
-		class background {
-			type        = "polygon";
-			points[] ={
-				{
-					{{-0.015, 0.015},1},
-					{{0.015, 0.015},1},
-					{{0.015, -0.015},1},
-					{{-0.015, -0.015},1}
-				}
-			}; // points
-		}; // background
-		class TargetBox
-		{
-			type = "line"; // locking, you're in for a bad time
-			width = 5.0000;
-			points[] ={
-				{{-0.015,0},1},
-				{{0, -0.015 },1},
-				{{0.015,0 },1},
-				{{0, 0.015 },1},
-				{{-0.015,0},1},{},
-				{{-0.005,0.005},1},
-				{{0,-0.005},1},
-				{{0.005,0.005},1}
-			};
-		};
-	};
-	//rwr
-	class rwr
-	{
-		class TargetBox
-		{
-			type = "line"; // there's a radar, but stuff isn't happening yet
-			width = 5.0000;
-			points[] ={
-				{{-0.015, -0.015},1},
-				{{0.015, -0.015},1},
-				{{0.015, 0.015},1},
-				{{-0.015, 0.015},1},
-				{{-0.015, -0.015},1},{},
-				{{-0.005,0.005},1},
-				{{0,-0.005},1},
-				{{0.005,0.005},1}
-			};
-		};
-	};
-	class rwrFriendly: rwr
-	{
-		color[]	= common_green;
-	};
-	class rwrEnemy: rwr
-	{
-		color[]	= common_red;
-	};
-	//ground
-	class targetGround
-	{
-		class TargetBox { };
-	};
-	class targetAir
-	{
-	};
-}; // CMWS
 
 // Waypoints
-
 class NOT_AIRCRAFT_CENTERED {
     condition = (user18 > 0);
 	TEXT_MID_SMALL(GS_TXT,0.4,0.9,"ALIGN TAC TO SELF TO SEE WAYPOINTS")
@@ -389,196 +284,295 @@ class AIRCRAFT_CENTERED {
     condition = ((user18 > -1) * (user18 < 1));
 	clipTL[] = {0.1,0.1};
 	clipBR[] = {0.7,0.9};
-	class HAS_NO_PREVWP {
-		condition = ((user2 < 0) * (user4 > -1));
-		color[]={0,1,0,1};
-		class WP1_Line_back {
-			type="line";
-			width = 2;
-			points[] ={
-				{"ND_CENTER", 1},
-				{"ND_WP2_DIST", 1, "ND_WP2_Dir", 1},{},
-				SHAPE_SQUARE("ND_WP1_DIST","ND_WP1_Dir"),{},
-				SHAPE_SQUARE("ND_WP2_DIST","ND_WP2_Dir")
+	class SHOW_WAYPOINTS {
+    	condition = COND_SUBPAGE_OR_SUBPAGE(ND_MODE_ALL,ND_MODE_NAV);
+		class HAS_NO_PREVWP {
+			condition = ((user2 < 0) * (user4 > -1));
+			color[]={0,1,0,1};
+			class WP1_Line_back {
+				type="line";
+				width = 2;
+				points[] ={
+					{"ND_CENTER", 1},
+					{"ND_WP2_DIST", 1, "ND_WP2_Dir", 1},{},
+					SHAPE_SQUARE("ND_WP1_DIST","ND_WP1_Dir"),{},
+					SHAPE_SQUARE("ND_WP2_DIST","ND_WP2_Dir")
+				};
+			}; // WP1_Line
+		};
+
+		class HAS_WP1_2 {
+			condition = ((user2 > -1) * (user4 > -1));
+			color[]=common_purple;
+			class WP1_Line_back {
+				type="line";
+				width = 2;
+				points[] ={
+					{"ND_WP1_DIST", 1, "ND_WP1_Dir", 1},
+					{"ND_WP2_DIST", 1, "ND_WP2_Dir", 1},{},
+					SHAPE_SQUARE("ND_WP1_DIST","ND_WP1_Dir"),{},
+					SHAPE_SQUARE("ND_WP2_DIST","ND_WP2_Dir")
+				};
+			}; // WP1_Line
+		}; // cond
+
+		#define SHAPE_WAYPT(DIST,DIR) \
+			{DIST, 1, DIR, 1, { 0   , -0.001},1}, \
+			{DIST, 1, DIR, 1, { 0   ,  0.001},1},{}, \
+			{DIST, 1, DIR, 1, { 0   , -0.025},1}, \
+			{DIST, 1, DIR, 1, { 0.025, 0.0},1}, \
+			{DIST, 1, DIR, 1, { 0.015, 0.015},1}, \
+			{DIST, 1, DIR, 1, {-0.015, 0.015},1}, \
+			{DIST, 1, DIR, 1, {-0.025, 0.0},1}, \
+			{DIST, 1, DIR, 1, { 0   , -0.025},1}
+
+		#define SHAPE_DIAMOND(DIST,DIR) \
+			{DIST, 1, DIR, 1,{0, 0.02},1}, \
+			{DIST, 1, DIR, 1,{0.02, 0},1}, \
+			{DIST, 1, DIR, 1,{0, -0.02},1}, \
+			{DIST, 1, DIR, 1,{-0.02, 0},1}, \
+			{DIST, 1, DIR, 1,{0, 0.02},1}
+
+		#define SHAPE_SQUARE(DIST,DIR) \
+			{DIST, 1, DIR, 1,{-0.015, -0.015},1}, \
+			{DIST, 1, DIR, 1,{0.015, -0.015},1}, \
+			{DIST, 1, DIR, 1,{0.015, 0.015},1}, \
+			{DIST, 1, DIR, 1,{-0.015, 0.015},1}, \
+			{DIST, 1, DIR, 1,{-0.015, -0.015},1}
+
+		class HAS_CUR_WP {
+			condition = (user4 > -1);
+			color[] = common_purple;
+			class WP_TEXT {
+				type="text";
+				source="userText";
+				sourceIndex=7;
+				scale=1;
+				sourceScale=1;
+				align = "center";
+				text="0";
+				pos[]= {"ND_WP2_DIST", 1, "ND_WP2_Dir", 1,{0, 0+0.015}, 1};
+				right[]= {"ND_WP2_DIST", 1, "ND_WP2_Dir", 1,{0.035, 0+0.015}, 1};
+				down[]= {"ND_WP2_DIST", 1, "ND_WP2_Dir", 1,{0, 0.035+0.015}, 1};
 			};
-		}; // WP1_Line
+		}; // HAS_CUR_WP
+		class HAS_WP2_3 {
+			condition = ((user4 > -1) * (user6 > -1));
+			color[]=common_purple;
+			class WP2_Line {
+				type="line";
+				width = 2;
+				points[] ={
+					{"ND_WP2_DIST", 1, "ND_WP2_Dir", 1},
+					{"ND_WP3_DIST", 1, "ND_WP3_Dir", 1},{},
+					SHAPE_SQUARE("ND_WP3_DIST","ND_WP3_Dir")
+				};
+			}; // WP2_Line
+		}; // cond
+		class HAS_WP3 {
+			condition = ((user6 > -1) * (user8 > -1));
+			color[]=common_purple;
+			class WP3_Line {
+				type="line";
+				width = 2;
+				points[] ={
+					{"ND_WP3_DIST", 1, "ND_WP3_Dir", 1},
+					{"ND_WP4_DIST", 1, "ND_WP4_Dir", 1},{},
+				SHAPE_SQUARE("ND_WP4_DIST","ND_WP4_Dir")
+				};
+			}; // WP3_Line
+		}; // cond
+		class HAS_WP4 {
+			condition = ((user8 > -1) * (user33 > -1));
+			color[]=common_purple;
+			class WP4_Line {
+				type="line";
+				width = 2;
+				points[] ={
+					{"ND_WP4_DIST", 1, "ND_WP4_Dir", 1},
+					{"ND_WP5_DIST", 1, "ND_WP5_Dir", 1},{},
+				SHAPE_SQUARE("ND_WP5_DIST","ND_WP5_Dir")
+				};
+			}; // WP4_Line
+		}; // cond
+		class HAS_WP5 {
+			condition = ((user33 > -1) * (user35 > -1));
+			color[]=common_purple;
+			class WP5_Line {
+				type="line";
+				width = 2;
+				points[] ={
+					{"ND_WP5_DIST", 1, "ND_WP5_Dir", 1},
+					{"ND_WP6_DIST", 1, "ND_WP6_Dir", 1},{},
+					SHAPE_SQUARE("ND_WP6_DIST","ND_WP6_Dir")
+				};
+			}; // WP5_Line
+		}; // cond
+
+		class TGP_STABILIZED {
+			condition = (user10 > -1);
+			color[]={0,1,0,1};
+			class Mark_Circle
+			{
+				type = "line";
+				width = 2;
+				points[]={
+					SHAPE_DIAMOND("ND_TGP_DIST","ND_TGP_Dir")
+				};
+			}; // Mark_Circle
+		}; // Mark_TEXT
+
+
+		class NEAREST_LOCATION {
+			condition = (user41 > -1);
+			color[]=RGBA256(220,40,220,1);
+			class Mark_Circle
+			{
+				type = "line";
+				width = 2;
+				points[]={
+					SHAPE_DIAMOND("ND_LOC_DIST","ND_LOC_Dir")
+				};
+			}; // Mark_Circle
+			
+			class LOC_TEXT {
+				type="text";
+				source="userText";
+				sourceIndex=12;
+				scale=1;
+				sourceScale=1;
+				align = "right";
+				text="0";
+				pos[]= {"ND_LOC_DIST", 1, "ND_LOC_Dir", 1,{0.04 - 0.02, 0.0}, 1};
+				right[]= {"ND_LOC_DIST", 1, "ND_LOC_Dir", 1,{0.085 - 0.02, 0.00}, 1};
+				down[]= {"ND_LOC_DIST", 1, "ND_LOC_Dir", 1,{0.04 - 0.02, 0.045}, 1};
+			};
+		}; // Mark_TEXT
+
+
+		class JVMF_STABILIZED {
+			condition = (user43 > -1);
+			color[] = common_blue;
+			class Mark_Circle
+			{
+				type = "line";
+				width = 2;
+				points[]={
+					SHAPE_SQUARE("ND_JVMF_DIST","ND_JVMF_Dir")
+				};
+			}; // Mark_Circle
+			class LOC_TEXT {
+				type="text";
+				source="userText";
+				sourceIndex=39;
+				scale=1;
+				sourceScale=1;
+				align = "center";
+				text="";
+				pos[]= {"ND_JVMF_DIST", 1, "ND_JVMF_Dir", 1,{0, 0+0.015}, 1};
+				right[]= {"ND_JVMF_DIST", 1, "ND_JVMF_Dir", 1,{0.035, 0+0.015}, 1};
+				down[]= {"ND_JVMF_DIST", 1, "ND_JVMF_Dir", 1,{0, 0.035+0.015}, 1};
+			};
+		}; // JVMF_STABILIZED
 	};
-
-	class HAS_WP1_2 {
-		condition = ((user2 > -1) * (user4 > -1));
-		color[]=common_purple;
-		class WP1_Line_back {
-			type="line";
-			width = 2;
-			points[] ={
-				{"ND_WP1_DIST", 1, "ND_WP1_Dir", 1},
-				{"ND_WP2_DIST", 1, "ND_WP2_Dir", 1},{},
-				SHAPE_SQUARE("ND_WP1_DIST","ND_WP1_Dir"),{},
-				SHAPE_SQUARE("ND_WP2_DIST","ND_WP2_Dir")
-			};
-		}; // WP1_Line
-	}; // cond
-
-	#define SHAPE_WAYPT(DIST,DIR) \
-		{DIST, 1, DIR, 1, { 0   , -0.001},1}, \
-		{DIST, 1, DIR, 1, { 0   ,  0.001},1},{}, \
-		{DIST, 1, DIR, 1, { 0   , -0.025},1}, \
-		{DIST, 1, DIR, 1, { 0.025, 0.0},1}, \
-		{DIST, 1, DIR, 1, { 0.015, 0.015},1}, \
-		{DIST, 1, DIR, 1, {-0.015, 0.015},1}, \
-		{DIST, 1, DIR, 1, {-0.025, 0.0},1}, \
-		{DIST, 1, DIR, 1, { 0   , -0.025},1}
-
-	#define SHAPE_DIAMOND(DIST,DIR) \
-		{DIST, 1, DIR, 1,{0, 0.02},1}, \
-		{DIST, 1, DIR, 1,{0.02, 0},1}, \
-		{DIST, 1, DIR, 1,{0, -0.02},1}, \
-		{DIST, 1, DIR, 1,{-0.02, 0},1}, \
-		{DIST, 1, DIR, 1,{0, 0.02},1}
-
-	#define SHAPE_SQUARE(DIST,DIR) \
-		{DIST, 1, DIR, 1,{-0.015, -0.015},1}, \
-		{DIST, 1, DIR, 1,{0.015, -0.015},1}, \
-		{DIST, 1, DIR, 1,{0.015, 0.015},1}, \
-		{DIST, 1, DIR, 1,{-0.015, 0.015},1}, \
-		{DIST, 1, DIR, 1,{-0.015, -0.015},1}
-
-	class HAS_CUR_WP {
-		condition = (user4 > -1);
-		color[] = common_purple;
-		class WP_TEXT {
-			type="text";
-			source="userText";
-			sourceIndex=7;
-			scale=1;
-			sourceScale=1;
-			align = "center";
-			text="0";
-			pos[]= {"ND_WP2_DIST", 1, "ND_WP2_Dir", 1,{0, 0+0.015}, 1};
-			right[]= {"ND_WP2_DIST", 1, "ND_WP2_Dir", 1,{0.035, 0+0.015}, 1};
-			down[]= {"ND_WP2_DIST", 1, "ND_WP2_Dir", 1,{0, 0.035+0.015}, 1};
-		};
-	}; // HAS_CUR_WP
-	class HAS_WP2_3 {
-		condition = ((user4 > -1) * (user6 > -1));
-		color[]=common_purple;
-		class WP2_Line {
-			type="line";
-			width = 2;
-			points[] ={
-				{"ND_WP2_DIST", 1, "ND_WP2_Dir", 1},
-				{"ND_WP3_DIST", 1, "ND_WP3_Dir", 1},{},
-				SHAPE_SQUARE("ND_WP3_DIST","ND_WP3_Dir")
-			};
-		}; // WP2_Line
-	}; // cond
-	class HAS_WP3 {
-		condition = ((user6 > -1) * (user8 > -1));
-		color[]=common_purple;
-		class WP3_Line {
-			type="line";
-			width = 2;
-			points[] ={
-				{"ND_WP3_DIST", 1, "ND_WP3_Dir", 1},
-				{"ND_WP4_DIST", 1, "ND_WP4_Dir", 1},{},
-			SHAPE_SQUARE("ND_WP4_DIST","ND_WP4_Dir")
-			};
-		}; // WP3_Line
-	}; // cond
-	class HAS_WP4 {
-		condition = ((user8 > -1) * (user33 > -1));
-		color[]=common_purple;
-		class WP4_Line {
-			type="line";
-			width = 2;
-			points[] ={
-				{"ND_WP4_DIST", 1, "ND_WP4_Dir", 1},
-				{"ND_WP5_DIST", 1, "ND_WP5_Dir", 1},{},
-			SHAPE_SQUARE("ND_WP5_DIST","ND_WP5_Dir")
-			};
-		}; // WP4_Line
-	}; // cond
-	class HAS_WP5 {
-		condition = ((user33 > -1) * (user35 > -1));
-		color[]=common_purple;
-		class WP5_Line {
-			type="line";
-			width = 2;
-			points[] ={
-				{"ND_WP5_DIST", 1, "ND_WP5_Dir", 1},
-				{"ND_WP6_DIST", 1, "ND_WP6_Dir", 1},{},
-				SHAPE_SQUARE("ND_WP6_DIST","ND_WP6_Dir")
-			};
-		}; // WP5_Line
-	}; // cond
-
-	class TGP_STABILIZED {
-		condition = (user10 > -1);
-		color[]={0,1,0,1};
-		class Mark_Circle
-		{
-			type = "line";
-			width = 2;
-			points[]={
-				SHAPE_DIAMOND("ND_TGP_DIST","ND_TGP_Dir")
-			};
-		}; // Mark_Circle
-	}; // Mark_TEXT
-
-
-	class NEAREST_LOCATION {
-		condition = (user41 > -1);
-		color[]=RGBA256(220,40,220,1);
-		class Mark_Circle
-		{
-			type = "line";
-			width = 2;
-			points[]={
-				SHAPE_DIAMOND("ND_LOC_DIST","ND_LOC_Dir")
-			};
-		}; // Mark_Circle
-		
-		class LOC_TEXT {
-			type="text";
-			source="userText";
-			sourceIndex=12;
-			scale=1;
-			sourceScale=1;
-			align = "right";
-			text="0";
-			pos[]= {"ND_LOC_DIST", 1, "ND_LOC_Dir", 1,{0.04 - 0.02, 0.0}, 1};
-			right[]= {"ND_LOC_DIST", 1, "ND_LOC_Dir", 1,{0.085 - 0.02, 0.00}, 1};
-			down[]= {"ND_LOC_DIST", 1, "ND_LOC_Dir", 1,{0.04 - 0.02, 0.045}, 1};
-		};
-	}; // Mark_TEXT
-
-
-	class JVMF_STABILIZED {
-		condition = (user43 > -1);
+	
+	class HVR_COND {
+		condition= HVR_CONDITION_PAGES;
 		color[] = common_blue;
-		class Mark_Circle
-		{
-			type = "line";
-			width = 2;
-			points[]={
-				SHAPE_SQUARE("ND_JVMF_DIST","ND_JVMF_Dir")
-			};
-		}; // Mark_Circle
-		class LOC_TEXT {
-			type="text";
-			source="userText";
-			sourceIndex=39;
-			scale=1;
-			sourceScale=1;
-			align = "center";
-			text="";
-			pos[]= {"ND_JVMF_DIST", 1, "ND_JVMF_Dir", 1,{0, 0+0.015}, 1};
-			right[]= {"ND_JVMF_DIST", 1, "ND_JVMF_Dir", 1,{0.035, 0+0.015}, 1};
-			down[]= {"ND_JVMF_DIST", 1, "ND_JVMF_Dir", 1,{0, 0.035+0.015}, 1};
-		};
-	}; // JVMF_STABILIZED
+		#define HSI_HVR_10KTS 0.04
 
+		class HVR_VEL_LINE_DRAW {
+			type="line";
+			width=4;
+			points[] =
+			{
+				{"ND_CENTER",1},
+				{"ND_CENTER",1,"ND_HOVER_VEL_Y",1,"ND_HOVER_VEL_X",1}
+			};
+		}; // HVR_VEL_LINE_DRAW
+		
+		class HVR_VEL_END_DRAW {
+			type="line";
+			width=4;
+			points[] =
+			{
+				{"ND_CENTER",1,"ND_HOVER_VEL_Y",1,"ND_HOVER_VEL_X",1, { 0   ,-0.01},1},
+				{"ND_CENTER",1,"ND_HOVER_VEL_Y",1,"ND_HOVER_VEL_X",1, { 0.01, 0},1},
+				{"ND_CENTER",1,"ND_HOVER_VEL_Y",1,"ND_HOVER_VEL_X",1, { 0   , 0.01},1},
+				{"ND_CENTER",1,"ND_HOVER_VEL_Y",1,"ND_HOVER_VEL_X",1, {-0.01, 0},1},
+				{"ND_CENTER",1,"ND_HOVER_VEL_Y",1,"ND_HOVER_VEL_X",1, { 0   ,-0.01},1}
+			};
+		}; // HVR_VEL_LINE_DRAW
+		class HVR_WP_VALID {
+			condition="WPvalid";
+			#define HVR_WP_SPACING 0.01
+			class HVR_WP_DRAW {
+				type="line";
+				width=4;
+				points[] =
+				{
+					{"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,    {0+HVR_WP_SPACING, 0.02+HVR_WP_SPACING}, 1},
+					{"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,    {0.008134732861516003+HVR_WP_SPACING, 0.018270909152852018+HVR_WP_SPACING}, 1},
+					{"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,    {0.014862896509547885+HVR_WP_SPACING, 0.013382612127177165+HVR_WP_SPACING}, 1},
+					{"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,    {0.019021130325903073+HVR_WP_SPACING, 0.006180339887498949+HVR_WP_SPACING}, 1},
+					{"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,    {0.019890437907365468+HVR_WP_SPACING, -0.002090569265353067+HVR_WP_SPACING}, 1},{},
+					{"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,    {0.019890437907365468+HVR_WP_SPACING, -0.002090569265353067-HVR_WP_SPACING}, 1},
+					{"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,    {0.017320508075688773+HVR_WP_SPACING, -0.009999999999999995-HVR_WP_SPACING}, 1},
+					{"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,    {0.011755705045849465+HVR_WP_SPACING, -0.016180339887498948-HVR_WP_SPACING}, 1},
+					{"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,    {0.0041582338163551865+HVR_WP_SPACING, -0.019562952014676113-HVR_WP_SPACING}, 1},{},
+					{"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,    {-0.004158233816355181-HVR_WP_SPACING, -0.019562952014676113-HVR_WP_SPACING}, 1},
+					{"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,    {-0.011755705045849461-HVR_WP_SPACING, -0.016180339887498948-HVR_WP_SPACING}, 1},
+					{"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,    {-0.01732050807568877-HVR_WP_SPACING, -0.010000000000000009-HVR_WP_SPACING}, 1},
+					{"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,    {-0.019890437907365468-HVR_WP_SPACING, -0.0020905692653530672-HVR_WP_SPACING}, 1},{},
+					{"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,    {-0.019890437907365468-HVR_WP_SPACING, -0.0020905692653530672+HVR_WP_SPACING}, 1},
+					{"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,    {-0.019021130325903073-HVR_WP_SPACING, 0.006180339887498945+HVR_WP_SPACING}, 1},
+					{"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,    {-0.014862896509547892-HVR_WP_SPACING, 0.013382612127177156+HVR_WP_SPACING}, 1},
+					{"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,    {-0.008134732861516003-HVR_WP_SPACING, 0.01827090915285202+HVR_WP_SPACING}, 1},
+					{"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,    {0-HVR_WP_SPACING, 0.02+HVR_WP_SPACING}, 1}
+				};
+			};
+			
+			class HVR_WP_DIST_TEXT {
+				type = "text";
+				align = "center";
+				scale = 1;
+				pos[] = {"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,{0.002*0.8, 0.03 + 0.003*0.8}, 1};
+				right[] = {"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,{0.06*0.8, 0.03 + 0.003*0.8}, 1};
+				down[] = {"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,{0.002*0.8,0.03 + 0.05*0.8}, 1};
+				source = "user";
+				sourceIndex = 1;
+				sourceScale = 3.28;
+				text = "";
+			};
+		};
+	}; // HVR_COND
+
+}; // CLIP
+
+class HVR_COND_NOCLIP {
+	condition= HVR_CONDITION_PAGES;
+	color[] = common_blue;
+	TEXT_MID_MID(HOVER_ANNOUNCE,0.4,0.9,"HOVER")
 };
+
+TEXT_MID_MID(MODE_LABEL,0.25,0.01,"DISPLAY")
+class SUBPAGE_ALL {
+	condition = COND_SUBPAGE(ND_MODE_ALL);
+	TEXT_MID_MID(MODE_SELECTOR,0.25,0.05,"ALL")
+};
+class SUBPAGE_NAV {
+	condition = COND_SUBPAGE(ND_MODE_NAV);
+	TEXT_MID_MID(MODE_SELECTOR,0.25,0.05,"NAV")
+};
+class SUBPAGE_CMWS {
+	condition = COND_SUBPAGE(ND_MODE_CMWS);
+	TEXT_MID_MID(MODE_SELECTOR,0.25,0.05,"CMWS")
+};
+class SUBPAGE_HOVER {
+	condition = COND_SUBPAGE(ND_MODE_HOVER);
+	TEXT_MID_MID(MODE_SELECTOR,0.25,0.05,"HOVER")
+};
+
 
 #define BOTTOM_TEXT_Y 0.96
 TEXT_LEFT_SMALL(B1,0.095,BOTTOM_TEXT_Y,"PFD")

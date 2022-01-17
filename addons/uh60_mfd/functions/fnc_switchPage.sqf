@@ -34,14 +34,14 @@ switch (_pageIndex) do {
         [_vehicle] call vtx_uh60_flir_fnc_pipStart;
       };
     };
+    case MFD_PAGE_IVHMS: {
+        [_vehicle] call vtx_uh60_mfd_fnc_ivhms;
+    };
     default {
       _vehicle setObjectTexture [MAP_SELECTION(_mfdIndex), ""];
       _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), ""];
       _vehicle setObjectMaterial [MAP_SELECTION(_mfdIndex), ""];
       _vehicle setObjectMaterial [MFD_OVERLAY(_mfdIndex), ""];
-    };
-    case MFD_PAGE_IVHMS: {
-        [_vehicle] call vtx_uh60_mfd_fnc_ivhms;
     };
 };
 

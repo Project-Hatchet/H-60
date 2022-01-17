@@ -7,6 +7,7 @@
         clickSound="vxf_Switch_Sound_2";
 
 #define USERVAL(INDEX,VAL) QUOTE(((getUserMFDValue _this) select INDEX) == VAL)
+#define MAINPAGE(INDEX,VAL) QUOTE((((getUserMFDValue _this) select INDEX) > (VAL - 0.01)) && (((getUserMFDValue _this) select INDEX) < (VAL + 0.99)))
 
 class mfd_any {
     MFD_BTN(MFD_13,QUOTE(JVMF))
@@ -79,4 +80,35 @@ class flir {
     MFD_BTN(MFD_4,QUOTE(WPT)) buttonUp="[vxf_vehicle] call vtx_uh60_flir_fnc_mfdWaypoint"; };
     MFD_BTN(MFD_5,QUOTE(NAV)) buttonUp="[vxf_vehicle] call vtx_uh60_flir_fnc_mfdNav"; };
     MFD_BTN(MFD_6,QUOTE(SLG)) buttonUp="[vxf_vehicle] call vtx_uh60_mfd_fnc_slingCam"; };
+};
+
+class nd {
+    condition = MAINPAGE(MFD_PAGE_INDEX,MFD_PAGE_ND);
+    class SUBPAGE_ALL {
+        condition = USERVAL(MFD_PAGE_INDEX,ND_MODE_ALL);
+        MFD_BTN(MFD_2,QUOTE(Declutter))
+            buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, ND_MODE_NAV, true)] call vtx_uh60_mfd_fnc_switchPage);
+        };
+    };
+    class SUBPAGE_NAV {
+        condition = USERVAL(MFD_PAGE_INDEX,ND_MODE_NAV);
+        MFD_BTN(MFD_2,QUOTE(Declutter))
+            buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, ND_MODE_CMWS, true)] call vtx_uh60_mfd_fnc_switchPage);
+        };
+    };
+    class SUBPAGE_CMWS {
+        condition = USERVAL(MFD_PAGE_INDEX,ND_MODE_CMWS);
+        MFD_BTN(MFD_2,QUOTE(Declutter))
+            buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, ND_MODE_HOVER, true)] call vtx_uh60_mfd_fnc_switchPage);
+        };
+    };
+    class SUBPAGE_HOVER {
+        condition = USERVAL(MFD_PAGE_INDEX,ND_MODE_HOVER);
+        MFD_BTN(MFD_2,QUOTE(Declutter))
+            buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, ND_MODE_ALL, true)] call vtx_uh60_mfd_fnc_switchPage);
+        };
+    };
+    
+    MFD_BTN(MFD_9,QUOTE(Next Waypoint)) buttonUp="[vehicle player,""cycle"", 1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
+    MFD_BTN(MFD_10,QUOTE(Previous Waypoint)) buttonUp="[vehicle player,""cycle"", -1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
 };
