@@ -41,8 +41,6 @@ class TransportPylonsComponent {
         DUMMY_PYLON(dummy14)  //Right HMD Color B
         DUMMY_PYLON(dummy15)  //Right HMD Brightness
     };
-    //TODO
-    //presets commented out for work with Ampersand
     class Presets {
         class Empty {
             displayName = "Empty";
@@ -52,10 +50,10 @@ class TransportPylonsComponent {
             displayName = "Default";
             attachment[] = {"VTX_PylonRack_M261_APKWS", "VTX_4Rnd_ACE_Hellfire_AGM114K", EXTRAPYLONMAGS};
         };
-        /*class Interdiction {
-            displayName = "30mm + DAGR";
-            attachment[] = {"VTX_M230_Chaingun_L", "VTX_PylonRack_M261_DAGR", EXTRAPYLONMAGS};
-        };*/
+        class Interdiction {
+            displayName = "20mm + DAGR";
+            attachment[] = {"PylonWeapon_300Rnd_20mm_shells", "VTX_PylonRack_M261_APKWS", EXTRAPYLONMAGS};
+        };
         class Rocket {
             displayName = "Rocket";
             attachment[] = {"VTX_PylonRack_M261_M229", "VTX_PylonRack_M261_M229", EXTRAPYLONMAGS};
@@ -68,9 +66,9 @@ class TransportPylonsComponent {
             displayName = "Hellfire";
             attachment[] = {"VTX_4Rnd_ACE_Hellfire_AGM114K", "VTX_4Rnd_ACE_Hellfire_AGM114K", EXTRAPYLONMAGS};
         };
-        /*class Unguided {
-            displayName = "30mm + Rocket";
-            attachment[] = {"VTX_M230_Chaingun_L", "VTX_PylonRack_M261_M229", EXTRAPYLONMAGS};
-        };*/
+        class Unguided {
+            displayName = "20mm + Rocket";
+            attachment[] = {"PylonWeapon_300Rnd_20mm_shells", "VTX_PylonRack_M261_M229", EXTRAPYLONMAGS};
+        };
     };
 }; // TransportPylonsComponent
