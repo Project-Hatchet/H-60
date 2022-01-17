@@ -52,6 +52,7 @@ class cfgWeapons {
     magazines[] += {"VTX_PylonRack_M261_M229"};
   };
 
+  class ace_missileguidance_dagr;
   class vtx_dagr: ace_missileguidance_dagr {
     magazines[] = {"VTX_PylonRack_M261_DAGR"};
     class Burst;
