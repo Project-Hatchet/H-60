@@ -4,5 +4,6 @@ class CfgMagazines {
     ammo = "vtx_pylon_ammo";
     count = 1000;
     displayName = "MFD Fluid";
+    pylonWeapon = "vtx_pylon_mfd";
 	};
 };

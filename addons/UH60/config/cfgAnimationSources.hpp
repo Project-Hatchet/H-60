@@ -8,14 +8,6 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0;
   };
-  class recoil_source {
-    source="reload";
-    weapon="vtx_chaingun";
-  };
-  class muzzle_rot {
-    source="ammorandom";
-    weapon="vtx_chaingun";
-  };
   class gunner_ffv_l {
     source="user";
     animPeriod=0.1;
@@ -62,6 +54,11 @@ class AnimationSources {
     initPhase=0;
   };
   class LandingLight_Show {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class PositionLights_Show {
     source="user";
     animPeriod=1;
     initPhase=0;
@@ -452,12 +449,12 @@ class AnimationSources {
     source="revolving";
     weapon="vtx_wpn_m134_2nd";
   };
-  class Muzzle_flash {
-    source="ammorandom";
+  class Muzzle_Flash_M134_L {
+    source="ammoRandom";
     weapon="vtx_wpn_m134";
   };
-  class Muzzle_flash2 {
-    source="ammorandom";
+  class Muzzle_Flash_M134_R {
+    source="ammoRandom";
     weapon="vtx_wpn_m134_2nd";
   };
 };

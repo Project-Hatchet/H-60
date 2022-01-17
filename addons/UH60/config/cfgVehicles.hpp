@@ -8,7 +8,6 @@ class CfgVehicles
     class Helicopter_Base_H;
     class Heli_Transport_01_base_F: Helicopter_Base_H
     {
-    	#include "cfgUVAnimations.hpp"
         class Turrets
         {
             class MainTurret;
@@ -28,6 +27,7 @@ class CfgVehicles
 
     class vtx_H60_base: Heli_Transport_01_base_F
     {
+        #include "cfgUVAnimations.hpp"
         #include "CfgUserActions.hpp"
         #include "edenAttributes.hpp"
         author = "Project Hatchet Studio";
@@ -164,6 +164,8 @@ class CfgVehicles
         icon = "z\vtx\addons\UH60\Data\UI\Map_vtx_UH60_CA.paa";	/// icon in map/editor
         picture = "z\vtx\addons\UH60\Data\UI\vtx_UH60_CA.paa";	/// small picture in command menu
 
+        hideProxyInCombat = 1;
+        viewDriverInExternal = 1;
         driverInAction = UH60_Pilot;
         driverAction = UH60_Pilot;
         driverRightHandAnimName="Cyclic_right";

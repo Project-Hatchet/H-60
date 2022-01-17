@@ -66,6 +66,10 @@ class CfgVehicles {
           ANIM_INIT(MAWS_Tubes_Show,1);
           ANIM_INIT(FLIR_HIDE,0);
           ANIM_INIT(FLIR_BACK,1);
+          class Muzzle_Flash_GAU21_L {
+            source="ammoRandom";
+            weapon="VTX_HMG_M3M";
+          };
         }; // AnimationSources
         hiddenSelectionsTextures[] = {
           "","","","","","","","","","","","","","","","",
@@ -108,6 +112,10 @@ class CfgVehicles {
           ANIM_INIT(MAWS_Tubes_Show,1);
           ANIM_INIT(FLIR_HIDE,0);
           ANIM_INIT(FLIR_BACK,1);
+          class Muzzle_Flash_GAU21_L {
+            source="ammoRandom";
+            weapon="VTX_HMG_M3M";
+          };
         }; // AnimationSources
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa"};
     }; // vtx_MH60S_GAU21L
