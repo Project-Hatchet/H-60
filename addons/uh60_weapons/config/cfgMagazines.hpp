@@ -31,9 +31,9 @@ class cfgMagazines {
   class VTX_M230_Chaingun_L: VehicleMagazine {
     scope = 2;
     ammo = "vtx_30mm_shells_hedp";
-    displayname = "30x113 mm HEDP [H60]";
-    displayNameShort = "30x113 HEDP";
     descriptionShort = "Single-barrel chain-driven autocannon firing 30x113 mm M789 High Explosive Dual Purpose (HEDP) rounds.";
+    displayname = "M230 HEDP [H60]";
+    displayNameShort = "M230 HEDP";
     initspeed = 805;
     pylonWeapon = "vtx_chaingun_hedp";
     muzzlePos = "muzzlePos";
@@ -46,6 +46,18 @@ class cfgMagazines {
     model = \z\vtx\addons\uh60_weapons\Data\M230\M230_L.p3d;
   };
   class VTX_M230_Chaingun_R: VTX_M230_Chaingun_L {
+    hardpoints[] =    {"VTX_ST_R"};
+    model = \z\vtx\addons\uh60_weapons\Data\M230\M230_R.p3d;
+  };
+  class VTX_M230_Chaingun_L_AP: VTX_M230_Chaingun_L {
+    scope = 2;
+    ammo = "vtx_30mm_shells_ap";
+    descriptionShort = "Single-barrel chain-driven autocannon firing 30x113 mm AP rounds.";
+    displayname = "M230 AP [H60]";
+    displayNameShort = "M230 AP";
+    pylonWeapon = "vtx_chaingun_ap";
+  };
+  class VTX_M230_Chaingun_R_AP: VTX_M230_Chaingun_L_AP {
     hardpoints[] =    {"VTX_ST_R"};
     model = \z\vtx\addons\uh60_weapons\Data\M230\M230_R.p3d;
   };
@@ -69,17 +81,6 @@ class cfgMagazines {
     mass = 336.5; // 36.3 kg launcher, 15.8 per rocket
     model = QPATHTOF(fza_pod_m261.p3d);
     pylonWeapon = "vtx_dagr";
-  };
-  class VTX_M230_Chaingun_L_AP: VTX_M230_Chaingun_L {
-    scope = 2;
-    ammo = "vtx_30mm_shells_ap";
-    displayname = "30x113 mm AP [H60]";
-    displayNameShort = "30x113 AP";
-    pylonWeapon = "vtx_chaingun_ap";
-  };
-  class VTX_M230_Chaingun_R_AP: VTX_M230_Chaingun_L_AP {
-    hardpoints[] =    {"VTX_ST_R"};
-    model = \z\vtx\addons\uh60_weapons\Data\M230\M230_R.p3d;
   };
   class VTX_PylonRack_M261_APKWS: PylonRack_12Rnd_PG_missiles {
     ammo = "VTX_APKWS";
