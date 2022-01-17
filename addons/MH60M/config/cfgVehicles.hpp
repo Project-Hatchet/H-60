@@ -91,14 +91,14 @@ class CfgVehicles {
                 source="revolving";
                 weapon="vtx_MH60M_M134_minigun";
             };
-            class Muzzle_flash
+            class Muzzle_Flash_M134_L
             {
-                source="ammorandom";
+                source="ammoRandom";
                 weapon="vtx_MH60M_M134_minigun";
             };
-            class Muzzle_flash2
+            class Muzzle_Flash_M134_R
             {
-                source="ammorandom";
+                source="ammoRandom";
                 weapon="vtx_MH60M_M134_minigun";
             };
             class GunnerSeats_Hide: GunnerSeats_Hide {

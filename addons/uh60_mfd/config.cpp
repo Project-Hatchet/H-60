@@ -21,3 +21,4 @@ class CfgPatches
 #include "config\mfdDefines.hpp"
 #include "config\cfgVehicles.hpp"
 #include "config\cfgMagazines.hpp"
+#include "config\cfgWeapons.hpp"
