@@ -45,20 +45,7 @@ class cfgMagazines {
     hardpoints[] =    {"VTX_ST_L"};
     model = \z\vtx\addons\uh60_weapons\Data\M230\M230_L.p3d;
   };
-  class VTX_M230_Chaingun_R: VehicleMagazine {
-    scope = 2;
-    ammo = "vtx_30mm_shells_hedp";
-    displayname = "30x113 mm HEDP [H60]";
-    displayNameShort = "30x113 HEDP";
-    initspeed = 805;
-    pylonWeapon = "vtx_chaingun_hedp";
-    muzzlePos = "muzzlePos";
-    muzzleEnd = "muzzleEnd";
-    weight = 180;
-    mass = 180;
-    tracersEvery = 1;
-    lastRoundsTracer = 1;
-    count = 300;
+  class VTX_M230_Chaingun_R: VTX_M230_Chaingun_L {
     hardpoints[] =    {"VTX_ST_R"};
     model = \z\vtx\addons\uh60_weapons\Data\M230\M230_R.p3d;
   };
@@ -86,16 +73,13 @@ class cfgMagazines {
   class VTX_M230_Chaingun_L_AP: VTX_M230_Chaingun_L {
     scope = 2;
     ammo = "vtx_30mm_shells_ap";
-    displayname = "30x113 mm AP";
+    displayname = "30x113 mm AP [H60]";
     displayNameShort = "30x113 AP";
     pylonWeapon = "vtx_chaingun_ap";
   };
-  class VTX_M230_Chaingun_R_AP: VTX_M230_Chaingun_R {
-    scope = 2;
-    ammo = "vtx_30mm_shells_ap";
-    displayname = "30x113 mm AP";
-    displayNameShort = "30x113 AP";
-    pylonWeapon = "vtx_chaingun_ap";
+  class VTX_M230_Chaingun_R_AP: VTX_M230_Chaingun_L_AP {
+    hardpoints[] =    {"VTX_ST_R"};
+    model = \z\vtx\addons\uh60_weapons\Data\M230\M230_R.p3d;
   };
   class VTX_PylonRack_M261_APKWS: PylonRack_12Rnd_PG_missiles {
     ammo = "VTX_APKWS";
