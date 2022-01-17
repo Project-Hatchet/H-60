@@ -20,8 +20,10 @@ class cfgWeapons {
       displayNameShort = "M230";
       magazines[] = {"VTX_M230_Chaingun_L", "VTX_M230_Chaingun_R"};
       reloadTime = 0.096; // 625 rpm
+      shotFromTurret = 0;
       class player: player {
         displayName = "M230";
+        reloadTime = 0.096; // 625 rpm
       };
       class gunParticles
       {
@@ -43,14 +45,14 @@ class cfgWeapons {
   class missiles_DAR: RocketPods {
     magazines[] += {"VTX_PylonRack_M261_M229"};
   };
-  class missiles_DAGR;
-	class ace_missileguidance_dagr: missiles_DAGR {
-    magazines[] += {"VTX_PylonRack_M261_DAGR"};
+  class ace_missileguidance_dagr;
+	class vtx_dagr: ace_missileguidance_dagr {
+    magazines[] = {"VTX_PylonRack_M261_DAGR"};
     class Burst;
     class Far_AI;
     class Medium_AI;
   };
-	class vtx_apkws: ace_missileguidance_dagr {
+	class vtx_apkws: vtx_dagr {
     displayName = "APKWS";
     displayNameShort = "APKWS";
     magazines[] = {"VTX_PylonRack_M261_APKWS"};
