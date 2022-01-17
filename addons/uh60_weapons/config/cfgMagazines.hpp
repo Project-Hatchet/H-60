@@ -28,10 +28,10 @@ class cfgMagazines {
     ammo = "VTX_Hellfire_AGM114N";
     pylonWeapon = "vtx_hellfire_launcher_N";
   };
-  class VTX_M230_Chaingun_L_HEDP: VehicleMagazine {
+  class VTX_M230_Chaingun_L: VehicleMagazine {
     scope = 2;
-    ammo = "vtx_300Rnd_30mm_shells_hedp";
-    displayname = "30x113 mm HEDP";
+    ammo = "vtx_30mm_shells_hedp";
+    displayname = "30x113 mm HEDP [H60]";
     displayNameShort = "30x113 HEDP";
     descriptionShort = "Single-barrel chain-driven autocannon firing 30x113 mm M789 High Explosive Dual Purpose (HEDP) rounds.";
     initspeed = 805;
@@ -45,10 +45,10 @@ class cfgMagazines {
     hardpoints[] =    {"VTX_ST_L"};
     model = \z\vtx\addons\uh60_weapons\Data\M230\M230_L.p3d;
   };
-  class VTX_M230_Chaingun_R_HEDP: VehicleMagazine {
+  class VTX_M230_Chaingun_R: VehicleMagazine {
     scope = 2;
-    ammo = "vtx_300Rnd_30mm_shells_hedp";
-    displayname = "30x113 mm HEDP";
+    ammo = "vtx_30mm_shells_hedp";
+    displayname = "30x113 mm HEDP [H60]";
     displayNameShort = "30x113 HEDP";
     initspeed = 805;
     pylonWeapon = "vtx_chaingun_hedp";
@@ -83,30 +83,30 @@ class cfgMagazines {
     model = QPATHTOF(fza_pod_m261.p3d);
     pylonWeapon = "vtx_dagr";
   };
-  class VTX_M230_Chaingun_L_AP: VTX_M230_Chaingun_L_HEDP {
+  class VTX_M230_Chaingun_L_AP: VTX_M230_Chaingun_L {
     scope = 2;
-    ammo = "vtx_300Rnd_30mm_shells_ap";
+    ammo = "vtx_30mm_shells_ap";
     displayname = "30x113 mm AP";
     displayNameShort = "30x113 AP";
     pylonWeapon = "vtx_chaingun_ap";
   };
-  class VTX_M230_Chaingun_R_AP: VTX_M230_Chaingun_R_HEDP {
+  class VTX_M230_Chaingun_R_AP: VTX_M230_Chaingun_R {
     scope = 2;
-    ammo = "vtx_300Rnd_30mm_shells_ap";
+    ammo = "vtx_30mm_shells_ap";
     displayname = "30x113 mm AP";
     displayNameShort = "30x113 AP";
     pylonWeapon = "vtx_chaingun_ap";
   };
-  class VTX_M230_Chaingun_L_AP: VTX_M230_Chaingun_L_HEDP {
+  class VTX_M230_Chaingun_L_AP: VTX_M230_Chaingun_L {
     scope = 2;
-    ammo = "vtx_300Rnd_30mm_shells_ap";
+    ammo = "vtx_30mm_shells_ap";
     displayname = "30x113 mm AP";
     displayNameShort = "30x113 AP";
     pylonWeapon = "vtx_chaingun_ap";
   };
-  class VTX_M230_Chaingun_R_AP: VTX_M230_Chaingun_R_HEDP {
+  class VTX_M230_Chaingun_R_AP: VTX_M230_Chaingun_R {
     scope = 2;
-    ammo = "vtx_300Rnd_30mm_shells_ap";
+    ammo = "vtx_30mm_shells_ap";
     displayname = "30x113 mm AP";
     displayNameShort = "30x113 AP";
     pylonWeapon = "vtx_chaingun_ap";

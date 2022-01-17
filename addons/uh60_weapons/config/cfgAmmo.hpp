@@ -61,7 +61,7 @@ class CfgAmmo {
   	};
   };
 
-  class vtx_300Rnd_30mm_shells_ap : B_30mm_MP_Tracer_Green {
+  class vtx_30mm_shells_ap : B_30mm_MP_Tracer_Green {
     caliber=4.4;
     explosive = 0.1;
     hit = 170;
@@ -71,7 +71,7 @@ class CfgAmmo {
     deflecting = 10;
     
   };
-  class vtx_300Rnd_30mm_shells_hedp : vtx_300Rnd_30mm_shells_ap {
+  class vtx_30mm_shells_hedp : vtx_30mm_shells_ap {
     explosive = 1;
     hit = 20;
     indirectHit = 40;
