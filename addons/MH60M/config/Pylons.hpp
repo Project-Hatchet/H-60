@@ -52,11 +52,11 @@ class TransportPylonsComponent {
         };
         class Default {
             displayName = "Default";
-            attachment[] = {"VTX_M230_Chaingun_L_HEDP", "VTX_PylonRack_M261_M229"};
+            attachment[] = {"VTX_M230_Chaingun_L_HEDP", "VTX_PylonRack_M261_M229", EXTRAPYLONMAGS};
         };
         class Interdiction {
             displayName = "30mm + DAGR";
-            attachment[] = {"VTX_M230_Chaingun_L_HEDP", "VTX_PylonRack_M261_DAGR"};
+            attachment[] = {"VTX_M230_Chaingun_L_HEDP", "VTX_PylonRack_M261_DAGR", EXTRAPYLONMAGS};
         };
         class Rocket {
             displayName = "Rocket";
