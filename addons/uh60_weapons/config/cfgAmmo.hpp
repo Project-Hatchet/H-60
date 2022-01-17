@@ -28,10 +28,7 @@ class CfgAmmo {
       enabled = 1; // Missile Guidance must be explicitly enabled
     };
   };
-  class vtx_300Rnd_30mm_shells_ap : B_30mm_MP_Tracer_Green {
-    caliber=4.4;
-    explosive = 0.1;
-    hit = 170;
+
   class M_PG_AT;
   class VTX_APKWS: M_PG_AT
   {
@@ -64,9 +61,6 @@ class CfgAmmo {
   	};
   };
 
-  class vtx_300Rnd_30mm_shells_hedp : vtx_300Rnd_30mm_shells_ap {
-    explosive = 1;
-    hit = 20;
   class vtx_300Rnd_30mm_shells_ap : B_30mm_MP_Tracer_Green {
     caliber=4.4;
     explosive = 0.1;
@@ -85,7 +79,6 @@ class CfgAmmo {
     explosionEffects = "ExploAmmoExplosion";
     deflecting = -1;
 
-    //TODO: add ace fragmentation to round 
     ace_frag_enabled = 1; 
     ace_frag_metal = 210;  
     ace_frag_charge = 185;  
