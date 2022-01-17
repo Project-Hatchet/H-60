@@ -1,6 +1,5 @@
 class cfgWeapons {
     class LMG_Minigun;
-    class gatling_20mm;
     class LMG_Minigun_Transport : LMG_Minigun {
         class manual;
     };
