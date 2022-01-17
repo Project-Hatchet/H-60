@@ -1,11 +1,12 @@
 class CargoTurret_01: CargoTurret {
     gunnerAction = "passenger_bench_1";
+    gunnerInAction = "passenger_bench_1";
     memoryPointsGetInGunner = "pos Cargo R";
     memoryPointsGetInGunnerDir = "pos Cargo R dir";
     gunnerName = "Door Right 1 (hoist controls)";
     gunnerCompartments = Compartment2;
     proxyIndex = 12;
-    isPersonTurret = 1;        /// this turret is able to fire both when turned in and out
+    isPersonTurret = 2;        /// enables a person to get into the turret from outside
     selectionFireAnim = "";
     disableSoundAttenuation = 0;
     LODTurnedIn = 1200;
