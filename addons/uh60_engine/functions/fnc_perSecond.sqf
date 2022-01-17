@@ -10,13 +10,15 @@
 params ["_vehicle"];
 
 private _esisCount = _vehicle getVariable ["ESIS_COUNTER", 0];
-if (!local _vehicle || vtx_uh60m_simpleStartup) exitWith {
+//if (!local _vehicle || vtx_uh60m_simpleStartup) exitWith {
+if (!local _vehicle ) exitWith {
     _vehicle setUserMFDValue [49, _esisCount];
 };
 
 
 private _lastSimpleStart = missionNamespace getVariable ["vtx_uh60_lastSimpleStart", 0];
-if (!local _vehicle || vtx_uh60m_simpleStartup || time < vtx_uh60_lastSimpleStart + 10) exitWith {};
+//if (!local _vehicle || vtx_uh60m_simpleStartup || time < vtx_uh60_lastSimpleStart + 10) exitWith {};
+if (!local _vehicle || time < vtx_uh60_lastSimpleStart + 10) exitWith {};
 
 private _eng1Powered = _vehicle getVariable ["ENG1_PWR",0] > 0;
 private _eng2Powered = _vehicle getVariable ["ENG2_PWR",0] > 0;

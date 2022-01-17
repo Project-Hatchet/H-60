@@ -10,3 +10,5 @@ PREP(shutdown);
 PREP(starterState);
 PREP(wheelBrakes);
 PREP(autoStart);
+PREP(autoStop);
+PREP(startStopHandler);

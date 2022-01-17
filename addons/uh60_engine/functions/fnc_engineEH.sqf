@@ -13,10 +13,11 @@ params ["_vehicle", "_turnedOn", ["_lever","throttle"]];
 if (!local _vehicle) exitWith {};
 
 private _spawnedInAir = (time < 10 && (getPos _vehicle) # 2 > 10);
-private _simpleStart = vtx_uh60m_simpleStartup && _turnedOn;
-private _lastSimpleStart = missionNamespace getVariable ["vtx_uh60_lastSimpleStart", -10];
-if (time < _lastSimpleStart + 5) exitWith {};
-if ((_spawnedInAir || _simpleStart) && time > vtx_uh60_lastSimpleStart + 5) then {
+//private _simpleStart = vtx_uh60m_simpleStartup && _turnedOn;
+//private _lastSimpleStart = missionNamespace getVariable ["vtx_uh60_lastSimpleStart", -10];
+//if (time < _lastSimpleStart + 5) exitWith {};
+//if ((_spawnedInAir || _simpleStart) && time > vtx_uh60_lastSimpleStart + 5) then {
+if (_spawnedInAir) then {
     vtx_uh60_lastSimpleStart = time;
     [_vehicle] call vtx_uh60_engine_fnc_autoStart;
 };
