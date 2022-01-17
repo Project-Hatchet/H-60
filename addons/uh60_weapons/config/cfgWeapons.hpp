@@ -52,15 +52,18 @@ class cfgWeapons {
     magazines[] += {"VTX_PylonRack_M261_M229"};
   };
 
-  //I don't know what's going on down here, someone please verify that it's not bricked
-
-  class ace_missileguidance_dagr;
-	class vtx_dagr: ace_missileguidance_dagr {
+  class vtx_dagr: ace_missileguidance_dagr {
     magazines[] = {"VTX_PylonRack_M261_DAGR"};
+    class Burst;
+    class Far_AI;
+    class Medium_AI;
+  };
+	class vtx_apkws: vtx_dagr {
     displayName = "APKWS";
     displayNameShort = "APKWS";
-    class Burst {displayName = "APKWS";};
-    class Far_AI {displayName = "APKWS";};
-    class Medium_AI {displayName = "APKWS";};
+    magazines[] = {"VTX_PylonRack_M261_APKWS"};
+    class Burst: Burst {displayName = "APKWS";};
+    class Far_AI: Far_AI {displayName = "APKWS";};
+    class Medium_AI: Medium_AI {displayName = "APKWS";};
   };
 };
