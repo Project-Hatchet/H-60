@@ -127,7 +127,7 @@ class Bones {
 	    source="user";
 		sourceIndex=12;
 		min=0;
-		max=1000;
+		max=50;
 		sourceScale=1;
 		minPos[]={0.95,0.5};
 		maxPos[]={0.95,0.8};
