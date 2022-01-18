@@ -128,7 +128,7 @@ class Bones {
 		sourceIndex=12;
 		min=0;
 		max=50;
-		sourceScale=1;
+		sourceScale=1/3.28;
 		minPos[]={0.95,0.5};
 		maxPos[]={0.95,0.8};
 	};
