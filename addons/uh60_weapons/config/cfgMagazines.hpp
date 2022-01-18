@@ -30,12 +30,12 @@ class cfgMagazines {
   };
   class VTX_M230_Chaingun_L: VehicleMagazine {
     scope = 2;
-    ammo = "B_30mm_MP_Tracer_Green";
+    ammo = "vtx_30mm_shells_hedp";
     descriptionShort = "Single-barrel chain-driven autocannon firing 30x113 mm M789 High Explosive Dual Purpose (HEDP) rounds.";
-    displayname = "M230 Chaingun [H60]";
-    displayNameShort = "M230";
+    displayname = "M230 HEDP [H60]";
+    displayNameShort = "M230 HEDP";
     initspeed = 805;
-    pylonWeapon = "vtx_chaingun";
+    pylonWeapon = "vtx_chaingun_hedp";
     muzzlePos = "muzzlePos";
     muzzleEnd = "muzzleEnd";
     mass = 180; // cannon 60 kg, 300 * 0.34 kg per round
@@ -46,6 +46,18 @@ class cfgMagazines {
     model = \z\vtx\addons\uh60_weapons\Data\M230\M230_L.p3d;
   };
   class VTX_M230_Chaingun_R: VTX_M230_Chaingun_L {
+    hardpoints[] =    {"VTX_ST_R"};
+    model = \z\vtx\addons\uh60_weapons\Data\M230\M230_R.p3d;
+  };
+  class VTX_M230_Chaingun_L_AP: VTX_M230_Chaingun_L {
+    scope = 2;
+    ammo = "vtx_30mm_shells_ap";
+    descriptionShort = "Single-barrel chain-driven autocannon firing 30x113 mm AP rounds.";
+    displayname = "M230 AP [H60]";
+    displayNameShort = "M230 AP";
+    pylonWeapon = "vtx_chaingun_ap";
+  };
+  class VTX_M230_Chaingun_R_AP: VTX_M230_Chaingun_L_AP {
     hardpoints[] =    {"VTX_ST_R"};
     model = \z\vtx\addons\uh60_weapons\Data\M230\M230_R.p3d;
   };

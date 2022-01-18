@@ -51,7 +51,7 @@ class TransportPylonsComponent {
             attachment[] = {"VTX_PylonRack_M261_APKWS", "VTX_4Rnd_ACE_Hellfire_AGM114K", EXTRAPYLONMAGS};
         };
         class Interdiction {
-            displayName = "30mm + DAGR";
+            displayName = "20mm + DAGR";
             attachment[] = {"PylonWeapon_300Rnd_20mm_shells", "VTX_PylonRack_M261_APKWS", EXTRAPYLONMAGS};
         };
         class Rocket {
@@ -67,7 +67,7 @@ class TransportPylonsComponent {
             attachment[] = {"VTX_4Rnd_ACE_Hellfire_AGM114K", "VTX_4Rnd_ACE_Hellfire_AGM114K", EXTRAPYLONMAGS};
         };
         class Unguided {
-            displayName = "30mm + Rocket";
+            displayName = "20mm + Rocket";
             attachment[] = {"PylonWeapon_300Rnd_20mm_shells", "VTX_PylonRack_M261_M229", EXTRAPYLONMAGS};
         };
     };

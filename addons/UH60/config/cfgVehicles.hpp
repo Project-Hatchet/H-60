@@ -176,6 +176,7 @@ class CfgVehicles
         hideProxyInCombat = 1;
         canHideDriver = 0;
         viewDriverInExternal = 1;
+        canHideDriver = 0;
         driverInAction = UH60_Pilot;
         driverAction = UH60_Pilot;
         driverRightHandAnimName="Cyclic_right";
