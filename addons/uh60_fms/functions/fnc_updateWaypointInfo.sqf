@@ -27,7 +27,7 @@ private _center = switch (_centerMode) do {
 private _startDir = if (_centerMode == 0) then {getDir _vehicle} else {0};
 
 private _waypointDirection = (_center getDir _position) - _startDir;
-_vehicle setUserMFDvalue [0, _waypointDirection];
+_vehicle setUserMFDvalue [0, (_center getDir _position)];
 _vehicle setUserMFDvalue [1, _center distance2D _position];
 
 private _zoomLevel = _vehicle getVariable ["MAP_ZoomMult", 1];

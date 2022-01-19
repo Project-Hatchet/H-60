@@ -70,7 +70,7 @@ class Bones {
     };
 
 class Draw {
-    condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_ND);
+    condition = COND_SUBPAGE_OR_SUBPAGE(ND_MODE_ALL,ND_MODE_CMWS);
     //condition = "1";
     class ND_CMWS_SENSOR {
         type = "sensor";
@@ -121,18 +121,23 @@ class Draw {
         };
         class rwr // there's a radar, but stuff isn't happening yet
         {
-            class BlackOverlay {
-                condition = "0";
-            };
-            class TargetLines
-            {
-                type = "line";
-                width = 2;
-                points[] = {
-                    SQUARE_POINTS,{},
-                    TRIANGLE_POINTS
-                };
-            };
+            BLACK_BACKGROUND
+                class white {
+                    color[] = common_white;
+                    class TargetLines
+                    {
+                        type = "line";
+                        width = 3;
+                        points[] = {
+                            SQUARE_POINTS,
+                            {{0.8* 0.00, 0.8*-0.02}, 1}, // top center
+                            {{0.8*-0.02, 0.8* 0.02}, 1}, // bottom left
+                            {{0.8* 0.02, 0.8* 0.02}, 1}, // bottom right
+                            {{0.8* 0.00, 0.8*-0.02}, 1}  // top center
+                        };
+                    }; // lines
+                }; // white
+            }; // background
         };
         class lockingThreat: rwr{
             color[] = RGBA256(160/4,30/4,30/4,0.05);
@@ -185,55 +190,14 @@ class Draw {
         class rwrDestroyed: rwr{};
         class markedTarget: rwr {};
         class assignedTarget: markedTarget{};
-        class target:markedTarget{
-            TEXT_MID_SCALED(TEXT,0,-0.025,"TARGET",0.05)
-        };
+        class target:markedTarget{  condition = "0"; };
         class targetFriendly: target {};
         class targetEnemy: markedTarget{};
         class targetGroup: target{};
         class targetDestroyed:MissileThreat{};
-        class targetGround: target{
-            BLACK_BACKGROUND
-                class white {
-                    color[] = common_white;
-                    class TargetLines
-                    {
-                        type = "line";
-                        width = 3;
-                        points[] = {
-                            SQUARE_POINTS,
-                            {{0.8* 0.00, 0.8*-0.02}, 1}, // top center
-                            {{0.8*-0.02, 0.8* 0.02}, 1}, // bottom left
-                            {{0.8* 0.02, 0.8* 0.02}, 1}, // bottom right
-                            {{0.8* 0.00, 0.8*-0.02}, 1}  // top center
-                        };
-                    }; // lines
-                }; // white
-            }; // background
-        };
-        class targetGroundFriendly: targetGround{
-            condition = "0";
-            BLACK_BACKGROUND
-                class blue {
-                    color[] = common_blue;
-                    class TargetLines
-                    {
-                        type = "line";
-                        width = 3;
-                        points[] = {
-                            SQUARE_POINTS,
-                            {{0.8* 0.00, 0.8*-0.02}, 1}, // top center
-                            {{0.8*-0.02, 0.8* 0.02}, 1}, // bottom left
-                            {{0.8* 0.02, 0.8* 0.02}, 1}, // bottom right
-                            {{0.8* 0.00, 0.8*-0.02}, 1}  // top center
-                        };
-                    }; // TargetLines
-                }; // blue
-            }; // background
-        };
-        class targetGroundEnemy: targetGround{
-            color[] = common_red;
-        };
+        class targetGround: target {};
+        class targetGroundFriendly: targetGround {};
+        class targetGroundEnemy: targetGround {};
         class targetGroundGroup: targetGround{};
         class targetGroundDestroyed:MissileThreat{};
         class targetGroundRemote: MissileThreat{};
@@ -257,57 +221,8 @@ class Draw {
         class targetManRemoteFriendly: targetManRemote {};
         class targetManRemoteEnemy: targetManRemote {};
         class targetManRemoteGroup: targetManRemote {};
-        class targetAir: target {
-            BLACK_BACKGROUND
-                class white {
-                    color[] = common_white;
-                    class TargetLines
-                    {
-                        type = "line";
-                        width = 2;
-                        points[] = {
-                            {{SQUARE_SCALE*-0.02, SQUARE_SCALE*0.02}, 1},
-                            {{SQUARE_SCALE*0.02,  SQUARE_SCALE*0.02}, 1},
-                            {{SQUARE_SCALE*0.02,  SQUARE_SCALE*-0.02}, 1},
-                            {{SQUARE_SCALE*-0.02, SQUARE_SCALE*-0.02}, 1},
-                            {{SQUARE_SCALE*-0.02, SQUARE_SCALE*0.02}, 1},{},
-                            TRIANGLE_POINTS
-                            // {{0.8*-0.02, 0.8*-0.02 + 0.05}, 1}, // top left
-                            // {{0.8* 0.02, 0.8* 0.02 + 0.05}, 1}, // bottom right
-                            // {{0.8* 0.02, 0.8*-0.02 + 0.05}, 1}, // top right
-                            // {{0.8*-0.02, 0.8* 0.02 + 0.05}, 1}, // bottom left
-                            // {{0.8*-0.02, 0.8*-0.02 + 0.05}, 1}  // top left
-                        };
-                    }; // targetlines
-                }; // white
-            }; // background
-        };
-        class targetAirFriendly: targetAir {
-            color[] = common_blue;
-            BLACK_BACKGROUND };
-            class TargetLines
-            {
-                type = "line";
-                width = 2;
-                points[] = {
-                    {{SQUARE_SCALE*-0.02, SQUARE_SCALE*0.02}, 1},
-                    {{SQUARE_SCALE*0.02,  SQUARE_SCALE*0.02}, 1},
-                    {{SQUARE_SCALE*0.02,  SQUARE_SCALE*-0.02}, 1},
-                    {{SQUARE_SCALE*-0.02, SQUARE_SCALE*-0.02}, 1},
-                    {{SQUARE_SCALE*-0.02, SQUARE_SCALE*0.02}, 1},{},
-                    TRIANGLE_POINTS
-                    //{{SQUARE_SCALE*0.02,  SQUARE_SCALE*-0.02}, 1},
-                    //{{SQUARE_SCALE*0.00,  SQUARE_SCALE*-0.025}, 1},
-                    //{{SQUARE_SCALE*-0.02, SQUARE_SCALE*-0.02}, 1}, {},
-
-                    // {{1*-0.02, 1*-0.02}, 1}, // top left
-                    // {{1* 0.02, 1* 0.02}, 1}, // bottom right
-                    // {{1* 0.02, 1*-0.02}, 1}, // top right
-                    // {{1*-0.02, 1* 0.02}, 1}, // bottom left
-                    // {{1*-0.02, 1*-0.02}, 1}  // top left
-                };
-            };
-        };
+        class targetAir: target {};
+        class targetAirFriendly: targetAir {};
         class targetAirEnemy: targetAir {};
         class targetAirGroup: targetAir {};
         class targetAirDestroyed:MissileThreat{};

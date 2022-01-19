@@ -17,6 +17,19 @@ class ND_HeadingRotation {
 	aspectRatio = 1/0.725;
 };
 
+class ND_WaypointDirection {
+	type="rotational";
+	source="user";
+	sourceIndex=0;
+	sourceScale = 1;
+	center[] = {0,0};
+	min = "0";
+	max = "360";
+	minAngle = 360;
+	maxAngle = 0;
+	aspectRatio = 1;
+};
+
 class ND_RALTRotation1 : ND_HeadingRotation {
 	center[] = {0.87,0.15};
 	source="altitudeAGL";
@@ -161,4 +174,56 @@ class ND_JVMF_Dir: ND_WP1_Dir {
 class ND_JVMF_DIST: ND_WP1_DIST {
 	source="user";
 	sourceIndex=44;
+};
+
+class ND_WP_VEH_DIR {
+	type="rotational";
+	source="heading";
+	sourceIndex=0;
+	sourceScale = 1;
+	center[] = {0,0};
+	min = "0";
+	max = "360";
+	minAngle = 0;
+	maxAngle = 360;
+	aspectRatio = 1;
+};
+class ND_WP_DIR {
+	type="rotational";
+	source="user";
+	sourceIndex=0;
+	sourceScale = 1;
+	center[] = {0.4,0.5};
+	min = "0";
+	max = "360";
+	minAngle = 0;
+	maxAngle = 360;
+	aspectRatio = 1;
+};
+class ND_WP_DIST {
+	type="linear";
+	source="user";
+	sourceIndex=1;
+	sourceScale=1;
+	min=0;
+	max=100;
+	minPos[]={0,-0.5};
+	maxPos[]={0,0};
+};
+#define HSI_HVR_10KTS 0.04
+class ND_HOVER_VEL_X {
+	type="linear";
+	source="user";
+	sourceIndex=37;
+	sourceScale=0.51444563338;
+	min=-1;
+	max=1;
+	minPos[]={(HSI_HVR_10KTS*4),0};
+	maxPos[]={-(HSI_HVR_10KTS*4),0};
+};
+class ND_HOVER_VEL_Y: ND_HOVER_VEL_X {
+	source="user";
+	sourceIndex=38;
+	minPos[]={0,	-(HSI_HVR_10KTS*4)};
+	maxPos[]={0,	(HSI_HVR_10KTS*4)};
 };
