@@ -28,13 +28,22 @@
 #define JVMF_TYPE 16
 #define WARN_INDEX 1
 
-#define COND_ISNUMBER(INDEX,VALUE) (user##INDEX>(VALUE-1))*(user##INDEX<(VALUE+1))
+#define COND_ISNUMBER(INDEX,VALUE) (user##INDEX>(VALUE-0.01))*(user##INDEX<(VALUE+0.99))
 #define MFD_PAGE_EICAS 0
 #define MFD_PAGE_PFD 1
 #define MFD_PAGE_TAC 2
 #define MFD_PAGE_ND 3
 #define MFD_PAGE_JVMF 4
 #define MFD_PAGE_FLIR 5
+#define MFD_PAGE_IVHMS 6
+
+// ND SUBPAGES
+#define ND_MODE_ALL (MFD_PAGE_ND+0.0)
+#define ND_MODE_NAV (MFD_PAGE_ND+0.1)
+#define ND_MODE_CMWS (MFD_PAGE_ND+0.2)
+#define ND_MODE_HOVER (MFD_PAGE_ND+0.3)
+#define COND_SUBPAGE(VALUE) (user##MFD_PAGE_INDEX>(VALUE-0.1))*(user##MFD_PAGE_INDEX<(VALUE+0.1))
+#define COND_SUBPAGE_OR_SUBPAGE(VALUE1,VALUE2) (COND_SUBPAGE(VALUE1)+COND_SUBPAGE(VALUE2))
 
 
 //HELPERS
@@ -46,13 +55,36 @@
 //ELEMENTS
 
 
+#define TEXT_RIGHT_SCALED_SRC(CLASS,X,Y,SCALE) \
+	class CLASS { \
+		type = "text"; \
+		align = "left"; \
+		scale = 1; \
+		pos[] = {{X, Y}, 1}; \
+		right[] = {{X + (SCALE*0.75), Y}, 1}; \
+		down[] = {{X, Y + SCALE}, 1};
+
+#define TEXT_RIGHT_SCALED(CLASS,X,Y,TEXT,SCALE) \
+	TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
+		source = "static"; \
+		text = TEXT; \
+	};
+
+#define TEXT_RIGHT_SCALED_USERTEXT(CLASS,X,Y,IDX,SCALE) \
+	TEXT_RIGHT_SCALED_SRC(CLASS,X,Y,SCALE) \
+		source = "userText"; \
+        sourceIndex = IDX; \
+        sourceScale = 1; \
+		text = ""; \
+	};
+
 #define TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
 	class CLASS { \
 		type = "text"; \
 		align = "center"; \
 		scale = 1; \
 		pos[] = {{X, Y}, 1}; \
-		right[] = {{X + SCALE, Y}, 1}; \
+		right[] = {{X + (SCALE*0.75), Y}, 1}; \
 		down[] = {{X, Y + SCALE}, 1};
 
 #define TEXT_MID_SCALED(CLASS,X,Y,TEXT,SCALE) \
@@ -61,13 +93,21 @@
 		text = TEXT; \
 	};
 
+#define TEXT_MID_SCALED_USERTEXT(CLASS,X,Y,IDX,SCALE) \
+	TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
+		source = "userText"; \
+        sourceIndex = IDX; \
+        sourceScale = 1; \
+		text = ""; \
+	};
+
 #define TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
 	class CLASS { \
 		type = "text"; \
 		align = "right"; \
 		scale = 1; \
 		pos[] = {{X, Y}, 1}; \
-		right[] = {{X + SCALE, Y}, 1}; \
+		right[] = {{X + (SCALE*0.75), Y}, 1}; \
 		down[] = {{X, Y + SCALE}, 1};
 
 #define TEXT_LEFT_SCALED(CLASS,X,Y,TEXT,SCALE) \

@@ -3,7 +3,7 @@ class TransportPylonsComponent {
     uiPicture = "z\vtx\addons\MH60M\Data\UI\vtx_mh60m_dap_3den_ca.paa";
     class Pylons {
         class pylons1 {
-            attachment = "VTX_M230_Chaingun_L"; // 30mm
+            attachment = "VTX_M230_Chaingun_L";
             priority = 5;
             hardpoints[] = {
               "DAR", "DAGR", "B_SHIEKER", "20MM_TWIN_CANNON",
@@ -52,11 +52,11 @@ class TransportPylonsComponent {
         };
         class Default {
             displayName = "Default";
-            attachment[] = {"PylonWeapon_300Rnd_20mm_shells", "VTX_PylonRack_M261_M229", EXTRAPYLONMAGS};
+            attachment[] = {"VTX_M230_Chaingun_L", "VTX_PylonRack_M261_M229", EXTRAPYLONMAGS};
         };
         class Interdiction {
             displayName = "30mm + DAGR";
-            attachment[] = {"PylonWeapon_300Rnd_20mm_shells", "VTX_PylonRack_M261_APKWS", EXTRAPYLONMAGS};
+            attachment[] = {"VTX_M230_Chaingun_L", "VTX_PylonRack_M261_DAGR", EXTRAPYLONMAGS};
         };
         class Rocket {
             displayName = "Rocket";

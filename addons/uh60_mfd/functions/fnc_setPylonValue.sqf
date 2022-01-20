@@ -11,4 +11,9 @@ params ["_vehicle", "_index", "_value"];
 _vehicle setPylonLoadout [_index, "vtx_1000rnd_dummy", true];
 _vehicle setAmmoOnPylon [_index, _value];
 
+// Weapon vtx_pylon_mfd was added to stop rpt spam from MFD dummy pylons
+if (local _vehicle && {"vtx_pylon_mfd" in weapons _vehicle}) then {
+  _vehicle removeWeapon "vtx_pylon_mfd";
+};
+
 [_vehicle] call vtx_uh60_mfd_fnc_storePylons;

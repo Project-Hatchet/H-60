@@ -90,7 +90,7 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
 fms_locations_page_open = (((getUserMFDValue _vehicle) # _fms) == FMS_PAGE_NAV_LOCATIONS_LIST);
 
 { // forEach [20, 21, 22, 23,24];
-    _vehicle setUserMFDText [_x, _strings # _forEachIndex];
+    [_vehicle, _x, _strings # _forEachIndex] call vtx_uh60_mfd_fnc_setUserText
 } forEach [20, 21, 22, 23,24];
 
 private _locTypes =  ["Airport","Area","BorderCrossing","CityCenter","CivilDefense","CulturalProperty","DangerousForces","Flag","FlatArea","FlatAreaCity","FlatAreaCitySmall","HistoricalSite","Invisible","Name","NameCity","NameCityCapital","NameMarine","NameVillage","RockArea","SafetyZone","Strategic","StrongpointArea","VegetationBroadleaf","VegetationFir","VegetationPalm","VegetationVineyard","ViewPoint"];
@@ -104,5 +104,5 @@ private _nearestLocation = nil;
 } forEach _locations;
 if (!isNil "_nearestLocation") then {
     vtx_uh60_fms_nearestLocation = _nearestLocation;
-    vehicle player setUserMFDText [12, text vtx_uh60_fms_nearestLocation];
+    [_vehicle, 12, text vtx_uh60_fms_nearestLocation] call vtx_uh60_mfd_fnc_setUserText;
 };

@@ -41,6 +41,8 @@ TEXT_LEFT_SMALL(B6,0.75,BOTTOM_TEXT_Y,"FLIR")
 TEXT_LEFT_SMALL(B7,0.86,BOTTOM_TEXT_Y,"TAC")
 TEXT_LEFT_SMALL(B8,0.98,BOTTOM_TEXT_Y,"JVMF")
 
+TEXT_LEFT_SMALL(IVHMS,0.78,0.03,"IVHMS")
+
 
 TEXT_LEFT_SMALL(STB,0.08,0.05,"STB")
 TEXT_MID_MID_SRC(STB_NUM,0.06,0.08)
@@ -417,7 +419,7 @@ class HSI_FMS {
 			{"HeadingRotation",{"WaypointDirection",-0.005,0.045},1},
 			{"HeadingRotation",{"WaypointDirection",-0.005,0.030},1},
 		};
-	}; // windArm
+	};
 }; // HSI_FMS
 
 class VSI_Polygon {

@@ -1,3 +1,100 @@
+#define ICON_SCALE 1
+#define BFT_ICON_W 1
+#define BFT_ICON_H (BFT_ICON_W * 0.75)
+
+#define BACKGROUND_RECTANGLE \
+    class BlackOverlay { \
+        color[] = {0.05,0.05,0.05,0.5}; \
+		alpha = 0.9; \
+        class BlackPoly \
+        { \
+            type = "polygon"; \
+            width = 2; \
+            points[] = { \
+                { \
+                    {{1.2*BFT_ICON_W*-0.02, 1.2*BFT_ICON_H*0.02}, 1}, \
+                    {{1.2*BFT_ICON_W*0.02,  1.2*BFT_ICON_H*0.02}, 1}, \
+                    {{1.2*BFT_ICON_W*0.02,  1.2*BFT_ICON_H*-0.02}, 1}, \
+                    {{1.2*BFT_ICON_W*-0.02, 1.2*BFT_ICON_H*-0.02}, 1} \
+                } \
+            }; \
+        };
+
+
+
+#define BOX_CONTENT_START(COLOR) \
+    class Blue { \
+        color[] = COLOR; \
+		alpha = 1; \
+        class Line \
+        { \
+            type = "line"; \
+            width = 2; \
+            points[] = { \
+				{{1.0*BFT_ICON_W*-0.02, 1.0*BFT_ICON_H*0.02}, 1}, \
+				{{1.0*BFT_ICON_W*0.02,  1.0*BFT_ICON_H*0.02}, 1}, \
+				{{1.0*BFT_ICON_W*0.02,  1.0*BFT_ICON_H*-0.02}, 1}, \
+				{{1.0*BFT_ICON_W*-0.02, 1.0*BFT_ICON_H*-0.02}, 1}, \
+				{{1.0*BFT_ICON_W*-0.02, 1.0*BFT_ICON_H*0.02}, 1},{},
+
+#define BOX_CONTENT_END \
+            }; \
+        }; \
+	};
+
+#define AIRCAFT(COLOR) \
+	BACKGROUND_RECTANGLE \
+		BOX_CONTENT_START(COLOR) \
+			AIRCRAFT_POINTS \
+		BOX_CONTENT_END \
+	};
+
+#define UNKNOWN(COLOR) \
+	BACKGROUND_RECTANGLE \
+		BOX_CONTENT_START(COLOR) \
+		BOX_CONTENT_END \
+	};
+
+#define RECTANGLE_POINTS \
+	{{BFT_ICON_W*-0.02, BFT_ICON_H*0.02}, 1}, \
+	{{BFT_ICON_W*0.02,  BFT_ICON_H*0.02}, 1}, \
+	{{BFT_ICON_W*0.02,  BFT_ICON_H*-0.02}, 1}, \
+	{{BFT_ICON_W*-0.02, BFT_ICON_H*-0.02}, 1} \
+
+#define AIRCRAFT_POINTS \
+	{{0.6*BFT_ICON_W*-0.02, 0.6*BFT_ICON_H*-0.02}, 1}, \
+	{{0.6*BFT_ICON_W* 0.02, 0.6*BFT_ICON_H* 0.02}, 1}, \
+	{{0.6*BFT_ICON_W* 0.02, 0.6*BFT_ICON_H*-0.02}, 1}, \
+	{{0.6*BFT_ICON_W*-0.02, 0.6*BFT_ICON_H* 0.02}, 1}, \
+	{{0.6*BFT_ICON_W*-0.02, 0.6*BFT_ICON_H*-0.02}, 1}
+
+
+#define ANGLEX(DEG,RADIUS) (sin DEG * (BFT_ICON_W*RADIUS))
+#define ANGLEY(DEG,RADIUS) (cos DEG * (BFT_ICON_H*RADIUS))
+#define ANGLE(DEG,RADIUS) {ANGLEX(DEG,RADIUS), ANGLEY(DEG,RADIUS)}
+
+#define AMORED_POINTS \
+   {ANGLE(0,0.013), 1}, \
+  {ANGLE(30,0.013), 1}, \
+  {ANGLE(60,0.013), 1}, \
+  {ANGLE(90,0.013), 1}, \
+ {ANGLE(120,0.013), 1}, \
+ {ANGLE(150,0.013), 1}, \
+ {ANGLE(180,0.013), 1}, \
+ {ANGLE(210,0.013), 1}, \
+ {ANGLE(240,0.013), 1}, \
+ {ANGLE(270,0.013), 1}, \
+ {ANGLE(300,0.013), 1}, \
+ {ANGLE(330,0.013), 1}, \
+   {ANGLE(0,0.013), 1}
+
+#define ARMORED(COLOR) \
+	BACKGROUND_RECTANGLE \
+		BOX_CONTENT_START(COLOR) \
+			AMORED_POINTS \
+		BOX_CONTENT_END \
+	};
+
 class BFT
 {
     type = sensor;
@@ -16,349 +113,54 @@ class BFT
     range=4000;
     sensorLineType = 3; // same as "lineType"
     sensorLineWidth = 0;
-    class MissileThreat
-	{
-		color[] = {1, 0, 0};
-		class TargetLines
-		{
-			type = "line";
-			width = 2;
-			points[] = {{{0, -0.0198157}, 1}, {{0.003472, -0.0195145}, 1}, {{0.00684, -0.0186208}, 1}, {{0.01, -0.0171604}, 1}, {{0.012856, -0.0151788}, 1}, {{0.01532, -0.0127375}, 1}, {{0.01732, -0.00990783}, 1}, {{0.018794, -0.00677696}, 1}, {{0.019696, -0.00344}, 1}, {{0.02, 0}, 1}, {{0.019696, 0.00344}, 1}, {{0.018794, 0.00677696}, 1}, {{0.01732, 0.00990783}, 1}, {{0.01532, 0.0127375}, 1}, {{0.012856, 0.0151788}, 1}, {{0.01, 0.0171604}, 1}, {{0.00684, 0.0186208}, 1}, {{0.003472, 0.0195145}, 1}, {{0, 0.0198157}, 1}, {{-0.003472, 0.0195145}, 1}, {{-0.00684, 0.0186208}, 1}, {{-0.01, 0.0171604}, 1}, {{-0.012856, 0.0151788}, 1}, {{-0.01532, 0.0127375}, 1}, {{-0.01732, 0.00990783}, 1}, {{-0.018794, 0.00677696}, 1}, {{-0.019696, 0.00344}, 1}, {{-0.02, 0}, 1}, {{-0.019696, -0.00344}, 1}, {{-0.018794, -0.00677696}, 1}, {{-0.01732, -0.00990783}, 1}, {{-0.01532, -0.0127375}, 1}, {{-0.012856, -0.0151788}, 1}, {{-0.01, -0.0171604}, 1}, {{-0.00684, -0.0186208}, 1}, {{-0.003472, -0.0195145}, 1}, {{0, -0.0198157}, 1}};
-		};
-		class TextM
-		{
-			type = "text";
-			source = "static";
-			text = "M";
-			align = "center";
-			scale = 1;
-			pos[] = {{0, -0.01}, 1};
-			right[] = {{0.02, -0.01}, 1};
-			down[] = {{0, 0.01}, 1};
-		};
-	};
-	class lockingThreat
-	{
-		color[] = {1, 0.3, 0};
-		class TargetLines
-		{
-			type = "line";
-			points[] = {{{0.02, 0}, 1}, {{0, 0.0198157}, 1}, {{-0.02, 0}, 1}, {{0, -0.0198157}, 1}, {{0.02, 0}, 1}};
-		};
-	};
-	class markingThreat: lockingThreat
-	{
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class rwr
-	{
-		class TargetLines { };
-	};
-	class rwrFriendly: rwr
-	{
-		color[] = {0, 0, 1};
-		class TargetLines: TargetLines { };
-	};
-	class rwrEnemy: rwr
-	{
-		color[] = {1, 0, 0};
-		class TargetLines: TargetLines { };
-	};
-	class rwrGroup: rwr
-	{
-		color[] = {1, 0, 0};
-		class TargetLines: TargetLines { };
-	};
-	class rwrDestroyed
-	{
-	};
-	class markedTarget
-	{
-		color[] = {1, 0.3, 0};
-		class TargetLines
-		{
-			type = "line";
-			width = 3;
-			points[] = {{{-0.017, -0.0168433}, 1}, {{-0.01, -0.0168433}, 1}, {}, {{0.017, -0.0168433}, 1}, {{0.01, -0.0168433}, 1}, {}, {{-0.017, -0.0168433}, 1}, {{-0.017, -0.00990783}, 1}, {}, {{0.017, -0.0168433}, 1}, {{0.017, -0.00990783}, 1}, {}, {{-0.017, 0.0168433}, 1}, {{-0.01, 0.0168433}, 1}, {}, {{0.017, 0.0168433}, 1}, {{0.01, 0.0168433}, 1}, {}, {{-0.017, 0.0168433}, 1}, {{-0.017, 0.00990783}, 1}, {}, {{0.017, 0.0168433}, 1}, {{0.017, 0.00990783}, 1}, {}};
-		};
-	};
-	class assignedTarget: markedTarget
-	{
-		color[] = {1, 0, 0};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class target
-	{
-		color[] = {1, 0.3, 0};
-		class TargetLines
-		{
-			type = "polygon";
-			points[] = {{{{-0.01, -0.01}, 1}, {{0, -0.01}, 1}, {{0, 0}, 1}, {{-0.01, 0}, 1}}};
-		};
-	};
-	class targetFriendly: target
-	{
-		color[] = {0, 0, 1};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetEnemy: target
-	{
-		color[] = {1, 0, 0};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetGroup: target
-	{
-		color[] = {1, 0, 0};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetDestroyed
-	{
-	};
-	class targetGround: target
-	{
-		class TargetLines: TargetLines
-		{
-			type = "polygon";
-			points[] = {{{{-0.01, -0.01}, 1}, {{0.015, -0.01}, 1}, {{0.015, 0}, 1}, {{-0.01, 0}, 1}}, {{{-0.007, -0.018}, 1}, {{-0.002, -0.018}, 1}, {{-0.002, 0.007}, 1}, {{-0.007, 0.007}, 1}}, {{{0.007, -0.018}, 1}, {{0.012, -0.018}, 1}, {{0.012, 0.007}, 1}, {{0.007, 0.007}, 1}}};
-		};
-	};
-	class targetGroundFriendly: targetGround
-	{
-		color[] = {0, 0, 1};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetGroundEnemy: targetGround
-	{
-		color[] = {1, 0, 0};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetGroundGroup: targetGround
-	{
-		color[] = {1, 0, 0};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetGroundDestroyed
-	{
-	};
-	class targetGroundRemote: target
-	{
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetGroundRemoteFriendly: targetGroundRemote
-	{
-		color[] = {0, 0, 1};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetGroundRemoteEnemy: targetGroundRemote
-	{
-		color[] = {1, 0, 0};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetGroundRemoteGroup: targetGroundRemote
-	{
-		color[] = {1, 0, 0};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetGroundRemoteDestroyed
-	{
-	};
-	class targetLaser: target
-	{
-		class TargetLines: TargetLines
-		{
-			type = "line";
-			width = 4;
-			points[] = {{{0, -0.0198157}, 1}, {{-1.74846e-009, 0.0198157}, 1}, {}, {{0.02, 8.6617e-010}, 1}, {{-0.02, -2.36299e-010}, 1}, {}, {{0.0106066, -0.0105088}, 1}, {{-0.0106066, 0.0105088}, 1}, {}, {{0.0106066, 0.0105088}, 1}, {{-0.0106066, -0.0105088}, 1}, {}};
-		};
-	};
-	class targetLaserFriendly: targetLaser
-	{
-		color[] = {0, 0, 1};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetLaserEnemy: targetLaser
-	{
-		color[] = {1, 0, 0};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetLaserGroup: targetLaser
-	{
-		color[] = {1, 0, 0};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetNVG: targetLaser
-	{
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetNVGFriendly: targetNVG
-	{
-		color[] = {0, 0, 1};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetNVGEnemy: targetNVG
-	{
-		color[] = {1, 0, 0};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetNVGGroup: targetNVG
-	{
-		color[] = {1, 0, 0};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetMan: target
-	{
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetManFriendly: targetMan
-	{
-		color[] = {0, 0, 1};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetManEnemy: targetMan
-	{
-		color[] = {1, 0, 0};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetManGroup: targetMan
-	{
-		color[] = {1, 0, 0};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetManRemote: target
-	{
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetManRemoteFriendly: targetManRemote
-	{
-		color[] = {0, 0, 1};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetManRemoteEnemy: targetManRemote
-	{
-		color[] = {1, 0, 0};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetManRemoteGroup: targetManRemote
-	{
-		color[] = {1, 0, 0};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetAir
-	{
-		color[] = {1, 1, 1};
-		class TargetLines
-		{
-			type = "polygon";
-			points[] = {{{{0, 0}, 1}, {{0.01, 0.015}, 1}, {{-0.01, 0.015}, 1}}, {{{0, 0}, 1}, {{0.01, -0.015}, 1}, {{-0.01, -0.015}, 1}}};
-		};
-	};
-	class targetAirFriendly: targetAir
-	{
-		color[] = {0, 0, 1};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetAirEnemy: targetAir
-	{
-		color[] = {1, 0, 0};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetAirGroup: targetAir
-	{
-		color[] = {1, 0, 0};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetAirDestroyed
-	{
-	};
-	class targetAirRemote: targetAir
-	{
-		color[] = {1, 1, 1};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetAirRemoteFriendly: targetAirRemote
-	{
-		color[] = {0, 0, 1};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetAirRemoteEnemy: targetAirRemote
-	{
-		color[] = {1, 0, 0};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetAirRemoteGroup: targetAirRemote
-	{
-		color[] = {1, 0, 0};
-		class TargetLines: TargetLines
-		{
-		};
-	};
-	class targetAirRemoteDestroyed
-	{
-	};
+	class MissileThreat {};
+	class lockingThreat {}; // locking, you're in for a bad time
+	class markingThreat {}; // radar is tracking you actively
+	class rwrFriendly {};
+	class rwrEnemy {};
+	class rwrGroup {};
+	class rwrDestroyed {};
+	class markedTarget {};
+	class assignedTarget {};
+	class target {};
+	class targetFriendly {};
+	class targetEnemy {};
+	class targetGroup {};
+	class targetDestroyed {};
+	class targetGround { ARMORED(common_white) };
+	class targetGroundFriendly { ARMORED(common_blue) };
+	class targetGroundEnemy { ARMORED(common_red) };
+	class targetGroundGroup {};
+	class targetGroundDestroyed {};
+	class targetGroundRemote { ARMORED(common_white) };
+	class targetGroundRemoteFriendly { ARMORED(common_blue) };
+	class targetGroundRemoteEnemy { ARMORED(common_red) };
+	class targetGroundRemoteGroup {};
+	class targetGroundRemoteDestroyed {};
+	class targetLaser {};
+	class targetLaserFriendly {};
+	class targetLaserEnemy {};
+	class targetLaserGroup {};
+	class targetNVG {};
+	class targetNVGFriendly {};
+	class targetNVGEnemy {};
+	class targetNVGGroup {};
+	class targetMan {};
+	class targetManFriendly {};
+	class targetManEnemy {};
+	class targetManGroup {};
+	class targetManRemote {};
+	class targetManRemoteFriendly {};
+	class targetManRemoteEnemy {};
+	class targetManRemoteGroup {};
+	class targetAir { AIRCAFT(common_white) };
+	class targetAirFriendly { AIRCAFT(common_blue) };
+	class targetAirEnemy { AIRCAFT(common_red) };
+	class targetAirGroup {};
+	class targetAirDestroyed {};
+	class targetAirRemote { AIRCAFT(common_white) };
+	class targetAirRemoteFriendly { AIRCAFT(common_blue) };
+	class targetAirRemoteEnemy { AIRCAFT(common_red) };
+	class targetAirRemoteGroup {};
+	class targetAirRemoteDestroyed {};
 };

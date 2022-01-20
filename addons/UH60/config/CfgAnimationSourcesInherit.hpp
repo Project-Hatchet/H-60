@@ -2,8 +2,6 @@ class AnimationSources: AnimationSources {
   class cockpitlight_show;
   class Hoist_Hook_hide;
   class Hoist_hide;
-  class recoil_source;
-  class muzzle_rot;
   class gunner_ffv_l;
   class gunner_ffv_r;
   class Switch_minigun_safe_cover_l;

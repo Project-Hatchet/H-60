@@ -15,13 +15,13 @@ class cfgWeapons {
     class autocannon_30mm_RCWS: autocannon_Base_F {
       class player;
     };
-    class vtx_chaingun: autocannon_30mm_RCWS {
+    class vtx_chaingun_hedp: autocannon_30mm_RCWS {
       displayName = "M230 Chaingun";
-      displayNameShort = "M230";
+      displayNameShort = "M230 HEDP";
       magazines[] = {"VTX_M230_Chaingun_L", "VTX_M230_Chaingun_R"};
       reloadTime = 0.096; // 625 rpm
       class player: player {
-        displayName = "M230";
+        displayName = "M230 HEDP";
       };
       class gunParticles
       {
@@ -39,18 +39,27 @@ class cfgWeapons {
           };
       };
     };
+    class vtx_chaingun_ap: vtx_chaingun_hedp {
+      displayName = "M230 Chaingun";
+      displayNameShort = "M230 AP";
+      magazines[] = {"VTX_M230_Chaingun_L_AP", "VTX_M230_Chaingun_R_AP"};
+      class player: player {
+        displayName = "M230 AP";
+      };
+    };
   class RocketPods;
   class missiles_DAR: RocketPods {
     magazines[] += {"VTX_PylonRack_M261_M229"};
   };
-  class missiles_DAGR;
-	class ace_missileguidance_dagr: missiles_DAGR {
-    magazines[] += {"VTX_PylonRack_M261_DAGR"};
+
+  class ace_missileguidance_dagr;
+  class vtx_dagr: ace_missileguidance_dagr {
+    magazines[] = {"VTX_PylonRack_M261_DAGR"};
     class Burst;
     class Far_AI;
     class Medium_AI;
   };
-	class vtx_apkws: ace_missileguidance_dagr {
+	class vtx_apkws: vtx_dagr {
     displayName = "APKWS";
     displayNameShort = "APKWS";
     magazines[] = {"VTX_PylonRack_M261_APKWS"};

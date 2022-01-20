@@ -12,9 +12,9 @@ private _wayPoint = [group player, currentWaypoint group player];
 private _position = waypointPosition _wayPoint;
 if ((count customWaypointPosition) > 0) then {
     _position = customWaypointPosition;
-    _vehicle setUserMFDText [7, "MAP MARK"];
+    [_vehicle, 7, "MAP MARK"] call vtx_uh60_mfd_fnc_setUserText;
 } else {
-    _vehicle setUserMFDText [7, waypointDescription _wayPoint];
+    [_vehicle, 7, waypointDescription _wayPoint] call vtx_uh60_mfd_fnc_setUserText;
 };
 
 private _centerMode = _vehicle getVariable ["vtx_uh60_mfd_tac_center_mode", 0];
@@ -27,7 +27,7 @@ private _center = switch (_centerMode) do {
 private _startDir = if (_centerMode == 0) then {getDir _vehicle} else {0};
 
 private _waypointDirection = (_center getDir _position) - _startDir;
-_vehicle setUserMFDvalue [0, _waypointDirection];
+_vehicle setUserMFDvalue [0, (_center getDir _position)];
 _vehicle setUserMFDvalue [1, _center distance2D _position];
 
 private _zoomLevel = _vehicle getVariable ["MAP_ZoomMult", 1];
@@ -46,6 +46,9 @@ private _clearPos = {
 
 {
     _waypointPosition = waypointPosition [group player, (currentWaypoint group player) + _forEachIndex - 1];
+    if (_forEachIndex == (currentWaypoint group player) && (count customWaypointPosition) > 0) then {
+        _waypointPosition = customWaypointPosition;
+    };
     if (!(_waypointPosition isEqualTo [0,0,0])) then {
         [_waypointPosition, _x # 0, _x # 1] call _positionToMfd;
         // private _direction = (_center getDir _waypointPosition) - _startDir;
@@ -97,4 +100,4 @@ if (speed _vehicle > 2) then {
 } else {
   _tofStr = "--:--:--";
 };
-_vehicle setUserMFDText [8, _tofStr];
+[_vehicle, 8, _tofStr] call vtx_uh60_mfd_fnc_setUserText;

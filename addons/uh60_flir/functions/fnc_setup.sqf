@@ -58,7 +58,6 @@ vtx_uh60_flir_isVisibleMap = visibleMap;
 call vtx_uh60_flir_fnc_setIsPipHidden;
 
 if (vtx_uh60_flir_playerIsPilot) then {
-  player action ["TurnIn", vehicle player];
   if (productVersion # 2 >= 207) then {
     // https://community.bistudio.com/wiki/Arma_3:_Event_Handlers#VisionModeChanged
     _id = player addEventHandler ["VisionModeChanged", {
@@ -133,6 +132,14 @@ vtx_uh60_flir_playerCBAEHs pushBack ["featureCamera", _id];
 _id = ["visibleMap", {
   params ["", "_isVisibleMap"];
   vtx_uh60_flir_isVisibleMap = _isVisibleMap;
+  if (vtx_uh60_flir_playerIsPilot && {cameraView == "GUNNER"}) then {
+    // When pilot is in gunner view, remove/add the crosshair when going in and out of map
+    if (_isVisibleMap) then {
+      15 cutText ["", "PLAIN"];
+    } else {
+      15 cutRsc ["vtx_uh60_flir_crossHair", "PLAIN"];
+    };
+  };
   call vtx_uh60_flir_fnc_setIsPipHidden;
 }] call CBA_fnc_addPlayerEventHandler;
 vtx_uh60_flir_playerCBAEHs pushBack ["visibleMap", _id];

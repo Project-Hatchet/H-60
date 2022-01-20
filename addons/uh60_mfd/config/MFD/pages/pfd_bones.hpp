@@ -20,7 +20,7 @@ class WaypointDirection {
 	max = "360";
 	minAngle = 360;
 	maxAngle = 0;
-	aspectRatio = 1/0.725;
+	aspectRatio = 1;
 };
 class HeadingRotationWind : HeadingRotation {
 	minAngle = 360;
