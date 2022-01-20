@@ -18,6 +18,7 @@ params ["_hook", "_unit"];
 
 if (!local _unit) exitWith {[QGVAR(attachHook), _this, _unit] call CBA_fnc_targetEvent;};
 
+if (!vtx_uh60_hoist_setting_useAttachScript) exitWith {false};
 if (_unit getVariable [QGVAR(pfhID), -1] != -1) exitWith {false};
 if (!isNull (_unit getVariable ["vtx_attachedHook", objNull])) exitWith {false};
 if (!isNull (_unit getVariable ["vtx_attachedHelper", objNull])) exitWith {false};
