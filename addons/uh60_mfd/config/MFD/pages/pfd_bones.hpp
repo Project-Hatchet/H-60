@@ -45,7 +45,7 @@ class speedRotation : HeadingRotation {
 };
 class FD_speedRotation : speedRotation {
 	source="user";
-	sourceIndex=15;
+	sourceIndex=45;
 	center[] = {0.1735,0.287};
 	min = "0";
 	max = "200";

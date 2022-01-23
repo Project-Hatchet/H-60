@@ -30,6 +30,13 @@ class ND_WaypointDirection {
 	aspectRatio = 1;
 };
 
+class ND_FD_hdgRotation : ND_HeadingRotation {
+	source="user";
+	sourceIndex=46;
+	center[] = {0,0};
+	aspectRatio = 1;
+};
+
 class ND_RALTRotation1 : ND_HeadingRotation {
 	center[] = {0.87,0.15};
 	source="altitudeAGL";

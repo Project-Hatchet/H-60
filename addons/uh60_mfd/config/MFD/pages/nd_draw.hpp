@@ -125,6 +125,29 @@ class flightdirector_purple {
 			};
 		}; // FD_RALTArm2
 	}; // FD_RALTRotation3Cond
+
+	class FD_Heading1 {
+		type="polygon";
+		points[] ={
+			{
+				{"ND_HeadingRotation", {"ND_FD_hdgRotation",0, 		-0.4+0.118},1},
+				{"ND_HeadingRotation", {"ND_FD_hdgRotation",-0.016, -0.4+0.118},1},
+				{"ND_HeadingRotation", {"ND_FD_hdgRotation",-0.016, -0.4+0.107},1},
+				{"ND_HeadingRotation", {"ND_FD_hdgRotation",-0.009, -0.4+0.107},1}
+			}
+		};
+	}; // FD_Heading1
+	class FD_Heading2 {
+		type="polygon";
+		points[] ={
+			{
+				{"ND_HeadingRotation", {"ND_FD_hdgRotation",0, 	   -0.4+0.118},1},
+				{"ND_HeadingRotation", {"ND_FD_hdgRotation",0.016, -0.4+0.118},1},
+				{"ND_HeadingRotation", {"ND_FD_hdgRotation",0.016, -0.4+0.107},1},
+				{"ND_HeadingRotation", {"ND_FD_hdgRotation",0.009, -0.4+0.107},1}
+			}
+		};
+	}; // FD_Heading2
 }; // flightdirector_purple
 
 class HSI_WAYPOINTDIRECTION {
