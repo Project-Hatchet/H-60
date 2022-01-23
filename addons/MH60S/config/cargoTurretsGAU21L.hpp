@@ -34,6 +34,7 @@ class CargoTurret_02: CargoTurret_01 {
 #define KNEELING_SEAT(CLASS,LABEL,MEMPT,INDEX) \
     class CLASS: CargoTurret_01 { \
         gunnerAction = "passenger_inside_4"; \
+        gunnerInAction = "passenger_inside_4"; \
         gunnerName = LABEL; \
         memoryPointsGetInGunner = pos Cargo MEMPT; \
         memoryPointsGetInGunnerDir = pos Cargo MEMPT dir; \
