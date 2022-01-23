@@ -2,6 +2,8 @@ class CopilotTurret: CopilotTurret {
 	CanEject=0;
 	gunnerAction=UH60_Pilot;
 	gunnerInAction=UH60_Pilot;
+  canHideGunner = 0;
+  viewGunnerInExternal = 1;
 	gunnerRightHandAnimName="Cyclic_left";
 	gunnerLeftHandAnimName="Collective_left";
 	gunnerLeftLegAnimName="Pedal_Left_CP";
