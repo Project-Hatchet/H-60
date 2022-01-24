@@ -6,3 +6,4 @@ PREP(perFrame);
 PREP(setDoorNumbers);
 PREP(setup);
 PREP(toggleLights);
+PREP(hint);

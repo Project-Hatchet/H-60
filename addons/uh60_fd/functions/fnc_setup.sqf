@@ -19,5 +19,15 @@ vtx_uh60_fd_terrainSlope = 0;
 vtx_uh60_fd_collectiveHeld = 0;
 
 [_vehicle, "collective", 0.3, 0.2, 0] call vxf_util_fnc_pidCreate;
+[_vehicle, "collectiveSFM", 2000, 20, 0] call vxf_util_fnc_pidCreate;
+[_vehicle, "ias", 1, 0, 0] call vxf_util_fnc_pidCreate;
+[_vehicle, "pitch", 500, 0, 0] call vxf_util_fnc_pidCreate;
+[_vehicle, "hdg", 30, 0, 0] call vxf_util_fnc_pidCreate;
+[_vehicle, "roll", 10, 0, 0] call vxf_util_fnc_pidCreate;
+vs_max_collectiveForce = 3000;
+ias_max_pitchTorque = 2000;
+ias_max_rudderTorque = 800;
+vtx_uh60_lastRotorAnim = vehicle player animationPhase "hrotor";
+vtx_uh60_rotorRPM = 0;
 
 true

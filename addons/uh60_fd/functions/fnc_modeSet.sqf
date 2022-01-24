@@ -54,12 +54,16 @@ switch (_mode) do {
         if (GET_VS_STATE) then {SET_GLOBAL("alt_mode",vtx_uh60_fd_fnc_vs)}else{SET_GLOBAL("alt_mode",nil)};
     };
     case "IAS": {
+        if (difficultyEnabledRTD) exitWith {["Warning\nFD could not be engaged\nThe Heading autopilot mode is not enabled on advanced flight model\n"] call vtx_uh60_misc_fnc_hint;};
+        if (isTouchingGround _vehicle) exitWith {["Warning\nFD could not be engaged\nMode could not be engaged on ground"] call vtx_uh60_misc_fnc_hint;};
         CYCLE_IAS_STATE;
-        if (GET_IAS_STATE) then {SET_GLOBAL("pitch_mode", test_fnc_pitch)} else {SET_GLOBAL("pitch_mode", nil)};
+        if (GET_IAS_STATE) then {SET_GLOBAL("pitch_mode", vtx_uh60_fd_fnc_ias)} else {SET_GLOBAL("pitch_mode", nil)};
     };
     case "HDG": {
+        if (difficultyEnabledRTD) exitWith {["Warning\nFD could not be engaged\nThe Heading autopilot mode is not enabled on advanced flight model\n"] call vtx_uh60_misc_fnc_hint;};
+        if (isTouchingGround _vehicle) exitWith {["Warning\nFD could not be engaged\nMode could not be engaged on ground"] call vtx_uh60_misc_fnc_hint;};
         CYCLE_HDG_STATE;
-        if (GET_HDG_STATE) then {SET_GLOBAL("roll_mode", test_fnc_roll)} else {SET_GLOBAL("roll_mode", nil)};
+        if (GET_HDG_STATE) then {SET_GLOBAL("roll_mode", vtx_uh60_fd_fnc_hdg)} else {SET_GLOBAL("roll_mode", nil)};
     };
 };
 

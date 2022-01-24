@@ -70,7 +70,7 @@ class Bones {
     };
 
 class Draw {
-    condition = COND_SUBPAGE_OR_SUBPAGE(ND_MODE_ALL,ND_MODE_CMWS);
+    condition = COND_SUBPAGE_OR_SUBPAGE(MFD_PAGE_INDEX,ND_MODE_ALL,ND_MODE_CMWS);
     //condition = "1";
     class ND_CMWS_SENSOR {
         type = "sensor";
