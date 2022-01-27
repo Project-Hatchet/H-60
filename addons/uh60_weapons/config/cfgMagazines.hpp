@@ -62,9 +62,12 @@ class cfgMagazines {
     model = \z\vtx\addons\uh60_weapons\Data\M230\M230_R.p3d;
   };
 
+  //So inheriting 'PylonRack_12Rnd_missiles' works, but the class where the ammo is 'Rocket_04_HE_F' dosen't?
+  //The real reason Bohemia bought a tank was to protect against the army of angry mod makers tired of working with their game
   class PylonRack_12Rnd_missiles;
 	class VTX_PylonRack_M261_M229: PylonRack_12Rnd_missiles {
 		author = "Ampersand";
+    ammo = "Rocket_04_HE_F";
 		count = 19;
     displayName = "19x Hydra 70 M229 [H60]";
     displayNameShort = "19x Hydra 70 M229";
@@ -86,8 +89,8 @@ class cfgMagazines {
     ammo = "VTX_APKWS";
     author = "Ampersand";
     count = 19;
-    displayName = "19x APKWS [H60]";
-    displayNameShort = "19x APKWS";
+    displayName = "19x APKWS AP [H60]";
+    displayNameShort = "19x APKWS AP";
     mass = 336.5; // 36.3 kg launcher, 15.8 per rocket
     model = QPATHTOF(fza_pod_m261.p3d);
     pylonWeapon = "vtx_apkws";

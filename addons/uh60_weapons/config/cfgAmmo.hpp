@@ -29,7 +29,7 @@ class CfgAmmo {
     };
   };
 
-  class M_PG_AT;
+  class M_PG_AT;  //Rocket_04_HE_F 
   class VTX_APKWS: M_PG_AT
   {
   	displayName = "AGR-20 APKWS";
@@ -64,8 +64,8 @@ class CfgAmmo {
   class vtx_30mm_shells_ap : B_30mm_MP_Tracer_Green {
     caliber=4.4;
     explosive = 0.1;
-    hit = 170;
-    indirectHit = 60;
+    hit = 220;
+    indirectHit = 0.5;
     indirectHitRange = 2;
     explosionEffects = "ExploAmmoExplosion";
     deflecting = 10;
@@ -74,7 +74,7 @@ class CfgAmmo {
   class vtx_30mm_shells_hedp : vtx_30mm_shells_ap {
     explosive = 1;
     hit = 20;
-    indirectHit = 40;
+    indirectHit = 5;
     indirectHitRange = 2;
     explosionEffects = "ExploAmmoExplosion";
     deflecting = -1;
