@@ -165,6 +165,7 @@ class CfgVehicles
         picture = "z\vtx\addons\UH60\Data\UI\vtx_UH60_CA.paa";	/// small picture in command menu
 
         hideProxyInCombat = 1;
+        canHideDriver = 0;
         viewDriverInExternal = 1;
         driverInAction = UH60_Pilot;
         driverAction = UH60_Pilot;
