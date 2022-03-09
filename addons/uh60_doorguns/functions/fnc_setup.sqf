@@ -4,6 +4,8 @@
 
 params ["_vehicle"];
 
+if (!vtx_uh60m_enabled_m134_recoil) exitWith {false};
+
 vtx_m134_lastFired = cba_missionTime;
 vtx_m134_ppEffects = [];
 vtx_m134_ppEffectIntensity = 0;
