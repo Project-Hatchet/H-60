@@ -25,6 +25,7 @@ private _mfdPage = (getUserMFDValue _vehicle) # vtx_uh60_mfd_mfsc_focussedMFD;
 // };
 if (_mfdPage == 7) then {
 	[_vehicle] call vtx_uh60_mfd_fnc_slewCCFS;
+	[_vehicle] call vtx_uh60_mfd_fnc_renderCCFS;
 } else {
 	[_vehicle] call vtx_uh60_mfd_fnc_slewTAC;
 };
