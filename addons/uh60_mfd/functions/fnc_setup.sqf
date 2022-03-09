@@ -32,6 +32,7 @@ if (player != driver _vehicle) then {
     vtx_uh60_mfd_mfsc_focussedMFD = 24;
 };
 
+vtx_uh60_ccfs_roomNumSelected = 0;
 vtx_uh60_ccfs_paddlePositions = [0.5,0.5];
 vtx_uh60_ccfs_ballPos = [0.5,0.5];
 vtx_uh60_ccfs_serveSide = -1;

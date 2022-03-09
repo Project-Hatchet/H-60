@@ -36,6 +36,9 @@ class pfd {
     MFD_BTN(MFD_5,QUOTE(IVHMS))
         buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage);
     };
+    MFD_BTN(MFD_6,QUOTE(CCFS))
+        buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_CCFS_MENU, true)] call vtx_uh60_mfd_fnc_switchPage);
+    };
 };
 
 class tac {
@@ -111,4 +114,20 @@ class nd {
     
     MFD_BTN(MFD_9,QUOTE(Next Waypoint)) buttonUp="[vehicle player,""cycle"", 1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
     MFD_BTN(MFD_10,QUOTE(Previous Waypoint)) buttonUp="[vehicle player,""cycle"", -1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
+};
+
+class ccfs_menu {
+    condition= USERVAL(MFD_PAGE_INDEX,MFD_PAGE_CCFS_MENU);
+    MFD_BTN(MFD_20,QUOTE(Join game))
+        buttonUp= QUOTE([ARR_3((_this select 0), 1, MFD_PAGE_INDEX)] call vtx_uh60_mfd_fnc_interaction_ccfs);
+    };
+    MFD_BTN(MFD_21,QUOTE(Next room))
+        buttonUp= QUOTE([ARR_3((_this select 0), 2, MFD_PAGE_INDEX)] call vtx_uh60_mfd_fnc_interaction_ccfs);
+    };
+    MFD_BTN(MFD_22,QUOTE(Prev room))
+        buttonUp= QUOTE([ARR_3((_this select 0), 3, MFD_PAGE_INDEX)] call vtx_uh60_mfd_fnc_interaction_ccfs);
+    };
+    MFD_BTN(MFD_23,QUOTE(Host game))
+        buttonUp= QUOTE([ARR_3((_this select 0), 4, MFD_PAGE_INDEX)] call vtx_uh60_mfd_fnc_interaction_ccfs);
+    };
 };

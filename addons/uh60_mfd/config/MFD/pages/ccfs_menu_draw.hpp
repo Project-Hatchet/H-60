@@ -15,7 +15,7 @@ class backgroundWrapper {
 }; // backgroundWrapper
 
 TEXT_MID_SCALED(CCFS_TITLE1,0.45,0.10,"After years of asking for an updated model with UES exhausts",0.045)
-TEXT_MID_SCALED(CCFS_TITLE2,0.45,0.15,"We, as a team, have decided to make a fully functioning pong game",0.045)
+TEXT_MID_SCALED(CCFS_TITLE2,0.45,0.15,"We, as a team, have decided to make a pong game",0.045)
 TEXT_MID_SCALED(CCFS_TITLE3,0.45,0.20,"That can be played by aircrew on the MFDs of the H-60",0.045)
 TEXT_MID_SCALED(CCFS_TITLE4,0.45,0.92,"WARNING: WHILE PLAYING, NO WPTS WILL BE RENDERED ON YOUR MAP",0.04)
 
@@ -24,15 +24,19 @@ TEXT_MID_SCALED(THANKS3,0.47,0.80,"The Hatchet team",0.04)
 
 TEXT_MID_SCALED(HOST,0.06,0.32,"Host game",0.05)
 //TEXT_MID_SCALED(JOIN,0.06,0.46,"Join game",0.05)
-TEXT_MID_SCALED(JOIN,0.06,0.86,"Join game",0.05)
+
+
+#define JOIN_BOX_OFFSET -0.135
+
+TEXT_MID_SCALED(JOIN,0.06,0.86+JOIN_BOX_OFFSET,"Join game",0.05)
 
 class upArrow {
 	type        = "polygon";
 	points[] ={
 		{
-			{{0.01, 0.62+0.02},1},
-			{{0.03, 0.62-0.02},1},
-			{{0.05, 0.62+0.02},1}
+			{{0.01, 0.62+0.02+JOIN_BOX_OFFSET},1},
+			{{0.03, 0.62-0.02+JOIN_BOX_OFFSET},1},
+			{{0.05, 0.62+0.02+JOIN_BOX_OFFSET},1}
 		}
 	};
 };
@@ -40,15 +44,15 @@ class downArrow {
 	type        = "polygon";
 	points[] ={
 		{
-			{{0.01, 0.76-0.02},1},
-			{{0.03, 0.76+0.02},1},
-			{{0.05, 0.76-0.02},1}
+			{{0.01, 0.76-0.02+JOIN_BOX_OFFSET},1},
+			{{0.03, 0.76+0.02+JOIN_BOX_OFFSET},1},
+			{{0.05, 0.76-0.02+JOIN_BOX_OFFSET},1}
 		}
 	};
 };
 
-TEXT_LEFT_SCALED(ROOMLBL,0.01,0.66,"Room",0.05)
-TEXT_LEFT_SCALED(ROOMNUM,0.08,0.66,"1",0.05)
+TEXT_LEFT_SCALED(ROOMLBL,0.01,0.66+JOIN_BOX_OFFSET,"Room",0.05)
+TEXT_LEFT_SCALED(ROOMNUM,0.08,0.66+JOIN_BOX_OFFSET,"1",0.05)
 
 class host_box {
   type="line";
@@ -67,10 +71,10 @@ class join_box {
   width = 3;
   lineType = 2;
   points[] ={
-    {{0.0, 0.55},1},
-    {{0.2, 0.55},1},
-    {{0.2, 0.92},1},
-    {{0.0, 0.92},1}
+    {{0.0, 0.55+JOIN_BOX_OFFSET},1},
+    {{0.2, 0.55+JOIN_BOX_OFFSET},1},
+    {{0.2, 0.92+JOIN_BOX_OFFSET},1},
+    {{0.0, 0.92+JOIN_BOX_OFFSET},1}
   };
 }; // HEADER_BARS
 
