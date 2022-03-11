@@ -9,3 +9,4 @@ PREP(setup);
 PREP(submitMessage);
 PREP(openMessage);
 PREP(prepareInboxDialog);
+PREP(ctabToJvmf);
