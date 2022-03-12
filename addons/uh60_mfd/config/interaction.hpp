@@ -131,3 +131,13 @@ class ccfs_menu {
         buttonUp= QUOTE([ARR_3((_this select 0), 4, MFD_PAGE_INDEX)] call vtx_uh60_mfd_fnc_interaction_ccfs);
     };
 };
+
+class ccfs_game {
+    condition= USERVAL(MFD_PAGE_INDEX,MFD_PAGE_CCFS);
+    MFD_BTN(MFD_1,QUOTE(Exit))
+        buttonUp= QUOTE([ARR_3((_this select 0), 5, MFD_PAGE_INDEX)] call vtx_uh60_mfd_fnc_interaction_ccfs);
+    };
+    MFD_BTN(MFD_6,QUOTE(Pause/Play))
+        buttonUp= QUOTE([ARR_3((_this select 0), 6, MFD_PAGE_INDEX)] call vtx_uh60_mfd_fnc_interaction_ccfs);
+    };
+};
