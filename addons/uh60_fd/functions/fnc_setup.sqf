@@ -24,6 +24,7 @@ vtx_uh60_fd_collectiveHeld = 0;
 [_vehicle, "pitch", 500, 0, 0] call vxf_util_fnc_pidCreate;
 [_vehicle, "hdg", 30, 0, 0] call vxf_util_fnc_pidCreate;
 [_vehicle, "roll", 10, 0, 0] call vxf_util_fnc_pidCreate;
+[_vehicle, "drift", 1, 0, 0] call vxf_util_fnc_pidCreate;
 vs_max_collectiveForce = 3000;
 ias_max_pitchTorque = 2000;
 ias_max_rudderTorque = 800;

@@ -31,11 +31,16 @@ vtx_uh60_mfd_mfsc_focussedMFD = 25;
 if (player != driver _vehicle) then {
     vtx_uh60_mfd_mfsc_focussedMFD = 24;
 };
-
-vtx_uh60_ccfs_roomNumSelected = 0;
+vtx_uh60_ccfs_gameState = "MENU";
+vtx_uh60_ccfs_playerSelected = player;
+vtx_uh60_ccfs_isHost = false;
+vtx_uh60_ccfs_score = [0,0];
+vtx_uh60_ccfs_paddleMoved = false;
 vtx_uh60_ccfs_paddlePositions = [0.5,0.5];
 vtx_uh60_ccfs_ballPos = [0.5,0.5];
 vtx_uh60_ccfs_serveSide = -1;
 vtx_uh60_ccfs_ballVelocity = [vtx_uh60_ccfs_serveSide, -1 + (random 2)] vectorMultiply 0.005;
+vtx_uh60_ccfs_lastScore = time;
+vtx_uh60_ccfs_winningScore = 10;
 
 true
