@@ -12,7 +12,7 @@ switch (_action) do {
     case "cycle": {
         private _group = group player;
         private _waypointIndex = currentWaypoint _group;
-        _group setCurrentWaypoint [_group, (_waypointIndex + _value)];
+        [player, "", (_waypointIndex + _value)] call vtx_uh60_fms_fnc_selectWaypoint;
     };
     case "import": {
         private _waypoints = waypoints group player;

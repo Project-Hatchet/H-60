@@ -20,6 +20,7 @@ if (_name != "") exitWith {
 	} forEach _waypoints;
 };
 
-if ("_index" > -1) exitWith {
+if (_index > -1) exitWith {
+	[_group, [_group, _index]] remoteExec ["setCurrentWaypoint", (leader _group)];
 	_group setCurrentWaypoint [_group, _index];
 };	
