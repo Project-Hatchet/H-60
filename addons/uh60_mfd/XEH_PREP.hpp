@@ -13,5 +13,4 @@ PREP(restorePylons);
 PREP(setUserText);
 PREP(ivhms);
 PREP(setPylonValue);
-PREP(slewCCFS);
 PREP(slewTAC);

@@ -15,6 +15,7 @@ _vehicle setUserMFDvalue [37, (velocityModelSpace _vehicle) # 0];
 _vehicle setUserMFDvalue [38, (velocityModelSpace _vehicle) # 1];
 
 if (!isEngineOn _vehicle) exitWith {};
+if (!local _vehicle) exitWith {};
 
 private _rotorState = _vehicle animationPhase "hrotor";
 if (_rotorState > vtx_uh60_lastRotorAnim) then {

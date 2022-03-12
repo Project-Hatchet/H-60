@@ -5,7 +5,7 @@
  *
  * params (array)[(object) vehicle]
  */
-params ["_vehicle"];
+params ["_vehicle", "_frameTime"];
 
 private _world_size = [] call BIS_fnc_mapSize;
 private _zoomLevel = _vehicle getVariable ["MAP_ZoomMult", 1];
@@ -23,9 +23,10 @@ private _mfdPage = (getUserMFDValue _vehicle) # vtx_uh60_mfd_mfsc_focussedMFD;
 // 		[_vehicle] call vtx_uh60_mfd_fnc_slewCCFS;
 // 	};
 // };
-if (_mfdPage == 7) then {
-	[_vehicle] call vtx_uh60_mfd_fnc_slewCCFS;
-	[_vehicle] call vtx_uh60_mfd_fnc_renderCCFS;
+if (_mfdPage == 7 || _mfdPage == 8) then {
+	_this call vtx_uh60_mfd_fnc_slewCCFS;
+	_this call vtx_uh60_mfd_fnc_runCCFS;
+	_this call vtx_uh60_mfd_fnc_renderCCFS;
 } else {
 	[_vehicle] call vtx_uh60_mfd_fnc_slewTAC;
 };
