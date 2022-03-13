@@ -2,6 +2,8 @@
 #define RGBA256(R,G,B,A) {R/256,G/256,B/256,A}
 #define RGB256(R,G,B) {R/256,G/256,B/256}
 
+#define BACKGROUND_ALPHA 1
+
 //common colours
 #define common_white RGBA256(200,200,200,1.0)
 #define common_blue RGBA256(40,140,180,1.0)

@@ -1,4 +1,4 @@
-alpha = 0.65;
+alpha = BACKGROUND_ALPHA;
 class HEADER_BARS_TOP {
   type="line";
   width = 3;

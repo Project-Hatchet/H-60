@@ -1,6 +1,6 @@
 #define HVR_CONDITION_PAGES ((COND_SUBPAGE(MFD_PAGE_INDEX,ND_MODE_ALL)*(speed<10)*(altitudeAGL > 2))+COND_SUBPAGE(MFD_PAGE_INDEX,ND_MODE_HOVER))
 
-alpha = 0.65;
+alpha = BACKGROUND_ALPHA;
 class overlayWrapper {
 	class PolygonJet {
 		type        = "polygon";

@@ -1,5 +1,5 @@
 
-alpha = 0.65;
+alpha = BACKGROUND_ALPHA;
 class overlayWrapper {
 	class PolygonJet {
 		type        = "polygon";
@@ -116,14 +116,14 @@ class barsWrapper {
 
 class chipBackgroundWrapper {
 	condition="0";
-	color[] = {0,0,0,0};
+	color[] = common_yellow;
 	POLYGON(chipBackgroundLeft,0.191,0.47,0.12,0.025)
 	POLYGON(chipBackgroundRight,1-0.191,0.47,0.12,0.025)
 	POLYGON(chipTail,1-0.191,0.47+(MID_LINE_HEIGHT*1),0.18,0.025)
 	POLYGON(chipXmsn,1-0.191,0.47+(MID_LINE_HEIGHT*2),0.14,0.025)
 };
 class blackTextWrapper {
-	color[] = common_yellow;
+	color[] = common_white;
 	// ZONE 1
 	class gen1 {
 		condition = "rpm<9";
