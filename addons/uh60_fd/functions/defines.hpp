@@ -27,14 +27,15 @@
 #define GET_ALT    ((round (ANIM(ALT_ANIM_STR)*10))*100)
 #define GET_ALTP ((round (ANIM(ALTP_ANIM_STR)*10))*100)
 #define GET_IAS    ((round (ANIM(IAS_ANIM_STR)*10))*10)
-#define GET_HDG    ((round (ANIM(HDG_ANIM_STR)))*36)
+//#define GET_HDG    ((round (ANIM(HDG_ANIM_STR)))*36)
+#define GET_HDG    (round(ANIM(HDG_ANIM_STR)*36))
 #define GET_VS     (GET("vs_val",0))
 
 #define SET_RALT(FT) (SET_ANIM(RALT_ANIM_STR,(round(FT/10)/10)))
 #define SET_ALT(FT)    (SET_ANIM(ALT_ANIM_STR,(round(FT/10)/100)))
 #define SET_ALTP(FT) (SET_ANIM(ALTP_ANIM_STR,(round(FT/10)/100)))
 #define SET_IAS(KTS) (SET_ANIM(IAS_ANIM_STR,(round(KTS/10)/10)))
-#define SET_HDG(DEG) (SET_ANIM(HDG_ANIM_STR,(round(DEG/10)/36)))
+#define SET_HDG(DEG) (SET_ANIM(HDG_ANIM_STR,(DEG/36)))
 #define SET_VS(FPM)    (SET_GLOBAL("vs_val",FPM))
 
 #define GET_RALT_STATE GET("ralt",false)
@@ -43,6 +44,8 @@
 #define GET_IAS_STATE    GET("ias",false)
 #define GET_HDG_STATE    GET("hdg",false)
 #define GET_VS_STATE     GET("vs",false)
+#define GET_FMS_STATE     GET("fms",false)
+#define GET_GO_ARND_STATE     GET("goArnd",false)
 
 #define CYCLE_RALT_STATE SET_GLOBAL("ralt",!GET_RALT_STATE)
 #define CYCLE_ALT_STATE    SET_GLOBAL("alt",!GET_ALT_STATE)
@@ -50,6 +53,8 @@
 #define CYCLE_IAS_STATE    SET_GLOBAL("ias",!GET_IAS_STATE)
 #define CYCLE_HDG_STATE    SET_GLOBAL("hdg",!GET_HDG_STATE)
 #define CYCLE_VS_STATE     SET_GLOBAL("vs",!GET_VS_STATE)
+#define CYCLE_FMS_STATE     SET_GLOBAL("fms",!GET_FMS_STATE)
+#define CYCLE_GO_ARND_STATE     SET_GLOBAL("goArnd",!GET_GO_ARND_STATE)
 
 #define SET_RALT_STATE(VAL) SET_GLOBAL("ralt",VAL)
 #define SET_ALT_STATE(VAL)    SET_GLOBAL("alt",VAL)

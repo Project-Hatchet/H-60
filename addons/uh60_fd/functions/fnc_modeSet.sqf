@@ -65,6 +65,12 @@ switch (_mode) do {
         CYCLE_HDG_STATE;
         if (GET_HDG_STATE) then {SET_GLOBAL("roll_mode", vtx_uh60_fd_fnc_hdg)} else {SET_GLOBAL("roll_mode", nil)};
     };
+    case "FMS": {
+        if (difficultyEnabledRTD) exitWith {["Warning\nFD could not be engaged\nThe FMS coupled mode is not enabled on advanced flight model\n"] call vtx_uh60_misc_fnc_hint;};
+        if (isTouchingGround _vehicle) exitWith {["Warning\nFD could not be engaged\nMode could not be engaged on ground"] call vtx_uh60_misc_fnc_hint;};
+        CYCLE_FMS_STATE;
+        if (GET_FMS_STATE) then {SET_GLOBAL("roll_mode", vtx_uh60_fd_fnc_fms)} else {SET_GLOBAL("roll_mode", nil)};
+    };
 };
 
 [_vehicle] remoteExecCall ["vtx_uh60_fd_fnc_updatePanel", crew _vehicle];diag_log "modeSet";
