@@ -1,6 +1,6 @@
 //START OUT WITH COLOURS
 #define RGBA256(R,G,B,A) {R/256,G/256,B/256,A}
-#define common_green RGBA256(110,150,65,1.0)
+#define common_green RGBA256(20,256,20,1.0)
 
 #define TEXT_FMS_L(CLASS,X,Y) \
   class CLASS { \

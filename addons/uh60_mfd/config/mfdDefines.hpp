@@ -2,7 +2,7 @@
 #define RGBA256(R,G,B,A) {R/256,G/256,B/256,A}
 #define RGB256(R,G,B) {R/256,G/256,B/256}
 
-#define BACKGROUND_ALPHA 1
+#define BACKGROUND_ALPHA 0.9
 
 //common colours
 #define common_white RGBA256(200,200,200,1.0)
@@ -140,6 +140,9 @@
         sourceScale = 1;
 
 
+#define TEXT_SMALL_SIZE 0.048
+#define TEXT_MID_SIZE 0.052
+
 #define TEXT_RIGHT_OPEN(CLASS) \
     class CLASS { \
         type = "text"; \
@@ -154,8 +157,8 @@
             align = "center"; \
             scale = 1; \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.043, Y}, 1}; \
-            down[] = {{X, Y + 0.048}, 1}; \
+            right[] = {{X + (TEXT_SMALL_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_SMALL_SIZE}, 1};
 
     #define TEXT_LEFT_SMALL_SRC(CLASS,X,Y) \
         class CLASS { \
@@ -163,8 +166,8 @@
             align = "left"; \
             scale = 1; \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.043, Y}, 1}; \
-            down[] = {{X, Y + 0.048}, 1}; \
+            right[] = {{X + (TEXT_SMALL_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_SMALL_SIZE}, 1};
 
     #define TEXT_RIGHT_SMALL_SRC(CLASS,X,Y) \
         class CLASS { \
@@ -172,8 +175,8 @@
             align = "right"; \
             scale = 1; \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.043, Y}, 1}; \
-            down[] = {{X, Y + 0.048}, 1}; \
+            right[] = {{X + (TEXT_SMALL_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_SMALL_SIZE}, 1};
 
     #define TEXT_MID_SMALL(CLASS,X,Y,TEXT) \
         class CLASS { \
@@ -183,8 +186,8 @@
             scale = 1; \
             sourceScale = 1; \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.04, Y}, 1}; \
-            down[] = {{X, Y + 0.033}, 1}; \
+            right[] = {{X + (TEXT_SMALL_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_SMALL_SIZE}, 1}; \
             text = TEXT; \
         };
 
@@ -192,8 +195,8 @@
     #define TEXT_LEFT_SMALL(CLASS,X,Y,TEXT) \
         TEXT_LEFT_OPEN(CLASS) \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.04, Y}, 1}; \
-            down[] = {{X, Y + 0.033}, 1}; \
+            right[] = {{X + (TEXT_SMALL_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_SMALL_SIZE}, 1}; \
             text = TEXT; \
         };
 
@@ -201,8 +204,8 @@
     #define TEXT_RIGHT_SMALL(CLASS,X,Y,TEXT) \
         TEXT_RIGHT_OPEN(CLASS) \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.04, Y}, 1}; \
-            down[] = {{X, Y + 0.033}, 1}; \
+            right[] = {{X + (TEXT_SMALL_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_SMALL_SIZE}, 1}; \
             text = TEXT; \
         };
 
@@ -212,8 +215,8 @@
             align = "center"; \
             scale = 1; \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.0466, Y}, 1}; \
-            down[] = {{X, Y + 0.052}, 1};
+            right[] = {{X + (TEXT_MID_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_MID_SIZE}, 1};
 
     #define TEXT_LEFT_MID_SRC(CLASS,X,Y) \
         class CLASS { \
@@ -221,8 +224,8 @@
             align = "right"; \
             scale = 1; \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.0466, Y}, 1}; \
-            down[] = {{X, Y + 0.052}, 1};
+            right[] = {{X + (TEXT_MID_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_MID_SIZE}, 1};
 
 
     #define TEXT_LEFT_MID(CLASS,X,Y,TEXT) \
@@ -233,8 +236,8 @@
             scale = 1; \
             sourceScale = 1; \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.0466, Y}, 1}; \
-            down[] = {{X, Y + 0.052}, 1};\
+            right[] = {{X + (TEXT_MID_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_MID_SIZE}, 1}; \
             text = TEXT; \
         };
 
@@ -246,8 +249,8 @@
             scale = 1; \
             sourceScale = 1; \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.0466, Y}, 1}; \
-            down[] = {{X, Y + 0.052}, 1};\
+            right[] = {{X + (TEXT_MID_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_MID_SIZE}, 1}; \
             text = TEXT; \
         };
 
@@ -260,8 +263,8 @@
             scale = 1; \
             sourceScale = 1; \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.0466, Y}, 1}; \
-            down[] = {{X, Y + 0.052}, 1};\
+            right[] = {{X + (TEXT_MID_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_MID_SIZE}, 1}; \
             text = TEXT; \
         };
     
