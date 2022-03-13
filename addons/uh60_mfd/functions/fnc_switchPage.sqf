@@ -9,6 +9,10 @@
 params ["_vehicle", "_mfdIndex", "_pageIndex", "_propagate"];
 #include "..\config\mfdDefines.hpp"
 
+if ((_mfdIndex == MFD_1_PAGE_INDEX || _mfdIndex == MFD_1_PAGE_INDEX) && _pageIndex == MFD_PAGE_CCFS_MENU) exitWith {
+  ["Warning\nThe CCFS can only be opened on MFD 2 and 3"] call vtx_uh60_misc_fnc_hint;
+};
+
 if (_propagate) exitWith {
     if(vtx_uh60_ui_showDebugMessages) then {systemChat "MFD MP Sync";};
     [_vehicle, _mfdIndex, _pageIndex, false] remoteExecCall ["vtx_uh60_mfd_fnc_switchPage", crew _vehicle];diag_log "switchPage mfd";

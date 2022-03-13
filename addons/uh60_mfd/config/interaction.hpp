@@ -33,11 +33,18 @@ class mfd_any {
 
 class pfd {
     condition= USERVAL(MFD_PAGE_INDEX,MFD_PAGE_PFD);
-    MFD_BTN(MFD_5,QUOTE(IVHMS))
-        buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage);
+    class COND_SHOW_CCFS {
+        condition = QUOTE(SHOW_CCFS == 1);
+        MFD_BTN(MFD_6,QUOTE(CCFS))
+            buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_CCFS_MENU, true)] call vtx_uh60_mfd_fnc_switchPage);
+        };
     };
-    MFD_BTN(MFD_6,QUOTE(CCFS))
-        buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_CCFS_MENU, true)] call vtx_uh60_mfd_fnc_switchPage);
+};
+
+class eicas {
+    condition= USERVAL(MFD_PAGE_INDEX,MFD_PAGE_EICAS);
+    MFD_BTN(MFD_4,QUOTE(IVHMS))
+        buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage);
     };
 };
 

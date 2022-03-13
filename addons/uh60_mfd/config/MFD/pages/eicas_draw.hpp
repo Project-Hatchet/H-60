@@ -261,6 +261,8 @@ TEXT_RIGHT_SMALL_SRC(CAS5,0.043,0.865 - 0.05-0.002)    source="userText"; source
 TEXT_RIGHT_SMALL_SRC(CAS6,0.043,0.895 - 0.05-0.001)    source="userText"; sourceIndex = 5; sourceScale = 1;};
 TEXT_RIGHT_SMALL_SRC(CAS7,0.043,0.925 - 0.05) source="userText"; sourceIndex = 6; sourceScale = 1;};
 
+TEXT_LEFT_SMALL(IVHMS,0.67,0.02,"IVHMS")
+
 #define BOTTOM_TEXT_Y 0.96
 #define TOP_TEXT_Y 0.03
 #define DEFAULT_TEXT_SIZE 0.65
