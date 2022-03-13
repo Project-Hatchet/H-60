@@ -41,6 +41,7 @@ class CfgVehicles {
             }; // modules
             class interaction: interaction {
                 class MFD_3 {
+                    #define SHOW_CCFS 1
                     #define MFD_PAGE_INDEX MFD_3_PAGE_INDEX
                     #define MFD_1 B_MFD3_1
                     #define MFD_2 B_MFD3_2
@@ -101,6 +102,8 @@ class CfgVehicles {
                     #undef MFD_23
                     #undef MFD_24
 
+                    #undef SHOW_CCFS
+                    #define SHOW_CCFS 0
                     #define MFD_PAGE_INDEX MFD_4_PAGE_INDEX
                     #define MFD_1 B_MFD4_1
                     #define MFD_2 B_MFD4_2
@@ -170,6 +173,8 @@ class CfgVehicles {
                     #undef MFD_23
                     #undef MFD_24
 
+                    #undef SHOW_CCFS
+                    #define SHOW_CCFS 0
                     #define MFD_PAGE_INDEX MFD_1_PAGE_INDEX
                     #define MFD_1 B_MFD1_1
                     #define MFD_2 B_MFD1_2
@@ -230,6 +235,8 @@ class CfgVehicles {
                     #undef MFD_23
                     #undef MFD_24
 
+                    #undef SHOW_CCFS
+                    #define SHOW_CCFS 1
                     #define MFD_PAGE_INDEX MFD_2_PAGE_INDEX
                     #define MFD_1 B_MFD2_1
                     #define MFD_2 B_MFD2_2
@@ -265,6 +272,8 @@ class CfgVehicles {
         class MFD: MFD {
             #undef MFD_PAGE_INDEX
             #define MFD_PAGE_INDEX MFD_1_PAGE_INDEX
+            #undef SHOW_CCFS
+            #define SHOW_CCFS 0
             class MFD_1
             {
             	topLeft="MFD1_LH";
@@ -283,6 +292,8 @@ class CfgVehicles {
             }; // MFD_1
             #undef MFD_PAGE_INDEX
             #define MFD_PAGE_INDEX MFD_2_PAGE_INDEX
+            #undef SHOW_CCFS
+            #define SHOW_CCFS 1
             class MFD_2
             {
             	topLeft="MFD2_LH";
@@ -301,6 +312,8 @@ class CfgVehicles {
             }; // MFD_2
             #undef MFD_PAGE_INDEX
             #define MFD_PAGE_INDEX MFD_3_PAGE_INDEX
+            #undef SHOW_CCFS
+            #define SHOW_CCFS 1
             class MFD_3
             {
             	topLeft="MFD3_LH";
@@ -319,6 +332,8 @@ class CfgVehicles {
             }; // MFD_3
             #undef MFD_PAGE_INDEX
             #define MFD_PAGE_INDEX MFD_4_PAGE_INDEX
+            #undef SHOW_CCFS
+            #define SHOW_CCFS 0
             class MFD_4
             {
             	topLeft="MFD4_LH";

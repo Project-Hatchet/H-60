@@ -1,3 +1,21 @@
+alpha = 1;
+class backgroundWrapper {
+	alpha = 0.3;
+	class polygon {
+		type        = "polygon";
+		texture = "z\vtx\addons\uh60_mfd\data\CCFS.paa";
+		points[] ={
+			{
+				{{0, 0},1},
+				{{1, 0},1},
+				{{1, 1},1},
+				{{0, 1},1}
+			}
+		};
+	};
+}; // backgroundWrapper
+
+
 
 #define CCFS_POLYGON(X,Y) \
     {X, 1, Y, 1,{0.75*-0.015, -0.015},1}, \
@@ -6,16 +24,19 @@
     {X, 1, Y, 1,{0.75*-0.015, 0.015},1}
 
 
-TEXT_MID_SCALED_USERTEXT(ANNOUNCETEXT,0.5,0.03,49,0.05)
+TEXT_MID_SCALED_USERTEXT(ANNOUNCETEXT,0.5,0.05,49,0.05)
 TEXT_LEFT_SMALL(MENU,0.16,0.01,"EXIT")
 TEXT_LEFT_SMALL(PAUSEPLAY,0.90,0.01,"PAUSE/PLAY")
 
-class ball {
-	type        = "polygon";
-	points[] ={
-		{
-			CCFS_POLYGON(BALL_X,BALL_Y)
-		}
+class ballColor {
+	color[] = common_red;
+	class ball {
+		type        = "polygon";
+		points[] ={
+			{
+				CCFS_POLYGON(BALL_X,BALL_Y)
+			}
+		};
 	};
 };
 
@@ -51,6 +72,23 @@ class MID_LINE {
   points[] ={
     {{0.5, 0.1},1},
     {{0.5, 0.9},1}
+  };
+}; // HEADER_BARS_BOTTOM
+
+class BORDER_LINE {
+  type="line";
+  width = 4;
+  lineType = 0;
+  points[] ={
+    {{0.05, 0.1},1}, // top
+    {{0.95, 0.1},1},{},
+    {{0.05, 0.9},1}, // bottom
+    {{0.95, 0.9},1},{},
+    {{0.25, 0.1},1}, // text box
+    {{0.25, 0.05},1},
+    {{0.75, 0.05},1},
+    {{0.75, 0.1},1}
+
   };
 }; // HEADER_BARS_BOTTOM
 
