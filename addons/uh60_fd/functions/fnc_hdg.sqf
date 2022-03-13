@@ -1,8 +1,9 @@
-params ["_vehicle", "_frameTime", "_desiredPitch"];
+params ["_vehicle", "_frameTime", ["_fmsCoupled", false]];
 if (vtx_uh60_rotorRPM < 0.04) exitWith {};
-private _fmsCoupled = false;
 private _desiredHeading = (round(((vehicle player) animationSourcePhase "FD_5_ROT")*36));
-if (_fmsCoupled) then {
+private _waypointCount = count (waypoints (group player));
+private _hasWaypoint = _waypointCount > (currentWaypoint (group player));
+if (_fmsCoupled && _hasWaypoint) then {
 	_desiredHeading = (getUserMFDValue _vehicle) # 0;
 	_vehicle setUserMFDValue [46, _desiredHeading];
 };
