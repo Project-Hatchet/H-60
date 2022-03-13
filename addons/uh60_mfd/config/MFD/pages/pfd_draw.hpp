@@ -3,7 +3,7 @@
 #define BARTOP 0.65
 #define BARBOTTOM 0.905
 
-alpha = 0.65;
+alpha = BACKGROUND_ALPHA;
 class overlayWrapper {
 	class PolygonJet {
 		type        = "polygon";
