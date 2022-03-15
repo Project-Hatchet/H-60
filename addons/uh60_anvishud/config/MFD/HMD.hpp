@@ -57,7 +57,7 @@ class Bones {
 	{
 		type = "vector";
 		source = "forward";
-		pos0[] = {0, 0};
+		pos0[] = {0.5, 0.5};
 		pos10[] = {POS10X, POS10Y};
 	}; // ForwardVector
 	class Airport1
