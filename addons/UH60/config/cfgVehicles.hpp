@@ -161,7 +161,7 @@ class CfgVehicles
             "z\vtx\addons\UH60\data\exterior\hull main.rvmat",
             "z\vtx\addons\UH60\data\exterior\misc.rvmat",
             "z\vtx\addons\UH60\data\exterior\hull tail.rvmat",
-            ""
+            "z\vtx\addons\UH60\data\exterior\hull tail.rvmat"
         };
         A3TI_ThermalSelections[] = {16, 17, 18};
         accuracy = 0.5;
