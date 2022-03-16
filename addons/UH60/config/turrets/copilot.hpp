@@ -26,7 +26,7 @@ class CopilotTurret: CopilotTurret {
         class VTX_H60_HDTS_Copilot: VTX_H60_HDTS_Copilot {};
 	};
 	class Hitpoints {};
-    class Components: Components {
+    class Components {
 		class SensorsManagerComponent {
 			class Components {
 				class LaserSensorComponent: SensorTemplateLaser {};

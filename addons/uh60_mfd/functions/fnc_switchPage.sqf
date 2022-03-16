@@ -26,11 +26,11 @@ switch (_pageIndex) do {
         private _mapName = format ["z\vtx\addons\uh60_mfd\data\maps\%1.paa", worldName];
         if (fileExists _mapName) then {
           _vehicle setObjectTexture [MAP_SELECTION(_mfdIndex), _mapName];
-          _vehicle setObjectMaterial [MAP_SELECTION(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Emmisive\Emmisive_1.rvmat"];
+          _vehicle setObjectMaterial [MAP_SELECTION(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Emmisive\Emmisive_2.rvmat"];
         } else {
           private _fallbackMap = getText (configFile >> "CfgWorlds" >> worldName >> "pictureMap");
           _vehicle setObjectTexture [MAP_SELECTION(_mfdIndex), _fallbackMap];
-          _vehicle setObjectMaterial [MAP_SELECTION(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Emmisive\Emmisive_1.rvmat"];
+          _vehicle setObjectMaterial [MAP_SELECTION(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Emmisive\Emmisive_2.rvmat"];
         };
         _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Overlay_ca.paa"];
     };

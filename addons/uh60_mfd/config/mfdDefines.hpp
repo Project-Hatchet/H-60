@@ -59,6 +59,10 @@
 #define LEVELM(x) LevelM##x
 #define STR(A) #A
 
+#define ANGLEX(DEG,RADIUS) (sin DEG * (BFT_ICON_W*RADIUS))
+#define ANGLEY(DEG,RADIUS) (cos DEG * (BFT_ICON_H*RADIUS))
+#define ANGLE(DEG,RADIUS) {ANGLEX(DEG,RADIUS), ANGLEY(DEG,RADIUS)}
+
 //ELEMENTS
 
 
@@ -98,6 +102,16 @@
 	TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
 		source = "static"; \
 		text = TEXT; \
+	};
+
+
+#define TEXT_MID_SCALED_SOURCE(CLASS,X,Y,SCALE,SOURCE,SOURCEINDEX,SOURCESCALE,DECIMALS) \
+	TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
+		source = SOURCE; \
+        sourceIndex = SOURCEINDEX; \
+		sourceScale = SOURCESCALE; \
+        sourcePrecision = DECIMALS; \
+		text = "" \
 	};
 
 #define TEXT_MID_SCALED_USERTEXT(CLASS,X,Y,IDX,SCALE) \
