@@ -21,6 +21,8 @@ class CLASS { \
     down[] = {{X, Y + 0.035}, 1}; \
 
 
+#define light_black {0.05,0.05,0.05,0.5}
+
 alpha = 1;
 class overlayWrapper {
 	class PolygonJet {
@@ -72,7 +74,7 @@ TEXT_LEFT_SMALL(B8,0.98,BOTTOM_TEXT_Y,"JVMF")
 
 class HAS_NO_PREVWP {
     condition = ((user2 < 0) * (user4 > -1));
-    color[]={0,0,0,1};
+    color[]=light_black;
     class WP1_Line_back {
     	type="line";
     	width = 6;
@@ -82,7 +84,7 @@ class HAS_NO_PREVWP {
     	};
     }; // WP1_Line
     class white {
-        color[]={0,1,0,1};
+        color[]=common_green;
         class WP1_Line_back {
         	type="line";
         	width = 2;
@@ -96,7 +98,7 @@ class HAS_NO_PREVWP {
 
 class HAS_WP1_2 {
     condition = ((user2 > -1) * (user4 > -1));
-    color[]={0,0,0,1};
+    color[]=light_black;
     class WP1_Line_back {
     	type="line";
     	width = 6;
@@ -106,7 +108,7 @@ class HAS_WP1_2 {
     	};
     }; // WP1_Line
     class white {
-        color[]={0,1,0,1};
+        color[]=common_green;
         class WP1_Line_back {
         	type="line";
         	width = 2;
@@ -142,9 +144,22 @@ class HAS_WP1_2 {
     {DIST, 1, DIR, 1,{-0.015, 0.015},1}, \
     {DIST, 1, DIR, 1,{-0.015, -0.015},1}
 
+#define STAR_INNER_SCALE 0.3
+
+#define SHAPE_STAR(DIST,DIR) \
+    {DIST, 1, DIR, 1,{0.75*STAR_INNER_SCALE*-0.015,STAR_INNER_SCALE*-0.015},1}, \
+    {DIST, 1, DIR, 1,{0.75*0     ,-0.020},1}, \
+    {DIST, 1, DIR, 1,{0.75*STAR_INNER_SCALE*0.015, STAR_INNER_SCALE*-0.015},1}, \
+    {DIST, 1, DIR, 1,{0.75*0.020,  0},1}, \
+    {DIST, 1, DIR, 1,{0.75*STAR_INNER_SCALE*0.015,  STAR_INNER_SCALE*0.015},1}, \
+    {DIST, 1, DIR, 1,{0.75*0     , 0.020},1}, \
+    {DIST, 1, DIR, 1,{0.75*STAR_INNER_SCALE*-0.015, STAR_INNER_SCALE*0.015},1}, \
+    {DIST, 1, DIR, 1,{0.75*-0.020,  0},1}, \
+    {DIST, 1, DIR, 1,{0.75*STAR_INNER_SCALE*-0.015, STAR_INNER_SCALE*-0.015},1}
+
 class HAS_CUR_WP {
     condition = (user4 > -1);
-    color[] = {0,0,0,1};
+    color[]=light_black;
     class textBackground {
         type        = "polygon";
         points[] ={
@@ -157,13 +172,13 @@ class HAS_CUR_WP {
         };
     }; // textBackground
     class green {
-        color[]={0,1,0,1};
+        color[]=common_green;
         class WP_Circle
         {
             type = "line";
             width = 2;
             points[]={
-                SHAPE_SQUARE("TAC_WP2_DIST","TAC_WP2_Dir")
+                SHAPE_STAR("TAC_WP2_DIST","TAC_WP2_Dir")
             };
         }; // WP_Circle
         class WP_TEXT {
@@ -182,100 +197,100 @@ class HAS_CUR_WP {
 }; // HAS_CUR_WP
 class HAS_WP2_3 {
     condition = ((user4 > -1) * (user6 > -1));
-    color[]={0,0,0,1};
+    color[]=light_black;
     class WP2_Line_back {
     	type="line";
     	width = 6;
     	points[] ={
             {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1},
     		{"TAC_WP3_DIST", 1, "TAC_WP3_Dir", 1},{},
-            SHAPE_SQUARE("TAC_WP3_DIST","TAC_WP3_Dir")
+            SHAPE_STAR("TAC_WP3_DIST","TAC_WP3_Dir")
     	};
     }; // WP2_Line
     class white {
-        color[]={0,1,0,1};
+        color[]=common_green;
         class WP2_Line {
         	type="line";
         	width = 2;
         	points[] ={
                 {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1},
         		{"TAC_WP3_DIST", 1, "TAC_WP3_Dir", 1},{},
-                SHAPE_SQUARE("TAC_WP3_DIST","TAC_WP3_Dir")
+                SHAPE_STAR("TAC_WP3_DIST","TAC_WP3_Dir")
         	};
         }; // WP2_Line
     }; // color
 }; // cond
 class HAS_WP3 {
     condition = ((user6 > -1) * (user8 > -1));
-    color[]={0,0,0,1};
+    color[]=light_black;
     class WP3_Line_back {
     	type="line";
     	width = 6;
     	points[] ={
             {"TAC_WP3_DIST", 1, "TAC_WP3_Dir", 1},
     		{"TAC_WP4_DIST", 1, "TAC_WP4_Dir", 1},{},
-            SHAPE_SQUARE("TAC_WP4_DIST","TAC_WP4_Dir")
+            SHAPE_STAR("TAC_WP4_DIST","TAC_WP4_Dir")
     	};
     }; // WP3_Line
     class black {
-        color[]={0,1,0,1};
+        color[]=common_green;
         class WP3_Line {
         	type="line";
         	width = 2;
         	points[] ={
                 {"TAC_WP3_DIST", 1, "TAC_WP3_Dir", 1},
         		{"TAC_WP4_DIST", 1, "TAC_WP4_Dir", 1},{},
-            SHAPE_SQUARE("TAC_WP4_DIST","TAC_WP4_Dir")
+            SHAPE_STAR("TAC_WP4_DIST","TAC_WP4_Dir")
         	};
         }; // WP3_Line
     }; // black
 }; // cond
 class HAS_WP4 {
     condition = ((user8 > -1) * (user33 > -1));
-    color[]={0,0,0,1};
+    color[]=light_black;
     class WP4_Line_back {
     	type="line";
     	width = 6;
     	points[] ={
             {"TAC_WP4_DIST", 1, "TAC_WP4_Dir", 1},
     		{"TAC_WP5_DIST", 1, "TAC_WP5_Dir", 1},{},
-            SHAPE_SQUARE("TAC_WP5_DIST","TAC_WP5_Dir")
+            SHAPE_STAR("TAC_WP5_DIST","TAC_WP5_Dir")
     	};
     }; // WP4_Line
     class black {
-        color[]={0,1,0,1};
+        color[]=common_green;
         class WP4_Line {
         	type="line";
         	width = 2;
         	points[] ={
                 {"TAC_WP4_DIST", 1, "TAC_WP4_Dir", 1},
         		{"TAC_WP5_DIST", 1, "TAC_WP5_Dir", 1},{},
-            SHAPE_SQUARE("TAC_WP5_DIST","TAC_WP5_Dir")
+            SHAPE_STAR("TAC_WP5_DIST","TAC_WP5_Dir")
         	};
         }; // WP4_Line
     }; // black
 }; // cond
 class HAS_WP5 {
     condition = ((user33 > -1) * (user35 > -1));
-    color[]={0,0,0,1};
+    color[]=light_black;
     class WP5_Line_back {
     	type="line";
     	width = 6;
     	points[] ={
             {"TAC_WP5_DIST", 1, "TAC_WP5_Dir", 1},
     		{"TAC_WP6_DIST", 1, "TAC_WP6_Dir", 1},{},
-            SHAPE_SQUARE("TAC_WP6_DIST","TAC_WP6_Dir")
+            SHAPE_STAR("TAC_WP6_DIST","TAC_WP6_Dir")
     	};
     }; // WP5_Line
     class black {
-        color[]={0,1,0,1};
+        color[]=common_green;
         class WP5_Line {
         	type="line";
         	width = 2;
         	points[] ={
                 {"TAC_WP5_DIST", 1, "TAC_WP5_Dir", 1},
         		{"TAC_WP6_DIST", 1, "TAC_WP6_Dir", 1},{},
-                SHAPE_SQUARE("TAC_WP6_DIST","TAC_WP6_Dir")
+                SHAPE_STAR("TAC_WP6_DIST","TAC_WP6_Dir")
         	};
         }; // WP5_Line
     }; // black
@@ -283,7 +298,7 @@ class HAS_WP5 {
 
 class TGP_STABILIZED {
     condition = (user10 > -1);
-    color[]={0,0,0,1};
+    color[]=light_black;
     class Mark_Circle
     {
         type = "line";
@@ -293,7 +308,7 @@ class TGP_STABILIZED {
         };
     }; // Mark_Circle
     class green {
-        color[]={0,1,0,1};
+        color[]=common_green;
         class Mark_Circle
         {
             type = "line";
@@ -308,7 +323,7 @@ class TGP_STABILIZED {
 
 class NEAREST_LOCATION {
     condition = (user41 > -1);
-    color[]={0,0,0,1};
+    color[]=light_black;
     class Mark_Circle
     {
         type = "line";
@@ -456,8 +471,21 @@ class AIRCRAFT_CENTERED {
             {"TAC_CURSOR_X", 1, "TAC_CURSOR_Y", 1, { 0.01,0},1}
         };
     }; // cursor
+    class hook_line_color {
+        color[] = common_yellow;
+        class line
+        {
+            type = "line";
+            width = 4;
+            lineType = 3;
+            points[]={
+                {"BFT_CENTER", 1, {0,0}, 1},
+                {"TAC_CURSOR_X", 1, "TAC_CURSOR_Y", 1, {0, 0.0}, 1},
+            };
+        }; // cursor
+    };
     class CIRCLE {
-        color[]={0,0,0,1};
+        color[]=light_black;
         class Mark_Circle
         {
             type = "line";
@@ -478,7 +506,7 @@ class AIRCRAFT_CENTERED {
             };
         };
         class green {
-            color[]={0,1,0,1};
+            color[]=common_green;
             class Mark_Circle
             {
                 type = "line";
@@ -529,7 +557,7 @@ class AIRCRAFT_CENTERED_NORTH {
         };
     }; // cursor
     class CIRCLE {
-        color[]={0,0,0,1};
+        color[]=light_black;
         class Mark_Circle
         {
             type = "line";
@@ -539,7 +567,7 @@ class AIRCRAFT_CENTERED_NORTH {
             };
         }; // Mark_Circle
         class green {
-            color[]={0,1,0,1};
+            color[]=common_green;
             class Mark_Circle
             {
                 type = "line";
@@ -584,7 +612,7 @@ class AIRCRAFT_CENTERED_NORTH {
 class contextMenu {
     condition = "(user39>-1)";
     class black {
-        color[] = {0,0,0,1};
+        color[]=light_black;
         class Background {
             type        = "polygon";
             points[] ={
