@@ -1,0 +1,12 @@
+class StageTI {
+	texture = "";
+};
+ambient[] = {1.4, 1.4, 1.4, 1};
+diffuse[] = {0, 0, 0, 0.5};
+forcedDiffuse[] = {0, 0, 0, 0.5};
+emmisive[] = {21, 21, 21, 1};
+specular[] = {0, 0, 0, 0};
+specularPower = 0;
+renderFlags[] = {"AlwaysInShadow", "NoAlphaWrite"};
+PixelShaderID = "Normal";
+VertexShaderID = "Basic";

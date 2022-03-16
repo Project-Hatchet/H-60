@@ -23,10 +23,16 @@ _vehicle setUserMFDValue [_mfdIndex, _pageIndex];
 private _slingCam = false;
 switch (_pageIndex) do {
     case MFD_PAGE_TAC: {
-        _map = getText (configFile >> "CfgWorlds" >> worldName >> "pictureMap");
-        _vehicle setObjectTexture [MAP_SELECTION(_mfdIndex), _map];
+        private _mapName = format ["z\vtx\addons\uh60_mfd\data\maps\%1.paa", worldName];
+        if (fileExists _mapName) then {
+          _vehicle setObjectTexture [MAP_SELECTION(_mfdIndex), _mapName];
+          _vehicle setObjectMaterial [MAP_SELECTION(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Emmisive\Emmisive_1.rvmat"];
+        } else {
+          private _fallbackMap = getText (configFile >> "CfgWorlds" >> worldName >> "pictureMap");
+          _vehicle setObjectTexture [MAP_SELECTION(_mfdIndex), _fallbackMap];
+          _vehicle setObjectMaterial [MAP_SELECTION(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Emmisive\Emmisive_1.rvmat"];
+        };
         _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Overlay_ca.paa"];
-        _vehicle setObjectMaterial [MAP_SELECTION(_mfdIndex), "\A3\Structures_F\Items\Electronics\Data\electronics_screens.rvmat"];
     };
     case MFD_PAGE_FLIR: {
       _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), "#(argb,512,512,1)r2t(vtx_uh60_flir_feed,1.0)"];
