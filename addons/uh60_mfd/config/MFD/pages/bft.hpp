@@ -62,10 +62,6 @@
 	{{BFT_ICON_W* 0.02, BFT_ICON_H*-0.02}, 1}, \
 	{{BFT_ICON_W*-0.02, BFT_ICON_H* 0.02}, 1}
 
-#define ANGLEX(DEG,RADIUS) (sin DEG * (BFT_ICON_W*RADIUS))
-#define ANGLEY(DEG,RADIUS) (cos DEG * (BFT_ICON_H*RADIUS))
-#define ANGLE(DEG,RADIUS) {ANGLEX(DEG,RADIUS), ANGLEY(DEG,RADIUS)}
-
 #define AMORED_POINTS \
    {ANGLE(0,0.013), 1}, \
   {ANGLE(30,0.013), 1}, \
@@ -161,14 +157,16 @@ class BFT
 	#ifdef SENSOR_SIZE
 		#undef SENSOR_SIZE
 	#endif
-    #define SENSOR_SIZE(numb)\
-        pos[]	= {"BFT_POS", 1, BFT_CENTER,{(0+numb), 0+numb}, 1};\
-        down[]	= {"BFT_DOWN", 1, BFT_CENTER,{(0-numb), 0-numb}, 1};
-    SENSOR_SIZE(-0.01)
+    // #define SENSOR_SIZE(numb)\
+    //     pos[]	= {{0,0}, 1};\
+    //     down[]	= {{1,1}, 1};
+    // SENSOR_SIZE(-0.01)
+	pos[]	= {{0,-0.15}, 1};
+	down[]	= {{1, 1.15}, 1};
 
     showTargetTypes = 1+2+4+8+16+32+64+128+256+512+1024;    // RWR only
     width = 1; // default width of lines can by different in case of class XXXX used instead of arrays
-    range=4000;
+    range=user48;
     sensorLineType = 3; // same as "lineType"
     sensorLineWidth = 0;
 	class MissileThreat {};

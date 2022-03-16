@@ -19,6 +19,12 @@ _vehicle setUserMFDvalue [24,0];
 _vehicle setUserMFDvalue [25,0];
 _vehicle setUserMFDvalue [26,1];
 
+
+_vehicle setVariable ["MAP_Zoom", 1, true];
+_vehicle setVariable ["MAP_ZoomMult", 1, true];
+_vehicle animateSource ["MAP1_Scale", 1/1, 1];
+_vehicle setUserMFDValue [48, worldSize / 1];
+
 vtx_uh60_map_lastPosition = [0,0,0];
 _vehicle setVariable ["vtx_uh60_mfd_tac_center_mode", _vehicle getVariable ["vtx_uh60_mfd_tac_center_mode", 0]];
 vtx_uh60_mfd_tac_mapPos = [0,0,0];
