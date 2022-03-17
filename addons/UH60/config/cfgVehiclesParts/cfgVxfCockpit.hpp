@@ -187,9 +187,9 @@ class interaction {
                 radius=0.035;
                 animation="Lever_engpower1";
                 animSpeed=0.5;
-                animStates[] = {0,0.85};
-                animLabels[] = {"OFF","FLY"};
-                animEnd="[(_this # 0), (_this # 2 != ""OFF"")] remoteExecCall [""vtx_uh60_engine_fnc_engineEH"", crew (_this # 0)];diag_log ""powercont"";";
+                animStates[] = {0,0.23,0.85};
+                animLabels[] = {"OFF","IDLE","FLY"};
+                animEnd="[(_this # 0), (_this # 2 != ""OFF""), ""throttle"", (_this # 2), (_this # 1)] remoteExecCall [""vtx_uh60_engine_fnc_engineEH"", crew (_this # 0)];diag_log ""powercont"";";
             }; // b_engpowercont1
             class b_engpowercont2: b_engpowercont1 {
                 position="b_engpowercont2";
@@ -209,7 +209,7 @@ class interaction {
                 animSpeed=0.5;
                 animStates[] = {0,0.23,0.85};
                 animLabels[] = {"OFF", "IDLE","FLY"};
-                animEnd="[(_this # 0), (_this # 2 != ""OFF"")] remoteExecCall [""vtx_uh60_engine_fnc_engineEH"", crew (_this # 0)];diag_log ""powerocnt"";";
+                animEnd="[(_this # 0), (_this # 2 != ""OFF""), ""throttle"", (_this # 2), (_this # 1)] remoteExecCall [""vtx_uh60_engine_fnc_engineEH"", crew (_this # 0)];diag_log ""powercont"";";
             }; // b_engpowercont1
             class b_engpowercont2: b_engpowercont1 {
                 position="b_engpowercont2";

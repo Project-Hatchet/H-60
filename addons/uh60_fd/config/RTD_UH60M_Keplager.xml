@@ -502,14 +502,14 @@
                         		able to operate correctly. -->
             <General inertia="0.3" />
             <Performance emergencyPowerHP="1902" maxTorque="1580" rotationResistance="0.000000"/>
-            <ControllerParams P="0.5" I="1.5" D="0.0" offset="150" targetRPM="20000" />
+            <ControllerParams P="0.5" I="1.5" D="0.0" offset="150" targetRPM="20900" />
 		</Engine>
 
         <Engine type="ConstantRPMEngine">
             <DebugInfo printDebugInfo="false" />
 		 	<General inertia="0.3" />
             <Performance emergencyPowerHP="1902" maxTorque="1580" rotationResistance="0.000000"/>
-            <ControllerParams P="0.5" I="1.5" D="0.0" offset="150" targetRPM="20000" />
+            <ControllerParams P="0.5" I="1.5" D="0.0" offset="150" targetRPM="20900" />
 		</Engine>
 
     </Engines>
@@ -559,6 +559,10 @@
 
         <CSComponent type="GenericControlSystem">
             <Variables>
+                <Variable alias="rpm0" name="Engine_0/rpm" />
+	            <Variable alias="rpm1" name="Engine_1/rpm" />
+                <Variable alias="averageRPM" dataType="REAL" name="averageRPM" />
+
                 <Variable alias="latCyclic" member="roll" name="CSComponent_1/ControlOutput/pitchRollControl"/>
                 <Variable alias="lonCyclic" member="pitch" name="CSComponent_1/ControlOutput/pitchRollControl"/>
                 <Variable alias="pedals" name="CSComponent_1/ControlOutput/pedals"/>
@@ -585,67 +589,64 @@
 
                 <Variable name="HorizontalStabilizer/controlSurfaceDeflection" alias="profondeur" />
                 <Variable name="velocityBCS" member="Y" alias="Vms" />
-		<Variable name="velocityBCS" member="X" alias="Cms" />
-		<Variable name="velocityBCS" member="Z" alias="Bms" />
+		        <Variable name="velocityBCS" member="X" alias="Cms" />
+		        <Variable name="velocityBCS" member="Z" alias="Bms" />
 
+		        <Variable alias="YawSAS" dataType="REAL" name="YawSAS"/>
+		        <Variable alias="RollSAS" dataType="REAL" name="RollSAS"/>
+		        <Variable alias="PSAS" dataType="REAL" name="PSAS"/>
 
+		        <Variable alias="PCS" dataType="REAL" name="PCS"/>
+		        <Variable alias="ASK" dataType="REAL" name="ASK"/>
+		        <Variable alias="PRLA" dataType="REAL" name="PRLA"/>
+		        <Variable alias="HSCS" dataType="REAL" name="HSCS"/>
 
-		<Variable alias="YawSAS" dataType="REAL" name="YawSAS"/>
-		<Variable alias="RollSAS" dataType="REAL" name="RollSAS"/>
-		<Variable alias="PSAS" dataType="REAL" name="PSAS"/>
+		        <Variable alias="STAPA" dataType="REAL" name="STAPA"/>
 
-		<Variable alias="PCS" dataType="REAL" name="PCS"/>
-		<Variable alias="ASK" dataType="REAL" name="ASK"/>
-		<Variable alias="PRLA" dataType="REAL" name="PRLA"/>
-		<Variable alias="HSCS" dataType="REAL" name="HSCS"/>
+		        <Variable alias="ASBne" dataType="REAL" name="ASBne"/>
+		        <Variable alias="ASBnt" dataType="REAL" name="ASBnt"/>
 
-		<Variable alias="STAPA" dataType="REAL" name="STAPA"/>
+		        <Variable alias="PBA" dataType="REAL" name="PBA"/>
 
-		<Variable alias="ASBne" dataType="REAL" name="ASBne"/>
-		<Variable alias="ASBnt" dataType="REAL" name="ASBnt"/>
+		        <Variable alias="FPSY" dataType="REAL" name="FPSY"/>
+		        <Variable alias="FPSP" dataType="REAL" name="FPSP"/>
+		        <Variable alias="FPSR" dataType="REAL" name="FPSR"/>
 
-		<Variable alias="PBA" dataType="REAL" name="PBA"/>
-
-		<Variable alias="FPSY" dataType="REAL" name="FPSY"/>
-		<Variable alias="FPSP" dataType="REAL" name="FPSP"/>
-		<Variable alias="FPSR" dataType="REAL" name="FPSR"/>
-
-		<Variable alias="YMix" dataType="REAL" name="YMix"/>
-
+		        <Variable alias="YMix" dataType="REAL" name="YMix"/>
 
                 <!-- <Variable alias="myVar" dataType="REAL" name="myVar"/> -->
             </Variables>
 
             <MathExpression>
                 <Expression>
+                    averageRPM = (rpm0 + rpm1) / 2.0,
+                    
+                    ASK = (Vms * 1.94384),
 
+                    PBA = (0.039 - (clamp(p ,-20, 20) * (-0.375))/100 - (clamp(radToDeg(pitchRateRad), -34.5, 34.5) * (-0.13125))/100 + (clamp(Vms * 1.94384 - 80, 0, 100) * 0.0525)/100) ,
 
-		    ASK = (Vms * 1.94384),
+                    ASBnt = (-30 + ASK),
+                    ASBne = (-80 + ASK),
 
-		    PBA = (0.039 - (clamp(p ,-20, 20) * (-0.375))/100 - (clamp(radToDeg(pitchRateRad), -34.5, 34.5) * (-0.13125))/100 + (clamp(Vms * 1.94384 - 80, 0, 100) * 0.0525)/100) ,
+                    PRLA = ((radToDeg(pitchRateRad) * 0.16) + 42) + (clamp(ASBnt, 0, 30) * (-0.0433)),
 
-		    ASBnt = (-30 + ASK),
-		    ASBne = (-80 + ASK),
+                    PCS = ((((clamp(((-1 * collective) + 0.7), 0, 20) * 0.003286) + (clamp(((-1 * collective) + 0.5), 0, 50) * 0.003286) + (0.01 * 0.67)) * (-1)) * clamp(ASBnt, 0, 50)),
 
-		    PRLA = ((radToDeg(pitchRateRad) * 0.16) + 42) + (clamp(ASBnt, 0, 30) * (-0.0433)),
+                    STAPA = PRLA + PCS + (clamp(ASBne, 0, 67) * (-0.1119)),
 
-		    PCS = ((((clamp(((-1 * collective) + 0.7), 0, 20) * 0.003286) + (clamp(((-1 * collective) + 0.5), 0, 50) * 0.003286) + (0.01 * 0.67)) * (-1)) * clamp(ASBnt, 0, 50)),
+                    YMix = ((collective * 1.1)),
 
-		    STAPA = PRLA + PCS + (clamp(ASBne, 0, 67) * (-0.1119)),
+                    FPSY =    clamp(Cms * (Vms/60), -0.2, 0.2),
+                    FPSP =    clamp((pitchRateRad/3) * (Vms/60), -0.2, 0.2),
+                    FPSR =    clamp(rollRateRad * 0.02 * (Vms/60), -0.2, 0.2),
 
-		    YMix = ((collective * 1.1)),
-
-		    FPSY =    clamp(Cms * (Vms/60), -0.2, 0.2),
-		    FPSP =    clamp((pitchRateRad/3) * (Vms/60), -0.2, 0.2),
-		    FPSR =    clamp(rollRateRad * 0.02 * (Vms/60), -0.2, 0.2),
-
-		    PSAS = clamp(pitchRateRad * 2, -0.1, 0.1),
-		    RollSAS = clamp(rollRateRad * 3, -0.1, 0.1),
-		    YawSAS = clamp(yawRateRad * 2, -0.1, 0.1),
+                    PSAS    = clamp(pitchRateRad * 2, -0.1, 0.1),
+                    RollSAS = clamp(rollRateRad * 3, -0.1, 0.1),
+                    YawSAS  = clamp(yawRateRad * 2, -0.1, 0.1),
 
                     latCyclic = latCyclic    - collective * 0.06 - RollSAS - FPSR,
-                    pedals = pedals - YMix + YawSAS + FPSY,
-		    lonCyclic = lonCyclic + collective * .1640 - pedals * 0.05 + PSAS + clamp(PBA,-0.15,0.15) + FPSP,
+                    pedals    = pedals - YMix + YawSAS + FPSY,
+                    lonCyclic = lonCyclic + collective * .1640 - pedals * 0.05 + PSAS + clamp(PBA,-0.15,0.15) + FPSP,
 
                     A1m = linearInterp(-12.5 , 12.5,(latCyclic + 1) * 0.5),
                     A1m = clamp( A1m , -12.5 , 12.5 ),
@@ -660,15 +661,14 @@
 
                     Th0t = linearInterp( 23.280 , -3.307,    (pedals    +1) * 0.5 ),
 
-                    A1m = degToRad(A1m),
-                    B1m = degToRad(B1m),
+                    A1m  = degToRad(A1m),
+                    B1m  = degToRad(B1m),
                     Th0m = degToRad(Th0m),
                     Th0t = degToRad(Th0t),
 
-		    profondeur = lonCyclic * 10,
+                    profondeur = lonCyclic * 10,
 
                     mainRotorBrake = rotorBrake
-
                 </Expression>
 
             </MathExpression>
