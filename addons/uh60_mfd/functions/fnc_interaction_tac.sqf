@@ -15,7 +15,7 @@ switch (_action) do {
         _vehicle setVariable ["MAP_Zoom", _newZoom, true];
         _vehicle setVariable ["MAP_ZoomMult", _newZoom, true];
         _vehicle animateSource ["MAP1_Scale", 1/_newZoom, 1];
-        _vehicle setUserMFDValue [48, worldSize / _newZoom / 2];
+        _vehicle setUserMFDValue [44, worldSize / _newZoom / 2];
     };
     case "waypt": {
         private _cursorPos = [] call vtx_uh60_mfd_fnc_tac_cursorToWorld;
