@@ -9,3 +9,16 @@ PREP(setup);
 PREP(shutdown);
 PREP(starterState);
 PREP(wheelBrakes);
+
+//New aircraft module stuff
+PREP(acftAPU);
+PREP(acftBattery);
+PREP(acftDebug);
+PREP(acftEngController);
+PREP(acftEngLeverStates);
+PREP(acftGenController);
+PREP(acftRTDController);
+PREP(acftSoundController);
+PREP(acftSwitchStates);
+
+
