@@ -111,7 +111,6 @@
         sourceIndex = SOURCEINDEX; \
 		sourceScale = SOURCESCALE; \
         sourcePrecision = DECIMALS; \
-		text = "" \
 	};
 
 #define TEXT_MID_SCALED_USERTEXT(CLASS,X,Y,IDX,SCALE) \
