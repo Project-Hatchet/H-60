@@ -166,7 +166,7 @@ class BFT
 
     showTargetTypes = 1+2+4+8+16+32+64+128+256+512+1024;    // RWR only
     width = 1; // default width of lines can by different in case of class XXXX used instead of arrays
-    range=user48;
+    range=user44;
     sensorLineType = 3; // same as "lineType"
     sensorLineWidth = 0;
 	class MissileThreat {};

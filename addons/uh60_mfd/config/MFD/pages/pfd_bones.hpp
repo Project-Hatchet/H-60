@@ -173,36 +173,62 @@ PITCH_BONES(0.5,0.6,0.28,0.38)
 #undef BARBOTTOM
 #define BARTOP 0.65
 #define BARBOTTOM 0.905
-class RPM1
-{
+class PFD_Q1 {
 	type="linear";
 	source="user";
-	sourceIndex=19;
+	sourceIndex=22;
 	sourceScale=1;
 	min=0;
 	max=120;
 	minPos[]={0,BARTOP};
 	maxPos[]={0,BARBOTTOM};
 };
-class RPM2: RPM1 {
-source="user";
-sourceIndex=20;
+class PFD_Q2 {
+	type="linear";
+	source="user";
+	sourceIndex=48;
+	sourceScale=1;
+	min=0;
+	max=120;
+	minPos[]={0,BARTOP};
+	maxPos[]={0,BARBOTTOM};
 };
-class PFD_TRQ: RPM1 {
-    source="rtdRotorTorque";
-};
-class PFD_COLL: RPM1 {
-	sourceScale=100;
-	source="rtdCollective";
+/*
+class PFD_TRQ { 
+	type="linear";
+	source="user";
+	//source="rtdRotorTorque";
+	sourceIndex=22;
+	sourceScale=1;
+	min=0;
+	max=120;
+	minPos[]={0,BARTOP};
+	maxPos[]={0,BARBOTTOM};
 };
 
-class RPM: RPM1 {
-    min=0;
-    max=12;
-	sourceScale=0.7;
-	minPos[]={0,BARTOP - 0.1};
+class PFD_COLL {
+	type="linear";
+	source="user";
+	//source="rtdCollective";
+	sourceIndex=48;
+	sourceScale=1;
+	min=0;
+	max=120;
+	minPos[]={0,BARTOP};
 	maxPos[]={0,BARBOTTOM};
-    source="rpm";
+};
+*/
+
+class PFD_RPM {
+    type="linear";
+	source="user";
+	//source="rpm";
+	sourceIndex=17;
+	sourceScale=1;
+	min=0;
+	max=120;
+	minPos[]={0,BARTOP};
+	maxPos[]={0,BARBOTTOM};
 };
 
 class PFD_HSI_CENTER {

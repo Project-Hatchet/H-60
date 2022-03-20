@@ -451,14 +451,13 @@ class RANGE_CIRCLES {
         }; // textBackground
         class white {
             color[] = common_white;
-            #define NM_SCALE(SCALE) \
-                (1*0.75*0.000539957*SCALE)
+            #define NM_SCALE(SCALE) (1*0.75*0.000539957*SCALE)
 
-            TEXT_MID_SCALED_SOURCE(SideLblText,0.05,0.525,0.05,"user",48,NM_SCALE(0.9),1)
+            TEXT_MID_SCALED_SOURCE(SideLblText,0.05,0.525,0.05,"user",44,NM_SCALE(0.9),1)
             TEXT_MID_SCALED(SideTextNm,0.09,0.525,"NM",0.05)
-            TEXT_MID_SCALED_SOURCE(InnerLblText,0.7,0.475,0.05,"user",48,NM_SCALE(0.225),1)
-            TEXT_MID_SCALED_SOURCE(OuterLblText,0.85,0.475,0.05,"user",48,NM_SCALE(0.45),1)
-        }
+            TEXT_MID_SCALED_SOURCE(InnerLblText,0.7,0.475,0.05,"user",44,NM_SCALE(0.225),1)
+            TEXT_MID_SCALED_SOURCE(OuterLblText,0.85,0.475,0.05,"user",44,NM_SCALE(0.45),1)
+        };
         class green {
             color[]=common_blue;
             class Mark_Circle
