@@ -44,8 +44,9 @@ class UVAnimations
 		minValue                = 0;
 		maxValue                = 1;
 		center[] 		= { 0.5, 0.5 };
-		scale0[] 		= {1,1};
-		scale1[] 		= {0.2,0.2};
+		scale0[] 		= {0,0};
+		scale1[] 		= {1,1};
+
 	};
 	class MFD2_MapScale: MFD1_MapScale {section = MAP_MFD2;};
 	class MFD3_MapScale: MFD1_MapScale {section = MAP_MFD3;};

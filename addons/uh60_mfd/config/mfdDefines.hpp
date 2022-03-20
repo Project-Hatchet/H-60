@@ -2,12 +2,14 @@
 #define RGBA256(R,G,B,A) {R/256,G/256,B/256,A}
 #define RGB256(R,G,B) {R/256,G/256,B/256}
 
+#define BACKGROUND_ALPHA 1
+
 //common colours
 #define common_white RGBA256(200,200,200,1.0)
 #define common_blue RGBA256(40,140,180,1.0)
-#define common_green RGBA256(110,150,65,1.0)
+#define common_green RGBA256(20,200,20,1.0)
 #define common_purple RGBA256(200,31,120,1.0)
-#define common_yellow RGBA256(230,230,40,0.1)
+#define common_yellow RGBA256(255,255,0,0.1)
 #define common_red RGBA256(160,30,30,1.0)
 #define common_black RGBA256(0,0,0,1.0)
 
@@ -57,6 +59,10 @@
 #define LEVELM(x) LevelM##x
 #define STR(A) #A
 
+#define ANGLEX(DEG,RADIUS) (sin DEG * (BFT_ICON_W*RADIUS))
+#define ANGLEY(DEG,RADIUS) (cos DEG * (BFT_ICON_H*RADIUS))
+#define ANGLE(DEG,RADIUS) {ANGLEX(DEG,RADIUS), ANGLEY(DEG,RADIUS)}
+
 //ELEMENTS
 
 
@@ -96,6 +102,16 @@
 	TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
 		source = "static"; \
 		text = TEXT; \
+	};
+
+
+#define TEXT_MID_SCALED_SOURCE(CLASS,X,Y,SCALE,SOURCE,SOURCEINDEX,SOURCESCALE,DECIMALS) \
+	TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
+		source = SOURCE; \
+        sourceIndex = SOURCEINDEX; \
+		sourceScale = SOURCESCALE; \
+        sourcePrecision = DECIMALS; \
+		text = "" \
 	};
 
 #define TEXT_MID_SCALED_USERTEXT(CLASS,X,Y,IDX,SCALE) \
@@ -138,6 +154,9 @@
         sourceScale = 1;
 
 
+#define TEXT_SMALL_SIZE 0.048
+#define TEXT_MID_SIZE 0.052
+
 #define TEXT_RIGHT_OPEN(CLASS) \
     class CLASS { \
         type = "text"; \
@@ -152,8 +171,8 @@
             align = "center"; \
             scale = 1; \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.043, Y}, 1}; \
-            down[] = {{X, Y + 0.048}, 1}; \
+            right[] = {{X + (TEXT_SMALL_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_SMALL_SIZE}, 1};
 
     #define TEXT_LEFT_SMALL_SRC(CLASS,X,Y) \
         class CLASS { \
@@ -161,8 +180,8 @@
             align = "left"; \
             scale = 1; \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.043, Y}, 1}; \
-            down[] = {{X, Y + 0.048}, 1}; \
+            right[] = {{X + (TEXT_SMALL_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_SMALL_SIZE}, 1};
 
     #define TEXT_RIGHT_SMALL_SRC(CLASS,X,Y) \
         class CLASS { \
@@ -170,8 +189,8 @@
             align = "right"; \
             scale = 1; \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.043, Y}, 1}; \
-            down[] = {{X, Y + 0.048}, 1}; \
+            right[] = {{X + (TEXT_SMALL_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_SMALL_SIZE}, 1};
 
     #define TEXT_MID_SMALL(CLASS,X,Y,TEXT) \
         class CLASS { \
@@ -181,8 +200,8 @@
             scale = 1; \
             sourceScale = 1; \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.04, Y}, 1}; \
-            down[] = {{X, Y + 0.033}, 1}; \
+            right[] = {{X + (TEXT_SMALL_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_SMALL_SIZE}, 1}; \
             text = TEXT; \
         };
 
@@ -190,8 +209,8 @@
     #define TEXT_LEFT_SMALL(CLASS,X,Y,TEXT) \
         TEXT_LEFT_OPEN(CLASS) \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.04, Y}, 1}; \
-            down[] = {{X, Y + 0.033}, 1}; \
+            right[] = {{X + (TEXT_SMALL_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_SMALL_SIZE}, 1}; \
             text = TEXT; \
         };
 
@@ -199,8 +218,8 @@
     #define TEXT_RIGHT_SMALL(CLASS,X,Y,TEXT) \
         TEXT_RIGHT_OPEN(CLASS) \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.04, Y}, 1}; \
-            down[] = {{X, Y + 0.033}, 1}; \
+            right[] = {{X + (TEXT_SMALL_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_SMALL_SIZE}, 1}; \
             text = TEXT; \
         };
 
@@ -210,8 +229,8 @@
             align = "center"; \
             scale = 1; \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.0466, Y}, 1}; \
-            down[] = {{X, Y + 0.052}, 1};
+            right[] = {{X + (TEXT_MID_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_MID_SIZE}, 1};
 
     #define TEXT_LEFT_MID_SRC(CLASS,X,Y) \
         class CLASS { \
@@ -219,8 +238,8 @@
             align = "right"; \
             scale = 1; \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.0466, Y}, 1}; \
-            down[] = {{X, Y + 0.052}, 1};
+            right[] = {{X + (TEXT_MID_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_MID_SIZE}, 1};
 
 
     #define TEXT_LEFT_MID(CLASS,X,Y,TEXT) \
@@ -231,8 +250,8 @@
             scale = 1; \
             sourceScale = 1; \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.0466, Y}, 1}; \
-            down[] = {{X, Y + 0.052}, 1};\
+            right[] = {{X + (TEXT_MID_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_MID_SIZE}, 1}; \
             text = TEXT; \
         };
 
@@ -244,8 +263,8 @@
             scale = 1; \
             sourceScale = 1; \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.0466, Y}, 1}; \
-            down[] = {{X, Y + 0.052}, 1};\
+            right[] = {{X + (TEXT_MID_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_MID_SIZE}, 1}; \
             text = TEXT; \
         };
 
@@ -258,8 +277,8 @@
             scale = 1; \
             sourceScale = 1; \
             pos[] = {{X, Y}, 1}; \
-            right[] = {{X + 0.0466, Y}, 1}; \
-            down[] = {{X, Y + 0.052}, 1};\
+            right[] = {{X + (TEXT_MID_SIZE*0.75), Y}, 1}; \
+            down[] = {{X, Y + TEXT_MID_SIZE}, 1}; \
             text = TEXT; \
         };
     

@@ -15,17 +15,18 @@ class menu {
   //FMS_BTN(FMS_8,"COMM 3","") buttonUp=""; };
   //FMS_BTN(FMS_9,"COMM 4","") buttonUp=""; };
 
+  // THE BUTTON UP CODE CAUSES LIVELOADING THIS CONFIG TO CRASH ARMA
   FMS_BTN(FMS_1,"Checklists","")
-    buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_LISTS_MENU], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+    buttonUp= QUOTE([ARR_3((_this select 0),[FMS_PAGE_INDEX,FMS_LISTS_MENU], true)] call vtx_uh60_fms_fnc_interaction_pageChange);
   };
   FMS_BTN(FMS_2,"Navigation System","")
-    buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+    buttonUp= QUOTE([(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT], true] call vtx_uh60_fms_fnc_interaction_pageChange);
   };
   FMS_BTN(FMS_3,"Fuel Data","")
-    buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_PERFORMANCE], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+    buttonUp= QUOTE([(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_PERFORMANCE], true] call vtx_uh60_fms_fnc_interaction_pageChange);
   };
   FMS_BTN(FMS_4,"Mission Systems","")
-    buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_MSN], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+    buttonUp= QUOTE([(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_MSN], true] call vtx_uh60_fms_fnc_interaction_pageChange);
   };
   //FMS_BTN(FMS_4,"Weapon Systems","") buttonUp=""; };
 };

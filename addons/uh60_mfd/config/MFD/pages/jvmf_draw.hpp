@@ -1,3 +1,4 @@
+alpha = BACKGROUND_ALPHA;
 class backgroundWrapper {
 	class polygon {
 		type        = "polygon";

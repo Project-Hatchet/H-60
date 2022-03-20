@@ -1,6 +1,6 @@
 alpha = 1;
 class backgroundWrapper {
-	alpha = 0.3;
+	alpha = BACKGROUND_ALPHA;
 	class polygon {
 		type        = "polygon";
 		texture = "z\vtx\addons\uh60_mfd\data\CCFS.paa";
