@@ -1,3 +1,4 @@
+alpha = 0.65;
 class HEADER_BARS_TOP {
   type="line";
   width = 3;
@@ -123,7 +124,6 @@ class BOTTOM_BAR {
     {{1-0.1, 0.9},1}
   };
 }; // BOTTOM_BAR
-
 
 TEXT_MID_SCALED(TOP1,0.15,0.01,"MAIN",0.035)
 TEXT_MID_SCALED(TOP2,0.25,0.01,"MAINT",0.035)

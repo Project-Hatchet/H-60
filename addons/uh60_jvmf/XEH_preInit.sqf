@@ -10,6 +10,7 @@ ADDON = false;
  * 2 - location
  */
 
+vtx_uh60_jvmf_importedCtabMarkersList = [];
 VTX_JVMF_MESSAGES = [
    [
        "WELCOME", // TITLE

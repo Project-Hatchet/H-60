@@ -328,8 +328,8 @@ class interaction {
             animation="FD_1_ROT";
             looping = 1;
             dragStart="";
-            dragging="(_this # 0) setUserMFDValue [12, (round(((_this # 0) animationSourcePhase ""FD_1_ROT"")*10))*10]";
-            dragStop="(_this # 0) setUserMFDValue [12, (round(((_this # 0) animationSourcePhase ""FD_1_ROT"")*10))*10]";
+            dragging="[(_this # 0), ""RALT""] call vtx_uh60_fd_fnc_spinKnob;";
+            dragStop="[(_this # 0), ""RALT""] call vtx_uh60_fd_fnc_spinKnob;";
             buttonUp="[(_this # 0), ""RALT""] call vtx_uh60_fd_fnc_psync;";
         }; // KnobFDRight_RALT
         class KnobFDLeft_RALT : KnobFDRight_RALT {position="knob_fdL_1";};// KnobFDLeft_RALT
@@ -339,8 +339,8 @@ class interaction {
             dragRange = 0.5*10;
             label="ALTP Select";
             animation="FD_2_ROT";
-            dragging="(_this # 0) setUserMFDValue [13, (round(((_this # 0) animationSourcePhase ""FD_2_ROT"")*10))*100]";
-            dragStop="(_this # 0) setUserMFDValue [13, (round(((_this # 0) animationSourcePhase ""FD_2_ROT"")*10))*100]";
+            dragging="[(_this # 0), ""ALTP""] call vtx_uh60_fd_fnc_spinKnob;";
+            dragStop="[(_this # 0), ""ALTP""] call vtx_uh60_fd_fnc_spinKnob;";
             buttonUp="[(_this # 0), ""ALTP""] call vtx_uh60_fd_fnc_psync;";
         }; // KnobFDRight_ALTP
         class KnobFDLeft_ALTP : KnobFDRight_ALTP {position="knob_fdL_2";};// KnobFDLeft_ALTP
@@ -350,8 +350,8 @@ class interaction {
             dragRange = 0.5*10;
             label="ALT Select";
             animation="FD_3_ROT";
-            dragging="(_this # 0) setUserMFDValue [14, (round(((_this # 0) animationSourcePhase ""FD_3_ROT"")*10))*100]";
-            dragStop="(_this # 0) setUserMFDValue [14, (round(((_this # 0) animationSourcePhase ""FD_3_ROT"")*10))*100]";
+            dragging="[(_this # 0), ""ALT""] call vtx_uh60_fd_fnc_spinKnob;";
+            dragStop="[(_this # 0), ""ALT""] call vtx_uh60_fd_fnc_spinKnob;";
             buttonUp="[(_this # 0), ""ALT""] call vtx_uh60_fd_fnc_psync;";
         }; // KnobFDRight_ALT
         class KnobFDLeft_ALT : KnobFDRight_ALT {position="knob_fdL_3";};// KnobFDLeft_ALT
@@ -361,8 +361,8 @@ class interaction {
            dragRange = 0.5*0.65;
            label="IAS Select";
            animation="FD_4_ROT";
-           dragging="(_this # 0) setUserMFDValue [45, (round(((_this # 0) animationSourcePhase ""FD_4_ROT"")*10))*10]";
-           dragStop="(_this # 0) setUserMFDValue [45, (round(((_this # 0) animationSourcePhase ""FD_4_ROT"")*10))*10]";
+           dragging="[(_this # 0), ""IAS""] call vtx_uh60_fd_fnc_spinKnob;";
+           dragStop="[(_this # 0), ""IAS""] call vtx_uh60_fd_fnc_spinKnob;";
            buttonUp="[(_this # 0), ""IAS""] call vtx_uh60_fd_fnc_psync;";
         }; // KnobFDRight_IAS
         class KnobFDLeftIAS : KnobFDRightIAS {position="knob_fdL_4";};// KnobFDLeft_IAS
@@ -373,8 +373,8 @@ class interaction {
            dragRange = 0.5*9;
            label="HDG Select";
            animation="FD_5_ROT";
-           dragging="if ((_this # 1) < 0) then {(_this # 0) animateSource [""FD_5_ROT"",10,true];};if ((_this # 1) > 10) then {(_this # 0) animateSource [""FD_5_ROT"",0,true];};(_this # 0) setUserMFDValue [46, (round(((_this # 0) animationSourcePhase ""FD_5_ROT"")*36))];";
-           dragStop="if ((_this # 1) < 0) then {(_this # 0) animateSource [""FD_5_ROT"",10,true];};if ((_this # 1) > 10) then {(_this # 0) animateSource [""FD_5_ROT"",0,true];};(_this # 0) setUserMFDValue [46, (round(((_this # 0) animationSourcePhase ""FD_5_ROT"")*36))];";
+           dragging="[(_this # 0), ""HDG""] call vtx_uh60_fd_fnc_spinKnob;";
+           dragStop="[(_this # 0), ""HDG""] call vtx_uh60_fd_fnc_spinKnob;";
            buttonUp="[(_this # 0), ""HDG""] call vtx_uh60_fd_fnc_psync;";
         }; // KnobFDRight_IAS
         class KnobFDLeftHDG : KnobFDRightHDG {position="knob_fdL_5";};// KnobFDLeftHDG

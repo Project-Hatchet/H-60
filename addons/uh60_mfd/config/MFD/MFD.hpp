@@ -16,6 +16,7 @@ class Bones {
 	#include "pages\tac_bones.hpp"
 	#include "pages\flir_bones.hpp"
 	#include "pages\nd_bones.hpp"
+	#include "pages\ccfs_bones.hpp"
 }; // Bones
 class Draw {
 	class eicas {
@@ -37,10 +38,18 @@ class Draw {
 	class flir {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_FLIR);
 		#include "pages\flir_draw.hpp"
-	}; // jvmf
+	}; // flir
+	class ccfs {
+		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_CCFS);
+		#include "pages\ccfs_draw.hpp"
+	}; // ccfs
 	class nd {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_ND);
 		#include "pages\nd_draw.hpp"
+	}; // nd
+	class ccfs_menu {
+		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_CCFS_MENU);
+		#include "pages\ccfs_menu_draw.hpp"
 	}; // nd
 	#include "pages\warning_overlay.hpp"
 }; // Draw
