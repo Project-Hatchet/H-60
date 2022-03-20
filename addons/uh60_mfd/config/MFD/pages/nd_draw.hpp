@@ -1,4 +1,4 @@
-#define HVR_CONDITION_PAGES ((COND_SUBPAGE(ND_MODE_ALL)*(speed<10)*(altitudeAGL > 2))+COND_SUBPAGE(ND_MODE_HOVER))
+#define HVR_CONDITION_PAGES ((COND_SUBPAGE(MFD_PAGE_INDEX,ND_MODE_ALL)*(speed<10)*(altitudeAGL > 2))+COND_SUBPAGE(MFD_PAGE_INDEX,ND_MODE_HOVER))
 
 alpha = 0.65;
 class overlayWrapper {
@@ -125,6 +125,29 @@ class flightdirector_purple {
 			};
 		}; // FD_RALTArm2
 	}; // FD_RALTRotation3Cond
+
+	class FD_Heading1 {
+		type="polygon";
+		points[] ={
+			{
+				{"ND_HeadingRotation", {"ND_FD_hdgRotation",0, 		-0.4+0.118},1},
+				{"ND_HeadingRotation", {"ND_FD_hdgRotation",-0.016, -0.4+0.118},1},
+				{"ND_HeadingRotation", {"ND_FD_hdgRotation",-0.016, -0.4+0.107},1},
+				{"ND_HeadingRotation", {"ND_FD_hdgRotation",-0.009, -0.4+0.107},1}
+			}
+		};
+	}; // FD_Heading1
+	class FD_Heading2 {
+		type="polygon";
+		points[] ={
+			{
+				{"ND_HeadingRotation", {"ND_FD_hdgRotation",0, 	   -0.4+0.118},1},
+				{"ND_HeadingRotation", {"ND_FD_hdgRotation",0.016, -0.4+0.118},1},
+				{"ND_HeadingRotation", {"ND_FD_hdgRotation",0.016, -0.4+0.107},1},
+				{"ND_HeadingRotation", {"ND_FD_hdgRotation",0.009, -0.4+0.107},1}
+			}
+		};
+	}; // FD_Heading2
 }; // flightdirector_purple
 
 class HSI_WAYPOINTDIRECTION {
@@ -285,7 +308,7 @@ class AIRCRAFT_CENTERED {
 	clipTL[] = {0.1,0.1};
 	clipBR[] = {0.7,0.9};
 	class SHOW_WAYPOINTS {
-    	condition = COND_SUBPAGE_OR_SUBPAGE(ND_MODE_ALL,ND_MODE_NAV);
+    	condition = COND_SUBPAGE_OR_SUBPAGE(MFD_PAGE_INDEX,ND_MODE_ALL,ND_MODE_NAV);
 		class HAS_NO_PREVWP {
 			condition = ((user2 < 0) * (user4 > -1));
 			color[]={0,1,0,1};
@@ -557,19 +580,19 @@ class HVR_COND_NOCLIP {
 
 TEXT_MID_MID(MODE_LABEL,0.25,0.01,"DISPLAY")
 class SUBPAGE_ALL {
-	condition = COND_SUBPAGE(ND_MODE_ALL);
+	condition = COND_SUBPAGE(MFD_PAGE_INDEX,ND_MODE_ALL);
 	TEXT_MID_MID(MODE_SELECTOR,0.25,0.05,"ALL")
 };
 class SUBPAGE_NAV {
-	condition = COND_SUBPAGE(ND_MODE_NAV);
+	condition = COND_SUBPAGE(MFD_PAGE_INDEX,ND_MODE_NAV);
 	TEXT_MID_MID(MODE_SELECTOR,0.25,0.05,"NAV")
 };
 class SUBPAGE_CMWS {
-	condition = COND_SUBPAGE(ND_MODE_CMWS);
+	condition = COND_SUBPAGE(MFD_PAGE_INDEX,ND_MODE_CMWS);
 	TEXT_MID_MID(MODE_SELECTOR,0.25,0.05,"CMWS")
 };
 class SUBPAGE_HOVER {
-	condition = COND_SUBPAGE(ND_MODE_HOVER);
+	condition = COND_SUBPAGE(MFD_PAGE_INDEX,ND_MODE_HOVER);
 	TEXT_MID_MID(MODE_SELECTOR,0.25,0.05,"HOVER")
 };
 

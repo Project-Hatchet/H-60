@@ -355,29 +355,29 @@ class interaction {
             buttonUp="[(_this # 0), ""ALT""] call vtx_uh60_fd_fnc_psync;";
         }; // KnobFDRight_ALT
         class KnobFDLeft_ALT : KnobFDRight_ALT {position="knob_fdL_3";};// KnobFDLeft_ALT
-        //class KnobFDRightIAS : KnobFDRight_RALT {
-        //    position="knob_fdR_4";
-        //    animLimits[] = {0, 2};
-        //    dragRange = 0.5*0.65;
-        //    label="IAS Select";
-        //    animation="FD_4_ROT";
-        //    dragging="(_this # 0) setUserMFDValue [15, (round(((_this # 0) animationSourcePhase ""FD_4_ROT"")*10))*10]";
-        //    dragStop="(_this # 0) setUserMFDValue [15, (round(((_this # 0) animationSourcePhase ""FD_4_ROT"")*10))*10]";
-        //    buttonUp="[(_this # 0), ""IAS""] call vtx_uh60_fd_fnc_psync;";
-        //}; // KnobFDRight_IAS
-        //class KnobFDLeftIAS : KnobFDRightIAS {position="knob_fdL_4";};// KnobFDLeft_IAS
-        //class KnobFDRightHDG : KnobFDRight_RALT {
-        //    position="knob_fdR_5";
-        //    animLimits[] = {0, 10};
-        //    scrollIncrement = 1/36;
-        //    dragRange = 0.5*9;
-        //    label="HDG Select";
-        //    animation="FD_5_ROT";
-        //    dragging="(_this # 0) setUserMFDValue [16, (round(((_this # 0) animationSourcePhase ""FD_5_ROT"")*36))]";
-        //    dragStop="(_this # 0) setUserMFDValue [16, (round(((_this # 0) animationSourcePhase ""FD_5_ROT"")*36))]";
-        //    buttonUp="[(_this # 0), ""HDG""] call vtx_uh60_fd_fnc_psync;";
-        //}; // KnobFDRight_IAS
-        //class KnobFDLeftHDG : KnobFDRightHDG {position="knob_fdL_5";};// KnobFDLeftHDG
+        class KnobFDRightIAS : KnobFDRight_RALT {
+           position="knob_fdR_4";
+           animLimits[] = {0, 2};
+           dragRange = 0.5*0.65;
+           label="IAS Select";
+           animation="FD_4_ROT";
+           dragging="(_this # 0) setUserMFDValue [45, (round(((_this # 0) animationSourcePhase ""FD_4_ROT"")*10))*10]";
+           dragStop="(_this # 0) setUserMFDValue [45, (round(((_this # 0) animationSourcePhase ""FD_4_ROT"")*10))*10]";
+           buttonUp="[(_this # 0), ""IAS""] call vtx_uh60_fd_fnc_psync;";
+        }; // KnobFDRight_IAS
+        class KnobFDLeftIAS : KnobFDRightIAS {position="knob_fdL_4";};// KnobFDLeft_IAS
+        class KnobFDRightHDG : KnobFDRight_RALT {
+           position="knob_fdR_5";
+           animLimits[] = {-1, 11};
+           scrollIncrement = 1/7.2;
+           dragRange = 0.5*9;
+           label="HDG Select";
+           animation="FD_5_ROT";
+           dragging="if ((_this # 1) < 0) then {(_this # 0) animateSource [""FD_5_ROT"",10,true];};if ((_this # 1) > 10) then {(_this # 0) animateSource [""FD_5_ROT"",0,true];};(_this # 0) setUserMFDValue [46, (round(((_this # 0) animationSourcePhase ""FD_5_ROT"")*36))];";
+           dragStop="if ((_this # 1) < 0) then {(_this # 0) animateSource [""FD_5_ROT"",10,true];};if ((_this # 1) > 10) then {(_this # 0) animateSource [""FD_5_ROT"",0,true];};(_this # 0) setUserMFDValue [46, (round(((_this # 0) animationSourcePhase ""FD_5_ROT"")*36))];";
+           buttonUp="[(_this # 0), ""HDG""] call vtx_uh60_fd_fnc_psync;";
+        }; // KnobFDRight_IAS
+        class KnobFDLeftHDG : KnobFDRightHDG {position="knob_fdL_5";};// KnobFDLeftHDG
         class toCabin {
           condition = "isNull (vxf_vehicle turretUnit [1]) || {isNull (vxf_vehicle turretUnit [2])}";
           positionType = "coordinates";

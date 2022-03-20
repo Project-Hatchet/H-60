@@ -34,7 +34,7 @@ class FDRight
 //static
 		TEXT_FD(LOC_Text,0.065,0.14)
 			source = "static";
-			text = "LOC";
+			text = "FMS";
 		};
 		TEXT_FD(GS_Text,0.166,0.14)
 			source = "static";
@@ -119,13 +119,13 @@ class FDRight
 
 		TEXT_FD(IAS_Value,0.582,0.20)
 			source = "user";
-			sourceIndex=15;
+			sourceIndex=45;
 			sourceScale=1;
 		};
 
 		TEXT_FD(HDG_Value,0.687,0.20)
 			source = "user";
-			sourceIndex=16;
+			sourceIndex=46;
 			sourceScale=1;
 		};
 

@@ -10,3 +10,6 @@ PREP(setup);
 PREP(updatePanel);
 PREP(verticalVelocity);
 PREP(vs);
+PREP(hdg);
+PREP(ias);
+PREP(achievePitch);
