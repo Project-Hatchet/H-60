@@ -252,6 +252,9 @@ class AnimationSources {
   class CautionMasterCaution:ACCLow{
     initPhase = 0;
   };
+  class CautionLowRpm:ACCLow{
+    initPhase = 0;
+  };
   class Gauge_temp {
     source="user";
     animPeriod=1;

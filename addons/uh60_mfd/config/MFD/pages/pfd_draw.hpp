@@ -616,7 +616,7 @@ class powerPodTexWrap {
 
 class powerPodBarWrap {
 	color[] = common_green;
-    BAR(RPM1BAR,"PFD_Q1", 0.088,BARBOTTOM,0.01)
+    BAR_WARN(RPM1BAR,"PFD_Q1", 0.088,BARBOTTOM,0.01,22,99)
 	BAR(RPMBAR, "PFD_RPM",0.136,BARBOTTOM,0.01)
-    BAR(RPM2BAR,"PFD_Q2", 0.185,BARBOTTOM,0.01)
+    BAR_WARN(RPM2BAR,"PFD_Q2", 0.185,BARBOTTOM,0.01,48,99)
 }; // powerPodBarWrap

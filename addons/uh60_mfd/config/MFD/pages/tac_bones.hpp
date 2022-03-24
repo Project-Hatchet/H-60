@@ -1,27 +1,6 @@
 #define YMOD (1/0.75)
 #define YMIN 0.25*(YMOD/2)
-class BFT_POS
-{
-        type="linear";
-        source="user";
-        sourceIndex=27;
-        sourceScale=1;
-        min=0;
-        max=1;
-        minPos[]={0,0};
-        maxPos[]={-0.7,-1};
-};
-class BFT_DOWN
-{
-        type="linear";
-        source="user";
-        sourceIndex=27;
-        sourceScale=1;
-        min=0;
-        max=1;
-        minPos[]={0,0};
-        maxPos[]={0.7,1};
-};
+
 class TAC_CENTER
 {
     type = "fixed";
