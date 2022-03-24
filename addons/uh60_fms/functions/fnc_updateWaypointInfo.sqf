@@ -64,12 +64,6 @@ if (vtx_uh60_fms_renderWaypointsOnTAC) then {
         [10, 11] call _clearPos;
     };
 
-    if (!isNil "vtx_uh60_fms_nearestLocation") then {
-        [getPos vtx_uh60_fms_nearestLocation, 41, 42] call _positionToMfd;
-    } else {
-        [41, 42] call _clearPos;
-    };
-
     //
     //43 44
     if (!isNil {VTX_JVMF_MESSAGES # VTX_JVMF_SELECTED_IDX}) then {

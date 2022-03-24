@@ -32,6 +32,7 @@ private _totRtrDmg     = _heli getHitPointDamage _rtrDmgHitName;
 private _isSingleEng   = _heli getVariable "vtx_uh60_sfmplus_isSingleEng";
 private _dmgTimerCont  = _heli getVariable "vtx_uh60_sfmplus_dmgTimerCont";
 private _dmgTimerTrans = _heli getVariable "vtx_uh60_sfmplus_dmgTimerTrans";
+private _damaged = false;
 
 if (isEngineOn _heli) then {
     //With the power levers at idle
@@ -39,6 +40,7 @@ if (isEngineOn _heli) then {
         if (_engPctTQ >= 0.30) then {
             private _dmg = _totRtrDmg + (_dmgPerSec * _deltaTime);
             _heli setHitpointDamage [_rtrDmgHitName, _dmg];
+            _damaged = true;
             /*
             hintSilent format ["1. NR = %1,
                             \nTQ = %2
@@ -51,6 +53,7 @@ if (isEngineOn _heli) then {
         if (_engPctTQ >= 0.7) then {
             private _dmg = _totRtrDmg + (_dmgPerSec * _deltaTime);
             _heli setHitpointDamage [_rtrDmgHitName, _dmg];
+            _damaged = true;
             /*
             hintSilent format ["2. NR = %1,
                             \nTQ = %2
@@ -76,6 +79,7 @@ if (isEngineOn _heli) then {
                     
                     private _dmg = _totRtrDmg + (_dmgPerSec * _deltaTime);
                     _heli setHitpointDamage [_rtrDmgHitName, _dmg];
+                    _damaged = true;
                 };
 
                 _heli setVariable ["vtx_uh60_sfmplus_dmgTimerCont", _dmgTimerCont];
@@ -92,6 +96,7 @@ if (isEngineOn _heli) then {
                     
                     private _dmg = _totRtrDmg + (_dmgPerSec * _deltaTime);
                     _heli setHitpointDamage [_rtrDmgHitName, _dmg];
+                    _damaged = true;
                 };
 
                 _heli setVariable ["vtx_uh60_sfmplus_dmgTimerTrans", _dmgTimerTrans];
@@ -102,6 +107,7 @@ if (isEngineOn _heli) then {
             if (_engPctTQ > 1.25) then {
                 private _dmg = _totRtrDmg + (_dmgPerSec * _deltaTime);
                 _heli setHitpointDamage [_rtrDmgHitName, _dmg];
+                _damaged = true;
             };
             /*
             hintSilent format ["3. NR = %1,
@@ -124,6 +130,7 @@ if (isEngineOn _heli) then {
 
                     private _dmg = _totRtrDmg + (_dmgPerSec * _deltaTime);
                     _heli setHitpointDamage [_rtrDmgHitName, _dmg];
+                    _damaged = true;
                 };
 
                 _heli setVariable ["vtx_uh60_sfmplus_dmgTimerTrans", _dmgTimerTrans];
@@ -131,6 +138,7 @@ if (isEngineOn _heli) then {
             if (_engPctTQ > 1.15) then {
                 private _dmg = _totRtrDmg + (_dmgPerSec * _deltaTime);
                 _heli setHitpointDamage [_rtrDmgHitName, _dmg];
+                _damaged = true;
             };
             /*
             hintSilent format ["4. NR = %1,
@@ -141,4 +149,5 @@ if (isEngineOn _heli) then {
             */
         };
     };
+    [_heli] call vtx_uh60_cas_fnc_updateCautions;
 };

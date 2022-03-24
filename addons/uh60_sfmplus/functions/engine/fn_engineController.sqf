@@ -23,7 +23,7 @@ private _engState  = _heli getVariable "vtx_uh60_sfmplus_engState";
 private _eng1State = _engState select 0;
 private _eng2State = _engState select 1;
 
-if ((_eng1State == "STARTING" || _eng2State == "STARTING") && local _heli) then {
+if ((_eng1State == "ON" || _eng2State == "ON") && local _heli) then {
 	_heli setVariable ["vtx_uh60_estarted", true, true];
 	_heli engineOn true;
 };

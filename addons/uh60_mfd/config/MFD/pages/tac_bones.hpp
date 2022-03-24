@@ -135,14 +135,6 @@ class TAC_TGP_DIST: TAC_WP1_DIST {
 	source="user";
 	sourceIndex=11;
 };
-class TAC_LOC_Dir: TAC_WP1_Dir {
-	source="user";
-	sourceIndex=41;
-};
-class TAC_LOC_DIST: TAC_WP1_DIST {
-	source="user";
-	sourceIndex=42;
-};
 class TAC_JVMF_Dir: TAC_WP1_Dir {
 	source="user";
 	sourceIndex=43;

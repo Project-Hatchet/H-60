@@ -24,7 +24,7 @@ class Attributes: Attributes {
     displayName = "Engine Cover Markings";
     tooltip = "";
     expression = "_this setObjectTexture [19, _value];";
-    defaultValue = "z\vtx\addons\UH60\Data\Exterior\Markings\Markings_ca.paa";
+    defaultValue = "";
     typeName = "STRING";
     condition = "objectVehicle";
     class Values {

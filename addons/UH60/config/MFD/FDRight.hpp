@@ -119,21 +119,21 @@ class FDRight
 
 		TEXT_FD(IAS_Value,0.582,0.20)
 			source = "user";
-			sourceIndex=45;
+			sourceIndex=41;
 			sourceScale=1;
 		};
 
 		TEXT_FD(HDG_Value,0.687,0.20)
 			source = "user";
-			sourceIndex=46;
+			sourceIndex=42;
 			sourceScale=1;
 		};
 
-		TEXT_FD(VS_Value,0.79,0.20)
-			source = "user";
-			sourceIndex=17;
-			sourceScale=1;
-		};
+		// TEXT_FD(VS_Value,0.79,0.20)
+		// 	source = "user";
+		// 	sourceIndex=17;
+		// 	sourceScale=1;
+		// };
 
 	};	//Draw
 };

@@ -134,7 +134,7 @@ class CfgVehicles
             "z\vtx\addons\UH60\Data\Exterior\Hull Main_co.paa",
             "z\vtx\addons\UH60\Data\Exterior\Misc_co.paa",
             "z\vtx\addons\UH60\Data\Exterior\Hull Tail_co.paa",
-            "z\vtx\addons\UH60\Data\Exterior\Markings\Markings_ca.paa",
+            "",
             "", // "left_num_1",
             "", // "left_num_2",
             "", // "right_num_1",
@@ -460,6 +460,33 @@ class CfgVehicles
     class vtx_UH60M : vtx_H60_base {
         scope = 2;
         editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_UH60M.jpg";
+        hiddenSelectionsTextures[] = {
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "z\vtx\addons\UH60\Data\Exterior\Hull Main_co.paa",
+            "z\vtx\addons\UH60\Data\Exterior\Misc_co.paa",
+            "z\vtx\addons\UH60\Data\Exterior\Hull Tail_co.paa",
+            "z\vtx\addons\UH60\Data\Exterior\Markings\Markings_ca.paa",
+            "", // "left_num_1",
+            "", // "left_num_2",
+            "", // "right_num_1",
+            "", // "right_num_2",
+            "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
+        };
     };
 
     class vtx_HH60 : vtx_H60_base {
