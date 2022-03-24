@@ -53,5 +53,12 @@ class cfgSounds {
 		sound[] = {"\z\vtx\addons\uh60_jester\Sounds\tail.ogg",4,1,1};
 		titles[]={};
 	};
+	class Slippy_AllOut
+	{
+		name = "Slippy_AllOut";
+		sound[] = {"\z\vtx\addons\uh60_jester\Sounds\allOut.ogg",4,1,1};
+		titles[]={};
+	};
+	
 	
 };

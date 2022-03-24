@@ -71,6 +71,27 @@ vehicle _slippy addEventHandler ["GetIn", {
 	[_vehicle] spawn Check_Tail;
 }];
 
+//Cargo All Out
+vehicle _slippy addEventHandler ["GetOut", {
+	params ["_vehicle", "_role", "_unit", "_turret"];
+	private["_hasCargo"];
+	
+	_slippySound = fullCrew _vehicle # 1 # 0;						//Jank
+	_hasCargo = false;
+	{
+		if ((assignedVehicleRole (_x # 0)) # 0 == "cargo") then {
+			_hasCargo = true;
+		}; 
+	} forEach (fullCrew _vehicle);
+
+	if (!_hasCargo) then {
+		_slippySound say3D    "Slippy_AllOut";
+		_vehicle vehicleChat "Let's Go!";			//Test Statement
+	};
+	hint "I made it!";
+}];
+
 hint "Events Created";
 
 //TODO add in target found 
+//TODO Startup checks
