@@ -76,7 +76,7 @@ class RscInGameUI
                     h = 0.08;
                     size = 0.15;
                     colorText[] = {1,0,0,1};
-        			text = "Please enable Advanced Flight Model(AFM) for full functionality";
+        			text = "";
         		};
         		class RTDSimple2: RTDWarning
         		{

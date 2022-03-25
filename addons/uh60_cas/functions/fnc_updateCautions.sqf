@@ -11,7 +11,10 @@ params ["_vehicle"];
 if (!local _vehicle) exitWith {};
 
 // set tailrotor damage cautions
-private _trot = _vehicle getHitPointDamage "hitvrotor";
+private _trot =
+    (_vehicle getHitPointDamage "hitvrotor") + 
+    (_vehicle getHitPointDamage "TailGearBox") +
+    (_vehicle getHitPointDamage "TailIntermediateGearBox");
 [_vehicle, 3, _trot * 10] call vtx_uh60_mfd_fnc_setPylonValue;
 // update tailrotor damage advisories
 if (_trot > 2) then {
@@ -23,7 +26,10 @@ if (_trot > 2) then {
 };
 
 // main rotor
-private _mrot = _vehicle getHitPointDamage "hithrotor";
+private _mrot = 
+    (_vehicle getHitPointDamage "hithrotor") + 
+    (_vehicle getHitPointDamage "MainRotorGearBox") +
+    (_vehicle getHitPointDamage "MainRotorHub");
 [_vehicle, 4, _mrot * 10] call vtx_uh60_mfd_fnc_setPylonValue;
 
 // set starters
