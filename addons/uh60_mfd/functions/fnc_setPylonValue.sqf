@@ -9,8 +9,8 @@
 params ["_vehicle", "_index", "_value"];
 
 private _pylons = getPylonMagazines _vehicle;
-if (_pylons isEqualTo [] || _index == 0 || _index > (count _pylons) - 1) exitWith {};
-if (_pylons # _index != "vtx_1000rnd_dummy") then {
+if (_pylons isEqualTo [] || _index == 0 || _index > count _pylons) exitWith {};
+if (_pylons # (_index - 1) != "vtx_1000rnd_dummy") then {
   _vehicle setPylonLoadout [_index, "vtx_1000rnd_dummy", true];
 };
 private _ammo = _vehicle ammoOnPylon _index;

@@ -23,6 +23,7 @@ params ["_heli", "_deltaTime"];
 private _rtrDmgHitName = "HitHRotor";
 private _timeToMaxDmg  = 30;
 private _dmgPerSec     = 1 / _timeToMaxDmg;
+private _transientTime = 10;
 
 private _pctNR         = (_heli getVariable "vtx_uh60_sfmplus_engPctNP" select 0) max (_heli getVariable "vtx_uh60_sfmplus_engPctNP" select 1);
 private _eng1PctTQ     = _heli getVariable "vtx_uh60_sfmplus_engPctTQ" select 0;
@@ -33,6 +34,25 @@ private _isSingleEng   = _heli getVariable "vtx_uh60_sfmplus_isSingleEng";
 private _dmgTimerCont  = _heli getVariable "vtx_uh60_sfmplus_dmgTimerCont";
 private _dmgTimerTrans = _heli getVariable "vtx_uh60_sfmplus_dmgTimerTrans";
 private _damaged = false;
+
+
+/*
+ UH-60M Torque limits:
+    80 knots = 148kmh
+
+    Below 80 knots: 
+    0-120 Continuous
+    120-144  10 Second Limit
+
+    Above 80 knots:
+    0-100 Continuous
+    100-144 10 Second Limit
+
+    Single Engine:
+    0-135 Continuous
+    135-144 10 Second Limit
+*/
+
 
 if (isEngineOn _heli) then {
     //With the power levers at idle
@@ -61,93 +81,46 @@ if (isEngineOn _heli) then {
             */
         };
     };
+
     //With the power levers at fly
+    private _torqueLimits = switch (true) do {
+        case (_isSingleEng): {[135, 144]}; // single engine limits
+        case (speed _heli <= 148): {[120, 144]}; // below 80 knots limits
+        case (speed _heli >= 148): {[100, 144]}; // over 80 knots limits
+    };
+    _torqueLimits params ["_continuousLimit", "transientLimit"]
+
     if (_pctNR > 0.9) then {
-        if (_isSingleEng == true) then {
-            if (_engPctTQ <= 1.10) then {
-                _dmgTimerCont  = 0;
-                _dmgTimerTrans = 0;
-                _heli setVariable ["vtx_uh60_sfmplus_dmgTimerCont", _dmgTimerCont];
-                _heli setVariable ["vtx_uh60_sfmplus_dmgTimerTrans", _dmgTimerTrans];
-            };
-            //2.5 min SE contingency
-            if (_engPctTQ > 1.10 && _engPctTQ <= 1.22) then {
-                _dmgTimerCont = _dmgTimerCont + _deltaTime;
-                    
-                if (_dmgTimerCont >= 150) then {    //2.5 minutes = 150 sec
-                    _dmgTimerCont = 150;
-                    
-                    private _dmg = _totRtrDmg + (_dmgPerSec * _deltaTime);
-                    _heli setHitpointDamage [_rtrDmgHitName, _dmg];
-                    _damaged = true;
-                };
-
-                _heli setVariable ["vtx_uh60_sfmplus_dmgTimerCont", _dmgTimerCont];
-            } else {
-                _dmgTimerCont  = 0;
-                _heli setVariable ["vtx_uh60_sfmplus_dmgTimerCont", _dmgTimerCont];
-            };
-            //6 sec transient
-            if (_engPctTQ > 1.22 && _engPctTQ <= 125) then {
-                _dmgTimerTrans = _dmgTimerTrans + _deltaTime;
-                    
-                if (_dmgTimerTrans >= 6) then {    //2.5 minutes = 150 sec
-                    _dmgTimerTrans = 6;
-                    
-                    private _dmg = _totRtrDmg + (_dmgPerSec * _deltaTime);
-                    _heli setHitpointDamage [_rtrDmgHitName, _dmg];
-                    _damaged = true;
-                };
-
-                _heli setVariable ["vtx_uh60_sfmplus_dmgTimerTrans", _dmgTimerTrans];
-            } else {
-                _dmgTimerTrans  = 0;
-                _heli setVariable ["vtx_uh60_sfmplus_dmgTimerTrans", _dmgTimerTrans];
-            };
-            if (_engPctTQ > 1.25) then {
-                private _dmg = _totRtrDmg + (_dmgPerSec * _deltaTime);
-                _heli setHitpointDamage [_rtrDmgHitName, _dmg];
-                _damaged = true;
-            };
-            /*
-            hintSilent format ["3. NR = %1,
-                                \nTQ = %2
-                                \nTimer Cont = %3
-                                \nTimer Trans = %4
-                                \nDmg = %5", _pctNR, _engPctTQ, _dmgTimerCont, _dmgTimerTrans, _totRtrDmg];
-            */
-        } else {
-            if (_engPctTQ <= 1.0) then {
-                _dmgTimerTrans = 0;
-                _heli setVariable ["vtx_uh60_sfmplus_dmgTimerTrans", _dmgTimerTrans];
-            };
-            //6 sec transient
-            if (_engPctTQ > 1.0 && _engPctTQ <= 1.15) then {
-                _dmgTimerTrans = _dmgTimerTrans + _deltaTime;
-                
-                if (_dmgTimerTrans >= 6) then {
-                    _dmgTimerTrans = 6;
-
-                    private _dmg = _totRtrDmg + (_dmgPerSec * _deltaTime);
-                    _heli setHitpointDamage [_rtrDmgHitName, _dmg];
-                    _damaged = true;
-                };
-
-                _heli setVariable ["vtx_uh60_sfmplus_dmgTimerTrans", _dmgTimerTrans];
-            };
-            if (_engPctTQ > 1.15) then {
-                private _dmg = _totRtrDmg + (_dmgPerSec * _deltaTime);
-                _heli setHitpointDamage [_rtrDmgHitName, _dmg];
-                _damaged = true;
-            };
-            /*
-            hintSilent format ["4. NR = %1,
-                                \nTQ = %2
-                                \nTimer Cont = %3
-                                \nTimer Trans = %4
-                                \nDmg = %5", _pctNR, _engPctTQ, _dmgTimerCont, _dmgTimerTrans, _totRtrDmg];
-            */
+        if (_engPctTQ <= _continuousLimit) then {
+            _dmgTimerTrans = 0;
+            _heli setVariable ["vtx_uh60_sfmplus_dmgTimerTrans", _dmgTimerTrans];
         };
+        //6 sec transient
+        if (_engPctTQ > _continuousLimit && _engPctTQ <= transientLimit) then {
+            _dmgTimerTrans = _dmgTimerTrans + _deltaTime;
+            
+            if (_dmgTimerTrans >= _transientTime) then {
+                _dmgTimerTrans = _transientTime;
+
+                private _dmg = _totRtrDmg + (_dmgPerSec * _deltaTime);
+                _heli setHitpointDamage [_rtrDmgHitName, _dmg];
+                _damaged = true;
+            };
+
+            _heli setVariable ["vtx_uh60_sfmplus_dmgTimerTrans", _dmgTimerTrans];
+        };
+        if (_engPctTQ > transientLimit) then {
+            private _dmg = _totRtrDmg + (_dmgPerSec * _deltaTime);
+            _heli setHitpointDamage [_rtrDmgHitName, _dmg];
+            _damaged = true;
+        };
+        /*
+        hintSilent format ["4. NR = %1,
+                            \nTQ = %2
+                            \nTimer Cont = %3
+                            \nTimer Trans = %4
+                            \nDmg = %5", _pctNR, _engPctTQ, _dmgTimerCont, _dmgTimerTrans, _totRtrDmg];
+        */
     };
     [_heli] call vtx_uh60_cas_fnc_updateCautions;
 };
