@@ -30,10 +30,19 @@ class CfgVehicles
         class Sounds;
         class HitPoints;
         class UserActions;
+        
     };
 
     class vtx_H60_base: Heli_Transport_01_base_F
     {
+        // scope = 2;
+        // #include "edenAttributes.hpp"
+        // side = 1;
+        // faction = "BLU_F";
+        // category = "Air";
+        // displayName = "$STR_VTX_UH60_UHMBlackhawk";
+        // model = "\z\vtx\addons\UH60\vtx_UH60.p3d";
+
         #include "cfgUVAnimations.hpp"
         #include "CfgUserActions.hpp"
         #include "edenAttributes.hpp"
@@ -56,6 +65,8 @@ class CfgVehicles
         maxSpeed = 300;			/// what is the maximum speed of the vehicle
         maxFordingDepth = 2.0;	/// how deep could the vehicle be in water without getting some damage
         mainBladeRadius = 8.0;	/// describes the radius of main rotor - used for collision detection
+        mainBladeCenter = "predni osa naklonu";
+        tailBladeCenter = "light_collision_tail_upper";
         fuelConsumptionRate = 0;
         //multiplier of lift force
         liftForceCoef = 1.1;

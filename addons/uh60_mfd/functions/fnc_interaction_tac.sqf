@@ -35,5 +35,6 @@ switch (_action) do {
         private _centerMode = _vehicle getVariable ["vtx_uh60_mfd_tac_center_mode", 0];
         if (_centerMode == 3) then {_centerMode = 0} else {_centerMode = _centerMode + 1};
         _vehicle setVariable ["vtx_uh60_mfd_tac_center_mode", _centerMode, true];
+        _vehicle setUserMFDvalue [18, _centerMode];
     };
 };

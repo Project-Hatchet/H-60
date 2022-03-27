@@ -197,11 +197,11 @@ class blackTextWrapper {
 	};
 	// ZONE 5
 	class eicasCheck {
-		condition = "(pylonammo3>0)";
+		condition = "0";
 		TEXT_RIGHT_SMALL(TEXT,0.7,0.7,"CHECK EICAS")
 	};
 	class stbyOff {
-		condition = "(pylonammo3>0)";
+		condition = "0";
 		TEXT_RIGHT_SMALL(TEXT,0.7,0.7+SMALL_LINE_HEIGHT,"STBY INST NOT ARMD")
 	};
 	// ZONE 6
