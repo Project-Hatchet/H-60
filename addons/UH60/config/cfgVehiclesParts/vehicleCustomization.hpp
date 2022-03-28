@@ -19,7 +19,7 @@ class textureSources {
     };
     class Army {
         displayName = "US Army";
-        textures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\UH60\Data\Exterior\Hull Main_co.paa","z\vtx\addons\UH60\Data\Exterior\Misc_co.paa","z\vtx\addons\UH60\Data\Exterior\Hull Tail_co.paa","z\vtx\addons\UH60\Data\Exterior\Markings\Markings_ca.paa","","","","","z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co_UH.paa"};
+        textures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\UH60\Data\Exterior\Hull Main_co.paa","z\vtx\addons\UH60\Data\Exterior\Misc_co.paa","z\vtx\addons\UH60\Data\Exterior\Hull Tail_co.paa","","","","","","z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co_UH.paa"};
     };
 };
 animationList[] = {

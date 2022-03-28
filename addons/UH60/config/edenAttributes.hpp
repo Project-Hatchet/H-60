@@ -30,7 +30,7 @@ class Attributes: Attributes {
     class Values {
       class None {
         name = "None";
-        value = "";
+        value = "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa";
       };
       class Vanilla {
         name = "7645";

@@ -76,7 +76,7 @@ class CfgVehicles {
           "z\vtx\addons\MH60S\data\mh60s_main_co.paa",
           "z\vtx\addons\MH60S\data\mh60s_misc_co.paa",
           "z\vtx\addons\MH60S\data\mh60s_tail_co.paa",
-          "", // "markings",
+          "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa", // "markings",
           "", // "left_num_1",
           "", // "left_num_2",
           "", // "right_num_1",
@@ -117,7 +117,7 @@ class CfgVehicles {
             weapon="VTX_HMG_M3M";
           };
         }; // AnimationSources
-        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa"};
+        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa", "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa"};
     }; // vtx_MH60S_GAU21L
     class vtx_MH60S_Pylons: vtx_H60_base {
         class pilotCamera: vtx_templateFLIR {};
@@ -154,7 +154,7 @@ class CfgVehicles {
           ANIM_INIT(FLIR_HIDE,0);
           ANIM_INIT(FLIR_BACK,1);
         }; // AnimationSources
-        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa"};
+        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa", "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa"};
     }; // vtx_MH60S_Pylons_GAU21L
     class vtx_MH60S: vtx_H60_base {
         class pilotCamera: vtx_templateFLIR {};
@@ -178,6 +178,6 @@ class CfgVehicles {
           ANIM_INIT(FLIR_HIDE,0);
           ANIM_INIT(FLIR_BACK,1);
         }; // AnimationSources
-        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa"};
+        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa", "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa"};
     }; // vtx_MH60S
 }; // CfgVehicles

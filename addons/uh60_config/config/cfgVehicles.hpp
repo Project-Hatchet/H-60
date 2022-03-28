@@ -78,7 +78,7 @@ class CfgVehicles {
       "z\vtx\addons\uh60_misc\data\textures\UH-60M_US_Army_Medevac\main_co.paa",
       "z\vtx\addons\UH60\Data\Exterior\Misc_co.paa",
       "z\vtx\addons\uh60_misc\data\textures\UH-60M_US_Army_Medevac\tail_co.paa",
-      "","","","","", // Markings, door numbers L1, L2, R1, R2
+      "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","", // Markings, door numbers L1, L2, R1, R2
       "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
     };
     transportSoldier=4;

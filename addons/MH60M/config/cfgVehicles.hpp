@@ -65,7 +65,7 @@ class CfgVehicles {
             class RightDoorGun: RightDoorGun {};
             #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
         };
-        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\tail_co.paa","","","","","","z\vtx\addons\UH60\data\FuelProbe\Fuel_probe_co.paa"};
+        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\UH60\data\FuelProbe\Fuel_probe_co.paa"};
         #include "\z\vtx\addons\UH60\config\vehicleTransport.hpp"
     }; // vtx_MH60M
     class vtx_MH60M_DAP : vtx_MH60M {
@@ -114,7 +114,7 @@ class CfgVehicles {
             class CopilotTurret: CopilotTurret {};
             #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
         };
-        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\tail_co.paa","","","","","","z\vtx\addons\UH60\data\FuelProbe\Fuel_probe_co.paa"};
+        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\UH60\data\FuelProbe\Fuel_probe_co.paa"};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera", "vtx_MH60M_M134_minigun"};
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries", "5000Rnd_762x51_Belt"};
         memoryPointGun[] = {"muzzle_1","muzzle_2"};
