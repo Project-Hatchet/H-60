@@ -3,12 +3,18 @@
     <Package name="UH60">
         <Key ID="STR_VTX_UH60_UHMBlackhawk">
             <English>UH-60M Blackhawk</English>
+            <Chinese>UH-60M 黑鷹</Chinese>
+            <Chinesesimp>UH-60M 黑鹰</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_UHMBlackhawkProbe">
             <English>UH-60M Blackhawk (Probe)</English>
+            <Chinese>UH-60M 黑鷹(受油管)</Chinese>
+            <Chinesesimp>UH-60M 黑鹰(受油管)</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_HHGMPavehawk">
             <English>HH-60G/M Pavehawk</English>
+            <Chinese>HH-60G/M 鋪路鷹</Chinese>
+            <Chinesesimp>HH-60G/M 铺路鹰</Chinesesimp>
         </Key>
     </Package>
 </Project>
