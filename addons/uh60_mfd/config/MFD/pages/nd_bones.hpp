@@ -166,14 +166,6 @@ class ND_TGP_DIST: ND_WP1_DIST {
 	source="user";
 	sourceIndex=11;
 };
-class ND_LOC_Dir: ND_WP1_Dir {
-	source="user";
-	sourceIndex=41;
-};
-class ND_LOC_DIST: ND_WP1_DIST {
-	source="user";
-	sourceIndex=42;
-};
 class ND_JVMF_Dir: ND_WP1_Dir {
 	source="user";
 	sourceIndex=43;

@@ -445,34 +445,6 @@ class AIRCRAFT_CENTERED {
 			}; // Mark_Circle
 		}; // Mark_TEXT
 
-
-		class NEAREST_LOCATION {
-			condition = (user41 > -1);
-			color[]=RGBA256(220,40,220,1);
-			class Mark_Circle
-			{
-				type = "line";
-				width = 2;
-				points[]={
-					SHAPE_DIAMOND("ND_LOC_DIST","ND_LOC_Dir")
-				};
-			}; // Mark_Circle
-			
-			class LOC_TEXT {
-				type="text";
-				source="userText";
-				sourceIndex=12;
-				scale=1;
-				sourceScale=1;
-				align = "right";
-				text="0";
-				pos[]= {"ND_LOC_DIST", 1, "ND_LOC_Dir", 1,{0.04 - 0.02, 0.0}, 1};
-				right[]= {"ND_LOC_DIST", 1, "ND_LOC_Dir", 1,{0.085 - 0.02, 0.00}, 1};
-				down[]= {"ND_LOC_DIST", 1, "ND_LOC_Dir", 1,{0.04 - 0.02, 0.045}, 1};
-			};
-		}; // Mark_TEXT
-
-
 		class JVMF_STABILIZED {
 			condition = (user43 > -1);
 			color[] = common_blue;

@@ -616,7 +616,21 @@ class powerPodTexWrap {
 
 class powerPodBarWrap {
 	color[] = common_green;
-    BAR(RPM1BAR,"PFD_Q1", 0.088,BARBOTTOM,0.01)
 	BAR(RPMBAR, "PFD_RPM",0.136,BARBOTTOM,0.01)
-    BAR(RPM2BAR,"PFD_Q2", 0.185,BARBOTTOM,0.01)
 }; // powerPodBarWrap
+
+class singleEngineTorque {
+	condition = "((user22 > 5) + (user48 > 5)) < 1.5";
+    BAR_WARN(RPM1BAR,"PFD_Q1", 0.088,BARBOTTOM,0.01,22,135)
+    BAR_WARN(RPM2BAR,"PFD_Q2", 0.185,BARBOTTOM,0.01,48,135)
+};
+class twinEngineSlowTorque {
+	condition = "(((user22 > 5) + (user48 > 5)) > 1.5) * (speed < 41)";
+    BAR_WARN(RPM1BAR,"PFD_Q1", 0.088,BARBOTTOM,0.01,22,120)
+    BAR_WARN(RPM2BAR,"PFD_Q2", 0.185,BARBOTTOM,0.01,48,120)
+};
+class twinEngineFastTorque {
+	condition = "(((user22 > 5) + (user48 > 5)) > 1.5) * (speed > 41)";
+    BAR_WARN(RPM1BAR,"PFD_Q1", 0.088,BARBOTTOM,0.01,22,100)
+    BAR_WARN(RPM2BAR,"PFD_Q2", 0.185,BARBOTTOM,0.01,48,100)
+};

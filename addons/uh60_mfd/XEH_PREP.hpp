@@ -14,6 +14,7 @@ PREP(setUserText);
 PREP(ivhms);
 PREP(setPylonValue);
 PREP(slewTAC);
+PREP(renderBFTUnits);
 
 PREP(ccfs_CyclePlayer);
 PREP(ccfs_interaction_ccfs);

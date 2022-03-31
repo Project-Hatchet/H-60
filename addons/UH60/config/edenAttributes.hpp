@@ -24,13 +24,13 @@ class Attributes: Attributes {
     displayName = "Engine Cover Markings";
     tooltip = "";
     expression = "_this setObjectTexture [19, _value];";
-    defaultValue = "z\vtx\addons\UH60\Data\Exterior\Markings\Markings_ca.paa";
+    defaultValue = "";
     typeName = "STRING";
     condition = "objectVehicle";
     class Values {
       class None {
         name = "None";
-        value = "";
+        value = "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa";
       };
       class Vanilla {
         name = "7645";

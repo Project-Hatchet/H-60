@@ -12,6 +12,7 @@
 #define common_yellow RGBA256(255,255,0,0.1)
 #define common_red RGBA256(160,30,30,1.0)
 #define common_black RGBA256(0,0,0,1.0)
+#define danger_red RGBA256(240,00,00,1.0)
 
 //pitch-attitude scale
 #define pitch_att_blue RGBA256(5,60,140,0.2)
@@ -54,7 +55,7 @@
 
 
 //HELPERS
-//#define GLUE(A,B) A##B
+#define GLUE(A,B) A##B
 #define LEVELP(x) LevelP##x
 #define LEVELM(x) LevelM##x
 #define STR(A) #A
@@ -403,6 +404,41 @@
                 } \
             }; \
         };
+
+    #define BAR_WARN(CLASS,BONE,X,Y,W,VAL,MAX) \
+        class CLASS { \
+            class greenWrap { \
+                condition = QUOTE(GLUE(user,VAL) < MAX); \
+                color[] = common_green; \
+                class green { \
+                    type="polygon"; \
+                    points[] ={ \
+                        { \
+                            {BONE,{X + -W, 0},1}, \
+                            {BONE,{X + W, 0},1}, \
+                            {{X + W,Y},1}, \
+                            {{X - W,Y},1} \
+                        } \
+                    }; \
+                }; \
+            }; \
+            class redWrap { \
+                condition = QUOTE(GLUE(user,VAL) > MAX); \
+                color[] = danger_red; \
+                class green { \
+                    type="polygon"; \
+                    points[] ={ \
+                        { \
+                            {BONE,{X + -W, 0},1}, \
+                            {BONE,{X + W, 0},1}, \
+                            {{X + W,Y},1}, \
+                            {{X - W,Y},1} \
+                        } \
+                    }; \
+                }; \
+            }; \
+        };
+
 
     #define POLYGON(CLASS,X,Y,W,H) \
     	class CLASS { \

@@ -30,10 +30,19 @@ class CfgVehicles
         class Sounds;
         class HitPoints;
         class UserActions;
+        
     };
 
     class vtx_H60_base: Heli_Transport_01_base_F
     {
+        // scope = 2;
+        // #include "edenAttributes.hpp"
+        // side = 1;
+        // faction = "BLU_F";
+        // category = "Air";
+        // displayName = "$STR_VTX_UH60_UHMBlackhawk";
+        // model = "\z\vtx\addons\UH60\vtx_UH60.p3d";
+
         #include "cfgUVAnimations.hpp"
         #include "CfgUserActions.hpp"
         #include "edenAttributes.hpp"
@@ -56,6 +65,8 @@ class CfgVehicles
         maxSpeed = 300;			/// what is the maximum speed of the vehicle
         maxFordingDepth = 2.0;	/// how deep could the vehicle be in water without getting some damage
         mainBladeRadius = 8.0;	/// describes the radius of main rotor - used for collision detection
+        mainBladeCenter = "predni osa naklonu";
+        tailBladeCenter = "light_collision_tail_upper";
         fuelConsumptionRate = 0;
         //multiplier of lift force
         liftForceCoef = 1.1;
@@ -134,7 +145,7 @@ class CfgVehicles
             "z\vtx\addons\UH60\Data\Exterior\Hull Main_co.paa",
             "z\vtx\addons\UH60\Data\Exterior\Misc_co.paa",
             "z\vtx\addons\UH60\Data\Exterior\Hull Tail_co.paa",
-            "z\vtx\addons\UH60\Data\Exterior\Markings\Markings_ca.paa",
+            "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa",
             "", // "left_num_1",
             "", // "left_num_2",
             "", // "right_num_1",
@@ -460,6 +471,33 @@ class CfgVehicles
     class vtx_UH60M : vtx_H60_base {
         scope = 2;
         editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_UH60M.jpg";
+        hiddenSelectionsTextures[] = {
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "z\vtx\addons\UH60\Data\Exterior\Hull Main_co.paa",
+            "z\vtx\addons\UH60\Data\Exterior\Misc_co.paa",
+            "z\vtx\addons\UH60\Data\Exterior\Hull Tail_co.paa",
+            "z\vtx\addons\UH60\Data\Exterior\Markings\Markings_ca.paa",
+            "", // "left_num_1",
+            "", // "left_num_2",
+            "", // "right_num_1",
+            "", // "right_num_2",
+            "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
+        };
     };
 
     class vtx_HH60 : vtx_H60_base {
@@ -473,7 +511,7 @@ class CfgVehicles
           "z\vtx\addons\UH60\Data\JLorion_HH60\Hull Main_co.paa",
           "z\vtx\addons\UH60\Data\JLorion_HH60\Misc_co.paa",
           "z\vtx\addons\UH60\Data\JLorion_HH60\Hull Tail_co.paa",
-          "", // "markings",
+          "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa", // "markings",
           "", // "left_num_1",
           "", // "left_num_2",
           "", // "right_num_1",

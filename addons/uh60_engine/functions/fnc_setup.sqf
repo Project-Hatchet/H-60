@@ -23,8 +23,8 @@ SET_GLOBAL_DEFAULT("BATT1_POWER", 100)
 SET_GLOBAL_DEFAULT("BATT2_POWER", 100)
 SET_GLOBAL_DEFAULT("POWER_DRAIN_RATE", 0.11)
 SET_GLOBAL_DEFAULT("APU_POWER", false)
-//SET_GLOBAL_DEFAULT("ESIS_COUNTER", 70)
-//_vehicle setUserMFDValue [49, 70];
+SET_GLOBAL_DEFAULT("ESIS_COUNTER", 70)
+_vehicle setUserMFDValue [49, _vehicle getVariable ["ESIS_COUNTER", 70]];
 
 _vehicle enableAutoTrimRTD true;
 
@@ -45,46 +45,46 @@ player addEventHandler ["SelectedRotorLibActionPerformed", {
 
 //New aircraft module
 //--Master ignition key (mik)
-_vehicle setVariable ["vtx_uh60_acft_mikSwitchState",      "OFF"];
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_mikSwitchState",      "OFF");
 //--Standby instrument switch
-_vehicle setVariable ["vtx_uh60_acft_stbyInstSwitchState", "OFF"];
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_stbyInstSwitchState", "OFF");
 //--Battery
-_vehicle setVariable ["vtx_uh60_acft_batt1SwitchState",    "OFF"];
-_vehicle setVariable ["vtx_uh60_acft_batt2SwitchState",    "OFF"];
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_batt1SwitchState",    "OFF");
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_batt2SwitchState",    "OFF");
 //--APU
-_vehicle setVariable ["vtx_uh60_acft_apuStartDelay_sec",   5.0  ];
-_vehicle setVariable ["vtx_uh60_acft_apuRPM_pct",          0.0  ];
-_vehicle setVariable ["vtx_uh60_acft_apuPwrSwitchState",   "OFF"];
-_vehicle setVariable ["vtx_uh60_acft_apuFuelSwitchState",  "OFF"];
-_vehicle setVariable ["vtx_uh60_acft_apuState",            "OFF"];
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuStartDelay_sec",   5.0  );
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuRPM_pct",          0.0  );
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuPwrSwitchState",   "OFF");
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuFuelSwitchState",  "OFF");
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuState",            "OFF");
 //--Generators
 //----APU
-_vehicle setVariable ["vtx_uh60_acft_apuGenSwitchState",   "OFF"];
-_vehicle setVariable ["vtx_uh60_acft_apuGenState",         "OFF"];
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuGenSwitchState",   "OFF");
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuGenState",         "OFF");
 //----Eng 1
-_vehicle setVariable ["vtx_uh60_acft_eng1StarterState",    "OFF"];
-_vehicle setVariable ["vtx_uh60_acft_eng1GenSwitchState",  "OFF"];
-_vehicle setVariable ["vtx_uh60_acft_eng1GenState",        "OFF"];
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng1StarterState",    "OFF");
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng1GenSwitchState",  "OFF");
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng1GenState",        "OFF");
 //----Eng 2
-_vehicle setVariable ["vtx_uh60_acft_eng2StarterState",    "OFF"];
-_vehicle setVariable ["vtx_uh60_acft_eng2GenSwitchState",  "OFF"];
-_vehicle setVariable ["vtx_uh60_acft_eng2GenState",        "OFF"];
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng2StarterState",    "OFF");
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng2GenSwitchState",  "OFF");
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng2GenState",        "OFF");
 //--Electical Bus
-_vehicle setVariable ["vtx_uh60_acft_battBusState",        "OFF"];
-_vehicle setVariable ["vtx_uh60_acft_ACBusState",          "OFF"];
-_vehicle setVariable ["vtx_uh60_acft_DCBusState",          "OFF"];
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_battBusState",        "OFF");
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_ACBusState",          "OFF");
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_DCBusState",          "OFF");
 //--Air source switch
-_vehicle setVariable ["vtx_uh60_acft_airsrceSwitchState",  "OFF"];   //ENG, OFF, APU
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_airsrceSwitchState",  "OFF");   //ENG, OFF, APU
 //Engines
 //--Fuel system levers
-_vehicle setVariable ["vtx_uh60_acft_eng1FuelSysLeverState", "OFF"];
-_vehicle setVariable ["vtx_uh60_acft_eng2FuelSysLeverState", "OFF"];
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng1FuelSysLeverState", "OFF");
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng2FuelSysLeverState", "OFF");
 //--Power control levers
-_vehicle setVariable ["vtx_uh60_acft_eng1PwrCtrlLeverState", "OFF"];
-_vehicle setVariable ["vtx_uh60_acft_eng2PwrCtrlLeverState", "OFF"];
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng1PwrCtrlLeverState", "OFF");
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng2PwrCtrlLeverState", "OFF");
 //--RotorLib
-_vehicle setVariable ["vtx_uh60_acft_rtdDesiredRPM",          20900];
-_vehicle setVariable ["vtx_uh60_acft_rtd100PctTqVal",           481]; //Nm (355ft-lbs)
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_rtdDesiredRPM",          20900);
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_rtd100PctTqVal",           481); //Nm (355ft-lbs)
 
 
 true

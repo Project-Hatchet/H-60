@@ -4,7 +4,7 @@ minFov = 0.3;
 maxFov = 1.2;
 
 // Head tilt up and down limits
-initAngleX = 0;
+initAngleX = -10;
 minAngleX = -75; // -65
 maxAngleX = 85;
 

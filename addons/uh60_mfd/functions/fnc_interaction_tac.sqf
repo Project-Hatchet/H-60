@@ -15,7 +15,7 @@ switch (_action) do {
         _vehicle setVariable ["MAP_Zoom", _newZoom, true];
         _vehicle setVariable ["MAP_ZoomMult", _newZoom, true];
         _vehicle animateSource ["MAP1_Scale", 1/_newZoom, 1];
-        _vehicle setUserMFDValue [44, worldSize / _newZoom / 2];
+        _vehicle setUserMFDValue [40, worldSize / _newZoom / 2];
     };
     case "waypt": {
         private _cursorPos = [] call vtx_uh60_mfd_fnc_tac_cursorToWorld;
@@ -35,5 +35,6 @@ switch (_action) do {
         private _centerMode = _vehicle getVariable ["vtx_uh60_mfd_tac_center_mode", 0];
         if (_centerMode == 3) then {_centerMode = 0} else {_centerMode = _centerMode + 1};
         _vehicle setVariable ["vtx_uh60_mfd_tac_center_mode", _centerMode, true];
+        _vehicle setUserMFDvalue [18, _centerMode];
     };
 };

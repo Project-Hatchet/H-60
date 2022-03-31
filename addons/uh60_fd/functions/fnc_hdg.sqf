@@ -5,7 +5,7 @@ private _waypointCount = count (waypoints (group player));
 private _hasWaypoint = _waypointCount > (currentWaypoint (group player));
 if (_fmsCoupled && _hasWaypoint) then {
 	_desiredHeading = (getUserMFDValue _vehicle) # 0;
-	_vehicle setUserMFDValue [46, _desiredHeading];
+	_vehicle setUserMFDValue [42, _desiredHeading];
 };
 private _heading = getDir _vehicle;
 _reldir = {

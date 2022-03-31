@@ -187,8 +187,8 @@ class interaction {
                 radius=0.035;
                 animation="Lever_engpower1";
                 animSpeed=0.5;
-                animStates[] = {0,0.23,0.85};
-                animLabels[] = {"OFF","IDLE","FLY"};
+                animStates[] = {0,0.85}; // no idle for the moment for SFM
+                animLabels[] = {"OFF","FLY"};
                 animEnd="[(_this # 0), (_this # 2 != ""OFF""), ""throttle"", (_this # 2), (_this # 1)] remoteExecCall [""vtx_uh60_engine_fnc_engineEH"", crew (_this # 0)];diag_log ""powercont"";";
             }; // b_engpowercont1
             class b_engpowercont2: b_engpowercont1 {
