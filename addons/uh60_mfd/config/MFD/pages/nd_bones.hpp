@@ -32,7 +32,7 @@ class ND_WaypointDirection {
 
 class ND_FD_hdgRotation : ND_HeadingRotation {
 	source="user";
-	sourceIndex=46;
+	sourceIndex=42;
 	center[] = {0,0};
 	aspectRatio = 1;
 };

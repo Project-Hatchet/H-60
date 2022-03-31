@@ -6,7 +6,7 @@ private _availablePlayers = [player];
 	private _isDriver = _x == driver (vehicle _x);
 	private _isCopilot = (_vehicle unitTurret _x) isEqualTo _copilotTurretIndex;
 	private _isHosting = _x getVariable ["vtx_uh60_openLobby", false];
-	systemChat str [_isDriver, _isCopilot, _isHosting, (_isDriver || _isCopilot) && _isHosting];
+	//systemChat str [_isDriver, _isCopilot, _isHosting, (_isDriver || _isCopilot) && _isHosting];
 	if ((_isDriver || _isCopilot) && _isHosting) then {
 		_availablePlayers pushBack _x;
 	};

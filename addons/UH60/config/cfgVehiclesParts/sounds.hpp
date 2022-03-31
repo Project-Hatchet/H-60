@@ -51,6 +51,12 @@ class Sounds: Sounds
         frequency = "rotorSpeed-(rotorThrust*0.3)";
 		volume="2*(1-camPos)*((rotorSpeed factor[0.3, 1.1]) min (rotorSpeed factor[1.1, 0.3]))";
     };
+    class ApuSoundLoop
+    {
+        sound[] = {"z\vtx\addons\UH60\sounds\apu_int_loop.wss", db5, 1.1};
+        frequency = "CustomSoundController1";
+		volume="(1-camPos)*CustomSoundController2";
+    };
     /*class RotorHighIn
     {
         sound[] = {"z\vtx\addons\UH60\sounds\UH1H_rotor_high_int_1", db10, 1.1};

@@ -34,6 +34,9 @@ _forcesRTD             = rotorsForcesRTD _vehicle;
 enginesRpmRTD _vehicle params ["_RPMEngine1", "_RPMEngine2"];
 
 HintSilent format ["Aircraft Module Debug Output
+                    \nTo hide this debug text, disable
+                    \n(DEBUG) Enable Systemchat Messages
+                    \nIn the UH-60M Addon Options
                     \nMIK Switch State = %16
                     \nStby Inst Switch State = %21
                     \n---------------------------
