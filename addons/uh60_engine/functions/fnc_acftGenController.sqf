@@ -18,6 +18,7 @@ private _eng2GenState       = _vehicle getVariable "vtx_uh60_acft_eng2GenState";
 //APU generator
 if (_apuState == "ON" && _apuGenSwitchState == "ON") then {
     _apuGenState = "ON";
+    [_vehicle, "APU GEN ON", {((_this # 0) getVariable ["vtx_uh60_acft_apuGenState", "OFF"]) == "ON"}, false, true] call vtx_uh60_cas_fnc_registerCautionAdvisory;
 } else { 
     _apuGenState = "OFF";
 };

@@ -25,8 +25,8 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
         HELP_LABEL_COND("b_batt2","2",(_vehicle animationPhase "Switch_batt2" < 0.1))
 
         HELP_LABEL_COND("b_fuelpump","3",(_vehicle animationPhase "Switch_fuelpump" < 0.1))
-        HELP_LABEL_COND("b_apucont","4",(_vehicle animationPhase "Switch_apucont" < 0.1))
-        HELP_LABEL_COND("b_apugen","5",(_vehicle getVariable "APU_POWER"))
+        HELP_LABEL_COND("b_apucont","4",(_vehicle getVariable "vtx_uh60_acft_apuState" == "ON"))
+        HELP_LABEL_COND("b_apugen","5",(_vehicle getVariable "vtx_uh60_acft_apuGenState" == "ON"))
         HELP_LABEL_COND("b_stbyinst","6",(_vehicle animationPhase "Switch_stbyinst" < 0.1))
     };
     case FMS_LISTS_STARTUP_2: {
