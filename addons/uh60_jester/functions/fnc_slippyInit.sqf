@@ -29,10 +29,9 @@ vehicle _slippy addEventHandler ["IncomingMissile", {
 }];
 
 //Check for Objects behind tail 
-//TODO - Add in trees somehow (god help me)
 Check_Tail = {
 	params ["_vehicle"];
-	private["_hasInformed", "_slippyCheck"];
+	private["_hasInformed", "_slippyCheckThing", "_slippyCheckTerrain"];
 	_hasInformed = false;
 
 	while {(fullCrew _vehicle # 0 # 1) == "driver"} do {
@@ -40,8 +39,9 @@ Check_Tail = {
 		_slippySound = fullCrew _vehicle # 1 # 0;
 		
 		if ((getPosATL _vehicle) # 2 < 2 && !_hasInformed) then {
-			_slippyCheck = (_vehicle modelToWorld [0, -10, -1.5]) nearObjects 5;
-			if ("Thing" countType _slippyCheck > 0 || "Static" countType _slippyCheck > 0) then {				//Thing and Static so far include everything
+			_slippyCheckThing = (_vehicle modelToWorld [0, -10, -1.5]) nearObjects 5;
+			_slippyCheckTerrain = nearestTerrainObjects[(_vehicle modelToWorld [0, -10, -1.5]),[],5];
+			if ("Thing" countType _slippyCheckThing > 0 || count _slippyCheckTerrain > 0) then {				//Thing and Static so far include everything
 				_hasInformed = true;
 				sleep 2;
 				_vehicle vehicleChat "Watch-out Behind You!"; //Test Statement, subject to change
