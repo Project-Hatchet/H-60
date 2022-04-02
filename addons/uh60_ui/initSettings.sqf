@@ -23,9 +23,9 @@
 [
     "vtx_uh60_ui_showDebugMessages",
     "CHECKBOX",
-    [LSTRING(Enable_systemChat), LSTRING(Enable_systemChat)],
-    "UH-60M",
-    [true],
+    [LSTRING(Enable_debugMessages), LSTRING(Enable_debugMessages)],
+    ["UH-60M","Debug"],
+    [false],
     nil,
     {}
 ] call CBA_Settings_fnc_init;
