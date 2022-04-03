@@ -22,7 +22,7 @@ switch (_apuState) do {
             vtx_uh60_apuSound_dummy = "#dynamicsound" createVehicleLocal ASLToAGL getPosWorld vehicle player;
             vtx_uh60_apuSound_dummy attachTo [_vehicle, [0,-1,1]];
             vtx_uh60_apuSound_dummy say3d    ["VTX_UH60_Stop_APU", 50, 1];
-        else {
+        } else {
             if (!isNil "vtx_uh60_apuSound_dummy") then {deleteVehicle vtx_uh60_apuSound_dummy};
         };
     };
