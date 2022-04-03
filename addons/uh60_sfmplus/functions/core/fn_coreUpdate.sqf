@@ -98,9 +98,9 @@ private _pylonMass = 0;
 
 //Crew and pax
 private _numPers       = count (fullCrew _heli);
-private _crewAnPaxMass = _numPers * 113.39;
+private _crewAndPaxMass = _numPers * 113.4;
 
-private _curMass = _emptyMass + _totFuelMass + _pylonMass + _partsMass + _crewAnPaxMass;
+private _curMass = _emptyMass + _totFuelMass + _pylonMass + _partsMass + _crewAndPaxMass;
 if (local _heli) then {
 	_heli setMass _curMass;
 };

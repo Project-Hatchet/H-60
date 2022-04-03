@@ -35,7 +35,9 @@ private _objCtr  = _heli selectionPosition ["modelCenter", "Memory"];
 private _stabPos = _heli getVariable "vtx_uh60_sfmplus_stabPos";
 private _stabPvt = _objCtr vectorAdd _stabPos;
 
-private _intStabTable = [getArray (_config >> "stabTable"), vtx_uh60_sfmplus_collectiveOutput] call vtx_uh60_sfmplus_fnc_linearInterp;
+private _intStabTable = STABTABLE;//[getArray (_config >> "stabTable"), vtx_uh60_sfmplus_collectiveOutput] call vtx_uh60_sfmplus_fnc_linearInterp;
+
+systemChat format [_intStabTable];
 
 private _stabOutputTable = [[15.43, _intStabTable select 1],  //30kts
 							[36.01, _intStabTable select 2],  //70kts

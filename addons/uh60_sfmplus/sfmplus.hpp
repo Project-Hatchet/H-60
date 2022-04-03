@@ -88,7 +88,7 @@ class vtx_SfmPlus {
                          {1.40, 0.1222}};
 
     //Stabilator Data
-    stabKeyTheta = -5.5;
+    stabKeyTheta = -8.0;
 
     //--------------------Coll----30kts--70kts--90kts--110kts--120kts-150kts
     stabTable[] =       {{0.00,  -25.00,  2.5,    5.0,   5.0,   5.0,   5.0},  
