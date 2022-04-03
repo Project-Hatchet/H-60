@@ -3,33 +3,43 @@
     <Package name="UH60_ANVISHUD">
         <Key ID="STR_VTX_UH60_ANVISHUD_HMDDefaultMode">
             <English>HMD Default Mode</English>
+            <Chinesesimp>HMD默认模式</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_ANVISHUD_HMDDefaultMode_Description">
             <English>The mode which the HMD will start on. Default: Off</English>
+            <Chinesesimp>HMD启动模式 默认值:关</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_ANVISHUD_ImperialFull">
             <English>Imperial Full</English>
+            <Chinesesimp>英制全功能</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_ANVISHUD_ImperialDecluttered">
             <English>Imperial Decluttered</English>
+            <Chinesesimp>英制部分功能</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_ANVISHUD_MetricFull">
             <English>Metric Full</English>
+            <Chinesesimp>公制全功能</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_ANVISHUD_MetricDecluttered">
             <English>Metric Decluttered</English>
+            <Chinesesimp>公制部分功能</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_ANVISHUD_Color">
             <English>Color</English>
+            <Chinesesimp>颜色</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_ANVISHUD_Color_Description">
             <English>HMD Color</English>
+            <Chinesesimp>HMD颜色</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_ANVISHUD_Brightness">
             <English>Brightness (%)</English>
+            <Chinesesimp>亮度 (%)</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_ANVISHUD_Brightness_Description">
             <English>HMD Brightness</English>
+            <Chinesesimp>HMD亮度</Chinesesimp>
         </Key>
     </Package>
 </Project>

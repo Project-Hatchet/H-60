@@ -3,9 +3,11 @@
     <Package name="STRETCHER">
         <Key ID="STR_VTX_STRETCHER_Unfold">
             <English>Unfold Stretcher</English>
+            <Chinesesimp>展开担架</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_STRETCHER_Fold">
             <English>Fold Stretcher</English>
+            <Chinesesimp>折叠担架</Chinesesimp>
         </Key>
     </Package>
 </Project>
