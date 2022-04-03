@@ -4,25 +4,25 @@ class torqueWrapper {
 	#define COLLECTIVE_X 0.95
 	#define COLLECTIVE_OFFSET 0.05
 	class TORQUE {
-			TEXT_HMD_L(TORQUE1_LBL,0.015,0.81)
+			TEXT_HMD_L(TORQUE1_LBL,0.015,0.81-SMALL_LINEHEIGHT)
 				source = "static";
 				sourceIndex = 1;
 				sourceScale = 1;
 				text = "Q1";
 			}; // TORQUE_LBL
-			TEXT_HMD_L(TORQUE1_VAL,0.065,0.81)
+			TEXT_HMD_L(TORQUE1_VAL,0.065,0.81-SMALL_LINEHEIGHT)
 				source = "user";
 				sourceIndex = 22;
 				sourceScale = 1;
 				text = "";
 			}; // TORQUE_VAL
-			TEXT_HMD_L(TORQUE2_LBL,0.015,0.81+SMALL_LINEHEIGHT)
+			TEXT_HMD_L(TORQUE2_LBL,0.015,0.81)
 				source = "static";
 				sourceIndex = 1;
 				sourceScale = 1;
 				text = "Q2";
 			}; // TORQUE_LBL
-			TEXT_HMD_L(TORQUE2_VAL,0.065,0.81+SMALL_LINEHEIGHT)
+			TEXT_HMD_L(TORQUE2_VAL,0.065,0.81)
 				source = "user";
 				sourceIndex = 48;
 				sourceScale = 1;
@@ -33,13 +33,13 @@ class torqueWrapper {
 		condition=COND_FULL_ONLY;
 		class IS_RTD {
 			condition="simulRTD";
-			TEXT_HMD_L(C_LBL,0.015,0.81+(SMALL_LINEHEIGHT*2))
+			TEXT_HMD_L(C_LBL,0.015,0.81+(SMALL_LINEHEIGHT*1))
 				source = "static";
 				sourceIndex = 1;
 				sourceScale = 1;
 				text = "C";
 			}; // TORQUE_LBL
-			TEXT_HMD_L(C_VAL,0.065,0.81+(SMALL_LINEHEIGHT*2))
+			TEXT_HMD_L(C_VAL,0.065,0.81+(SMALL_LINEHEIGHT*1))
 				source = "rtdCollective";
 				sourceIndex = 1;
 				sourceScale = 100;
@@ -48,7 +48,7 @@ class torqueWrapper {
 		};
 		class ACOL_ON {
 			condition="collisionlights";
-			TEXT_HMD_L(TEXT,0.015,0.81-SMALL_LINEHEIGHT)
+			TEXT_HMD_L(TEXT,0.015,0.81-SMALL_LINEHEIGHT*2)
 				source = "static";
 				sourceIndex = 1;
 				sourceScale = 1;
@@ -57,7 +57,7 @@ class torqueWrapper {
 		};
 		class LIGHTS_ON {
 			condition="lights";
-			TEXT_HMD_L(TEXT,0.015,0.81-(SMALL_LINEHEIGHT*2))
+			TEXT_HMD_L(TEXT,0.015,0.81-(SMALL_LINEHEIGHT*3))
 				source = "static";
 				sourceIndex = 1;
 				sourceScale = 1;
@@ -67,7 +67,7 @@ class torqueWrapper {
 		class AUTOHOVER_ON {
 			condition="autohover";
 			blinkingPattern[] = {0.5,0.5};
-			TEXT_HMD_L(TEXT,0.015,0.81-(SMALL_LINEHEIGHT*3))
+			TEXT_HMD_L(TEXT,0.015,0.81-(SMALL_LINEHEIGHT*4))
 				source = "static";
 				sourceIndex = 1;
 				sourceScale = 1;
