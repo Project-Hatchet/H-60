@@ -20,6 +20,13 @@ params ["_heli"];
 #include "\z\vtx\addons\uh60_sfmplus\headers\core.hpp"
 private _deltaTime = ["sfmplus_deltaTime"] call BIS_fnc_deltaTime;
 
+private _colorRed = [1,0,0,1]; private _colorGreen = [0,1,0,1]; private _colorBlue = [0,0,1,1]; private _colorWhite = [1,1,1,1];
+
+DRAW_LINE = {
+	params ["_heli", "_p1", "_p2", "_col"];
+	drawLine3D [_heli modelToWorldVisual _p1, _heli modelToWorldVisual _p2, _col];
+};
+
 //Input
 [_heli] call vtx_uh60_sfmplus_fnc_getInput;
 
@@ -101,6 +108,7 @@ private _numPers       = count (fullCrew _heli);
 private _crewAndPaxMass = _numPers * 113.4;
 
 private _curMass = _emptyMass + _totFuelMass + _pylonMass + _partsMass + _crewAndPaxMass;
+//private _curMass = 7257;
 if (local _heli) then {
 	_heli setMass _curMass;
 };
@@ -116,7 +124,26 @@ if(vtx_uh60_sfmPlusStabilatorEnabled == STABILTOR_MODE_ALWAYSENABLED
 	};
 };
 
+//Apply a negative force to prevent the helicopter from taking off until the power levers are at fly
+//to do...make this a seperate function...
+private _objCtr     = _heli selectionPosition ["modelCenter", "Memory"];
+private _forcePos   = _heli getVariable "vtx_uh60_sfmplus_forcePos";
+private _forcePoint = _objCtr vectorAdd _forcePos;
+private _forceVec   = vectorNormalized (_forcePoint vectorDiff _objCtr);
+
+private _eng1Np    = _heli getVariable "vtx_uh60_sfmplus_engPctNP" select 0;
+private _eng2Np    = _heli getVariable "vtx_uh60_sfmplus_engPctNP" select 1;
+private _rtrRPM    = _eng1Np max _eng2Np;
+private _forceMult = linearConversion[0.5, 0.98, _rtrRPM, 1.0, 0.0];
+
+private _negLiftForce = (_curMass * -9.806) * _forceMult;
+private _negLift = _forceVec vectorMultiply (_negLiftForce * _deltaTime);
+_heli addForce[_heli vectorModelToWorld _negLift, _forcePos];
+
 #ifdef __A3_DEBUG__
+
+[_heli, _objCtr, _forcePoint, _colorGreen] call DRAW_LINE;
+
 /*
 hintsilent format ["v0.11
 					\nEngine 1 Ng = %1
