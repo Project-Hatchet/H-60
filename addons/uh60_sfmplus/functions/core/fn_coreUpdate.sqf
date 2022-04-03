@@ -134,7 +134,7 @@ private _forceVec   = vectorNormalized (_forcePoint vectorDiff _objCtr);
 private _eng1Np    = _heli getVariable "vtx_uh60_sfmplus_engPctNP" select 0;
 private _eng2Np    = _heli getVariable "vtx_uh60_sfmplus_engPctNP" select 1;
 private _rtrRPM    = _eng1Np max _eng2Np;
-private _forceMult = linearConversion[0.5, 0.98, _rtrRPM, 1.0, 0.0];
+private _forceMult = linearConversion[0.0, 0.98, _rtrRPM, 1.0, 0.0];
 
 private _negLiftForce = (_curMass * -9.806) * _forceMult;
 private _negLift = _forceVec vectorMultiply (_negLiftForce * _deltaTime);
