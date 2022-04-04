@@ -29,6 +29,10 @@ class CfgFunctions
             class engineReset {R;};
 			class engineVariables {R;};
 		};
+		class forces {
+			file = "\z\vtx\addons\uh60_sfmplus\functions\forces";
+			class antiLift {R;};
+		};
 		class fuel {
 			file = "\z\vtx\addons\uh60_sfmplus\functions\fuel";
 			class fuelSet {R;};
