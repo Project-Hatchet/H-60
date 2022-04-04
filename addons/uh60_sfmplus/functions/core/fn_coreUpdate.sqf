@@ -136,7 +136,7 @@ private _eng2Np    = _heli getVariable "vtx_uh60_sfmplus_engPctNP" select 1;
 private _rtrRPM    = _eng1Np max _eng2Np;
 private _forceMult = linearConversion[0.0, 0.98, _rtrRPM, 1.0, 0.0];
 
-private _negLiftForce = (_curMass * -9.806) * _forceMult;
+private _negLiftForce = ((_curMass * -9.806) * _forceMult) * vtx_uh60_sfmplus_collectiveOutput;
 private _negLift = _forceVec vectorMultiply (_negLiftForce * _deltaTime);
 _heli addForce[_heli vectorModelToWorld _negLift, _forcePos];
 
