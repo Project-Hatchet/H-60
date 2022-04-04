@@ -35,7 +35,7 @@ if (vtx_uh60_sfmPlusKeyboardOnly) then {
 
 	_collectiveOut = [_collectiveOut, 0.0, _collectiveOutMod] call BIS_fnc_clamp;
 
-	systemChat format ["_collectiveVal = %1 - _collectiveOutMod = %2 - _collectiveOut = %3", _collectiveVal, _collectiveOutMod, _collectiveOut];
+	//systemChat format ["_collectiveVal = %1 - _collectiveOutMod = %2 - _collectiveOut = %3", _collectiveVal, _collectiveOutMod, _collectiveOut];
 } else {
 	_collectiveOut = linearConversion[-1.0, 1.0, _collectiveVal, 0.0, 1.0];
 };
