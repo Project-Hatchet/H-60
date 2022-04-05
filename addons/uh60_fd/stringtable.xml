@@ -3,12 +3,15 @@
     <Package name="UH60_FD">
         <Key ID="STR_VTX_UH60_FD_Standby">
             <English>FD Standby</English>
+            <Chinesesimp>FD待机</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_FD_RALTToggle">
             <English>FD RALT Toggle</English>
+            <Chinesesimp>FD RALT开关</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_FD_AFMSimpleCollective">
             <English>AFM Simple Collective</English>
+            <Chinesesimp>高级气动简单总距控制</Chinesesimp>
         </Key>
     </Package>
 </Project>
