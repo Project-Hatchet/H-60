@@ -98,13 +98,14 @@ if (isEngineOn _heli) then {
         //10 sec transient
         if (_engPctTQ > _continuousLimit && _engPctTQ <= _transientLimit) then {
             _dmgTimerTrans = _dmgTimerTrans + _deltaTime;
-            
+            if (vtx_uh60_sfmplus_showDamageHints) then {[format ["Warning!\nYou are at risk of causing damage to your helicopter from excessive torque.\nReduce your torque within\n%1 seconds\nto avoid permanent rotor damage", round (_transientTime - _dmgTimerTrans)]] call vtx_uh60_misc_fnc_hint;};
             if (_dmgTimerTrans >= _transientTime) then {
                 _dmgTimerTrans = _transientTime;
 
                 private _dmg = _totRtrDmg + (_dmgPerSec * _deltaTime);
                 _heli setHitpointDamage [_rtrDmgHitName, _dmg];
                 _damaged = true;
+                if (vtx_uh60_sfmplus_showDamageHints) then {["Warning! You are currently taking damage to your main rotor due to excessive torque!"] call vtx_uh60_misc_fnc_hint;};
             };
 
             _heli setVariable ["vtx_uh60_sfmplus_dmgTimerTrans", _dmgTimerTrans];
@@ -113,6 +114,7 @@ if (isEngineOn _heli) then {
             private _dmg = _totRtrDmg + (_dmgPerSec * _deltaTime);
             _heli setHitpointDamage [_rtrDmgHitName, _dmg];
             _damaged = true;
+            if (vtx_uh60_sfmplus_showDamageHints) then {["Warning! You are currently taking damage to your main rotor due to excessive torque!"] call vtx_uh60_misc_fnc_hint;};
         };
         /*
         hintSilent format ["4. NR = %1,

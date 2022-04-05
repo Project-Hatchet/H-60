@@ -9,6 +9,14 @@ vtx_uh60_sfmPlusKeyboardOnly = true;
 	[[STABILTOR_MODE_ALWAYSENABLED,STABILTOR_MODE_JOYSTICKONLY,STABILTOR_MODE_ALWAYSDISABLED],["Always Enabled", "Joystick Only","Always Disabled"],1],
 	0
 ] call CBA_fnc_addSetting;
+[
+	"vtx_uh60_sfmPlus_showDamageHints",
+	"CHECKBOX",
+	["Show Engine Damage Hints", "Show damage hints related to overtorquing of the engines."],
+	["UH-60M", "Debug"],
+	[true],
+	0
+] call CBA_fnc_addSetting;
 
 private _eventTypes = ["Activate", "Deactivate", "Analog"];
 
