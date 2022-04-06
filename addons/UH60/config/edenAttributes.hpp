@@ -23,7 +23,7 @@ class Attributes: Attributes {
     property = "vtx_attribute_markings";
     displayName = "Engine Cover Markings";
     tooltip = "";
-    expression = "_this setObjectTexture [19, _value];";
+    expression = "_this setObjectTextureGlobal [19, _value];";
     defaultValue = "";
     typeName = "STRING";
     condition = "objectVehicle";
