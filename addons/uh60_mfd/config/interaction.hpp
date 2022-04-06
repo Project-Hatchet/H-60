@@ -16,9 +16,6 @@ class mfd_any {
     MFD_BTN(MFD_14,QUOTE(TAC))
         buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_TAC, true)] call vtx_uh60_mfd_fnc_switchPage);
     };
-    MFD_BTN(MFD_15,QUOTE(FLIR))
-        buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_FLIR, true)] call vtx_uh60_mfd_fnc_switchPage);
-    };
     MFD_BTN(MFD_16,QUOTE(EICAS))
         buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_EICAS, true)] call vtx_uh60_mfd_fnc_switchPage);
     };
@@ -28,23 +25,25 @@ class mfd_any {
     MFD_BTN(MFD_18,QUOTE(PFD))
         buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_PFD, true)] call vtx_uh60_mfd_fnc_switchPage);
     };
+    class ivhms {
+        condition = (((getUserMFDValue _this) select MFD_PAGE_INDEX) != MFD_PAGE_TAC);
+        MFD_BTN(MFD_15,QUOTE(IVHMS)) buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage); };
+    };
 };
 
 
 class pfd {
     condition= USERVAL(MFD_PAGE_INDEX,MFD_PAGE_PFD);
-    class COND_SHOW_CCFS {
-        condition = QUOTE(SHOW_CCFS == 1);
-        MFD_BTN(MFD_6,QUOTE(CCFS))
-            buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_CCFS_MENU, true)] call vtx_uh60_mfd_fnc_switchPage);
-        };
-    };
+    
 };
 
 class eicas {
     condition= USERVAL(MFD_PAGE_INDEX,MFD_PAGE_EICAS);
-    MFD_BTN(MFD_4,QUOTE(IVHMS))
-        buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage);
+    class COND_SHOW_CCFS {
+        condition = QUOTE(SHOW_CCFS == 1);
+        MFD_BTN(MFD_4,QUOTE(CCFS))
+            buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_CCFS_MENU, true)] call vtx_uh60_mfd_fnc_switchPage);
+        };
     };
 };
 
@@ -69,6 +68,7 @@ class tac {
     };
     MFD_BTN(MFD_9,QUOTE(Mark Waypoint)) buttonUp="[vehicle player,'waypt'] call vtx_uh60_mfd_fnc_interaction_tac;"; };
     MFD_BTN(MFD_10,QUOTE(Slew FLIR)) buttonUp="[vehicle player,'flir'] call vtx_uh60_mfd_fnc_interaction_tac;"; };
+    MFD_BTN(MFD_15,QUOTE(FLIR)) buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_FLIR, true)] call vtx_uh60_mfd_fnc_switchPage); };
     MFD_BTN(MFD_20,QUOTE(Zoom out)) buttonUp="[vehicle player,'zoom', -1] call vtx_uh60_mfd_fnc_interaction_tac;"; };
     MFD_BTN(MFD_21,QUOTE(Zoom in)) buttonUp="[vehicle player,'zoom', 1] call vtx_uh60_mfd_fnc_interaction_tac;"; };
 };
