@@ -25,20 +25,17 @@ class mfd_any {
     MFD_BTN(MFD_18,QUOTE(PFD))
         buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_PFD, true)] call vtx_uh60_mfd_fnc_switchPage);
     };
-    class ivhms {
-        condition = (((getUserMFDValue _this) select MFD_PAGE_INDEX) != MFD_PAGE_TAC);
-        MFD_BTN(MFD_15,QUOTE(IVHMS)) buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage); };
-    };
 };
 
 
 class pfd {
     condition= USERVAL(MFD_PAGE_INDEX,MFD_PAGE_PFD);
-    
+    MFD_BTN(MFD_15,QUOTE(IVHMS)) buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage); };
 };
 
 class eicas {
     condition= USERVAL(MFD_PAGE_INDEX,MFD_PAGE_EICAS);
+    MFD_BTN(MFD_15,QUOTE(IVHMS)) buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage); };
     class COND_SHOW_CCFS {
         condition = QUOTE(SHOW_CCFS == 1);
         MFD_BTN(MFD_4,QUOTE(CCFS))
@@ -83,6 +80,7 @@ class jvmf {
     MFD_BTN(MFD_4,QUOTE(WILCO)) buttonUp="[vehicle player, 'WILCO'] call vtx_uh60_jvmf_fnc_reply"; };
     MFD_BTN(MFD_5,QUOTE(HAVECO)) buttonUp="[vehicle player, 'HAVECO'] call vtx_uh60_jvmf_fnc_reply"; };
     MFD_BTN(MFD_6,QUOTE(CANTCO)) buttonUp="[vehicle player, 'CANTCO'] call vtx_uh60_jvmf_fnc_reply"; };
+    MFD_BTN(MFD_15,QUOTE(IVHMS)) buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage); };
 };
 
 class flir {
@@ -90,6 +88,7 @@ class flir {
     MFD_BTN(MFD_4,QUOTE(WPT)) buttonUp="[vxf_vehicle] call vtx_uh60_flir_fnc_mfdWaypoint"; };
     MFD_BTN(MFD_5,QUOTE(NAV)) buttonUp="[vxf_vehicle] call vtx_uh60_flir_fnc_mfdNav"; };
     MFD_BTN(MFD_6,QUOTE(SLG)) buttonUp="[vxf_vehicle] call vtx_uh60_mfd_fnc_slingCam"; };
+    MFD_BTN(MFD_15,QUOTE(IVHMS)) buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage); };
 };
 
 class nd {
@@ -121,6 +120,7 @@ class nd {
     
     MFD_BTN(MFD_9,QUOTE(Next Waypoint)) buttonUp="[vehicle player,""cycle"", 1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
     MFD_BTN(MFD_10,QUOTE(Previous Waypoint)) buttonUp="[vehicle player,""cycle"", -1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
+    MFD_BTN(MFD_15,QUOTE(IVHMS)) buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage); };
 };
 
 class ccfs_menu {
@@ -137,6 +137,9 @@ class ccfs_menu {
     MFD_BTN(MFD_23,QUOTE(Host game))
         buttonUp= QUOTE([ARR_3((_this select 0), 4, MFD_PAGE_INDEX)] call vtx_uh60_mfd_fnc_ccfs_interaction_ccfs);
     };
+    MFD_BTN(MFD_15,QUOTE(IVHMS)) 
+        buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage); 
+    };
 };
 
 class ccfs_game {
@@ -146,5 +149,8 @@ class ccfs_game {
     };
     MFD_BTN(MFD_6,QUOTE(Pause/Play))
         buttonUp= QUOTE([ARR_3((_this select 0), 6, MFD_PAGE_INDEX)] call vtx_uh60_mfd_fnc_ccfs_interaction_ccfs);
+    };
+    MFD_BTN(MFD_15,QUOTE(IVHMS)) 
+        buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage); 
     };
 };
