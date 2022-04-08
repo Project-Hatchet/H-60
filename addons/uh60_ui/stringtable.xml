@@ -3,18 +3,23 @@
     <Package name="UH60_UI">
         <Key ID="STR_VTX_UH60_UI_HelpMode">
             <English>Help Mode</English>
+            <Chinesesimp>帮助模式</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_UI_Cursor">
             <English>Detached Interaction Cursor</English>
+            <Chinesesimp>独立式交互光标</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_UI_Cursor_Description">
             <English>For TrackIR users</English>
+            <Chinesesimp>为使用TrackIR玩家</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_UI_DetachedCursorSensitivity">
             <English>Detached Cursor Sensitivity</English>
+            <Chinesesimp>分离光标敏感性</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_UI_Enable_debugMessages">
             <English>Enable debug messages</English>
+            <Chinesesimp>(DEBUG)开启系统消息</Chinesesimp>
         </Key>
     </Package>
 </Project>

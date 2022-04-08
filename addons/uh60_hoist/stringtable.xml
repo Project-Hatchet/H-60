@@ -3,48 +3,63 @@
     <Package name="UH60_HOIST">
         <Key ID="STR_VTX_UH60_HOIST_HoistHookUp">
             <English>Hoist Hook Up</English>
+            <Chinesesimp>吊钩上</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_HOIST_HoistHookDown">
             <English>Hoist Hook Down</English>
+            <Chinesesimp>吊钩下</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_HOIST_StabilizeHook">
             <English>Stabilize Hook</English>
+            <Chinesesimp>稳定吊钩</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_HOIST_MoveFromHeliToHook">
             <English>Move From Heli To Hook</English>
+            <Chinesesimp>从直升机移动到吊钩</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_HOIST_RescueHoist">
             <English>Rescue Hoist</English>
+            <Chinesesimp>吊钩操作</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_HOIST_DeployHook">
             <English>Deploy Hook</English>
+            <Chinesesimp>放下吊钩</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_HOIST_SecureHook">
             <English>Secure Hook</English>
+            <Chinesesimp>收起吊钩</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_HOIST_RecoverPerson">
             <English>Recover Person</English>
+            <Chinesesimp>移动人员到直升机</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_HOIST_MoveToHook">
             <English>Move To Hook</English>
+            <Chinesesimp>移动到吊钩</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_HOIST_RaiseHookToHeli">
             <English>Raise Hook To Heli</English>
+            <Chinesesimp>吊钩上升到直升机</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_HOIST_LowerHookToGround">
             <English>Lower Hook To Ground</English>
+            <Chinesesimp>吊钩下降到地面</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_HOIST_Working">
             <English>Working...</English>
+            <Chinesesimp>运行中...</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_HOIST_RepairHoistHook">
             <English>Repair Hoist Hook</English>
+            <Chinesesimp>修理吊钩</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_HOIST_AttachHook">
             <English>Attach Hook</English>
+            <Chinesesimp>连接吊钩</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_UH60_HOIST_DetachHook">
             <English>Detach Hook</English>
+            <Chinesesimp>脱离吊钩</Chinesesimp>
         </Key>
     </Package>
 </Project>
