@@ -25,6 +25,6 @@ if ((_this # 0) magazineTurretAmmo ["60Rnd_CMFlareMagazine",[-1]] == 0) then {
     [_vehicle, "FLARE OUT", {((_this # 0) magazineTurretAmmo ["60Rnd_CMFlareMagazine",[-1]] == 0)}, false, true] call vtx_uh60_cas_fnc_registerCautionAdvisory;
 };
 
-ADVISORY("LANDING LIGHT ON",(isLightOn (_this # 0)))
+ADVISORY("LANDING LIGHT ON",(vtx_uh60_misc_landingLightOn))
 
 [_vehicle, true] call vtx_uh60_cas_fnc_clearCautionsList;
