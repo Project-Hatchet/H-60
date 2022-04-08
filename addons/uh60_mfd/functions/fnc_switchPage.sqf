@@ -55,7 +55,7 @@ switch (_pageIndex) do {
     };
 };
 
-if (_pageIndex != MFD_PAGE_IVHMS) then {
+if (!(_pageIndex in [MFD_PAGE_IVHMS,MFD_PAGE_IVHMS_NUMS])) then {
     vtx_uh60_mfd_allowText = true;
     {
         if ((getUserMFDValue _vehicle) # _x == MFD_PAGE_IVHMS) then {

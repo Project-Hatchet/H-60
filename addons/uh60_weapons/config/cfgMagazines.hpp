@@ -10,6 +10,11 @@ class cfgMagazines {
     //hardpoints[] = {"UNI_SCALPEL", "CUP_NATO_HELO_LARGE", "RHS_HP_HELLFIRE_RACK", "RHS_HP_LONGBOW_RACK"};
     ammo = "VTX_Hellfire_AGM114K";
     pylonWeapon = "vtx_hellfire_launcher";
+    class mfdElements {
+      class VTX_H60 {
+        #include "hellfireMFD.hpp"
+      };
+    };
   };
   class VTX_4Rnd_ACE_Hellfire_AGM114L: PylonRack_4Rnd_ACE_Hellfire_AGM114L { // 4x Launcher Support Rack
     displayName = "4x AGM-114L [H60]";
@@ -27,6 +32,11 @@ class cfgMagazines {
     //hardpoints[] = {"UNI_SCALPEL", "CUP_NATO_HELO_LARGE", "RHS_HP_HELLFIRE_RACK", "RHS_HP_LONGBOW_RACK"};
     ammo = "VTX_Hellfire_AGM114N";
     pylonWeapon = "vtx_hellfire_launcher_N";
+    class mfdElements {
+      class VTX_H60 {
+        #include "hellfireMFD.hpp"
+      };
+    };
   };
   class VTX_M230_Chaingun_L: VehicleMagazine {
     scope = 2;

@@ -41,6 +41,7 @@
 #define MFD_PAGE_IVHMS 6
 #define MFD_PAGE_CCFS_MENU 7
 #define MFD_PAGE_CCFS 8
+#define MFD_PAGE_IVHMS_NUMS 9
 
 #define COND_ISMFD(INDEX,VALUE) (INDEX>(VALUE-0.01))*(INDEX<(VALUE+0.99))
 #define MFD_OR_MFD(CURINDEX,IDX1,IDX2) (COND_ISMFD(CURINDEX,IDX1) + COND_ISMFD(CURINDEX,IDX2))
@@ -144,6 +145,15 @@
         sourceScale = 1; \
 		text = ""; \
 	};
+
+#define TEXT_LEFT_SCALED_USERVAL(CLASS,X,Y,IDX,SCALE) \
+	TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
+		source = "user"; \
+        sourceIndex = IDX; \
+        sourceScale = 1; \
+		text = ""; \
+	};
+
 
 #define TEXT_LEFT_OPEN(CLASS) \
     class CLASS { \

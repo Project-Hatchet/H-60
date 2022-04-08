@@ -154,3 +154,11 @@ class ccfs_game {
         buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage); 
     };
 };
+
+
+class ivhms {
+    condition= USERVAL(MFD_PAGE_INDEX,MFD_PAGE_IVHMS);
+    MFD_BTN(MFD_4,QUOTE(Exit))
+        buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS_NUMS, true)] call vtx_uh60_mfd_fnc_switchPage); 
+    };
+};
