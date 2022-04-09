@@ -71,8 +71,8 @@ private _pylonMass = 0;
 
 //Crew and pax
 private _numPers       = count (fullCrew _heli);
-private _crewAnPaxMass = _numPers * 113.5;	//250lbs per person
+private _crewAndPaxMass = _numPers * 113.4;	//250lbs per person
 
-private _totalMass = _emptyMass + _tank1Mass + _tank2Mass + _tank3Mass + _pylonMass + _partsMass + _crewAnPaxMass;
+private _totalMass = _emptyMass + _tank1Mass + _tank2Mass + _tank3Mass + _pylonMass + _partsMass + _crewAndPaxMass;
 
 _heli setMass _totalMass;

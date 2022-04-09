@@ -20,6 +20,13 @@ params ["_heli"];
 #include "\z\vtx\addons\uh60_sfmplus\headers\core.hpp"
 private _deltaTime = ["sfmplus_deltaTime"] call BIS_fnc_deltaTime;
 
+private _colorRed = [1,0,0,1]; private _colorGreen = [0,1,0,1]; private _colorBlue = [0,0,1,1]; private _colorWhite = [1,1,1,1];
+
+DRAW_LINE = {
+	params ["_heli", "_p1", "_p2", "_col"];
+	drawLine3D [_heli modelToWorldVisual _p1, _heli modelToWorldVisual _p2, _col];
+};
+
 //Input
 [_heli] call vtx_uh60_sfmplus_fnc_getInput;
 
@@ -98,9 +105,10 @@ private _pylonMass = 0;
 
 //Crew and pax
 private _numPers       = count (fullCrew _heli);
-private _crewAnPaxMass = _numPers * 113.39;
+private _crewAndPaxMass = _numPers * 113.4;
 
-private _curMass = _emptyMass + _totFuelMass + _pylonMass + _partsMass + _crewAnPaxMass;
+private _curMass = _emptyMass + _totFuelMass + _pylonMass + _partsMass + _crewAndPaxMass;
+//private _curMass = 7257;
 if (local _heli) then {
 	_heli setMass _curMass;
 };
@@ -115,6 +123,9 @@ if(vtx_uh60_sfmPlusStabilatorEnabled == STABILTOR_MODE_ALWAYSENABLED
 		[_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_aeroStabilator;
 	};
 };
+
+//Apply a negative force to prevent the helicopter from taking off until the power levers are at fly
+[_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_antiLift;
 
 #ifdef __A3_DEBUG__
 /*

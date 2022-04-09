@@ -35,14 +35,13 @@ private _objCtr  = _heli selectionPosition ["modelCenter", "Memory"];
 private _stabPos = _heli getVariable "vtx_uh60_sfmplus_stabPos";
 private _stabPvt = _objCtr vectorAdd _stabPos;
 
+//private _intStabTable = [STABTABLE, vtx_uh60_sfmplus_collectiveOutput] call vtx_uh60_sfmplus_fnc_linearInterp;
 private _intStabTable = [getArray (_config >> "stabTable"), vtx_uh60_sfmplus_collectiveOutput] call vtx_uh60_sfmplus_fnc_linearInterp;
 
 private _stabOutputTable = [[15.43, _intStabTable select 1],  //30kts
 							[36.01, _intStabTable select 2],  //70kts
-							[46.30, _intStabTable select 3],  //90kts
-							[56.59, _intStabTable select 4],  //110kts
-							[61.73, _intStabTable select 5],  //120kts
-                            [77.17, _intStabTable select 6]]; //150kts
+							[66.87, _intStabTable select 3],  //130kts
+                            [77.17, _intStabTable select 4]]; //150kts
 
 private _V_mps = abs vectorMagnitude [velocity _heli select 0, velocity _heli select 1];
 private _theta = 0.0;
@@ -105,7 +104,7 @@ _heli addForce[_heli vectorModelToWorld _lift, _G];
 hintsilent format ["Collective Out = %1
                    \nStab Pos = %2
                    \nCollective Low = %3
-                   \nCollective High = %4", _collOut, _theta, inputAction "HeliCollectiveLowerCont", inputAction "HeliCollectiveRaiseCont"];
+                   \nCollective High = %4", vtx_uh60_sfmplus_collectiveOutput, _theta, inputAction "HeliCollectiveLowerCont", inputAction "HeliCollectiveRaiseCont"];
 */
 [_heli, _objCtr, _stabPvt, _colorWhite] call DRAW_LINE;
 

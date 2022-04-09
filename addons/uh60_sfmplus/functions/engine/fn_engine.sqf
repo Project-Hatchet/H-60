@@ -131,7 +131,7 @@ private _engHvrTQTable = [[]];
 if (vtx_uh60_sfmPlusKeyboardOnly) then {
 	_engHvrTQTable = [[ 0.00, _engBaseTQ],
 					  [ 0.58,     _hvrTQ],
-					  [ 0.68,     _hvrTQ],
+					  [ 0.72,     _hvrTQ],
 					  [ 1.00,       1.34]];
 } else {
 	_engHvrTQTable = [[ 0.00, _engBaseTQ],
@@ -145,15 +145,13 @@ private _engCruiseTQTable = [[]];
 //-------------------------Coll-----TQ---
 if (vtx_uh60_sfmPlusKeyboardOnly) then {
 	_engCruiseTQTable = [[ 0.00, 		               0.03],
-					 	 [ 0.82, _intCruiseTQTable select 5],
-					 	 [ 0.90, _intCruiseTQTable select 9],
-						 [ 1.00, 1.34                      ]];
+					 	 [ 1.39, _intCruiseTQTable select 7], //120kts
+						 [ 2.00, 1.34                      ]];
 } else {
 	_engCruiseTQTable = [[ 0.00, 		               0.03],
-						 [ 0.67, _intCruiseTQTable select 4],
-						 [ 0.70, _intCruiseTQTable select 5],
-						 [ 0.80, _intCruiseTQTable select 7],
-						 [ 0.90, _intCruiseTQTable select 9],
+						 [ 0.67, _intCruiseTQTable select 4], //70kts
+						 [ 0.87, _intCruiseTQTable select 8], //130kts
+						 [ 0.90, _intCruiseTQTable select 9], //158kts
 						 [ 1.00, 1.34                      ]];
 };
 

@@ -13,4 +13,4 @@ params ["_vehicle", "_turnedOn", ["_lever","throttle"], "_animEndState", "_animN
 
 (_vehicle getVariable ["vtx_uh60_sfmplus_engState", ["OFF", "OFF"]]) params ["_eng1State", "_eng2State"];
 
-_vehicle engineOn (_eng1State == "ON" || _eng2State == "ON");
+_vehicle engineOn (_eng1State != "OFF" || _eng2State != "OFF");
