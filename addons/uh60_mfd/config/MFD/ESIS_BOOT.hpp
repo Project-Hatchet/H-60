@@ -67,8 +67,9 @@ class Draw {
 			TEXT_LEFT_SCALED(ElapsedTime,0.1,0.5,"Elapsed Time 1337.0 hrs",0.09)
 			
 			TEXT_MID_SCALED(Copyright,0.42,0.7-0.05,"Software Copyright © 2021",0.09)
-			TEXT_MID_SCALED(last1,0.4,0.78-0.05,"123-245-764 234-678-234",0.09)
-			TEXT_MID_SCALED(last2,0.4,0.86-0.05,"534-687-390 234-456-789",0.09)
+			TEXT_MID_SCALED(last1,0.4,0.78-0.05,STR(BRANCH),0.09)
+			TEXT_RIGHT_SCALED(last2L,0.27,0.86-0.05,STR(RELEASENAME),0.09)
+			TEXT_LEFT_SCALED(last2R,0.57,0.86-0.05,STR(BUILDHASH),0.09)
 		};
 	}; // acinfo
 	class align {
