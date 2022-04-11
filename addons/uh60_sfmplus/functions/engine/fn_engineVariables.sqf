@@ -17,9 +17,12 @@ Author:
 	BradMick
 ---------------------------------------------------------------------------- */
 params ["_heli"];
-
-_heli setVariable ["vtx_uh60_sfmplus_engPowerLeverState",  	["OFF", "OFF"]]; //OFF, IDLE, FLY
-_heli setVariable ["vtx_uh60_sfmplus_engState",            	["OFF", "OFF"]]; //OFF, STARTING, ON
+_setVarIfEmpty = {
+	params ["_vehicle", "_key", "_default"];
+	_vehicle setVariable [_key, _vehicle getVariable [_key, _default]];
+};
+[_heli, "vtx_uh60_sfmplus_engPowerLeverState", ["OFF","OFF"]] call _setVarIfEmpty; //OFF, IDLE, FLY
+[_heli, "vtx_uh60_sfmplus_engState", ["OFF","OFF"]] call _setVarIfEmpty; //OFF, STARTING, ON
 
 if(isMultiplayer) then {
 	_heli setVariable ["vtx_uh60_sfmplus_lastTimePropagated", 0];

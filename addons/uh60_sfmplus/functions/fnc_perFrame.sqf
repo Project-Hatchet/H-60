@@ -9,6 +9,6 @@ if !(
 	{_vehicle isKindOf "vtx_h60_base"}
 ) exitwith {};
 
-[_vehicle] call vtx_uh60_sfmplus_fnc_coreUpdate;
+[_vehicle, _frameTime] call vtx_uh60_sfmplus_fnc_coreUpdate;
 
 true

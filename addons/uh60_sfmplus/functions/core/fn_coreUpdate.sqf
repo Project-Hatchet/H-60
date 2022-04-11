@@ -16,9 +16,8 @@ Examples:
 Author:
 	BradMick
 ---------------------------------------------------------------------------- */
-params ["_heli"];
+params ["_heli", "_deltaTime"];
 #include "\z\vtx\addons\uh60_sfmplus\headers\core.hpp"
-private _deltaTime = ["sfmplus_deltaTime"] call BIS_fnc_deltaTime;
 
 private _colorRed = [1,0,0,1]; private _colorGreen = [0,1,0,1]; private _colorBlue = [0,0,1,1]; private _colorWhite = [1,1,1,1];
 
