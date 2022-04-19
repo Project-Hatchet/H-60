@@ -5,9 +5,6 @@ class cfgWeapons {
     class vtx_hellfire_launcher: ace_hellfire_launcher {
       magazines[] = {"VTX_4Rnd_ACE_Hellfire_AGM114K"};
     };
-    class vtx_hellfire_launcher_L: ace_hellfire_launcher_L {
-      magazines[] = {"VTX_4Rnd_ACE_Hellfire_AGM114L"};
-    };
     class vtx_hellfire_launcher_N: ace_hellfire_launcher_N {
       magazines[] = {"VTX_4Rnd_ACE_Hellfire_AGM114N"};
     };
