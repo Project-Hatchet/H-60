@@ -453,60 +453,236 @@ class pitchLadderWrapper {
 	clipTL[] = {0.345, 0.0};
 	clipBR[] = {0.657, 0.49};
 	#define PFD_BANK_SCALE 0.5
-	class Bank_Marks {
-		type="line";
-		width=0;
-		points[]={
-			{"Middle", {PFD_BANK_SCALE * 0.306418, PFD_BANK_SCALE * -0.257115},1},//40
-			{"Middle", {PFD_BANK_SCALE * 0.260455, PFD_BANK_SCALE * -0.218548},1},{},
-			{"Middle", {PFD_BANK_SCALE * 0.257115, PFD_BANK_SCALE * -0.306418},1},//50
-			{"Middle", {PFD_BANK_SCALE * 0.218548, PFD_BANK_SCALE * -0.260455},1},{},
-			{"Middle", {PFD_BANK_SCALE * 0.200000, PFD_BANK_SCALE * -0.346410},1},//60
-			{"Middle", {PFD_BANK_SCALE * 0.170000, PFD_BANK_SCALE * -0.294449},1},{},
-			{"Middle", {PFD_BANK_SCALE * 0.136808, PFD_BANK_SCALE * -0.375877},1},//70
-			{"Middle", {PFD_BANK_SCALE * 0.116287, PFD_BANK_SCALE * -0.319495},1},{},
-			{"Middle", {PFD_BANK_SCALE * 0.069459, PFD_BANK_SCALE * -0.393923},1},//80
-			{"Middle", {PFD_BANK_SCALE * 0.059040, PFD_BANK_SCALE * -0.334835},1},{},
-			{"Middle", {PFD_BANK_SCALE * 0.000000, PFD_BANK_SCALE * -0.400000},1},//90
-			{"Middle", {PFD_BANK_SCALE * 0.000000, PFD_BANK_SCALE * -0.340000},1},{},
-			{"Middle", {PFD_BANK_SCALE * -0.069459,PFD_BANK_SCALE *    -0.393923},1},//100
-			{"Middle", {PFD_BANK_SCALE * -0.059040,PFD_BANK_SCALE *    -0.334835},1},{},
-			{"Middle", {PFD_BANK_SCALE * -0.136808,PFD_BANK_SCALE *    -0.375877},1},//110
-			{"Middle", {PFD_BANK_SCALE * -0.116287,PFD_BANK_SCALE *    -0.319495},1},{},
-			{"Middle", {PFD_BANK_SCALE * -0.200000,PFD_BANK_SCALE *    -0.346410},1},//120
-			{"Middle", {PFD_BANK_SCALE * -0.170000,PFD_BANK_SCALE *    -0.294449},1},{},
-			{"Middle", {PFD_BANK_SCALE * -0.257115,PFD_BANK_SCALE *    -0.306418},1},//130
-			{"Middle", {PFD_BANK_SCALE * -0.218548,PFD_BANK_SCALE *    -0.260455},1},{},
-			{"Middle", {PFD_BANK_SCALE * -0.306418,PFD_BANK_SCALE *    -0.257115},1},//140
-			{"Middle", {PFD_BANK_SCALE * -0.260455,PFD_BANK_SCALE *    -0.218548},1},{},
-		};
-	}; // Bank_Marks
-	class pitchLadderLinesWrap {
+	class pitchBackground {
 		clipTL[] = {0, 0.05};
 		clipBR[] = {1, 1};
-		alpha = 1;
 		LEVEL_BACKGROUND(pitch_att_blue,pitch_att_orange,0.5)
-		LEVEL0(0.23)
-		LEVEL_SET(5,10,0.02,0.05,0.08)
-		LEVEL_SET(15,20,0.02,0.05,0.08)
-		LEVEL_SET(25,30,0.02,0.05,0.08)
-		LEVEL_SET(35,40,0.02,0.05,0.08)
-		LEVEL_SET(45,50,0.02,0.05,0.08)
-		LEVEL_SET(55,60,0.02,0.05,0.08)
-		LEVEL_SET(65,70,0.02,0.05,0.08)
-		LEVEL_SET(75,80,0.02,0.05,0.08)
-		LEVEL_SET(85,90,0.02,0.05,0.08)
-	}; // pitchLadderLinesWrap
+		class newPitchLadderLines {
+			clipTL[] = {0, 0.15};
+			clipBR[] = {1, 1};
+			class ladderLinesWhite {
+				type="line";
+				width=2;
+				points[]={
+					{"Level0", {-0.22, 0}, 1},{"Level0", { 0.22, 0}, 1},{},
 
-	
-	class pitchLadderLevelBackgroundWhite {
+					POINTS_LEVEL_N(P2D5),
+					POINTS_LEVEL_M(P5),
+					POINTS_LEVEL_N(P7D5),
+					POINTS_LEVEL_W(P10),
+					POINTS_LEVEL_N(P12D5),
+					POINTS_LEVEL_M(P15),
+					POINTS_LEVEL_N(P17D5),
+					POINTS_LEVEL_W(P20),
+					POINTS_LEVEL_N(P22D5),
+					POINTS_LEVEL_M(P25),
+					POINTS_LEVEL_N(P27D5),
+					POINTS_LEVEL_W(P30),
+					POINTS_LEVEL_W(P40),
+
+					{P32D5_pos, {0.01, 0}, 1}, {P32D5_pos, {-0.01, 0}, 1},{},
+					{P35_pos, {0.03, 0}, 1}, {P35_pos, {-0.03, 0}, 1},{},
+					{P37D5_pos, {0.01, 0}, 1}, {P37D5_pos, {-0.01, 0}, 1},{},
+					{P50_pos, {0.08, 0}, 1}, {P50_pos, {-0.08, 0}, 1},{},
+					
+					{P55_neg, {0.08, 0}, 1}, {P55_neg, {-0.08, 0}, 1},{},
+
+					POINTS_LEVEL_W(P70),
+					POINTS_LEVEL_W(P90)
+				};
+			};
+			LEVEL_TEXT(L10p,P10_pos,0.05,"10")
+			LEVEL_TEXT(L10n,P10_neg,0.05,"10")
+			LEVEL_TEXT(L20p,P20_pos,0.05,"20")
+			LEVEL_TEXT(L20n,P20_neg,0.05,"20")
+			LEVEL_TEXT(L30p,P30_pos,0.05,"30")
+			LEVEL_TEXT(L30n,P30_neg,0.05,"30")
+			LEVEL_TEXT(L40p,P40_pos,0.05,"40")
+			LEVEL_TEXT(L40n,P40_neg,0.05,"40")
+			LEVEL_TEXT(L50p,P50_pos,0.05,"50")
+			LEVEL_TEXT(L70n,P70_neg,0.05,"70")
+			LEVEL_TEXT(L90p,P90_pos,0.05,"90")
+			LEVEL_TEXT(L90n,P90_neg,0.05,"90")
+			class redColor {
+				color[] = {1,0,0,1};
+				class ladderLinesWhite {
+					type="line";
+					width=6;
+					points[]={
+						{"P60_pos", {-0.06,0.01}, 1},
+						{"P50_pos", {0, 0}, 1},
+						{"P60_pos", {0.06, 0.01}, 1},{},
+
+						{"P55_neg", {-0.04,-0.01}, 1},
+						{"P40_neg", {0, 0.01}, 1},
+						{"P55_neg", {0.04, -0.01}, 1},{},
+						
+						{"P70_neg", {-0.06,-0.01}, 1},
+						{"P55_neg", {0, 0.01}, 1},
+						{"P70_neg", {0.06, -0.01}, 1},{},
+						
+						{"P90_neg", {-0.06,-0.01}, 1},
+						{"P90_neg", {-0.08,-0.01}, 1},
+						{"P70_neg", {0, 0.01}, 1},
+						{"P90_neg", {0.08, -0.01}, 1},
+						{"P90_neg", {0.06, -0.01}, 1},{},
+
+						{"P90_pos", {-0.06,0.01}, 1},
+						{"P90_pos", {-0.08,0.01}, 1},
+						{"P70_pos", {0, -0.01}, 1},
+						{"P90_pos", {0.08, 0.01}, 1},
+						{"P90_pos", {0.06, 0.01}, 1},{}
+					};
+				};
+			};
+		}; // newPitchLadderLines
+	}; // background
+}; // pitchLadderWrapper
+
+class ADICenterBlack {
+	color[] = common_black;
+	class ladderLinesWhite {
+		type="line";
+		width=9;
+		points[]={
+			  {"PFD_LEVEL_MIDDLE", ANGLE(0,0.013), 1},
+			 {"PFD_LEVEL_MIDDLE", ANGLE(30,0.013), 1},
+			 {"PFD_LEVEL_MIDDLE", ANGLE(60,0.013), 1},
+			 {"PFD_LEVEL_MIDDLE", ANGLE(90,0.013), 1},
+			{"PFD_LEVEL_MIDDLE", ANGLE(120,0.013), 1},
+			{"PFD_LEVEL_MIDDLE", ANGLE(150,0.013), 1},
+			{"PFD_LEVEL_MIDDLE", ANGLE(180,0.013), 1},
+			{"PFD_LEVEL_MIDDLE", ANGLE(210,0.013), 1},
+			{"PFD_LEVEL_MIDDLE", ANGLE(240,0.013), 1},
+			{"PFD_LEVEL_MIDDLE", ANGLE(270,0.013), 1},
+			{"PFD_LEVEL_MIDDLE", ANGLE(300,0.013), 1},
+			{"PFD_LEVEL_MIDDLE", ANGLE(330,0.013), 1},
+			{"PFD_LEVEL_MIDDLE", ANGLE(360,0.013), 1}
+		};
+	};
+	class white {
 		color[] = common_white;
+		class lines {
+			type="line";
+			width=3;
+			points[]={
+				{"PFD_LEVEL_MIDDLE", ANGLE(0,0.013), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(30,0.013), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(60,0.013), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(90,0.013), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(120,0.013), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(150,0.013), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(180,0.013), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(210,0.013), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(240,0.013), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(270,0.013), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(300,0.013), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(330,0.013), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(360,0.013), 1}
+			};
+		};
+		#define ROLL_INDICATOR_START 0.20
+		class Roll_indicator {
+			type="line";
+			width=2;
+			points[]={
+				// RIGHT SIDE
+				{"PFD_LEVEL_MIDDLE", ANGLE(170,ROLL_INDICATOR_START+0.00), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(170,ROLL_INDICATOR_START+0.02), 1},{},
+				{"PFD_LEVEL_MIDDLE", ANGLE(160,ROLL_INDICATOR_START+0.00), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(160,ROLL_INDICATOR_START+0.02), 1},{},
+				{"PFD_LEVEL_MIDDLE", ANGLE(150,ROLL_INDICATOR_START+0.00), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(150,ROLL_INDICATOR_START+0.03), 1},{},
+
+				
+				{"PFD_LEVEL_MIDDLE", ANGLE(132,ROLL_INDICATOR_START+0.02), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(135,ROLL_INDICATOR_START+0.00), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(138,ROLL_INDICATOR_START+0.02), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(132,ROLL_INDICATOR_START+0.02), 1},{},
+
+				{"PFD_LEVEL_MIDDLE", ANGLE(120,ROLL_INDICATOR_START+0.00), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(120,ROLL_INDICATOR_START+0.02), 1},{},
+			
+				// LEFT SIDE
+				{"PFD_LEVEL_MIDDLE", ANGLE(190,ROLL_INDICATOR_START+0.00), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(190,ROLL_INDICATOR_START+0.02), 1},{},
+				{"PFD_LEVEL_MIDDLE", ANGLE(200,ROLL_INDICATOR_START+0.00), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(200,ROLL_INDICATOR_START+0.02), 1},{},
+				{"PFD_LEVEL_MIDDLE", ANGLE(210,ROLL_INDICATOR_START+0.00), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(210,ROLL_INDICATOR_START+0.03), 1},{},
+
+				{"PFD_LEVEL_MIDDLE", ANGLE(222,ROLL_INDICATOR_START+0.02), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(225,ROLL_INDICATOR_START+0.00), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(228,ROLL_INDICATOR_START+0.02), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(222,ROLL_INDICATOR_START+0.02), 1},{},
+				
+				{"PFD_LEVEL_MIDDLE", ANGLE(240,ROLL_INDICATOR_START+0.00), 1},
+				{"PFD_LEVEL_MIDDLE", ANGLE(240,ROLL_INDICATOR_START+0.02), 1},{}
+			};
+		}; // Roll_indicator
+		class Roll_indicator_0 {
+			type = "polygon";
+			points[] ={
+				{
+					{"PFD_LEVEL_MIDDLE", {-0.01,-ROLL_INDICATOR_START-0.03}, 1},
+					{"PFD_LEVEL_MIDDLE", {  0.0,-ROLL_INDICATOR_START-0.00}, 1},
+					{"PFD_LEVEL_MIDDLE", { 0.01,-ROLL_INDICATOR_START-0.03}, 1},
+				}
+			};
+		}; // Roll_indicator_0
+	};
+};
+
+class pitchLadderLevelBackgroundWhite {
+	condition = "1";
+	color[] = common_white;
+	class HorizonLeftHoriz {
+		type = "polygon";
+		points[] ={
+			{
+				{"PFD_LEVEL_MIDDLE", {-0.13, -0.01}, 1},{"PFD_LEVEL_MIDDLE", {-0.05, -0.01}, 1},{"PFD_LEVEL_MIDDLE", {-0.05,  0.01}, 1},
+				{"PFD_LEVEL_MIDDLE", {-0.13,  0.01}, 1}
+			}
+		};
+	};
+	class HorizonLeftVert {
+		type = "polygon";
+		points[] ={
+			{
+				{"PFD_LEVEL_MIDDLE", {-0.05,  0.04}, 1},{"PFD_LEVEL_MIDDLE", {-0.03,  0.04}, 1},{"PFD_LEVEL_MIDDLE", {-0.03,  -0.01}, 1},
+				{"PFD_LEVEL_MIDDLE", {-0.05,  -0.01}, 1}
+			}
+		};
+	};
+	class HorizonRightHoriz {
+		type = "polygon";
+		points[] ={
+			{
+				{"PFD_LEVEL_MIDDLE", {0.13, -0.01}, 1},{"PFD_LEVEL_MIDDLE", {0.05, -0.01}, 1},{"PFD_LEVEL_MIDDLE", {0.05,  0.01}, 1},
+				{"PFD_LEVEL_MIDDLE", {0.13,  0.01}, 1}
+			}
+		};
+	};
+	class HorizonRightVert {
+		type = "polygon";
+		points[] ={
+			{
+				{"PFD_LEVEL_MIDDLE", {0.05,  0.04}, 1},{"PFD_LEVEL_MIDDLE", {0.03,  0.04}, 1},{"PFD_LEVEL_MIDDLE", {0.03,  -0.01}, 1},
+				{"PFD_LEVEL_MIDDLE", {0.05,  -0.01}, 1}
+			}
+		};
+	};
+	#define LEVEL_SHRINK 0.005
+	class pitchLadderLevelBlack {
+		color[] = {0,0,0,1};
 		class HorizonLeftHoriz {
 			type = "polygon";
 			points[] ={
 				{
-					{"PFD_LEVEL_MIDDLE", {-0.13, -0.01}, 1},{"PFD_LEVEL_MIDDLE", {-0.05, -0.01}, 1},{"PFD_LEVEL_MIDDLE", {-0.05,  0.01}, 1},
-					{"PFD_LEVEL_MIDDLE", {-0.13,  0.01}, 1},
+					{"PFD_LEVEL_MIDDLE", {-0.13+LEVEL_SHRINK, -0.01+LEVEL_SHRINK}, 1},
+					{"PFD_LEVEL_MIDDLE", {-0.05+LEVEL_SHRINK, -0.01+LEVEL_SHRINK}, 1},
+					{"PFD_LEVEL_MIDDLE", {-0.05+LEVEL_SHRINK,  0.01-LEVEL_SHRINK}, 1},
+					{"PFD_LEVEL_MIDDLE", {-0.13+LEVEL_SHRINK,  0.01-LEVEL_SHRINK}, 1},
 				}
 			};
 		};
@@ -514,8 +690,10 @@ class pitchLadderWrapper {
 			type = "polygon";
 			points[] ={
 				{
-					{"PFD_LEVEL_MIDDLE", {-0.05,  0.04}, 1},{"PFD_LEVEL_MIDDLE", {-0.03,  0.04}, 1},{"PFD_LEVEL_MIDDLE", {-0.03,  -0.01}, 1},
-					{"PFD_LEVEL_MIDDLE", {-0.05,  -0.01}, 1},
+					{"PFD_LEVEL_MIDDLE", {-0.05+LEVEL_SHRINK,  0.04-LEVEL_SHRINK}, 1},
+					{"PFD_LEVEL_MIDDLE", {-0.03-LEVEL_SHRINK,  0.04-LEVEL_SHRINK}, 1},
+					{"PFD_LEVEL_MIDDLE", {-0.03-LEVEL_SHRINK,  -0.01+LEVEL_SHRINK}, 1},
+					{"PFD_LEVEL_MIDDLE", {-0.05+LEVEL_SHRINK,  -0.01+LEVEL_SHRINK}, 1},
 				}
 			};
 		};
@@ -523,8 +701,10 @@ class pitchLadderWrapper {
 			type = "polygon";
 			points[] ={
 				{
-					{"PFD_LEVEL_MIDDLE", {0.13, -0.01}, 1},{"PFD_LEVEL_MIDDLE", {0.05, -0.01}, 1},{"PFD_LEVEL_MIDDLE", {0.05,  0.01}, 1},
-					{"PFD_LEVEL_MIDDLE", {0.13,  0.01}, 1},
+					{"PFD_LEVEL_MIDDLE", {0.13-LEVEL_SHRINK, -0.01+LEVEL_SHRINK}, 1},
+					{"PFD_LEVEL_MIDDLE", {0.05-LEVEL_SHRINK, -0.01+LEVEL_SHRINK}, 1},
+					{"PFD_LEVEL_MIDDLE", {0.05-LEVEL_SHRINK,  0.01-LEVEL_SHRINK}, 1},
+					{"PFD_LEVEL_MIDDLE", {0.13-LEVEL_SHRINK,  0.01-LEVEL_SHRINK}, 1},
 				}
 			};
 		};
@@ -532,63 +712,15 @@ class pitchLadderWrapper {
 			type = "polygon";
 			points[] ={
 				{
-					{"PFD_LEVEL_MIDDLE", {0.05,  0.04}, 1},{"PFD_LEVEL_MIDDLE", {0.03,  0.04}, 1},{"PFD_LEVEL_MIDDLE", {0.03,  -0.01}, 1},
-					{"PFD_LEVEL_MIDDLE", {0.05,  -0.01}, 1},
+					{"PFD_LEVEL_MIDDLE", {0.05-LEVEL_SHRINK,  0.04-LEVEL_SHRINK}, 1},
+					{"PFD_LEVEL_MIDDLE", {0.03+LEVEL_SHRINK,  0.04-LEVEL_SHRINK}, 1},
+					{"PFD_LEVEL_MIDDLE", {0.03+LEVEL_SHRINK,  -0.01+LEVEL_SHRINK}, 1},
+					{"PFD_LEVEL_MIDDLE", {0.05-LEVEL_SHRINK,  -0.01+LEVEL_SHRINK}, 1},
 				}
 			};
 		};
-		#define LEVEL_SHRINK 0.005
-		class pitchLadderLevelBlack {
-			color[] = {0,0,0,1};
-			class HorizonLeftHoriz {
-				type = "polygon";
-				points[] ={
-					{
-						{"PFD_LEVEL_MIDDLE", {-0.13+LEVEL_SHRINK, -0.01+LEVEL_SHRINK}, 1},
-						{"PFD_LEVEL_MIDDLE", {-0.05+LEVEL_SHRINK, -0.01+LEVEL_SHRINK}, 1},
-						{"PFD_LEVEL_MIDDLE", {-0.05+LEVEL_SHRINK,  0.01-LEVEL_SHRINK}, 1},
-						{"PFD_LEVEL_MIDDLE", {-0.13+LEVEL_SHRINK,  0.01-LEVEL_SHRINK}, 1},
-					}
-				};
-			};
-			class HorizonLeftVert {
-				type = "polygon";
-				points[] ={
-					{
-						{"PFD_LEVEL_MIDDLE", {-0.05+LEVEL_SHRINK,  0.04-LEVEL_SHRINK}, 1},
-						{"PFD_LEVEL_MIDDLE", {-0.03-LEVEL_SHRINK,  0.04-LEVEL_SHRINK}, 1},
-						{"PFD_LEVEL_MIDDLE", {-0.03-LEVEL_SHRINK,  -0.01+LEVEL_SHRINK}, 1},
-						{"PFD_LEVEL_MIDDLE", {-0.05+LEVEL_SHRINK,  -0.01+LEVEL_SHRINK}, 1},
-					}
-				};
-			};
-			class HorizonRightHoriz {
-				type = "polygon";
-				points[] ={
-					{
-						{"PFD_LEVEL_MIDDLE", {0.13-LEVEL_SHRINK, -0.01+LEVEL_SHRINK}, 1},
-						{"PFD_LEVEL_MIDDLE", {0.05-LEVEL_SHRINK, -0.01+LEVEL_SHRINK}, 1},
-						{"PFD_LEVEL_MIDDLE", {0.05-LEVEL_SHRINK,  0.01-LEVEL_SHRINK}, 1},
-						{"PFD_LEVEL_MIDDLE", {0.13-LEVEL_SHRINK,  0.01-LEVEL_SHRINK}, 1},
-					}
-				};
-			};
-			class HorizonRightVert {
-				type = "polygon";
-				points[] ={
-					{
-						{"PFD_LEVEL_MIDDLE", {0.05-LEVEL_SHRINK,  0.04-LEVEL_SHRINK}, 1},
-						{"PFD_LEVEL_MIDDLE", {0.03+LEVEL_SHRINK,  0.04-LEVEL_SHRINK}, 1},
-						{"PFD_LEVEL_MIDDLE", {0.03+LEVEL_SHRINK,  -0.01+LEVEL_SHRINK}, 1},
-						{"PFD_LEVEL_MIDDLE", {0.05-LEVEL_SHRINK,  -0.01+LEVEL_SHRINK}, 1},
-					}
-				};
-			};
-		}; // pitchLadderBlack
-	}; // pitchLadderBackgroundWhite
-
-}; // pitchLadderWrapper
-
+	}; // pitchLadderBlack
+}; // pitchLadderBackgroundWhite
 
 class powerPodTexWrap {
 	color[] = common_green;
@@ -628,4 +760,45 @@ class twinEngineFastTorque {
 	condition = "(((user22 > 5) + (user48 > 5)) > 1.5) * (speed > 41)";
     BAR_WARN(RPM1BAR,"PFD_Q1", 0.088,BARBOTTOM,0.01,22,100)
     BAR_WARN(RPM2BAR,"PFD_Q2", 0.185,BARBOTTOM,0.01,48,100)
+};
+
+class RALT_MASK {
+	condition = "1";
+	color[] = common_black;
+	class Polygon {
+		type        = "polygon";
+		points[] ={
+			{
+				{{0.7, 0},1},
+				{{0.9, 0},1},
+				{{0.9, 0.4},1},
+				{{0.7, 0.4},1}
+			}
+		};
+	};
+	class text {
+		color[] = common_white;
+        TEXT_MID_SCALED(TEXT,0.87,0.2,"RALT OFF",0.06)
+	};
+};
+
+
+class EGI_MASK {
+	condition = "1";
+	color[] = common_black;
+	class Polygon {
+		type        = "polygon";
+		points[] ={
+			{
+				{{0.7, 0},1},
+				{{0.9, 0},1},
+				{{0.9, 0.4},1},
+				{{0.7, 0.4},1}
+			}
+		};
+	};
+	class text {
+		color[] = common_white;
+        TEXT_MID_SCALED(TEXT,0.87,0.2,"RALT OFF",0.06)
+	};
 };

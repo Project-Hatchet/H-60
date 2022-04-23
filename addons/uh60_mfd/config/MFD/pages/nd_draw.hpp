@@ -35,7 +35,6 @@ class PolygonHeading {
 	}; // points
 }; // PolygonHeading
 
-
 TEXT_MID_MID_SRC(RALT_TXT,0.87,0.12)
 	source="altitudeAGL";
 	sourceScale = 3.2808399;
@@ -578,3 +577,24 @@ TEXT_LEFT_SMALL(B5,0.65,BOTTOM_TEXT_Y,"DCP")
 TEXT_LEFT_SMALL(B6,0.75,BOTTOM_TEXT_Y,"IVHMS")
 TEXT_LEFT_SMALL(B7,0.86,BOTTOM_TEXT_Y,"TAC")
 TEXT_LEFT_SMALL(B8,0.98,BOTTOM_TEXT_Y,"JVMF")
+
+
+class RALT_MASK {
+	condition = "1";
+	color[] = common_black;
+	class Polygon {
+		type        = "polygon";
+		points[] ={
+			{
+				{{0.75, 0},1},
+				{{1, 0},1},
+				{{1, 0.4},1},
+				{{0.75, 0.4},1}
+			}
+		};
+	};
+	class text {
+		color[] = common_white;
+        TEXT_MID_SCALED(TEXT,0.87,0.2,"RALT OFF",0.06)
+	};
+};

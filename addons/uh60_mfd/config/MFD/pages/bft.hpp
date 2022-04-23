@@ -63,19 +63,19 @@
 	{{BFT_ICON_W*-0.02, BFT_ICON_H* 0.02}, 1}
 
 #define AMORED_POINTS \
-   {ANGLE(0,0.013), 1}, \
-  {ANGLE(30,0.013), 1}, \
-  {ANGLE(60,0.013), 1}, \
-  {ANGLE(90,0.013), 1}, \
- {ANGLE(120,0.013), 1}, \
- {ANGLE(150,0.013), 1}, \
- {ANGLE(180,0.013), 1}, \
- {ANGLE(210,0.013), 1}, \
- {ANGLE(240,0.013), 1}, \
- {ANGLE(270,0.013), 1}, \
- {ANGLE(300,0.013), 1}, \
- {ANGLE(330,0.013), 1}, \
-   {ANGLE(0,0.013), 1}
+   {BFT_ANGLE(0,0.013), 1}, \
+  {BFT_ANGLE(30,0.013), 1}, \
+  {BFT_ANGLE(60,0.013), 1}, \
+  {BFT_ANGLE(90,0.013), 1}, \
+ {BFT_ANGLE(120,0.013), 1}, \
+ {BFT_ANGLE(150,0.013), 1}, \
+ {BFT_ANGLE(180,0.013), 1}, \
+ {BFT_ANGLE(210,0.013), 1}, \
+ {BFT_ANGLE(240,0.013), 1}, \
+ {BFT_ANGLE(270,0.013), 1}, \
+ {BFT_ANGLE(300,0.013), 1}, \
+ {BFT_ANGLE(330,0.013), 1}, \
+   {BFT_ANGLE(0,0.013), 1}
 
 #define ARMORED(COLOR) \
 	BACKGROUND_RECTANGLE \

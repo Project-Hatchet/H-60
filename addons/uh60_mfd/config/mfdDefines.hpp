@@ -15,8 +15,8 @@
 #define danger_red RGBA256(240,00,00,1.0)
 
 //pitch-attitude scale
-#define pitch_att_blue RGBA256(5,60,140,0.2)
-#define pitch_att_orange RGBA256(70,30,15,0.2)
+#define pitch_att_blue RGBA256(5,60,140,1)
+#define pitch_att_orange RGBA256(70,30,15,1)
 #define pitch_esis_grey RGB256(60,60,60)
 
 #define START_MAP_INDEX 8
@@ -61,9 +61,23 @@
 #define LEVELM(x) LevelM##x
 #define STR(A) #A
 
-#define ANGLEX(DEG,RADIUS) (sin DEG * (BFT_ICON_W*RADIUS))
-#define ANGLEY(DEG,RADIUS) (cos DEG * (BFT_ICON_H*RADIUS))
+
+#define BFT_ANGLEX(DEG,RADIUS) (sin DEG * (BFT_ICON_W*RADIUS))
+#define BFT_ANGLEY(DEG,RADIUS) (cos DEG * (BFT_ICON_H*RADIUS))
+#define BFT_ANGLE(DEG,RADIUS) {BFT_ANGLEX(DEG,RADIUS), BFT_ANGLEY(DEG,RADIUS)}
+
+#define ANGLEX(DEG,RADIUS) (0.75*(sin DEG * (RADIUS)))
+#define ANGLEY(DEG,RADIUS) (cos DEG * (RADIUS))
 #define ANGLE(DEG,RADIUS) {ANGLEX(DEG,RADIUS), ANGLEY(DEG,RADIUS)}
+
+
+// CONDITIONS
+#define RALT_DISABLED "1"
+#define EGI_DISABLED "1"
+#define ASE_DISABLED_NONE "user28 < 1"
+#define ASE_DISABLED_REAR "(user28 > 0) * (user28 < 2)"
+#define ASE_DISABLED_FRONT "(user28 > 1) * (user28 < 3)"
+#define ASE_DISABLED "user28 > 2"
 
 //ELEMENTS
 
@@ -78,7 +92,7 @@
 		down[] = {{X, Y + SCALE}, 1};
 
 #define TEXT_RIGHT_SCALED(CLASS,X,Y,TEXT,SCALE) \
-	TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
+	TEXT_RIGHT_SCALED_SRC(CLASS,X,Y,SCALE) \
 		source = "static"; \
 		text = TEXT; \
 	};
@@ -328,6 +342,10 @@
             angle = 0; \
         };class LevelP5:Level0{angle=5;};class LevelM5:Level0{angle=-5;};class LevelP10:Level0{angle=10;};class LevelM10:Level0{angle=-10;};class LevelP15:Level0{angle=15;};class LevelM15:Level0{angle=-15;};class LevelP20:Level0{angle=20;};class LevelM20:Level0{angle=-20;};class LevelP25:Level0{angle=25;};class LevelM25:Level0{angle=-25;};class LevelP30:Level0{angle=30;};class LevelM30:Level0{angle=-30;};class LevelP35:Level0{angle=35;};class LevelM35:Level0{angle=-35;};class LevelP40:Level0{angle=40;};class LevelM40:Level0{angle=-40;};class LevelP45:Level0{angle=45;};class LevelM45:Level0{angle=-45;};class LevelP50:Level0{angle=50;};class LevelM50:Level0{angle=-50;};class LevelP55:Level0{angle=55;};class LevelM55:Level0{angle=-55;};class LevelP60:Level0{angle=60;};class LevelM60:Level0{angle=-60;};class LevelP65:Level0{angle=65;};class LevelM65:Level0{angle=-65;};class LevelP70:Level0{angle=70;};class LevelM70:Level0{angle=-70;};class LevelP75:Level0{angle=75;};class LevelM75:Level0{angle=-75;};class LevelP80:Level0{angle=80;};class LevelM80:Level0{angle=-80;};class LevelP85:Level0{angle=85;};class LevelM85:Level0{angle=-85;};class LevelP90:Level0{angle=90;};class LevelM90:Level0{angle=-90;};
 
+    #define PITCH_LEVEL(CNAME,ANG) \
+        class CNAME##_pos: Level0 {angle=ANG;}; \
+        class CNAME##_neg: Level0 {angle=-ANG;};
+
     #define LEVEL0(WIDTH) \
         class Level0 \
         { \
@@ -336,6 +354,18 @@
             points[] = {{"Level0", {WIDTH, 0}, 1}, {"Level0", {-WIDTH, 0}, 1}}; \
         };
 
+    #define POINTS_LEVEL_W(BONE) \
+        {BONE##_pos, {0.035, 0}, 1}, {BONE##_pos, {-0.035, 0}, 1},{}, \
+        {BONE##_neg, {0.035, 0}, 1}, {BONE##_neg, {-0.035, 0}, 1},{}
+
+    #define POINTS_LEVEL_M(BONE) \
+        {BONE##_pos, {0.015, 0}, 1}, {BONE##_pos, {-0.015, 0}, 1},{}, \
+        {BONE##_neg, {0.015, 0}, 1}, {BONE##_neg, {-0.015, 0}, 1},{}
+
+    #define POINTS_LEVEL_N(BONE) \
+        {BONE##_pos, {0.007, 0}, 1}, {BONE##_pos, {-0.007, 0}, 1},{}, \
+        {BONE##_neg, {0.007, 0}, 1}, {BONE##_neg, {-0.007, 0}, 1},{}
+
     #define LEVEL_BACKGROUND(COLORTOP,COLORBOTTOM,WIDTH) \
         class polygon_top { \
             color[] = COLORTOP; \
@@ -343,8 +373,8 @@
                 type = "polygon"; \
                 points[] ={ \
                     { \
-                        {"Levelp90",{-WIDTH, 0},1}, \
-                        {"Levelp90",{WIDTH, 0},1}, \
+                        {"Levelp90",{-WIDTH, -0.5},1}, \
+                        {"Levelp90",{WIDTH, -0.5},1}, \
                         {"Level0",{WIDTH, 0},1}, \
                         {"Level0",{-WIDTH, 0},1} \
                     } \
@@ -359,8 +389,8 @@
                     { \
                         {"Level0",{-WIDTH, 0},1}, \
                         {"Level0",{WIDTH, 0},1}, \
-                        {"LevelM90",{WIDTH, 0},1}, \
-                        {"LevelM90",{-WIDTH, 0},1} \
+                        {"LevelM90",{WIDTH, 0.5},1}, \
+                        {"LevelM90",{-WIDTH, 0.5},1} \
                     } \
                 }; \
             }; \
@@ -379,18 +409,18 @@
         };
 
 
-    #define LEVEL_TEXT(LEVEL,BONE,WIDTH) \
+    #define LEVEL_TEXT(LEVEL,BONE,WIDTH,TEXT) \
             TEXT_LEFT_OPEN(DOUBLES(VAL_L,BONE)) \
-                text = LEVEL; \
-                pos[] = {BONE, {-WIDTH, -0.032}, 1}; \
-                right[] = {BONE, {-(WIDTH-0.06), -0.032}, 1}; \
-                down[] = {BONE, {-WIDTH, 0.01}, 1}; \
+                text = TEXT; \
+                pos[] = {BONE, {-WIDTH, -0.032+0.01}, 1}; \
+                right[] = {BONE, {-(WIDTH-0.062), -0.032+0.01}, 1}; \
+                down[] = {BONE, {-WIDTH, 0.01+0.01}, 1}; \
             }; \
             TEXT_LEFT_OPEN(DOUBLES(VAL_R,BONE)) \
-                text = LEVEL; \
-                pos[] = {BONE, {(WIDTH+0.03), -0.032}, 1}; \
-                right[] = {BONE, {(WIDTH+0.09), -0.032}, 1}; \
-                down[] = {BONE, {(WIDTH+0.03), 0.01}, 1}; \
+                text = TEXT; \
+                pos[] = {BONE, {(WIDTH+0.03), -0.032+0.01}, 1}; \
+                right[] = {BONE, {(WIDTH+0.09), -0.032+0.01}, 1}; \
+                down[] = {BONE, {(WIDTH+0.03), 0.01+0.01}, 1}; \
             };
 
     #define LEVEL_SET(HALF,WHOLE,NARROW,WIDE,TEXT) \
