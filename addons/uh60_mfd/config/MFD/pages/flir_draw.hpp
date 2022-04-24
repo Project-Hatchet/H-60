@@ -281,6 +281,35 @@ class Pylon2
 };
 
 
+class damageOverlay {
+    condition = "1";
+    color[] = common_black;
+	class background {
+		type        = "polygon";
+		points[] ={
+			{
+				{{0, 0},1},
+				{{1, 0},1},
+				{{1, 1},1},
+				{{0, 1},1}
+			}
+		};
+	};
+	class PolygonJet {
+		type        = "polygon";
+		texture = "z\vtx\addons\uh60_mfd\data\FLIR_Cracked.paa";
+		points[] ={
+			{
+				{{0, 0},1},
+				{{1, 0},1},
+				{{1, 1},1},
+				{{0, 1},1}
+			}
+		};
+	};
+}; // overlayWrapper
+
+
 #define BOTTOM_TEXT_Y 0.96
 TEXT_LEFT_SMALL(B1,0.095,BOTTOM_TEXT_Y,"PFD")
 TEXT_LEFT_SMALL(B2,0.2,BOTTOM_TEXT_Y,"ND")

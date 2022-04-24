@@ -1,6 +1,6 @@
 <p align="center">
     <a href="">
-        <img src="https://img.shields.io/badge/Version-0.4.0.1-blue.svg?style=flat-square" alt="H-60 Pack Version">
+        <img src="https://img.shields.io/badge/Version-0.5.2.40-blue.svg?style=flat-square" alt="H-60 Pack Version">
     </a>
     <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1745501605">
         <img src="https://img.shields.io/badge/Steam-dev%20build-orange?logo=steam" alt="H-60 Pack">

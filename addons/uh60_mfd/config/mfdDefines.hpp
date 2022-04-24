@@ -51,6 +51,12 @@
 #define ND_MODE_NAV (MFD_PAGE_ND+0.1)
 #define ND_MODE_CMWS (MFD_PAGE_ND+0.2)
 #define ND_MODE_HOVER (MFD_PAGE_ND+0.3)
+
+// PFD SUBPAGES
+#define PFD_MODE_HSI (MFD_PAGE_PFD+0.0)
+#define PFD_MODE_ARC (MFD_PAGE_PFD+0.1)
+#define PFD_MODE_HVR (MFD_PAGE_PFD+0.2)
+
 #define COND_SUBPAGE(INDEX,VALUE) (user##INDEX>(VALUE-0.1))*(user##INDEX<(VALUE+0.1))
 #define COND_SUBPAGE_OR_SUBPAGE(INDEX,VALUE1,VALUE2) (COND_SUBPAGE(INDEX,VALUE1)+COND_SUBPAGE(INDEX,VALUE2))
 
@@ -72,14 +78,33 @@
 
 
 // CONDITIONS
-#define RALT_DISABLED "1"
+#define RALT_ENABLED "altitudeAGL < 304"
+#define RALT_DISABLED "altitudeAGL > 304"
 #define EGI_DISABLED "1"
 #define ASE_DISABLED_NONE "user28 < 1"
 #define ASE_DISABLED_REAR "(user28 > 0) * (user28 < 2)"
 #define ASE_DISABLED_FRONT "(user28 > 1) * (user28 < 3)"
 #define ASE_DISABLED "user28 > 2"
 
+#define C_WP1_EXISTS "user2 > -1"
+#define C_WP2_EXISTS "user4 > -1"
+#define C_WP3_EXISTS "user6 > -1"
+#define C_WP4_EXISTS "user8 > -1"
+#define C_WP5_EXISTS "user33 > -1"
+#define C_WP6_EXISTS "user35 > -1"
+
 //ELEMENTS
+#define STAR_INNER_SCALE 0.3
+#define SHAPE_STAR(DIST,DIR) \
+    {DIST, 1, DIR, 1,{0.75*STAR_INNER_SCALE*-0.015,STAR_INNER_SCALE*-0.015},1}, \
+    {DIST, 1, DIR, 1,{0.75*0     ,-0.020},1}, \
+    {DIST, 1, DIR, 1,{0.75*STAR_INNER_SCALE*0.015, STAR_INNER_SCALE*-0.015},1}, \
+    {DIST, 1, DIR, 1,{0.75*0.020,  0},1}, \
+    {DIST, 1, DIR, 1,{0.75*STAR_INNER_SCALE*0.015,  STAR_INNER_SCALE*0.015},1}, \
+    {DIST, 1, DIR, 1,{0.75*0     , 0.020},1}, \
+    {DIST, 1, DIR, 1,{0.75*STAR_INNER_SCALE*-0.015, STAR_INNER_SCALE*0.015},1}, \
+    {DIST, 1, DIR, 1,{0.75*-0.020,  0},1}, \
+    {DIST, 1, DIR, 1,{0.75*STAR_INNER_SCALE*-0.015, STAR_INNER_SCALE*-0.015},1}
 
 
 #define TEXT_RIGHT_SCALED_SRC(CLASS,X,Y,SCALE) \

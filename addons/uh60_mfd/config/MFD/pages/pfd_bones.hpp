@@ -149,15 +149,25 @@ class Fuel
 	minPos[]={FUEL_BARS_X,FUEL_BARS_Y1};
 	maxPos[]={FUEL_BARS_X,FUEL_BARS_Y2};
 };
+class ADI_HorizonBankRot {
+	type="rotational";
+	source="horizonBank";
+	center[]={0.5,0.28};
+	min=-1.0472;
+	max=1.0472;
+	minAngle=60;
+	maxAngle=-60;
+	aspectRatio=1.333;
+};
 class HorizonBankRot {
 	type="rotational";
 	source="horizonBank";
-	center[]={0.5,0.5};
+	center[]={0.5,0.28};
 	min=-1.0472;
 	max=1.0472;
-	minAngle=50;
-	maxAngle=-50;
-	aspectRatio=1;
+	minAngle=60;
+	maxAngle=-60;
+	aspectRatio=1.333;
 };
 class Middle{
 	type="fixed";
@@ -270,12 +280,132 @@ class PFD_HOVER_VEL_X {
 	sourceScale=0.51444563338;
 	min=-1;
 	max=1;
-	minPos[]={0.4,0};
-	maxPos[]={-0.4,0};
+	minPos[]={0.155,0};
+	maxPos[]={-0.155,0};
 };
 class PFD_HOVER_VEL_Y: PFD_HOVER_VEL_X {
 	source="user";
 	sourceIndex=38;
-	minPos[]={0,	-0.4};
-	maxPos[]={0,	0.4};
+	minPos[]={0,	-0.155};
+	maxPos[]={0,	0.155};
+};
+
+class PFD_WP_VEH_DIR {
+	type="rotational";
+	source="heading";
+	sourceIndex=0;
+	sourceScale = 1;
+	center[] = {0,0};
+	min = "0";
+	max = "360";
+	minAngle = 0;
+	maxAngle = 360;
+	aspectRatio = 1;
+};
+class PFD_WP_DIR {
+	type="rotational";
+	source="user";
+	sourceIndex=0;
+	sourceScale = 1;
+	center[] = {0.502,0.788};
+	min = "0";
+	max = "360";
+	minAngle = 0;
+	maxAngle = 360;
+	aspectRatio = 1;
+};
+class PFD_WP_DIST {
+	type="linear";
+	source="user";
+	sourceIndex=1;
+	sourceScale=1;
+	min=0;
+	max=100;
+	minPos[]={0,-0.155};
+	maxPos[]={0,0};
+};
+
+
+class PFD_ARC_CENTER {
+	type="fixed";
+	pos[]={0.502,0.994-0.05};
+};
+class ARC_HeadingRotation {
+	type="rotational";
+	source="heading";
+	sourceScale = 1;
+	center[] = {0.502,0.994};
+	min = "0";
+	max = "360";
+	minAngle = 360;
+	maxAngle = 0;
+	aspectRatio = 1/0.725;
+};
+
+class PFD_ARC_WP1_Dir {
+	type="rotational";
+	source="user";
+	sourceIndex=2;
+	sourceScale = 1;
+	center[] = {0.502,0.994-0.05};
+	min = "-360";
+	max = "360";
+	minAngle = -360;
+	maxAngle = 360;
+	aspectRatio = 1/0.725;
+};
+class PFD_ARC_WP1_DIST {
+    type="linear";
+	source="user";
+	sourceIndex=3;
+	sourceScale=1;
+	min=0;
+	max=1;
+	minPos[]={0,0.5};
+	maxPos[]={0,0};
+};
+
+class PFD_ARC_WP2_Dir: PFD_ARC_WP1_Dir {
+	source="user";
+	sourceIndex=4;
+};
+class PFD_ARC_WP2_DIST: PFD_ARC_WP1_DIST {
+	source="user";
+	sourceIndex=5;
+};
+
+class PFD_ARC_WP3_Dir: PFD_ARC_WP1_Dir {
+	source="user";
+	sourceIndex=6;
+};
+class PFD_ARC_WP3_DIST: PFD_ARC_WP1_DIST {
+	source="user";
+	sourceIndex=7;
+};
+
+class PFD_ARC_WP4_Dir: PFD_ARC_WP1_Dir {
+	source="user";
+	sourceIndex=8;
+};
+class PFD_ARC_WP4_DIST: PFD_ARC_WP1_DIST {
+	source="user";
+	sourceIndex=9;
+};
+
+class PFD_ARC_WP5_Dir: PFD_ARC_WP1_Dir {
+	source="user";
+	sourceIndex=33;
+};
+class PFD_ARC_WP5_DIST: PFD_ARC_WP1_DIST {
+	source="user";
+	sourceIndex=34;
+};
+
+class PFD_ARC_WP6_Dir: PFD_ARC_WP1_Dir {
+	source="user";
+	sourceIndex=35;
+};
+class PFD_ARC_WP6_DIST: PFD_ARC_WP1_DIST {
+	source="user";
+	sourceIndex=36;
 };

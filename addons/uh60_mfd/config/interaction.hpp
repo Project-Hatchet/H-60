@@ -29,8 +29,25 @@ class mfd_any {
 
 
 class pfd {
-    condition= USERVAL(MFD_PAGE_INDEX,MFD_PAGE_PFD);
-    MFD_BTN(MFD_15,QUOTE(IVHMS)) buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage); };
+    condition = MAINPAGE(MFD_PAGE_INDEX,MFD_PAGE_PFD);
+    class SUBPAGE_HSI {
+        condition = USERVAL(MFD_PAGE_INDEX,PFD_MODE_HSI);
+        MFD_BTN(MFD_15,QUOTE(Arc Display))
+            buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, PFD_MODE_ARC, true)] call vtx_uh60_mfd_fnc_switchPage);
+        };
+    };
+    class SUBPAGE_ARC {
+        condition = USERVAL(MFD_PAGE_INDEX,PFD_MODE_ARC);
+        MFD_BTN(MFD_15,QUOTE(Hover Display))
+            buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, PFD_MODE_HVR, true)] call vtx_uh60_mfd_fnc_switchPage);
+        };
+    };
+    class SUBPAGE_HVR {
+        condition = USERVAL(MFD_PAGE_INDEX,PFD_MODE_HVR);
+        MFD_BTN(MFD_15,QUOTE(HSI))
+            buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, PFD_MODE_HSI, true)] call vtx_uh60_mfd_fnc_switchPage);
+        };
+    };
 };
 
 class eicas {
