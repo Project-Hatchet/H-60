@@ -1,5 +1,6 @@
 params ["_vehicle"];
 
+vtx_uh60_flir_fnc_grain ppEffectEnable false;
 if (!(isEngineOn _vehicle)) then {
     _vehicle setPilotCameraTarget objNull;
     _vehicle setPilotCameraDirection [0, 1, 0];

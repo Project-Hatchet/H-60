@@ -6,6 +6,16 @@
 
 params ["_vehicle", "_frameTime"];
 
+if (
+    (vtx_uh60_flir_isInScriptedCamera || cameraView == "GUNNER") &&
+    (_vehicle getHitPointDamage "FlirHit") > 0.5
+  ) then {
+  vtx_uh60_flir_fnc_grain ppEffectEnable true;
+} else {
+  vtx_uh60_flir_fnc_grain ppEffectEnable false;
+};
+vtx_uh60_flir_fnc_grain ppEffectCommit 0;
+
 if (!vtx_uh60_flir_isPipHidden || {vtx_uh60_flir_isInScriptedCamera} || {vtx_uh60_flir_playerIsPilot && cameraView == "GUNNER"}) then {
   [_vehicle] call vtx_uh60_flir_fnc_handleKeyInputs;
   [_vehicle] call vtx_uh60_flir_fnc_handleSlew;

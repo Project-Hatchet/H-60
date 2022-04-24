@@ -55,10 +55,10 @@ private _np = (_np1 max _np2);
 
 
 // CHIP ENG 1
-private _chipeng1 = (_vehicle getHitPointDamage "hitengine") > 0.2;
+private _chipeng1 = (_vehicle getHitPointDamage "hitengine1") > 0.2;
 [19, _chipeng1] call _setPylonFn;
 // CHIP ENG 2
-private _chipeng2 = (_vehicle getHitPointDamage "hitengine1") > 0.2;
+private _chipeng2 = (_vehicle getHitPointDamage "hitengine2") > 0.2;
 [28, _chipeng2] call _setPylonFn;
 
 
