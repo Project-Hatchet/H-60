@@ -72,34 +72,13 @@ class Bones {
 class Draw {
     condition = COND_SUBPAGE_OR_SUBPAGE(MFD_PAGE_INDEX,ND_MODE_ALL,ND_MODE_CMWS);
     //condition = "1";
-    class ND_CMWS_SENSOR {
-        condition = "0";
-    };
-    class ND_FRONT {
-        condition = ASE_DISABLED_REAR;
-        TEXT_MID_SCALED(TEXT,0.5,0.65,"CMWS FAIL REAR",0.04)
-        class clip {
-            clipTL[] = {0,0};
-            clipBR[] = {1,0.5};
-            #include "nd_cmws_sensor.hpp"
-        };
-    };
-    class NFD_REAR {
-        condition = ASE_DISABLED_FRONT;
-        TEXT_MID_SCALED(TEXT,0.5,0.35,"CMWS FAIL FRONT",0.04)
-        class clip {
-            clipTL[] = {0,0.5};
-            clipBR[] = {1,1};
-            #include "nd_cmws_sensor.hpp"
-        };
-    };
     class ND_ALL {
         condition = ASE_DISABLED_NONE;
         #include "nd_cmws_sensor.hpp"
     };
     class ND_NONE {
         condition = ASE_DISABLED;
-        TEXT_MID_SCALED(TEXT1,0.5,0.35,"CMWS FAIL FRONT",0.04)
-        TEXT_MID_SCALED(TEXT2,0.5,0.65,"CMWS FAIL REAR",0.04)
+        TEXT_MID_SCALED(TEXT1,0.5,0.35,"CMWS FAIL",0.04)
+        TEXT_MID_SCALED(TEXT2,0.5,0.65,"CMWS FAIL",0.04)
     };
 };

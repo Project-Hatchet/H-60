@@ -81,10 +81,8 @@
 #define RALT_ENABLED "altitudeAGL < 304"
 #define RALT_DISABLED "altitudeAGL > 304"
 #define EGI_DISABLED "1"
-#define ASE_DISABLED_NONE "user28 < 1"
-#define ASE_DISABLED_REAR "(user28 > 0) * (user28 < 2)"
-#define ASE_DISABLED_FRONT "(user28 > 1) * (user28 < 3)"
-#define ASE_DISABLED "user28 > 2"
+#define ASE_DISABLED_NONE "pylonAmmo36 < 1"
+#define ASE_DISABLED "pylonAmmo36 > 0"
 #define FLIR_FUNCTIONAL "pylonAmmo37 > 0"
 #define FLIR_DISABLED "pylonAmmo37 > 0"
 

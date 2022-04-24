@@ -100,7 +100,35 @@ class HitPoints
 		passThrough = 0;
 		material = 51;
 	};
-		
+	class hitRWR
+	{
+		armor = 1.08;
+		radius = 0.59;
+		name = "hitRWR";
+		depends = "(hitRWRFront + hitRWRRear)";
+		explosionShielding =0.360;
+		minimalHit = 0.1;
+		passThrough = 0;
+		material = 51;
+	};
+	class hitRWRFront {
+		armor = 1.08;
+		radius = 0.59;
+		name = "noseRWR";
+		explosionShielding =0.360;
+		minimalHit = 0.1;
+		passThrough = 0;
+		material = 51;
+	};
+	class hitRWRRear {
+		armor = 1.08;
+		radius = 0.59;
+		name = "tailRWR";
+		explosionShielding =0.360;
+		minimalHit = 0.1;
+		passThrough = 0;
+		material = 51;
+	};
 	class SlingHit	
 	{	
 		armor = 0.3;

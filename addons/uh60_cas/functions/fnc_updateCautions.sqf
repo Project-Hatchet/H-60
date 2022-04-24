@@ -101,3 +101,6 @@ private _mrot =
 
 // flir
 [37, (_vehicle getHitPointDamage "FlirHit") > 0.5] call _setPylonFn;
+
+// cmws
+[36, (_vehicle getHitPointDamage "hitRWR") > 0.5] call _setPylonFn;
