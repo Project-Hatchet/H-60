@@ -85,6 +85,8 @@
 #define ASE_DISABLED_REAR "(user28 > 0) * (user28 < 2)"
 #define ASE_DISABLED_FRONT "(user28 > 1) * (user28 < 3)"
 #define ASE_DISABLED "user28 > 2"
+#define FLIR_FUNCTIONAL "pylonAmmo37 > 0"
+#define FLIR_DISABLED "pylonAmmo37 > 0"
 
 #define C_WP1_EXISTS "user2 > -1"
 #define C_WP2_EXISTS "user4 > -1"

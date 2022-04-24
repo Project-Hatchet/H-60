@@ -47,8 +47,8 @@ class FLIR {
         TEXT_LEFT_SCALED_SRC(AMMO_VAL,0.4,0.7,0.04)
             source="ammo";
             sourceScale = 1;
-    }; // AMMO_VAL
-};
+        }; // AMMO_VAL
+    };
 
     class TargetDirMarker {
     	type="line";
@@ -280,35 +280,69 @@ class Pylon2
     name = "VTX_H60";
 };
 
-
-class damageOverlay {
-    condition = "1";
-    color[] = common_black;
-	class background {
-		type        = "polygon";
-		points[] ={
-			{
-				{{0, 0},1},
-				{{1, 0},1},
-				{{1, 1},1},
-				{{0, 1},1}
-			}
-		};
-	};
+class flirDamage {
+    condition = FLIR_DISABLED;
 	class PolygonJet {
 		type        = "polygon";
 		texture = "z\vtx\addons\uh60_mfd\data\FLIR_Cracked.paa";
 		points[] ={
 			{
-				{{0, 0},1},
-				{{1, 0},1},
-				{{1, 1},1},
-				{{0, 1},1}
+				{{-1, -1},1},
+				{{ 2, -1},1},
+				{{ 2,  2},1},
+				{{-1,  2},1}
 			}
 		};
 	};
-}; // overlayWrapper
+    class blackBackground {
+        color[] = common_black;
+        class bottomPoly {
+            type        = "polygon";
+            points[] ={
+                {
+                    {{0, 0.95},1},
+                    {{1, 0.95},1},
+                    {{1, 1},1},
+                    {{0, 1},1}
+                }
+		    };
+        };
+        class errorPoly {
+            type        = "polygon";
+            points[] ={
+                {
+                    {{0.5 - 0.10, 0.4 - 0.00},1},
+                    {{0.5 + 0.10, 0.4 - 0.00},1},
+                    {{0.5 + 0.10, 0.4 + 0.04},1},
+                    {{0.5 - 0.10, 0.4 + 0.04},1}
+                }
+		    };
+        };
+        class whiteOverlay {
+            color[] = common_white;
+            class outline {
+                type="line";
+                width = 2;
+                points[] ={
+                    {{0.5 - 0.10, 0.4 - 0.00},1},
+                    {{0.5 + 0.10, 0.4 - 0.00},1},
+                    {{0.5 + 0.10, 0.4 + 0.04},1},
+                    {{0.5 - 0.10, 0.4 + 0.04},1},
+                    {{0.5 - 0.10, 0.4 - 0.00},1}
+                };
+            };
+            TEXT_MID_SCALED(FLIR_FAIL,0.5,0.4,"FLIR FAIL",0.04)
+            TEXT_LEFT_SMALL(B1,0.095,BOTTOM_TEXT_Y,"PFD")
+            TEXT_LEFT_SMALL(B2,0.2,BOTTOM_TEXT_Y,"ND")
+            TEXT_LEFT_SMALL(B3,0.325,BOTTOM_TEXT_Y,"EICAS")
 
+            TEXT_LEFT_SMALL(B5,0.65,BOTTOM_TEXT_Y,"DCP")
+            TEXT_LEFT_SMALL(B6,0.75,BOTTOM_TEXT_Y,"IVHMS")
+            TEXT_LEFT_SMALL(B7,0.86,BOTTOM_TEXT_Y,"TAC")
+            TEXT_LEFT_SMALL(B8,0.98,BOTTOM_TEXT_Y,"JVMF")
+        };
+    };
+}; // overlayWrapper
 
 #define BOTTOM_TEXT_Y 0.96
 TEXT_LEFT_SMALL(B1,0.095,BOTTOM_TEXT_Y,"PFD")

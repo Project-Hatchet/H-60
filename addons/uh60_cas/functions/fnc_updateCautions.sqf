@@ -98,3 +98,6 @@ private _mrot =
     (_vehicle getHitPointDamage "MainRotorGearBox") +
     (_vehicle getHitPointDamage "MainRotorHub");
 [20, _mrot > 0.5] call _setPylonFn;
+
+// flir
+[37, (_vehicle getHitPointDamage "FlirHit") > 0.5] call _setPylonFn;

@@ -35,10 +35,10 @@ class Draw {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_JVMF);
 		#include "pages\jvmf_draw.hpp"
 	}; // jvmf
-	// class flir {
-	// 	condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_FLIR);
-	// 	#include "pages\flir_draw.hpp"
-	// }; // flir
+	class flir {
+		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_FLIR);
+		#include "pages\flir_draw.hpp"
+	}; // flir
 	class ccfs {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_CCFS);
 		#include "pages\ccfs_draw.hpp"
