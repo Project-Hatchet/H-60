@@ -35,7 +35,7 @@
 */
 
 params ["_vehicle"];
-if (!local _vehicle) exitWith {};
+if (!local _vehicle || missionNamespace getVariable ["vtx_uh60_mfd_eicas_testing", false]) exitWith {};
 
 _setPylonFn = {
     params ["_index", "_enable"];

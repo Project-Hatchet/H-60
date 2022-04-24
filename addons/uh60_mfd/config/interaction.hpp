@@ -59,6 +59,10 @@ class eicas {
             buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_CCFS_MENU, true)] call vtx_uh60_mfd_fnc_switchPage);
         };
     };
+    MFD_BTN(MFD_3,QUOTE(Test))
+        buttonDown ="for ""_i"" from 16 to 39 do {[_this select 0, _i, 2] call vtx_uh60_mfd_fnc_setPylonValue;};vtx_uh60_mfd_eicas_testing = true;";
+        buttonUp   ="[_this select 0, false, true] call vtx_uh60_cas_fnc_setMasterCaution;vtx_uh60_mfd_eicas_testing = false;";
+    };
 };
 
 class tac {
