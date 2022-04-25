@@ -13,7 +13,7 @@ class material {
 class Bones {
 	#include "pages\eicas_bones.hpp"
 	#include "pages\pfd_bones.hpp"
-	#include "pages\tac_bones.hpp"
+	#include "pages\tac\bones.hpp"
 	#include "pages\flir_bones.hpp"
 	#include "pages\nd_bones.hpp"
 	#include "pages\ccfs_bones.hpp"
@@ -28,9 +28,13 @@ class Draw {
 		#include "pages\pfd_draw.hpp"
 	}; // pfd
 	class tac {
-		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_TAC);
+		condition = "0";
 		#include "pages\tac_draw.hpp"
 	}; // tac
+	class tac_t2 {
+		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_TAC);
+		#include "pages\tac\base.hpp"
+	};
 	class jvmf {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_JVMF);
 		#include "pages\jvmf_draw.hpp"
@@ -51,5 +55,8 @@ class Draw {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_CCFS_MENU);
 		#include "pages\ccfs_menu_draw.hpp"
 	}; // nd
+	class grid {
+		#include "pages\grid_draw.hpp"
+	};
 	#include "pages\warning_overlay.hpp"
 }; // Draw

@@ -4,6 +4,11 @@
 class TAC_CENTER
 {
     type = "fixed";
+    pos[]={0.5,0.7};
+};
+class TAC_OFFSET_CENTER
+{
+    type = "fixed";
     pos[]={0.5,0.5};
 };
 class TAC_HeadingRotation {
@@ -21,7 +26,7 @@ class TAC_North {
 	type="rotational";
 	source="heading";
 	sourceScale = 1;
-	center[] = {0.5,0.5};
+	center[] = {BEZEL_XB2,BEZEL_Y5+0.1};
 	min = "0";
 	max = "360";
 	minAngle = 0;

@@ -5,11 +5,23 @@
  *
  * params (array)[(object) vehicle]
  */
+
+if (!isNil "test_fnc_slewTAC") exitWith {_this call test_fnc_slewTAC};
 params ["_vehicle"];
 
 private _world_size = [] call BIS_fnc_mapSize;
 private _zoomLevel = _vehicle getVariable ["MAP_ZoomMult", 1];
 private _coverage = (4000 * _zoomLevel) / ((_world_size / 2) * 1.49);
+
+private _cursorToMapFn = {
+	params ["_x", "_y"];
+	private _cursorToMap = [
+		(_x * _world_size * _coverage),
+		(_y * _world_size * _coverage * -1)
+	];
+	private _cursorToMapRotated = [_cursorToMap, -(getDir _vehicle)] call BIS_fnc_rotateVector2D;
+	getPos _vehicle vectorAdd [_cursorToMapRotated # 0, _cursorToMapRotated # 1, 0];
+};
 
 private _centerMode = _vehicle getVariable ["vtx_uh60_mfd_tac_center_mode", 0];
 private _center = switch (_centerMode) do {
@@ -33,11 +45,10 @@ private _center = switch (_centerMode) do {
 		vtx_uh60_mfd_tac_mapPos
 	};
 	case 3: {
-		vtx_uh60_mfd_tac_cursorPos = [
-			((vtx_uh60_mfd_tac_cursorPos # 0) - (vtx_uh60_mfd_slewX * 0.005)) max 0 min 1,
-			((vtx_uh60_mfd_tac_cursorPos # 1) + (vtx_uh60_mfd_slewY * 0.005)) max 0 min 1
-		];
-		vtx_uh60_mfd_tac_mapPos
+		private _cursorToMapRotated = [[0,_world_size / _zoomLevel * 0.15], -(getDir _vehicle)] call BIS_fnc_rotateVector2D;
+		getPos _vehicle vectorAdd [_cursorToMapRotated # 0, _cursorToMapRotated # 1, 0];
+	};
+	case 4: {
 	};
 };
 

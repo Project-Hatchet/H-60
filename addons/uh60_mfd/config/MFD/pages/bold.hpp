@@ -139,5 +139,6 @@ class Draw {
 	class tac {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_TAC);
 		#include "cautions\bold.hpp"
+		#include "tac\bold.hpp"
 	};
 };

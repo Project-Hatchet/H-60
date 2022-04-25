@@ -31,4 +31,7 @@ ias_max_rudderTorque = 800;
 vtx_uh60_lastRotorAnim = vehicle player animationPhase "hrotor";
 vtx_uh60_rotorRPM = 0;
 
+vtx_uh60_flightTime = 0;
+vtx_uh60_poweredTime = 0;
+
 true

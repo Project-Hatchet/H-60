@@ -154,6 +154,15 @@
         sourcePrecision = DECIMALS; \
 	};
 
+
+#define TEXT_LEFT_SCALED_SOURCE(CLASS,X,Y,SCALE,SOURCE,SOURCEINDEX,SOURCESCALE,DECIMALS) \
+	TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
+		source = SOURCE; \
+        sourceIndex = SOURCEINDEX; \
+		sourceScale = SOURCESCALE; \
+        sourcePrecision = DECIMALS; \
+	};
+
 #define TEXT_MID_SCALED_USERTEXT(CLASS,X,Y,IDX,SCALE) \
 	TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
 		source = "userText"; \
@@ -518,5 +527,47 @@
 		}; \
 	};
 
+    #define COLORED_POLYGON(CLASS,X,Y,W,H,COL) \
+        class CLASS { \
+            color[] = COL; \
+            class poly { \
+                type="polygon"; \
+                points[] ={ \
+                    { \
+                        {{X + 0, Y+0},1}, \
+                        {{X + W, Y+0},1}, \
+                        {{X + W, Y+H},1}, \
+                        {{X + 0, Y+H},1} \
+                    } \
+                }; \
+            }; \
+        };
+
+#define BEZEL_SPACE_Y 0.14
+#define BEZEL_Y1 0.2
+#define BEZEL_Y2 0.34
+#define BEZEL_Y3 0.49
+#define BEZEL_Y4 0.62
+#define BEZEL_Y5 0.76
+#define BEZEL_Y6 0.89
+
+#define BEZEL_SPACE_XT 0.105
+#define BEZEL_XT1 (0.14)
+#define BEZEL_XT2 (BEZEL_XT1+BEZEL_SPACE_XT*1)
+#define BEZEL_XT3 (BEZEL_XT1+BEZEL_SPACE_XT*2)
+#define BEZEL_XT4 (0.64)
+#define BEZEL_XT5 (BEZEL_XT4+BEZEL_SPACE_XT*1)
+#define BEZEL_XT6 (BEZEL_XT4+BEZEL_SPACE_XT*2)
+
+#define BEZEL_SPACE_XB 0.112
+#define BEZEL_XB1 (0.065)
+#define BEZEL_XB2 (BEZEL_XB1+BEZEL_SPACE_XB*1)
+#define BEZEL_XB3 (BEZEL_XB1+BEZEL_SPACE_XB*2)
+#define BEZEL_XB4 (0.72)
+#define BEZEL_XB5 (BEZEL_XB4+BEZEL_SPACE_XB*1)
+#define BEZEL_XB6 (BEZEL_XB4+BEZEL_SPACE_XB*2)
+
 #define MID_LINE_HEIGHT 0.06
 #define SMALL_LINE_HEIGHT 0.03
+
+#define NM_SCALE(SCALE) (1*0.75*0.000539957*SCALE)  
