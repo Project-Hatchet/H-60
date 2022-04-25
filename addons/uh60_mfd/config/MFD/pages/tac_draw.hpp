@@ -547,6 +547,10 @@ class AIRCRAFT_CENTERED_NORTH {
         }; \
     };
 
+class cautions {
+    #include "cautions\overlay.hpp"
+};
+
 class contextMenu {
     condition = "(user39>-1)";
     class black {

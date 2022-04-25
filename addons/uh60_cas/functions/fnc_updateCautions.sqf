@@ -34,15 +34,52 @@
 39
 */
 
+private _pylonLabels = [
+    "","","","","","","","","","","","","","","","" // first 15
+    ,"GEN 1 FAIL"
+    ,"HYD PUMP 1 FAIL"
+    ,""
+    ,"CHIP ENG 1"
+    ,"CHIP MAIN MDL SUMP"
+    ,"MAIN XMSN PRES"
+    ,"HULL INTEGRITY CRIT"
+    ,"BATT LOW"
+    ,"ENG 1 STARTER ON"
+    ,"GEN 2 FAIL"
+    ,"HYD PUMP 2"
+    ,"EGI FAIL"
+    ,"CHIP ENG 2"
+    ,"T/R SERVO 1 FAIL"
+    ,"T/R QUAD FAIL"
+    ,"APU FAIL"
+    ,"STAB FAIL"
+    ,"ENG 2 STARTER ON"
+    ,"STBY INST NOT ARMD"
+    ,"STAB FAIL"
+    ,"CMWS FAIL"
+    ,"FLIR FAIL"
+    ,""
+    ,""
+];
+
 params ["_vehicle"];
 if (!local _vehicle || missionNamespace getVariable ["vtx_uh60_mfd_eicas_testing", false]) exitWith {};
 
 _setPylonFn = {
     params ["_index", "_enable"];
-    [_vehicle, _index, if (_enable) then [{1}, {0}], true] call vtx_uh60_mfd_fnc_setPylonValue;
-    if (_enable) then {
-        systemChat str [vehicle player, if (_enable) then [{1}, {0}], _index, true] ;
-    }
+    private _return = [_vehicle, _index, if (_enable) then [{1}, {0}], true] call vtx_uh60_mfd_fnc_setPylonValue;
+    if (_return == 2) then {
+        vtx_uh60_cas_cautionsUnacked = vtx_uh60_cas_cautionsUnacked + 1;
+        vtx_uh60_cas_cautionsLog = [_pylonLabels # _index] + vtx_uh60_cas_cautionsLog;
+    };
+    if (_return == 0) then {
+        private _string = _pylonLabels # _index;
+        vtx_uh60_cas_cautionsLog deleteAt (vtx_uh60_cas_cautionsLog find _string);
+        vtx_uh60_cas_cautionsUnacked = vtx_uh60_cas_cautionsUnacked min (count vtx_uh60_cas_cautionsLog);
+    };
+    if (_return > -1) then {
+        [_vehicle,(_return > 0)] call vtx_uh60_cas_fnc_updateOverlayList;
+    };
 };
 
 // GEN 1 GEN 2 HYD 1 HYD 2

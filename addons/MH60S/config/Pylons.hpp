@@ -27,7 +27,7 @@ class TransportPylonsComponent {
                 hardpoints[] = {}; \
                 UIposition[] = {10, 10}; \
             };
-        DUMMY_PYLON(dummy3)
+        DUMMY_PYLON(dummy3) // CAS OVERLAY
         DUMMY_PYLON(dummy4)
         DUMMY_PYLON(dummy5)
         DUMMY_PYLON(dummy6)

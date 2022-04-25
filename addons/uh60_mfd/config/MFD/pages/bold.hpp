@@ -19,7 +19,7 @@ class Bones {
 class Draw {
 	#define EICAS_LINE_SPACING 0.035
 	#define EICAS_LINE_HEIGHT 0.04
-		
+	#define EICAS_LINE_EXPAND 0.003
 	#define EICAS_LINE_TAPE(CNAME,X,Y) \
 		class CNAME { \
 			color[] = common_yellow; \
@@ -27,10 +27,10 @@ class Draw {
 				type        = "polygon"; \
 				points[] ={ \
 					{ \
-						{{X-0.01,   Y+0.01},1}, \
-						{{X+0.275, Y+0.01},1}, \
-						{{X+0.275, Y+EICAS_LINE_SPACING-0.0},1}, \
-						{{X-0.01,   Y+EICAS_LINE_SPACING-0.0},1} \
+						{{X-0.01,   Y+0.01-EICAS_LINE_EXPAND},1}, \
+						{{X+0.275, Y+0.01-EICAS_LINE_EXPAND},1}, \
+						{{X+0.275, Y+EICAS_LINE_SPACING+EICAS_LINE_EXPAND},1}, \
+						{{X-0.01,   Y+EICAS_LINE_SPACING+EICAS_LINE_EXPAND},1} \
 					} \
 				}; \
 			}; \
@@ -136,4 +136,8 @@ class Draw {
 		// 	TEXT_LEFT_SCALED(Right_2_5,0.69,0.7+(EICAS_LINE_SPACING*5),"",EICAS_LINE_HEIGHT)
 		// }; // texts
 	}; // eicas
+	class tac {
+		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_TAC);
+		#include "cautions\bold.hpp"
+	};
 };
