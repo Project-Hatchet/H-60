@@ -125,5 +125,4 @@ if (isEngineOn _heli) then {
                             \nDmg = %5", _pctNR, _engPctTQ, _dmgTimerCont, _dmgTimerTrans, _totRtrDmg];
         */
     };
-    [_heli] call vtx_uh60_cas_fnc_updateCautions;
 };

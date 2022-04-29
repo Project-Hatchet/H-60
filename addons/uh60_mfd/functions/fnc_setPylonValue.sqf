@@ -32,6 +32,8 @@ if (local _vehicle && {"vtx_pylon_mfd" in weapons _vehicle}) then {
   _vehicle removeWeapon "vtx_pylon_mfd";
 };
 
-[_vehicle] call vtx_uh60_mfd_fnc_storePylons;
+if (_changedPylon > -1) then {
+  [_vehicle] call vtx_uh60_mfd_fnc_storePylons;
+};
 
 _changedPylon
