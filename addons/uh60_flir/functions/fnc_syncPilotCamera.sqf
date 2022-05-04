@@ -15,7 +15,7 @@
 
 params ["_rot_dir", "_target", ["_targetObject", objNull], ["_immediate", false]];
 
-vtx_uh60_flir_pilotCameraTarget = getPilotCameraTarget vxf_vehicle;
+vtx_uh60_flir_pilotCameraTarget = getPilotCameraTarget htf_vehicle;
 if (vtx_uh60_flir_pilotCameraTarget # 0) then {
   vtx_uh60_flir_pilotCameraTarget set [2, _targetObject];
 };

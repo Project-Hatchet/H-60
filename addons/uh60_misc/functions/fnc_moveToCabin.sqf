@@ -9,7 +9,7 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [vxf_vehicle] call vtx_uh60_misc_fnc_moveToCabin
+ * [htf_vehicle] call vtx_uh60_misc_fnc_moveToCabin
  */
 
 params ["_vehicle"];
@@ -21,7 +21,7 @@ scopeName "main";
 
 {
   if (isNull (_vehicle turretUnit _x)) then {
-    player action ["moveToTurret", vxf_vehicle, _x];
+    player action ["moveToTurret", htf_vehicle, _x];
     true breakOut "main";
   };
 } count _allTurrets;

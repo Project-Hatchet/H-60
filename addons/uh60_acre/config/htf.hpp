@@ -1,4 +1,4 @@
-class vxf_driver: vxf_driver {
+class htf_driver: htf_driver {
     class modules: modules {
         class acre {
             startOnEnter = 1;
@@ -58,13 +58,13 @@ class vxf_driver: vxf_driver {
                 animStates[] = {0, 0.091, 0.182, 0.273, 0.364};
                 animLabels[] = {"ICS", "1", "2", "3", "4"};
                 animEnd="";
-                clickSound="vxf_Switch_Sound";
+                clickSound="htf_Switch_Sound";
             }; // knob_tx
         }; // acreConfig
     }; // interaction
 }; // pilot
 
-class vxf_copilot: vxf_copilot {
+class htf_copilot: htf_copilot {
     class modules: modules {
         class acre {
             startOnEnter = 1;

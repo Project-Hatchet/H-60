@@ -9,17 +9,17 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [vxf_vehicle] call vtx_uh60_misc_fnc_moveToCockpit
+ * [htf_vehicle] call vtx_uh60_misc_fnc_moveToCockpit
  */
 
 params ["_vehicle"];
 
 if (isNull (_vehicle turretUnit [0])) exitWith {
-  player action ["moveToTurret", vxf_vehicle, [0]];
+  player action ["moveToTurret", htf_vehicle, [0]];
   true
 };
 if (isNull driver _vehicle) exitWith {
-  player action ["moveToDriver", vxf_vehicle];
+  player action ["moveToDriver", htf_vehicle];
   true
 };
 

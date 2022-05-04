@@ -4,7 +4,7 @@
         position= BTN_VAL; \
         label=LABEL; \
         radius=0.025; \
-        clickSound="vxf_Switch_Sound_2";
+        clickSound="htf_Switch_Sound_2";
 
 #define USERVAL(INDEX,VAL) QUOTE(((getUserMFDValue _this) select INDEX) == VAL)
 #define MAINPAGE(INDEX,VAL) QUOTE((((getUserMFDValue _this) select INDEX) > (VAL - 0.01)) && (((getUserMFDValue _this) select INDEX) < (VAL + 0.99)))
@@ -85,9 +85,9 @@ class jvmf {
 
 class flir {
     condition= USERVAL(MFD_PAGE_INDEX,MFD_PAGE_FLIR);
-    MFD_BTN(MFD_4,QUOTE(WPT)) buttonUp="[vxf_vehicle] call vtx_uh60_flir_fnc_mfdWaypoint"; };
-    MFD_BTN(MFD_5,QUOTE(NAV)) buttonUp="[vxf_vehicle] call vtx_uh60_flir_fnc_mfdNav"; };
-    MFD_BTN(MFD_6,QUOTE(SLG)) buttonUp="[vxf_vehicle] call vtx_uh60_mfd_fnc_slingCam"; };
+    MFD_BTN(MFD_4,QUOTE(WPT)) buttonUp="[htf_vehicle] call vtx_uh60_flir_fnc_mfdWaypoint"; };
+    MFD_BTN(MFD_5,QUOTE(NAV)) buttonUp="[htf_vehicle] call vtx_uh60_flir_fnc_mfdNav"; };
+    MFD_BTN(MFD_6,QUOTE(SLG)) buttonUp="[htf_vehicle] call vtx_uh60_mfd_fnc_slingCam"; };
     MFD_BTN(MFD_15,QUOTE(IVHMS)) buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage); };
 };
 

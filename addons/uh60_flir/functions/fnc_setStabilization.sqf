@@ -25,14 +25,14 @@ params [
 vtx_uh60_flir_pilotCameraTarget params ["_isTracking", "", "_trackObj"];
 
 if (_camPosASL isEqualTo []) then {
-  _camPosASL = AGLToASL (vxf_vehicle modelToWorldVisual (vtx_uh60_flir_camPos));
+  _camPosASL = AGLToASL (htf_vehicle modelToWorldVisual (vtx_uh60_flir_camPos));
 };
 if (_tgtPosASL in [[0, 0, 0], []]) then {
-  private _flirDir = vxf_vehicle vectorModelToWorldVisual (getPilotCameraDirection vxf_vehicle);
+  private _flirDir = htf_vehicle vectorModelToWorldVisual (getPilotCameraDirection htf_vehicle);
   _tgtPosASL = _camPosASL vectorAdd (_flirDir vectorMultiply worldSize);
 };
 
-private _intersections = lineIntersectsSurfaces [_camPosASL, _tgtPosASL, vxf_vehicle];
+private _intersections = lineIntersectsSurfaces [_camPosASL, _tgtPosASL, htf_vehicle];
 private _target = objNull;
 private _targetObject = objNull;
 if (_intersections isEqualTo []) then {
@@ -60,7 +60,7 @@ if (_intersections isEqualTo []) then {
   };
 };
 
-vxf_vehicle setPilotCameraTarget _target;
+htf_vehicle setPilotCameraTarget _target;
 
 [[], _target, _targetObject] call vtx_uh60_flir_fnc_syncPilotCamera;
 

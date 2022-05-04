@@ -54,7 +54,7 @@ TEXT_MID_SCALED_USERTEXT(DATE,0.5,0.33,4,0.035)
 
 
 /*
-private _modules = vehicle player getVariable "vxf_modules";
+private _modules = vehicle player getVariable "htf_modules";
 _mods =_modules apply {(_x # 0) + (if (_x # 1) then [{"/ACT"},{"/STB"}])} joinString " | ";
 [ 
 _mods select [0,62], 
@@ -74,7 +74,7 @@ TEXT_LEFT_SCALED_USERTEXT(MODULES2,0.1,0.66,6,0.035)
 TEXT_LEFT_SCALED_USERTEXT(MODULES3,0.1,0.69,7,0.035)
 
 // TEXT_MID_SCALED(AFM,1-0.25,0.4,"ADVANCED FLIGHT MODEL",0.035)
-// TEXT_MID_SCALED(CONFIG,1-0.25,0.43,"VXF_DRIVER",0.035)
+// TEXT_MID_SCALED(CONFIG,1-0.25,0.43,"htf_DRIVER",0.035)
 // TEXT_MID_SCALED(CONFIG1,0.25,0.4+(0.03*0),"Arma3 207",0.035)
 // TEXT_MID_SCALED(CONFIG2,0.25,0.4+(0.03*1),"148579 Diag",0.035)
 // TEXT_MID_SCALED(CONFIG3,0.25,0.4+(0.03*2),"Windows x64",0.035)

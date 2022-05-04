@@ -1,7 +1,7 @@
 class CfgVehicles {
     class Heli_Transport_01_base_F;
     class vtx_H60_base: Heli_Transport_01_base_F {
-        class vxf_turret_1 {
+        class htf_turret_1 {
             projectPrefix = "vtx_uh60";
             class modules {
                 class doorguns {
@@ -18,10 +18,10 @@ class CfgVehicles {
                     label="";
                     radius=0.08;
                     buttonUp="hint format[""%1 Rounds remaining"", (_this # 0) magazineTurretAmmo [""vtx_2000Rnd_65x39_Belt_Tracer_Red"", [1]]];";
-                    clickSound="vxf_Switch_Sound";
+                    clickSound="htf_Switch_Sound";
                 }; // ammoCan
                 class toCockpit {
-                  condition = "isNull driver vxf_vehicle || {isNull (vxf_vehicle turretUnit [0])}";
+                  condition = "isNull driver htf_vehicle || {isNull (htf_vehicle turretUnit [0])}";
                   positionType = "coordinates";
                   position[] = POS_MOVE_CABIN_COCKPIT;
                   label = "Move To Cockpit";
@@ -36,7 +36,7 @@ class CfgVehicles {
                         label="Safety on";
                         radius=0.08;
                         buttonUp="[(_this # 0), false, ""l""] call vtx_uh60_doorguns_fnc_coverSwitch;";
-                        clickSound="vxf_Switch_Sound";
+                        clickSound="htf_Switch_Sound";
                     }; // safetyCover
                     class powerOn {
                         condition="(_this animationPhase ""Switch_minigun_safe_l"") > 0.5";
@@ -46,7 +46,7 @@ class CfgVehicles {
                             label="Power off";
                             radius=0.08;
                             buttonUp="[(_this # 0), false, ""l""] call vtx_uh60_doorguns_fnc_powerSwitch;";
-                            clickSound="vxf_Switch_Sound";
+                            clickSound="htf_Switch_Sound";
                         }; // powerButton
                     }; // powerOn
                     class powerOff {
@@ -57,7 +57,7 @@ class CfgVehicles {
                             label="Power on";
                             radius=0.08;
                             buttonUp="[(_this # 0), true, ""l""] call vtx_uh60_doorguns_fnc_powerSwitch;";
-                            clickSound="vxf_Switch_Sound";
+                            clickSound="htf_Switch_Sound";
                         }; // powerButton
                     }; // powerOff
                 }; // coverUp
@@ -69,12 +69,12 @@ class CfgVehicles {
                         label="Safety cover up";
                         radius=0.08;
                         buttonUp="[(_this # 0), true, ""l""] call vtx_uh60_doorguns_fnc_coverSwitch;";
-                        clickSound="vxf_Switch_Sound";
+                        clickSound="htf_Switch_Sound";
                     }; // safetyCover
                 }; // coverDown
             }; // interaction
-        }; // vxf_gunner
-        class vxf_turret_2 {
+        }; // htf_gunner
+        class htf_turret_2 {
             projectPrefix = "vtx_uh60";
             class modules {
                 class doorguns {
@@ -91,10 +91,10 @@ class CfgVehicles {
                     label="";
                     radius=0.08;
                     buttonUp="hint format[""%1 Rounds remaining"", (_this # 0) magazineTurretAmmo [""vtx_2000Rnd_65x39_Belt_Tracer_Red"", [2]]];";
-                    clickSound="vxf_Switch_Sound";
+                    clickSound="htf_Switch_Sound";
                 }; // ammoCan
                 class toCockpit {
-                  condition = "isNull driver vxf_vehicle || {isNull (vxf_vehicle turretUnit [0])}";
+                  condition = "isNull driver htf_vehicle || {isNull (htf_vehicle turretUnit [0])}";
                   positionType = "coordinates";
                   position[] = POS_MOVE_CABIN_COCKPIT;
                   label = "Move To Cockpit";
@@ -109,7 +109,7 @@ class CfgVehicles {
                         label="Safety on";
                         radius=0.08;
                         buttonUp="[(_this # 0), false, ""r""] call vtx_uh60_doorguns_fnc_coverSwitch;";
-                        clickSound="vxf_Switch_Sound";
+                        clickSound="htf_Switch_Sound";
                     }; // safetyCover
                     class powerOn {
                         condition="(_this animationPhase ""Switch_minigun_safe_r"") > 0.5";
@@ -119,7 +119,7 @@ class CfgVehicles {
                             label="Power off";
                             radius=0.08;
                             buttonUp="[(_this # 0), false, ""r""] call vtx_uh60_doorguns_fnc_powerSwitch;";
-                            clickSound="vxf_Switch_Sound";
+                            clickSound="htf_Switch_Sound";
                         }; // powerButton
                     }; // powerOn
                     class powerOff {
@@ -130,7 +130,7 @@ class CfgVehicles {
                             label="Power on";
                             radius=0.08;
                             buttonUp="[(_this # 0), true, ""r""] call vtx_uh60_doorguns_fnc_powerSwitch;";
-                            clickSound="vxf_Switch_Sound";
+                            clickSound="htf_Switch_Sound";
                         }; // powerButton
                     }; // powerOff
                 }; // coverUp
@@ -142,10 +142,10 @@ class CfgVehicles {
                         label="Safety cover up";
                         radius=0.08;
                         buttonUp="[(_this # 0), true, ""r""] call vtx_uh60_doorguns_fnc_coverSwitch;";
-                        clickSound="vxf_Switch_Sound";
+                        clickSound="htf_Switch_Sound";
                     }; // safetyCover
                 }; // coverDown
             }; // interaction
-        }; // vxf_gunner
+        }; // htf_gunner
     }; // vtx_H60_base
 }; // CfgVehicles

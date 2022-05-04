@@ -3,7 +3,7 @@
  */
 params ["_action", "_value"];
 private _vehicle = vehicle player;
-if (!([_vehicle, "mfd", "vtx_H60_base"] call vxf_core_fnc_hasModule)) exitWith {};
+if (!([_vehicle, "mfd", "vtx_H60_base"] call htf_core_fnc_hasModule)) exitWith {};
 
 private _mfdState = (getUserMFDValue _vehicle) # 39;
 if (_action == "slewX" || _action == "slewY") exitWith {

@@ -10,7 +10,7 @@
 
 params ["_vehicle", "_show"];
 
-if ([_vehicle, "doorguns"] call vxf_core_fnc_hasModule) exitWith {
+if ([_vehicle, "doorguns"] call htf_core_fnc_hasModule) exitWith {
     _this call vtx_uh60_doorguns_fnc_showHelp;
     CTRL(4001122) ctrlShow (_show);
     CTRL(4001121) ctrlShow false;

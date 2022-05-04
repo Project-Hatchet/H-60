@@ -24,19 +24,19 @@ class cfgVehicles {
     // HELICOPTER
     class Helicopter_Base_F;
     class Helicopter_Base_H: Helicopter_Base_F{
-        class vxf_driver;
-        class vxf_copilot;
+        class htf_driver;
+        class htf_copilot;
     }; // Helicopter_Base_H
     class Heli_Transport_01_base_F: Helicopter_Base_H {
-        class vxf_driver: vxf_driver {
+        class htf_driver: htf_driver {
             class modules;
-        }; // vxf_driver
-        class vxf_copilot: vxf_copilot {
+        }; // htf_driver
+        class htf_copilot: htf_copilot {
             class modules;
-        }; // vxf_copilot
+        }; // htf_copilot
     }; // Heli_Transport_01_base_F
     class vtx_H60_base: Heli_Transport_01_base_F {
-        class vxf_driver: vxf_driver {
+        class htf_driver: htf_driver {
             class modules: modules {
                 class aar {
                     startOnEnter = 1;
@@ -45,8 +45,8 @@ class cfgVehicles {
                     fillRate = 0.016;
                 }; // fms
             }; // modules
-        }; // vxf_driver
-        class vxf_copilot: vxf_copilot {
+        }; // htf_driver
+        class htf_copilot: htf_copilot {
             class modules: modules {
                 class aar {
                     startOnEnter = 1;
@@ -55,6 +55,6 @@ class cfgVehicles {
                     fillRate = 0.016;
                 }; // fms
             }; // modules
-        }; // vxf_copilot
+        }; // htf_copilot
     }; // vtx_H60_base
 };

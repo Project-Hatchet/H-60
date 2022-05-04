@@ -8,6 +8,6 @@
 
 params ["_vehicle"];
 
-["vxf_unPause", vtx_uh60_ui_keybindUpdateEvent] call CBA_fnc_removeEventHandler;
+["htf_unPause", vtx_uh60_ui_keybindUpdateEvent] call CBA_fnc_removeEventHandler;
 
 player hideObject false;

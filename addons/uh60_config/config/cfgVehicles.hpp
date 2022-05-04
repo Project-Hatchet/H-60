@@ -104,8 +104,8 @@ class CfgVehicles {
       #include "..\..\UH60\config\turrets\cargoTurrets.hpp"
     };
     #include "..\..\UH60\config\vehicleTransport.hpp"
-    class vxf_turret_1 {};
-    class vxf_turret_2 {};
+    class htf_turret_1 {};
+    class htf_turret_2 {};
   };
 
   class vtx_UH60M_SLICK: vtx_H60_base {
