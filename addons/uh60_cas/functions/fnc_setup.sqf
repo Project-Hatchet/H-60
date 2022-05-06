@@ -7,7 +7,7 @@
  */
 
 params ["_vehicle"];
-if (!vtx_uh60m_enabled_cas) exitWith {false};
+if (vtx_uh60m_disabled_cas) exitWith {false};
 #define SET_GLOBAL_DEFAULT(VAR,DEFAULT) _vehicle setVariable [VAR, _vehicle getVariable [VAR, DEFAULT], true];
 #define SET_DEFAULT(VAR,DEFAULT) _vehicle setVariable [VAR, _vehicle getVariable [VAR, DEFAULT]];
 SET_GLOBAL_DEFAULT("vtx_cas_list",[])

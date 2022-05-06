@@ -7,7 +7,7 @@
  */
 
 params ["_vehicle"];
-if (!vtx_uh60m_enabled_engine) exitWith {false};
+if (vtx_uh60m_disabled_engine) exitWith {false};
 
 vtx_uh60_engine_engineEH = _vehicle addEventHandler ["engine", vtx_uh60_engine_fnc_engineEH];
 vtx_uh60_engine_lastFuelLevel = fuel _vehicle;
