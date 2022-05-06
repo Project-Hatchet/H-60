@@ -60,3 +60,12 @@
     true, // data for this setting: [min, max, default, number of shown trailing decimals]
     true // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 ] call CBA_fnc_addSetting;
+
+	"vtx_uh60m_disabled_flir",
+	"CHECKBOX",
+	"(DEBUG) Disable FLIR",
+	["UH-60M","Debug"],
+	[false],
+	nil,
+	{}
+] call CBA_Settings_fnc_init;
