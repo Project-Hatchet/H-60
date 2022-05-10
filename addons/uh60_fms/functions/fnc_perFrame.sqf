@@ -12,7 +12,7 @@ params ["_vehicle", "_frameTime"];
 #define HELP_LABEL(MEMPOINT,LABEL) drawIcon3D ["\a3\ui_f\data\IGUI\Cfg\Cursors\selected_ca.paa",[0,1,0,1],_vehicle modelToWorldVisual (_vehicle selectionPosition MEMPOINT),1,1,0,LABEL,2,0.045];
 #define HELP_LABEL_COND(MEMPOINT,LABEL,COND) drawIcon3D ["\a3\ui_f\data\IGUI\Cfg\Cursors\selected_ca.paa",(if(COND)then{[0,1,0,1]}else{[1,0,0,1]}),_vehicle modelToWorldVisual (_vehicle selectionPosition MEMPOINT),1,1,0,LABEL,2,0.045,"RobotoCondensed","center",true];
 
-if (missionNamespace getVariable ["vtx_uh60m_enabled_waypts", false]) then {
+if (!(missionNamespace getVariable ["vtx_uh60m_disabled_waypts", false])) then {
     _this call vtx_uh60_fms_fnc_updateWaypointInfo;
 };
 
