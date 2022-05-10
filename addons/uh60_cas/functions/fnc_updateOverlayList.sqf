@@ -1,4 +1,10 @@
-params ["_vehicle", "_canOpen"];
+/*
+ * vtx_uh60_cas_fnc_updateOverlayList
+ */
+params ["_vehicle", ["_canOpen", false], ["_hide", false]];
+if (_hide) exitWith {
+	[_vehicle, 3, 0] call vtx_uh60_mfd_fnc_setPylonValue;
+};
 if (count vtx_uh60_cas_cautionsLog == 0) exitWith {
 	[_vehicle, 3, 0] call vtx_uh60_mfd_fnc_setPylonValue;
 };

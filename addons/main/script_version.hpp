@@ -1,7 +1,7 @@
 #define MAJOR 0
 #define MINOR 5
 #define PATCHLVL 2
-#define BUILD 40
-#define RELEASENAME "ARCADE"
-#define BRANCH MAIN
-#define BUILDHASH 4373546f
+#define BUILD 41
+#define RELEASENAME HATCHET-QA-29APR22
+#define BRANCH PFD
+#define BUILDHASH cd72b81d

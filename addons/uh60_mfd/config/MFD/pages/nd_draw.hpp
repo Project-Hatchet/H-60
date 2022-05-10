@@ -574,6 +574,44 @@ class SUBPAGE_HOVER {
 	TEXT_MID_MID(MODE_SELECTOR,0.25,0.05,"HOVER")
 };
 
+#define VERT_TEXT_SPACING 0.035
+class caution {
+	condition = "pylonAmmo3 > 0";
+	color[] = common_black;
+	COLORED_POLYGON(CNCL,(0.985-0.02),(BEZEL_Y3-0.07),0.02,(VERT_TEXT_SPACING*4),common_black)
+	COLORED_POLYGON(PAGE,(0.985-0.02),(BEZEL_Y5+0.02),0.02,(VERT_TEXT_SPACING*4),common_black)
+	class white {
+		color[] = common_white;
+		TEXT_LEFT_SCALED(L1,(0.985-0.02+0.005),(BEZEL_Y3-0.07),"C",TAC_LINE_HEIGHT)
+		TEXT_LEFT_SCALED(L2,(0.985-0.02+0.005),(BEZEL_Y3-0.07+VERT_TEXT_SPACING*1),"N",TAC_LINE_HEIGHT)
+		TEXT_LEFT_SCALED(L3,(0.985-0.02+0.005),(BEZEL_Y3-0.07+VERT_TEXT_SPACING*2),"C",TAC_LINE_HEIGHT)
+		TEXT_LEFT_SCALED(L4,(0.985-0.02+0.005),(BEZEL_Y3-0.07+VERT_TEXT_SPACING*3),"L",TAC_LINE_HEIGHT)
+		
+		TEXT_LEFT_SCALED(L5,(0.985-0.02+0.005),(BEZEL_Y5+0.02),"P",TAC_LINE_HEIGHT)
+		TEXT_LEFT_SCALED(L6,(0.985-0.02+0.005),(BEZEL_Y5+0.02+VERT_TEXT_SPACING*1),"A",TAC_LINE_HEIGHT)
+		TEXT_LEFT_SCALED(L7,(0.985-0.02+0.005),(BEZEL_Y5+0.02+VERT_TEXT_SPACING*2),"G",TAC_LINE_HEIGHT)
+		TEXT_LEFT_SCALED(L8,(0.985-0.02+0.005),(BEZEL_Y5+0.02+VERT_TEXT_SPACING*3),"E",TAC_LINE_HEIGHT)
+		class border {
+            type="line";
+            width = 2;
+            points[] ={
+                {{(0.985-0.02),(BEZEL_Y3-0.07)},1},
+                {{(0.985-0.00),(BEZEL_Y3-0.07)},1},
+                {{(0.985-0.00),(BEZEL_Y3-0.07+(VERT_TEXT_SPACING*4))},1},
+                {{(0.985-0.02),(BEZEL_Y3-0.07+(VERT_TEXT_SPACING*4))},1},
+                {{(0.985-0.02),(BEZEL_Y3-0.07)},1}, {},
+				
+                {{(0.985-0.02),(BEZEL_Y5+0.02)},1},
+                {{(0.985-0.00),(BEZEL_Y5+0.02)},1},
+                {{(0.985-0.00),(BEZEL_Y5+0.02+(VERT_TEXT_SPACING*4))},1},
+                {{(0.985-0.02),(BEZEL_Y5+0.02+(VERT_TEXT_SPACING*4))},1},
+                {{(0.985-0.02),(BEZEL_Y5+0.02)},1}, {},
+            };
+		};
+	};
+	#include "cautions\overlay.hpp"
+};
+
 
 #define BOTTOM_TEXT_Y 0.96
 TEXT_LEFT_SMALL(B1,0.095,BOTTOM_TEXT_Y,"PFD")

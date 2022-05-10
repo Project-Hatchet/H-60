@@ -141,4 +141,8 @@ class Draw {
 		#include "cautions\bold.hpp"
 		#include "tac\bold.hpp"
 	};
+	class nd {
+		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_ND);
+		#include "cautions\bold.hpp"
+	};
 };

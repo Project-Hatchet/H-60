@@ -154,6 +154,7 @@ class caution {
 };
 
 #include "textboxes.hpp"
+#include "slewControls.hpp"
 #include "misc.hpp"
 
 class bottom {

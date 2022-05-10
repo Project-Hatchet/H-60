@@ -115,4 +115,8 @@ class Draw {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_TAC);
 		#include "cautions\monospace.hpp"
 	};
+	class nd {
+		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_ND);
+		#include "cautions\monospace.hpp"
+	};
 };

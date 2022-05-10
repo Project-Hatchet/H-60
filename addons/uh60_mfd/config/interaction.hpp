@@ -67,28 +67,36 @@ class eicas {
 
 class tac {
     condition= USERVAL(MFD_PAGE_INDEX,MFD_PAGE_TAC);
-    MFD_BTN(MFD_4,QUOTE(Center mode)) buttonUp="[vehicle player,'centerMode'] call vtx_uh60_mfd_fnc_interaction_tac;"; };
-    MFD_BTN(MFD_5,QUOTE(Slew left))
-        buttonDown ="vtx_uh60_mfd_slewX =-1";
-        buttonUp   ="vtx_uh60_mfd_slewX = 0";
+    // MFD_BTN(MFD_4,QUOTE(Center mode)) buttonUp="[vehicle player,'centerMode'] call vtx_uh60_mfd_fnc_interaction_tac;"; };
+    // MFD_BTN(MFD_5,QUOTE(Slew left))
+    //     buttonDown ="vtx_uh60_mfd_slewX =-1";
+    //     buttonUp   ="vtx_uh60_mfd_slewX = 0";
+    // };
+    // MFD_BTN(MFD_6,QUOTE(Slew right))
+    //     buttonDown ="vtx_uh60_mfd_slewX = 1";
+    //     buttonUp   ="vtx_uh60_mfd_slewX = 0";
+    // };
+    // MFD_BTN(MFD_7,QUOTE(Slew up))
+    //     buttonDown ="vtx_uh60_mfd_slewY = 1";
+    //     buttonUp   ="vtx_uh60_mfd_slewY = 0";
+    // };
+    // MFD_BTN(MFD_8,QUOTE(Slew down))
+    //     buttonDown ="vtx_uh60_mfd_slewY =-1";
+    //     buttonUp   ="vtx_uh60_mfd_slewY = 0";
+    // };
+    // MFD_BTN(MFD_9,QUOTE(Mark Waypoint)) buttonUp="[vehicle player,'waypt'] call vtx_uh60_mfd_fnc_interaction_tac;"; };
+    // MFD_BTN(MFD_10,QUOTE(Slew FLIR)) buttonUp="[vehicle player,'flir'] call vtx_uh60_mfd_fnc_interaction_tac;"; };
+    // MFD_BTN(MFD_15,QUOTE(FLIR)) buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_FLIR, true)] call vtx_uh60_mfd_fnc_switchPage); };
+    // MFD_BTN(MFD_20,QUOTE(Zoom out)) buttonUp="[vehicle player,'zoom', -1] call vtx_uh60_mfd_fnc_interaction_tac;"; };
+    // MFD_BTN(MFD_21,QUOTE(Zoom in)) buttonUp="[vehicle player,'zoom', 1] call vtx_uh60_mfd_fnc_interaction_tac;"; };
+    class RegularRightPanel {
+        condition = "(_this ammoOnPylon 3) == 0";
+        MFD_BTN(MFD_9,QUOTE(Test)) buttonUp="[vehicle player,'false', true] call vtx_uh60_cas_fnc_updateOverlayList;"; };
     };
-    MFD_BTN(MFD_6,QUOTE(Slew right))
-        buttonDown ="vtx_uh60_mfd_slewX = 1";
-        buttonUp   ="vtx_uh60_mfd_slewX = 0";
+    class CASOverlayOpen {
+        condition = "(_this ammoOnPylon 3) > 0";
+        MFD_BTN(MFD_9,QUOTE(Hide CAS Display)) buttonUp="[vehicle player,'false', true] call vtx_uh60_cas_fnc_updateOverlayList;"; };
     };
-    MFD_BTN(MFD_7,QUOTE(Slew up))
-        buttonDown ="vtx_uh60_mfd_slewY = 1";
-        buttonUp   ="vtx_uh60_mfd_slewY = 0";
-    };
-    MFD_BTN(MFD_8,QUOTE(Slew down))
-        buttonDown ="vtx_uh60_mfd_slewY =-1";
-        buttonUp   ="vtx_uh60_mfd_slewY = 0";
-    };
-    MFD_BTN(MFD_9,QUOTE(Mark Waypoint)) buttonUp="[vehicle player,'waypt'] call vtx_uh60_mfd_fnc_interaction_tac;"; };
-    MFD_BTN(MFD_10,QUOTE(Slew FLIR)) buttonUp="[vehicle player,'flir'] call vtx_uh60_mfd_fnc_interaction_tac;"; };
-    MFD_BTN(MFD_15,QUOTE(FLIR)) buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_FLIR, true)] call vtx_uh60_mfd_fnc_switchPage); };
-    MFD_BTN(MFD_20,QUOTE(Zoom out)) buttonUp="[vehicle player,'zoom', -1] call vtx_uh60_mfd_fnc_interaction_tac;"; };
-    MFD_BTN(MFD_21,QUOTE(Zoom in)) buttonUp="[vehicle player,'zoom', 1] call vtx_uh60_mfd_fnc_interaction_tac;"; };
 };
 
 class jvmf {
@@ -139,8 +147,15 @@ class nd {
         };
     };
     
-    MFD_BTN(MFD_9,QUOTE(Next Waypoint)) buttonUp="[vehicle player,""cycle"", 1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
-    MFD_BTN(MFD_10,QUOTE(Previous Waypoint)) buttonUp="[vehicle player,""cycle"", -1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
+    class RegularRightPanel {
+        condition = "(_this ammoOnPylon 3) == 0";
+        MFD_BTN(MFD_9,QUOTE(Next Waypoint)) buttonUp="[vehicle player,""cycle"", 1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
+        MFD_BTN(MFD_10,QUOTE(Previous Waypoint)) buttonUp="[vehicle player,""cycle"", -1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
+    };
+    class CASOverlayOpen {
+        condition = "(_this ammoOnPylon 3) > 0";
+        MFD_BTN(MFD_9,QUOTE(Hide CAS Display)) buttonUp="[vehicle player,'false', true] call vtx_uh60_cas_fnc_updateOverlayList;"; };
+    };
     MFD_BTN(MFD_15,QUOTE(IVHMS)) buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage); };
 };
 
