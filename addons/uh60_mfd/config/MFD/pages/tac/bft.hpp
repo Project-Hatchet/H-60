@@ -152,13 +152,12 @@
 class BFT
 {
     type = sensor;
-	#ifdef SENSOR_SIZE
-		#undef SENSOR_SIZE
-	#endif
     // #define SENSOR_SIZE(numb)\
     //     pos[]	= {{0,0}, 1};\
     //     down[]	= {{1,1}, 1};
     // SENSOR_SIZE(-0.01)
+	//pos[]	= {{0,-0.15}, 1};
+	//down[]	= {{1, 1.15}, 1};
 	pos[]	= {{0,-0.15}, 1};
 	down[]	= {{1, 1.15}, 1};
 

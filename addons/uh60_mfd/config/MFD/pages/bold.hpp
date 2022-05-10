@@ -51,6 +51,34 @@ class Draw {
 			}; \
 		};
 
+	
+	#define BOLD_LINE_EXPAND 0.003
+	#define BOLD_LINE_TAPE(CNAME,X,Y,W,H,COLOR) \
+		class CNAME { \
+			color[] = COLOR; \
+			class Polygon { \
+				type        = "polygon"; \
+				points[] ={ \
+					{ \
+						{{X,   Y+0.01-BOLD_LINE_EXPAND},1}, \
+						{{X+W, Y+0.01-BOLD_LINE_EXPAND},1}, \
+						{{X+W, Y+H+BOLD_LINE_EXPAND},1}, \
+						{{X,   Y+H+BOLD_LINE_EXPAND},1} \
+					} \
+				}; \
+			}; \
+		};
+
+	#define INVERTED_VIDEO_LINE(CNAME,X,Y,W,H,TEXT,COLOR) \
+		class CNAME { \
+			color[] = COLOR; \
+			BOLD_LINE_TAPE(TAPE,X,Y,W,H-0.005,COLOR) \
+			class black { \
+				color[] = common_black; \
+				TEXT_LEFT_SCALED(Left_0_0,X+0.01,Y,TEXT,H) \
+			}; \
+		};
+
 	class eicas {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_EICAS);
 		EICAS_LINE(Left_0_0,0.05,0.02+(EICAS_LINE_SPACING*0),pylonAmmo16,"GEN 1 FAIL")

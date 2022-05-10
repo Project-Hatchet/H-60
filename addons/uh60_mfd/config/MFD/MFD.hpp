@@ -27,11 +27,7 @@ class Draw {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_PFD);
 		#include "pages\pfd_draw.hpp"
 	}; // pfd
-	class tac {
-		condition = "0";
-		#include "pages\tac_draw.hpp"
-	}; // tac
-	class tac_t2 {
+	class tac_t {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_TAC);
 		#include "pages\tac\base.hpp"
 	};

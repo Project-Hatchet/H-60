@@ -8,16 +8,6 @@
 params ["_vehicle", "_frameTime"]; 
 if (!isNil "test_fnc_slewTAC") exitWith {_this call test_fnc_slewTAC};
 
-vtx_uh60_mfd_tac_cursorPos = [
-	((vtx_uh60_mfd_tac_cursorPos # 0) - (vtx_uh60_mfd_slewX * 0.005)) max 0 min 1,
-	((vtx_uh60_mfd_tac_cursorPos # 1) + (vtx_uh60_mfd_slewY * 0.005)) max 0 min 1
-];
-
-private _world_size = [] call BIS_fnc_mapSize;
-private _zoomLevel = _vehicle getVariable ["MAP_ZoomMult", 1];
-private _coverage = (4000 * _zoomLevel) / ((_world_size / 2) * 1.49);
-_vehicle setUserMFDvalue [27, 1 - _coverage];
- 
 
 private _mfdPage = (getUserMFDValue _vehicle) # vtx_uh60_mfd_mfsc_focussedMFD;
 // this switch case can come back when we have more functionality

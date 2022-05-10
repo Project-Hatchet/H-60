@@ -1,6 +1,6 @@
 class rangeRings {
 	color[]=common_black;
-	condition = "0";
+	condition = COND_ISNUMPYLON(4,0);
 	class Mark_Circle
 	{
 		type = "line";
@@ -48,9 +48,10 @@ class rangeRings {
 			class white {
 				color[] = common_white;
 				#define NM_SCALE(SCALE) (1*0.75*0.000539957*SCALE)
+				#define KM_SCALE(SCALE) (1*0.75*0.001*SCALE)
 
-				TEXT_MID_SCALED_SOURCE(InnerLblText,0.67,0.475,0.05,"user",40,NM_SCALE(0.225),1)
-				TEXT_MID_SCALED_SOURCE(OuterLblText,0.85,0.475,0.05,"user",40,NM_SCALE(0.45),1)
+				TEXT_MID_SCALED_SOURCE(InnerLblText,0.67,0.475,0.05,"user",40,KM_SCALE(0.225),1)
+				TEXT_MID_SCALED_SOURCE(OuterLblText,0.85,0.475,0.05,"user",40,KM_SCALE(0.45),1)
 			}; // white
 		}; // blackLabels
 	}; // blue
@@ -60,7 +61,7 @@ class rangeRingsHalf {
 	clipTL[] = {0,0};
 	clipBR[] = {1,0.7};
 	color[]=common_black;
-	condition = "1";
+	condition = COND_ISNUMPYLON(4,1);
 	class Mark_Circle
 	{
 		type = "line";
@@ -108,8 +109,8 @@ class rangeRingsHalf {
 			class white {
 				color[] = common_white;
 
-				TEXT_MID_SCALED_SOURCE(InnerLblText,0.67,0.475+0.18,0.05,"user",40,NM_SCALE(0.225),1)
-				TEXT_MID_SCALED_SOURCE(OuterLblText,0.85,0.475+0.18,0.05,"user",40,NM_SCALE(0.45),1)
+				TEXT_MID_SCALED_SOURCE(InnerLblText,0.67,0.475+0.18,0.05,"user",40,KM_SCALE(0.225),1)
+				TEXT_MID_SCALED_SOURCE(OuterLblText,0.85,0.475+0.18,0.05,"user",40,KM_SCALE(0.45),1)
 			}; // white
 		}; // blackLabels
 	}; // blue

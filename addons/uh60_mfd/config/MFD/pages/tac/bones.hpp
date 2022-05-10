@@ -1,10 +1,15 @@
 #define YMOD (1/0.75)
 #define YMIN 0.25*(YMOD/2)
 
-class TAC_CENTER
-{
-    type = "fixed";
-    pos[]={0.5,0.7};
+class TAC_CENTER {
+    type="linear";
+	source="pylonammo";
+	sourceIndex=4;
+	sourceScale=1;
+	min=0;
+	max=1;
+    minPos[]={0.5,0.7};
+    maxPos[]={0.5,0.5};
 };
 class TAC_OFFSET_CENTER
 {
