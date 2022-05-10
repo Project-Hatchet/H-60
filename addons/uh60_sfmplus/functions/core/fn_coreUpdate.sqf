@@ -109,7 +109,7 @@ private _crewAndPaxMass = _numPers * 113.4;
 private _curMass = _emptyMass + _totFuelMass + _pylonMass + _partsMass + _crewAndPaxMass;
 //private _curMass = 7257;
 if (local _heli) then {
-	_heli setMass _curMass;
+	vtx_uh60_sfmplus_mass = _curMass;
 };
 
 //Damage

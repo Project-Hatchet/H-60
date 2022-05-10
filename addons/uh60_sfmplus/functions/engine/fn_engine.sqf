@@ -118,7 +118,7 @@ private _engBaseTGT      = _intEngBaseTable select 1;
 //Base Oil
 private _engBaseOilPSI   = _intEngBaseTable select 4;
 //Torque
-private _curGWT_kg     = getMass _heli;
+private _curGWT_kg     = vtx_uh60_sfmplus_mass;
 private _intHvrTQTable = [getArray (_config >> "hvrTqTable"), _curGWT_kg] call vtx_uh60_sfmplus_fnc_linearInterp;
 private _hvrIGE        = _intHvrTQTable select 1;
 private _hvrOGE        = _intHvrTQTable select 2;
