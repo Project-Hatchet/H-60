@@ -33,6 +33,8 @@ vtx_uh60_mfd_slewX = 0;
 vtx_uh60_mfd_slewY = 0;
 vtx_uh60_mfd_allowText = true;
 
+vtx_uh60_mfd_mapTextureMode = "topo";
+
 vtx_uh60_mfd_mfsc_focussedMFD = 25;
 if (player != driver _vehicle) then {
     vtx_uh60_mfd_mfsc_focussedMFD = 24;

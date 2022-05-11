@@ -4,12 +4,12 @@ class plane_background {
 		type="line";
 		width = 8;
 		points[] ={
-			{"TAC_CENTER", {-0.02, -0.00+0}, 1},
-			{"TAC_CENTER", { 0.02, -0.00+0}, 1},{},
-			{"TAC_CENTER", {0,     -0.00+-0.01}, 1},
-			{"TAC_CENTER", {0,     -0.00+0.035}, 1},{},
-			{"TAC_CENTER", {0.01,  -0.00+0.03}, 1},
-			{"TAC_CENTER", {-0.01,  -0.00+0.03}, 1}
+			{"TAC_SELF_DIST", 1, "TAC_SELF_DIR", 1, {-0.02, -0.00+0}, 1},
+			{"TAC_SELF_DIST", 1, "TAC_SELF_DIR", 1, { 0.02, -0.00+0}, 1},{},
+			{"TAC_SELF_DIST", 1, "TAC_SELF_DIR", 1, {0,     -0.00+-0.01}, 1},
+			{"TAC_SELF_DIST", 1, "TAC_SELF_DIR", 1, {0,     -0.00+0.035}, 1},{},
+			{"TAC_SELF_DIST", 1, "TAC_SELF_DIR", 1, {0.01,  -0.00+0.03}, 1},
+			{"TAC_SELF_DIST", 1, "TAC_SELF_DIR", 1, {-0.01,  -0.00+0.03}, 1}
 		};
 	};
 	class white {
@@ -18,18 +18,19 @@ class plane_background {
 			type="line";
 			width = 4;
 			points[] ={
-				{"TAC_CENTER", {-0.02, -0.00+0}, 1},
-				{"TAC_CENTER", { 0.02, -0.00+0}, 1},{},
-				{"TAC_CENTER", {0,     -0.00+-0.01}, 1},
-				{"TAC_CENTER", {0,     -0.00+0.035}, 1},{},
-				{"TAC_CENTER", {0.01,  -0.00+0.03}, 1},
-				{"TAC_CENTER", {-0.01,  -0.00+0.03}, 1}
+				{"TAC_SELF_DIST", 1, "TAC_SELF_DIR", 1, {-0.02, -0.00+0}, 1},
+				{"TAC_SELF_DIST", 1, "TAC_SELF_DIR", 1, { 0.02, -0.00+0}, 1},{},
+				{"TAC_SELF_DIST", 1, "TAC_SELF_DIR", 1, {0,     -0.00+-0.01}, 1},
+				{"TAC_SELF_DIST", 1, "TAC_SELF_DIR", 1, {0,     -0.00+0.035}, 1},{},
+				{"TAC_SELF_DIST", 1, "TAC_SELF_DIR", 1, {0.01,  -0.00+0.03}, 1},
+				{"TAC_SELF_DIST", 1, "TAC_SELF_DIR", 1, {-0.01,  -0.00+0.03}, 1}
 			};
 		};
 	};
 };
 
 class north_background {
+	condition = TAC_SELF_ORIENT;
 	color[] =  common_black;
 	class white {
 		color[] =  common_white;

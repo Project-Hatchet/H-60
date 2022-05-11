@@ -17,6 +17,10 @@ PREP(slewTAC);
 PREP(renderBFTUnits);
 PREP(cyclePylonValue);
 
+PREP(tac_getMapCenter);
+PREP(tac_getMapTexture);
+PREP(tac_setMapTexture);
+
 PREP(ccfs_CyclePlayer);
 PREP(ccfs_interaction_ccfs);
 PREP(ccfs_host);

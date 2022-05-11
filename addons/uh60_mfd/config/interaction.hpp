@@ -88,21 +88,41 @@ class tac {
     // MFD_BTN(MFD_10,QUOTE(Slew FLIR)) buttonUp="[vehicle player,'flir'] call vtx_uh60_mfd_fnc_interaction_tac;"; };
     // MFD_BTN(MFD_15,QUOTE(FLIR)) buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_FLIR, true)] call vtx_uh60_mfd_fnc_switchPage); };
     MFD_BTN(MFD_4,QUOTE(Center mode)) buttonUp="[vehicle player,4] call vtx_uh60_mfd_fnc_cyclePylonValue;"; };
-    MFD_BTN(MFD_11,QUOTE(Map movement)) buttonUp="[vehicle player,7] call vtx_uh60_mfd_fnc_cyclePylonValue;"; };
     MFD_BTN(MFD_20,QUOTE(Zoom out)) buttonUp="[vehicle player,'zoom', -1] call vtx_uh60_mfd_fnc_interaction_tac;"; };
     MFD_BTN(MFD_21,QUOTE(Zoom in)) buttonUp="[vehicle player,'zoom', 1] call vtx_uh60_mfd_fnc_interaction_tac;"; };
     MFD_BTN(MFD_24,QUOTE(Orientation)) buttonUp="[vehicle player,5] call vtx_uh60_mfd_fnc_cyclePylonValue;"; };
-    class RegularRightPanel {
-        condition = "(_this ammoOnPylon 3) == 0";
-        MFD_BTN(MFD_9,QUOTE(Test)) buttonUp="[vehicle player,'false', true] call vtx_uh60_cas_fnc_updateOverlayList;"; };
-    };
-    class CASOverlayOpen {
-        condition = "(_this ammoOnPylon 3) > 0";
-        MFD_BTN(MFD_9,QUOTE(Hide CAS Display)) buttonUp="[vehicle player,'false', true] call vtx_uh60_cas_fnc_updateOverlayList;"; };
+    class mainPage {
+        condition = USERVAL(MFD_PAGE_INDEX,MFD_PAGE_TAC);
+        class RegularRightPanel {
+            condition = "(_this ammoOnPylon 3) == 0";
+            MFD_BTN(MFD_7,QUOTE(Map Mode)) 
+                buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, TAC_MODE_MAPCONF, true)] call vtx_uh60_mfd_fnc_switchPage);
+            };
+            MFD_BTN(MFD_11,QUOTE(Map movement)) buttonUp="[vehicle player,7] call vtx_uh60_mfd_fnc_cyclePylonValue;"; };
+        };
+        class CASOverlayOpen {
+            condition = "(_this ammoOnPylon 3) > 0";
+            MFD_BTN(MFD_9,QUOTE(Hide CAS Display)) buttonUp="[vehicle player,'false', true] call vtx_uh60_cas_fnc_updateOverlayList;"; };
+        };
     };
     
-    class SUBPAGE_LEGEND {
-        condition = USERVAL(MFD_PAGE_INDEX,TAC_MODE_LEGEND);
+    class SUBPAGE_MAPCONF {
+        condition = USERVAL(MFD_PAGE_INDEX,TAC_MODE_MAPCONF);
+        MFD_BTN(MFD_8,QUOTE(Topo)) 
+            buttonUp="[vehicle player, 'topo'] call vtx_uh60_mfd_fnc_tac_setMapTexture";
+        };
+        MFD_BTN(MFD_9,QUOTE(Sat)) 
+            buttonUp="[vehicle player, 'sat'] call vtx_uh60_mfd_fnc_tac_setMapTexture";
+        };
+        MFD_BTN(MFD_10,QUOTE(Custom)) 
+            buttonUp="[vehicle player, 'cust'] call vtx_uh60_mfd_fnc_tac_setMapTexture";
+        };
+        MFD_BTN(MFD_11,QUOTE(Off)) 
+            buttonUp="[vehicle player, 'off'] call vtx_uh60_mfd_fnc_tac_setMapTexture";
+        };
+        MFD_BTN(MFD_12,QUOTE(Return)) 
+            buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_TAC, true)] call vtx_uh60_mfd_fnc_switchPage);
+        };
     };
 };
 

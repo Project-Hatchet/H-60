@@ -7,6 +7,7 @@
  */
 
 params ["_vehicle"];
+if (!isNil "test_fnc_perSec") exitWith {_this call test_fnc_perSec};
 
 [_vehicle, 9, str round ((vectorMagnitude wind) * 1.94384)] call vtx_uh60_mfd_fnc_setUserText;
 private _stabAnim = _vehicle animationPhase "Stabilator_rotate";

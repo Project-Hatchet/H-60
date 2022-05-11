@@ -155,8 +155,8 @@ class ADI_HorizonBankRot {
 	center[]={0.5,0.28};
 	min=-1.0472;
 	max=1.0472;
-	minAngle=60;
-	maxAngle=-60;
+	minAngle=-60;
+	maxAngle=60;
 	aspectRatio=1.333;
 };
 class HorizonBankRot {

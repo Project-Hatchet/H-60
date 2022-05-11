@@ -158,12 +158,12 @@ class BFT
     // SENSOR_SIZE(-0.01)
 	//pos[]	= {{0,-0.15}, 1};
 	//down[]	= {{1, 1.15}, 1};
-	pos[]	= {"TAC_CENTER", {-0.5,-0.65}, 1};
-	down[]	= {"TAC_CENTER", { 0.5, 0.65}, 1};
+	pos[]	= {"TAC_SELF_DIST", 1, "TAC_SELF_DIR", 1, {-30,-30*4/3}, 1};
+	down[]	= {"TAC_SELF_DIST", 1, "TAC_SELF_DIR", 1, { 30, 30*4/3}, 1};
 
     showTargetTypes = 1+2+4+8+16+32+64+128+256+512+1024;    // RWR only
     width = 1; // default width of lines can by different in case of class XXXX used instead of arrays
-    range=user40;
+    range=user40*30*2;
     sensorLineType = 3; // same as "lineType"
     sensorLineWidth = 0;
 	class MissileThreat {};

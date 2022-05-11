@@ -16,6 +16,7 @@ switch (_action) do {
         _vehicle setVariable ["MAP_ZoomMult", _newZoom, true];
         _vehicle animateSource ["MAP1_Scale", 1/_newZoom, 1];
         _vehicle setUserMFDValue [40, worldSize / _newZoom / 2];
+        [_vehicle, 6, _newZoom] call vtx_uh60_mfd_fnc_setPylonValue;
     };
     case "waypt": {
         private _cursorPos = [] call vtx_uh60_mfd_fnc_tac_cursorToWorld;
@@ -32,9 +33,6 @@ switch (_action) do {
 		[true, (AGLtoASL _cursorPos)] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", crew _vehicle];
     };
     case "centerMode": {
-        private _centerMode = _vehicle getVariable ["vtx_uh60_mfd_tac_center_mode", 0];
-        if (_centerMode == 3) then {_centerMode = 0} else {_centerMode = _centerMode + 1};
-        _vehicle setVariable ["vtx_uh60_mfd_tac_center_mode", _centerMode, true];
-        _vehicle setUserMFDvalue [18, _centerMode];
+        [_vehicle,4] call vtx_uh60_mfd_fnc_cyclePylonValue;
     };
 };
