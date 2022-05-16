@@ -31,12 +31,20 @@ _vehicle setUserMFDvalue [1, _center distance2D _position];
 
 private _zoomLevel = _vehicle getVariable ["MAP_ZoomMult", 1];
 private ["_waypointPosition"];
+private _worldSize = [] call BIS_fnc_mapSize;
 
 private _positionToMfd = {
     params ["_pos", "_i1", "_i2"];
-    private _direction = (_center getDir _pos) - _rotation;
-    _vehicle setUserMFDvalue [_i1, if(_direction < 0) then {_direction + 360} else {_direction}];
-    _vehicle setUserMFDvalue [_i2, ((_center distance2D _pos) * _zoomLevel) / (vtx_uh60_fms_mapSize / 2)];
+    // private _direction = (_center getDir _pos) - _rotation;
+    // _vehicle setUserMFDvalue [_i1, if(_direction < 0) then {_direction + 360} else {_direction}];
+    // _vehicle setUserMFDvalue [_i2, ((_center distance2D _pos) * _zoomLevel) / (vtx_uh60_fms_mapSize / 2)];
+
+	private _diff = _pos vectordiff (getpos _vehicle);
+	private _dir = direction player;
+	private _rotated = [_diff, _dir] call BIS_fnc_rotateVector2D;
+    _vehicle setUserMFDvalue [_i1, -1 * ((_rotated # 0) / (_worldSize/2)) * _zoomLevel];
+    _vehicle setUserMFDvalue [_i2, (_rotated # 1)/ (_worldSize/2) * _zoomLevel];
+
 };
 private _clearPos = {
     _vehicle setUserMFDvalue [_this # 0, -1];
