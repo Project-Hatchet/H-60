@@ -145,7 +145,7 @@ class MSN {
   FMS_BTN(FMS_7,"AN/APQ-187 Radar","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_RDR], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
-  FMS_BTN(FMS_8,"ANVIS/HUD-24T","")
+  FMS_BTN(FMS_8,"HUD","")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_HMD], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
   FMS_BTN(FMS_10,"Main Menu","")
@@ -208,10 +208,10 @@ class hud {
     buttonUp = "[-1] call vtx_uh60_anvishud_fnc_toggleHud;";
   };
   FMS_BTN(FMS_7,"IMPERIAL ON","")
-    buttonUp = "[1] call vtx_uh60_anvishud_fnc_toggleHud;";
+    buttonUp = "[5] call vtx_uh60_anvishud_fnc_toggleHud;";
   };
   FMS_BTN(FMS_2,"METRIC ON","")
-    buttonUp = "[3] call vtx_uh60_anvishud_fnc_toggleHud;";
+    buttonUp = "[6] call vtx_uh60_anvishud_fnc_toggleHud;";
   };
   FMS_BTN(FMS_4,"BRT","")
     buttonUp = [(_this select 0), 1] call vtx_uh60_anvishud_fnc_changeBrightness;

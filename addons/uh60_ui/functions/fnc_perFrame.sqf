@@ -59,7 +59,7 @@ CTRL(4001120) ctrlSetPosition [
 ];
 CTRL(4001120) ctrlCommit 0;
 
-if(getUserMFDValue _vehicle # 15 > -1) then {
+if(getUserMFDValue _vehicle # 15 > -1 && currentVisionMode player == 0) then {
     CTRL(4001123) ctrlSetText "\z\vtx\addons\uh60_ui\data\hudOverlay.paa";
 } else {
     CTRL(4001123) ctrlSetText "";
