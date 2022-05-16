@@ -66,6 +66,7 @@
 #define FMS_PAGE_SKR 16
 #define FMS_PAGE_RDR 17
 #define FMS_PAGE_HMD 18
+#define FMS_PAGE_HUD 19
 
 #define FMS_L_PAGE_INDEX 31
 #define FMS_R_PAGE_INDEX 32

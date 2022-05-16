@@ -29,6 +29,7 @@ class CfgVehicles {
         class VTX_H60_NVGHUD {
             #include "NVGHUD\defines.hpp"
             #include "NVGHUD\MFD.hpp"
+            color[]={pylonAmmoRelative12, pylonAmmoRelative13, pylonAmmoRelative14, pylonAmmoRelative15};
         };
         class MFD: MFD {
             class HMD3: VTX_H60_HDTS_Pilot {};

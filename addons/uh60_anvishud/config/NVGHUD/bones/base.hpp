@@ -16,3 +16,4 @@ class Velocity
 #include "headingtape.hpp"
 #include "rollbar.hpp"
 #include "altscale.hpp"
+#include "trimball.hpp"

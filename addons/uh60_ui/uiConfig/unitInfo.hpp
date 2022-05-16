@@ -13,7 +13,8 @@ class RscInGameUI
             "HelpText",
             "Interaction",
             "HelpOverlay",
-            "HelpOverlayGunner"
+            "HelpOverlayGunner",
+            "HMDOverlay"
         };
 		class HelpText: RscIGText
 		{
@@ -32,6 +33,15 @@ class RscInGameUI
 			w = 0.04;
             h = 0.04;
 			text = "\A3\ui_f\data\igui\cfg\cursors\iconComplex_ca.paa";
+        };
+        class HMDOverlay: RscPicture
+        {
+			idc = 4001123;
+			x = safezoneX + safezoneW / 2 - (safezoneH*0.75) / 2;
+			y = safezoneY + safezoneH / 2 - safezoneH / 2;
+			w = (safezoneH*0.75);
+            h = safezoneH;
+			text = "";
         };
         class HelpOverlay: RscControlsGroup {
 			idc = 4001121;

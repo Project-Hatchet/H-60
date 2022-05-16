@@ -30,10 +30,31 @@ class HeadingCaret {
 	points[] ={
 		// forward
 		{{0.5, 0.735}, 1}, {{0.5, 0.78}, 1},{},
-
-		//caret
-		{{0.5, 0.75}, 1, "WaypointDirectionBase",1, "WaypointDirectionCorrection", 1, "WaypointDirectionLimits", 1,{-0.010, 0.015},1},
-		{{0.5, 0.75}, 1, "WaypointDirectionBase",1, "WaypointDirectionCorrection", 1, "WaypointDirectionLimits", 1,{ 0.000, 0.000},1},
-		{{0.5, 0.75}, 1, "WaypointDirectionBase",1, "WaypointDirectionCorrection", 1, "WaypointDirectionLimits", 1,{ 0.010, 0.015},1}
 	}; // points
 }; // FOVCenter
+class headingCaretNormal {
+	condition = "(user0 - heading) > -180";
+	class HeadingCaret {
+		type="line";
+		width = 4;
+		points[] ={
+			// //caret
+			{{0.5, 0.75}, 1, "WaypointDirectionBase",1, "WaypointDirectionCorrection", 1, "WaypointDirectionLimits", 1,{-0.010, 0.015},1},
+			{{0.5, 0.75}, 1, "WaypointDirectionBase",1, "WaypointDirectionCorrection", 1, "WaypointDirectionLimits", 1,{ 0.000, 0.000},1},
+			{{0.5, 0.75}, 1, "WaypointDirectionBase",1, "WaypointDirectionCorrection", 1, "WaypointDirectionLimits", 1,{ 0.010, 0.015},1}
+		}; // points
+	}; // HeadingCaret
+};
+class headingCaretInv {
+	condition = "(user0 - heading) < -180";
+	class HeadingCaret {
+		type="line";
+		width = 4;
+		points[] ={
+			// //caret
+			{{0.5, 0.75}, 1, "WaypointDirectionBaseInv",1, "WaypointDirectionCorrectionInv", 1, "WaypointDirectionLimits", 1,{-0.010, 0.015},1},
+			{{0.5, 0.75}, 1, "WaypointDirectionBaseInv",1, "WaypointDirectionCorrectionInv", 1, "WaypointDirectionLimits", 1,{ 0.000, 0.000},1},
+			{{0.5, 0.75}, 1, "WaypointDirectionBaseInv",1, "WaypointDirectionCorrectionInv", 1, "WaypointDirectionLimits", 1,{ 0.010, 0.015},1}
+		}; // points
+	}; // HeadingCaret
+};

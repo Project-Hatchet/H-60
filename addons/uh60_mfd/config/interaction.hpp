@@ -86,7 +86,7 @@ class tac {
     // };
     // MFD_BTN(MFD_9,QUOTE(Mark Waypoint)) buttonUp="[vehicle player,'waypt'] call vtx_uh60_mfd_fnc_interaction_tac;"; };
     // MFD_BTN(MFD_10,QUOTE(Slew FLIR)) buttonUp="[vehicle player,'flir'] call vtx_uh60_mfd_fnc_interaction_tac;"; };
-    // MFD_BTN(MFD_15,QUOTE(FLIR)) buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_FLIR, true)] call vtx_uh60_mfd_fnc_switchPage); };
+    MFD_BTN(MFD_15,QUOTE(FLIR)) buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_FLIR, true)] call vtx_uh60_mfd_fnc_switchPage); };
     MFD_BTN(MFD_4,QUOTE(Center mode)) buttonUp="[vehicle player,4] call vtx_uh60_mfd_fnc_cyclePylonValue;"; };
     MFD_BTN(MFD_20,QUOTE(Zoom out)) buttonUp="[vehicle player,'zoom', -1] call vtx_uh60_mfd_fnc_interaction_tac;"; };
     MFD_BTN(MFD_21,QUOTE(Zoom in)) buttonUp="[vehicle player,'zoom', 1] call vtx_uh60_mfd_fnc_interaction_tac;"; };

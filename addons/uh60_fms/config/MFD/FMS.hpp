@@ -87,4 +87,8 @@ class Draw {
 		condition = COND_ISNUMBER(FMS_PAGE_INDEX,FMS_PAGE_HMD);
 		#include "fms\hmd_draw.hpp"
 	}; // nav_wpn
+	class HUD {
+		condition = COND_ISNUMBER(FMS_PAGE_INDEX,FMS_PAGE_HUD);
+		#include "fms\hud_draw.hpp"
+	}; // nav_wpn
 }; // Draw
