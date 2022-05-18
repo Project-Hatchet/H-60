@@ -16,7 +16,7 @@ vehicle _slippy addEventHandler ["Hit", {
 	_slippySound = fullCrew vehicle _unit # 1 # 0;		//This line is jank to get the copilot to speak for slippy
 	
 	if (!alive vehicle _unit) then {
-		if ((random 1) == 0) then { _slippySound say3d "Slippy_Death1"; } else {_slippySound say3d "Slippy_Death2";};
+		if ((random 1) == 0) then { _slippySound say3d "Death1"; } else {_slippySound say3d "Death2";};
 		vehicle _unit vehicleChat "Aaah!";
 	};
 }];
@@ -24,8 +24,8 @@ vehicle _slippy addEventHandler ["Hit", {
 vehicle _slippy addEventHandler ["IncomingMissile", {
 	params["_target"];
 	_slippySound = fullCrew _target # 1 # 0;
-	
-	if ((random 1) == 0) then { _slippySound say3d "Slippy_Missile1"; } else { _slippySound say3d "Slippy_Missile2";};
+	_rng = (random 3)
+	if (_rng == 0) then { _slippySound say3d "Missile1"; } else-if (_rng == 1) then { _slippySound say3d "Missile2";} else-if (_rng == 2) then { _slippySound say3d "Missile2";} else { _slippySound say3d "Missile3";};
 }];
 
 //Check for Objects behind tail 
@@ -45,7 +45,8 @@ Check_Tail = {
 				_hasInformed = true;
 				sleep 2;
 				_vehicle vehicleChat "Watch-out Behind You!"; //Test Statement, subject to change
-				_slippySound say3d "Slippy_Tail";
+				_rng = (random 2)
+				if (_rng == 0) then { _slippySound say3d "Tail1"; } else-if (_rng == 1) then { _slippySound say3d "Tail2";} else { _slippySound say3d "Tail3";};
 			};
 		};
 
@@ -56,7 +57,7 @@ Check_Tail = {
 		sleep 2; //Delay to prevent spam
 	};
 };
-
+/*
 //Talk to player on vehicle entry
 vehicle _slippy addEventHandler ["GetIn", {
 	params ["_vehicle", "_role", "_unit", "_turret"];
@@ -64,13 +65,13 @@ vehicle _slippy addEventHandler ["GetIn", {
 	
 	_slippySound = fullCrew _vehicle # 1 # 0;						//Jank
 	if (_pilot == "driver" ) then {
-		_slippySound say3D    "Slippy_Intro";
+		_slippySound say3D    "Intro";
 		_vehicle vehicleChat "Don't worry, Slippy's Here!";			//Test Statement
 	};
 
 	[_vehicle] spawn Check_Tail;
 }];
-
+*/
 //Cargo All Out
 vehicle _slippy addEventHandler ["GetOut", {
 	params ["_vehicle", "_role", "_unit", "_turret"];
@@ -85,7 +86,8 @@ vehicle _slippy addEventHandler ["GetOut", {
 	} forEach (fullCrew _vehicle);
 
 	if (!_hasCargo) then {
-		_slippySound say3D    "Slippy_AllOut";
+		_rng = (random 2)
+		if (_rng == 0) then { _slippySound say3d "AllOut1"; } else-if (_rng == 1) then { _slippySound say3d "AllOut2";} else { _slippySound say3d "AllOut3";};
 		_vehicle vehicleChat "Let's Go!";			//Test Statement
 	};
 	hint "I made it!";
