@@ -91,6 +91,17 @@ class ND_RotationWind : ND_HeadingRotationWind {
 	source="windage";
 	aspectRatio = 1;
 };
+class ND_WPRotateOffset {
+	type="rotational";
+	source="heading";
+	sourceScale = 1;
+	center[] = {0.5,0.5};
+	min = "0";
+	max = "360";
+	minAngle = 0;
+	maxAngle = 360;
+	aspectRatio = 1/0.725;
+};
 class ND_WP1_Dir {
     type="linear";
 	source="user";

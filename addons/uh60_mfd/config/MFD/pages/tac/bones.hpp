@@ -50,38 +50,24 @@ class TAC_HeadingRotationHeli {
 	aspectRatio = 1/0.725;
 };
 class TAC_SELF_DIR {
-	type="rotational";
+    type="linear";
 	source="user";
 	sourceIndex=27;
-	sourceScale = 1;
-	center[] = {0.5,0.5};
-	min = "-360";
-	max = "360";
-	minAngle = -360;
-	maxAngle = 360;
-	aspectRatio = 1/0.725;
-};
-class TAC_SELF_DIR_ROOT {
-	type="rotational";
-	source="user";
-	sourceIndex=27;
-	sourceScale = 1;
-	center[] = {0,0};
-	min = "-360";
-	max = "360";
-	minAngle = -360;
-	maxAngle = 360;
-	aspectRatio = 1/0.725;
+	sourceScale=1;
+	min=-30;
+	max= 30;
+	minPos[]={0.5-15, 0};
+	maxPos[]={0.5+15, 0};
 };
 class TAC_SELF_DIST {
     type="linear";
 	source="user";
 	sourceIndex=28;
 	sourceScale=1;
-	min=0;
-	max=30;
-	minPos[]={0,15.5};
-	maxPos[]={0,0};
+	min=-30;
+	max= 30;
+	minPos[]={0,0.5-(15*1.333)};
+	maxPos[]={0,0.5+(15*1.333)};
 };
 class TAC_WP1_Dir {
     type="linear";

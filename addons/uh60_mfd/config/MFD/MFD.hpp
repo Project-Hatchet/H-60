@@ -15,7 +15,7 @@ class Bones {
 	#include "pages\pfd_bones.hpp"
 	#include "pages\tac\bones.hpp"
 	#include "pages\flir_bones.hpp"
-	#include "pages\nd_bones.hpp"
+	#include "pages\nd\bones.hpp"
 	#include "pages\ccfs_bones.hpp"
 }; // Bones
 class Draw {
@@ -45,7 +45,7 @@ class Draw {
 	}; // ccfs
 	class nd {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_ND);
-		#include "pages\nd_draw.hpp"
+		#include "pages\nd\base.hpp"
 	}; // nd
 	class ccfs_menu {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_CCFS_MENU);

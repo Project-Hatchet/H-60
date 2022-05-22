@@ -76,11 +76,20 @@ if (local _vehicle) then {
 _vehicle setUserMFDvalue [29, vtx_uh60_mfd_tac_cursorPos # 0];
 _vehicle setUserMFDvalue [30, vtx_uh60_mfd_tac_cursorPos # 1];
 
+
+
 private _positionToMfd = {
-	params ["_pos", "_i1", "_i2"];
-	private _direction = (_center getDir _pos) - _rotation;
-	_vehicle setUserMFDvalue [_i1, if(_direction < 0) then {_direction + 360} else {_direction}];
-	_vehicle setUserMFDvalue [_i2, ((_center distance2D _pos) * _zoomLevel) / (vtx_uh60_fms_mapSize / 2)];
+    params ["_pos", "_i1", "_i2"];
+    // private _direction = (_center getDir _pos) - _rotation;
+    // _vehicle setUserMFDvalue [_i1, if(_direction < 0) then {_direction + 360} else {_direction}];
+    // _vehicle setUserMFDvalue [_i2, ((_center distance2D _pos) * _zoomLevel) / (vtx_uh60_fms_mapSize / 2)];
+
+	private _diff = _pos vectordiff _center;
+	private _dir = direction player;
+	private _rotated = [_diff, _dir] call BIS_fnc_rotateVector2D;
+    _vehicle setUserMFDvalue [_i1, -1 * ((_rotated # 0) / (_worldSize/2)) * _zoomLevel];
+    _vehicle setUserMFDvalue [_i2, (_rotated # 1)/ (_worldSize/2) * _zoomLevel];
+
 };
 
 [getPos _vehicle, 27, 28] call _positionToMfd;
