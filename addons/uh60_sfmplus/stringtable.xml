@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="VTX">
+    <Package name="UH60_SFMPLUS">
+        <Key ID="STR_VTX_UH60_SFMPLUS_ShowDamageHints">
+            <English>Show Engine Damage Hints</English>
+            <Chinesesimp>显示引擎损失</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_SFMPLUS_ShowDamageHints_Description">
+            <English>Show damage hints related to overtorquing of the engines.</English>
+            <Chinesesimp>显示与发动机过度扭矩有关的损坏提示。</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_SFMPLUS_StabilatorSimulation">
+            <English>Enable stabilator simulation</English>
+            <Chinesesimp>启用全动平尾模拟</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_SFMPLUS_StabilatorSimulation_Description">
+            <English>The stabilator provides an expanded pitch range allowing for more accurate cruise speeds during flight. The stabilator is optimized for Joysticks and may be more difficult to use with a Keyboard and Mouse.</English>
+            <Chinesesimp>稳定器提供了一个扩大的俯仰范围，允许在飞行中更准确的巡航速度。稳定器是优化操纵杆操作，可能对于使用键盘和鼠标来说更难操控。</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_SFMPLUS_AlwaysEnabled">
+            <English>Always Enabled</English>
+            <Chinesesimp>始终开启</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_SFMPLUS_JoystickOnly">
+            <English>Joystick Only</English>
+            <Chinesesimp>只有摇杆</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_SFMPLUS_AlwaysDisabled">
+            <English>Always Disabled</English>
+            <Chinesesimp>始终关闭</Chinesesimp>
+        </Key>
+    </Package>
+</Project>

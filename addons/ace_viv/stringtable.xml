@@ -9,5 +9,21 @@
             <English>Load Cargo</English>
             <Chinesesimp>装载货物</Chinesesimp>
         </Key>
+        <Key ID="STR_VTX_ACE_VIV_MaxLoadingDistance">
+            <English>Maximum Loading Distance</English>
+            <Chinesesimp>最大装载距离</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_ACE_VIV_MaxLoadingDistance_Description">
+            <English>Cargo must be within this distance to be loaded</English>
+            <Chinesesimp>货物必须在这个距离内才能装载</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_ACE_VIV_LoadingTimeFactor">
+            <English>Loading Time Factore</English>
+            <Chinesesimp>装载时间系数</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_ACE_VIV_LoadingTimeFactor_Description">
+            <English>Multiplier for the time it takes to load cargo. Default is 2 + mass / 100 seconds.</English>
+            <Chinesesimp>装载货物所需的时间乘以系数。默认为2 +质量/ 100秒。</Chinesesimp>
+        </Key>
     </Package>
 </Project>

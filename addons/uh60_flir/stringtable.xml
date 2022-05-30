@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="VTX">
+    <Package name="UH60_FLIR">
+        <Key ID="STR_VTX_UH60_FLIR_SettingFLIRAimSlewBlockMouse">
+            <English>FLIR Aim Slew Block Mouse</English>
+            <Chinesesimp>FLIR瞄准限制鼠标</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_SettingFLIRAimSlewBlockMouse_Description">
+            <English>Block mouse from moving the cyclic while slewing FLIR. Not needed if Aim Slew key is same as ACE Interaction key.</English>
+            <Chinesesimp>当旋转前视红外时阻止鼠标移动操作杆 如果瞄准视角按键与ACE交互键相同则不需要</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_SyncDelay">
+            <English>Sync Delay</English>
+            <Chinesesimp>同步延迟</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_SyncDelay_Description">
+            <English>Delay in seconds between each sync of pilot camera state between two player pilots. Higher is less network load.</English>
+            <Chinesesimp>在两个飞行员之间的飞行员之间的每次同步飞行员摄像机状态之间的延迟秒。延迟越高，网络负载越小。</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_AimSlewSpeed">
+            <English>FLIR Aim Slew Speed</English>
+            <Chinesesimp>FLIR瞄准旋转速度</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_AimSlewSpeed_Description">
+            <English>Sensitivity when slewing the FLIR using mouse or 'Aim <Up|Down|Left|Right>' inputs.</English>
+            <Chinesesimp>使用鼠标旋转FLIR时的灵敏度或“向上|向下|左|右”输入时的灵敏度</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_AimXFactor">
+            <English>FLIR Aim Slew Pan Speed</English>
+            <Chinesesimp>FLIR瞄准水平旋转速度</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_AimXFactor_Description">
+            <English>Sensitivity multiplier for pan vs tilt. Use this to adjust diagonal movement.</English>
+            <Chinesesimp>平移与倾斜的灵敏度倍增器。 使用这个调整对角线移动。</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_KeySlewSpeed">
+            <English>FLIR Key Slew Speed</English>
+            <Chinesesimp>FLIR按键视角移动速度</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_KeySlewSpeed_Description">
+            <English>Sensitivity when slewing the FLIR using the mod's keybinds.</English>
+            <Chinesesimp>使用mod的按键旋转FLIR的灵敏度。</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_KeySlewPanSpeed">
+            <English>FLIR Key Slew Pan Speed</English>
+            <Chinesesimp>FLIR按键视角水平移动速度</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_KeySlewPanSpeed_Description">
+            <English>Sensitivity multiplier for pan vs tilt. Use this to adjust diagonal movement.</English>
+            <Chinesesimp>平移与倾斜的灵敏度倍增器。使用这个调整对角线移动。</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_AnimateTurret">
+            <English>Animate Turret</English>
+            <Chinesesimp>炮塔动画</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_AnimateTurret_Description">
+            <English>Animate the FLIR pod model. Small performance savings if unchecked.</English>
+            <Chinesesimp>前视红外吊舱模型动画。如果不选中，可以节省少量的性能。</Chinesesimp>
+        </Key>
+    </Package>
+</Project>

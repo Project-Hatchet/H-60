@@ -5,7 +5,7 @@ ADDON = false;
 [
     "vtx_uh60m_enabled_waypts",
     "CHECKBOX",
-    "(DEBUG) Enable FMS Waypoint System",
+    localize LSTRING(WaypointSystem),
     "UH-60M",
     [true],
     nil,

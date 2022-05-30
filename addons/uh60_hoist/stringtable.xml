@@ -61,5 +61,13 @@
             <English>Detach Hook</English>
             <Chinesesimp>脱离吊钩</Chinesesimp>
         </Key>
+        <Key ID="STR_VTX_UH60_HOIST_AttachScript">
+            <English>Use Attach Script</English>
+            <Chinesesimp>使用连接脚本</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_HOIST_AttachScript_Description">
+            <English>When in the hoist hook, automatically switch between walking with hook attached and sitting in the hook seat based on height and cable stretch.</English>
+            <Chinesesimp>在提升吊钩上时，可根据高度和电缆的拉伸情况，自动切换带吊钩和坐在位子上。</Chinesesimp>
+        </Key>
     </Package>
 </Project>

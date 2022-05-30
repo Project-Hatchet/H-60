@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="VTX">
+    <Package name="UH60_FMS">
+        <Key ID="STR_VTX_UH60_FMS_WaypointSystem">
+            <English>(DEBUG) Enable FMS Waypoint System</English>
+            <Chinesesimp>(DEBUG)开启FMS路径点系统</Chinesesimp>
+        </Key>
+    </Package>
+</Project>
