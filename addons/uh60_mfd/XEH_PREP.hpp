@@ -20,6 +20,8 @@ PREP(cyclePylonValue);
 PREP(tac_getMapCenter);
 PREP(tac_getMapTexture);
 PREP(tac_setMapTexture);
+PREP(tac_getHook);
+PREP(tac_getHookInfo);
 
 PREP(ccfs_CyclePlayer);
 PREP(ccfs_interaction_ccfs);

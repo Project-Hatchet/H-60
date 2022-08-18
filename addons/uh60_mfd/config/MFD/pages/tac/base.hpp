@@ -132,7 +132,7 @@ class noSubPage {
 				TEXT_RIGHT_SCALED(MAPDY,0.97,(BEZEL_Y5-0.03+0.04),"DYNAMIC",TAC_LINE_HEIGHT)
 			};
 			class condition_static {
-				condition = COND_ISNUMPYLON(7,1);
+				condition = "pylonAmmo7 > 0";
 				TEXT_RIGHT_SCALED(MAPDY,0.97,(BEZEL_Y5-0.03+0.04),"STATIC",TAC_LINE_HEIGHT)
 			};
 			TEXT_RIGHT_SCALED(LEGND,0.97,(BEZEL_Y6-0.01),"LEGEND",TAC_LINE_HEIGHT)

@@ -28,6 +28,43 @@ class cursor_background {
 	}; // purple
 }; // black
 
+#define HOOKED_SCALE 0.03
+#define HOOKED_PT(X,Y) {"TAC_CURSOR_X", 1, "TAC_CURSOR_Y", 1, {PT34(X*HOOKED_SCALE,Y*HOOKED_SCALE)},1}
+
+class cursor_background_selected {
+	condition = COND_ISNUMPYLON(7,2);
+	color[] = common_black;
+	class cursor
+	{
+		type = "line";
+		width = 8;
+		points[]={
+			HOOKED_PT(-1,-0.5),HOOKED_PT(-1,-1),HOOKED_PT(-0.5,-1),{},
+			HOOKED_PT(1,-0.5),HOOKED_PT(1,-1),HOOKED_PT(0.5,-1),{},
+			HOOKED_PT(1,0.5),HOOKED_PT(1,1),HOOKED_PT(0.5,1),{},
+			HOOKED_PT(-1,0.5),HOOKED_PT(-1,1),HOOKED_PT(-0.5,1),{}
+				// {"TAC_CURSOR_X", 1, "TAC_CURSOR_Y", 1, {PT34(0,-0.03)},1},{"TAC_CURSOR_X", 1, "TAC_CURSOR_Y", 1, {PT34(0,-0.005)},1},{},
+				// {"TAC_CURSOR_X", 1, "TAC_CURSOR_Y", 1, {PT34(0,0.03)},1},{"TAC_CURSOR_X", 1, "TAC_CURSOR_Y", 1, {PT34(0,0.005)},1},{},
+				// {"TAC_CURSOR_X", 1, "TAC_CURSOR_Y", 1, {PT34(-0.03,0)},1},{"TAC_CURSOR_X", 1, "TAC_CURSOR_Y", 1, {PT34(-0.005,0)},1},{},
+				// {"TAC_CURSOR_X", 1, "TAC_CURSOR_Y", 1, {PT34(0.03,0)},1},{"TAC_CURSOR_X", 1, "TAC_CURSOR_Y", 1, {PT34(0.005,0)},1},{}
+		};
+	}; // cursor
+	class cursor_purple {
+		color[] = common_purple;
+		class cursor
+		{
+			type = "line";
+			width = 4;
+			points[]={
+				HOOKED_PT(-1,-0.5),HOOKED_PT(-1,-1),HOOKED_PT(-0.5,-1),{},
+				HOOKED_PT(1,-0.5),HOOKED_PT(1,-1),HOOKED_PT(0.5,-1),{},
+				HOOKED_PT(1,0.5),HOOKED_PT(1,1),HOOKED_PT(0.5,1),{},
+				HOOKED_PT(-1,0.5),HOOKED_PT(-1,1),HOOKED_PT(-0.5,1),{}
+			};
+		}; // cursor
+	}; // purple
+}; // black
+
 class context_menu {
 	condition = "(user39>-1)";
 	color[] = common_black;

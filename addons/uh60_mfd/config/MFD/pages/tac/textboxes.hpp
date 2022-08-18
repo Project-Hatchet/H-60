@@ -1,5 +1,5 @@
 class hook {
-	condition = COND_ISNUMPYLON(7,1);
+	condition = COND_ISNUMPYLON(7,2);
 	color[] = common_black;
 	COLORED_POLYGON(background,(0.5-0.15),0.99-0.16,0.3,0.16,common_black)
 	class white {

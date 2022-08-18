@@ -9,7 +9,7 @@
 if (!isNil "test_fnc_slewTAC") exitWith {_this call test_fnc_slewTAC};
 
 params ["_vehicle"]; 
-private _world_size = [] call BIS_fnc_mapSize;
+private _worldSize = [] call BIS_fnc_mapSize;
 private _zoomLevel = _vehicle getVariable ["MAP_ZoomMult", 1];
 
 private _centered = _vehicle ammoOnPylon 4 == 0;
@@ -22,7 +22,7 @@ if (_selfAligned) then {
 private _center = if (_centered) then {
 	getPos _vehicle;
 } else {
-	private _cursorToMapRotated = [[0,_world_size / _zoomLevel * 0.15], -(_rotation)] call BIS_fnc_rotateVector2D;
+	private _cursorToMapRotated = [[0,_worldSize / _zoomLevel * 0.15], -(_rotation)] call BIS_fnc_rotateVector2D;
 	getPos _vehicle vectorAdd [_cursorToMapRotated # 0, _cursorToMapRotated # 1, 0];
 };
 
@@ -64,8 +64,8 @@ if (local _vehicle) then {
 	private _gridPosX = [_center # 0,0] call BIS_fnc_parseNumber;
 	private _gridPosY = [_center # 1,0] call BIS_fnc_parseNumber;
 
-	private _map_anim_x = (_gridPosX/_world_size);
-	private _map_anim_y = (_gridPosY/_world_size);
+	private _map_anim_x = (_gridPosX/_worldSize);
+	private _map_anim_y = (_gridPosY/_worldSize);
 
 	_vehicle animateSource ["MAP_X", _map_anim_x, true];
 	_vehicle animateSource ["MAP_Y", _map_anim_y, true];
@@ -79,16 +79,16 @@ _vehicle setUserMFDvalue [30, vtx_uh60_mfd_tac_cursorPos # 1];
 
 
 private _positionToMfd = {
-    params ["_pos", "_i1", "_i2"];
-    // private _direction = (_center getDir _pos) - _rotation;
-    // _vehicle setUserMFDvalue [_i1, if(_direction < 0) then {_direction + 360} else {_direction}];
-    // _vehicle setUserMFDvalue [_i2, ((_center distance2D _pos) * _zoomLevel) / (vtx_uh60_fms_mapSize / 2)];
+	params ["_pos", "_i1", "_i2"];
+	// private _direction = (_center getDir _pos) - _rotation;
+	// _vehicle setUserMFDvalue [_i1, if(_direction < 0) then {_direction + 360} else {_direction}];
+	// _vehicle setUserMFDvalue [_i2, ((_center distance2D _pos) * _zoomLevel) / (vtx_uh60_fms_mapSize / 2)];
 
 	private _diff = _pos vectordiff _center;
 	private _dir = direction player;
 	private _rotated = [_diff, _dir] call BIS_fnc_rotateVector2D;
-    _vehicle setUserMFDvalue [_i1, -1 * ((_rotated # 0) / (_worldSize/2)) * _zoomLevel];
-    _vehicle setUserMFDvalue [_i2, (_rotated # 1)/ (_worldSize/2) * _zoomLevel];
+	_vehicle setUserMFDvalue [_i1, -1 * ((_rotated # 0) / (_worldSize/2)) * _zoomLevel];
+	_vehicle setUserMFDvalue [_i2, (_rotated # 1)/ (_worldSize/2) * _zoomLevel];
 
 };
 
