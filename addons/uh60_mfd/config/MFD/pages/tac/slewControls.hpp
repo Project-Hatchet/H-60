@@ -50,7 +50,7 @@ class cursor_background_selected {
 		};
 	}; // cursor
 	class cursor_purple {
-		color[] = common_purple;
+		color[] = common_green;
 		class cursor
 		{
 			type = "line";

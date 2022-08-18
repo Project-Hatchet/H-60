@@ -50,10 +50,10 @@ class Draw {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_IVHMS);
 		#include "ivhms_draw.hpp"
 	}; // ivhms
-	// class ivhms_nums {
-	// 	condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_IVHMS_NUMS);
-	// 	#include "ivhms_nums_draw.hpp"
-	// }; // ivhms
+	class ivhms_nums {
+		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_IVHMS_NUMS);
+		#include "ivhms_nums_draw.hpp"
+	}; // ivhms
 	#define EICAS_LINE_SPACING 0.035
 	#define EICAS_LINE_HEIGHT 0.04
 

@@ -90,7 +90,7 @@ class tac {
     MFD_BTN(MFD_4,QUOTE(Center mode)) buttonUp="[vehicle player,4] call vtx_uh60_mfd_fnc_cyclePylonValue;"; };
     MFD_BTN(MFD_20,QUOTE(Zoom out)) buttonUp="[vehicle player,'zoom', -1] call vtx_uh60_mfd_fnc_interaction_tac;"; };
     MFD_BTN(MFD_21,QUOTE(Zoom in)) buttonUp="[vehicle player,'zoom', 1] call vtx_uh60_mfd_fnc_interaction_tac;"; };
-    MFD_BTN(MFD_24,QUOTE(Orientation)) buttonUp="[vehicle player,5] call vtx_uh60_mfd_fnc_cyclePylonValue;"; };
+    // MFD_BTN(MFD_24,QUOTE(Orientation)) buttonUp="[vehicle player,5] call vtx_uh60_mfd_fnc_cyclePylonValue;"; };
     class mainPage {
         condition = USERVAL(MFD_PAGE_INDEX,MFD_PAGE_TAC);
         class RegularRightPanel {

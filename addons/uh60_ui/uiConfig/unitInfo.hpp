@@ -42,6 +42,7 @@ class RscInGameUI
 			w = (safezoneH*0.75);
             h = safezoneH;
 			text = "";
+            colorText[] = {1,1,1,0.7};
         };
         class HelpOverlay: RscControlsGroup {
 			idc = 4001121;
