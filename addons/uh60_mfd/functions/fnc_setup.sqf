@@ -32,6 +32,7 @@ vtx_uh60_mfd_tac_cursorPos = [0.5,0.5];
 vtx_uh60_mfd_slewX = 0;
 vtx_uh60_mfd_slewY = 0;
 vtx_uh60_mfd_allowText = true;
+vtx_uh60_tac_hookedObject = nil;
 
 vtx_uh60_mfd_mapTextureMode = "topo";
 

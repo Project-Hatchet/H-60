@@ -16,9 +16,7 @@ private _centered = _vehicle ammoOnPylon 4 == 0;
 private _fixed = _vehicle ammoOnPylon 7 == 0;
 private _selfAligned = _vehicle ammoOnPylon 5 == 0;
 private _rotation = if (_selfAligned) then {getDir _vehicle} else {0};
-if (_selfAligned) then {
 
-};
 private _center = if (_centered) then {
 	getPos _vehicle;
 } else {
@@ -30,10 +28,25 @@ private _movingCursor = (vtx_uh60_mfd_slewX != 0) || (vtx_uh60_mfd_slewY != 0);
 private _staticMap = _vehicle ammoOnPylon 7 > 0;
 private _cursorLimits = [0.1,0.9];
 
+
 if (_staticMap) then {
 	_center = vtx_uh60_mfd_tac_mapPos
 };
+
+if (!isNil "vtx_uh60_tac_hookedObject") then {
+	private _position = switch (vtx_uh60_tac_hookedObject # 1) do {
+		case "ground": {
+			if (typeName (vtx_uh60_tac_hookedObject # 0) == "GROUP") then [{getPos leader (vtx_uh60_tac_hookedObject # 0)}, {getPos (vtx_uh60_tac_hookedObject # 0)}];
+		};
+		case "waypoint": {waypointPosition (vtx_uh60_tac_hookedObject # 0)};
+		default {[-10000,0,0]};
+	};
+
+	vtx_uh60_mfd_tac_cursorPos = [_position] call vtx_uh60_mfd_fnc_tac_worldToCursor;
+};
+
 if (_movingCursor) then {
+	vtx_uh60_tac_hookedObject = nil;
 	if (_staticMap) then {
 		private _movingHorizontal = (vtx_uh60_mfd_tac_cursorPos # 0 in _cursorLimits);
 		private _moveVector = [0,0,0];

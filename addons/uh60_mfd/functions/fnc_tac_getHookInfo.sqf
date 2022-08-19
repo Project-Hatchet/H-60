@@ -1,5 +1,4 @@
 params ["_object", "_type", "_side"];
-systemChat str _this;
 private _position = switch (_this # 1) do {
 	case "ground": {
 		if (typeName (_this # 0) == "GROUP") then [{getPos leader (_this # 0)}, {getPos (_this # 0)}];
@@ -22,7 +21,8 @@ if (_type == "ground") then {
 		_gridStr,
 		(if (typeName _object == "GROUP") then [{groupId _object}, {groupId group _object}]),
 		format["HDG %1 / %2 NM", _direction, _distance],
-		_groupType
+		_groupType,
+		_position
 	];
 };
 if (_type == "waypoint") then {
@@ -30,8 +30,8 @@ if (_type == "waypoint") then {
 		_gridStr,
 		waypointDescription (_this # 0),
 		format["HDG %1 / %2 NM", _direction, _distance],
-		"WAYPOINT"
+		"WAYPOINT",
+		_position
 	]
 };
-systemChat str ["done", _result];
 _result

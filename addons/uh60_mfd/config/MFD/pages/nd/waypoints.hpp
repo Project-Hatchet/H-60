@@ -6,9 +6,9 @@ class CNAME { \
     	type="line"; \
     	width = 8; \
     	points[] ={ \
-            {"ND_WPRotateOffset", 1, DIST1, 1, DIR1, 1}, \
-    		{"ND_WPRotateOffset", 1, DIST2, 1, DIR2, 1},{}, \
-            SHAPE_STAR3("ND_WPRotateOffset",DIST2,DIR2) \
+            {"ND_CENTER", 1, DIST1, 1, DIR1, 1}, \
+    		{"ND_CENTER", 1, DIST2, 1, DIR2, 1},{}, \
+            SHAPE_STAR3("ND_CENTER",DIST2,DIR2) \
     	}; \
     }; \
     class main_color { \
@@ -17,9 +17,9 @@ class CNAME { \
         	type="line"; \
         	width = 4; \
         	points[] ={ \
-                {"ND_WPRotateOffset", 1, DIST1, 1, DIR1, 1}, \
-        		{"ND_WPRotateOffset", 1, DIST2, 1, DIR2, 1},{}, \
-                SHAPE_STAR3("ND_WPRotateOffset",DIST2,DIR2) \
+                {"ND_CENTER", 1, DIST1, 1, DIR1, 1}, \
+        		{"ND_CENTER", 1, DIST2, 1, DIR2, 1},{}, \
+                SHAPE_STAR3("ND_CENTER",DIST2,DIR2) \
         	}; \
         }; \
     }; \

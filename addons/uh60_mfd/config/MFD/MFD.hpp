@@ -12,7 +12,7 @@ class material {
 };
 class Bones {
 	#include "pages\eicas_bones.hpp"
-	#include "pages\pfd_bones.hpp"
+	#include "pages\pfd\bones.hpp"
 	#include "pages\tac\bones.hpp"
 	#include "pages\flir_bones.hpp"
 	#include "pages\nd\bones.hpp"
@@ -25,7 +25,7 @@ class Draw {
 	}; // eicas
 	class pfd {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_PFD);
-		#include "pages\pfd_draw.hpp"
+		#include "pages\pfd\base.hpp"
 	}; // pfd
 	class tac_t {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_TAC);
