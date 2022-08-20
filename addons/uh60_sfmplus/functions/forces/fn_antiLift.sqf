@@ -19,6 +19,9 @@ Author:
 ---------------------------------------------------------------------------- */
 params ["_heli", "_deltaTime"];
 
+
+if (!isNil "test_fnc_antiLift") exitWith {_this call test_fnc_antiLift};
+
 if (isEngineOn _heli) then {
     private _objCtr     = _heli selectionPosition ["modelCenter", "Memory"];
     private _forcePos   = _heli getVariable "vtx_uh60_sfmplus_forcePos";

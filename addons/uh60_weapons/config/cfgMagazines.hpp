@@ -54,6 +54,11 @@ class cfgMagazines {
     count = 300;
     hardpoints[] =    {"VTX_ST_L"};
     model = \z\vtx\addons\uh60_weapons\Data\M230\M230_L.p3d;
+    class mfdElements {
+      class VTX_H60 {
+        #include "gunMFD.hpp"
+      };
+    };
   };
   class VTX_M230_Chaingun_R: VTX_M230_Chaingun_L {
     hardpoints[] =    {"VTX_ST_R"};
@@ -81,6 +86,11 @@ class cfgMagazines {
     displayNameShort = "19x Hydra 70 M229";
     weight = 237.59;
     model = QPATHTOF(fza_pod_m261.p3d);
+    class mfdElements {
+      class VTX_H60 {
+        #include "rocketMFD.hpp"
+      };
+    };
 	};
   class PylonRack_12Rnd_PG_missiles;
   class VTX_PylonRack_M261_DAGR: PylonRack_12Rnd_PG_missiles {
@@ -92,6 +102,11 @@ class cfgMagazines {
     weight = 237.59;
     model = QPATHTOF(fza_pod_m261.p3d);
     pylonWeapon = "vtx_dagr";
+    class mfdElements {
+      class VTX_H60 {
+        #include "rocketMFD.hpp"
+      };
+    };
   };
   class VTX_PylonRack_M261_APKWS: PylonRack_12Rnd_PG_missiles {
     ammo = "VTX_APKWS";
@@ -102,5 +117,10 @@ class cfgMagazines {
     mass = 336.5; // 36.3 kg launcher, 15.8 per rocket
     model = QPATHTOF(fza_pod_m261.p3d);
     pylonWeapon = "vtx_apkws";
+    class mfdElements {
+      class VTX_H60 {
+        #include "rocketMFD.hpp"
+      };
+    };
   };
 };

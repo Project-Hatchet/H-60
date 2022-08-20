@@ -5,6 +5,7 @@ borderBottom=0;
 color[]=common_white;
 enableParallax=0;
 font="RobotoCondensedLight";
+turret[] = {-1};
 class material {
 	ambient[] = {1, 1, 1, 1};
 	diffuse[] = {0.5, 0.5, 0.5, 1};
@@ -14,7 +15,7 @@ class Bones {
 	#include "pages\eicas_bones.hpp"
 	#include "pages\pfd\bones.hpp"
 	#include "pages\tac\bones.hpp"
-	#include "pages\flir_bones.hpp"
+	#include "pages\flir\bones.hpp"
 	#include "pages\nd\bones.hpp"
 	#include "pages\ccfs_bones.hpp"
 }; // Bones
@@ -37,7 +38,7 @@ class Draw {
 	}; // jvmf
 	class flir {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_FLIR);
-		#include "pages\flir_draw.hpp"
+		#include "pages\flir\base.hpp"
 	}; // flir
 	class ccfs {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_CCFS);

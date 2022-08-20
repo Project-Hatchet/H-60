@@ -2,6 +2,14 @@
 vtx_uh60_sfmPlusKeyboardOnly = true;
 
 [
+	"vtx_uh60_sfmPlusOvertorqueHandling",
+	"LIST",
+	["Overtorque handling", "To simulate the effects of overtorque, we have two different ways for it to impact the player."],
+	["UH-60M", "Flight model"],
+	[["damage","lift"],["Rotor damage", "Loss of lift"],1],
+	0
+] call CBA_fnc_addSetting;
+[
 	"vtx_uh60_sfmPlusStabilatorEnabled",
 	"LIST",
 	["Enable stabilator simulation", "The stabilator provides an expanded pitch range allowing for more accurate cruise speeds during flight. The stabilator is optimized for Joysticks and may be more difficult to use with a Keyboard & Mouse."],

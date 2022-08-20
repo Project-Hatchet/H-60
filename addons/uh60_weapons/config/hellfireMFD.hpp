@@ -1,168 +1,91 @@
 class Bones
 {
-	class Center
-	{
-		type = "fixed";
-		pos[] = {-0.04,0.0};
-	};
-	class Center2
-	{
-		type = "fixed";
-		pos[] = {-0.04,0.08};
-	};
-	class Center3
-	{
-		type = "fixed";
-		pos[] = {0.04,0.00};
-	};
-	class Center4
-	{
-		type = "fixed";
-		pos[] = {0.04,0.08};
-	};
 };
+
+#define HELLFIREANGLE(X,Y,SCALE,DEG,RADIUS) \
+	{{(X*SCALE) + ANGLEX(DEG,RADIUS * SCALE), (Y*SCALE) + ANGLEY(DEG,RADIUS * SCALE) }, 1}
+
+#define HELLFIREPOINTS(X,Y,SCALE) \
+	{{(X + -0.1) * SCALE, (Y + -0.30) * SCALE}, 1}, \
+	{{(X +  0.1) * SCALE, (Y + -0.30) * SCALE}, 1}, \
+	{{(X +  0.1) * SCALE, (Y +  0.30) * SCALE}, 1}, \
+	{{(X + -0.1) * SCALE, (Y +  0.30) * SCALE}, 1}, \
+	{{(X + -0.1) * SCALE, (Y + -0.30) * SCALE}, 1}, {}, \
+	{{(X + -0.1) * SCALE, (Y + -0.38) * SCALE}, 1}, \
+	{{(X +  0.1) * SCALE, (Y + -0.38) * SCALE}, 1}, \
+	{{(X +  0.1) * SCALE, (Y + -0.30) * SCALE}, 1}, \
+	{{(X + -0.1) * SCALE, (Y + -0.30) * SCALE}, 1}, \
+	{{(X + -0.1) * SCALE, (Y + -0.38) * SCALE}, 1},{}, \
+	HELLFIREANGLE(X,(Y+-0.38),SCALE,(90+(15*00)),0.1), \
+	HELLFIREANGLE(X,(Y+-0.43),SCALE,(90+(15*01)),0.1), \
+	HELLFIREANGLE(X,(Y+-0.43),SCALE,(90+(15*02)),0.1), \
+	HELLFIREANGLE(X,(Y+-0.43),SCALE,(90+(15*03)),0.1), \
+	HELLFIREANGLE(X,(Y+-0.43),SCALE,(90+(15*04)),0.1), \
+	HELLFIREANGLE(X,(Y+-0.43),SCALE,(90+(15*05)),0.1), \
+	HELLFIREANGLE(X,(Y+-0.43),SCALE,(90+(15*06)),0.1), \
+	HELLFIREANGLE(X,(Y+-0.43),SCALE,(90+(15*07)),0.1), \
+	HELLFIREANGLE(X,(Y+-0.43),SCALE,(90+(15*08)),0.1), \
+	HELLFIREANGLE(X,(Y+-0.43),SCALE,(90+(15*09)),0.1), \
+	HELLFIREANGLE(X,(Y+-0.43),SCALE,(90+(15*10)),0.1), \
+	HELLFIREANGLE(X,(Y+-0.43),SCALE,(90+(15*11)),0.1), \
+	HELLFIREANGLE(X,(Y+-0.38),SCALE,(90+(15*12)),0.1)
+
+#define HELLFIRE_BG(X,Y,SCALE) \
+	COLORED_POLYGON(BG,((X - 0.1) * SCALE),((Y - 0.53) * SCALE),0.02,(0.8*SCALE),common_black)
+
 class Draw
 {
-	class Rails {
-		type="line";
-		width = 3;
-		points[] ={
-			// vertical bar center
-			{{0, -0.05},1},
-			{{0, 0.05},1},{},
-			// top row
-			{{-0.04,-0.03}, 1},
-			{{ 0.04,-0.03}, 1},{},
-			// hangers
-			{{-0.04,-0.03},1},{{-0.04,-0.01},1},{},
-			{{ 0.04,-0.03},1},{{ 0.04,-0.01},1},{},
-			// bot row
-			{{-0.04,0.05}, 1},
-			{{0.04, 0.05}, 1},{},
-			// hangers
-			{{-0.04,0.05},1},{{-0.04,0.06},1},{},
-			{{ 0.04,0.05},1},{{ 0.04,0.06},1},{}
+	color[] = common_black;
+	class MSL1 {
+		condition = "PylonAmmo >0";
+		HELLFIRE_BG(-0.2,-0.5,0.1)
+		class white {
+			color[] = common_white;
+			class line {
+				type="line";
+				width=3;
+				points[] = {HELLFIREPOINTS(-0.2,-0.5,0.1)};
+			};
+			TEXT_MID_SCALED(LSRTEXT,(-0.2*0.1),(-0.8*0.1),"L",0.05)
 		};
 	};
-	class Default
-	{
-		condition = "PylonAmmoRelative>0";
-		color[] = {1,1,1};
-		alpha = 0.6;
-		class Missile1
-		{
-			condition = "PylonAmmo>=4";
-			class Shape
-			{
-				type = "line";
-				width = 4.0;
-				points[] = {{"Center",{0,-0.0147436},1},{"Center",{0.0075,-0.0127679},1},{"Center",{0.01299,-0.00737179},1},{"Center",{0.015,0},1},{"Center",{0.01299,0.00737179},1},{"Center",{0.0075,0.0127679},1},{"Center",{0,0.0147436},1},{"Center",{-0.0075,0.0127679},1},{"Center",{-0.01299,0.00737179},1},{"Center",{-0.015,0},1},{"Center",{-0.01299,-0.00737179},1},{"Center",{-0.0075,-0.0127679},1},{"Center",{0,-0.0147436},1},{},{"Center",{0.0106066,-0.0104253},1},{"Center",{0.0212132,-0.0208506},1},{},{"Center",{0.0106066,0.0104253},1},{"Center",{0.0212132,0.0208506},1},{},{"Center",{-0.0106066,0.0104253},1},{"Center",{-0.0212132,0.0208506},1},{},{"Center",{-0.0106066,-0.0104253},1},{"Center",{-0.0212132,-0.0208506},1},{}};
+	class MSL2 {
+		condition = "PylonAmmo >1";
+		HELLFIRE_BG(0.2,-0.5,0.1)
+		class white {
+			color[] = common_white;
+			class line {
+				type="line";
+				width=3;
+				points[] = {HELLFIREPOINTS(0.2,-0.5,0.1)};
 			};
-		};
-		class Missile2
-		{
-			condition = "PylonAmmo>=3";
-			class Shape
-			{
-				type = "line";
-				width = 4.0;
-				points[] = {{"Center2",{0,-0.0147436},1},{"Center2",{0.0075,-0.0127679},1},{"Center2",{0.01299,-0.00737179},1},{"Center2",{0.015,0},1},{"Center2",{0.01299,0.00737179},1},{"Center2",{0.0075,0.0127679},1},{"Center2",{0,0.0147436},1},{"Center2",{-0.0075,0.0127679},1},{"Center2",{-0.01299,0.00737179},1},{"Center2",{-0.015,0},1},{"Center2",{-0.01299,-0.00737179},1},{"Center2",{-0.0075,-0.0127679},1},{"Center2",{0,-0.0147436},1},{},{"Center2",{0.0106066,-0.0104253},1},{"Center2",{0.0212132,-0.0208506},1},{},{"Center2",{0.0106066,0.0104253},1},{"Center2",{0.0212132,0.0208506},1},{},{"Center2",{-0.0106066,0.0104253},1},{"Center2",{-0.0212132,0.0208506},1},{},{"Center2",{-0.0106066,-0.0104253},1},{"Center2",{-0.0212132,-0.0208506},1},{}};
-			};
-		};
-		class Missile3
-		{
-			condition = "PylonAmmo>=2";
-			class Shape
-			{
-				type = "line";
-				width = 4.0;
-				points[] = {{"Center3",{0,-0.0147436},1},{"Center3",{0.0075,-0.0127679},1},{"Center3",{0.01299,-0.00737179},1},{"Center3",{0.015,0},1},{"Center3",{0.01299,0.00737179},1},{"Center3",{0.0075,0.0127679},1},{"Center3",{0,0.0147436},1},{"Center3",{-0.0075,0.0127679},1},{"Center3",{-0.01299,0.00737179},1},{"Center3",{-0.015,0},1},{"Center3",{-0.01299,-0.00737179},1},{"Center3",{-0.0075,-0.0127679},1},{"Center3",{0,-0.0147436},1},{},{"Center3",{0.0106066,-0.0104253},1},{"Center3",{0.0212132,-0.0208506},1},{},{"Center3",{0.0106066,0.0104253},1},{"Center3",{0.0212132,0.0208506},1},{},{"Center3",{-0.0106066,0.0104253},1},{"Center3",{-0.0212132,0.0208506},1},{},{"Center3",{-0.0106066,-0.0104253},1},{"Center3",{-0.0212132,-0.0208506},1},{}};
-			};
-		};
-		class Missile4
-		{
-			condition = "PylonAmmo>=1";
-			class Shape
-			{
-				type = "line";
-				width = 4.0;
-				points[] = {{"Center4",{0,-0.0147436},1},{"Center4",{0.0075,-0.0127679},1},{"Center4",{0.01299,-0.00737179},1},{"Center4",{0.015,0},1},{"Center4",{0.01299,0.00737179},1},{"Center4",{0.0075,0.0127679},1},{"Center4",{0,0.0147436},1},{"Center4",{-0.0075,0.0127679},1},{"Center4",{-0.01299,0.00737179},1},{"Center4",{-0.015,0},1},{"Center4",{-0.01299,-0.00737179},1},{"Center4",{-0.0075,-0.0127679},1},{"Center4",{0,-0.0147436},1},{},{"Center4",{0.0106066,-0.0104253},1},{"Center4",{0.0212132,-0.0208506},1},{},{"Center4",{0.0106066,0.0104253},1},{"Center4",{0.0212132,0.0208506},1},{},{"Center4",{-0.0106066,0.0104253},1},{"Center4",{-0.0212132,0.0208506},1},{},{"Center4",{-0.0106066,-0.0104253},1},{"Center4",{-0.0212132,-0.0208506},1},{}};
-			};
+			TEXT_MID_SCALED(LSRTEXT,(0.2*0.1),(-0.8*0.1),"L",0.05)
 		};
 	};
-	class Selected: Default
-	{
-		condition = "(PylonSelected +  PylonAmmo/2)/2";
-		alpha = 1;
-		class Missile1: Missile1
-		{
-			class Shape: Shape{};
-			class Background
-			{
-				type = "polygon";
-				points[] = {{{"Center",1,{0,0},1},{"Center",{0.0106066,-0.0104253},1},{"Center",{0.015,6.44463e-10},1},{"Center",{0.0106066,0.0104253},1}},{{"Center",1,{0,0},1},{"Center",{0.0106066,0.0104253},1},{"Center",{-1.31134e-09,0.0147436},1},{"Center",{-0.0106066,0.0104253},1}},{{"Center",1,{0,0},1},{"Center",{-0.0106066,0.0104253},1},{"Center",{-0.015,-1.75816e-10},1},{"Center",{-0.0106066,-0.0104253},1}},{{"Center",1,{0,0},1},{"Center",{-0.0106066,-0.0104253},1},{"Center",{2.62268e-09,-0.0147436},1},{"Center",{0.0106066,-0.0104253},1}}};
+	class MSL3 {
+		condition = "PylonAmmo >2";
+		HELLFIRE_BG(0.2,0.5,0.1)
+		class white {
+			color[] = common_white;
+			class line {
+				type="line";
+				width=3;
+				points[] = {HELLFIREPOINTS(0.2,0.5,0.1)};
 			};
-		};
-		class Missile2: Missile2
-		{
-			class Shape: Shape{};
-			class Background
-			{
-				type = "polygon";
-				points[] = {{{"Center2",1,{0,0},1},{"Center2",{0.0106066,-0.0104253},1},{"Center2",{0.015,6.44463e-10},1},{"Center2",{0.0106066,0.0104253},1}},{{"Center2",1,{0,0},1},{"Center2",{0.0106066,0.0104253},1},{"Center2",{-1.31134e-09,0.0147436},1},{"Center2",{-0.0106066,0.0104253},1}},{{"Center2",1,{0,0},1},{"Center2",{-0.0106066,0.0104253},1},{"Center2",{-0.015,-1.75816e-10},1},{"Center2",{-0.0106066,-0.0104253},1}},{{"Center2",1,{0,0},1},{"Center2",{-0.0106066,-0.0104253},1},{"Center2",{2.62268e-09,-0.0147436},1},{"Center2",{0.0106066,-0.0104253},1}}};
-			};
-		};
-		class Missile3: Missile3
-		{
-			class Shape: Shape{};
-			class Background
-			{
-				type = "polygon";
-				points[] = {{{"Center3",1,{0,0},1},{"Center3",{0.0106066,-0.0104253},1},{"Center3",{0.015,6.44463e-10},1},{"Center3",{0.0106066,0.0104253},1}},{{"Center3",1,{0,0},1},{"Center3",{0.0106066,0.0104253},1},{"Center3",{-1.31134e-09,0.0147436},1},{"Center3",{-0.0106066,0.0104253},1}},{{"Center3",1,{0,0},1},{"Center3",{-0.0106066,0.0104253},1},{"Center3",{-0.015,-1.75816e-10},1},{"Center3",{-0.0106066,-0.0104253},1}},{{"Center3",1,{0,0},1},{"Center3",{-0.0106066,-0.0104253},1},{"Center3",{2.62268e-09,-0.0147436},1},{"Center3",{0.0106066,-0.0104253},1}}};
-			};
-		};
-		class Missile4: Missile4
-		{
-			class Shape: Shape{};
-			class Background
-			{
-				type = "polygon";
-				points[] = {{{"Center4",1,{0,0},1},{"Center4",{0.0106066,-0.0104253},1},{"Center4",{0.015,6.44463e-10},1},{"Center4",{0.0106066,0.0104253},1}},{{"Center4",1,{0,0},1},{"Center4",{0.0106066,0.0104253},1},{"Center4",{-1.31134e-09,0.0147436},1},{"Center4",{-0.0106066,0.0104253},1}},{{"Center4",1,{0,0},1},{"Center4",{-0.0106066,0.0104253},1},{"Center4",{-0.015,-1.75816e-10},1},{"Center4",{-0.0106066,-0.0104253},1}},{{"Center4",1,{0,0},1},{"Center4",{-0.0106066,-0.0104253},1},{"Center4",{2.62268e-09,-0.0147436},1},{"Center4",{0.0106066,-0.0104253},1}}};
-			};
+			TEXT_MID_SCALED(LSRTEXT,(0.2*0.1),(0.2*0.1),"L",0.05)
 		};
 	};
-	class HalfEmpty: Selected
-	{
-		alpha = 0.15;
-		condition = "PylonAmmoRelative <= 1";
-		color[] = {1,1,1,1.0};
-		class Missile1: Missile1
-		{
-			condition = "PylonAmmo<=4";
-			class Shape: Shape{};
-			class Background: Background{};
+	class MSL4 {
+		condition = "PylonAmmo >3";
+		HELLFIRE_BG(-0.2,0.5,0.1)
+		class white {
+			color[] = common_white;
+			class line {
+				type="line";
+				width=3;
+				points[] = {HELLFIREPOINTS(-0.2,0.5,0.1)};
+			};
+			TEXT_MID_SCALED(LSRTEXT,(-0.2*0.1),(0.2*0.1),"L",0.05)
 		};
-		class Missile2: Missile2
-		{
-			condition = "PylonAmmo<=3";
-			class Shape: Shape{};
-			class Background: Background{};
-		};
-		class Missile3: Missile3
-		{
-			condition = "PylonAmmo<=2";
-			class Shape: Shape{};
-			class Background: Background{};
-		};
-		class Missile4: Missile4
-		{
-			condition = "PylonAmmo<=1";
-			class Shape: Shape{};
-			class Background: Background{};
-		};
-	};
-	class Empty: HalfEmpty
-	{
-		condition = "PylonAmmoRelative <= 0";
 	};
 };

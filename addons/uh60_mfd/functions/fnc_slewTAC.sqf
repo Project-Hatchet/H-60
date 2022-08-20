@@ -6,8 +6,6 @@
  * params (array)[(object) vehicle]
  */
 
-if (!isNil "test_fnc_slewTAC") exitWith {_this call test_fnc_slewTAC};
-
 params ["_vehicle"]; 
 private _worldSize = [] call BIS_fnc_mapSize;
 private _zoomLevel = _vehicle getVariable ["MAP_ZoomMult", 1];

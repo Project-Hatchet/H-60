@@ -29,7 +29,7 @@ class grid {
 	}; // HEADER_BARS
 
 	class green {
-		color[] = {0,1,0,1};
+		color[] = {0,1,0,0};
 		class GRID {
 			type="line";
 			width = 4;

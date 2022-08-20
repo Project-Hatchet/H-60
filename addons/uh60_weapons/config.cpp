@@ -19,6 +19,7 @@ class CfgPatches {
 
 #include "CfgEventHandlers.hpp"
 
+#include "config\mfdDefines.hpp"
 #include "config\cfgAmmo.hpp"
 #include "config\cfgWeapons.hpp"
 #include "config\cfgMagazines.hpp"
