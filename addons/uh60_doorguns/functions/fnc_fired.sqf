@@ -1,3 +1,6 @@
+params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
+if (player != _gunner) exitWith {};
+
 vtx_m134_ppEffectIntensity = vtx_m134_ppEffectIntensity + 1;
 if (cba_missionTime - vtx_m134_lastFired    > 0.1) then {
     private _blur = ppEffectCreate ["DynamicBlur", 401];

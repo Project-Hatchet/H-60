@@ -44,7 +44,7 @@ class MainTurret: MainTurret { //Left Doorgun
     viewGunnerInExternal = 1;
     weapons[]=
     {
-        "vtx_wpn_m134_safe"
+        "vtx_wpn_m134"
     };
     magazines[]=
     {
@@ -103,5 +103,9 @@ class RightDoorGun: MainTurret {
   	class TurnOut {
         limitsArrayTop[] = {{10, 10}, {10, -185}};
         limitsArrayBottom[] = {{-70, 10}, {-70, -185}};
+    };
+    weapons[]=
+    {
+        "vtx_wpn_m134_2nd"
     };
 };

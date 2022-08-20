@@ -29,11 +29,11 @@ class MainTurret: MainTurret { //Left Doorgun
         initAngleY=-50; minAngleY=-70; maxAngleY=20;
         initFov=0.7; minFov=0.25; maxFov=1.1;
     };
-    // shared properties
     weapons[]=
     {
-        "vtx_wpn_m134_safe"
+        "vtx_wpn_m134"
     };
+    // shared properties
     magazines[]=
     {
         "vtx_2000Rnd_65x39_Belt_Tracer_Red"
@@ -79,5 +79,9 @@ class RightDoorGun: MainTurret {
         initAngleX=0; minAngleX=-30; maxAngleX=+30;
         initAngleY=0; minAngleY=-100; maxAngleY=+100;
         initFov=0.7; minFov=0.25; maxFov=1.1;
+    };
+    weapons[]=
+    {
+        "vtx_wpn_m134_2nd"
     };
 };
