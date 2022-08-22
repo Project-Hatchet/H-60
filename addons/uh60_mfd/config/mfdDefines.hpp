@@ -43,6 +43,7 @@
 #define MFD_PAGE_CCFS_MENU 7
 #define MFD_PAGE_CCFS 8
 #define MFD_PAGE_IVHMS_NUMS 9
+#define MFD_PAGE_DAMAGED 99
 
 #define COND_ISMFD(INDEX,VALUE) (INDEX>(VALUE-0.01))*(INDEX<(VALUE+0.99))
 #define MFD_OR_MFD(CURINDEX,IDX1,IDX2) (COND_ISMFD(CURINDEX,IDX1) + COND_ISMFD(CURINDEX,IDX2))
@@ -577,6 +578,50 @@
             }; \
         }; \
     };
+
+#define BOXEDTEXT(CLASS,X,Y,W,H,TEXT,CONDITION) \
+    class CLASS { \
+		condition = CONDITION; \
+		color[] = common_black; \
+		COLORED_POLYGON(PB1,(X-(W/2)),(Y-(H/2)),W,H,common_black) \
+		class white { \
+			color[] = common_white; \
+			TEXT_MID_SCALED(LRD_LASE_TXT,X,(Y-(H/2)),TEXT,H) \
+			class Border { \
+				type="line"; \
+				width = 2; \
+				points[] ={ \
+					{{X - (W/2), Y - (H/2)},1}, \
+					{{X + (W/2), Y - (H/2)},1}, \
+					{{X + (W/2), Y + (H/2)},1}, \
+					{{X - (W/2), Y + (H/2)},1}, \
+					{{X - (W/2), Y - (H/2)},1} \
+				}; \
+			}; \
+		}; \
+	};
+
+#define BOXEDTEXT_USER(CLASS,X,Y,W,H,IDX,CONDITION) \
+    class CLASS { \
+		condition = CONDITION; \
+		color[] = common_black; \
+		COLORED_POLYGON(PB1,(X-(W/2)),(Y-(H/2)),W,H,common_black) \
+		class white { \
+			color[] = common_white; \
+			TEXT_MID_SCALED_USERTEXT(LRD_LASE_TXT,X,(Y-(H/2)),IDX,H) \
+			class Border { \
+				type="line"; \
+				width = 2; \
+				points[] ={ \
+					{{X - (W/2), Y - (H/2)},1}, \
+					{{X + (W/2), Y - (H/2)},1}, \
+					{{X + (W/2), Y + (H/2)},1}, \
+					{{X - (W/2), Y + (H/2)},1}, \
+					{{X - (W/2), Y - (H/2)},1} \
+				}; \
+			}; \
+		}; \
+	};
 
 #define BEZEL_SPACE_Y 0.14
 #define BEZEL_Y1 0.2

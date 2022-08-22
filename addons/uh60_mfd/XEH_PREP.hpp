@@ -16,6 +16,7 @@ PREP(setPylonValue);
 PREP(slewTAC);
 PREP(renderBFTUnits);
 PREP(cyclePylonValue);
+PREP(handleDamage);
 
 PREP(tac_getMapCenter);
 PREP(tac_getMapTexture);

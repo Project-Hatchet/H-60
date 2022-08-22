@@ -40,6 +40,10 @@ switch (true) do {
     case (MFD_PAGE_IVHMS == _pageIndex): {
         [_vehicle] call vtx_uh60_mfd_fnc_ivhms;
     };
+    case (MFD_PAGE_JVMF == _pageIndex): {
+        [_vehicle, "NEW JVMF MSG"] call vtx_uh60_cas_fnc_removeCautionAdvisory;
+        [_vehicle, "NEW JVMF REPLY"] call vtx_uh60_cas_fnc_removeCautionAdvisory;
+    };
     default {
       _vehicle setObjectTexture [MAP_SELECTION(_mfdIndex), ""];
       _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), ""];

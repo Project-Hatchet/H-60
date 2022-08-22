@@ -141,3 +141,12 @@ private _mrot =
 
 // cmws
 [36, (_vehicle getHitPointDamage "hitRWR") > 0.5] call _setPylonFn;
+
+// mfd
+private _mfd =
+    (_vehicle getHitPointDamage "mfd1") + 
+    (_vehicle getHitPointDamage "mfd2") +
+    (_vehicle getHitPointDamage "mfd3") +
+    (_vehicle getHitPointDamage "mfd4");
+
+[38, (_mfd) > 0.5] call _setPylonFn;

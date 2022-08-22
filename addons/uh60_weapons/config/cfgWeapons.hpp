@@ -3,13 +3,22 @@ class cfgWeapons {
     class ace_hellfire_launcher_L;
     class ace_hellfire_launcher_N;
     class vtx_hellfire_launcher: ace_hellfire_launcher {
+      ace_laser_showHud = 0;
       magazines[] = {"VTX_4Rnd_ACE_Hellfire_AGM114K"};
-    };
-    class vtx_hellfire_launcher_L: ace_hellfire_launcher_L {
-      magazines[] = {"VTX_4Rnd_ACE_Hellfire_AGM114L"};
+      class Eventhandlers {
+        class vtx_hellfire {
+          fired = "_this call vtx_uh60_weapons_fnc_fired";
+        };
+      };
     };
     class vtx_hellfire_launcher_N: ace_hellfire_launcher_N {
+      ace_laser_showHud = 0;
       magazines[] = {"VTX_4Rnd_ACE_Hellfire_AGM114N"};
+      class Eventhandlers {
+        class vtx_hellfire {
+          fired = "_this call vtx_uh60_weapons_fnc_fired";
+        };
+      };
     };
     class autocannon_Base_F;
     class autocannon_30mm_RCWS: autocannon_Base_F {

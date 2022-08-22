@@ -16,3 +16,6 @@ private _stabAngle = ceil (80 - (_stabAnim * 1.1111111 + 13));
 
 [_vehicle] call vtx_uh60_mfd_fnc_renderBFTUnits;
 [_vehicle] call vtx_uh60_mfd_fnc_tac_getHook;
+if (local _vehicle) then {
+	[_vehicle] call vtx_uh60_mfd_fnc_handleDamage;
+};

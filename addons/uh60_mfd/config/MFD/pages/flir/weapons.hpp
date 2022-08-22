@@ -1,23 +1,3 @@
-class weapons {
-	condition = "0";
-	color[] = common_black;
-	COLORED_POLYGON(PB1,0.3,0.7,0.4,0.04,common_black)
-	class white {
-		color[] = common_white;
-		TEXT_LEFT_SCALED_SRC(WPN_SEL_VAL,0.32,0.7,0.04)
-			source="weapon";
-			sourceScale = 1;
-		}; // WPN_SEL_VAL
-		class SHOW_AMMO {
-			condition = "mgun+missile+aamissile+atmissile+rocket+bomb";
-			TEXT_RIGHT_SCALED_SRC(AMMO_VAL,0.68,0.7,0.04)
-				source="ammo";
-				sourceScale = 1;
-			}; // AMMO_VAL
-		};
-	};
-};
-
 class pylonsBackground {
 	color[] = common_black;
 	COLORED_POLYGON(GUNS,0.44,0.75,0.12,0.11,common_black)
@@ -154,3 +134,31 @@ class LaserOn {
 		}; // Border
 	}; // whtie
 }; // LaserOn
+
+
+class hellfire {
+	color[] = common_black;
+	condition = "missile";
+	BOXEDTEXT(LASERL,0.93,(BEZEL_Y1-0.02),0.11,0.04,"PRI CHAN","1")
+	BOXEDTEXT(LASERV,0.93,(BEZEL_Y1+0.02),0.04,0.04,"A",COND_ISNUMPYLON(42,0))
+	BOXEDTEXT(LASERB,0.93,(BEZEL_Y1+0.02),0.04,0.04,"B",COND_ISNUMPYLON(42,1))
+	BOXEDTEXT(LASERC,0.93,(BEZEL_Y1+0.02),0.04,0.04,"C",COND_ISNUMPYLON(42,2))
+	BOXEDTEXT(LASERD,0.93,(BEZEL_Y1+0.02),0.04,0.04,"D",COND_ISNUMPYLON(42,3))
+	BOXEDTEXT(LASERE,0.93,(BEZEL_Y1+0.02),0.04,0.04,"E",COND_ISNUMPYLON(42,4))
+	BOXEDTEXT(LASERF,0.93,(BEZEL_Y1+0.02),0.04,0.04,"F",COND_ISNUMPYLON(42,5))
+
+	BOXEDTEXT(TRAJL,0.93,(BEZEL_Y2-0.02),0.09,0.04,"TRAJ","1")
+	BOXEDTEXT(TRAJ_LO,0.93,(BEZEL_Y2+0.02),0.07,0.04,"LO",COND_ISNUMPYLON(41,0))
+	BOXEDTEXT(TRAJV,0.93,(BEZEL_Y2+0.02),0.07,0.04,"DIR",COND_ISNUMPYLON(41,1))
+	BOXEDTEXT(TRAJ_HI,0.93,(BEZEL_Y2+0.02),0.07,0.04,"HI",COND_ISNUMPYLON(41,2))
+
+	BOXEDTEXT(MODEL,0.93,(BEZEL_Y3-0.02),0.08,0.04,"MODE","1")
+	BOXEDTEXT(MODEV,0.93,(BEZEL_Y3+0.02),0.08,0.04,"NORM","1")
+
+	BOXEDTEXT(ACQL,0.93,(BEZEL_Y4-0.02),0.07,0.04,"ACQ","1")
+	BOXEDTEXT(ACQV,0.93,(BEZEL_Y4+0.02),0.07,0.04,"FLIR","1")
+	class white {
+		color[] = common_white;
+		#include "hellfireBoxes.hpp"
+	}; // white
+};

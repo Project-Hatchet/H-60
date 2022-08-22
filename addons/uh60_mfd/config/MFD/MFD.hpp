@@ -52,6 +52,10 @@ class Draw {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_CCFS_MENU);
 		#include "pages\ccfs_menu_draw.hpp"
 	}; // nd
+	class damage {
+		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_DAMAGED);
+		#include "pages\damage\base.hpp"
+	}; // nd
 	class grid {
 		#include "pages\grid_draw.hpp"
 	};

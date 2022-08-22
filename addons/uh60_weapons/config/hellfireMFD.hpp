@@ -33,6 +33,9 @@ class Bones
 #define HELLFIRE_BG(X,Y,SCALE) \
 	COLORED_POLYGON(BG,((X - 0.1) * SCALE),((Y - 0.53) * SCALE),0.02,(0.8*SCALE),common_black)
 
+#define EMPTY_BG(X,Y,SCALE) \
+	COLORED_POLYGON(BG,((X - (0.1/2)) * SCALE),((Y - (0.53/2)) * SCALE),0.01,(0.4*SCALE),common_white)
+
 class Draw
 {
 	color[] = common_black;
@@ -86,6 +89,25 @@ class Draw
 				points[] = {HELLFIREPOINTS(-0.2,0.5,0.1)};
 			};
 			TEXT_MID_SCALED(LSRTEXT,(-0.2*0.1),(0.2*0.1),"L",0.05)
+		};
+	};
+	class emptyRacks {
+		color[] = common_white;
+		class MSL1 {
+			condition = "PylonAmmo < 1";
+			EMPTY_BG(-0.2,-0.5,0.1)
+		};
+		class MSL2 {
+			condition = "PylonAmmo < 2";
+			EMPTY_BG(0.2,-0.5,0.1)
+		};
+		class MSL3 {
+			condition = "PylonAmmo < 3";
+			EMPTY_BG(0.2,0.5,0.1)
+		};
+		class MSL4 {
+			condition = "PylonAmmo < 4";
+			EMPTY_BG(-0.2,0.5,0.1)
 		};
 	};
 };

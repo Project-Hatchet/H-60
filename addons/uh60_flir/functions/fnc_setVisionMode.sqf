@@ -17,6 +17,9 @@ params ["_effect", ["_sync", true]];
 
 vtx_uh60_flir_pipEffect = _effect;
 "vtx_uh60_flir_feed" setPiPEffect vtx_uh60_flir_pipEffect;
+// if (_effect # 0 == 0) then {
+//   "vtx_uh60_flir_feed" setPiPEffect [3, 1, 1.0, 1.0, 0.0, [0.5, 0.5, 0.5, 0], [1.0, 1.0, 1.0, 0],  [0.199, 0.587, 0.114, 0.0]];
+// };
 
 if (vtx_uh60_flir_isInScriptedCamera) then {
   camUseNVG (vtx_uh60_flir_pipEffect isEqualTo [1]);

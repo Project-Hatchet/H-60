@@ -6,7 +6,7 @@ class MainTurret: MainTurret { //Left Doorgun
     gun="MinigunL_Elev";
     gunBeg="muzzle_1";
     gunEnd="chamber_1";
-    gunnerAction = "vehicle_turnout_1";
+    gunnerAction = "passenger_inside_6_Idle";
     gunnerInAction = "passenger_inside_1";
     gunnerName="Left door gunner";
     /* need axis set up
@@ -37,11 +37,15 @@ class MainTurret: MainTurret { //Left Doorgun
     gunnerLeftLegAnimName = "";
     gunnerRightLegAnimName = "";
     hideWeaponsGunner = 1;
-    isPersonTurret = 0;
-    outGunnerMayFire = 1;
+    isPersonTurret = 1;
     primaryGunner = 0;
     stabilizedInAxes = 0;
     viewGunnerInExternal = 1;
+    inGunnerMayFire = 1;
+    gunnerFireAlsoInInternalCamera = 1;
+    gunnerOutFireAlsoInInternalCamera = 1;
+    outGunnerMayFire = 0;
+    hasGunner = 1;
     weapons[]=
     {
         "vtx_wpn_m134"
@@ -50,13 +54,15 @@ class MainTurret: MainTurret { //Left Doorgun
     {
         "vtx_2000Rnd_65x39_Belt_Tracer_Red"
     };
+    minOutElev=0; maxOutElev=0; initOutElev=0;
+    minOutTurn=0; maxOutTurn=0; initOutTurn=0;
     class TurnIn {
         limitsArrayTop[] = {{10, 185}, {10, -10}};
         limitsArrayBottom[] = {{-70, 185}, {-70, -10}};
     };
   	class TurnOut {
-        limitsArrayTop[] = {{10, 185}, {10, -10}};
-        limitsArrayBottom[] = {{-70, 185}, {-70, -10}};
+        limitsArrayTop[] = {{10, 80}, {50,0}, {10, -90}};
+        limitsArrayBottom[] = {{-9.5111, -85.0371}, {-38.3027, -63.4442}, {-70, 0}, {-30, 80}};
     };
     class ViewOptics {
         initAngleX=0; minAngleX=0; maxAngleX=0;
@@ -101,11 +107,13 @@ class RightDoorGun: MainTurret {
         limitsArrayBottom[] = {{-70, 10}, {-70, -185}};
     };
   	class TurnOut {
-        limitsArrayTop[] = {{10, 10}, {10, -185}};
-        limitsArrayBottom[] = {{-70, 10}, {-70, -185}};
+        limitsArrayTop[] = {{10, -80}, {50, 0}, {10, 90}};
+        limitsArrayBottom[] = {{-9.5111, 85.0371}, {-38.3027, 63.4442}, {-70, 0}, {-30, -80}};
     };
     weapons[]=
     {
         "vtx_wpn_m134_2nd"
     };
 };
+
+

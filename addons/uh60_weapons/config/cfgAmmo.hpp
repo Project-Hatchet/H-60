@@ -8,16 +8,64 @@ class CfgAmmo {
     model = "z\vtx\addons\uh60_weapons\fza_agm114k.p3d";
     proxyShape = "z\vtx\addons\uh60_weapons\fza_agm114k.p3d";
     class ace_missileguidance: ace_missileguidance {
-      enabled = 1; // Missile Guidance must be explicitly enabled
+      attackProfiles[] = {"hellfire","hellfire_hi","hellfire_lo"};
+      canVanillaLock = 0;
+      defaultAttackProfile = "hellfire";
+      defaultSeekerLockMode = "LOAL";
+      defaultSeekerType = "SALH";
+      enabled = 1;
+      incDeflection = 0.0005;
+      maxDeflection = 0.009;
+      minDeflection = 0.0005;
+      seekerAccuracy = 0.99;
+      seekerAngle = 75;
+      seekerLockModes[] = {"LOAL","LOBL"};
+      seekerMaxRange = 8000;
+      seekerMinRange = 1;
+      seekerTypes[] = {"SALH"};
+      seekLastTargetPos = 0;
     };
+    initTime = 0.2;
+    thrust = 100;
+    thrusttime = 5;
+    effectsMissileInit = "RocketBackEffectsRPG";
+    effectsMissile = "vtx_agm114_trail";
+    ExplosionEffects = "vtx_agm114_explosion";
+    submunitionAmmo = "ammo_Penetrator_AGM_02";
   };
+  hit = 400;
   class VTX_Hellfire_AGM114N: ACE_Hellfire_AGM114N {
     displayName = "AGM-114N Hellfire";
     model = "z\vtx\addons\uh60_weapons\fza_agm114n.p3d";
     proxyShape = "z\vtx\addons\uh60_weapons\fza_agm114n.p3d";
     class ace_missileguidance: ace_missileguidance {
-      enabled = 1; // Missile Guidance must be explicitly enabled
+      attackProfiles[] = {"hellfire","hellfire_hi","hellfire_lo"};
+      canVanillaLock = 0;
+      defaultAttackProfile = "hellfire";
+      defaultSeekerLockMode = "LOAL";
+      defaultSeekerType = "SALH";
+      enabled = 1;
+      incDeflection = 0.0005;
+      maxDeflection = 0.009;
+      minDeflection = 0.0005;
+      seekerAccuracy = 0.99;
+      seekerAngle = 75;
+      seekerLockModes[] = {"LOAL","LOBL"};
+      seekerMaxRange = 8000;
+      seekerMinRange = 1;
+      seekerTypes[] = {"SALH"};
+      seekLastTargetPos = 0;
     };
+    hit = 400;
+    initTime = 0.2;
+    thrust = 100;
+    thrusttime = 5;
+    irLock = 0;
+    laserLock = 0;
+    manualControl = 0;
+  timeToLive = 40;
+    effectsMissileInit = "RocketBackEffectsRPG";
+    effectsMissile = "vtx_agm114_trail";
   };
 
   class M_PG_AT;
