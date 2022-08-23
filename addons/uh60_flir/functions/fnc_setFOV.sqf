@@ -13,12 +13,14 @@
  */
 
 params ["_fov", ["_sync", true]];
-
+systemChat str ["SYNCING", _this];
 vtx_uh60_flir_FOV = _fov;
 vtx_uh60_flir_camera camSetFov _fov;
 
-if (_sync && {vtx_uh60_flir_otherPilotIsPlayer}) then {
-  ["vtx_uh60_flir_syncFOV", [_fov], [vtx_uh60_flir_otherPilot]] call CBA_fnc_targetEvent;
+if (_sync) then {
+  // ["vtx_uh60_flir_syncFOV", [_fov], [vtx_uh60_flir_otherPilot]] call CBA_fnc_targetEvent;
+  private _targets = (crew vehicle player) - [player];
+  [_fov, false] remoteExecCall ["vtx_uh60_flir_fnc_setFOV", _targets, false];
 };
 
 

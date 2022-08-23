@@ -1,7 +1,7 @@
 #define MAJOR 0
 #define MINOR 5
 #define PATCHLVL 2
-#define BUILD 47
-#define RELEASENAME HATCHET-QA-17MAY22
+#define BUILD 50
+#define RELEASENAME HATCHET-QA-23AUG22
 #define BRANCH PFD
-#define BUILDHASH c247c770
+#define BUILDHASH 6f26b75e

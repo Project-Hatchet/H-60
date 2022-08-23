@@ -62,7 +62,7 @@ private _messageContent = [
 	_time + " " + _positionType
 ] + _messageComments;
 private _data = [_position3d];
-private _replies = [[_time, name _sender, "SENT"]];
+private _replies = [[_time, name _sender, "SENT", _sender]];
 
 private _result = [
 	_id, // TITLE

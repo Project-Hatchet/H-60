@@ -29,8 +29,9 @@ switch (_action) do {
     };
     case "flir": {
         private _cursorPos = [] call vtx_uh60_mfd_fnc_tac_cursorToWorld;
-        _vehicle setPilotCameraTarget (AGLtoASL _cursorPos);
-		[true, (AGLtoASL _cursorPos)] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", crew _vehicle];
+        _vehicle setPilotCameraTarget _cursorPos;
+		// [true, _cursorPos] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", crew _vehicle];
+        [getPilotCameraDirection _vehicle, _cursorPos] call vtx_uh60_flir_fnc_syncPilotCamera;
     };
     case "centerMode": {
         [_vehicle,4] call vtx_uh60_mfd_fnc_cyclePylonValue;

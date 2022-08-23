@@ -13,21 +13,25 @@
  * [_vehicle] call vtx_uh60_flir_fnc_syncPilotCamera
  */
 
-params ["_rot_dir", "_target", ["_targetObject", objNull], ["_immediate", false]];
-
-vtx_uh60_flir_pilotCameraTarget = getPilotCameraTarget vxf_vehicle;
-if (vtx_uh60_flir_pilotCameraTarget # 0) then {
-  vtx_uh60_flir_pilotCameraTarget set [2, _targetObject];
+params ["_rot_dir", "_target", ["_targetObject", objNull], ["_immediate", false], ["_propagate", true]];
+systemChat str _this;
+if (_propagate) then {
+  private _targets = (crew _vehicle) - [player];
+  [_rot_dir, _target, _targetObject, _immediate, false] remoteExecCall ["vtx_uh60_flir_fnc_syncPilotCamera", _targets, false];
+} else {
+    params ["_rot_dir", "_target", "_targetObject"];
+  switch (count _rot_dir) do {
+    case 2: { vxf_vehicle setPilotCameraRotation _rot_dir; };
+    case 3: { vxf_vehicle setPilotCameraDirection _rot_dir; };
+  };
+  if (!isNull _targetObject) then {
+    vxf_vehicle setPilotCameraTarget _targetObject;
+  } else {
+    vxf_vehicle setPilotCameraTarget _target;
+  };
+  vtx_uh60_flir_pilotCameraTarget = getPilotCameraTarget vxf_vehicle;
+  if (vtx_uh60_flir_pilotCameraTarget # 0) then {
+    vtx_uh60_flir_pilotCameraTarget set [2, _targetObject];
+  };
 };
-
-if (
-    vtx_uh60_flir_otherPilotIsPlayer
-    && {_immediate || {CBA_missionTime - vtx_uh60_flir_lastSyncTimePilotCamera > vtx_uh60_flir_setting_syncDelay}}
-) exitWith {
-    ["vtx_uh60_flir_syncPilotCamera", [_rot_dir, _target, _targetObject], [vtx_uh60_flir_otherPilot]] call CBA_fnc_targetEvent;
-    vtx_uh60_flir_lastSyncTimePilotCamera = CBA_missionTime;
-
-    true
-};
-
-false
+true

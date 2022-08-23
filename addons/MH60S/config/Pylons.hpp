@@ -1,4 +1,4 @@
-#define EXTRAPYLONMAGS "vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy"
+#define EXTRAPYLONMAGS "vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy"
 class TransportPylonsComponent {
     uiPicture = "z\vtx\addons\MH60M\Data\UI\vtx_mh60m_dap_3den_ca.paa";
     class Pylons {
@@ -6,8 +6,7 @@ class TransportPylonsComponent {
             attachment = "VTX_4Rnd_ACE_Hellfire_AGM114K";
             priority = 5;
             hardpoints[] = {
-              "DAR", "DAGR", "B_SHIEKER", "20MM_TWIN_CANNON",
-              "RHS_HP_LONGBOW_RACK", "RHS_HP_FFAR_ARMY", "RHS_HP_MELB", "RHS_HP_MELB_L", "CUP_NATO_HELO_UH60"
+              "VTX_ST_L"
             };
             UIposition[] = {0.59, 0.41};
         };
@@ -15,8 +14,7 @@ class TransportPylonsComponent {
             attachment = "VTX_PylonRack_M261_APKWS";
             mirroredMissilePos = 1;
             hardpoints[] = {
-              "DAR", "DAGR", "B_SHIEKER", "20MM_TWIN_CANNON",
-              "RHS_HP_LONGBOW_RACK", "RHS_HP_FFAR_ARMY", "RHS_HP_MELB", "RHS_HP_MELB_R", "CUP_NATO_HELO_UH60"
+              "VTX_ST_R"
             };
             UIposition[] = {0.08, 0.41};
         };
@@ -64,11 +62,13 @@ class TransportPylonsComponent {
         DUMMY_PYLON(dummy37)  // R23
         DUMMY_PYLON(dummy38)  // R24
         DUMMY_PYLON(dummy39)  // R25
-        DUMMY_PYLON(dummy40)  // WEAPON 1
-        DUMMY_PYLON(dummy41)  // WEAPON 2
-        DUMMY_PYLON(dummy42)  // WEAPON 3
-        DUMMY_PYLON(dummy43)  // WEAPON 4
-        DUMMY_PYLON(dummy44)  // WEAPON 5
+        DUMMY_PYLON(dummy40)  // HF engagement box
+        DUMMY_PYLON(dummy41)  // HF Trajectory
+        DUMMY_PYLON(dummy42)  // PRI CHAN
+        DUMMY_PYLON(dummy43)  // ALT CHAN
+        DUMMY_PYLON(dummy44)  // LST
+        DUMMY_PYLON(dummy45)  // LRFD
+        DUMMY_PYLON(dummy46)  // ADVISORIES
     };
     class Presets {
         class Empty {

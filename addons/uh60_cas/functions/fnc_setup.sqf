@@ -16,6 +16,7 @@ SET_DEFAULT("vtx_cas_queue", 0)
 vtx_uh60_cas_hitEH = _vehicle addEventHandler ["hit", vtx_uh60_cas_fnc_updateCautions];
 vtx_uh60_cas_cautionsLog = [];
 vtx_uh60_cas_cautionsUnacked = 0;
+vtx_uh60_cas_firstAdvisory = 0;
 
 [_vehicle] call vtx_uh60_cas_fnc_updateCautionsList;
 SET_DEFAULT("vtx_cas_rotorIgnored", false);

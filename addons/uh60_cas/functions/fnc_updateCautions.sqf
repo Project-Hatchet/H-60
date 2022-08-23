@@ -70,11 +70,13 @@ _setPylonFn = {
     private _return = [_vehicle, _index, if (_enable) then [{1}, {0}], true] call vtx_uh60_mfd_fnc_setPylonValue;
     if (_return == 2) then {
         vtx_uh60_cas_cautionsUnacked = vtx_uh60_cas_cautionsUnacked + 1;
+        vtx_uh60_cas_firstAdvisory = vtx_uh60_cas_firstAdvisory + 1;
         vtx_uh60_cas_cautionsLog = [_pylonLabels # _index] + vtx_uh60_cas_cautionsLog;
     };
     if (_return == 0) then {
         private _string = _pylonLabels # _index;
         vtx_uh60_cas_cautionsLog deleteAt (vtx_uh60_cas_cautionsLog find _string);
+        vtx_uh60_cas_firstAdvisory = vtx_uh60_cas_firstAdvisory - 1;
         vtx_uh60_cas_cautionsUnacked = vtx_uh60_cas_cautionsUnacked min (count vtx_uh60_cas_cautionsLog);
     };
     if (_return > -1) then {
@@ -150,3 +152,7 @@ private _mfd =
     (_vehicle getHitPointDamage "mfd4");
 
 [38, (_mfd) > 0.5] call _setPylonFn;
+
+
+[23, (_vehicle getHitPointDamage "WingStores") > 0.3] call _setPylonFn;
+[32, (_vehicle getHitPointDamage "WingStores") > 0.7] call _setPylonFn;

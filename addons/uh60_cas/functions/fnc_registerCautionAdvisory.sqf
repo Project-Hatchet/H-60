@@ -26,8 +26,7 @@ if (local _vehicle) then {
 
 if (isNil "vtx_uh60_cas_cautionsUnacked") then {vtx_uh60_cas_cautionsUnacked = 0};
 if (isNil "vtx_uh60_cas_cautionsLog") then {vtx_uh60_cas_cautionsLog = []};
-vtx_uh60_cas_cautionsUnacked = vtx_uh60_cas_cautionsUnacked + 1;
-vtx_uh60_cas_cautionsLog = [_text] + vtx_uh60_cas_cautionsLog;
+vtx_uh60_cas_cautionsLog = vtx_uh60_cas_cautionsLog + [_text];
 [_vehicle,true] call vtx_uh60_cas_fnc_updateOverlayList;
 
 _casList pushBack [_text, _clearCondition, _autoClear];

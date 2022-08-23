@@ -9,11 +9,13 @@
 params ["_vehicle", "_index", "_value", ["_eicasCaution", false]];
 
 private _changedPylon = -1;
+private _weaponAdded = false;
 
 private _pylons = getPylonMagazines _vehicle;
 if (_pylons isEqualTo [] || _index == 0 || _index > count _pylons) exitWith {_changedPylon};
 if (_pylons # (_index - 1) != "vtx_1000rnd_dummy") then {
-  _vehicle setPylonLoadout [_index, "vtx_1000rnd_dummy", true];
+  if (local _vehicle) then { _vehicle setPylonLoadout [_index, "vtx_1000rnd_dummy", true] };
+  _weaponAdded = true;
 };
 private _ammo = _vehicle ammoOnPylon _index;
 if (_eicasCaution) then {
@@ -23,7 +25,7 @@ if (_eicasCaution) then {
   };
 };
 if (_ammo != _value)  then {
-  _vehicle setAmmoOnPylon [_index, _value];
+  if (local _vehicle) then { _vehicle setAmmoOnPylon [_index, _value] };
   _changedPylon = _value;
 };
 
@@ -34,6 +36,10 @@ if (local _vehicle && {"vtx_pylon_mfd" in weapons _vehicle}) then {
 
 if (_changedPylon > -1) then {
   [_vehicle] call vtx_uh60_mfd_fnc_storePylons;
+};
+
+if (!local _vehicle && (_weaponAdded || _changedPylon > -1)) then {
+  _this remoteExecCall ["vtx_uh60_mfd_fnc_setPylonValue", _vehicle, false];
 };
 
 _changedPylon

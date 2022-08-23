@@ -3,7 +3,7 @@
  *
  *
  */
-params ["_replySender", "_ID", "_reply", "_timestamp"];
+params ["_replySender", "_ID", "_reply", "_timestamp", "_senderObject"];
 
 private _messageIndex = VTX_JVMF_MESSAGES findIf {_x # 0 == _ID};
 if (_messageIndex == -1) exitWith {};
@@ -13,7 +13,9 @@ _replies pushBack [_timestamp, _replySender, _reply];
 _message set [6, _replies];
 VTX_JVMF_MESSAGES set [_messageIndex, _message];
 
-if (_replySender != player) then {
+
+if (_senderObject != player) then {
+	systemChat "REGISTERING ADVISORY";
 	[vehicle player,"NEW JVMF REPLY",{},false,false] call vtx_uh60_cas_fnc_registerCautionAdvisory;
 };
 

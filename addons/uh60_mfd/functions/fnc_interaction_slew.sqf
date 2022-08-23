@@ -37,11 +37,6 @@ if (_action == "slewAction") exitWith {
 		case 3: {
 			[_vehicle,'zoom', -1] call vtx_uh60_mfd_fnc_interaction_tac;
 		};
-		case 4: {
-			private _centerMode = _vehicle getVariable ["vtx_uh60_mfd_tac_center_mode", 0];
-			if (_centerMode == 3) then {_centerMode = 0} else {_centerMode = _centerMode + 1};
-			_vehicle setVariable ["vtx_uh60_mfd_tac_center_mode", _centerMode, true];
-		};
 		case 5: {
 			_vehicle setUserMFDValue [39, -1];
 		};

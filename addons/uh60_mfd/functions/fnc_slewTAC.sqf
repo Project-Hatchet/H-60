@@ -69,6 +69,7 @@ if (_movingCursor) then {
 		[_vehicle, 7, 1] call vtx_uh60_mfd_fnc_setPylonValue;
 		vtx_uh60_mfd_tac_mapPos = getPos _vehicle;
 	};
+	[true] call vtx_uh60_mfd_fnc_tac_sync;
 };
 
 if (local _vehicle) then {

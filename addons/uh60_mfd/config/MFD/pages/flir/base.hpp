@@ -266,6 +266,7 @@ class flirPage {
 		condition = "pilotcameralock";
 		color[] = common_black;
 		COLORED_POLYGON(PB1,0.2,0.2,0.2,0.04,common_black)
+		BOXEDTEXT_USER(TEXT_TAPE,0.5,0.17,0.5,0.04,10,"1")
 		class white {
 			color[] = common_white;
 			TEXT_MID_SCALED(LRD_LASE_TXT,0.3,0.2,"GND STAB",0.04)
@@ -315,9 +316,6 @@ class flirPage {
 	BOXEDTEXT(GUN_SEL,0.06,BEZEL_Y1,0.1,0.04,"GUN","1")
 	BOXEDTEXT(RKT_SEL,0.06,BEZEL_Y2,0.1,0.04,"RKT","1")
 	BOXEDTEXT(MSL_SEL,0.06,BEZEL_Y5,0.1,0.04,"MSL","1")
-
-
-	BOXEDTEXT_USER(TEXT_TAPE,0.5,0.17,0.5,0.04,10,"1")
 
 	#define BOTTOM_TEXT_Y 0.96
 

@@ -16,7 +16,7 @@ if (
 };
 vtx_uh60_flir_fnc_grain ppEffectCommit 0;
 
-if (!vtx_uh60_flir_isPipHidden || {vtx_uh60_flir_isInScriptedCamera} || {vtx_uh60_flir_playerIsPilot && cameraView == "GUNNER"}) then {
+if (!vtx_uh60_flir_isPipHidden || {vtx_uh60_flir_isInScriptedCamera} || {cameraView == "GUNNER"}) then {
   [_vehicle] call vtx_uh60_flir_fnc_handleKeyInputs;
   [_vehicle] call vtx_uh60_flir_fnc_handleSlew;
 };

@@ -18,3 +18,4 @@ for "_i" from 14 to 19 do {
 if (_canOpen || _vehicle ammoOnPylon 3 > 0) then {
 	[_vehicle, 3, 1 + vtx_uh60_cas_cautionsUnacked] call vtx_uh60_mfd_fnc_setPylonValue;
 };
+[_vehicle, 46, (missionNamespace getVariable ["vtx_uh60_cas_firstAdvisory", 0])] call vtx_uh60_mfd_fnc_setPylonValue;
