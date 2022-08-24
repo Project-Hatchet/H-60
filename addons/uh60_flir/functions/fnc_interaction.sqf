@@ -1,4 +1,5 @@
-params ["_vehicle", "_button"];
+params ["_vehicle", "_button", "_var"];
+	systemchat str _this;
 switch (_button) do {
 	case "WAYPT_SLEW": {
 		private _currentWaypointIndex = currentWaypoint group player;
@@ -43,5 +44,13 @@ switch (_button) do {
 		[_vehicle, 45, _laserCodeIndex] call vtx_uh60_mfd_fnc_setPylonValue;
 		private _lrfdCode = [_vehicle, "LRFD"] call vtx_uh60_weapons_fnc_getLaserCode;
 		_vehicle setVariable ["ace_laser_code", _lrfdCode, true];
+	};
+	case "UNSTOW": {
+		systemchat str _this;
+		_vehicle setVariable ["vtx_uh60_flir_stowed", false, true];
+		[_vehicle, _var, 5] call vtx_uh60_mfd_fnc_switchPage;
+	};
+	case "STOW": {
+		_vehicle setVariable ["vtx_uh60_flir_stowed", true, true];
 	};
 };

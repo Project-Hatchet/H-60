@@ -4,10 +4,11 @@ COLORED_POLYGON(bottomEdge,0,1,1,-0.05,common_black)
 COLORED_POLYGON(rightEdge,1,0,(-0.05*3/4),1,common_black)
 class flirPage {
 
-	#include "headingElevationTape.hpp"
-	#include "damage.hpp"
-	#include "common.hpp"
-
+	class common {
+		condition = COND_NOT_SUBPAGE(MFD_PAGE_INDEX,FLIR_MODE_STOWED);
+		#include "damage.hpp"
+		#include "common.hpp"
+	};
 
 	class attack_page {
 		condition=COND_SUBPAGE(MFD_PAGE_INDEX,FLIR_MODE_ATTACK);
@@ -19,6 +20,19 @@ class flirPage {
 		#include "weapons.hpp"
 		#include "hellfire.hpp"
 		#include "laserinfo.hpp"
+		#include "headingElevationTape.hpp"
+
+		
+		BOXEDTEXT(WPNCTRLL,0.93,(BEZEL_Y6-0.02),0.07,0.04,"WPN","1")
+		BOXEDTEXT(WPNCTRLV,0.93,(BEZEL_Y6+0.02),0.07,0.04,"CTRL","1")
+	};
+
+	class weapon_assign {
+		condition=COND_SUBPAGE(MFD_PAGE_INDEX,FLIR_MODE_WPN_ASSIGN);
+		#include "weapons.hpp"
+		BOXEDTEXT(RETURN,0.93,(BEZEL_Y6),0.09,0.04,"RETURN","1")
+		BOXEDTEXT(ASSIGN,0.5,(0.4),0.3,0.04,"WPN STN CONTROL ASSIGN","1")
+		#include "weaponAssign.hpp"
 	};
 
 	class homepage_only {
@@ -37,15 +51,8 @@ class flirPage {
 		#define BOTTOM_TEXT_Y 0.96
 
 		#include "laserinfo.hpp"
+		#include "headingElevationTape.hpp"
 
-	};
-	class wpn_sel {
-		condition=COND_SUBPAGE(MFD_PAGE_INDEX,FLIR_MODE_WPN_SEL);
-		BOXEDTEXT(LSR_SEL,0.06,BEZEL_Y1,0.1,0.04,"LSR","1")
-		BOXEDTEXT(GUN_SEL,0.06,BEZEL_Y2,0.1,0.04,"GUN","1")
-		BOXEDTEXT(RKT_SEL,0.06,BEZEL_Y5,0.1,0.04,"RKT","1")
-		BOXEDTEXT(MSL_SEL,0.06,BEZEL_Y6,0.1,0.04,"MSL","1")
-		
 	};
 	class laser_page {
 		condition=COND_SUBPAGE(MFD_PAGE_INDEX,FLIR_MODE_LASER);
@@ -55,8 +62,12 @@ class flirPage {
 		BOXEDTEXT(LSR_SEL1,BEZEL_XT6,0.07-0.02,0.1,0.04,"DCLT","1")
 		BOXEDTEXT(LSR_SEL2,BEZEL_XT6,0.07+0.02,0.1,0.04,"PAGE","1")
 		#include "lasermenu.hpp"
+		#include "headingElevationTape.hpp"
 	};
-
+	class stowed {
+		condition=COND_SUBPAGE(MFD_PAGE_INDEX,FLIR_MODE_STOWED);
+		#include "stowed.hpp"
+	};
 	class bottom {
 		COLORED_POLYGON(PB1,(BEZEL_XB1-0.02),0.995-TAC_LINE_HEIGHT,0.04,0.04,common_black)
 		COLORED_POLYGON(PB2,(BEZEL_XB2-0.015),0.995-TAC_LINE_HEIGHT,0.03,0.04,common_black)

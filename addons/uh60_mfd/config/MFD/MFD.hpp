@@ -5,7 +5,7 @@ borderBottom=0;
 color[]=common_white;
 enableParallax=0;
 font="RobotoCondensedLight";
-turret[] = {-1};
+turret[] = {-2};
 class material {
 	ambient[] = {1, 1, 1, 1};
 	diffuse[] = {0.5, 0.5, 0.5, 1};

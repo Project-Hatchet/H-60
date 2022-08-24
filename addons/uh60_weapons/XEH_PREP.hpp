@@ -10,4 +10,5 @@ PREP(fireAndResetWeapon);
 PREP(interaction);
 PREP(getLaserCode);
 PREP(hellfireGuidanceInit);
+PREP(updatePylonAssignment);
 

@@ -1,4 +1,4 @@
-params ["_vehicle", "_button"];
+params ["_vehicle", "_button", "_var"];
 
 private _cycleWeapon = {
 	params ["_vehicle", "_options"];
@@ -25,6 +25,25 @@ private _cycleLaserCodes = {
 		[_vehicle, _alt, _oldIndex] call vtx_uh60_mfd_fnc_setPylonValue;
 	};
 	[_vehicle, _code, _laserCodeIndex] call vtx_uh60_mfd_fnc_setPylonValue;
+};
+
+private _stationAssign = {
+	params ["_vehicle", "_pylon", "_targetOwner"];
+	private _pylon = switch (_pylon) do {
+		case "LIB": {1};
+		case "RIB": {2};
+		case "LOB": {-1};
+		case "ROB": {-1};
+		default {-1};
+	};
+	if (_pylon == -1) exitWith {};
+	private _turret = if (_targetOwner == "pilot") then {[]} else {[0]};
+	private _magazine = (getPylonMagazines _vehicle) # (_pylon - 1);
+	private _targets = [
+		_vehicle turretUnit [-1],
+		_vehicle turretUnit [0]
+	];
+	[_vehicle, _pylon, _magazine, _vehicle ammoOnPylon _pylon, _turret] remoteExecCall ["vtx_uh60_weapons_fnc_updatePylonAssignment", _targets, false];
 };
 
 switch (_button) do {
@@ -55,6 +74,10 @@ switch (_button) do {
 	case "SEL_MSL": {
 		[_vehicle, ["vtx_hellfire_launcher", "vtx_hellfire_launcher_N"]] call _cycleWeapon;
 	};
+	case "RIB": {_this call _stationAssign};
+	case "ROB": {_this call _stationAssign};
+	case "LIB": {_this call _stationAssign};
+	case "LOB": {_this call _stationAssign};
 };
 
 [_vehicle] call vtx_uh60_weapons_fnc_updateMFDValues;
