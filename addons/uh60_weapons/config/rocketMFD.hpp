@@ -10,7 +10,7 @@ class Draw
 		color[] = common_white;
 		class Rails {
 			type="line";
-			width = 3;
+			width = 2;
 			points[] ={
 				{{-0.25 * 0.1, -0.90 * 0.1 + OFFSET_Y},1},
 				{{ 0.25 * 0.1, -0.90 * 0.1 + OFFSET_Y},1},

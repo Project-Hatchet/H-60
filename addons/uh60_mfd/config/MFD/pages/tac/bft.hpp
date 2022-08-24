@@ -190,10 +190,37 @@ class BFT
 	class targetGroundRemoteEnemy { ARMORED(common_red) };
 	class targetGroundRemoteGroup { ARMORED(common_green) };
 	class targetGroundRemoteDestroyed { ARMORED(common_purple) };
-	class targetLaser {};
-	class targetLaserFriendly {};
-	class targetLaserEnemy {};
-	class targetLaserGroup {};
+	class targetLaser {
+		class background {
+			color[] = common_black;
+			class poly {
+				type = "polygon";
+				points[] = {
+					{
+						{{0 + -0.015, 0 + 0.00},1},
+						{{0 +  0.000, 0 + 0.02},1},
+						{{0 +  0.015, 0 + 0.00},1}
+					}
+				};
+			}; // poly
+			class red {
+				color[] = {1,0,0,1};
+				class poly {
+					type = "polygon";
+					points[] = {
+						{
+							{{0 + -0.015, 0 + 0.00},1},
+							{{0 +  0.000, 0 + 0.02},1},
+							{{0 +  0.015, 0 + 0.00},1}
+						}
+					};
+				}; // poly
+			}; // red
+		}; // background
+	};
+	class targetLaserFriendly: targetLaser {};
+	class targetLaserEnemy: targetLaser {};
+	class targetLaserGroup: targetLaser {};
 	class targetNVG {TEXT_MID_SCALED(MYTEXT,0,-0.025,"IR-CIV",0.05)};
 	class targetNVGFriendly {TEXT_MID_SCALED(MYTEXT,0,-0.025,"IR-BLUE",0.05)};
 	class targetNVGEnemy {

@@ -43,7 +43,7 @@ private _pylonLabels = [
     ,"CHIP MAIN MDL SUMP"
     ,"MAIN XMSN PRES"
     ,"HULL INTEGRITY CRIT"
-    ,"BATT LOW"
+    ,"LEFT STN HANG"
     ,"ENG 1 STARTER ON"
     ,"GEN 2 FAIL"
     ,"HYD PUMP 2"
@@ -52,13 +52,13 @@ private _pylonLabels = [
     ,"T/R SERVO 1 FAIL"
     ,"T/R QUAD FAIL"
     ,"APU FAIL"
-    ,"STAB FAIL"
+    ,"RIGHT STN HANG"
     ,"ENG 2 STARTER ON"
     ,"STBY INST NOT ARMD"
     ,"STAB FAIL"
     ,"CMWS FAIL"
     ,"FLIR FAIL"
-    ,""
+    ,"MFD BUS ERR"
     ,""
 ];
 
@@ -151,7 +151,7 @@ private _mfd =
     (_vehicle getHitPointDamage "mfd3") +
     (_vehicle getHitPointDamage "mfd4");
 
-[38, (_mfd) > 0.5] call _setPylonFn;
+[38, (_mfd) > 0.2] call _setPylonFn;
 
 
 [23, (_vehicle getHitPointDamage "WingStores") > 0.3] call _setPylonFn;

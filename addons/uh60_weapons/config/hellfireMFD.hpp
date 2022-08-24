@@ -46,7 +46,7 @@ class Draw
 			color[] = common_white;
 			class line {
 				type="line";
-				width=3;
+				width=2;
 				points[] = {HELLFIREPOINTS(-0.2,-0.5,0.1)};
 			};
 			TEXT_MID_SCALED(LSRTEXT,(-0.2*0.1),(-0.8*0.1),"L",0.05)
@@ -59,7 +59,7 @@ class Draw
 			color[] = common_white;
 			class line {
 				type="line";
-				width=3;
+				width=2;
 				points[] = {HELLFIREPOINTS(0.2,-0.5,0.1)};
 			};
 			TEXT_MID_SCALED(LSRTEXT,(0.2*0.1),(-0.8*0.1),"L",0.05)
@@ -72,7 +72,7 @@ class Draw
 			color[] = common_white;
 			class line {
 				type="line";
-				width=3;
+				width=2;
 				points[] = {HELLFIREPOINTS(0.2,0.5,0.1)};
 			};
 			TEXT_MID_SCALED(LSRTEXT,(0.2*0.1),(0.2*0.1),"L",0.05)
@@ -85,7 +85,7 @@ class Draw
 			color[] = common_white;
 			class line {
 				type="line";
-				width=3;
+				width=2;
 				points[] = {HELLFIREPOINTS(-0.2,0.5,0.1)};
 			};
 			TEXT_MID_SCALED(LSRTEXT,(-0.2*0.1),(0.2*0.1),"L",0.05)

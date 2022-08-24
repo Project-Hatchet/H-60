@@ -28,7 +28,7 @@ switch (true) do {
         _vehicle setObjectMaterial [MAP_SELECTION(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Emmisive\Emmisive_2.rvmat"];
         _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Overlay_ca.paa"];
     };
-    case (_pageIndex == MFD_PAGE_FLIR): {
+    case (_pageIndex > MFD_PAGE_FLIR - 0.99 && _pageIndex < MFD_PAGE_FLIR + 0.99): {
       _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), "#(argb,512,512,1)r2t(vtx_uh60_flir_feed,1.0)"];
       _vehicle setObjectMaterial [MFD_OVERLAY(_mfdIndex), "\A3\Structures_F\Items\Electronics\Data\electronics_screens.rvmat"];
       if (isNil "vtx_uh60_flir_controllable" || {!vtx_uh60_flir_controllable}) then {
@@ -68,7 +68,7 @@ if (!(_pageIndex in [MFD_PAGE_IVHMS,MFD_PAGE_IVHMS_NUMS])) then {
 
 private _anyFLIROpened = false;
 {
- if ((getUserMFDValue _vehicle) # _x == MFD_PAGE_FLIR) exitWith {_anyFLIROpened = true };
+ if ((getUserMFDValue _vehicle) # _x > MFD_PAGE_FLIR - 0.99 && (getUserMFDValue _vehicle) # _x < MFD_PAGE_FLIR + 0.99) exitWith {_anyFLIROpened = true };
 } forEach [MFD_1_PAGE_INDEX, MFD_2_PAGE_INDEX, MFD_3_PAGE_INDEX, MFD_4_PAGE_INDEX];
 
 if (!_anyFLIROpened) then {[_vehicle] call vtx_uh60_flir_fnc_pipStop;};
