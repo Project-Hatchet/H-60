@@ -1,4 +1,4 @@
-#define EXTRAPYLONMAGS "vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy"
+#define EXTRAPYLONMAGS "vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy"
 class TransportPylonsComponent {
     uiPicture = "z\vtx\addons\MH60M\Data\UI\vtx_mh60m_dap_3den_ca.paa";
     class Pylons {
@@ -69,6 +69,7 @@ class TransportPylonsComponent {
         DUMMY_PYLON(dummy44)  // LST
         DUMMY_PYLON(dummy45)  // LRFD
         DUMMY_PYLON(dummy46)  // ADVISORIES
+        DUMMY_PYLON(dummy47)  // LST MODE
     };
     class Presets {
         class Empty {

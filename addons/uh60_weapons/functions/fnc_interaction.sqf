@@ -15,15 +15,27 @@ private _cycleWeapon = {
 	_vehicle selectWeaponTurret [_options # _newIdx, _turret];
 };
 
+private _cycleLaserCodes = {
+	params ["_vehicle", "_code", "_alt"];
+	private _laserCodeIndex = _vehicle ammoOnPylon _code;
+	if (_laserCodeIndex == -1) then {_laserCodeIndex = 0};
+	private _oldIndex = _laserCodeIndex;
+	if (_laserCodeIndex < 5) then {_laserCodeIndex = _laserCodeIndex + 1} else {_laserCodeIndex = 0};
+	if (_vehicle ammoOnPylon _alt == _laserCodeIndex) then {
+		[_vehicle, _alt, _oldIndex] call vtx_uh60_mfd_fnc_setPylonValue;
+	};
+	[_vehicle, _code, _laserCodeIndex] call vtx_uh60_mfd_fnc_setPylonValue;
+};
+
 switch (_button) do {
 	case "LASER": {
 		[_vehicle, "Laserdesignator_pilotCamera", "Laserdesignator_pilotCamera"] call vtx_uh60_weapons_fnc_fireAndResetWeapon;
 	};
-	case "HF_CHAN": {
-		private _laserCodeIndex = _vehicle getVariable ["vtx_uh60_hellfire_laserCodeIndex", 0];
-		if (_laserCodeIndex < 5) then {_laserCodeIndex = _laserCodeIndex + 1} else {_laserCodeIndex = 0};
-		_vehicle setVariable ["vtx_uh60_hellfire_laserCodeIndex", _laserCodeIndex, true];
-		_vehicle setVariable ["ace_laser_code", [_vehicle] call vtx_uh60_weapons_fnc_getLaserCode, true];
+	case "PRI_CHAN": {
+		[_vehicle, 42, 43] call _cycleLaserCodes;
+	};
+	case "ALT_CHAN": {
+		[_vehicle, 43, 42] call _cycleLaserCodes;
 	};
 	case "HF_TRAJ": {
 		private _launchMode = _vehicle getvariable ["ace_missileguidance_attackProfile", "hellfire"];

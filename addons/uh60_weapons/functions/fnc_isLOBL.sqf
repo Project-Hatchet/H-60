@@ -2,7 +2,7 @@ params ["_vehicle"];
 
 private _origin = _vehicle selectionPosition "pilotcamera_flir_pos";
 private _direction = getPilotCameraDirection _vehicle;
-private _laserCode = [_vehicle] call vtx_uh60_weapons_fnc_getLaserCode;
+private _laserCode = [_vehicle, "PRI CHAN"] call vtx_uh60_weapons_fnc_getLaserCode;
 private _fov = vtx_uh60_flir_FOV;
 private _laserResult = [
 	_vehicle modelToWorldVisualWorld _origin,

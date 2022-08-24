@@ -61,6 +61,11 @@ class PntTrk {
 	}; // whtie
 }; // GndStab
 
+class LSTOnTape {
+	condition = "pylonAmmo47 > 0";
+	BOXEDTEXT(TEXT_TAPE,0.5,0.17,0.5,0.04,"LST SEARCH ON","1")
+}; // GndStab
+
 class crossBackground {
 	color[] = common_black;
 	class TargetCross {

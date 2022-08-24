@@ -13,7 +13,7 @@ class CfgAmmo {
       defaultAttackProfile = "hellfire";
       defaultSeekerLockMode = "LOAL";
       defaultSeekerType = "SALH";
-      enabled = 1;
+      enabled = 0;
       incDeflection = 0.0005;
       maxDeflection = 0.009;
       minDeflection = 0.0005;
@@ -44,7 +44,7 @@ class CfgAmmo {
       defaultAttackProfile = "hellfire";
       defaultSeekerLockMode = "LOAL";
       defaultSeekerType = "SALH";
-      enabled = 1;
+      enabled = 0;
       incDeflection = 0.0005;
       maxDeflection = 0.009;
       minDeflection = 0.0005;

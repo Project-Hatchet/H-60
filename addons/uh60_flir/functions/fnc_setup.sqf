@@ -35,6 +35,8 @@ vtx_uh60_flir_maxTurn = getNumber (_pilotCameraConfig >> "maxTurn") / 180 * pi;
 vtx_uh60_flir_minElev = getNumber (_pilotCameraConfig >> "minElev") / 180 * pi;
 vtx_uh60_flir_maxElev = getNumber (_pilotCameraConfig >> "maxElev") / 180 * pi;
 
+_vehicle setVariable ["vtx_uh60_flir_targets", _vehicle getVariable ["vtx_uh60_flir_targets", 0]];
+
 private _OpticsIn = _pilotCameraConfig >> "OpticsIn";
 private _fovClasses = "true" configClasses _OpticsIn;
 vtx_uh60_flir_OpticsInfo = createHashMapFromArray (_fovClasses apply {

@@ -10,6 +10,9 @@ if (vehicle _gunner == _vehicle) then {
 		vtx_uh60_hellfire_currentTof = ceil ((_vehicle distance _targetPoint) / 250);
 	};
 };
+if (_ammo == "VTX_Hellfire_AGM114K" || _ammo == "VTX_Hellfire_AGM114N") then {
+	_this call vtx_uh60_weapons_fnc_hellfireGuidanceInit;
+};
 
 if (player == _gunner && local _gunner) then {
 	[_vehicle] call vtx_uh60_weapons_fnc_updateMFDValues;

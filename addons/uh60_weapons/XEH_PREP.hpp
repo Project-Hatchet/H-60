@@ -9,4 +9,5 @@ PREP(toggleLaser);
 PREP(fireAndResetWeapon);
 PREP(interaction);
 PREP(getLaserCode);
+PREP(hellfireGuidanceInit);
 

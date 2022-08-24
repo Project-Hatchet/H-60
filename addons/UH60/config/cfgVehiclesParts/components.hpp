@@ -21,19 +21,19 @@ class Components: Components {
 				hardpoints[] = {};
 				UIposition[] = {0.08, 0.41};
 			};
-			DUMMY_PYLON(dummy3)   // CAS OVERLAY
-			DUMMY_PYLON(dummy4)   // TAC CENTER
-			DUMMY_PYLON(dummy5)   // TAC ALIGN
-			DUMMY_PYLON(dummy6)   // TAC ZOOM
-			DUMMY_PYLON(dummy7)   // TAC MOVEMENT
-			DUMMY_PYLON(dummy8)   // Left HMD Color R
-			DUMMY_PYLON(dummy9)   // Left HMD Color G
-			DUMMY_PYLON(dummy10)  // Left HMD Color B
-			DUMMY_PYLON(dummy11)  // Left HMD Brighhtness
-			DUMMY_PYLON(dummy12)  // Right HMD Color R
-			DUMMY_PYLON(dummy13)  // Right HMD Color G
-			DUMMY_PYLON(dummy14)  // Right HMD Color B
-			DUMMY_PYLON(dummy15)  // Right HMD Brightness
+			DUMMY_PYLON(dummy3) // CAS OVERLAY
+			DUMMY_PYLON(dummy4) // TAC CENTER
+			DUMMY_PYLON(dummy5) // TAC ALIGN
+			DUMMY_PYLON(dummy6) // TAC ZOOM
+			DUMMY_PYLON(dummy7) // TAC MOVEMENT
+			DUMMY_PYLON(dummy8)   //Left HMD Color R
+			DUMMY_PYLON(dummy9)   //Left HMD Color G
+			DUMMY_PYLON(dummy10)  //Left HMD Color B
+			DUMMY_PYLON(dummy11)  //Left HMD Brighhtness
+			DUMMY_PYLON(dummy12)  //Right HMD Color R
+			DUMMY_PYLON(dummy13)  //Right HMD Color G
+			DUMMY_PYLON(dummy14)  //Right HMD Color B
+			DUMMY_PYLON(dummy15)  //Right HMD Brightness
 			DUMMY_PYLON(dummy16)  // L00
 			DUMMY_PYLON(dummy17)  // L01
 			DUMMY_PYLON(dummy18)  // L02
@@ -58,6 +58,14 @@ class Components: Components {
 			DUMMY_PYLON(dummy37)  // R23
 			DUMMY_PYLON(dummy38)  // R24
 			DUMMY_PYLON(dummy39)  // R25
+			DUMMY_PYLON(dummy40)  // HF engagement box
+			DUMMY_PYLON(dummy41)  // HF Trajectory
+			DUMMY_PYLON(dummy42)  // PRI CHAN
+			DUMMY_PYLON(dummy43)  // ALT CHAN
+			DUMMY_PYLON(dummy44)  // LST
+			DUMMY_PYLON(dummy45)  // LRFD
+			DUMMY_PYLON(dummy46)  // ADVISORIES
+			DUMMY_PYLON(dummy47)  // LST MODE
 		};
 		class Presets {
 		};

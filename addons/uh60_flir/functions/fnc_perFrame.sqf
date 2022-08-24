@@ -21,6 +21,10 @@ if (!vtx_uh60_flir_isPipHidden || {vtx_uh60_flir_isInScriptedCamera} || {cameraV
   [_vehicle] call vtx_uh60_flir_fnc_handleSlew;
 };
 
+if (_vehicle ammoOnPylon 47 > 0) then {
+  _this call vtx_uh60_flir_fnc_laserTrack;
+};
+
 if (vtx_uh60_flir_isPipHidden && {!vtx_uh60_flir_isInScriptedCamera}) exitWith {};
 
 [_vehicle] call vtx_uh60_flir_fnc_updateCamera;

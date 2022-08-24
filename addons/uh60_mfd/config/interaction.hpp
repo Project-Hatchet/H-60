@@ -130,6 +130,8 @@ class flir {
         MFD_BTN(MFD_6,QUOTE(LSR MENU))
             buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, FLIR_MODE_LASER, true)] call vtx_uh60_mfd_fnc_switchPage);
         };
+        MFD_BTN(MFD_11,QUOTE(Slew To Waypoint)) buttonUp="[vxf_vehicle,'WAYPT_SLEW'] call vtx_uh60_flir_fnc_interaction"; };
+        MFD_BTN(MFD_12,QUOTE(Create Waypoint)) buttonUp="[vxf_vehicle,'WAYPT_CREATE'] call vtx_uh60_flir_fnc_interaction"; };
     };
     class attack {
         condition = USERVAL(MFD_PAGE_INDEX,FLIR_MODE_ATTACK);
@@ -139,6 +141,9 @@ class flir {
         MFD_BTN(MFD_6,QUOTE(LSR MENU))
             buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, FLIR_MODE_LASER, true)] call vtx_uh60_mfd_fnc_switchPage);
         };
+        MFD_BTN(MFD_7,QUOTE(Primary Channel)) buttonUp="[vxf_vehicle,'PRI_CHAN'] call vtx_uh60_weapons_fnc_interaction"; };
+        MFD_BTN(MFD_8,QUOTE(Alternative Channel)) buttonUp="[vxf_vehicle,'ALT_CHAN'] call vtx_uh60_weapons_fnc_interaction"; };
+        MFD_BTN(MFD_9,QUOTE(Launch Trajectory)) buttonUp="[vxf_vehicle,'HF_TRAJ'] call vtx_uh60_weapons_fnc_interaction"; };
     };
     class laser {
         condition = USERVAL(MFD_PAGE_INDEX,FLIR_MODE_LASER);
@@ -148,6 +153,9 @@ class flir {
         MFD_BTN(MFD_6,QUOTE(DECLUTTER))
             buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_FLIR, true)] call vtx_uh60_mfd_fnc_switchPage);
         };
+        MFD_BTN(MFD_7,QUOTE(Laser Spot Tracker Channel)) buttonUp="[vxf_vehicle,'LST_CHAN'] call vtx_uh60_flir_fnc_interaction"; };
+        MFD_BTN(MFD_8,QUOTE(Laser Spot Tracker Mode)) buttonUp="[vxf_vehicle,'LST_MODE'] call vtx_uh60_flir_fnc_interaction"; };
+        MFD_BTN(MFD_24,QUOTE(Laser Designator Channel)) buttonUp="[vxf_vehicle,'LRFD_CHAN'] call vtx_uh60_flir_fnc_interaction"; };
     };
     // MFD_BTN(MFD_1,QUOTE(LASE)) buttonUp="[vxf_vehicle,'LASER'] call vtx_uh60_weapons_fnc_interaction"; };
     // MFD_BTN(MFD_7,QUOTE(CHAN)) buttonUp="[vxf_vehicle,'HF_CHAN'] call vtx_uh60_weapons_fnc_interaction"; };

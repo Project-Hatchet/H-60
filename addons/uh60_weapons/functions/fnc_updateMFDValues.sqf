@@ -3,7 +3,7 @@ params ["_vehicle"];
 (getPilotCameraTarget _vehicle) params ["_stabilized", "_position"];
 private _outputString = "";
 if (_stabilized) then {
-	_outputString = _outputString + format ["LSR %1M       ", round (_vehicle distance _position)];
+	_outputString = _outputString + format ["%1M       ", round (_vehicle distance _position)];
 
 	private _gridArea = [worldName] call ace_common_fnc_getMGRSdata;
 	private _grid = [_position] call ace_common_fnc_getMapGridFromPos;
@@ -12,6 +12,15 @@ if (_stabilized) then {
 };
 if (vtx_uh60_hellfire_currentTof > -1) then {
 	_outputString = _outputString + format["   HF TOF = %1", vtx_uh60_hellfire_currentTof];
+} else { // if no hellfire in the air, do the waypoint check
+	if (_stabilized) then {
+		{
+			systemChat str ["checking", waypointDescription _x];
+			if (((waypointPosition _x) distance2D _position) < 30) exitWith {
+				_outputString = _outputString + format["   %1", waypointDescription _x];
+			};
+		} forEach (waypoints group player);
+	};
 };
 _vehicle setUserMFDText [10, _outputString];
 
@@ -53,4 +62,4 @@ private _launchNum = switch (_launchMode) do {
 
 [_vehicle, 41, _launchNum] call vtx_uh60_mfd_fnc_setPylonValue;
 
-[_vehicle, 42, _vehicle getVariable ["vtx_uh60_hellfire_laserCodeIndex", 0]] call vtx_uh60_mfd_fnc_setPylonValue;
+// [_vehicle, 42, _vehicle getVariable ["vtx_uh60_hellfire_laserCodeIndex", 0]] call vtx_uh60_mfd_fnc_setPylonValue;
