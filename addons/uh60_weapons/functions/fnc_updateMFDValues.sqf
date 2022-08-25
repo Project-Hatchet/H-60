@@ -22,7 +22,9 @@ if (vtx_uh60_hellfire_currentTof > -1) then {
 		} forEach (waypoints group player);
 	};
 };
-_vehicle setUserMFDText [10, _outputString];
+if (!(_vehicle getVariable ["vtx_uh60_flir_stowed", true])) then {
+	_vehicle setUserMFDText [10, _outputString];
+};
 
 if (!local _vehicle) exitWith {};
 

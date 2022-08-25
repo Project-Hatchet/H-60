@@ -23,8 +23,8 @@ if (_rotation isNotEqualTo [
   _vehicle animationSourcePhase "FLIR_ELEVATION"
 ]) then {
   _rotation params ["_azimuth", "_elevation"];
-  _vehicle animateSource ["FLIR_DIRECTION", _azimuth, true];
-  _vehicle animateSource ["FLIR_ELEVATION", _elevation, true];
+  _vehicle animateSource ["FLIR_DIRECTION", _azimuth, 1];
+  _vehicle animateSource ["FLIR_ELEVATION", _elevation, 1];
 };
 
 true

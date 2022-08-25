@@ -25,6 +25,20 @@ if (_vehicle ammoOnPylon 47 > 0) then {
   _this call vtx_uh60_flir_fnc_laserTrack;
 };
 
+private _bootTime = _vehicle getVariable ["vtx_uh60_flir_boot_time", -1];
+if (_bootTime > -1) then {
+  private _timeRemaining = (_bootTime + 25) - time;
+  if (_timeRemaining > 0) then {
+    private _slewProgress = _timeRemaining / 5;
+    systemChat str ["DEPLOYING", _timeRemaining, _slewProgress];
+    _vehicle setPilotCameraTarget objNull;
+    _vehicle setPilotCameraRotation [
+      rad (_slewProgress * 180),
+      rad (0)
+    ];
+  };
+};
+
 if (vtx_uh60_flir_isPipHidden && {!vtx_uh60_flir_isInScriptedCamera}) exitWith {};
 
 [_vehicle] call vtx_uh60_flir_fnc_updateCamera;

@@ -46,9 +46,10 @@ switch (_button) do {
 		_vehicle setVariable ["ace_laser_code", _lrfdCode, true];
 	};
 	case "UNSTOW": {
-		systemchat str _this;
-		_vehicle setVariable ["vtx_uh60_flir_stowed", false, true];
-		[_vehicle, _var, 5] call vtx_uh60_mfd_fnc_switchPage;
+		// systemchat str _this;
+		_vehicle setVariable ["vtx_uh60_flir_boot_time", _vehicle getvariable ["vtx_uh60_flir_boot_time",time], true];
+		// _vehicle setVariable ["vtx_uh60_flir_stowed", false, true];
+		// [_vehicle, _var, 5] call vtx_uh60_mfd_fnc_switchPage;
 	};
 	case "STOW": {
 		_vehicle setVariable ["vtx_uh60_flir_stowed", true, true];

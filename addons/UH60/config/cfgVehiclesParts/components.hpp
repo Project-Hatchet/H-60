@@ -1,3 +1,4 @@
+#define PYLONMAGS "vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy"
 class Components: Components {
 	class TransportPylonsComponent {
     	uiPicture = "z\vtx\addons\MH60M\Data\UI\vtx_mh60m_dap_3den_ca.paa";
@@ -68,6 +69,10 @@ class Components: Components {
 			DUMMY_PYLON(dummy47)  // LST MODE
 		};
 		class Presets {
+			class Empty {
+				displayName = "Empty";
+				attachment[] = {PYLONMAGS};
+			};
 		};
 	}; // TransportPylonsComponent
 	class SensorsManagerComponent {
