@@ -123,7 +123,8 @@ class CfgVehicles
             "left_num_2",
             "right_num_1",
             "right_num_2",
-            "Fuel_Probe"
+            "Fuel_Probe",
+            "Mlass"
         };
         hiddenSelectionsTextures[] = {
             "",
@@ -150,7 +151,8 @@ class CfgVehicles
             "", // "left_num_2",
             "", // "right_num_1",
             "", // "right_num_2",
-            "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
+            "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa",
+            "z\vtx\addons\UH60\Data\Exterior\Hull Main_co.paa"
         };
         hiddenSelectionsMaterials[] = {
             "",

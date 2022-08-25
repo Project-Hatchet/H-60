@@ -190,6 +190,18 @@ class AnimationSources: AnimationSources {
       "EGMS", 0
     };
   };
+  class MLASS_show {
+    //displayName = "Show LASS";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = MASS_LASS;
+    forceAnimatePhase = 1;
+    forceAnimate[] = {
+      "ESSS", 0,
+      "EGMS", 0
+    };
+  };
   class ESSS_show {
     //displayName = "Show ESSS";
     source="user";

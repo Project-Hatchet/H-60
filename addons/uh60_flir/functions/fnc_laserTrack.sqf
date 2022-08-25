@@ -19,5 +19,5 @@ private _laserResult = [
 ] call ace_laser_fnc_seekerFindLaserSpot;
 if (isNil "_laserResult" || {isNull (_laserResult # 1)}) exitWith {};
 _vehicle setPilotCameraTarget (_laserResult # 0);
-[[], _laserResult] call vtx_uh60_flir_fnc_syncPilotCamera;
+[[], (_laserResult # 0)] call vtx_uh60_flir_fnc_syncPilotCamera;
 [_vehicle, 47, 0] call vtx_uh60_mfd_fnc_setPylonValue;

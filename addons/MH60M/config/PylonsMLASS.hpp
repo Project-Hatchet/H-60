@@ -8,7 +8,7 @@ class TransportPylonsComponent {
             hardpoints[] = {
               "VTX_ST_L"
             };
-            UIposition[] = {0.59, 0.41};
+            UIposition[] = {0.55, 0.41};
         };
         class pylons2: pylons1 {
             attachment = "VTX_PylonRack_M261_M229"; // 19rnd 70mm rockets
@@ -16,7 +16,7 @@ class TransportPylonsComponent {
             hardpoints[] = {
               "VTX_ST_R"
             };
-            UIposition[] = {0.08, 0.41};
+            UIposition[] = {0.12, 0.41};
         };
         #define DUMMY_PYLON(CLASS) \
             class CLASS { \
@@ -70,8 +70,20 @@ class TransportPylonsComponent {
         DUMMY_PYLON(dummy45)  // LRFD
         DUMMY_PYLON(dummy46)  // ADVISORIES
         DUMMY_PYLON(dummy47)  // LST MODE
-        DUMMY_PYLON(dummy48)  // MLASS HERE
-        DUMMY_PYLON(dummy49)  // MLASS HERE
+        class pylons48: pylons1 {
+            UIposition[] = {0.59, 0.47};
+            hardpoints[] = {
+              "VTX_ST_OUTBOARD"
+            };
+            attachment[] = {};
+        };
+        class pylons49: pylons2 {
+            UIposition[] = {0.08, 0.47};
+            hardpoints[] = {
+              "VTX_ST_OUTBOARD"
+            };
+            attachment[] = {};
+        };
     };
     class Presets {
         class Empty {

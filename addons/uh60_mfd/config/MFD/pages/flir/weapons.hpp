@@ -12,10 +12,12 @@ class pylonsBackground {
 			width = 2;
 			points[] ={
 				//wings
-				{{0.35, 0.86}, 1},
-				{{0.65, 0.86}, 1},{},
+				{{0.30, 0.86}, 1},
+				{{0.70, 0.86}, 1},{},
 				{{0.4,0.86-0.01}, 1},{{0.4,0.86+0.01}, 1},{},
 				{{0.6,0.86-0.01}, 1},{{0.6,0.86+0.01}, 1},{},
+				{{0.33,0.86-0.01}, 1},{{0.33,0.86+0.01}, 1},{},
+				{{0.67,0.86-0.01}, 1},{{0.67,0.86+0.01}, 1},{},
 				//guns
 				{{0.44, 0.86}, 1},
 				{{0.44, 0.75}, 1},
@@ -33,6 +35,13 @@ class pylonsBackground {
 				{{0.55, 0.86}, 1}
 			};
 		}; // lines
+		class Pylon48
+		{
+			type = "pylonicon";
+			pos[] = {{0.33,0.87},1};
+			pylon = 48;
+			name = "VTX_H60";
+		}; // Pylon1
 		class Pylon1
 		{
 			type = "pylonicon";
@@ -47,6 +56,13 @@ class pylonsBackground {
 			pylon = 2;
 			name = "VTX_H60";
 		}; // Pylon2
+		class Pylon49
+		{
+			type = "pylonicon";
+			pos[] = {{0.67,0.87},1};
+			pylon = 49;
+			name = "VTX_H60";
+		}; // Pylon1
 		TEXT_MID_SCALED(LSR,0.5,0.62+0.07,"LSR",0.05)
 
 		TEXT_MID_SCALED(GUNS,0.5,0.69+0.07,"GUNS",0.05)
@@ -58,7 +74,7 @@ class pylonsBackground {
 	class red {
 		color[] = common_red;
 		class gun {
-			condition = "(1 -(pylonSelected1 - pylonSelected2)) * mgun";
+			condition = "(1 -(pylonSelected1 - pylonSelected2 - pylonSelected48 - pylonSelected49)) * mgun";
 			class poly {
 				type = "polygon";
 				points[] = {
@@ -71,7 +87,7 @@ class pylonsBackground {
 			};
 		};
 		class laser {
-			condition = "1 - pylonSelected1 - pylonSelected2 - mgun";
+			condition = "1 - pylonSelected1 - pylonSelected2 - pylonSelected48 - pylonSelected49 - mgun";
 			class poly {
 				type = "polygon";
 				points[] = {
@@ -109,6 +125,32 @@ class pylonsBackground {
 				};
 			};
 		}; // sta2
+		class sta3L {
+			condition = "pylonSelected48";
+			class poly {
+				type = "polygon";
+				points[] = {
+					{
+						{{0.33 + -0.015, 0.74 + 0.00},1},
+						{{0.33 +  0.000, 0.74 + 0.02},1},
+						{{0.33 +  0.015, 0.74 + 0.00},1}
+					}
+				};
+			};
+		}; // sta3L
+		class sta4R {
+			condition = "pylonSelected49";
+			class poly {
+				type = "polygon";
+				points[] = {
+					{
+						{{0.67 + -0.015, 0.74 + 0.00},1},
+						{{0.67 +  0.000, 0.74 + 0.02},1},
+						{{0.67 +  0.015, 0.74 + 0.00},1}
+					}
+				};
+			};
+		}; // sta3L
 	};
 };
 

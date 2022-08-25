@@ -4,7 +4,7 @@ class cfgMagazines {
   class PylonRack_4Rnd_ACE_Hellfire_AGM114L;
   class PylonRack_4Rnd_ACE_Hellfire_AGM114N;
   class VTX_4Rnd_ACE_Hellfire_AGM114K: PylonRack_4Rnd_ACE_Hellfire_AGM114K { // 4x Launcher Support Rack
-    hardpoints[] = {"VTX_ST_L","VTX_ST_R"};
+    hardpoints[] = {"VTX_ST_L","VTX_ST_R","VTX_ST_OUTBOARD"};
     displayName = "4x AGM-114K [H60]";
     //count = 4;
     weight = 251.92;
@@ -18,7 +18,7 @@ class cfgMagazines {
     };
   };
   class VTX_4Rnd_ACE_Hellfire_AGM114N: PylonRack_4Rnd_ACE_Hellfire_AGM114N { // 4x Launcher Support Rack
-    hardpoints[] = {"VTX_ST_L","VTX_ST_R"};
+    hardpoints[] = {"VTX_ST_L","VTX_ST_R","VTX_ST_OUTBOARD"};
     displayName = "4x AGM-114N [H60]";
     //count = 4;
     weight = 251.92;
@@ -74,7 +74,7 @@ class cfgMagazines {
 
   class PylonRack_12Rnd_missiles;
 	class VTX_PylonRack_M261_M229: PylonRack_12Rnd_missiles {
-    hardpoints[] = {"VTX_ST_L","VTX_ST_R"};
+    hardpoints[] = {"VTX_ST_L","VTX_ST_R","VTX_ST_OUTBOARD"};
 		author = "Ampersand";
 		count = 19;
     displayName = "19x Hydra 70 M229 [H60]";
@@ -89,7 +89,7 @@ class cfgMagazines {
 	};
   class PylonRack_12Rnd_PG_missiles;
   class VTX_PylonRack_M261_DAGR: PylonRack_12Rnd_PG_missiles {
-    hardpoints[] = {"VTX_ST_L","VTX_ST_R"};
+    hardpoints[] = {"VTX_ST_L","VTX_ST_R","VTX_ST_OUTBOARD"};
     ammo = "ACE_Hydra70_DAGR";
     author = "Ampersand";
     count = 19;
@@ -105,7 +105,7 @@ class cfgMagazines {
     };
   };
   class VTX_PylonRack_M261_APKWS: PylonRack_12Rnd_PG_missiles {
-    hardpoints[] = {"VTX_ST_L","VTX_ST_R"};
+    hardpoints[] = {"VTX_ST_L","VTX_ST_R","VTX_ST_OUTBOARD"};
     ammo = "VTX_APKWS";
     author = "Ampersand";
     count = 19;

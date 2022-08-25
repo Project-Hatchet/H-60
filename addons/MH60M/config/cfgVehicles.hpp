@@ -106,6 +106,7 @@ class CfgVehicles {
               onPhaseChanged = "";
             };
             ANIM_INIT(LASS_show,1);
+            ANIM_INIT(MLASS_show,0);
             ANIM_INIT(Minigun_Sight_L_hide,1);
             ANIM_INIT(Minigun_Sight_R_hide,1);
         }; // AnimationSources
@@ -114,7 +115,7 @@ class CfgVehicles {
             class CopilotTurret: CopilotTurret {};
             #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
         };
-        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\UH60\data\FuelProbe\Fuel_probe_co.paa"};
+        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\UH60\data\FuelProbe\Fuel_probe_co.paa","z\vtx\addons\MH60M\Data\Mlass_co.paa"};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera", "vtx_MH60M_M134_minigun"};
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries", "5000Rnd_762x51_Belt"};
         memoryPointGun[] = {"muzzle_1","muzzle_2"};
@@ -123,6 +124,44 @@ class CfgVehicles {
         selectionFireAnim = "zasleh_12";
         class VehicleTransport {};
     }; // vtx_H60_base
+    class vtx_MH60M_DAP_MLASS: vtx_MH60M_DAP {
+        displayName = "MH-60M DAP MLASS";
+        class Components: Components {
+          #include "PylonsMLASS.hpp"
+          #include "sensors.hpp"
+          #include "missileCam.hpp"
+        }; // Components
+        class AnimationSources: AnimationSources {
+            class Gatling_1
+            {
+                source="revolving";
+                weapon="vtx_MH60M_M134_minigun";
+            };
+            class Gatling_2
+            {
+                source="revolving";
+                weapon="vtx_MH60M_M134_minigun";
+            };
+            class Muzzle_Flash_M134_L
+            {
+                source="ammoRandom";
+                weapon="vtx_MH60M_M134_minigun";
+            };
+            class Muzzle_Flash_M134_R
+            {
+                source="ammoRandom";
+                weapon="vtx_MH60M_M134_minigun";
+            };
+            class GunnerSeats_Hide: GunnerSeats_Hide {
+              initPhase = 1;
+              onPhaseChanged = "";
+            };
+            ANIM_INIT(LASS_show,0);
+            ANIM_INIT(MLASS_show,1);
+            ANIM_INIT(Minigun_Sight_L_hide,1);
+            ANIM_INIT(Minigun_Sight_R_hide,1);
+        }; // AnimationSources
+    };
 }; // CfgVehicles
 
 class cfgNonAIVehicles{

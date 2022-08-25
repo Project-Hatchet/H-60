@@ -120,6 +120,11 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0;
   };
+  class MLASS_show {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
   class ESSS_show {
     source="user";
     animPeriod=1;

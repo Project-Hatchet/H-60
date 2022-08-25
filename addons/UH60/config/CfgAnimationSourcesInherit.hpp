@@ -25,6 +25,7 @@ class AnimationSources: AnimationSources {
   class MAWS_Tubes_Show;
   class Fuelprobe_Extend;
   class LASS_show;
+  class MLASS_show;
   class ESSS_show;
   class GunnerSeats_Hide;
   class CabinSeats_Hide;
