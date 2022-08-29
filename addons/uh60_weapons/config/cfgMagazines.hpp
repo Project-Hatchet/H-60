@@ -1,7 +1,6 @@
 class cfgMagazines {
   class VehicleMagazine;
   class PylonRack_4Rnd_ACE_Hellfire_AGM114K;
-  class PylonRack_4Rnd_ACE_Hellfire_AGM114L;
   class PylonRack_4Rnd_ACE_Hellfire_AGM114N;
   class VTX_4Rnd_ACE_Hellfire_AGM114K: PylonRack_4Rnd_ACE_Hellfire_AGM114K { // 4x Launcher Support Rack
     hardpoints[] = {"VTX_ST_L","VTX_ST_R","VTX_ST_OUTBOARD"};
