@@ -83,8 +83,8 @@ class ESIS_Misc
             center[]={0.5,0.5};
             min=-1.0472;
             max=1.0472;
-            minAngle=50;
-            maxAngle=-50;
+            minAngle=-50;
+            maxAngle=50;
             aspectRatio=1;
         };
     };//bones

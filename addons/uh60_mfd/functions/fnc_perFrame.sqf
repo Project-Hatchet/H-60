@@ -5,12 +5,8 @@
  *
  * params (array)[(object) vehicle]
  */
-params ["_vehicle", "_frameTime"];
-
-private _world_size = [] call BIS_fnc_mapSize;
-private _zoomLevel = _vehicle getVariable ["MAP_ZoomMult", 1];
-private _coverage = (4000 * _zoomLevel) / ((_world_size / 2) * 1.49);
-_vehicle setUserMFDvalue [27, 1 - _coverage];
+params ["_vehicle", "_frameTime"]; 
+if (!isNil "test_fnc_slewTAC") exitWith {_this call test_fnc_slewTAC};
 
 
 private _mfdPage = (getUserMFDValue _vehicle) # vtx_uh60_mfd_mfsc_focussedMFD;

@@ -58,3 +58,11 @@ CTRL(4001120) ctrlSetPosition [
     (vxf_interaction_cursorPos # 1) - 0.02
 ];
 CTRL(4001120) ctrlCommit 0;
+
+if(getUserMFDValue _vehicle # 15 > -1 && currentVisionMode player == 0) then {
+    CTRL(4001123) ctrlSetText "\z\vtx\addons\uh60_ui\data\hudOverlay.paa";
+} else {
+    CTRL(4001123) ctrlSetText "";
+};
+
+CTRL(4001123) ctrlCommit 0;

@@ -58,3 +58,24 @@ class FLIR_HorizonBankRot_nav
     maxAngle=180;
     aspectRatio=1;
 };
+class FLIR_DIR_BONE
+{
+    type="vector";
+    source="pilotcamera";
+    pos0[] = 	{0.50,0.10};
+    pos10[] = 	{0.53,0.10};
+};
+class FLIR_ELEV_BONE
+{
+    type="vector";
+    source="pilotcamera";
+    pos0[] = 	{0.08,0.5};
+    pos10[] = 	{0.08 ,0.518};
+};
+class FLIR_HELLFIRE_REF
+{
+    type="vector";
+    source="pilotcamera";
+    pos0[] = 	{0.50,0.50};
+    pos10[] = 	{0.47*(4/3),0.60};
+};

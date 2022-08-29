@@ -6,6 +6,7 @@
  * params (array)[(object) vehicle]
  */
 
+if (!isNil "test_fnc_waypts") exitWith {_this call test_fnc_waypts};
 params ["_vehicle"];
 
 private _wayPoint = [group player, currentWaypoint group player];
@@ -17,27 +18,33 @@ if ((count customWaypointPosition) > 0) then {
     [_vehicle, 7, waypointDescription _wayPoint] call vtx_uh60_mfd_fnc_setUserText;
 };
 
-private _centerMode = _vehicle getVariable ["vtx_uh60_mfd_tac_center_mode", 0];
-private _center = switch (_centerMode) do {
-    case 0: {getPos _vehicle};
-    case 1: {getPos _vehicle};
-    case 2: {vtx_uh60_mfd_tac_mapPos};
-    case 3: {vtx_uh60_mfd_tac_mapPos};
-};
-private _startDir = if (_centerMode == 0) then {getDir _vehicle} else {0};
+private _centered = _vehicle ammoOnPylon 4 == 0;
+private _fixed = _vehicle ammoOnPylon 7 == 0;
+private _selfAligned = _vehicle ammoOnPylon 5 == 0;
+private _staticMap = _vehicle ammoOnPylon 7 > 0;
+private _center = [_vehicle] call vtx_uh60_mfd_fnc_tac_getMapCenter;
+private _rotation = if (_selfAligned) then {getDir _vehicle} else {0};
 
-private _waypointDirection = (_center getDir _position) - _startDir;
-_vehicle setUserMFDvalue [0, (_center getDir _position)];
+private _waypointDirection = (_center getDir _position) - _rotation;
+_vehicle setUserMFDvalue [0, (_vehicle getDir _position)];
 _vehicle setUserMFDvalue [1, _center distance2D _position];
 
 private _zoomLevel = _vehicle getVariable ["MAP_ZoomMult", 1];
 private ["_waypointPosition"];
+private _worldSize = [] call BIS_fnc_mapSize;
 
 private _positionToMfd = {
     params ["_pos", "_i1", "_i2"];
-    private _direction = (_center getDir _pos) - _startDir;
-    _vehicle setUserMFDvalue [_i1, if(_direction < 0) then {_direction + 360} else {_direction}];
-    _vehicle setUserMFDvalue [_i2, ((_center distance2D _pos) * _zoomLevel) / (vtx_uh60_fms_mapSize / 2)];
+    // private _direction = (_center getDir _pos) - _rotation;
+    // _vehicle setUserMFDvalue [_i1, if(_direction < 0) then {_direction + 360} else {_direction}];
+    // _vehicle setUserMFDvalue [_i2, ((_center distance2D _pos) * _zoomLevel) / (vtx_uh60_fms_mapSize / 2)];
+
+	private _diff = _pos vectordiff (getpos _vehicle);
+	private _dir = direction player;
+	private _rotated = [_diff, _dir] call BIS_fnc_rotateVector2D;
+    _vehicle setUserMFDvalue [_i1, -1 * ((_rotated # 0) / (_worldSize/2)) * _zoomLevel];
+    _vehicle setUserMFDvalue [_i2, (_rotated # 1)/ (_worldSize/2) * _zoomLevel];
+
 };
 private _clearPos = {
     _vehicle setUserMFDvalue [_this # 0, -1];

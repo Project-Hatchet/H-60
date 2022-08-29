@@ -19,7 +19,11 @@ class CfgPatches {
 
 #include "CfgEventHandlers.hpp"
 
+#include "config\mfdDefines.hpp"
+#include "config\cfgEffects.hpp"
+#include "config\cfgCloudlets.hpp"
 #include "config\cfgAmmo.hpp"
 #include "config\cfgWeapons.hpp"
 #include "config\cfgMagazines.hpp"
 #include "config\pylonPositionSlider.hpp"
+#include "config\cfgVehicles.hpp"

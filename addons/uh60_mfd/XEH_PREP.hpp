@@ -15,6 +15,16 @@ PREP(ivhms);
 PREP(setPylonValue);
 PREP(slewTAC);
 PREP(renderBFTUnits);
+PREP(cyclePylonValue);
+PREP(handleDamage);
+
+PREP(tac_getMapCenter);
+PREP(tac_getMapTexture);
+PREP(tac_setMapTexture);
+PREP(tac_getHook);
+PREP(tac_getHookInfo);
+PREP(tac_worldToCursor);
+PREP(tac_sync);
 
 PREP(ccfs_CyclePlayer);
 PREP(ccfs_interaction_ccfs);

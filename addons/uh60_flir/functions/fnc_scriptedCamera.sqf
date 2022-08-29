@@ -14,6 +14,8 @@
 
 params ["_show"];
 
+systemChat "OPENING SCRIPTED CAMERA";
+
 if (_show) then {
   if (isNil "vtx_uh60_flir_camera") then {
     vtx_uh60_flir_camera = "camera" camCreate [0,0,0];

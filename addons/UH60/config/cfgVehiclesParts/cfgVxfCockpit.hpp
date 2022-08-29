@@ -387,6 +387,13 @@ class interaction {
           buttonDown = "call vtx_uh60_misc_fnc_moveToCabin";
         }; // toCabin
     }; // misc
+    class JettStores {
+        positionType = "coordinates";
+        position[] = {0,4.3,-0.7};
+        label = "Jettison All Stores";
+        radius = 0.1;
+        buttonDown = "call vtx_uh60_weapons_fnc_jettisonAll";
+    }; // toCabin
     class MFDs {
     };
 };

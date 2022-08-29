@@ -13,6 +13,7 @@ class AnimationSources: AnimationSources {
   class GAU21_R_Hide;
   class Skis_show;
   class HH60Flares_show;
+  class MH60MMisc_show;
   class LandingLight_Show;
   class CabinLight_Show;
   class RADAR_HIDE;
@@ -25,6 +26,7 @@ class AnimationSources: AnimationSources {
   class MAWS_Tubes_Show;
   class Fuelprobe_Extend;
   class LASS_show;
+  class MLASS_show;
   class ESSS_show;
   class GunnerSeats_Hide;
   class CabinSeats_Hide;

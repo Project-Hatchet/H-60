@@ -144,18 +144,6 @@ class HAS_WP1_2 {
     {DIST, 1, DIR, 1,{-0.015, 0.015},1}, \
     {DIST, 1, DIR, 1,{-0.015, -0.015},1}
 
-#define STAR_INNER_SCALE 0.3
-
-#define SHAPE_STAR(DIST,DIR) \
-    {DIST, 1, DIR, 1,{0.75*STAR_INNER_SCALE*-0.015,STAR_INNER_SCALE*-0.015},1}, \
-    {DIST, 1, DIR, 1,{0.75*0     ,-0.020},1}, \
-    {DIST, 1, DIR, 1,{0.75*STAR_INNER_SCALE*0.015, STAR_INNER_SCALE*-0.015},1}, \
-    {DIST, 1, DIR, 1,{0.75*0.020,  0},1}, \
-    {DIST, 1, DIR, 1,{0.75*STAR_INNER_SCALE*0.015,  STAR_INNER_SCALE*0.015},1}, \
-    {DIST, 1, DIR, 1,{0.75*0     , 0.020},1}, \
-    {DIST, 1, DIR, 1,{0.75*STAR_INNER_SCALE*-0.015, STAR_INNER_SCALE*0.015},1}, \
-    {DIST, 1, DIR, 1,{0.75*-0.020,  0},1}, \
-    {DIST, 1, DIR, 1,{0.75*STAR_INNER_SCALE*-0.015, STAR_INNER_SCALE*-0.015},1}
 
 class HAS_CUR_WP {
     condition = (user4 > -1);
@@ -558,6 +546,10 @@ class AIRCRAFT_CENTERED_NORTH {
             }; \
         }; \
     };
+
+class cautions {
+    #include "cautions\overlay.hpp"
+};
 
 class contextMenu {
     condition = "(user39>-1)";

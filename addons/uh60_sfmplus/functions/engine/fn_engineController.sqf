@@ -25,7 +25,7 @@ private _eng2State = _engState select 1;
 
 if ((_eng1State == "STARTING" || _eng2State == "STARTING") && local _heli) then {
 	_heli setVariable ["vtx_uh60_estarted", true, true];
-	_heli engineOn true;
+	// _heli engineOn true;
 };
 
 private _isSingleEng     = _heli getVariable "vtx_uh60_sfmplus_isSingleEng";
@@ -63,7 +63,7 @@ if (isMultiplayer && local _heli && (_heli getVariable "vtx_uh60_sfmplus_lastTim
 [_heli, 1, _deltaTime] call vtx_uh60_sfmplus_fnc_engine;
 
 private _no1EngDmg = _heli getHitPointDamage "hitengine1";
-private _no2EngDmg = _heli getHitPointDamage "hitengine1";
+private _no2EngDmg = _heli getHitPointDamage "hitengine2";
 
 if (_no1EngDmg > 0.5) then {
 	[_heli, "vtx_uh60_sfmplus_engState", 0, "OFF", true] call vtx_uh60_sfmplus_fnc_setArrayVariable;
@@ -75,5 +75,26 @@ if (_no2EngDmg > 0.5) then {
 
 if (_eng1State == "OFF" && _eng2State == "OFF" && local _heli) then {
 	_heli setVariable ["vtx_uh60_estarted", false, true];
-	_heli engineOn false;
+	// _heli engineOn false;
+};
+
+private _eng1Np    = _heli getVariable "vtx_uh60_sfmplus_engPctNP" select 0;
+private _eng2Np    = _heli getVariable "vtx_uh60_sfmplus_engPctNP" select 1;
+private _rtrRPM    = _eng1Np max _eng2Np;
+private _realRPM = _heli animationPhase "rotortilt";
+private _lastUpdate = _heli getVariable ["vtx_uh60_sfmplus_lastUpdate", 0];
+if (cba_missionTime > _lastUpdate + 0.3 && _rtrRPM > 0.05) then {
+	// systemChat str [_realRPM / 11, _rtrRPM];
+	_rtrRPM = _rtrRPM - (vtx_uh60_sfmplus_liftLossTimer * 0.45); 
+	// systemChat str ["ADJUSTED RPM", _rtrRPM];
+	if ((_realRPM / 11) > _rtrRPM) then {
+		// systemchat "BREAKING ROTOR";
+		_heli setHitpointDamage ["HitHRotor", 0.9];
+		// _heli engineOn false;
+	} else {
+		// systemchat "FIXING ROTOR";
+		_heli setHitpointDamage ["HitHRotor", 0];
+		_heli engineOn true;
+	};
+	_heli setVariable ["vtx_uh60_sfmplus_lastUpdate", cba_missionTime];
 };

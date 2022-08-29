@@ -2,32 +2,51 @@
 #define RGBA256(R,G,B,A) {R/256,G/256,B/256,A}
 #define common_green RGBA256(20,256,20,1.0)
 
-#define TEXT_FMS_L(CLASS,X,Y) \
+#define TEXT_FMS_SCALED(CLASS,X,Y,SCALE,ALIGN) \
   class CLASS { \
     type = "text"; \
-    align = "right"; \
+    align = ALIGN; \
     scale = 1; \
-    pos[] = {{X-0.002, Y-0.004}, 1}; \
-    right[] = {{X + 0.1, Y-0.004}, 1}; \
-    down[] = {{X-0.002, Y + 0.079}, 1};
+    pos[] = {{X, Y}, 1}; \
+    right[] = {{X + (SCALE*1.32), Y}, 1}; \
+    down[] = {{X, Y + SCALE}, 1};
+
+
+#define TEXT_FMS_L_SCALE(CLASS,X,Y,SCALE) \
+  TEXT_FMS_SCALED(CLASS,X,Y,SCALE,"right")
+
+#define TEXT_FMS_C_SCALE(CLASS,X,Y,SCALE) \
+  TEXT_FMS_SCALED(CLASS,X,Y,SCALE,"center")
+
+#define TEXT_FMS_R_SCALE(CLASS,X,Y,SCALE) \
+  TEXT_FMS_SCALED(CLASS,X,Y,SCALE,"left")
+
+#define TEXT_FMS_L(CLASS,X,Y) \
+  TEXT_FMS_SCALED(CLASS,X,Y,0.065,"right")
 
 #define TEXT_FMS_C(CLASS,X,Y) \
-  class CLASS { \
-    type = "text"; \
-    align = "center"; \
-    scale = 1; \
-    pos[] = {{X-0.051, Y-0.004}, 1}; \
-    right[] = {{X + 0.051, Y-0.004}, 1}; \
-    down[] = {{X-0.051, Y + 0.079}, 1};
+  TEXT_FMS_SCALED(CLASS,X,Y,0.065,"center")
 
 #define TEXT_FMS_R(CLASS,X,Y) \
-  class CLASS { \
-    type = "text"; \
-    align = "left"; \
-    scale = 1; \
-    pos[] = {{X-0.002, Y-0.004}, 1}; \
-    right[] = {{X + 0.1, Y-0.004}, 1}; \
-    down[] = {{X-0.002, Y + 0.079}, 1};
+  TEXT_FMS_SCALED(CLASS,X,Y,0.065,"left")
+
+#define TEXT_FMS_L_STATIC_SCALE(CLASS,X,Y,TEXT,SCALE) \
+  TEXT_FMS_L_SCALE(CLASS,X,Y,SCALE) \
+    source = "static"; \
+    text = TEXT; \
+  };
+
+#define TEXT_FMS_R_STATIC_SCALE(CLASS,X,Y,TEXT,SCALE) \
+  TEXT_FMS_R_SCALE(CLASS,X,Y,SCALE) \
+    source = "static"; \
+    text = TEXT; \
+  };
+
+#define TEXT_FMS_C_STATIC_SCALE(CLASS,X,Y,TEXT,SCALE) \
+  TEXT_FMS_C_SCALE(CLASS,X,Y,SCALE) \
+    source = "static"; \
+    text = TEXT; \
+  };
 
 #define FMS_HALF_LINE 0.0275
 #define FMS_MARGIN_L 0.05
@@ -66,6 +85,22 @@
 #define FMS_PAGE_SKR 16
 #define FMS_PAGE_RDR 17
 #define FMS_PAGE_HMD 18
+#define FMS_PAGE_HUD 19
+#define FMS_PAGE_PERFPLAN 20
 
 #define FMS_L_PAGE_INDEX 31
 #define FMS_R_PAGE_INDEX 32
+
+#define TRIANGLE(CLASS,X,Y,SCALE,DIRECTION) \
+  class CLASS \
+  { \
+    type    = "polygon"; \
+    points[] = \
+    { \
+      { \
+        {{X + 0.0, Y + (0.05*SCALE*DIRECTION)},1}, \
+        {{X + (0.05*SCALE), Y},1}, \
+        {{X - (0.05*SCALE), Y},1} \
+      } \
+    }; \
+  };

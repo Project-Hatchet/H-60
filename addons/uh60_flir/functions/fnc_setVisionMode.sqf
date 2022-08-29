@@ -17,6 +17,9 @@ params ["_effect", ["_sync", true]];
 
 vtx_uh60_flir_pipEffect = _effect;
 "vtx_uh60_flir_feed" setPiPEffect vtx_uh60_flir_pipEffect;
+// if (_effect # 0 == 0) then {
+//   "vtx_uh60_flir_feed" setPiPEffect [3, 1, 1.0, 1.0, 0.0, [0.5, 0.5, 0.5, 0], [1.0, 1.0, 1.0, 0],  [0.199, 0.587, 0.114, 0.0]];
+// };
 
 if (vtx_uh60_flir_isInScriptedCamera) then {
   camUseNVG (vtx_uh60_flir_pipEffect isEqualTo [1]);
@@ -26,9 +29,11 @@ if (vtx_uh60_flir_isInScriptedCamera) then {
     false setCamUseTI 0
   };
 };
-if (!vtx_uh60_flir_otherPilotIsPlayer || !_sync) exitWith { false };
 
-["vtx_uh60_flir_syncVisionMode", [_effect], [vtx_uh60_flir_otherPilot]] call CBA_fnc_targetEvent;
+if (_sync) then {
+  private _targets = (crew vehicle player) - [player];
+  [_effect, false] remoteExecCall ["vtx_uh60_flir_fnc_setVisionMode", _targets, false];
+};
 
 true
 

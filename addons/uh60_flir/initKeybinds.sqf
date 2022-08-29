@@ -1,8 +1,9 @@
 [
     "UH-60M Blackhawk","vtx_uh60_flir_copilotCamera","Copilot Camera", // Control + Right click
     {
+    private _isCopilot = (vehicle player unitTurret player) isEqualTo [0];
       if (
-        !vtx_uh60_flir_playerIsCopilot ||
+        !_isCopilot ||
         {!vtx_uh60_flir_controllable} ||
         {vtx_uh60_flir_isVisibleMap} ||
         {vtx_uh60_flir_featureCamera != ""} ||

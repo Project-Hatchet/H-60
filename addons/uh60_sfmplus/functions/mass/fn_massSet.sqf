@@ -44,6 +44,7 @@ private _cfgAnimationSources = configOf _heli >> "AnimationSources";
 	"ERFS_show",
 	"MAWS_Tubes_Show",
 	"LASS_show",
+	"MLASS_show",
 	"ESSS_show",
 	"EGMS_show",
 	"GAU21_L_Hide",

@@ -133,96 +133,89 @@ class twinEngineFastTorque {
 
 #define TOP_TEXT_Y 0.03
 
-class chipBackgroundWrapper {
-	condition="0";
-	color[] = common_yellow;
-	POLYGON(chipBackgroundLeft,0.191,0.47,0.12,0.025)
-	POLYGON(chipBackgroundRight,1-0.191,0.47,0.12,0.025)
-	POLYGON(chipTail,1-0.191,0.47+(MID_LINE_HEIGHT*1),0.18,0.025)
-	POLYGON(chipXmsn,1-0.191,0.47+(MID_LINE_HEIGHT*2),0.14,0.025)
-};
-class blackTextWrapper {
-	color[] = common_white;
-	// ZONE 1
-	class gen1 {
-		condition = "rpm<9";
-		TEXT_RIGHT_SMALL(TEXT,0.05,TOP_TEXT_Y,"GEN 1 FAIL")
-	};
-	class hyd1 {
-		condition = "rpm<3";
-		TEXT_RIGHT_SMALL(TEXT,0.05,TOP_TEXT_Y+(SMALL_LINE_HEIGHT),"HYD PUMP 1 FAIL")
-	};
-	// ZONE 2
-	class gen2 {
-		condition = "rpm<9";
-		TEXT_RIGHT_SMALL(TEXT,1-0.25,TOP_TEXT_Y,"GEN 2 FAIL")
-	};
-	class hyd2 {
-		condition = "rpm<3";
-		TEXT_RIGHT_SMALL(TEXT,1-0.25,TOP_TEXT_Y+(SMALL_LINE_HEIGHT),"HYD PUMP 2 FAIL")
-	};
-	// ZONE 3
-	class engine1 {
-		condition = "(pylonammo6>2.5)+((pylonammo6>0.9)*(pylonammo6<1.1))";
-		TEXT_RIGHT_SMALL(TEXT,0.05,0.47-0.025,"CHIP ENG 1")
-	};
-	class chipXmsn {
-		condition = "pylonammo3>5";
-		TEXT_RIGHT_SMALL(TEXT,0.05,0.47-0.025+(SMALL_LINE_HEIGHT*1),"CHIP TAIL XMSN")
-	};
-	class starter1 {
-		condition = "(pylonammo5>2.5)+((pylonammo5>0.9)*(pylonammo5<1.1))";
-		TEXT_RIGHT_SMALL(TEXT,0.05,0.47-0.025+(SMALL_LINE_HEIGHT*2),"STARTER ENG 1")
-	};
-	class trquad {
-		condition = "(pylonammo3>8)";
-		TEXT_RIGHT_SMALL(TEXT,0.05,0.47-0.025+(SMALL_LINE_HEIGHT*3),"T/R QUAD FAIL")
-	};
-	class trservo {
-		condition = "(pylonammo3>2)";
-		TEXT_RIGHT_SMALL(TEXT,0.05,0.47-0.025+(SMALL_LINE_HEIGHT*4),"T/R SERVO 1 FAIL")
-	};
-	// ZONE 4
-	class engine2 {
-		condition = "(pylonammo6>2.5)+((pylonammo6>1.9)*(pylonammo6<2.1))";
-		TEXT_RIGHT_SMALL(TEXT,0.65,0.47-0.025,"CHIP ENG 2")
-	};
-	class chipTail {
-		condition = "(pylonammo4>4)";
-		TEXT_RIGHT_SMALL(TEXT,0.65,0.47-0.025+(SMALL_LINE_HEIGHT*1),"CHIP MAIN MDL SUMP")
-	};
-	class starter2 {
-		condition = "(pylonammo5>2.5)+((pylonammo5>1.9)*(pylonammo5<2.1))";
-		TEXT_RIGHT_SMALL(TEXT,0.65,0.47-0.025+(SMALL_LINE_HEIGHT*2),"STARTER ENG 2")
-	};
-	// ZONE 5
-	class eicasCheck {
-		condition = "0";
-		TEXT_RIGHT_SMALL(TEXT,0.7,0.7,"CHECK EICAS")
-	};
-	class stbyOff {
-		condition = "0";
-		TEXT_RIGHT_SMALL(TEXT,0.7,0.7+SMALL_LINE_HEIGHT,"STBY INST NOT ARMD")
-	};
-	// ZONE 6
-	class fuel1 {
-		condition = "fuel < 0.2";
-		TEXT_RIGHT_SMALL(TEXT,0.35,0.90,"FUEL 1 LOW")
-	};
-	class fuel2 {
-		condition = "fuel < 0.2";
-		TEXT_RIGHT_SMALL(TEXT,0.35,0.90+(SMALL_LINE_HEIGHT*1),"FUEL 2 LOW")
-	};
-	class fuelpress1 {
-		condition = "pylonammo7>0";
-		TEXT_RIGHT_SMALL(TEXT,0.50,0.90,"PRESS 1 LOW")
-	};
-	class fuelpress2 {
-		condition = "pylonammo7>0";
-		TEXT_RIGHT_SMALL(TEXT,0.50,0.90+(SMALL_LINE_HEIGHT*1),"PRESS 2 LOW")
-	};
+// class blackTextWrapper {
+// 	condition = "0";
+// 	color[] = common_white;
+// 	// ZONE 1
+// 	class gen1 {
+// 		condition = "rpm<9";
+// 		TEXT_RIGHT_SMALL(TEXT,0.05,TOP_TEXT_Y,"GEN 1 FAIL")
+// 	};
+// 	class hyd1 {
+// 		condition = "rpm<3";
+// 		TEXT_RIGHT_SMALL(TEXT,0.05,TOP_TEXT_Y+(SMALL_LINE_HEIGHT),"HYD PUMP 1 FAIL")
+// 	};
+// 	// ZONE 2
+// 	class gen2 {
+// 		condition = "rpm<9";
+// 		TEXT_RIGHT_SMALL(TEXT,1-0.25,TOP_TEXT_Y,"GEN 2 FAIL")
+// 	};
+// 	class hyd2 {
+// 		condition = "rpm<3";
+// 		TEXT_RIGHT_SMALL(TEXT,1-0.25,TOP_TEXT_Y+(SMALL_LINE_HEIGHT),"HYD PUMP 2 FAIL")
+// 	};
+// 	// ZONE 3
+// 	class engine1 {
+// 		condition = "(pylonammo6>2.5)+((pylonammo6>0.9)*(pylonammo6<1.1))";
+// 		TEXT_RIGHT_SMALL(TEXT,0.05,0.47-0.025,"CHIP ENG 1")
+// 	};
+// 	class chipXmsn {
+// 		condition = "pylonammo3>5";
+// 		TEXT_RIGHT_SMALL(TEXT,0.05,0.47-0.025+(SMALL_LINE_HEIGHT*1),"CHIP TAIL XMSN")
+// 	};
+// 	class starter1 {
+// 		condition = "(pylonammo5>2.5)+((pylonammo5>0.9)*(pylonammo5<1.1))";
+// 		TEXT_RIGHT_SMALL(TEXT,0.05,0.47-0.025+(SMALL_LINE_HEIGHT*2),"STARTER ENG 1")
+// 	};
+// 	class trquad {
+// 		condition = "(pylonammo3>8)";
+// 		TEXT_RIGHT_SMALL(TEXT,0.05,0.47-0.025+(SMALL_LINE_HEIGHT*3),"T/R QUAD FAIL")
+// 	};
+// 	class trservo {
+// 		condition = "(pylonammo3>2)";
+// 		TEXT_RIGHT_SMALL(TEXT,0.05,0.47-0.025+(SMALL_LINE_HEIGHT*4),"T/R SERVO 1 FAIL")
+// 	};
+// 	// ZONE 4
+// 	class engine2 {
+// 		condition = "(pylonammo6>2.5)+((pylonammo6>1.9)*(pylonammo6<2.1))";
+// 		TEXT_RIGHT_SMALL(TEXT,0.65,0.47-0.025,"CHIP ENG 2")
+// 	};
+// 	class chipTail {
+// 		condition = "(pylonammo4>4)";
+// 		TEXT_RIGHT_SMALL(TEXT,0.65,0.47-0.025+(SMALL_LINE_HEIGHT*1),"CHIP MAIN MDL SUMP")
+// 	};
+// 	class starter2 {
+// 		condition = "(pylonammo5>2.5)+((pylonammo5>1.9)*(pylonammo5<2.1))";
+// 		TEXT_RIGHT_SMALL(TEXT,0.65,0.47-0.025+(SMALL_LINE_HEIGHT*2),"STARTER ENG 2")
+// 	};
+// 	// ZONE 5
+// 	class eicasCheck {
+// 		condition = "0";
+// 		TEXT_RIGHT_SMALL(TEXT,0.7,0.7,"CHECK EICAS")
+// 	};
+// 	class stbyOff {
+// 		condition = "0";
+// 		TEXT_RIGHT_SMALL(TEXT,0.7,0.7+SMALL_LINE_HEIGHT,"STBY INST NOT ARMD")
+// 	};
+// 	// ZONE 6
+// 	class fuel1 {
+// 		condition = "fuel < 0.2";
+// 		TEXT_RIGHT_SMALL(TEXT,0.35,0.90,"FUEL 1 LOW")
+// 	};
+// 	class fuel2 {
+// 		condition = "fuel < 0.2";
+// 		TEXT_RIGHT_SMALL(TEXT,0.35,0.90+(SMALL_LINE_HEIGHT*1),"FUEL 2 LOW")
+// 	};
+// 	class fuelpress1 {
+// 		condition = "pylonammo7>0";
+// 		TEXT_RIGHT_SMALL(TEXT,0.50,0.90,"PRESS 1 LOW")
+// 	};
+// 	class fuelpress2 {
+// 		condition = "pylonammo7>0";
+// 		TEXT_RIGHT_SMALL(TEXT,0.50,0.90+(SMALL_LINE_HEIGHT*1),"PRESS 2 LOW")
+// 	};
 
-};
+// };
 
 class eng1_out {
 	condition = "user19<55";
@@ -285,6 +278,8 @@ class SHOW_CCFS_CONDITION {
 	TEXT_LEFT_SMALL(CCFS,0.67,0.02,"CCFS")
 };
 
+TEXT_LEFT_SMALL(TEST,0.38,0.02,"TEST")
+
 #define BOTTOM_TEXT_Y 0.96
 #define TOP_TEXT_Y 0.03
 #define DEFAULT_TEXT_SIZE 0.65
@@ -296,4 +291,3 @@ TEXT_LEFT_SMALL(B5,0.65,BOTTOM_TEXT_Y,"DCP")
 TEXT_LEFT_SMALL(B6,0.75,BOTTOM_TEXT_Y,"IVHMS")
 TEXT_LEFT_SMALL(B7,0.86,BOTTOM_TEXT_Y,"TAC")
 TEXT_LEFT_SMALL(B8,0.98,BOTTOM_TEXT_Y,"JVMF")
-

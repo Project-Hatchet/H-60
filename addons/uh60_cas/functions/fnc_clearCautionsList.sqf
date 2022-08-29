@@ -18,4 +18,6 @@ private ["_condition"];
         [_vehicle, _x # 0] call vtx_uh60_cas_fnc_removeCautionAdvisory;
     };
 } forEach _casList;
-if(!_autoClearOnly) then { _vehicle animate ["CautionMasterCaution", 0] };
+if(!_autoClearOnly) then {
+    [_vehicle, false] call vtx_uh60_cas_fnc_setMasterCaution;
+};

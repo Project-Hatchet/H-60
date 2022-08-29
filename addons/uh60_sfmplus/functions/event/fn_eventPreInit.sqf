@@ -1,6 +1,7 @@
 #include "\z\vtx\addons\uh60_sfmplus\headers\core.hpp"
 vtx_uh60_sfmPlusKeyboardOnly = true;
 
+
 [
 	"vtx_uh60_sfmPlusStabilatorEnabled",
 	"LIST",
@@ -12,7 +13,7 @@ vtx_uh60_sfmPlusKeyboardOnly = true;
 [
 	"vtx_uh60_sfmPlus_showDamageHints",
 	"CHECKBOX",
-	["Show Engine Damage Hints", "Show damage hints related to overtorquing of the engines."],
+	["Show Engine Over Torque Hints", "Show hints related to overtorquing of the engines."],
 	["UH-60M", "Debug"],
 	[true],
 	0

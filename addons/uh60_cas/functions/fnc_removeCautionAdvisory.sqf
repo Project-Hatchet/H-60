@@ -15,5 +15,12 @@ private _casList = (_vehicle getVariable ["vtx_cas_list",[]]);
     };
 } forEach _casList;
 
+private _logIndex = vtx_uh60_cas_cautionsLog find _text;
+if (_logIndex > -1) then {
+    vtx_uh60_cas_cautionsLog deleteAt _logIndex;
+    vtx_uh60_cas_cautionsUnacked = (vtx_uh60_cas_cautionsUnacked - 1) max 0;
+};
+
 _vehicle setVariable ["vtx_cas_list", _casList];
 [_vehicle] call vtx_uh60_cas_fnc_updateCautionsList;
+[_vehicle,false] call vtx_uh60_cas_fnc_updateOverlayList;

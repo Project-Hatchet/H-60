@@ -4,7 +4,7 @@ alpha = BACKGROUND_ALPHA;
 class overlayWrapper {
 	class PolygonJet {
 		type        = "polygon";
-		texture = "z\vtx\addons\uh60_mfd\data\ND.paa";
+		texture = "z\vtx\addons\uh60_mfd\data\ND_Back.paa";
 		points[] ={
 			{
 				{{0, 0},1},
@@ -14,6 +14,163 @@ class overlayWrapper {
 			}
 		};
 	};
+	class RaltEnabledGroup {
+		condition = RALT_ENABLED;
+		class Polygon {
+			type        = "polygon";
+			texture = "z\vtx\addons\uh60_mfd\data\ND_Ralt.paa";
+			points[] ={
+				{
+					{{0, 0},1},
+					{{1, 0},1},
+					{{1, 1},1},
+					{{0, 1},1}
+				}
+			};
+		};
+		class coveringText {
+			TEXT_MID_MID_SRC(RALT_TXT,0.87,0.12)
+				source="altitudeAGL";
+				sourceScale = 3.2808399;
+				sourceLength = 4;
+			};
+			class FD_Purple {
+				color[]={0.3,0.065,0.140,0.002};
+				alpha=0.9;
+				TEXT_DEFAULT_PFD(FDRALT_TXT,0.899,0.353)
+					source="user";
+					sourceIndex=12;
+					sourceScale = 1;
+				};
+				class FD_RALTRotation1Cond {
+					condition="(user12) < 100.1";
+					class FD_RALTArm1 {
+						type="polygon";
+						points[] ={
+							{
+								{"FD_ND_RALTRotation1",{0, "0.107-0.016"},1},
+								{"FD_ND_RALTRotation1",{-0.016, "0.107-0.016"},1},
+								{"FD_ND_RALTRotation1",{-0.016, "0.118-0.016"},1},
+								{"FD_ND_RALTRotation1",{-0.009, "0.118-0.016"},1}
+							}
+						};
+					}; // FD_RALTArm1
+					class FD_RALTArm2 {
+						type="polygon";
+						points[] ={
+							{
+								{"FD_ND_RALTRotation1",{0, "0.107-0.016"},1},
+								{"FD_ND_RALTRotation1",{0.016, "0.107-0.016"},1},
+								{"FD_ND_RALTRotation1",{0.016, "0.118-0.016"},1},
+								{"FD_ND_RALTRotation1",{0.009, "0.118-0.016"},1}
+							}
+						};
+					}; // FD_RALTArm2
+				}; // FD_RALTRotation1Cond
+				class FD_RALTRotation2Cond {
+					condition="((user12) > 100) * ( user12 < 400 )";
+					class FD_RALTArm1 {
+						type="polygon";
+						points[] ={
+							{
+								{"FD_ND_RALTRotation2",{0, "0.107-0.016"},1},
+								{"FD_ND_RALTRotation2",{-0.016, "0.107-0.016"},1},
+								{"FD_ND_RALTRotation2",{-0.016, "0.118-0.016"},1},
+								{"FD_ND_RALTRotation2",{-0.009, "0.118-0.016"},1}
+							}
+						};
+					}; // FD_RALTArm1
+					class FD_RALTArm2 {
+						type="polygon";
+						points[] ={
+							{
+								{"FD_ND_RALTRotation2",{0, "0.107-0.016"},1},
+								{"FD_ND_RALTRotation2",{0.016, "0.107-0.016"},1},
+								{"FD_ND_RALTRotation2",{0.016, "0.118-0.016"},1},
+								{"FD_ND_RALTRotation2",{0.009, "0.118-0.016"},1}
+							}
+						};
+					}; // FD_RALTArm2
+				}; // FD_RALTRotation2Cond
+				class FD_RALTRotation3Cond {
+					condition="(user12) > 400";
+					class FD_RALTArm1 {
+						type="polygon";
+						points[] ={
+							{
+								{"FD_ND_RALTRotation3",{0, "0.107-0.016"},1},
+								{"FD_ND_RALTRotation3",{-0.016, "0.107-0.016"},1},
+								{"FD_ND_RALTRotation3",{-0.016, "0.118-0.016"},1},
+								{"FD_ND_RALTRotation3",{-0.009, "0.118-0.016"},1}
+							}
+						};
+					}; // FD_RALTArm1
+					class FD_RALTArm2 {
+						type="polygon";
+						points[] ={
+							{
+								{"FD_ND_RALTRotation3",{0, "0.107-0.016"},1},
+								{"FD_ND_RALTRotation3",{0.016, "0.107-0.016"},1},
+								{"FD_ND_RALTRotation3",{0.016, "0.118-0.016"},1},
+								{"FD_ND_RALTRotation3",{0.009, "0.118-0.016"},1}
+							}
+						};
+					}; // FD_RALTArm2
+				}; // FD_RALTRotation3Cond
+			}; // FD_Purple
+			class RALTRotation1Cond {
+				condition="(altitudeAGL*3.2808399) < 100";
+				class RaltArm {
+					type="line";
+					width = 7;
+					points[] ={
+						{"ND_RALTRotation1",{0, 0.04},1},{"ND_RALTRotation1",{0, 0.06},1}
+					};
+				}; // RaltArm
+				class RaltArm2 {
+					type="line";
+					width = 3;
+					points[] ={
+						{"ND_RALTRotation1",{0, 0.04},1},{"ND_RALTRotation1",{0, 0.08},1}
+					};
+				}; // RaltArm2
+			}; // RALTRotation1Cond
+			class RALTRotation2Cond {
+				condition="((altitudeAGL*3.2808399) > 100) * ( (altitudeAGL*3.2808399) < 400 )";
+				class RaltArm {
+					type="line";
+					width = 7;
+					points[] ={
+						{"ND_RALTRotation2",{0, 0.04},1},{"ND_RALTRotation2",{0, 0.06},1}
+					};
+				}; // RaltArm
+				class RaltArm2 {
+					type="line";
+					width = 3;
+					points[] ={
+						{"ND_RALTRotation2",{0, 0.04},1},{"ND_RALTRotation2",{0, 0.08},1}
+					};
+				}; // RaltArm2
+			}; // RALTRotation2Cond
+			class RALTRotation3Cond {
+				condition="(altitudeAGL*3.2808399) > 400";
+				class RaltArm {
+					type="line";
+					width = 7;
+					points[] ={
+						{"ND_RALTRotation3",{0, 0.04},1},{"ND_RALTRotation3",{0, 0.06},1}
+					};
+				}; // RaltArm
+				class RaltArm2 {
+					type="line";
+					width = 3;
+					points[] ={
+						{"ND_RALTRotation3",{0, 0.04},1},{"ND_RALTRotation3",{0, 0.08},1}
+					};
+				}; // RaltArm2
+			}; // RALTRotation3Cond
+		}; // CoverignText
+	}; // RaltEnabledGroup
 }; // overlayWrapper
 
 
@@ -35,97 +192,7 @@ class PolygonHeading {
 	}; // points
 }; // PolygonHeading
 
-
-TEXT_MID_MID_SRC(RALT_TXT,0.87,0.12)
-	source="altitudeAGL";
-	sourceScale = 3.2808399;
-	sourceLength = 4;
-};
-
 class flightdirector_purple {
-	color[]={0.3,0.065,0.140,0.002};
-	alpha=0.9;
-	TEXT_DEFAULT_PFD(FDRALT_TXT,0.899,0.353)
-		source="user";
-		sourceIndex=12;
-		sourceScale = 1;
-	};
-	class FD_RALTRotation1Cond {
-		condition="(user12) < 100.1";
-		class FD_RALTArm1 {
-			type="polygon";
-			points[] ={
-				{
-					{"FD_ND_RALTRotation1",{0, "0.107-0.016"},1},
-					{"FD_ND_RALTRotation1",{-0.016, "0.107-0.016"},1},
-					{"FD_ND_RALTRotation1",{-0.016, "0.118-0.016"},1},
-					{"FD_ND_RALTRotation1",{-0.009, "0.118-0.016"},1}
-				}
-			};
-		}; // FD_RALTArm1
-		class FD_RALTArm2 {
-			type="polygon";
-			points[] ={
-				{
-					{"FD_ND_RALTRotation1",{0, "0.107-0.016"},1},
-					{"FD_ND_RALTRotation1",{0.016, "0.107-0.016"},1},
-					{"FD_ND_RALTRotation1",{0.016, "0.118-0.016"},1},
-					{"FD_ND_RALTRotation1",{0.009, "0.118-0.016"},1}
-				}
-			};
-		}; // FD_RALTArm2
-	}; // FD_RALTRotation1Cond
-	class FD_RALTRotation2Cond {
-		condition="((user12) > 100) * ( user12 < 400 )";
-		class FD_RALTArm1 {
-			type="polygon";
-			points[] ={
-				{
-					{"FD_ND_RALTRotation2",{0, "0.107-0.016"},1},
-					{"FD_ND_RALTRotation2",{-0.016, "0.107-0.016"},1},
-					{"FD_ND_RALTRotation2",{-0.016, "0.118-0.016"},1},
-					{"FD_ND_RALTRotation2",{-0.009, "0.118-0.016"},1}
-				}
-			};
-		}; // FD_RALTArm1
-		class FD_RALTArm2 {
-			type="polygon";
-			points[] ={
-				{
-					{"FD_ND_RALTRotation2",{0, "0.107-0.016"},1},
-					{"FD_ND_RALTRotation2",{0.016, "0.107-0.016"},1},
-					{"FD_ND_RALTRotation2",{0.016, "0.118-0.016"},1},
-					{"FD_ND_RALTRotation2",{0.009, "0.118-0.016"},1}
-				}
-			};
-		}; // FD_RALTArm2
-	}; // FD_RALTRotation2Cond
-	class FD_RALTRotation3Cond {
-		condition="(user12) > 400";
-		class FD_RALTArm1 {
-			type="polygon";
-			points[] ={
-				{
-					{"FD_ND_RALTRotation3",{0, "0.107-0.016"},1},
-					{"FD_ND_RALTRotation3",{-0.016, "0.107-0.016"},1},
-					{"FD_ND_RALTRotation3",{-0.016, "0.118-0.016"},1},
-					{"FD_ND_RALTRotation3",{-0.009, "0.118-0.016"},1}
-				}
-			};
-		}; // FD_RALTArm1
-		class FD_RALTArm2 {
-			type="polygon";
-			points[] ={
-				{
-					{"FD_ND_RALTRotation3",{0, "0.107-0.016"},1},
-					{"FD_ND_RALTRotation3",{0.016, "0.107-0.016"},1},
-					{"FD_ND_RALTRotation3",{0.016, "0.118-0.016"},1},
-					{"FD_ND_RALTRotation3",{0.009, "0.118-0.016"},1}
-				}
-			};
-		}; // FD_RALTArm2
-	}; // FD_RALTRotation3Cond
-
 	class FD_Heading1 {
 		type="polygon";
 		points[] ={
@@ -164,60 +231,6 @@ class HSI_WAYPOINTDIRECTION {
 		};
 	};
 }; // HSI_WAYPOINTDIRECTION
-
-
-class RALTRotation1Cond {
-	condition="(altitudeAGL*3.2808399) < 100";
-	class RaltArm {
-		type="line";
-		width = 7;
-		points[] ={
-			{"ND_RALTRotation1",{0, 0.04},1},{"ND_RALTRotation1",{0, 0.06},1}
-		};
-	}; // RaltArm
-	class RaltArm2 {
-		type="line";
-		width = 3;
-		points[] ={
-			{"ND_RALTRotation1",{0, 0.04},1},{"ND_RALTRotation1",{0, 0.08},1}
-		};
-	}; // RaltArm2
-}; // RALTRotation1Cond
-class RALTRotation2Cond {
-	condition="((altitudeAGL*3.2808399) > 100) * ( (altitudeAGL*3.2808399) < 400 )";
-	class RaltArm {
-		type="line";
-		width = 7;
-		points[] ={
-			{"ND_RALTRotation2",{0, 0.04},1},{"ND_RALTRotation2",{0, 0.06},1}
-		};
-	}; // RaltArm
-	class RaltArm2 {
-		type="line";
-		width = 3;
-		points[] ={
-			{"ND_RALTRotation2",{0, 0.04},1},{"ND_RALTRotation2",{0, 0.08},1}
-		};
-	}; // RaltArm2
-}; // RALTRotation2Cond
-class RALTRotation3Cond {
-	condition="(altitudeAGL*3.2808399) > 400";
-	class RaltArm {
-		type="line";
-		width = 7;
-		points[] ={
-			{"ND_RALTRotation3",{0, 0.04},1},{"ND_RALTRotation3",{0, 0.06},1}
-		};
-	}; // RaltArm
-	class RaltArm2 {
-		type="line";
-		width = 3;
-		points[] ={
-			{"ND_RALTRotation3",{0, 0.04},1},{"ND_RALTRotation3",{0, 0.08},1}
-		};
-	}; // RaltArm2
-}; // RALTRotation3Cond
-
 
 //wind
 TEXT_LEFT_SMALL(GS_TXT,0.08,0.05+0.015,"GS")
@@ -318,8 +331,8 @@ class AIRCRAFT_CENTERED {
 				points[] ={
 					{"ND_CENTER", 1},
 					{"ND_WP2_DIST", 1, "ND_WP2_Dir", 1},{},
-					SHAPE_SQUARE("ND_WP1_DIST","ND_WP1_Dir"),{},
-					SHAPE_SQUARE("ND_WP2_DIST","ND_WP2_Dir")
+					SHAPE_STAR("ND_WP1_DIST","ND_WP1_Dir"),{},
+					SHAPE_STAR("ND_WP2_DIST","ND_WP2_Dir")
 				};
 			}; // WP1_Line
 		};
@@ -333,8 +346,8 @@ class AIRCRAFT_CENTERED {
 				points[] ={
 					{"ND_WP1_DIST", 1, "ND_WP1_Dir", 1},
 					{"ND_WP2_DIST", 1, "ND_WP2_Dir", 1},{},
-					SHAPE_SQUARE("ND_WP1_DIST","ND_WP1_Dir"),{},
-					SHAPE_SQUARE("ND_WP2_DIST","ND_WP2_Dir")
+					SHAPE_STAR("ND_WP1_DIST","ND_WP1_Dir"),{},
+					SHAPE_STAR("ND_WP2_DIST","ND_WP2_Dir")
 				};
 			}; // WP1_Line
 		}; // cond
@@ -348,13 +361,6 @@ class AIRCRAFT_CENTERED {
 			{DIST, 1, DIR, 1, {-0.015, 0.015},1}, \
 			{DIST, 1, DIR, 1, {-0.025, 0.0},1}, \
 			{DIST, 1, DIR, 1, { 0   , -0.025},1}
-
-		#define SHAPE_DIAMOND(DIST,DIR) \
-			{DIST, 1, DIR, 1,{0, 0.02},1}, \
-			{DIST, 1, DIR, 1,{0.02, 0},1}, \
-			{DIST, 1, DIR, 1,{0, -0.02},1}, \
-			{DIST, 1, DIR, 1,{-0.02, 0},1}, \
-			{DIST, 1, DIR, 1,{0, 0.02},1}
 
 		#define SHAPE_SQUARE(DIST,DIR) \
 			{DIST, 1, DIR, 1,{-0.015, -0.015},1}, \
@@ -388,7 +394,7 @@ class AIRCRAFT_CENTERED {
 				points[] ={
 					{"ND_WP2_DIST", 1, "ND_WP2_Dir", 1},
 					{"ND_WP3_DIST", 1, "ND_WP3_Dir", 1},{},
-					SHAPE_SQUARE("ND_WP3_DIST","ND_WP3_Dir")
+					SHAPE_STAR("ND_WP3_DIST","ND_WP3_Dir")
 				};
 			}; // WP2_Line
 		}; // cond
@@ -401,7 +407,7 @@ class AIRCRAFT_CENTERED {
 				points[] ={
 					{"ND_WP3_DIST", 1, "ND_WP3_Dir", 1},
 					{"ND_WP4_DIST", 1, "ND_WP4_Dir", 1},{},
-				SHAPE_SQUARE("ND_WP4_DIST","ND_WP4_Dir")
+					SHAPE_STAR("ND_WP4_DIST","ND_WP4_Dir")
 				};
 			}; // WP3_Line
 		}; // cond
@@ -414,7 +420,7 @@ class AIRCRAFT_CENTERED {
 				points[] ={
 					{"ND_WP4_DIST", 1, "ND_WP4_Dir", 1},
 					{"ND_WP5_DIST", 1, "ND_WP5_Dir", 1},{},
-				SHAPE_SQUARE("ND_WP5_DIST","ND_WP5_Dir")
+					SHAPE_STAR("ND_WP5_DIST","ND_WP5_Dir")
 				};
 			}; // WP4_Line
 		}; // cond
@@ -427,7 +433,7 @@ class AIRCRAFT_CENTERED {
 				points[] ={
 					{"ND_WP5_DIST", 1, "ND_WP5_Dir", 1},
 					{"ND_WP6_DIST", 1, "ND_WP6_Dir", 1},{},
-					SHAPE_SQUARE("ND_WP6_DIST","ND_WP6_Dir")
+					SHAPE_STAR("ND_WP6_DIST","ND_WP6_Dir")
 				};
 			}; // WP5_Line
 		}; // cond
@@ -440,7 +446,7 @@ class AIRCRAFT_CENTERED {
 				type = "line";
 				width = 2;
 				points[]={
-					SHAPE_DIAMOND("ND_TGP_DIST","ND_TGP_Dir")
+					SHAPE_STAR("ND_TGP_DIST","ND_TGP_Dir")
 				};
 			}; // Mark_Circle
 		}; // Mark_TEXT
@@ -566,6 +572,44 @@ class SUBPAGE_CMWS {
 class SUBPAGE_HOVER {
 	condition = COND_SUBPAGE(MFD_PAGE_INDEX,ND_MODE_HOVER);
 	TEXT_MID_MID(MODE_SELECTOR,0.25,0.05,"HOVER")
+};
+
+#define VERT_TEXT_SPACING 0.035
+class caution {
+	condition = "pylonAmmo3 > 0";
+	color[] = common_black;
+	COLORED_POLYGON(CNCL,(0.985-0.02),(BEZEL_Y3-0.07),0.02,(VERT_TEXT_SPACING*4),common_black)
+	COLORED_POLYGON(PAGE,(0.985-0.02),(BEZEL_Y5+0.02),0.02,(VERT_TEXT_SPACING*4),common_black)
+	class white {
+		color[] = common_white;
+		TEXT_LEFT_SCALED(L1,(0.985-0.02+0.005),(BEZEL_Y3-0.07),"C",TAC_LINE_HEIGHT)
+		TEXT_LEFT_SCALED(L2,(0.985-0.02+0.005),(BEZEL_Y3-0.07+VERT_TEXT_SPACING*1),"N",TAC_LINE_HEIGHT)
+		TEXT_LEFT_SCALED(L3,(0.985-0.02+0.005),(BEZEL_Y3-0.07+VERT_TEXT_SPACING*2),"C",TAC_LINE_HEIGHT)
+		TEXT_LEFT_SCALED(L4,(0.985-0.02+0.005),(BEZEL_Y3-0.07+VERT_TEXT_SPACING*3),"L",TAC_LINE_HEIGHT)
+		
+		TEXT_LEFT_SCALED(L5,(0.985-0.02+0.005),(BEZEL_Y5+0.02),"P",TAC_LINE_HEIGHT)
+		TEXT_LEFT_SCALED(L6,(0.985-0.02+0.005),(BEZEL_Y5+0.02+VERT_TEXT_SPACING*1),"A",TAC_LINE_HEIGHT)
+		TEXT_LEFT_SCALED(L7,(0.985-0.02+0.005),(BEZEL_Y5+0.02+VERT_TEXT_SPACING*2),"G",TAC_LINE_HEIGHT)
+		TEXT_LEFT_SCALED(L8,(0.985-0.02+0.005),(BEZEL_Y5+0.02+VERT_TEXT_SPACING*3),"E",TAC_LINE_HEIGHT)
+		class border {
+            type="line";
+            width = 2;
+            points[] ={
+                {{(0.985-0.02),(BEZEL_Y3-0.07)},1},
+                {{(0.985-0.00),(BEZEL_Y3-0.07)},1},
+                {{(0.985-0.00),(BEZEL_Y3-0.07+(VERT_TEXT_SPACING*4))},1},
+                {{(0.985-0.02),(BEZEL_Y3-0.07+(VERT_TEXT_SPACING*4))},1},
+                {{(0.985-0.02),(BEZEL_Y3-0.07)},1}, {},
+				
+                {{(0.985-0.02),(BEZEL_Y5+0.02)},1},
+                {{(0.985-0.00),(BEZEL_Y5+0.02)},1},
+                {{(0.985-0.00),(BEZEL_Y5+0.02+(VERT_TEXT_SPACING*4))},1},
+                {{(0.985-0.02),(BEZEL_Y5+0.02+(VERT_TEXT_SPACING*4))},1},
+                {{(0.985-0.02),(BEZEL_Y5+0.02)},1}, {},
+            };
+		};
+	};
+	#include "cautions\overlay.hpp"
 };
 
 

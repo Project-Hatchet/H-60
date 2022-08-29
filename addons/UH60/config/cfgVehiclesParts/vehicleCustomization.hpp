@@ -24,5 +24,7 @@ class textureSources {
 };
 animationList[] = {
     "Fuelprobe_Show", 0,
-    "Cockpitdoors_Hide", 0
+    "Cockpitdoors_Hide", 0,
+    "cabindoor_L", 1,
+    "cabindoor_R", 1
 };

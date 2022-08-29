@@ -15,3 +15,9 @@ if (!isNil "cTabBFTmembers") then {
 	blufor reportRemoteTarget [_x, 2];
 	_x confirmSensorTarget [west, true];
 } forEach _objects;
+
+private _laserTarget = laserTarget _vehicle;
+if (!isNull (_laserTarget)) then {
+	blufor reportRemoteTarget [_laserTarget, 2];
+	_laserTarget confirmSensorTarget [west, true];
+};

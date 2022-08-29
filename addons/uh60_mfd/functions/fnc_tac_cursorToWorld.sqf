@@ -3,14 +3,13 @@
  */
 
 private _vehicle = vehicle player;
-private _centerMode = _vehicle getVariable ["vtx_uh60_mfd_tac_center_mode", 0];
-private _center = switch (_centerMode) do {
-	case 0: {getPos _vehicle};
-	case 1: {getPos _vehicle};
-	case 2: {vtx_uh60_mfd_tac_mapPos};
-	case 3: {vtx_uh60_mfd_tac_mapPos};
-};
-private _rotation = if (_centerMode == 0) then {-(getDir _vehicle)} else {0};
+private _centered = _vehicle ammoOnPylon 4 == 0;
+private _fixed = _vehicle ammoOnPylon 7 == 0;
+private _selfAligned = _vehicle ammoOnPylon 5 == 0;
+private _staticMap = _vehicle ammoOnPylon 7 > 0;
+
+private _center = [_vehicle] call vtx_uh60_mfd_fnc_tac_getMapCenter;
+private _rotation = if (_selfAligned) then {-getDir _vehicle} else {0};
 
 private _world_size = [] call BIS_fnc_mapSize;
 private _zoomLevel = _vehicle getVariable ["MAP_ZoomMult", 1];

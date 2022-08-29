@@ -37,7 +37,7 @@ _vehicle setUserMFDvalue [47, (_engTGT # 1)];
     _vehicle setUserMFDvalue [48, (_engTq # 1) * 100];
 
     //Rotor RPM
-    _rtrRPM = (_engNp select 0) max (_engNp select 1);
+    _rtrRPM = (_vehicle animationPhase "rotortilt") * 1.025 / 10;
     _vehicle setUserMFDvalue [17, _rtrRPM * 100];
     /*
     HintSilent format ["SFM+

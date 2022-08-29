@@ -27,3 +27,8 @@ PREP(toggleLaser);
 PREP(updateCamera);
 PREP(syncPilots);
 PREP(updateUIValues);
+PREP(interaction);
+
+PREP(intersectAtPolar);
+PREP(autoScanPattern);
+PREP(laserTrack);

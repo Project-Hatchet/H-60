@@ -190,6 +190,18 @@ class AnimationSources: AnimationSources {
       "EGMS", 0
     };
   };
+  class MLASS_show {
+    //displayName = "Show LASS";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = MASS_LASS;
+    forceAnimatePhase = 1;
+    forceAnimate[] = {
+      "ESSS", 0,
+      "EGMS", 0
+    };
+  };
   class ESSS_show {
     //displayName = "Show ESSS";
     source="user";
@@ -249,6 +261,13 @@ class AnimationSources: AnimationSources {
     animPeriod=1;
     initPhase=0;
     mass = MASS_HH60FLARES;
+  };
+  class MH60MMisc_show {
+    displayName = "Show MH-60M Exterior parts";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = MASS_MH60M_MISC;
   };
   class cabindoor_L {
     source="user";

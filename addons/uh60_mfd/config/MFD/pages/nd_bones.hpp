@@ -92,26 +92,24 @@ class ND_RotationWind : ND_HeadingRotationWind {
 	aspectRatio = 1;
 };
 class ND_WP1_Dir {
-	type="rotational";
+    type="linear";
 	source="user";
 	sourceIndex=2;
-	sourceScale = 1;
-	center[] = {0.4,0.5};
-	min = "-360";
-	max = "360";
-	minAngle = -360;
-	maxAngle = 360;
-	aspectRatio = 1/0.725;
+	sourceScale=1;
+	min=-30;
+	max= 30;
+	minPos[]={0.5-15, 0};
+	maxPos[]={0.5+15, 0};
 };
 class ND_WP1_DIST {
     type="linear";
 	source="user";
 	sourceIndex=3;
 	sourceScale=1;
-	min=0;
-	max=1;
-	minPos[]={0,0.5};
-	maxPos[]={0,0};
+	min=-30;
+	max= 30;
+	minPos[]={0,0.5-(15*1.333)};
+	maxPos[]={0,0.5+(15*1.333)};
 };
 
 class ND_WP2_Dir: ND_WP1_Dir {

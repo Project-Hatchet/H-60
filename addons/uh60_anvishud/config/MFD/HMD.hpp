@@ -4,10 +4,11 @@ borderRight = 0;
 borderTop = 0;
 //color[] = {0.082,0.608,0.039,1};
 enableParallax = 0;
-helmetDown[] = {0,-0.065,0};
+#define HMD_SIZE 0.06
+helmetDown[] = {0,-HMD_SIZE,0};
 helmetMountedDisplay = 1;
-helmetPosition[] = {-0.0325,0.0325,0.1};
-helmetRight[] = {0.065,0,0};
+helmetPosition[] = {-(HMD_SIZE/2),(HMD_SIZE/2),0.1};
+helmetRight[] = {HMD_SIZE,0,0};
 topLeft = ""; // not used because HMD, but still needed
 topRight = ""; // not used because HMD, but still needed
 bottomLeft = ""; // not used because HMD, but still needed
@@ -20,8 +21,8 @@ class material {
 };
 */
 class Bones {
-	#define POS10X 0.765
-	#define POS10Y 0.76
+	#define POS10X 0.80
+	#define POS10Y 0.80
 	class WPPoint
 	{
 		type = "vector";
@@ -236,7 +237,7 @@ class Bones {
 	}; // WPPoint
 }; // Bones
 class Draw {
-	condition="(user15>-1)";
+	condition="(user15>-1) * (user15<5)";
 	class Outline {
 		type="line";
 		width = 0;

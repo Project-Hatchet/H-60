@@ -2,6 +2,10 @@ class cfgWeapons {
     class LMG_Minigun;
     class LMG_Minigun_Transport : LMG_Minigun {
         class manual;
+        class far;
+        class medium;
+        class close;
+        class short;
     };
     class vtx_wpn_m134 : LMG_Minigun_Transport {
         magazines[] = {"vtx_2000Rnd_65x39_Belt_Tracer_Red"};
@@ -50,10 +54,118 @@ class cfgWeapons {
         soundContinuous=1;
         autoFire=1;
     };
-    class far : manual {};
-    class medium : manual {};
-    class close : manual {};
-    class short : manual {};
+    class far : far {
+        sounds[]=
+        {
+            "StandardSound"
+        };
+        class StandardSound
+        {
+            begin1[]=
+            {
+                "z\vtx\addons\UH60\Sounds\vtx_minigun",
+                20,
+                0.9,
+                1500,
+                {25704,27159}
+            };
+            soundBegin[]=
+            {
+                "begin1",
+                10
+            };
+        };
+        ffMagnitude=0.5;
+        ffFrequency=11;
+        ffCount=6;
+        burst=20;
+        soundContinuous=1;
+        autoFire=1;
+    };
+    class medium : medium {
+        sounds[]=
+        {
+            "StandardSound"
+        };
+        class StandardSound
+        {
+            begin1[]=
+            {
+                "z\vtx\addons\UH60\Sounds\vtx_minigun",
+                20,
+                0.9,
+                1500,
+                {25704,27159}
+            };
+            soundBegin[]=
+            {
+                "begin1",
+                10
+            };
+        };
+        ffMagnitude=0.5;
+        ffFrequency=11;
+        ffCount=6;
+        burst=20;
+        soundContinuous=1;
+        autoFire=1;
+    };
+    class close : close {
+        sounds[]=
+        {
+            "StandardSound"
+        };
+        class StandardSound
+        {
+            begin1[]=
+            {
+                "z\vtx\addons\UH60\Sounds\vtx_minigun",
+                20,
+                0.9,
+                1500,
+                {25704,27159}
+            };
+            soundBegin[]=
+            {
+                "begin1",
+                10
+            };
+        };
+        ffMagnitude=0.5;
+        ffFrequency=11;
+        ffCount=6;
+        burst=20;
+        soundContinuous=1;
+        autoFire=1;
+    };
+    class short : short {
+        sounds[]=
+        {
+            "StandardSound"
+        };
+        class StandardSound
+        {
+            begin1[]=
+            {
+                "z\vtx\addons\UH60\Sounds\vtx_minigun",
+                20,
+                0.9,
+                1500,
+                {25704,27159}
+            };
+            soundBegin[]=
+            {
+                "begin1",
+                10
+            };
+        };
+        ffMagnitude=0.5;
+        ffFrequency=11;
+        ffCount=6;
+        burst=20;
+        soundContinuous=1;
+        autoFire=1;
+    };
 
     };
     class vtx_wpn_m134_2nd : vtx_wpn_m134 {

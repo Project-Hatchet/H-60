@@ -7,6 +7,16 @@
 
 class Sounds: Sounds
 {
+    class damageAlarmExt {
+        frequency = 1;
+        sound[] = {"A3\Sounds_F\vehicles\air\noises\heli_alarm_bluefor",0.223872,1,20};
+        volume = "0";
+    };
+    class damageAlarmInt {
+        frequency = 1;
+        sound[] = {"A3\Sounds_F\vehicles\air\noises\heli_alarm_bluefor",0.223872,1,20};
+        volume = "0";
+    };
     /*External UH60 */
     class Engine
     {

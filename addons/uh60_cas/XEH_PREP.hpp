@@ -7,3 +7,5 @@ PREP(setup);
 PREP(updateAdvisories);
 PREP(updateCautionPanel);
 PREP(updateCautions);
+PREP(setMasterCaution);
+PREP(updateOverlayList);

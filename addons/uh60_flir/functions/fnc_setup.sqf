@@ -17,6 +17,10 @@ if (!hasPilotCamera _vehicle) exitWith {false};
 private _isNotInCockpit = [_vehicle] call vtx_uh60_flir_fnc_syncPilots;
 if (_isNotInCockpit) exitWith {false};
 
+vtx_uh60_flir_fnc_grain = ppEffectCreate ["FilmGrain",2000];
+vtx_uh60_flir_fnc_grain ppEffectAdjust [1,0,1,1,1,false];
+vtx_uh60_flir_fnc_grain ppEffectCommit 0;
+
 vtx_uh60_flir_aspectRatio = getResolution # 4;
 vtx_uh60_flir_featureCamera = "";
 vtx_uh60_flir_pilotCameraTarget = getPilotCameraTarget _vehicle;
@@ -30,6 +34,9 @@ vtx_uh60_flir_minTurn = getNumber (_pilotCameraConfig >> "minTurn") / 180 * pi;
 vtx_uh60_flir_maxTurn = getNumber (_pilotCameraConfig >> "maxTurn") / 180 * pi;
 vtx_uh60_flir_minElev = getNumber (_pilotCameraConfig >> "minElev") / 180 * pi;
 vtx_uh60_flir_maxElev = getNumber (_pilotCameraConfig >> "maxElev") / 180 * pi;
+
+_vehicle setVariable ["vtx_uh60_flir_targets", _vehicle getVariable ["vtx_uh60_flir_targets", 0]];
+_vehicle setVariable ["vtx_uh60_flir_stowed", _vehicle getVariable ["vtx_uh60_flir_stowed", true], true];
 
 private _OpticsIn = _pilotCameraConfig >> "OpticsIn";
 private _fovClasses = "true" configClasses _OpticsIn;

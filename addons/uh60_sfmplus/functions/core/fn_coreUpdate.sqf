@@ -61,8 +61,10 @@ private _cfgAnimationSources = configOf _heli >> "AnimationSources";
 	"GAU21_L_Hide",
 	"GAU21_R_Hide",
 	"Skis_show",
-	"HH60Flares_show"
+	"HH60Flares_show",
+	"MH60MMisc_show"
 ];
+vtx_uh60_sfmplus_baseWeight = _emptyMass + _partsMass;
 
 //Add ViV
 
@@ -124,7 +126,7 @@ if(vtx_uh60_sfmPlusStabilatorEnabled == STABILTOR_MODE_ALWAYSENABLED
 };
 
 //Apply a negative force to prevent the helicopter from taking off until the power levers are at fly
-[_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_antiLift;
+// [_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_antiLift;
 
 #ifdef __A3_DEBUG__
 /*

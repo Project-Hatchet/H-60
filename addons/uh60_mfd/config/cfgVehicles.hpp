@@ -290,6 +290,10 @@ class CfgVehicles {
                 topLeft="MFD1_LH";topRight="MFD1_RH"; bottomLeft="MFD1_LD";
                 #include "MFD\pages\monospace.hpp"
             }; // MFD_1
+            class MFD_1_Bold {
+                topLeft="MFD1_LH";topRight="MFD1_RH"; bottomLeft="MFD1_LD";
+                #include "MFD\pages\bold.hpp"
+            }; // MFD_1
             #undef MFD_PAGE_INDEX
             #define MFD_PAGE_INDEX MFD_2_PAGE_INDEX
             #undef SHOW_CCFS
@@ -309,6 +313,10 @@ class CfgVehicles {
             class MFD_2_Monospace {
                 topLeft="MFD2_LH";topRight="MFD2_RH"; bottomLeft="MFD2_LD";
                 #include "MFD\pages\monospace.hpp"
+            }; // MFD_2
+            class MFD_2_Bold {
+                topLeft="MFD2_LH";topRight="MFD2_RH"; bottomLeft="MFD2_LD";
+                #include "MFD\pages\bold.hpp"
             }; // MFD_2
             #undef MFD_PAGE_INDEX
             #define MFD_PAGE_INDEX MFD_3_PAGE_INDEX
@@ -330,6 +338,10 @@ class CfgVehicles {
                 topLeft="MFD3_LH";topRight="MFD3_RH"; bottomLeft="MFD3_LD";
                 #include "MFD\pages\monospace.hpp"
             }; // MFD_3
+            class MFD_3_Bold {
+                topLeft="MFD3_LH";topRight="MFD3_RH"; bottomLeft="MFD3_LD";
+                #include "MFD\pages\bold.hpp"
+            }; // MFD_3
             #undef MFD_PAGE_INDEX
             #define MFD_PAGE_INDEX MFD_4_PAGE_INDEX
             #undef SHOW_CCFS
@@ -349,6 +361,10 @@ class CfgVehicles {
             class MFD_4_Monospace {
                 topLeft="MFD4_LH";topRight="MFD4_RH"; bottomLeft="MFD4_LD";
                 #include "MFD\pages\monospace.hpp"
+            }; // MFD_1
+            class MFD_4_Bold {
+                topLeft="MFD4_LH";topRight="MFD4_RH"; bottomLeft="MFD4_LD";
+                #include "MFD\pages\bold.hpp"
             }; // MFD_1
             class ESIS_BOOT
             {
