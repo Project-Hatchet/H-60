@@ -27,7 +27,7 @@ private _rtrRPM    = _eng1Np max _eng2Np;
 if (_rtrRPM > 0 && _rtrRPM < 0.7) then {
     private _adjustedAnimRPM = vtx_uh60_rotorRPM * 20;
     private _realRPM = _heli animationPhase "rotortilt";
-    systemChat str [_realRPM / 10, _rtrRPM];
+    // systemChat str [_realRPM / 10, _rtrRPM];
     if ((_realRPM / 10) > _rtrRPM) then {
         systemchat "BREAKING";
         // _heli setHitpointDamage ["HitHRotor", 0.9];

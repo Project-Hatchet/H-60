@@ -30,7 +30,7 @@ if (_bootTime > -1) then {
   private _timeRemaining = (_bootTime + 25) - cba_missionTime;
   if (_timeRemaining > 0) then {
     private _slewProgress = _timeRemaining / 5;
-    systemChat str ["DEPLOYING", _timeRemaining, _slewProgress];
+    // systemChat str ["DEPLOYING", _timeRemaining, _slewProgress];
     _vehicle setPilotCameraTarget objNull;
     _vehicle setPilotCameraRotation [
       rad (_slewProgress * 180),

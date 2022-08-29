@@ -49,7 +49,7 @@ if _keySlew then {
 vtx_uh60_flir_isSlewing = _keySlew || {vtx_uh60_flir_isInScriptedCamera && {_mouseSlew}} || {vtx_uh60_flir_slewAim && {_mouseSlew}} || {_isGunnerView && {_mouseSlew}};
 
 if (vtx_uh60_flir_isSlewing) then {
-    systemchat str[ "SLEWING", time];
+    // systemchat str[ "SLEWING", time];
     private _originPos = _vehicle modelToWorldVisualWorld (getPilotCameraPosition _vehicle);
     private _cameraVectorWorld = _vehicle vectorModelToWorld (getPilotCameraDirection _vehicle);
     if (getPilotCameraTarget _vehicle # 0) then {

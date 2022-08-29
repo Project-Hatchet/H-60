@@ -1,5 +1,5 @@
 params ["_vehicle", "_button", "_var"];
-	systemchat str _this;
+	// systemchat str _this;
 switch (_button) do {
 	case "WAYPT_SLEW": {
 		private _currentWaypointIndex = currentWaypoint group player;

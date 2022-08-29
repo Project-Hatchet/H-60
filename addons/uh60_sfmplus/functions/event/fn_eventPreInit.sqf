@@ -1,14 +1,7 @@
 #include "\z\vtx\addons\uh60_sfmplus\headers\core.hpp"
 vtx_uh60_sfmPlusKeyboardOnly = true;
 
-[
-	"vtx_uh60_sfmPlusOvertorqueHandling",
-	"LIST",
-	["Overtorque handling", "To simulate the effects of overtorque, we have two different ways for it to impact the player."],
-	["UH-60M", "Flight model"],
-	[["damage","lift"],["Rotor damage", "Loss of lift"],1],
-	0
-] call CBA_fnc_addSetting;
+
 [
 	"vtx_uh60_sfmPlusStabilatorEnabled",
 	"LIST",
@@ -20,7 +13,7 @@ vtx_uh60_sfmPlusKeyboardOnly = true;
 [
 	"vtx_uh60_sfmPlus_showDamageHints",
 	"CHECKBOX",
-	["Show Engine Damage Hints", "Show damage hints related to overtorquing of the engines."],
+	["Show Engine Over Torque Hints", "Show hints related to overtorquing of the engines."],
 	["UH-60M", "Debug"],
 	[true],
 	0

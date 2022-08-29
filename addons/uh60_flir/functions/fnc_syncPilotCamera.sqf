@@ -14,7 +14,7 @@
  */
 
 params ["_rot_dir", "_target", ["_targetObject", objNull], ["_immediate", false], ["_propagate", true]];
-systemChat str _this;
+// systemChat str _this;
 if (_propagate) then {
   private _targets = (crew _vehicle) - [player];
   [_rot_dir, _target, _targetObject, _immediate, false] remoteExecCall ["vtx_uh60_flir_fnc_syncPilotCamera", _targets, false];

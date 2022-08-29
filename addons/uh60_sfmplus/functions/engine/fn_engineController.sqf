@@ -84,9 +84,9 @@ private _rtrRPM    = _eng1Np max _eng2Np;
 private _realRPM = _heli animationPhase "rotortilt";
 private _lastUpdate = _heli getVariable ["vtx_uh60_sfmplus_lastUpdate", 0];
 if (cba_missionTime > _lastUpdate + 0.3 && _rtrRPM > 0.05) then {
-	systemChat str [_realRPM / 11, _rtrRPM];
+	// systemChat str [_realRPM / 11, _rtrRPM];
 	_rtrRPM = _rtrRPM - (vtx_uh60_sfmplus_liftLossTimer * 0.45); 
-	systemChat str ["ADJUSTED RPM", _rtrRPM];
+	// systemChat str ["ADJUSTED RPM", _rtrRPM];
 	if ((_realRPM / 11) > _rtrRPM) then {
 		// systemchat "BREAKING ROTOR";
 		_heli setHitpointDamage ["HitHRotor", 0.9];

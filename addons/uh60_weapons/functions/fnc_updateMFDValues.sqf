@@ -15,7 +15,7 @@ if (vtx_uh60_hellfire_currentTof > -1) then {
 } else { // if no hellfire in the air, do the waypoint check
 	if (_stabilized) then {
 		{
-			systemChat str ["checking", waypointDescription _x];
+			// systemChat str ["checking", waypointDescription _x];
 			if (((waypointPosition _x) distance2D _position) < 30) exitWith {
 				_outputString = _outputString + format["   %1", waypointDescription _x];
 			};

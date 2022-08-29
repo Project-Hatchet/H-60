@@ -13,7 +13,7 @@
  */
 
 params ["_fov", ["_sync", true]];
-systemChat str ["SYNCING", _this];
+// systemChat str ["SYNCING", _this];
 vtx_uh60_flir_FOV = _fov;
 vtx_uh60_flir_camera camSetFov _fov;
 
