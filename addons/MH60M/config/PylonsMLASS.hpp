@@ -75,14 +75,14 @@ class TransportPylonsComponent {
             hardpoints[] = {
               "VTX_ST_OUTBOARD"
             };
-            attachment[] = {};
+            attachment = "VTX_4Rnd_ACE_Hellfire_AGM114K";
         };
         class pylons49: pylons2 {
             UIposition[] = {0.08, 0.47};
             hardpoints[] = {
               "VTX_ST_OUTBOARD"
             };
-            attachment[] = {};
+            attachment = "VTX_4Rnd_ACE_Hellfire_AGM114K";
         };
     };
     class Presets {

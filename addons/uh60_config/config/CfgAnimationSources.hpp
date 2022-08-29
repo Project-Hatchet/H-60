@@ -262,6 +262,13 @@ class AnimationSources: AnimationSources {
     initPhase=0;
     mass = MASS_HH60FLARES;
   };
+  class MH60MMisc_show {
+    displayName = "Show MH-60M Exterior parts";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = MASS_MH60M_MISC;
+  };
   class cabindoor_L {
     source="user";
     animPeriod=1;

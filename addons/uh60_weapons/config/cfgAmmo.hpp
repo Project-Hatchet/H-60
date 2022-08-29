@@ -5,8 +5,8 @@ class CfgAmmo {
   class ACE_Hellfire_AGM114N: M_Scalpel_AT {class ace_missileguidance;};
   class VTX_Hellfire_AGM114K: ACE_Hellfire_AGM114K {
     displayName = "AGM-114K Hellfire";
-    model = "z\vtx\addons\uh60_weapons\fza_agm114k.p3d";
-    proxyShape = "z\vtx\addons\uh60_weapons\fza_agm114k.p3d";
+    model = "z\vtx\addons\uh60_weapons\fza_agm114l.p3d";
+    proxyShape = "z\vtx\addons\uh60_weapons\fza_agm114l.p3d";
     class ace_missileguidance: ace_missileguidance {
       attackProfiles[] = {"hellfire","hellfire_hi","hellfire_lo"};
       canVanillaLock = 0;

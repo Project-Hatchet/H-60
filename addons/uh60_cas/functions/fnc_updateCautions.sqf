@@ -133,7 +133,7 @@ private _stbyInst = (_vehicle animationPhase "switch_stbyinst") > 0;
 
 // main rotor
 private _mrot = 
-    (_vehicle getHitPointDamage "hithrotor") + 
+    // (_vehicle getHitPointDamage "hithrotor") + 
     (_vehicle getHitPointDamage "MainRotorGearBox") +
     (_vehicle getHitPointDamage "MainRotorHub");
 [20, _mrot > 0.5] call _setPylonFn;
@@ -154,5 +154,5 @@ private _mfd =
 [38, (_mfd) > 0.2] call _setPylonFn;
 
 
-[23, (_vehicle getHitPointDamage "WingStores") > 0.3] call _setPylonFn;
-[32, (_vehicle getHitPointDamage "WingStores") > 0.7] call _setPylonFn;
+[23, (_vehicle getHitPointDamage "WingStoreL") > 0.3] call _setPylonFn;
+[32, (_vehicle getHitPointDamage "WingStoreR") > 0.7] call _setPylonFn;

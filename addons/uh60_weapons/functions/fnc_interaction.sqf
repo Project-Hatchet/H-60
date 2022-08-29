@@ -39,6 +39,7 @@ private _stationAssign = {
 	if (_pylon == -1) exitWith {};
 	private _turret = if (_targetOwner == "pilot") then {[]} else {[0]};
 	private _magazine = (getPylonMagazines _vehicle) # (_pylon - 1);
+	private _target = if (_targetOwner == "pilot") then {_vehicle turretUnit [-1]} else {_vehicle turretUnit [0]};
 	private _targets = [
 		_vehicle turretUnit [-1],
 		_vehicle turretUnit [0]

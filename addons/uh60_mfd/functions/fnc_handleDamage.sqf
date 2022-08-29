@@ -2,15 +2,17 @@ params ["_vehicle"];
 {
 	_x params ["_hitpoint", "_anim", "_textureIndex", "_mfdIndex"];
 	private _damage = _vehicle getHitPointDamage _hitpoint;
-	if (_damage > 0.9) then {
-		if (_vehicle animationPhase _anim < 1) then {
-			_vehicle animateSource [_anim, 1];
+	if (local _vehicle) then {
+		if (_damage > 0.9) then {
+			if (_vehicle animationPhase _anim < 1) then {
+				_vehicle animateSource [_anim, 1];
 
-			_vehicle setObjectTextureGlobal [_textureIndex, format ["z\vtx\addons\uh60_mfd\data\mfd_damage_%1.paa", (1 + (round random 1))]];
-		};
-	} else {
-		if (_vehicle animationPhase _anim > 0) then {
-			_vehicle animateSource [_anim, 0];
+				_vehicle setObjectTextureGlobal [_textureIndex, format ["z\vtx\addons\uh60_mfd\data\mfd_damage_%1.paa", (1 + (round random 1))]];
+			};
+		} else {
+			if (_vehicle animationPhase _anim > 0) then {
+				_vehicle animateSource [_anim, 0];
+			};
 		};
 	};
 	if (_damage > 0.2) then {

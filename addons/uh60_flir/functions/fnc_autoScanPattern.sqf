@@ -11,15 +11,15 @@ private _barWidth = 30;
 private _startTime = _vehicle getVariable ["vtx_uh60_flir_fnc_lstTrackStartTime", -6];
 
 //track to start position
-if (_startTime > time) exitWith {
-	private _setupProgress = (5 - (_startTime - time)) / 5;
+if (_startTime > cba_missionTime) exitWith {
+	private _setupProgress = (5 - (_startTime - cba_missionTime)) / 5;
 	systemChat str ["SETTING UP", _setupProgress];
 	((getPilotCameraRotation _vehicle) apply {deg _x}) params ["_yaw", "_pitch"];
 
 	([_yaw, _pitch] vectorDiff [_barWidth, 0]) params ["_yawDiff", "_pitchDiff"];
 	
-	private _yawSpeed = (abs _yawDiff / (_startTime - time)) * _frameTime;
-	private _pitchSpeed = abs (_pitchDiff / (_startTime - time)) * _frameTime;
+	private _yawSpeed = (abs _yawDiff / (_startTime - cba_missionTime)) * _frameTime;
+	private _pitchSpeed = abs (_pitchDiff / (_startTime - cba_missionTime)) * _frameTime;
 	
 
 	private _newYaw = if (abs _yawDiff < _yawSpeed) then {_barWidth} else {_yaw - (_yawDiff min _yawSpeed max -_yawSpeed)};
@@ -32,7 +32,7 @@ if (_startTime > time) exitWith {
 	// systemChat str ["SETTING UP", round _setupProgress, round _yaw, round _pitch];
 };
 
-private _timeElapsed = time - _startTime;
+private _timeElapsed = cba_missionTime - _startTime;
 private _bars = _timeElapsed % (_barTimeTotal * _barCount);
 private _currentBar = floor (_bars / _barTimeTotal);
 private _barProgress = (_bars - (_barTimeTotal * _currentBar));

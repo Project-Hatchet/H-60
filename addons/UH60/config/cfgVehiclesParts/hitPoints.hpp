@@ -1,18 +1,19 @@
+#define MULTIPLIER (1/15)
 class HitPoints
 {		
 	class hithrotor 	
 	{	
-		armor = 1.35;
+		armor = MULTIPLIER * 5.35;
 		radius = 0.47 ;
 		minimalHit = 0.1;
-		explosionShielding =3;
+		explosionShielding = 35;
 		name = "hithrotor";
 		material = 51;
 		passThrough = 0;
 	};	
 	class hitvrotor	
 	{	
-		armor = 0.81;
+		armor = MULTIPLIER * 0.81;
 		radius = 0.24;
 		minimalHit = 0.1;
 		explosionShielding =0.270;
@@ -23,7 +24,7 @@ class HitPoints
 	};	
 	class TailGearBox	
 	{	
-		armor = 1.08;
+		armor = MULTIPLIER * 1.08;
 		radius = 0.69;
 		name = "TailGearBox";
 		explosionShielding =0.360;
@@ -33,7 +34,7 @@ class HitPoints
 	};	
 	class RearAutoStab	
 	{	
-		armor = 0.18;
+		armor = MULTIPLIER * 0.18;
 		radius = 0.14;
 		name = "RearAutoStab";
 		explosionShielding =0.100;
@@ -43,7 +44,7 @@ class HitPoints
 	};	
 	class TailIntermediateGearBox	
 	{	
-		armor = 0.54;
+		armor = MULTIPLIER * 0.54;
 		radius = 0.22;
 		name = "TailIntermediateGearBox";	
 		explosionShielding =0.300;
@@ -53,7 +54,7 @@ class HitPoints
 	};	
 	class FlightComp1	
 	{	
-		armor = 0.36;
+		armor = MULTIPLIER * 0.36;
 		radius = 0.35;
 		name = "FlightComp1";
 		explosionShielding =0.200;
@@ -63,7 +64,7 @@ class HitPoints
 	};				
 	class ApuHit	
 	{	
-		armor = 0.72;
+		armor = MULTIPLIER * 0.72;
 		radius = 0.46;
 		name = "ApuHit";
 		explosionShielding =0.400;
@@ -72,7 +73,7 @@ class HitPoints
 		material = 51;
 	};
 	class HitEngine {
-		armor = 999;
+		armor = MULTIPLIER * 999;
 		depends = "0.5 * (HitEngine1 + HitEngine2)";
 		explosionShielding = 1;
 		minimalHit = 1;
@@ -82,27 +83,27 @@ class HitPoints
 	};	
 	class hitengine1	
 	{	
-		armor = 1.08;
+		armor = MULTIPLIER * 1.08;
 		radius = 0.59;
 		name = "hitengine1";
-		explosionShielding =0.360;
+		explosionShielding =0.460;
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
 	};		
 	class hitengine2	
 	{	
-		armor = 1.08;
+		armor = MULTIPLIER * 1.08;
 		radius = 0.59;
 		name = "hitengine2";
-		explosionShielding =0.360;
+		explosionShielding =0.460;
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
 	};
 	class hitRWR
 	{
-		armor = 1.08;
+		armor = MULTIPLIER * 1.08;
 		radius = 0.59;
 		name = "hitRWR";
 		depends = "(hitRWRFront + hitRWRRear)";
@@ -112,7 +113,7 @@ class HitPoints
 		material = 51;
 	};
 	class hitRWRFront {
-		armor = 1.08;
+		armor = MULTIPLIER * 1.08;
 		radius = 0.59;
 		name = "noseRWR";
 		explosionShielding =0.360;
@@ -121,7 +122,7 @@ class HitPoints
 		material = 51;
 	};
 	class hitRWRRear {
-		armor = 1.08;
+		armor = MULTIPLIER * 1.08;
 		radius = 0.59;
 		name = "tailRWR";
 		explosionShielding =0.360;
@@ -131,7 +132,7 @@ class HitPoints
 	};
 	class SlingHit	
 	{	
-		armor = 0.3;
+		armor = MULTIPLIER * 0.3;
 		material = 51;
 		name = "SlingHit";
 		visual = "";
@@ -162,7 +163,7 @@ class HitPoints
 	};	
 	class HoistHit	
 	{	
-		armor = 0.38;
+		armor = MULTIPLIER * 0.38;
 		radius = 0.26;
 		name = "HoistHit";
 		explosionShielding =0.211;
@@ -172,7 +173,7 @@ class HitPoints
 	};	
 	class HoistHookHit	
 	{	
-		armor = 0.38;
+		armor = MULTIPLIER * 0.38;
 		radius = 0.13;
 		name = "HoistHookHit";
 		explosionShielding =0.211;
@@ -182,7 +183,7 @@ class HitPoints
 	};	
 	class MainRotorGearBox	
 	{	
-		armor = 1.08;
+		armor = MULTIPLIER * 1.08;
 		radius = 0.44;
 		name = "MainRotorGearBox";
 		explosionShielding =0.599;
@@ -192,7 +193,7 @@ class HitPoints
 	};	
 	class MainRotorHub	
 	{	
-		armor = 0.96;
+		armor = MULTIPLIER * 0.96;
 		radius = 1.01;
 		name = "MainRotorHub";
 		explosionShielding =0.533;
@@ -200,11 +201,21 @@ class HitPoints
 		passThrough = 0;
 		material = 51;
 	};	
-	class WingStores	
+	class WingStoreL	
 	{	
-		armor = 0.54;
+		armor = MULTIPLIER * 0.54;
 		radius = 0.4;
-		name = "WingStores";
+		name = "WingStoreL";
+		explosionShielding =0.300;
+		minimalHit = 0.1;
+		passThrough = 0;
+		material = 51;
+	};	
+	class WingStoreR	
+	{	
+		armor = MULTIPLIER * 0.54;
+		radius = 0.4;
+		name = "WingStoreR";
 		explosionShielding =0.300;
 		minimalHit = 0.1;
 		passThrough = 0;
@@ -212,7 +223,7 @@ class HitPoints
 	};	
 	class AirDataComp	
 	{	
-		armor = 0.36;
+		armor = MULTIPLIER * 0.36;
 		radius = 0.12;
 		name = "AirDataComp";
 		explosionShielding =0.150;
@@ -222,7 +233,7 @@ class HitPoints
 	};	
 	class FlirHit	
 	{	
-		armor = 0.36;
+		armor = MULTIPLIER * 0.36;
 		radius = 0.35;
 		name = "FlirHit";
 		explosionShielding =0.200;
@@ -232,7 +243,7 @@ class HitPoints
 	};	
 	class ProbTip	
 	{	
-		armor = 0.36;
+		armor = MULTIPLIER * 0.36;
 		radius = 0.21;
 		name = "FuelProbTip";
 		explosionShielding =0.599;
@@ -242,7 +253,7 @@ class HitPoints
 	};	
 	class EgiComp	
 	{	
-		armor = 0.47;
+		armor = MULTIPLIER * 0.47;
 		radius = 0.28;
 		name = "EgiComp";
 		explosionShielding =0.261;
@@ -252,7 +263,7 @@ class HitPoints
 	};	
 	class Battery1	
 	{	
-		armor = 0.47;
+		armor = MULTIPLIER * 0.47;
 		radius = 0.21;
 		name = "Battery1";
 		explosionShielding =0.261;
@@ -262,7 +273,7 @@ class HitPoints
 	};	
 	class Battery2	
 	{	
-		armor = 0.47;
+		armor = MULTIPLIER * 0.47;
 		radius = 0.21;
 		name = "Battery2";
 		explosionShielding =0.261;
@@ -272,7 +283,7 @@ class HitPoints
 	};	
 	class FlightControlComp2
 	{	
-		armor = 0.48;
+		armor = MULTIPLIER * 0.48;
 		radius = 0.35;
 		name = "FlightControlComp2";
 		explosionShielding =0.266;
@@ -282,7 +293,7 @@ class HitPoints
 	};	
 	class MFD1	
 	{	
-		armor = 0.36;
+		armor = MULTIPLIER * 0.36;
 		radius = 0.21;
 		name = "MFD1";
 		explosionShielding =0.200;		
@@ -292,7 +303,7 @@ class HitPoints
 	};	
 	class MFD2
 	{	
-		armor = 0.36;
+		armor = MULTIPLIER * 0.36;
 		radius = 0.21;
 		name = "MFD2";
 		explosionShielding =0.200;
@@ -302,7 +313,7 @@ class HitPoints
 	};	
 	class MFD3
 	{	
-		armor = 0.36;
+		armor = MULTIPLIER * 0.36;
 		radius = 0.21;
 		name = "MFD3";
 		explosionShielding =0.200;
@@ -312,7 +323,7 @@ class HitPoints
 	};	
 	class MFD4
 	{
-		armor = 0.36;
+		armor = MULTIPLIER * 0.36;
 		radius = 0.21;
 		name = "MFD4";
 		explosionShielding =0.200;
@@ -322,7 +333,7 @@ class HitPoints
 	};
 	class Flare1	
 	{	
-		armor = 0.36;
+		armor = MULTIPLIER * 0.36;
 		radius = 0.3;
 		name = "Flare1";
 		explosionShielding =0.200;
@@ -332,7 +343,7 @@ class HitPoints
 	};	
 		class Flare2
 	{	
-		armor = 0.36;
+		armor = MULTIPLIER * 0.36;
 		radius = 0.3;
 		name = "Flare2";
 		explosionShielding =0.200;
@@ -342,7 +353,7 @@ class HitPoints
 	};	
 		class Flare3
 	{	
-		armor = 0.36;
+		armor = MULTIPLIER * 0.36;
 		radius = 0.3;
 		name = "Flare3";
 		explosionShielding =0.200;
@@ -352,7 +363,7 @@ class HitPoints
 	};	
 		class HHFlare1
 	{	
-		armor = 0.36;
+		armor = MULTIPLIER * 0.36;
 		radius = 0.3;
 		name = "HHFlare1";
 		explosionShielding =0.200;
@@ -362,7 +373,7 @@ class HitPoints
 	};	
 		class HHFlare2
 	{	
-		armor = 0.36;
+		armor = MULTIPLIER * 0.36;
 		radius = 0.3;
 		name = "HHFlare2";
 		explosionShielding =0.200;

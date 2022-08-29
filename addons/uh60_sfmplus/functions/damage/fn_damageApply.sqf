@@ -35,45 +35,17 @@ private _dmgTimerCont  = _heli getVariable "vtx_uh60_sfmplus_dmgTimerCont";
 private _dmgTimerTrans = _heli getVariable "vtx_uh60_sfmplus_dmgTimerTrans";
 private _damaged = false;
 
-/*
- UH-60M Torque limits:
-    80 knots = 148kmh
-
-    Below 80 knots: 
-    0-120 Continuous
-    120-144  10 Second Limit
-
-    Above 80 knots:
-    0-100 Continuous
-    100-144 10 Second Limit
-
-    Single Engine:
-    0-135 Continuous
-    135-144 10 Second Limit
-*/
-
-
 if (isEngineOn _heli) then {
     //With the power levers at idle
     if (_pctNR <= 0.50) then {
         if (_engPctTQ >= 0.30) then {
             _damaged = true;
-            /*
-            hintSilent format ["1. NR = %1,
-                            \nTQ = %2
-                            \nDMG = %3", _pctNR, _engPctTQ, _dmg];
-            */
         };
     };
 
     if (_pctNR <= 0.9) then {
         if (_engPctTQ >= 0.7) then {
             _damaged = true;
-            /*
-            hintSilent format ["2. NR = %1,
-                            \nTQ = %2
-                            \nDMG = %3", _pctNR, _engPctTQ, _dmg];
-            */
         };
     };
 
@@ -105,27 +77,21 @@ if (isEngineOn _heli) then {
         if (_engPctTQ > _transientLimit) then {
             _damaged = true;
         };
-        /*
-        hintSilent format ["4. NR = %1,
-                            \nTQ = %2
-                            \nTimer Cont = %3
-                            \nTimer Trans = %4
-                            \nDmg = %5", _pctNR, _engPctTQ, _dmgTimerCont, _dmgTimerTrans, _totRtrDmg];
-        */
     };
-};
-
-if (vtx_uh60_sfmPlusOvertorqueHandling == "lift") then {
-    if (_damaged) then {
-        vtx_uh60_sfmplus_liftLossTimer  = (vtx_uh60_sfmplus_liftLossTimer + 0.01) max 0 min 1;
-        if (vtx_uh60_sfmplus_showDamageHints) then {["Warning! You are currently losing lift due to excessive torque!"] call vtx_uh60_misc_fnc_hint;};
+    
+    if (vtx_uh60_sfmPlusOvertorqueHandling == "lift") then {
+        if (_damaged) then {
+            vtx_uh60_sfmplus_liftLossTimer  = (vtx_uh60_sfmplus_liftLossTimer + 0.01) max 0 min 1;
+            if (vtx_uh60_sfmplus_showDamageHints) then {["Warning! You are currently losing lift due to excessive torque!"] call vtx_uh60_misc_fnc_hint;};
+        } else {
+            vtx_uh60_sfmplus_liftLossTimer = (vtx_uh60_sfmplus_liftLossTimer - 0.05) max 0 min 1;
+            systemChat "LIFT RECOVERING";
+        };
     } else {
-        vtx_uh60_sfmplus_liftLossTimer = (vtx_uh60_sfmplus_liftLossTimer - 0.01) max 0 min 1;
-    };
-} else {
-    if (_damaged) then {
-        private _dmg = _totRtrDmg + (_dmgPerSec * _deltaTime);
-        _heli setHitpointDamage [_rtrDmgHitName, _dmg];
-        if (vtx_uh60_sfmplus_showDamageHints) then {["Warning! You are currently taking damage to your main rotor due to excessive torque!"] call vtx_uh60_misc_fnc_hint;};
+        if (_damaged) then {
+            private _dmg = _totRtrDmg + (_dmgPerSec * _deltaTime);
+            _heli setHitpointDamage [_rtrDmgHitName, _dmg];
+            if (vtx_uh60_sfmplus_showDamageHints) then {["Warning! You are currently taking damage to your main rotor due to excessive torque!"] call vtx_uh60_misc_fnc_hint;};
+        };
     };
 };

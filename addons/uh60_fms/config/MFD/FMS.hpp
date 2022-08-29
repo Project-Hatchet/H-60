@@ -4,7 +4,7 @@ borderTop=0;
 borderBottom=0;
 color[]=common_green;
 enableParallax=0;
-font="RobotoCondensedLight";
+font="EtelkaMonospacePro";
 class material {
 	ambient[] = {1, 1, 1, 1};
 	diffuse[] = {0.5, 0.5, 0.5, 1};
@@ -90,5 +90,9 @@ class Draw {
 	class HUD {
 		condition = COND_ISNUMBER(FMS_PAGE_INDEX,FMS_PAGE_HUD);
 		#include "fms\hud_draw.hpp"
+	}; // nav_wpn
+	class PERFORMANCE_PLANNING {
+		condition = COND_ISNUMBER(FMS_PAGE_INDEX,FMS_PAGE_PERFPLAN);
+		#include "fms\performance_planning_draw.hpp"
 	}; // nav_wpn
 }; // Draw

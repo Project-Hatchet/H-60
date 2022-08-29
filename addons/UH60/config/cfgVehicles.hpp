@@ -59,7 +59,9 @@ class CfgVehicles
         editorSubcategory = "vtx_h60";
         side = 1;
         faction = "BLU_F";
-        //armor = 500;
+        armor = 600;
+        // damageResistance = 0.000555;
+        epeImpulseDamageCoef = 0;
         altFullForce = 1500;	/// in what height do the engines still have full thrust
         altNoForce = 4000;		/// thrust of the engines interpolates to zero between altFullForce and altNoForce
         maxSpeed = 300;			/// what is the maximum speed of the vehicle
@@ -419,8 +421,8 @@ class CfgVehicles
                 dampingRateDestroyed		= 1000.0;
                 suspTravelDirection[]		= {0, -1, 0};
 
-                maxBrakeTorque				= 2500;
-                maxHandBrakeTorque			= 4000;
+                maxBrakeTorque				= 8000;
+                maxHandBrakeTorque			= 8000;
 
                 maxCompression				= 0.3;
                 maxDroop					= 0.1337;
@@ -460,7 +462,7 @@ class CfgVehicles
                 width						= 0.12;
                 maxCompression				= 0.2;
                 maxDroop					= 0.05;
-                maxBrakeTorque				= 1000;
+                maxBrakeTorque				= 8000;
                 suspTravelDirection[]		= {0, -1.0, 0.0};
 
                 sprungMass					= 200;

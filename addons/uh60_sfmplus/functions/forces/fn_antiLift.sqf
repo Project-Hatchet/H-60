@@ -20,27 +20,22 @@ Author:
 params ["_heli", "_deltaTime"];
 
 
-if (!isNil "test_fnc_antiLift") exitWith {_this call test_fnc_antiLift};
-
-if (isEngineOn _heli) then {
-    private _objCtr     = _heli selectionPosition ["modelCenter", "Memory"];
-    private _forcePos   = _heli getVariable "vtx_uh60_sfmplus_forcePos";
-    private _forcePoint = _objCtr vectorAdd _forcePos;
-    private _forceVec   = vectorNormalized (_forcePoint vectorDiff _objCtr);
-
-    private _eng1Np    = _heli getVariable "vtx_uh60_sfmplus_engPctNP" select 0;
-    private _eng2Np    = _heli getVariable "vtx_uh60_sfmplus_engPctNP" select 1;
-    private _rtrRPM    = _eng1Np max _eng2Np;
-    private _forceMult = linearConversion[0.0, 0.98, _rtrRPM, 1.0, 0.0];
-
-    private _negLiftForce = ((_curMass * -9.806) * _forceMult) * vtx_uh60_sfmplus_collectiveOutput;
-    private _negLift = _forceVec vectorMultiply (_negLiftForce * _deltaTime);
-    _heli addForce[_heli vectorModelToWorld _negLift, _forcePos];
-
-
-    #ifdef __A3_DEBUG__
-    //Draw the force vector
-    [_heli, _objCtr, _forcePoint, _colorGreen] call DRAW_LINE;
-
-    #endif
+private _eng1Np    = _heli getVariable "vtx_uh60_sfmplus_engPctNP" select 0;
+private _eng2Np    = _heli getVariable "vtx_uh60_sfmplus_engPctNP" select 1;
+private _rtrRPM    = _eng1Np max _eng2Np;
+// _rtrRPM = 0.69;
+if (_rtrRPM > 0 && _rtrRPM < 0.7) then {
+    private _adjustedAnimRPM = vtx_uh60_rotorRPM * 20;
+    private _realRPM = _heli animationPhase "rotortilt";
+    systemChat str [_realRPM / 10, _rtrRPM];
+    if ((_realRPM / 10) > _rtrRPM) then {
+        systemchat "BREAKING";
+        // _heli setHitpointDamage ["HitHRotor", 0.9];
+        _heli engineOn false;
+    } else {
+        systemchat "FIXING";
+        // _heli setHitpointDamage ["HitHRotor", 0];
+        _heli engineOn true;
+    };
 };
+// systemChat str ["RPM", _rtrRPM];

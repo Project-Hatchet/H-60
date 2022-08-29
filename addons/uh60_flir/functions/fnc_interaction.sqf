@@ -47,7 +47,7 @@ switch (_button) do {
 	};
 	case "UNSTOW": {
 		// systemchat str _this;
-		_vehicle setVariable ["vtx_uh60_flir_boot_time", _vehicle getvariable ["vtx_uh60_flir_boot_time",time], true];
+		_vehicle setVariable ["vtx_uh60_flir_boot_time", _vehicle getvariable ["vtx_uh60_flir_boot_time",cba_missionTime], true];
 		// _vehicle setVariable ["vtx_uh60_flir_stowed", false, true];
 		// [_vehicle, _var, 5] call vtx_uh60_mfd_fnc_switchPage;
 	};

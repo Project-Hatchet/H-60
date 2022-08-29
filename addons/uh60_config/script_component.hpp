@@ -31,6 +31,7 @@
 #define MASS_GAU21          67 // 37 kg (81.6 lb) + 50 g/rnd x 600 rnd
 #define MASS_GUNMOUNT       105 // 25.4 g/rnd x 4000 rnd = 101.6 kg, then add box/struts
 
+#define MASS_MH60M_MISC     200 // ???
 #define MASS_HH60FLARES     5 // ???
 #define MASS_HOIST          50 // Collins Aerospace model 42325
 #define MASS_LASS           103
