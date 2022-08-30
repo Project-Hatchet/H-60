@@ -1,5 +1,5 @@
 params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
-systemchat "HELLFIRE LAUNCHED";
+// systemchat "HELLFIRE LAUNCHED";
 private _vehicle = vehicle player;
 if (vehicle _gunner == _vehicle) then {
 	addCamShake [3, 1, 25];
