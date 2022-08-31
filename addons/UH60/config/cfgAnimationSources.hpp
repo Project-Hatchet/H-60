@@ -355,6 +355,10 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0.5;
   };
+  
+  class Switch_Egi1: Switch_batt1 {initPhase=1;};
+  class Switch_Egi2: Switch_batt1 {initPhase=1;};
+  class Switch_Ralt_Enable: Switch_batt1 {initPhase=1;};
   class Switch_batt2 {
     source="user";
     animPeriod=1;

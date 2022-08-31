@@ -12,11 +12,26 @@ class modules {
         startOnEnter = 0;
     };
 };
+
+#define BTN_RADIUS_SWITCH 0.015
+#define SIMPLE_SWITCH(CLASS,POSITION,LABEL,ANIMATION,OFFSTATE,ONSTATE,ANIMEND) \
+    class CLASS { \
+        positionType="static"; \
+        position=POSITION; \
+        label=LABEL; \
+        radius=BTN_RADIUS_SWITCH; \
+        animation=ANIMATION; \
+        animSpeed=0; \
+        animStates[] = {OFFSTATE, ONSTATE}; \
+        animLabels[] = {"OFF", "ON"}; \
+        animEnd=ANIMEND; \
+        clickSound="vxf_Switch_Sound_3"; \
+    };
+
 class interaction {
     crossHair=0;
     #include "interaction\help.hpp"
     class startUp {
-        #define BTN_RADIUS_SWITCH 0.015
         class Lights_collision {
             positionType="static";
             position="b_lights_collision";
@@ -99,6 +114,9 @@ class interaction {
             animation="Switch_batt2";
             animEnd="_this call vtx_uh60_engine_fnc_batteryState";
         }; // b_batt2
+        SIMPLE_SWITCH(b_egi1,"button_egi1","EGI 1","Switch_Egi1",1,0,"")
+        SIMPLE_SWITCH(b_egi2,"button_egi2","EGI 2","Switch_Egi2",1,0,"")
+        SIMPLE_SWITCH(b_ralt_enable,"button_ralt_enable","RAD ALT","Switch_Ralt_enable",1,0,"")
         class b_stbyinst : b_batt1 {
             position="b_stbyinst";
             label="STBY INST";
