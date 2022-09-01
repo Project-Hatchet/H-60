@@ -84,6 +84,12 @@ private _rtrRPM    = _eng1Np max _eng2Np;
 private _realRPM = _heli animationPhase "rotortilt";
 private _lastUpdate = _heli getVariable ["vtx_uh60_sfmplus_lastUpdate", 0];
 if (cba_missionTime > _lastUpdate + 0.3 && _rtrRPM > 0.05) then {
+	private _transmissionBroken = ((_heli getHitPointDamage "MainRotorGearBox") + (_vehicle getHitPointDamage "MainRotorHub")) > 1;
+	private _rotorBroken = (_heli getHitPointDamage "HitHRotor" == 1);
+	if (_transmissionBroken && !_rotorBroken) then {
+		_heli setHitpointDamage ["HitHRotor", 1];
+	};
+	if (_heli getHitPointDamage "HitHRotor" == 1) exitWith {};
 	// systemChat str [_realRPM / 11, _rtrRPM];
 	_rtrRPM = _rtrRPM - (vtx_uh60_sfmplus_liftLossTimer * 0.45); 
 	// systemChat str ["ADJUSTED RPM", _rtrRPM];

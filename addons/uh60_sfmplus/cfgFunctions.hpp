@@ -25,7 +25,7 @@ class CfgFunctions
 		class engine {
 			file = "\z\vtx\addons\uh60_sfmplus\functions\engine";
 			class engine  {R;};
-			class engineController {R;};
+			// class engineController {R;};
             class engineReset {R;};
 			class engineVariables {R;};
 		};
