@@ -67,6 +67,24 @@ class Sounds: Sounds
         frequency = "CustomSoundController1";
 		volume="(1-camPos)*CustomSoundController2";
     };
+    class RotorBrakeCrash
+    {
+        frequency = "0.66 + CustomSoundController3 / 3";
+        sound[] = {"A3\Sounds_F\vehicles\air\noises\heli_damage_transmission_int_1",1,1,150};
+        volume = "(1-camPos) * 3 * CustomSoundController4";
+    };
+    class RotorBrakeCrash2
+    {
+        frequency = "0.66 + CustomSoundController3 / 3";
+        sound[] = {"A3\Sounds_F\vehicles\air\noises\heli_damage_transmission_int_2",1,1,150};
+        volume = "(1-camPos) * 3 * CustomSoundController4";
+    };
+    class RotorBrakeCrash3
+    {
+        frequency = "CustomSoundController3";
+        sound[] = {"A3\Sounds_F\vehicles\noises\vehicle_stress3",1,1,50};
+        volume = "(1-camPos) * 3 * CustomSoundController4";
+    };
     /*class RotorHighIn
     {
         sound[] = {"z\vtx\addons\UH60\sounds\UH1H_rotor_high_int_1", db10, 1.1};

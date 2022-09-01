@@ -78,13 +78,36 @@ if (_eng1State == "OFF" && _eng2State == "OFF" && local _heli) then {
 	// _heli engineOn false;
 };
 
+
 private _eng1Np    = _heli getVariable "vtx_uh60_sfmplus_engPctNP" select 0;
 private _eng2Np    = _heli getVariable "vtx_uh60_sfmplus_engPctNP" select 1;
 private _rtrRPM    = _eng1Np max _eng2Np;
 private _realRPM = _heli animationPhase "rotortilt";
 private _lastUpdate = _heli getVariable ["vtx_uh60_sfmplus_lastUpdate", 0];
-if (cba_missionTime > _lastUpdate + 0.3 && _rtrRPM > 0.05) then {
-	private _transmissionBroken = ((_heli getHitPointDamage "MainRotorGearBox") + (_vehicle getHitPointDamage "MainRotorHub")) > 1;
+if (cba_missionTime > _lastUpdate + 0.3 && _rtrRPM > 0.05) exitWith {
+	private _rotorBrakeSound = (
+		(_heli animationPhase "Lever_RotorBrake") +
+		(_heli getHitPointDamage "MainRotorGearBox") +
+		(_heli getHitPointDamage "MainRotorHub")
+	) * ((_heli animationPhase "rotortilt") / 10) * 8;
+
+	setCustomSoundController [_heli, "CustomSoundController3", _rotorBrakeSound];
+	setCustomSoundController [_heli, "CustomSoundController4", _rotorBrakeSound / 2];
+	systemChat str ["SETTING SOUND ", _rotorBrakeSound];
+	private _rotorBrakeDown = (_heli animationPhase "Lever_RotorBrake") == 1;
+	if (_rotorBrakeDown) exitWith {
+		private _realRotorRPM = (_heli animationPhase "rotortilt") * 1.025 / 10;
+		systemChat str ["ROTOR BRAKE ON", _realRotorRPM, (_heli getHitPointDamage "MainRotorGearBox")];
+		if (_realRotorRPM > 0.65) then {
+			_heli setHitPointDamage ["MainRotorGearBox", (_heli getHitPointDamage "MainRotorGearBox") + 0.04];
+			addCamShake [_realRotorRPM * 5, 2, 25];
+		};
+		_heli setHitpointDamage ["HitHRotor", 0.9];
+		_heli setVariable ["vtx_uh60_sfmplus_lastUpdate", cba_missionTime];
+	};
+
+
+	private _transmissionBroken = ((_heli getHitPointDamage "MainRotorGearBox") + (_heli getHitPointDamage "MainRotorHub")) > 0.9;
 	private _rotorBroken = (_heli getHitPointDamage "HitHRotor" == 1);
 	if (_transmissionBroken && !_rotorBroken) then {
 		_heli setHitpointDamage ["HitHRotor", 1];
@@ -103,4 +126,9 @@ if (cba_missionTime > _lastUpdate + 0.3 && _rtrRPM > 0.05) then {
 		_heli engineOn true;
 	};
 	_heli setVariable ["vtx_uh60_sfmplus_lastUpdate", cba_missionTime];
+};
+
+if (_realRPM == 0) then {
+	setCustomSoundController [_heli, "CustomSoundController3", 0];
+	setCustomSoundController [_heli, "CustomSoundController4", 0];
 };
