@@ -92,9 +92,8 @@ if (cba_missionTime > _lastUpdate + 0.3 && _rtrRPM > 0.05) exitWith {
 	) * ((_heli animationPhase "rotortilt") / 10) * 8;
 
 	setCustomSoundController [_heli, "CustomSoundController3", _rotorBrakeSound];
-	setCustomSoundController [_heli, "CustomSoundController4", _rotorBrakeSound / 2];
-	systemChat str ["SETTING SOUND ", _rotorBrakeSound];
-	private _rotorBrakeDown = (_heli animationPhase "Lever_RotorBrake") == 1;
+	setCustomSoundController [_heli, "CustomSoundController4", _rotorBrakeSound / 4];
+	private _rotorBrakeDown = (_heli animationPhase "Lever_RotorBrake") > 0.1;
 	if (_rotorBrakeDown) exitWith {
 		private _realRotorRPM = (_heli animationPhase "rotortilt") * 1.025 / 10;
 		systemChat str ["ROTOR BRAKE ON", _realRotorRPM, (_heli getHitPointDamage "MainRotorGearBox")];
@@ -102,7 +101,7 @@ if (cba_missionTime > _lastUpdate + 0.3 && _rtrRPM > 0.05) exitWith {
 			_heli setHitPointDamage ["MainRotorGearBox", (_heli getHitPointDamage "MainRotorGearBox") + 0.04];
 			addCamShake [_realRotorRPM * 5, 2, 25];
 		};
-		_heli setHitpointDamage ["HitHRotor", 0.9];
+		if (!difficultyEnabledRTD) then {_heli setHitpointDamage ["HitHRotor", 0.9];} else {vtx_uh60_sfmplus_fnc_limitRPM = true;};
 		_heli setVariable ["vtx_uh60_sfmplus_lastUpdate", cba_missionTime];
 	};
 
@@ -118,11 +117,11 @@ if (cba_missionTime > _lastUpdate + 0.3 && _rtrRPM > 0.05) exitWith {
 	// systemChat str ["ADJUSTED RPM", _rtrRPM];
 	if ((_realRPM / 11) > _rtrRPM) then {
 		// systemchat "BREAKING ROTOR";
-		_heli setHitpointDamage ["HitHRotor", 0.9];
+		if (!difficultyEnabledRTD) then {_heli setHitpointDamage ["HitHRotor", 0.9];} else {vtx_uh60_sfmplus_fnc_limitRPM = true;};
 		// _heli engineOn false;
 	} else {
 		// systemchat "FIXING ROTOR";
-		_heli setHitpointDamage ["HitHRotor", 0];
+		if (!difficultyEnabledRTD) then {_heli setHitpointDamage ["HitHRotor", 0];} else {vtx_uh60_sfmplus_fnc_limitRPM = false;};
 		_heli engineOn true;
 	};
 	_heli setVariable ["vtx_uh60_sfmplus_lastUpdate", cba_missionTime];
