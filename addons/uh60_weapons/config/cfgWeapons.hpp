@@ -47,6 +47,11 @@ class cfgWeapons {
               effectName = "MachineGun1";
           };
       };
+      class Eventhandlers {
+        class vtx_chaingun {
+          fired = "_this call vtx_uh60_weapons_fnc_firedChaingun";
+        };
+      };
     };
     class vtx_chaingun_ap: vtx_chaingun_hedp {
       displayName = "M230 Chaingun";

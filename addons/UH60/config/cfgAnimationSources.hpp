@@ -83,7 +83,7 @@ class AnimationSources {
   class FLIR_DIRECTION {
     source="user";
     animPeriod=1;
-    initPhase=3.14;
+    initPhase="rad 180";
   };
   class FLIR_ELEVATION {
     source="user";

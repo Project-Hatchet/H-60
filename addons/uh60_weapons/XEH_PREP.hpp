@@ -1,6 +1,7 @@
 PREP(adjustPylonPosition);
 PREP(canAdjustPylonPosition);
 PREP(fired);
+PREP(firedChaingun);
 PREP(isLOBL);
 PREP(updateMFDValues);
 PREP(setup);

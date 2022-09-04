@@ -126,12 +126,12 @@ class AnimationSources: AnimationSources {
   class FLIR_DIRECTION {
     source="user";
     animPeriod=1;
-    initPhase=0;
+    initPhase="rad 180";
   };
   class FLIR_ELEVATION {
     source="user";
     animPeriod=1;
-    initPhase=0;
+    initPhase="rad 80";
   };
   class PylonForward_L {
     source="user";
