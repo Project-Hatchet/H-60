@@ -16,6 +16,6 @@ class vtx_uh60_doorgunner: B_Soldier_base_F             // Define of a new class
 };
 class vtx_uh60_pilot : vtx_uh60_doorgunner {
     displayName = "Pilot";
-    // linkedItems[] = {"V_PlateCarrier1_rgr", "H_PilotHelmetHeli_B", "ItemMap", "ItemCompass", "ItemWatch", "ItemRadio"};                             // Which items the character has.
-    // respawnLinkedItems[] = {"V_PlateCarrier1_rgr", "H_PilotHelmetHeli_B", "ItemMap", "ItemCompass", "ItemWatch", "ItemRadio"};                // Which items the character respawns with.
+    linkedItems[] = {"V_PlateCarrier1_rgr", "H_PilotHelmetHeli_B", "ItemMap", "ItemCompass", "ItemWatch", "ItemRadio","NVGoggles"};                             // Which items the character has.
+    respawnLinkedItems[] = {"V_PlateCarrier1_rgr", "H_PilotHelmetHeli_B", "ItemMap", "ItemCompass", "ItemWatch", "ItemRadio","NVGoggles"};                // Which items the character respawns with.
 };
