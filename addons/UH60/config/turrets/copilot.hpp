@@ -16,7 +16,7 @@ class CopilotTurret: CopilotTurret {
 	selectionFireAnim="";
 
 	preciseGetInOut=1;
-	GunnerDoor="DoorL";
+	GunnerDoor="Door_LF";
 	proxyIndex=3;
 	commanding=-1;
 	class ViewGunner: ViewPilot {

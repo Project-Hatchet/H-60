@@ -2,6 +2,8 @@ class AnimationSources {
   //#define ANIMSRC(name,src,per,init)
   ANIMSRC(cockpitlight_show,user,1,0);
   ANIMSRC(Hoist_Hook_hide,user,1,0);
+  ANIMSRC(Door_LF,door,0.5,0);
+  ANIMSRC(Door_RF,door,0.5,0);
   class Hoist_hide {
     displayName = "Hide Hoist";
     source="user";
@@ -81,12 +83,12 @@ class AnimationSources {
   class FLIR_DIRECTION {
     source="user";
     animPeriod=1;
-    initPhase=0;
+    initPhase=3.14159;
   };
   class FLIR_ELEVATION {
     source="user";
     animPeriod=1;
-    initPhase=0;
+    initPhase=1.5708;
   };
   class Fuelprobe_show {
     displayName = "Show Fuel Probe";
@@ -177,12 +179,12 @@ class AnimationSources {
     initPhase=0;
   };
   class cabindoor_L {
-    source="user";
+    source="door";
     animPeriod=1;
     initPhase=0;
   };
   class cabindoor_R {
-    source="user";
+    source="door";
     animPeriod=1;
     initPhase=0;
   };

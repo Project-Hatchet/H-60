@@ -32,8 +32,8 @@ private _stationAssign = {
 	private _pylon = switch (_pylon) do {
 		case "LIB": {1};
 		case "RIB": {2};
-		case "LOB": {-1};
-		case "ROB": {-1};
+		case "LOB": {48};
+		case "ROB": {49};
 		default {-1};
 	};
 	if (_pylon == -1) exitWith {};

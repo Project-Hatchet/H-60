@@ -54,6 +54,8 @@ class CfgVehicles
         class vtx_templateFLIR {
             #include "turrets\pilotCamera.hpp"
         };
+		driverDoor = "Door_RF";
+		cargoDoors[] = {"cabindoor_L", "cabindoor_R"};
         scope=1;
         category = "Air";
         editorSubcategory = "vtx_h60";
