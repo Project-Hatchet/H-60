@@ -17,6 +17,11 @@ if (!hasPilotCamera _vehicle) exitWith {false};
 private _isNotInCockpit = [_vehicle] call vtx_uh60_flir_fnc_syncPilots;
 if (_isNotInCockpit) exitWith {false};
 
+
+vtx_uh60_flir_blackColor = ppEffectCreate ["colorCorrections",2001];
+vtx_uh60_flir_blackColor ppEffectAdjust [0, 1.0, 0.0, [0, 0, 0, 0.75], [1, 1.0, 1.0, 1.0], [0, 0, 0, 0.0]];
+vtx_uh60_flir_blackColor ppEffectCommit 0;
+
 vtx_uh60_flir_fnc_grain = ppEffectCreate ["FilmGrain",2000];
 vtx_uh60_flir_fnc_grain ppEffectAdjust [1,0,1,1,1,false];
 vtx_uh60_flir_fnc_grain ppEffectCommit 0;

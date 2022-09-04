@@ -6,8 +6,9 @@
 
 params ["_vehicle", "_frameTime"];
 
+private _inFullScreenCam = (vtx_uh60_flir_isInScriptedCamera || cameraView == "GUNNER");
 if (
-    (vtx_uh60_flir_isInScriptedCamera || cameraView == "GUNNER") &&
+    _inFullScreenCam &&
     (_vehicle getHitPointDamage "FlirHit") > 0.5
   ) then {
   vtx_uh60_flir_fnc_grain ppEffectEnable true;
@@ -16,13 +17,28 @@ if (
 };
 vtx_uh60_flir_fnc_grain ppEffectCommit 0;
 
-if (!vtx_uh60_flir_isPipHidden || {vtx_uh60_flir_isInScriptedCamera} || {cameraView == "GUNNER"}) then {
+if (!vtx_uh60_flir_isPipHidden || {_inFullScreenCam}) then {
   [_vehicle] call vtx_uh60_flir_fnc_handleKeyInputs;
   [_vehicle] call vtx_uh60_flir_fnc_handleSlew;
 };
 
 if (_vehicle ammoOnPylon 47 > 0) then {
   _this call vtx_uh60_flir_fnc_laserTrack;
+};
+
+private _flirStowed = _vehicle getVariable ["vtx_uh60_flir_stowed", true];
+vtx_uh60_flir_blackColor ppEffectEnable (_flirStowed && _inFullScreenCam);
+vtx_uh60_flir_blackColor ppEffectCommit 0;
+if (_inFullScreenCam && _flirStowed) then {
+    hint "Your FLIR payload is stowed, use the MFD to enable your FLIR payload.";
+};
+
+if (_vehicle getVariable ["vtx_uh60_flir_stowed", true]) then {
+    _vehicle setPilotCameraTarget objNull;
+    _vehicle setPilotCameraRotation [
+      rad (180),
+      rad (80)
+    ];
 };
 
 private _bootTime = _vehicle getVariable ["vtx_uh60_flir_boot_time", -1];

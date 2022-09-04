@@ -1,6 +1,6 @@
 params ["_vehicle", "_frameTime"];
 _vehicle setPilotCameraTarget objNull;
-private _barTime = 5;
+private _barTime = 3;
 private _transitionTime = 2;
 private _barTimeTotal = _barTime + _transitionTime;
 private _barCount = 4;
@@ -40,7 +40,7 @@ private _barProgress = (_bars - (_barTimeTotal * _currentBar));
 private _transitionAdjustment = 0;
 if (_barProgress > _barTime) then {
 	private _transitionProgress = (_barProgress - _barTime) / _transitionTime;
-	systemChat str ["TRANSIT", _transitionProgress];
+	// systemChat str ["TRANSIT", _transitionProgress];
 	_barProgress = _barProgress min _barTime;
 	_transitionAdjustment = (_barHeight * _transitionProgress);
 	if (_currentBar + 1 == _barCount) then {

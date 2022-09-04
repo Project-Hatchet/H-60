@@ -23,8 +23,11 @@ if (_rotation isNotEqualTo [
   _vehicle animationSourcePhase "FLIR_ELEVATION"
 ]) then {
   _rotation params ["_azimuth", "_elevation"];
-  _vehicle animateSource ["FLIR_DIRECTION", _azimuth, 1];
-  _vehicle animateSource ["FLIR_ELEVATION", _elevation, 1];
+  private _rotationDiff = abs (((deg (_vehicle animationSourcePhase "FLIR_DIRECTION")) + 180) - ((deg _azimuth) + 180));
+  private _speed = _rotationDiff / 360;
+  // systemChat str [deg _azimuth, (deg (_vehicle animationSourcePhase "FLIR_DIRECTION")),  _speed];
+  _vehicle animateSource ["FLIR_DIRECTION", _azimuth, _speed];
+  _vehicle animateSource ["FLIR_ELEVATION", rad ((deg _elevation) - 20), _speed];
 };
 
 true

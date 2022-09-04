@@ -83,12 +83,12 @@ class AnimationSources {
   class FLIR_DIRECTION {
     source="user";
     animPeriod=1;
-    initPhase=3.14159;
+    initPhase=3.14;
   };
   class FLIR_ELEVATION {
     source="user";
     animPeriod=1;
-    initPhase=1.5708;
+    initPhase="rad 80";
   };
   class Fuelprobe_show {
     displayName = "Show Fuel Probe";
