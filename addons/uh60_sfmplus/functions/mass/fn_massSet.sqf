@@ -76,4 +76,6 @@ private _crewAndPaxMass = _numPers * 113.4;	//250lbs per person
 
 private _totalMass = _emptyMass + _tank1Mass + _tank2Mass + _tank3Mass + _pylonMass + _partsMass + _crewAndPaxMass;
 
-_heli setMass _totalMass;
+_heli setMass 9000;
+vtx_uh60_sfmplus_realMass = _totalMass;
+// _heli setMass (_emptyMass - _totalMass)

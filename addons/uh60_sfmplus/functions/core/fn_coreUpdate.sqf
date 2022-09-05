@@ -108,10 +108,15 @@ private _pylonMass = 0;
 private _numPers       = count (fullCrew _heli);
 private _crewAndPaxMass = _numPers * 113.4;
 
-private _curMass = _emptyMass + _totFuelMass + _pylonMass + _partsMass + _crewAndPaxMass;
-//private _curMass = 7257;
+private _slingCargo = (getSlingload _heli);
+private _slingMass = if (isNull _slingCargo) then {0} else {getMass _slingCargo};
+private _curMass = _emptyMass + _totFuelMass + _pylonMass + _partsMass + _crewAndPaxMass + _slingMass;
+
 if (local _heli) then {
-	_heli setMass _curMass;
+	vtx_uh60_sfmplus_realMass = _curMass;
+	if (_slingMass > 0) then {
+		_heli setMass (vtx_uh60_sfmplus_realMass - _slingMass) min 9000;
+	};
 };
 
 //Damage
