@@ -22,6 +22,8 @@ _vehicle setObjectTextureGlobal [4, LIGHT_TEXTURE(GET_ALTP_STATE)];
 _vehicle setObjectTextureGlobal [5, LIGHT_TEXTURE(GET_ALT_STATE)];
 _vehicle setObjectTextureGlobal [6, LIGHT_TEXTURE(GET_IAS_STATE)];
 _vehicle setObjectTextureGlobal [7, LIGHT_TEXTURE(GET_HDG_STATE)];
+_vehicle setObjectTextureGlobal ["emmisive_fms", LIGHT_TEXTURE(GET_FMS_STATE)];
+_vehicle setObjectTextureGlobal ["emmisive_hvr", LIGHT_TEXTURE(GET_HVR_STATE)];
 //_vehicle setObjectTextureGlobal [8, LIGHT_TEXTURE(GET_VS_STATE)];
 
 true

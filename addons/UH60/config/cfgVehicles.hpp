@@ -128,7 +128,12 @@ class CfgVehicles
             "right_num_1",
             "right_num_2",
             "Fuel_Probe",
-            "Mlass"
+            "Mlass",
+			"emmisive_goarnd",
+			"emmisive_hvr",
+			"emmisive_fms",
+			"emmisive_cpld",
+			"emmisive_vs"
         };
         hiddenSelectionsTextures[] = {
             "",

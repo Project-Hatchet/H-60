@@ -24,44 +24,24 @@ params [
 
 vtx_uh60_flir_pilotCameraTarget params ["_isTracking", "", "_trackObj"];
 
-if (_camPosASL isEqualTo []) then {
-  _camPosASL = AGLToASL (vxf_vehicle modelToWorldVisual (vtx_uh60_flir_camPos));
-};
-if (_tgtPosASL in [[0, 0, 0], []]) then {
-  private _flirDir = vxf_vehicle vectorModelToWorldVisual (getPilotCameraDirection vxf_vehicle);
-  _tgtPosASL = _camPosASL vectorAdd (_flirDir vectorMultiply worldSize);
-};
 
-private _intersections = lineIntersectsSurfaces [_camPosASL, _tgtPosASL, vxf_vehicle];
-private _target = objNull;
-private _targetObject = objNull;
-if (_intersections isEqualTo []) then {
-  if (!_isTracking) then {
-    _target = terrainIntersectAtASL [_camPosASL, _tgtPosASL];
-    if (_target isEqualTo [0,0,0]) then {
-      _target = _tgtPosASL;
-    };
-  };
-} else {
-  (_intersections # 0) params ["_intersectPosASL", "_surfaceNormal", "_intersectObject", "_parentObject"];
-  if (isNull _intersectObject) then {
-    // Terrain
-    _target = [_intersectPosASL, objNull] select _isTracking; // if already tracking position, untrack
+private _originPos = vxf_vehicle modelToWorldVisualWorld (getPilotCameraPosition vxf_vehicle);
+private _cameraVectorWorld = vxf_vehicle vectorModelToWorld (getPilotCameraDirection vxf_vehicle);
+private _slewOrigin = (_cameraVectorWorld) call CBA_fnc_vect2Polar;
+private _intersect = [_originPos, _slewOrigin # 1, _slewOrigin # 2] call vtx_uh60_flir_fnc_intersectAtPolar;
+if (!isNil "_intersect") then {
+  private _nearObjects = nearestobjects [ASLtoAGL _intersect, ["Land", "Air", "Ship"], 5];
+  if (count _nearObjects > 0) then {
+    vxf_vehicle setPilotCameraTarget (_nearObjects # 0);
+    [[], _intersect, (_nearObjects # 0)] call vtx_uh60_flir_fnc_syncPilotCamera;
   } else {
-    _targetObject = _intersectObject;
-    // Object
-    if (speed _intersectObject > 0) then {
-      // Moving vehicle
-      _target = [objNull, _intersectObject] select (_trackObj != _intersectObject); // if already tracking same object, untrack
+    if ((getPilotCameraTarget vxf_vehicle) # 0) then {
+      vxf_vehicle setPilotCameraTarget objNull;
+      [[], objNull] call vtx_uh60_flir_fnc_syncPilotCamera;
     } else {
-      // Stationary target
-      _target = [objNull, _intersectPosASL] select (_trackObj != _intersectObject); // if already tracking same object, untrack
+      vxf_vehicle setPilotCameraTarget _intersect;
+      [[], _intersect] call vtx_uh60_flir_fnc_syncPilotCamera;
     };
   };
 };
 
-vxf_vehicle setPilotCameraTarget _target;
-
-[[], _target, _targetObject] call vtx_uh60_flir_fnc_syncPilotCamera;
-
-true

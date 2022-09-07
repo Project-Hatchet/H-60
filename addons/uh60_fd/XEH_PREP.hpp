@@ -15,3 +15,4 @@ PREP(ias);
 PREP(achievePitch);
 PREP(spinKnob);
 PREP(fms);
+PREP(hvr);

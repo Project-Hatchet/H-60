@@ -8,7 +8,7 @@ if (!local _vehicle) exitWith {};
 private _laserCode = [_vehicle, "LST"] call vtx_uh60_weapons_fnc_getLaserCode;
 private _origin = _vehicle selectionPosition "pilotcamera_flir_pos";
 private _direction = getPilotCameraDirection _vehicle;
-private _fov = 15;
+private _fov = 8;
 private _laserResult = [
 	_vehicle modelToWorldVisualWorld _origin,
 	_vehicle vectorModelToWorldVisual _direction,

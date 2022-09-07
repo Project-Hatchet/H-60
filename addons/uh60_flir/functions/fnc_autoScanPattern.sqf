@@ -1,7 +1,7 @@
 params ["_vehicle", "_frameTime"];
 _vehicle setPilotCameraTarget objNull;
 private _barTime = 3;
-private _transitionTime = 2;
+private _transitionTime = 0.5;
 private _barTimeTotal = _barTime + _transitionTime;
 private _barCount = 4;
 

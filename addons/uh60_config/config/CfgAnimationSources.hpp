@@ -293,11 +293,7 @@ class AnimationSources: AnimationSources {
   ANIMSRC(hoist_hook_hide,user,1,0);
   //interriorparts
   ANIMSRC(cockpitlight_show,user,1,0);
-  class CabinLight_Show {
-    source="user";
-    animPeriod=1;
-    initPhase=0;
-  };
+  ANIMSRC(cabinlight_show,user,1,0);
   class MAP_X {
     source="user";
     animPeriod=1;

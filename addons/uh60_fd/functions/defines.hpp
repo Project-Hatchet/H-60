@@ -45,6 +45,7 @@
 #define GET_HDG_STATE    GET("hdg",false)
 #define GET_VS_STATE     GET("vs",false)
 #define GET_FMS_STATE     GET("fms",false)
+#define GET_HVR_STATE     GET("hvr",false)
 #define GET_GO_ARND_STATE     GET("goArnd",false)
 
 #define CYCLE_RALT_STATE SET_GLOBAL("ralt",!GET_RALT_STATE)
@@ -54,6 +55,7 @@
 #define CYCLE_HDG_STATE    SET_GLOBAL("hdg",!GET_HDG_STATE)
 #define CYCLE_VS_STATE     SET_GLOBAL("vs",!GET_VS_STATE)
 #define CYCLE_FMS_STATE     SET_GLOBAL("fms",!GET_FMS_STATE)
+#define CYCLE_HVR_STATE     SET_GLOBAL("hvr",!GET_HVR_STATE)
 #define CYCLE_GO_ARND_STATE     SET_GLOBAL("goArnd",!GET_GO_ARND_STATE)
 
 #define SET_RALT_STATE(VAL) SET_GLOBAL("ralt",VAL)
@@ -62,5 +64,7 @@
 #define SET_IAS_STATE(VAL)    SET_GLOBAL("ias",VAL)
 #define SET_HDG_STATE(VAL)    SET_GLOBAL("hdg",VAL)
 #define SET_VS_STATE(VAL)     SET_GLOBAL("vs",VAL)
+#define SET_FMS_STATE(VAL)     SET_GLOBAL("fms",VAL)
+#define SET_HVR_STATE(VAL)     SET_GLOBAL("hvr",VAL)
 
 #define LIGHT_TEXTURE(VAL) (if (VAL) then [{"#(rgb,8,8,3)color(0,1,0,1)"},{""}])
