@@ -7,3 +7,7 @@ PREP(setDoorNumbers);
 PREP(setup);
 PREP(toggleLights);
 PREP(hint);
+PREP(canCustomizeVariant);
+PREP(addCustomization);
+PREP(removeCustomization);
+PREP(canRemoveCustomization);

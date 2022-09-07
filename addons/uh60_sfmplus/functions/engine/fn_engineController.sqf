@@ -96,7 +96,7 @@ if (cba_missionTime > _lastUpdate + 0.3 && _rtrRPM > 0.05) exitWith {
 	private _rotorBrakeDown = (_heli animationPhase "Lever_RotorBrake") > 0.1;
 	if (_rotorBrakeDown) exitWith {
 		private _realRotorRPM = (_heli animationPhase "rotortilt") * 1.025 / 10;
-		systemChat str ["ROTOR BRAKE ON", _realRotorRPM, (_heli getHitPointDamage "MainRotorGearBox")];
+		// systemChat str ["ROTOR BRAKE ON", _realRotorRPM, (_heli getHitPointDamage "MainRotorGearBox")];
 		if (_realRotorRPM > 0.65) then {
 			_heli setHitPointDamage ["MainRotorGearBox", (_heli getHitPointDamage "MainRotorGearBox") + 0.04];
 			addCamShake [_realRotorRPM * 5, 2, 25];

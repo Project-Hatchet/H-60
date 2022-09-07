@@ -36,8 +36,8 @@ class CfgAmmo {
   hit = 400;
   class VTX_Hellfire_AGM114N: ACE_Hellfire_AGM114N {
     displayName = "AGM-114N Hellfire";
-    model = "z\vtx\addons\uh60_weapons\fza_agm114n.p3d";
-    proxyShape = "z\vtx\addons\uh60_weapons\fza_agm114n.p3d";
+    model = "z\vtx\addons\uh60_weapons\fza_agm114l.p3d";
+    proxyShape = "z\vtx\addons\uh60_weapons\fza_agm114l.p3d";
     class ace_missileguidance: ace_missileguidance {
       attackProfiles[] = {"hellfire","hellfire_hi","hellfire_lo"};
       canVanillaLock = 0;

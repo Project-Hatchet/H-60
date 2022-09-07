@@ -1,0 +1,24 @@
+ambient[]={0.000000,0.000000,0.000000,0.000000};
+diffuse[]={1.000000,1.000000,1.000000,1.000000};
+forcedDiffuse[]={0.000000,0.000000,0.000000,0.000000};
+emmisive[]={0.000000,0.000000,0.000000,0.000000};
+specular[]={0.5,0.5,0.5,1};
+//specular[]={0.600000,0.700000,0.90000,0.100000};
+specularPower=40;
+renderFlags[]=
+{
+	"NoAlphaWrite"
+};
+nextPass="z\vtx\addons\UH60\Data\Exterior\glass.rvmat";
+PixelShaderID="Glass";
+VertexShaderID="Glass";
+class Stage1
+{
+	texture="#(ai,64,64,1)fresnelGlass(1.4)";
+	uvSource="none";
+};
+class Stage2
+{
+	texture="z\vtx\addons\UH60\Data\Exterior\reflection_co.paa";
+	uvSource="none";
+};

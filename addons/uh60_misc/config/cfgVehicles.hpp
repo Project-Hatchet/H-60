@@ -58,8 +58,25 @@ class cfgVehicles {
 
     class Land_MobileScafolding_01_F;
     class vtx_serviceplatform: Land_MobileScafolding_01_F {
-        author = "Project Hatchet Studio";
+        author = "Project Hatchet";
         displayName = "Blackhawk Service Platform";
         model = "\z\vtx\addons\uh60_misc\data\serviceplatform\Yax_service_test.p3d";
+    };
+    class vtx_fuelProbe: vtx_serviceplatform {
+        displayName = "Blackhawk Fuel Probe";
+        model = "\z\vtx\addons\uh60_misc\data\partialModels\refuelingProbe.p3d";
+        ace_cargo_canLoad = 1;
+        ace_dragging_canCarry = 1;
+        ace_cargo_size = 1;
+        ace_cargo_noRename = 1;
+        ace_dragging_carryDirection = -90;
+    };
+    class vtx_hoist: vtx_fuelProbe {
+        displayName = "Blackhawk Hoist";
+        model = "\z\vtx\addons\uh60_misc\data\partialModels\hoist.p3d";
+    };
+    class vtx_cockpitdoors: vtx_fuelProbe {
+        displayName = "Blackhawk Cockpit Doors";
+        model = "\z\vtx\addons\uh60_misc\data\partialModels\cockpitDoors.p3d";
     };
 };

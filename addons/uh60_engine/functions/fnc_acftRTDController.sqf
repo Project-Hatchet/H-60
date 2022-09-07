@@ -47,4 +47,4 @@ _vehicle setWantedRPMRTD [(_eng1Np * _rpmMultiplier) * 20900, 5, 0];
 _eng2DesiredRPM = _rtdDesiredRPM * _eng2PwrCtrlLeverPos;
 _vehicle setWantedRPMRTD [(_eng2Np * _rpmMultiplier) * 20900, 5, 1];
 
-systemChat str [(_eng1Np * _rpmMultiplier) * 20900, (_eng2Np * _rpmMultiplier) * 20900]
+// systemChat str [(_eng1Np * _rpmMultiplier) * 20900, (_eng2Np * _rpmMultiplier) * 20900]
