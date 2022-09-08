@@ -79,7 +79,6 @@ class CfgVehicles {
         class Components: Components {
           #include "Pylons.hpp"
           #include "sensors.hpp"
-          #include "missileCam.hpp"
         }; // Components
         class AnimationSources: AnimationSources {
             class Gatling_1

@@ -40,5 +40,8 @@ class CopilotTurret: CopilotTurret {
 				};
 			};
 		};
+		class VehicleSystemsDisplayManagerComponentLeft {};
+		class VehicleSystemsDisplayManagerComponentRight {};
+
 	};
 };
