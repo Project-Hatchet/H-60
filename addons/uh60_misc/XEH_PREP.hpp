@@ -11,3 +11,4 @@ PREP(canCustomizeVariant);
 PREP(addCustomization);
 PREP(removeCustomization);
 PREP(canRemoveCustomization);
+PREP(quickstart);

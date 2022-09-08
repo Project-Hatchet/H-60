@@ -69,8 +69,8 @@ _markingsOptions = {
         [_action, [], _target]
     }
 };
-private _editMarkingsLeft = ["vtx_uh60_editMarkingsLeft", "Change Markings", "", {}, {true}, _markingsOptions, [], {[-1,1,0.5]}, 2];
-private _editMarkingsRight = ["vtx_uh60_editMarkingsRight", "Change Markings", "", {}, {true}, _markingsOptions, [], {[1,1,0.5]}, 2];
+private _editMarkingsLeft = ["vtx_uh60_editMarkingsLeft", "Change Markings", "", {}, {!(_target getVariable ["vtx_autostarted", false])}, _markingsOptions, [], {[-1,1,0.5]}, 2];
+private _editMarkingsRight = ["vtx_uh60_editMarkingsRight", "Change Markings", "", {}, {!(_target getVariable ["vtx_autostarted", false])}, _markingsOptions, [], {[1,1,0.5]}, 2];
 ["vtx_h60_base",0,[],(_editMarkingsLeft call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
 ["vtx_h60_base",0,[],(_editMarkingsRight call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
 

@@ -4,6 +4,7 @@ class cfgVehicles {
         class vxf_cargo;
     };
     class Heli_Transport_01_base_F: Helicopter_Base_H {
+        class UserActions;
         class vxf_cargo: vxf_cargo {
             class interaction;
         };
@@ -13,6 +14,22 @@ class cfgVehicles {
         //class ACE_Actions: ACE_Actions {
         //    class ACE_MainActions;
         //};
+        class UserActions: UserActions {
+            class QuickStart
+			{
+				displayName = "Automatic Engine Startup";
+				displayNameDefault = "Automatic Engine Startup";
+				priority = 0;
+				radius = 10; // A too small radius might cause the action to not be visible
+				position = "camera";
+				showWindow = 0;
+				hideOnUse = 1;
+				onlyForPlayer = 0;
+				shortcut = "";
+				condition = "player == driver this"; // Only show if the unit is alive and is not a player
+				statement = "[this] spawn vtx_uh60_misc_fnc_quickstart";
+			};
+        };
         class vxf_cargo: vxf_cargo {
             class interaction: interaction {
                 class fastRopeRight {
