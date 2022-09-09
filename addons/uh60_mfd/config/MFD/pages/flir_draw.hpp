@@ -114,25 +114,7 @@ class HeadingTape {
         {{0.5-0.027, 0.02},1}
     };
 };
-class right_bounds {
-    condition="[x]pilotcamera > 90";
-    TEXT_MID_SCALED_SRC(HEADING,0.7,0.08,0.04)
-            source="[x]pilotcamera";
-            sourceScale = 1;
-    }; // HEADING
-    TEXT_RIGHT_SCALED_SRC(WPN_PARAMS_6,0.5,0.5,0.04)
-        source="static";
-        text="TEST";
-        sourceScale = 1;
-    };
-};
-class left_bounds {
-    condition="[x]pilotcamera < -90";
-    TEXT_MID_SCALED_SRC(HEADING,0.3,0.08,0.04)
-            source="[x]pilotcamera";
-            sourceScale = 1;
-    }; // HEADING
-};
+
 
 TEXT_MID_SCALED(LEFT_FLIR_90,0.23,0.05,"-90",0.04)
 TEXT_MID_SCALED(RIGHT_FLIR_90,0.77,0.05,"+90",0.04)
@@ -332,24 +314,24 @@ class flirDamage {
                 };
             };
             TEXT_MID_SCALED(FLIR_FAIL,0.5,0.4,"FLIR FAIL",0.04)
-            TEXT_LEFT_SMALL(B1,0.095,BOTTOM_TEXT_Y,"PFD")
-            TEXT_LEFT_SMALL(B2,0.2,BOTTOM_TEXT_Y,"ND")
-            TEXT_LEFT_SMALL(B3,0.325,BOTTOM_TEXT_Y,"EICAS")
+            // TEXT_LEFT_SMALL(B1,0.095,BOTTOM_TEXT_Y,"PFD")
+            // TEXT_LEFT_SMALL(B2,0.2,BOTTOM_TEXT_Y,"ND")
+            // TEXT_LEFT_SMALL(B3,0.325,BOTTOM_TEXT_Y,"EICAS")
 
-            TEXT_LEFT_SMALL(B5,0.65,BOTTOM_TEXT_Y,"DCP")
+            // TEXT_LEFT_SMALL(B5,0.65,BOTTOM_TEXT_Y,"DCP")
             TEXT_LEFT_SMALL(B6,0.75,BOTTOM_TEXT_Y,"IVHMS")
-            TEXT_LEFT_SMALL(B7,0.86,BOTTOM_TEXT_Y,"TAC")
-            TEXT_LEFT_SMALL(B8,0.98,BOTTOM_TEXT_Y,"JVMF")
+            // TEXT_LEFT_SMALL(B7,0.86,BOTTOM_TEXT_Y,"TAC")
+            // TEXT_LEFT_SMALL(B8,0.98,BOTTOM_TEXT_Y,"JVMF")
         };
     };
 }; // overlayWrapper
 
 #define BOTTOM_TEXT_Y 0.96
-TEXT_LEFT_SMALL(B1,0.095,BOTTOM_TEXT_Y,"PFD")
-TEXT_LEFT_SMALL(B2,0.2,BOTTOM_TEXT_Y,"ND")
-TEXT_LEFT_SMALL(B3,0.325,BOTTOM_TEXT_Y,"EICAS")
+// TEXT_LEFT_SMALL(B1,0.095,BOTTOM_TEXT_Y,"PFD")
+// TEXT_LEFT_SMALL(B2,0.2,BOTTOM_TEXT_Y,"ND")
+// TEXT_LEFT_SMALL(B3,0.325,BOTTOM_TEXT_Y,"EICAS")
 
-TEXT_LEFT_SMALL(B5,0.65,BOTTOM_TEXT_Y,"DCP")
+// TEXT_LEFT_SMALL(B5,0.65,BOTTOM_TEXT_Y,"DCP")
 TEXT_LEFT_SMALL(B6,0.75,BOTTOM_TEXT_Y,"IVHMS")
-TEXT_LEFT_SMALL(B7,0.86,BOTTOM_TEXT_Y,"TAC")
-TEXT_LEFT_SMALL(B8,0.98,BOTTOM_TEXT_Y,"JVMF")
+// TEXT_LEFT_SMALL(B7,0.86,BOTTOM_TEXT_Y,"TAC")
+// TEXT_LEFT_SMALL(B8,0.98,BOTTOM_TEXT_Y,"JVMF")

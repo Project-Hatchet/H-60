@@ -4,6 +4,12 @@ borderRight = 0;
 borderTop = 0;
 //color[] = {0.082,0.608,0.039,1};
 enableParallax = 0;
+#ifdef HMD_SIZE
+	#undef HMD_SIZE
+	#undef POS10X
+	#undef POS10Y
+	#undef HSI_HVR_10KTS
+#endif
 #define HMD_SIZE 0.06
 helmetDown[] = {0,-HMD_SIZE,0};
 helmetMountedDisplay = 1;

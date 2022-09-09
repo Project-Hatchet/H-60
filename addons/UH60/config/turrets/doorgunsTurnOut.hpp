@@ -6,7 +6,7 @@ class MainTurret: MainTurret { //Left Doorgun
     gun="MinigunL_Elev";
     gunBeg="muzzle_1";
     gunEnd="chamber_1";
-    gunnerAction = "passenger_inside_6_Idle";
+    gunnerAction = "vehicle_turnout_1";
     gunnerInAction = "passenger_inside_1";
     gunnerName="Left door gunner";
     /* need axis set up

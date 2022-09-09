@@ -47,25 +47,7 @@ class DirElevTapeBackground {
 				{{0.5-0.027, 0.02},1}
 			};
 		};
-		class right_bounds {
-			condition="[x]pilotcamera > 90";
-			TEXT_MID_SCALED_SRC(HEADING,0.7,0.08,0.04)
-					source="[x]pilotcamera";
-					sourceScale = 1;
-			}; // HEADING
-			TEXT_RIGHT_SCALED_SRC(WPN_PARAMS_6,0.5,0.5,0.04)
-				source="static";
-				text="TEST";
-				sourceScale = 1;
-			};
-		};
-		class left_bounds {
-			condition="[x]pilotcamera < -90";
-			TEXT_MID_SCALED_SRC(HEADING,0.3,0.08,0.04)
-					source="[x]pilotcamera";
-					sourceScale = 1;
-			}; // HEADING
-		};
+
 
 		TEXT_MID_SCALED(LEFT_FLIR_90,0.23,0.05,"-90",0.04)
 		TEXT_MID_SCALED(RIGHT_FLIR_90,0.77,0.05,"+90",0.04)

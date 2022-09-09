@@ -1,3 +1,30 @@
+class VTX_MFD_1_NOFLIR;
+class VTX_MFD_1_CMWS;
+class VTX_MFD_1_Monospace;
+class VTX_MFD_1_Bold;
+class VTX_MFD_2_NOFLIR;
+class VTX_MFD_2_CMWS;
+class VTX_MFD_2_Monospace;
+class VTX_MFD_2_Bold;
+class VTX_MFD_3_NOFLIR;
+class VTX_MFD_3_CMWS;
+class VTX_MFD_3_Monospace;
+class VTX_MFD_3_Bold;
+class VTX_MFD_4_NOFLIR;
+class VTX_MFD_4_CMWS;
+class VTX_MFD_4_Monospace;
+class VTX_MFD_4_Bold;
+class NVGHUD;
+class NVGHUD_COPILOT;
+class VTX_CLOCK;
+class VTX_ESIS_Horizon;
+class VTX_ESIS_Misc;
+class VTX_FDRight;
+class VTX_FDLeft;
+class VTX_FMS_L;
+class VTX_FMS_R;
+class VTX_ESIS_BOOT;
+
 class CfgVehicles {
   class Helicopter_Base_H;
   class Heli_Transport_01_base_F: Helicopter_Base_H {
@@ -17,6 +44,7 @@ class CfgVehicles {
       class MainTurret;
       class RightDoorGun;
     };
+    class MFD;
   }; // vtx_H60_base
 
   class vtx_UH60M: vtx_H60_base {
@@ -61,6 +89,42 @@ class CfgVehicles {
         };
       };
     }; // AnimationSources
+    class MFD: MFD {
+      class VTX_MFD_1_NOFLIR :    VTX_MFD_1_NOFLIR {};
+      class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};
+      class VTX_MFD_1_Monospace : VTX_MFD_1_Monospace {};
+      class VTX_MFD_1_Bold :      VTX_MFD_1_Bold {};
+      class VTX_MFD_2_NOFLIR :    VTX_MFD_2_NOFLIR {};
+      class VTX_MFD_2_CMWS :      VTX_MFD_2_CMWS {};
+      class VTX_MFD_2_Monospace : VTX_MFD_2_Monospace {};
+      class VTX_MFD_2_Bold :      VTX_MFD_2_Bold {};
+      class VTX_MFD_3_NOFLIR :    VTX_MFD_3_NOFLIR {};
+      class VTX_MFD_3_CMWS :      VTX_MFD_3_CMWS {};
+      class VTX_MFD_3_Monospace : VTX_MFD_3_Monospace {};
+      class VTX_MFD_3_Bold :      VTX_MFD_3_Bold {};
+      class VTX_MFD_4_NOFLIR :    VTX_MFD_4_NOFLIR {};
+      class VTX_MFD_4_CMWS :      VTX_MFD_4_CMWS {};
+      class VTX_MFD_4_Monospace : VTX_MFD_4_Monospace {};
+      class VTX_MFD_4_Bold :      VTX_MFD_4_Bold {};
+      class NVGHUD: NVGHUD {};
+      class VTX_CLOCK: VTX_CLOCK {};
+      class VTX_ESIS_Horizon: VTX_ESIS_Horizon {};
+      class VTX_ESIS_Misc: VTX_ESIS_Misc {};
+      class VTX_FDRight: VTX_FDRight {};
+      class VTX_FDLeft: VTX_FDLeft {};
+      class VTX_FMS_L: VTX_FMS_L {};
+      class VTX_FMS_R: VTX_FMS_R {};
+      class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
+    };
+    class Turrets: Turrets {
+      class CopilotTurret: CopilotTurret {
+        class MFD {
+              class NVGHUD: NVGHUD_COPILOT {};
+        };
+      };
+      class MainTurret: MainTurret {};
+      class RightDoorGun: RightDoorGun {};
+    };
   }; // vtx_UH60M
 
   class vtx_UH60M_MEDEVAC: vtx_H60_base {
@@ -99,13 +163,44 @@ class CfgVehicles {
       };
     }; // AnimationSources
     class Turrets: Turrets {
-      class CopilotTurret: CopilotTurret {};
+      class CopilotTurret: CopilotTurret {
+        class MFD {
+              class NVGHUD: NVGHUD_COPILOT {};
+        };
+      };
       #include "turrets\doorgunsFFV.hpp"
       #include "..\..\UH60\config\turrets\cargoTurrets.hpp"
     };
     #include "..\..\UH60\config\vehicleTransport.hpp"
     class vxf_turret_1 {};
     class vxf_turret_2 {};
+    class MFD: MFD {
+      class VTX_MFD_1_NOFLIR :           VTX_MFD_1_NOFLIR {};
+      class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};
+      class VTX_MFD_1_Monospace : VTX_MFD_1_Monospace {};
+      class VTX_MFD_1_Bold :      VTX_MFD_1_Bold {};
+      class VTX_MFD_2_NOFLIR :           VTX_MFD_2_NOFLIR {};
+      class VTX_MFD_2_CMWS :      VTX_MFD_2_CMWS {};
+      class VTX_MFD_2_Monospace : VTX_MFD_2_Monospace {};
+      class VTX_MFD_2_Bold :      VTX_MFD_2_Bold {};
+      class VTX_MFD_3_NOFLIR :           VTX_MFD_3_NOFLIR {};
+      class VTX_MFD_3_CMWS :      VTX_MFD_3_CMWS {};
+      class VTX_MFD_3_Monospace : VTX_MFD_3_Monospace {};
+      class VTX_MFD_3_Bold :      VTX_MFD_3_Bold {};
+      class VTX_MFD_4_NOFLIR :           VTX_MFD_4_NOFLIR {};
+      class VTX_MFD_4_CMWS :      VTX_MFD_4_CMWS {};
+      class VTX_MFD_4_Monospace : VTX_MFD_4_Monospace {};
+      class VTX_MFD_4_Bold :      VTX_MFD_4_Bold {};
+      class NVGHUD: NVGHUD {};
+      class VTX_CLOCK: VTX_CLOCK {};
+      class VTX_ESIS_Horizon: VTX_ESIS_Horizon {};
+      class VTX_ESIS_Misc: VTX_ESIS_Misc {};
+      class VTX_FDRight: VTX_FDRight {};
+      class VTX_FDLeft: VTX_FDLeft {};
+      class VTX_FMS_L: VTX_FMS_L {};
+      class VTX_FMS_R: VTX_FMS_R {};
+      class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
+    };
   };
 
   class vtx_UH60M_SLICK: vtx_H60_base {
@@ -130,6 +225,42 @@ class CfgVehicles {
         onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[1], [2]] ;";
       };
     }; // AnimationSources
+    class MFD: MFD {
+      class VTX_MFD_1_NOFLIR :           VTX_MFD_1_NOFLIR {};
+      class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};
+      class VTX_MFD_1_Monospace : VTX_MFD_1_Monospace {};
+      class VTX_MFD_1_Bold :      VTX_MFD_1_Bold {};
+      class VTX_MFD_2_NOFLIR :           VTX_MFD_2_NOFLIR {};
+      class VTX_MFD_2_CMWS :      VTX_MFD_2_CMWS {};
+      class VTX_MFD_2_Monospace : VTX_MFD_2_Monospace {};
+      class VTX_MFD_2_Bold :      VTX_MFD_2_Bold {};
+      class VTX_MFD_3_NOFLIR :           VTX_MFD_3_NOFLIR {};
+      class VTX_MFD_3_CMWS :      VTX_MFD_3_CMWS {};
+      class VTX_MFD_3_Monospace : VTX_MFD_3_Monospace {};
+      class VTX_MFD_3_Bold :      VTX_MFD_3_Bold {};
+      class VTX_MFD_4_NOFLIR :           VTX_MFD_4_NOFLIR {};
+      class VTX_MFD_4_CMWS :      VTX_MFD_4_CMWS {};
+      class VTX_MFD_4_Monospace : VTX_MFD_4_Monospace {};
+      class VTX_MFD_4_Bold :      VTX_MFD_4_Bold {};
+      class NVGHUD: NVGHUD {};
+      class VTX_CLOCK: VTX_CLOCK {};
+      class VTX_ESIS_Horizon: VTX_ESIS_Horizon {};
+      class VTX_ESIS_Misc: VTX_ESIS_Misc {};
+      class VTX_FDRight: VTX_FDRight {};
+      class VTX_FDLeft: VTX_FDLeft {};
+      class VTX_FMS_L: VTX_FMS_L {};
+      class VTX_FMS_R: VTX_FMS_R {};
+      class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
+    };
+    class Turrets: Turrets {
+      class CopilotTurret: CopilotTurret {
+        class MFD {
+              class NVGHUD: NVGHUD_COPILOT {};
+        };
+      };
+      class MainTurret: MainTurret {};
+      class RightDoorGun: RightDoorGun {};
+    };
   }; // vtx_UH60M_SLICK
 
   class vtx_HH60 : vtx_H60_base {
@@ -155,5 +286,41 @@ class CfgVehicles {
         onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[3], [4]] ;";
       };
     }; // AnimationSources
+    class MFD: MFD {
+      class VTX_MFD_1_NOFLIR :           VTX_MFD_1_NOFLIR {};
+      class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};
+      class VTX_MFD_1_Monospace : VTX_MFD_1_Monospace {};
+      class VTX_MFD_1_Bold :      VTX_MFD_1_Bold {};
+      class VTX_MFD_2_NOFLIR :           VTX_MFD_2_NOFLIR {};
+      class VTX_MFD_2_CMWS :      VTX_MFD_2_CMWS {};
+      class VTX_MFD_2_Monospace : VTX_MFD_2_Monospace {};
+      class VTX_MFD_2_Bold :      VTX_MFD_2_Bold {};
+      class VTX_MFD_3_NOFLIR :           VTX_MFD_3_NOFLIR {};
+      class VTX_MFD_3_CMWS :      VTX_MFD_3_CMWS {};
+      class VTX_MFD_3_Monospace : VTX_MFD_3_Monospace {};
+      class VTX_MFD_3_Bold :      VTX_MFD_3_Bold {};
+      class VTX_MFD_4_NOFLIR :           VTX_MFD_4_NOFLIR {};
+      class VTX_MFD_4_CMWS :      VTX_MFD_4_CMWS {};
+      class VTX_MFD_4_Monospace : VTX_MFD_4_Monospace {};
+      class VTX_MFD_4_Bold :      VTX_MFD_4_Bold {};
+      class NVGHUD: NVGHUD {};
+      class VTX_CLOCK: VTX_CLOCK {};
+      class VTX_ESIS_Horizon: VTX_ESIS_Horizon {};
+      class VTX_ESIS_Misc: VTX_ESIS_Misc {};
+      class VTX_FDRight: VTX_FDRight {};
+      class VTX_FDLeft: VTX_FDLeft {};
+      class VTX_FMS_L: VTX_FMS_L {};
+      class VTX_FMS_R: VTX_FMS_R {};
+      class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
+    };
+    class Turrets: Turrets {
+      class CopilotTurret: CopilotTurret {
+        class MFD {
+              class NVGHUD: NVGHUD_COPILOT {};
+        };
+      };
+      class MainTurret: MainTurret {};
+      class RightDoorGun: RightDoorGun {};
+    };
   }; // vtx_HH60
 }; // CfgVehicles

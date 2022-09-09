@@ -9,6 +9,10 @@ class SensorTemplateMan;
 class SensorTemplateLaser;
 class SensorTemplateNV;
 class SensorTemplateDataLink;
+
+
+#include "MFD\MFDConfig.hpp"
+
 class CfgVehicles
 {
     #include "crew.hpp"
@@ -257,7 +261,6 @@ class CfgVehicles
         mainRotorSpeed = 1.0;
 	    backRotorSpeed = 1.5;
 
-        #include "MFD\MFDConfig.hpp"
         class MarkerLights{
             class CollisionRedTailLower{
                 activeLight = 0;
