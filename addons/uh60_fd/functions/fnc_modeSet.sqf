@@ -84,7 +84,7 @@ switch (_mode) do {
         } else {SET_GLOBAL("roll_mode", nil)};
     };
     case "HVR": {
-        if (difficultyEnabledRTD) exitWith {["Warning\nFD could not be engaged\nThe Heading autopilot mode is not enabled on advanced flight model\n"] call vtx_uh60_misc_fnc_hint;};
+        // if (difficultyEnabledRTD) exitWith {["Warning\nFD could not be engaged\nThe Heading autopilot mode is not enabled on advanced flight model\n"] call vtx_uh60_misc_fnc_hint;};
         if (isTouchingGround _vehicle) exitWith {["Warning\nFD could not be engaged\nMode could not be engaged on ground"] call vtx_uh60_misc_fnc_hint;};
         CYCLE_HVR_STATE;
         if (GET_HVR_STATE) then {

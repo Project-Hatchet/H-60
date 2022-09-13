@@ -588,9 +588,9 @@
         }; \
     };
 
-#define BOXEDTEXT(CLASS,X,Y,W,H,TEXT,CONDITION) \
+#define BOXEDTEXT(CLASS,X,Y,W,H,TEXT) \
     class CLASS { \
-		condition = CONDITION; \
+        COLORED_POLYGON(PB1,(X-(W/2)),(Y-(H/2)),W,H,common_black) \
 		color[] = common_black; \
 		class white { \
 			color[] = common_white; \
@@ -609,10 +609,33 @@
 		}; \
 	};
 
-#define BOXEDTEXT_USER(CLASS,X,Y,W,H,IDX,CONDITION) \
+#define BOXEDTEXT_CONDITION(CLASS,X,Y,W,H,TEXT,CONDITION) \
     class CLASS { \
 		condition = CONDITION; \
+        COLORED_POLYGON(PB1,(X-(W/2)),(Y-(H/2)),W,H,common_black) \
 		color[] = common_black; \
+		class white { \
+			color[] = common_white; \
+			TEXT_MID_SCALED(LRD_LASE_TXT,X,(Y-(H/2)),TEXT,H) \
+			class Border { \
+				type="line"; \
+				width = 2; \
+				points[] ={ \
+					{{X - (W/2), Y - (H/2)},1}, \
+					{{X + (W/2), Y - (H/2)},1}, \
+					{{X + (W/2), Y + (H/2)},1}, \
+					{{X - (W/2), Y + (H/2)},1}, \
+					{{X - (W/2), Y - (H/2)},1} \
+				}; \
+			}; \
+		}; \
+	};
+
+
+#define BOXEDTEXT_USER(CLASS,X,Y,W,H,IDX) \
+    class CLASS { \
+		color[] = common_black; \
+        COLORED_POLYGON(PB1,(X-(W/2)),(Y-(H/2)),W,H,common_black) \
 		class white { \
 			color[] = common_white; \
 			TEXT_MID_SCALED_USERTEXT(LRD_LASE_TXT,X,(Y-(H/2)),IDX,H) \

@@ -73,32 +73,32 @@ class pylonsBackground {
 	};
 	class red {
 		color[] = common_red;
-		// class gun {
-		// 	condition = "(1 -(pylonSelected1 - pylonSelected2 - pylonSelected48 - pylonSelected49)) * mgun";
-		// 	class poly {
-		// 		type = "polygon";
-		// 		points[] = {
-		// 			{
-		// 				{{0.5 + -0.015, 0.74 + 0.00},1},
-		// 				{{0.5 +  0.000, 0.74 + 0.02},1},
-		// 				{{0.5 +  0.015, 0.74 + 0.00},1}
-		// 			}
-		// 		};
-		// 	};
-		// };
-		// class laser {
-		// 	condition = "1 - pylonSelected1 - pylonSelected2 - pylonSelected48 - pylonSelected49 - mgun";
-		// 	class poly {
-		// 		type = "polygon";
-		// 		points[] = {
-		// 			{
-		// 				{{0.5 + -0.015, 0.68 + 0.00},1},
-		// 				{{0.5 +  0.000, 0.68 + 0.02},1},
-		// 				{{0.5 +  0.015, 0.68 + 0.00},1}
-		// 			}
-		// 		};
-		// 	};
-		// };
+		class gun {
+			condition = "(1 -(pylonSelected1 - pylonSelected2 - pylonSelected48 - pylonSelected49)) * mgun";
+			class poly {
+				type = "polygon";
+				points[] = {
+					{
+						{{0.5 + -0.015, 0.74 + 0.00},1},
+						{{0.5 +  0.000, 0.74 + 0.02},1},
+						{{0.5 +  0.015, 0.74 + 0.00},1}
+					}
+				};
+			};
+		};
+		class laser {
+			condition = "1 - pylonSelected1 - pylonSelected2 - pylonSelected48 - pylonSelected49 - mgun";
+			class poly {
+				type = "polygon";
+				points[] = {
+					{
+						{{0.5 + -0.015, 0.68 + 0.00},1},
+						{{0.5 +  0.000, 0.68 + 0.02},1},
+						{{0.5 +  0.015, 0.68 + 0.00},1}
+					}
+				};
+			};
+		};
 		class sta1 {
 			condition = "pylonSelected1";
 			class poly {

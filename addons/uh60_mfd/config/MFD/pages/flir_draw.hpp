@@ -1,5 +1,5 @@
 class FLIR {
-    condition = "1";
+    // condition = "1";
     class RotX{
         type="text";
         source="[x]pilotcamera";

@@ -76,6 +76,7 @@ class CfgVehicles
         mainBladeCenter = "predni osa naklonu";
         tailBladeCenter = "light_collision_tail_upper";
         fuelConsumptionRate = 0;
+        armorStructural = 5;
         //multiplier of lift force
         liftForceCoef = 1.1;
         //multiplier of body friction

@@ -317,7 +317,7 @@ class NOT_AIRCRAFT_CENTERED {
 };
 
 class AIRCRAFT_CENTERED {
-    condition = "1";
+    // condition = "1";
 	clipTL[] = {0.1,0.1};
 	clipBR[] = {0.7,0.9};
 	class SHOW_WAYPOINTS {

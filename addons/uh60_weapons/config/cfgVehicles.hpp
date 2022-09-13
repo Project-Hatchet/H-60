@@ -57,7 +57,6 @@ class CfgVehicles {
         hasCommander = false;
         faction = "BLU_F";
         category = "Air";
-        scope=2;
         side = 1;
         editorSubcategory = "vtx_h60";
         /*

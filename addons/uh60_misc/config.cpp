@@ -16,3 +16,4 @@ class CfgPatches {
 #include "CfgEventHandlers.hpp"
 
 #include "config\cfgVehicles.hpp"
+#include "config\rscLoadDisplay.hpp"

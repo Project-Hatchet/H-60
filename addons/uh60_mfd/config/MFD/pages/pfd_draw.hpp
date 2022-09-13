@@ -618,7 +618,7 @@ class ADICenterBlack {
 };
 
 class pitchLadderLevelBackgroundWhite {
-	condition = "1";
+	// condition = "1";
 	color[] = common_white;
 	class HorizonLeftHoriz {
 		type = "polygon";

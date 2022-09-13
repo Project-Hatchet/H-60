@@ -56,9 +56,9 @@ class Draw {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_DAMAGED);
 		#include "pages\damage\base.hpp"
 	}; // nd
-	// class grid {
-	// 	#include "pages\grid_draw.hpp"
-	// };
+	class grid {
+		#include "pages\grid_draw.hpp"
+	};
 	class alwaysShow {
 		TEXT_LEFT_SCALED(B1,(BEZEL_XB1-0.02+0.005),BOTTOM_TEXT_Y,"PFD",TAC_LINE_HEIGHT)
 		TEXT_LEFT_SCALED(B2,(BEZEL_XB2-0.015+0.005),BOTTOM_TEXT_Y,"ND",TAC_LINE_HEIGHT)

@@ -45,7 +45,7 @@ class LOBL_Limits {
 			{"FLIR_HELLFIRE_REF", {-LOBL_BOX_SIZE*(3/4), 0-LOBL_BOX_SIZE},1}
 		};
 	}; // Box
-	BOXEDTEXT(LSR,0.7,0.7,0.1,0.04,"LIMITS","1")
+	BOXEDTEXT(LSR,0.7,0.7,0.1,0.04,"LIMITS")
 }; // LOAL
 
 class LOAL_Good {
@@ -94,7 +94,7 @@ class LOAL_Limits {
 			{"FLIR_HELLFIRE_REF", {-0.025*(3/4), 0-0.025},1}
 		};
 	}; // Box
-	BOXEDTEXT(LSR,0.7,0.7,0.1,0.04,"LIMITS","1")
+	BOXEDTEXT(LSR,0.7,0.7,0.1,0.04,"LIMITS")
 }; // LOAL
 
 
@@ -112,5 +112,5 @@ class NOT_RDY {
 			{"FLIR_HELLFIRE_REF", {-0.025*(3/4), 0-0.025},1}
 		};
 	}; // Box
-	BOXEDTEXT(LSR,0.7,0.7,0.2,0.04,"MSL NOT RDY","1")
+	BOXEDTEXT(LSR,0.7,0.7,0.2,0.04,"MSL NOT RDY")
 }; // LOAL

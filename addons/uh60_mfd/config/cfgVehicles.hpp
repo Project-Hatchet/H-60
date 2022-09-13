@@ -289,6 +289,12 @@ class VTX_MFD_1_NOFLIR: VTX_MFD_1
 {
     #include "MFD\MFD_NOFLIR.hpp"
 }; // MFD_1
+#define HAS_ATTACK_PAGE
+class VTX_MFD_1_ARMED: VTX_MFD_1
+{
+    #include "MFD\MFD.hpp"
+}; // MFD_1
+#undef HAS_ATTACK_PAGE
 class VTX_MFD_1_CMWS
 {
         topLeft="MFD1_LH";topRight="MFD1_RH"; bottomLeft="MFD1_LD";
@@ -317,6 +323,12 @@ class VTX_MFD_2_NOFLIR: VTX_MFD_2
 {
     #include "MFD\MFD_NOFLIR.hpp"
 }; // MFD_1
+#define HAS_ATTACK_PAGE
+class VTX_MFD_2_ARMED: VTX_MFD_2
+{
+    #include "MFD\MFD.hpp"
+}; // MFD_1
+#undef HAS_ATTACK_PAGE
 class VTX_MFD_2_CMWS
 {
     topLeft="MFD2_LH"; topRight="MFD2_RH"; bottomLeft="MFD2_LD";
@@ -345,6 +357,12 @@ class VTX_MFD_3_NOFLIR: VTX_MFD_3
 {
     #include "MFD\MFD_NOFLIR.hpp"
 }; // MFD_1
+#define HAS_ATTACK_PAGE
+class VTX_MFD_3_ARMED: VTX_MFD_3
+{
+    #include "MFD\MFD.hpp"
+}; // MFD_1
+#undef HAS_ATTACK_PAGE
 class VTX_MFD_3_CMWS
 {
         topLeft="MFD3_LH";topRight="MFD3_RH";bottomLeft="MFD3_LD";
@@ -373,6 +391,12 @@ class VTX_MFD_4_NOFLIR: VTX_MFD_4
 {
     #include "MFD\MFD_NOFLIR.hpp"
 }; // MFD_1
+#define HAS_ATTACK_PAGE
+class VTX_MFD_4_ARMED: VTX_MFD_4
+{
+    #include "MFD\MFD.hpp"
+}; // MFD_1
+#undef HAS_ATTACK_PAGE
 class VTX_MFD_4_CMWS
 {
         topLeft="MFD4_LH";topRight="MFD4_RH";bottomLeft="MFD4_LD";

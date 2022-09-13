@@ -43,22 +43,22 @@ class cautions_overlay {
 			}
 		};
 	};
-	class red {
-		color[] = {1,0,0,1};
-		class polygon {
-			type        = "polygon";
-			points[] ={
-				{
-					{{0.68     ,0.922},1},
-					{{0.68+0.05,0.922},1},
-					{{0.68+0.05,0.95},1},
-					{{0.68     ,0.95},1}
-				}
-			};
-		};
-		class black {
-			color[] = common_black;
-			TEXT_LEFT_SCALED(Text,0.682,0.915,"CAS",0.04)
-		};
-	};
+	// class red {
+	// 	color[] = {1,0,0,1};
+	// 	class polygon {
+	// 		type        = "polygon";
+	// 		points[] ={
+	// 			{
+	// 				{{0.68     ,0.922},1},
+	// 				{{0.68+0.05,0.922},1},
+	// 				{{0.68+0.05,0.95},1},
+	// 				{{0.68     ,0.95},1}
+	// 			}
+	// 		};
+	// 	};
+	// 	class black {
+	// 		color[] = common_black;
+	// 		TEXT_LEFT_SCALED(Text,0.682,0.915,"CAS",0.04)
+	// 	};
+	// };
 };
