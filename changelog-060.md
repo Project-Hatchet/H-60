@@ -78,13 +78,17 @@
   - Model update for the MH-60M, added variant-specific ASE and antennas
   - MH-60M MLASS(4 pylon) variant added
   - New model and texture added for AGM-114
-  - New model and tetture added for M261 Rocket Pod
+  - New model and texture added for M261 Rocket Pod
+  - Model update for HH-60G/M, exterior more accurately resembles a -G model now
+  - New texture for HH-60G/M
+  - Firefighting skin added for HH-60G/M
   - Rotor transparency fixed, should result in less graphical glitches
   - Cockpit doors are animated
   - Cockpit window glass material updated
   - Pilots are no longer invisible from cargo LOD
   - Cockpit light now also paired with cabin light (will be split out in to separate switches in the future)
   - Cold start panel functional with battery and APU indicatorss
+  - M-230 Sound overhauled to be on par with Apache mod
 
 - Misc bugfixes & improvements
   - Flare launch mempoints updated to fire flares forward
@@ -92,6 +96,9 @@
   - Wheel brakes fixed
   - AI can now fire doorguns
   - Heavier helicopters are no longer more agile
+  - Removed sensor panel from copilot seat
+  - Added automatic startup feature (usable from action menu)
+  - Removed "altis_flooded" pbo
 
 - Known issues:
   - Controlling TAC as copilot can be laggy at times, especially with high ping to the pilot
