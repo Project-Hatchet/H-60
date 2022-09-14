@@ -56,6 +56,18 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0;
   };
+  class HH60GRadar_show {
+    displayName = "Show HH-60G Weather Radar";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class HH60GFlir_show {
+    displayName = "Show HH-60G Flir";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
   class LandingLight_Show {
     source="user";
     animPeriod=1;

@@ -108,7 +108,8 @@ class CfgAmmo {
     indirectHitRange = 2;
     explosionEffects = "ExploAmmoExplosion";
     deflecting = 10;
-    
+    tracerColor[] = {0.7,0.1,0.1,0.04};
+    tracerColorR[] = {0.7,0.1,0.1,0.04};
   };
   class vtx_30mm_shells_hedp : vtx_30mm_shells_ap {
     explosive = 1;
@@ -118,7 +119,7 @@ class CfgAmmo {
     explosionEffects = "ExploAmmoExplosion";
     deflecting = -1;
 
-    ace_frag_enabled = 1; 
+    ace_frag_enabled = 0; 
     ace_frag_metal = 210;  
     ace_frag_charge = 185;  
     ace_frag_gurney_c = 2843;  
@@ -126,6 +127,8 @@ class CfgAmmo {
     ace_frag_classes[] = {"ACE_frag_large"};  
     ace_frag_skip = 0;  
     ace_frag_force = 1; 
+    tracerColor[] = {0.7,0.1,0.1,0.04};
+    tracerColorR[] = {0.7,0.1,0.1,0.04};
     // https://ace3mod.com/wiki/framework/frag-framework.html
     
   };

@@ -15,7 +15,11 @@ class textureSources {
     };
     class AirForce {
         displayName = "US Air Force";
-        textures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\UH60\Data\JLorion_HH60\Hull Main_co.paa","z\vtx\addons\UH60\Data\JLorion_HH60\Misc_co.paa","z\vtx\addons\UH60\Data\JLorion_HH60\Hull Tail_co.paa","","","","","","z\vtx\addons\UH60\Data\JLorion_HH60\Fuel_probe_co.paa"};
+        textures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\UH60\Data\HH60\Hull_Main_co.paa","z\vtx\addons\UH60\Data\HH60\Misc_co.paa","z\vtx\addons\UH60\Data\HH60\Hull_Tail_co.paa","","","","","","z\vtx\addons\UH60\Data\HH60\Fuel_probe_co.paa"};
+    };
+    class Firefighter {
+        displayName = "HH-60 Firefighting";
+        textures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\UH60\Data\HH60_Fire\Hull_Main_co.paa","z\vtx\addons\UH60\Data\HH60_Fire\Misc_co.paa","z\vtx\addons\UH60\Data\HH60_Fire\Hull_Tail_co.paa","","","","","","z\vtx\addons\UH60\Data\HH60\Fuel_probe_co.paa"};
     };
     class Army {
         displayName = "US Army";

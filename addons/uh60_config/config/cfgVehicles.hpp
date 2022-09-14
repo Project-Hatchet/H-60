@@ -14,6 +14,10 @@ class VTX_MFD_4_NOFLIR;
 class VTX_MFD_4_CMWS;
 class VTX_MFD_4_Monospace;
 class VTX_MFD_4_Bold;
+class VTX_MFD_1;
+class VTX_MFD_2;
+class VTX_MFD_3;
+class VTX_MFD_4;
 class NVGHUD;
 class NVGHUD_COPILOT;
 class VTX_CLOCK;
@@ -287,19 +291,19 @@ class CfgVehicles {
       };
     }; // AnimationSources
     class MFD: MFD {
-      class VTX_MFD_1_NOFLIR :           VTX_MFD_1_NOFLIR {};
+      class VTX_MFD_1 :           VTX_MFD_1 {};
       class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};
       class VTX_MFD_1_Monospace : VTX_MFD_1_Monospace {};
       class VTX_MFD_1_Bold :      VTX_MFD_1_Bold {};
-      class VTX_MFD_2_NOFLIR :           VTX_MFD_2_NOFLIR {};
+      class VTX_MFD_2 :           VTX_MFD_2 {};
       class VTX_MFD_2_CMWS :      VTX_MFD_2_CMWS {};
       class VTX_MFD_2_Monospace : VTX_MFD_2_Monospace {};
       class VTX_MFD_2_Bold :      VTX_MFD_2_Bold {};
-      class VTX_MFD_3_NOFLIR :           VTX_MFD_3_NOFLIR {};
+      class VTX_MFD_3 :           VTX_MFD_3 {};
       class VTX_MFD_3_CMWS :      VTX_MFD_3_CMWS {};
       class VTX_MFD_3_Monospace : VTX_MFD_3_Monospace {};
       class VTX_MFD_3_Bold :      VTX_MFD_3_Bold {};
-      class VTX_MFD_4_NOFLIR :           VTX_MFD_4_NOFLIR {};
+      class VTX_MFD_4 :           VTX_MFD_4 {};
       class VTX_MFD_4_CMWS :      VTX_MFD_4_CMWS {};
       class VTX_MFD_4_Monospace : VTX_MFD_4_Monospace {};
       class VTX_MFD_4_Bold :      VTX_MFD_4_Bold {};
