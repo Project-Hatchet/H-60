@@ -29,11 +29,6 @@ class AnimationSources {
   class Switch_minigun_safe_cover_r: Switch_minigun_safe_cover_l {};
   class Switch_minigun_safe_l: Switch_minigun_safe_cover_l {};
   class Switch_minigun_safe_r: Switch_minigun_safe_cover_l {};
-  class FLIR_BACK {
-    source="user";
-    animPeriod=1;
-    initPhase=0;
-  };
   class GAU21_L_Hide {
     source="user";
     animPeriod=1;
@@ -57,13 +52,13 @@ class AnimationSources {
     initPhase=0;
   };
   class HH60GRadar_show {
-    displayName = "Show HH-60G Weather Radar";
+    displayName = "Show HH-60 Weather Radar";
     source="user";
     animPeriod=1;
     initPhase=0;
   };
   class HH60GFlir_show {
-    displayName = "Show HH-60G Flir";
+    displayName = "Show HH-60 Flir";
     source="user";
     animPeriod=1;
     initPhase=0;

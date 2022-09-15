@@ -271,6 +271,8 @@ class CfgVehicles {
     class AnimationSources: AnimationSources {
       ANIM_INIT(FuelProbe_show,1);
       ANIM_INIT(HH60Flares_show,1);
+      ANIM_INIT(HH60GRadar_show,1);
+      ANIM_INIT(HH60GFlir_show,1);
       class GunnerSeats_Hide: GunnerSeats_Hide {
         initPhase = 0;
         onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[1], [2]] ;";

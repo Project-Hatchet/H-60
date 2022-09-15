@@ -559,7 +559,6 @@ class CfgVehicles
             ANIM_INIT(HH60GFlir_show,1);
             ANIM_INIT(MAWS_Tubes_Show,1);
             ANIM_INIT(ERFS_show,1);
-            // ANIM_INIT(FLIR_BACK,1);
         };
         #include "vehicleTransport.hpp"
     }; // vtx_HH60

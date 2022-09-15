@@ -105,10 +105,6 @@ class AnimationSources: AnimationSources {
     animPeriod=1;
     initPhase=1;
     mass = -MASS_RADAR;
-    // if forceAnimatePhase is equal to the phase of this animation sources, every sources from forceAnimate will be changed with their given phase
-    forceAnimatePhase = 1;
-    // animationSource1, phase, animationSource2, phase... No probabilities here, only true or false
-    forceAnimate[] = { "FLIR_BACK", 1 };
   };
   class FLIR_HIDE {
     displayName = "Hide FLIR";
@@ -116,12 +112,6 @@ class AnimationSources: AnimationSources {
     animPeriod=1;
     initPhase=1;
     mass = -MASS_FLIR;
-  };
-  class FLIR_BACK {
-    displayName = "FLIR Off Radar";
-    source="user";
-    animPeriod=1;
-    initPhase=0;
   };
   class FLIR_DIRECTION {
     source="user";
@@ -261,6 +251,18 @@ class AnimationSources: AnimationSources {
     animPeriod=1;
     initPhase=0;
     mass = MASS_HH60FLARES;
+  };
+  class HH60GRadar_show {
+    displayName = "Show HH-60 Weather Radar";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class HH60GFlir_show {
+    displayName = "Show HH-60 Flir";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
   };
   class MH60MMisc_show {
     displayName = "Show MH-60M Exterior parts";

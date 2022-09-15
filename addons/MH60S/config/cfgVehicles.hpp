@@ -64,7 +64,6 @@ class CfgVehicles {
           ANIM_INIT(GAU21_L_Hide,0);
           ANIM_INIT(MAWS_Tubes_Show,1);
           ANIM_INIT(FLIR_HIDE,0);
-          ANIM_INIT(FLIR_BACK,1);
           class Muzzle_Flash_GAU21_L {
             source="ammoRandom";
             weapon="VTX_HMG_M3M";
@@ -80,7 +79,7 @@ class CfgVehicles {
           "", // "left_num_2",
           "", // "right_num_1",
           "", // "right_num_2",
-          "z\vtx\addons\UH60\Data\JLorion_HH60\Fuel_probe_co.paa"
+          "z\vtx\addons\UH60\Data\HH60\Fuel_probe_co.paa"
         };
     }; // vtx_MH60S_Pylons_GAU21L
     class vtx_MH60S_GAU21L: vtx_H60_base {
@@ -109,7 +108,6 @@ class CfgVehicles {
           ANIM_INIT(GAU21_L_Hide,0);
           ANIM_INIT(MAWS_Tubes_Show,1);
           ANIM_INIT(FLIR_HIDE,0);
-          ANIM_INIT(FLIR_BACK,1);
           class Muzzle_Flash_GAU21_L {
             source="ammoRandom";
             weapon="VTX_HMG_M3M";
@@ -149,7 +147,6 @@ class CfgVehicles {
           ANIM_INIT(ESSS_show,1);
           ANIM_INIT(MAWS_Tubes_Show,1);
           ANIM_INIT(FLIR_HIDE,0);
-          ANIM_INIT(FLIR_BACK,1);
         }; // AnimationSources
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa", "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa"};
     }; // vtx_MH60S_Pylons_GAU21L
@@ -172,7 +169,6 @@ class CfgVehicles {
         class AnimationSources: AnimationSources {
           ANIM_INIT(MAWS_Tubes_Show,1);
           ANIM_INIT(FLIR_HIDE,0);
-          ANIM_INIT(FLIR_BACK,1);
         }; // AnimationSources
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa", "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa"};
     }; // vtx_MH60S

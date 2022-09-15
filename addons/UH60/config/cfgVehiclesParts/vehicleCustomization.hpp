@@ -11,7 +11,7 @@ class textureSources {
     };
     class SOAR {
         displayName = "US Army SOAR";
-        textures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\tail_co.paa","","","","","","z\vtx\addons\UH60\data\FuelProbe\Fuel_probe_co.paa"};
+        textures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","","","","","","z\vtx\addons\UH60\data\FuelProbe\Fuel_probe_co.paa"};
     };
     class AirForce {
         displayName = "US Air Force";

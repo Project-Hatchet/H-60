@@ -26,15 +26,15 @@ Core Team
 
 - Yax
 - Riverx
-- A26Mike
+- Lost
 - Ampersand
+- Riverman
+- Xovolovo
+- A26Mike
+- Fat_Lurch
+- Seven10
+- BroBeans
 
-Special thanks to
-
-- Foxone
-- JLOrion
-- Raptor6
-- Sykocrazy
 
 
 

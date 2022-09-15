@@ -28,11 +28,11 @@ class TextureSources {
     author = "Lost/Xovolovo";
     textures[] = {
       "","","","","","","","","","","","","","","","",
-      "z\vtx\addons\MH60M\data\main_co.paa",
+      "z\vtx\addons\MH60M\data\Hull_Main_co.paa",
       "z\vtx\addons\MH60M\Data\Misc_co.paa",
-      "z\vtx\addons\MH60M\data\tail_co.paa",
+      "z\vtx\addons\MH60M\data\Hull_Tail_co.paa",
       "","","","","", // Markings, door numbers L1, L2, R1, R2
-      "z\vtx\addons\UH60\data\FuelProbe\Fuel_probe_co.paa"
+      "z\vtx\addons\MH60M\data\Fuel_probe_co.paa"
     };
   };
   class mh60s {
