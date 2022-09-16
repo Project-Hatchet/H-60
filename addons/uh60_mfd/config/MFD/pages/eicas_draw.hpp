@@ -247,14 +247,11 @@ class eng2_out {
 };
 
 
-TEXT_MID_SMALL(FUEL_MAIN1,0.45,0.55,"1")
-TEXT_MID_SMALL(FUEL_MAIN2,0.55,0.55,"2")
+// TEXT_MID_SMALL(FUEL_MAIN1,0.45,0.55,"1")
+// TEXT_MID_SMALL(FUEL_MAIN2,0.55,0.55,"2")
 
-TEXT_MID_MID_SRC(FUEL_VAL,0.5,0.85)
-	source="fuel";
-	sourceScale = 2040;
-	sourceLength = 4;
-};
+
+
 //TEXT_MID_SMALL(FUEL_FLIGHTTIME_LABEL,0.5,0.83,"TIME")
 //TEXT_MID_MID_SRC(FUEL_FLIGHTTIME_VAL,0.5,0.87)
 //	source="userText";
@@ -262,8 +259,38 @@ TEXT_MID_MID_SRC(FUEL_VAL,0.5,0.85)
 //	sourceScale = 1;
 //};
 
-TEXT_MID_SMALL_SRC(FUEL_VALUE_L,0.459,0.78) source="fuel";    sourceScale = 1020;};
-TEXT_MID_SMALL_SRC(FUEL_VALUE_R,0.545,0.78) source="fuel";    sourceScale = 1020;};
+class noAuxTanks {
+	condition = "pylonAmmo50 < 1";
+	TEXT_MID_MID_SRC(FUEL_VAL,0.5,0.85)
+		source="fuel";
+		sourceScale = 2412;
+		sourceLength = 4;
+	};
+};
+class hasInternalAux {
+	condition = "pylonAmmo50 > 0";
+	TEXT_MID_MID_SRC(FUEL_VAL,0.5,0.85)
+		source="fuel";
+		sourceScale = 3506;
+		sourceLength = 4;
+	};
+	class aux_fuel_boxes {
+		type="line";
+		width = 3;
+		points[] ={
+			{{0.34,0.81}, 1},
+			{{0.41,0.81}, 1},
+			{{0.41,0.90}, 1},
+			{{0.34,0.90}, 1},
+			{{0.34,0.81}, 1}
+		};
+	}; // aux_fuel_boxes
+	TEXT_MID_SCALED(FUEL_INT_L_INDICATOR,0.37,0.81,"INT",0.05)
+	TEXT_MID_SMALL_SRC(FUEL_VALUE_AUX_INT,0.37,0.85) source="fuel";    sourceScale = 1094;};
+};
+
+TEXT_MID_SMALL_SRC(FUEL_VALUE_L,0.459,0.78) source="fuel";    sourceScale = 1206;};
+TEXT_MID_SMALL_SRC(FUEL_VALUE_R,0.545,0.78) source="fuel";    sourceScale = 1206;};
 //checklist?
 TEXT_RIGHT_SMALL_SRC(CAS1,0.043,0.745 - 0.05-0.006) source="userText"; sourceIndex = 0; sourceScale = 1;};
 TEXT_RIGHT_SMALL_SRC(CAS2,0.043,0.775 - 0.05-0.005) source="userText"; sourceIndex = 1; sourceScale = 1;};

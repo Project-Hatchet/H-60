@@ -374,7 +374,7 @@ class fuelBarsWrapper {
 	}; // fuelBar2
 	TEXT_MID_MID_SRC(FUEL_VAL,0.2864,0.8)
 		source="fuel";
-		sourceScale = 2040;
+		sourceScale = 2412;
 		sourceLength = 4;
 	};
 }; // fuelBarsWrapper

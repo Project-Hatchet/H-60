@@ -63,6 +63,18 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0;
   };
+  class Fuelprobe_show {
+    displayName = "Show Fuel Probe";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Cockpitdoors_Hide {
+    displayName = "Hide Cockpit doors";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
   class LandingLight_Show {
     source="user";
     animPeriod=1;
@@ -92,18 +104,6 @@ class AnimationSources {
     source="user";
     animPeriod=1;
     initPhase="rad 80";
-  };
-  class Fuelprobe_show {
-    displayName = "Show Fuel Probe";
-    source="user";
-    animPeriod=1;
-    initPhase=0;
-  };
-  class Cockpitdoors_Hide {
-    displayName = "Hide Cockpit doors";
-    source="user";
-    animPeriod=1;
-    initPhase=0;
   };
   class ERFS_show {
     source="user";

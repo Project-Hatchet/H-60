@@ -133,20 +133,6 @@ class AnimationSources: AnimationSources {
     animPeriod=1;
     initPhase=0;
   };
-  class Fuelprobe_show {
-    displayName = "Show Fuel Probe";
-    source="user";
-    animPeriod=1;
-    initPhase=0;
-    mass = MASS_PROBE;
-  };
-  class Cockpitdoors_Hide {
-    displayName = "Hide Cockpit doors";
-    source="user";
-    animPeriod=1;
-    initPhase=0;
-    mass = -MASS_COCKPITDOORS;
-  };
   class ERFS_show {
     displayName = "Show ERFS";
     source="user";
@@ -270,6 +256,20 @@ class AnimationSources: AnimationSources {
     animPeriod=1;
     initPhase=0;
     mass = MASS_MH60M_MISC;
+  };
+  class Fuelprobe_show {
+    displayName = "Show Fuel Probe";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = MASS_PROBE;
+  };
+  class Cockpitdoors_Hide {
+    displayName = "Hide Cockpit doors";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = -MASS_COCKPITDOORS;
   };
   class cabindoor_L {
     source="user";

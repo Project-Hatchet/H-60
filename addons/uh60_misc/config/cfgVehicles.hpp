@@ -88,12 +88,22 @@ class cfgVehicles {
         ace_cargo_noRename = 1;
         ace_dragging_carryDirection = -90;
     };
-    class vtx_hoist: vtx_fuelProbe {
+    class vtx_hoist: vtx_serviceplatform {
         displayName = "Blackhawk Hoist";
         model = "\z\vtx\addons\uh60_misc\data\partialModels\hoist.p3d";
+        ace_cargo_canLoad = 1;
+        ace_dragging_canCarry = 1;
+        ace_cargo_size = 1;
+        ace_cargo_noRename = 1;
+        ace_dragging_carryDirection = -90;
     };
-    class vtx_cockpitdoors: vtx_fuelProbe {
+    class vtx_cockpitdoors: vtx_serviceplatform {
         displayName = "Blackhawk Cockpit Doors";
         model = "\z\vtx\addons\uh60_misc\data\partialModels\cockpitDoors.p3d";
+        ace_cargo_canLoad = 1;
+        ace_dragging_canCarry = 1;
+        ace_cargo_size = 1;
+        ace_cargo_noRename = 1;
+        ace_dragging_carryDirection = -90;
     };
 };
