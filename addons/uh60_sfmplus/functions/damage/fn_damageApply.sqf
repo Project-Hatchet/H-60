@@ -61,7 +61,7 @@ if (isEngineOn _heli) then {
         if (_engPctTQ <= _continuousLimit) then {
             _dmgTimerTrans = 0;
             _heli setVariable ["vtx_uh60_sfmplus_dmgTimerTrans", _dmgTimerTrans];
-            if (vtx_uh60_sfmPlus_showDamageHints) then {[""] call vtx_uh60_misc_fnc_hint;};
+            //if (vtx_uh60_sfmPlus_showDamageHints) then {[""] call vtx_uh60_misc_fnc_hint;};
         };
         //10 sec transient
         if (_engPctTQ > _continuousLimit && _engPctTQ <= _transientLimit) then {

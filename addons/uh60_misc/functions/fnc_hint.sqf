@@ -3,4 +3,4 @@
  */
 params ["_message"];
 
-hint _message;
+hintSilent _message;
