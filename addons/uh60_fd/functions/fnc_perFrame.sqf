@@ -37,7 +37,7 @@ vtx_uh60_lastRotorAnim = _rotorState;
 
 private _altCode = GET("alt_mode",nil);
 if (!isNil "_altCode") then {_this call _altCode} else {
-    if (vtx_uh60m_simpleCollective && !difficultyEnabledRTD) then {
+    if (vtx_uh60m_simpleCollective && difficultyEnabledRTD) then {
         private _collective = (inputAction "HeliCollectiveRaise") - (inputAction "HeliCollectiveLower");
         if (_collective != 0) then {
             vtx_uh60_fd_collectiveHeld = vtx_uh60_fd_collectiveHeld + _frameTime;
