@@ -20,9 +20,9 @@ class name { \
 #define HIDDEN_SELECTION_MISC 17
 #define HIDDEN_SELECTION_TAIL 18
 
-#ifdef PREP
-    #undef PREP
-    #define PREP(fncName) DFUNC(fncName) = compile preprocessFileLineNumbers QPATHTOF(functions\DOUBLES(fnc,fncName).sqf)
-#else
-    #define PREP(fncName) DFUNC(fncName) = compile preprocessFileLineNumbers QPATHTOF(functions\DOUBLES(fnc,fncName).sqf)
-#endif
+// #ifdef PREP
+//     #undef PREP
+//     #define PREP(fncName) DFUNC(fncName) = compile preprocessFileLineNumbers QPATHTOF(functions\DOUBLES(fnc,fncName).sqf)
+// #else
+//     #define PREP(fncName) DFUNC(fncName) = compile preprocessFileLineNumbers QPATHTOF(functions\DOUBLES(fnc,fncName).sqf)
+// #endif
