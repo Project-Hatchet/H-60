@@ -1,5 +1,5 @@
 **Changelog**
-- MFD FLIR Page overhaul
+- MFD FLIR Page & Weapons overhaul
   - FLIR synchronization between crew fixed
   - FLIR no longer drifts when copilot controls it
   - FLIR no longer drifts when slewing while helicopter is moving
@@ -10,9 +10,9 @@
   - Waypoints can be created and slewed to
   - Currently aimed at waypoint is displayed
   - Pylons can be reassigned between pilot and copilot through WPN CTRL subpage
-  - Laser designator channel can be configured
-  - Laser spot tracker designator channel can be configured
-  - Hellfire primary and alternate channels can be configured
+  - Laser designator channel can be configured via laser subpage
+  - Laser spot tracker designator channel can be configured via laser subpage
+  - Hellfire primary and alternate channels can be configured 
   - FLIR is stowed by default and has 25 second cooldown when starting
   - General update of MFD FLIR page UI
   - Pylons can be jetissoned to reduce weight and improve performance
@@ -94,8 +94,9 @@
   - Flare launch mempoints updated to fire flares forward
   - Geo physx lod updated to stop satan dragging the 60 back down to hell
   - Wheel brakes fixed
+  - Xovolovo added to ccfs credits page 
   - AI can now fire doorguns
-  - Hoist attacing script turned off by defult (should fix tp to 0,0 issue)
+  - Hoist attaching script turned off by default (should fix teleporting to 0,0 issue)
   - Heavier helicopters are no longer more agile
   - Removed sensor panel from copilot seat
   - Added automatic startup feature (usable from action menu)
