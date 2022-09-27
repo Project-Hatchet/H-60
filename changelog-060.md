@@ -94,6 +94,7 @@
   - Flare launch mempoints updated to fire flares forward
   - Geo physx lod updated to stop satan dragging the 60 back down to hell
   - Wheel brakes fixed
+  - rotor start postion changed to be more realistic 
   - Xovolovo added to ccfs credits page 
   - AI can now fire doorguns
   - Hoist attaching script turned off by default (should fix teleporting to 0,0 issue)
