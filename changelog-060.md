@@ -95,6 +95,7 @@
   - Geo physx lod updated to stop satan dragging the 60 back down to hell
   - Wheel brakes fixed
   - AI can now fire doorguns
+  - Hoist attacing script turned off by defult (should fix tp to 0,0 issue)
   - Heavier helicopters are no longer more agile
   - Removed sensor panel from copilot seat
   - Added automatic startup feature (usable from action menu)
