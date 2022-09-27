@@ -1,4 +1,4 @@
-#define PYLONMAGS "vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy"
+#define PYLONMAGS "vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy","vtx_1000rnd_dummy"
 class Components: Components {
 	class TransportPylonsComponent {
     	uiPicture = "z\vtx\addons\MH60M\Data\UI\vtx_mh60m_dap_3den_ca.paa";
@@ -67,6 +67,9 @@ class Components: Components {
 			DUMMY_PYLON(dummy45)  // LRFD
 			DUMMY_PYLON(dummy46)  // ADVISORIES
 			DUMMY_PYLON(dummy47)  // LST MODE
+			DUMMY_PYLON(dummy48)  // MLASS HERE
+			DUMMY_PYLON(dummy49)  // MLASS HERE
+        	DUMMY_PYLON(dummy50)  // FUEL TANK STATUS
 		};
 		class Presets {
 			class Empty {

@@ -1,5 +1,7 @@
 params ["_vehicle"];
 
+if (!([] call vtx_uh60_mfd_fnc_isAnyFlirOpened)) exitWith {};
+
 (getPilotCameraTarget _vehicle) params ["_stabilized", "_position"];
 private _outputString = "";
 if (_stabilized) then {

@@ -3,10 +3,10 @@ class HitPoints
 {		
 	class hithrotor 	
 	{	
-		armor = MULTIPLIER * 5.35;
+		armor = 10.35;
 		radius = 0.47 ;
-		minimalHit = 0.1;
-		explosionShielding = 35;
+		minimalHit = 130;
+		explosionShielding = 3000;
 		name = "hithrotor";
 		material = 51;
 		passThrough = 0;

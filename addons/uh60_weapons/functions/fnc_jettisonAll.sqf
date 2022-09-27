@@ -1,3 +1,4 @@
+private _vehicle = vehicle player;
 {
 	_x params ["_pylon", "_position", "_damageThreshold"];
 	private _ammo = _vehicle ammoOnPylon _pylon;
@@ -18,5 +19,7 @@
 	};
 } forEach [
 	[1, [-2, 2.4, -1.4], 0.5],
-	[2, [ 2, 2.4, -1.4], 0.5]
+	[2, [ 2, 2.4, -1.4], 0.5],
+	[48, [-2.8, 2.3, -1.4], 0.5],
+	[49, [ 2.8, 2.3, -1.4], 0.5]
 ];

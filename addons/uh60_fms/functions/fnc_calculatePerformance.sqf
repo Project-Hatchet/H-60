@@ -45,7 +45,7 @@ vtx_uh60_sfmplus_fnc_calculateWeight = {
 
 vtx_uh60_sfmplus_fnc_getHoverTorque = {
 	params ["_vehicle"];
-	private _curGWT_kg     = getMass _vehicle;
+	private _curGWT_kg     = vtx_uh60_sfmplus_realMass;
 	private _config = configFile >> "CfgVehicles" >> typeof _vehicle >> "vtx_SfmPlus";
 	private _intHvrTQTable = [getArray (_config >> "hvrTqTable"), _curGWT_kg] call vtx_uh60_sfmplus_fnc_linearInterp;
 	_intHvrTQTable select [1,2]
@@ -53,7 +53,7 @@ vtx_uh60_sfmplus_fnc_getHoverTorque = {
 
 vtx_uh60_sfmplus_fnc_getCruiseTorque = {
 	params ["_vehicle"];
-	private _curGWT_kg     = getMass _vehicle;
+	private _curGWT_kg     = vtx_uh60_sfmplus_realMass;
 	private _config = configFile >> "CfgVehicles" >> typeof _vehicle >> "vtx_SfmPlus";
 	private _cruiseTqTable = [getArray (_config >> "cruiseTable"), _curGWT_kg] call vtx_uh60_sfmplus_fnc_linearInterp;
 	_cruiseTqTable # 7

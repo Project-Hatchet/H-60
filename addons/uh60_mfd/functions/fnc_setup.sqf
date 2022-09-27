@@ -50,4 +50,11 @@ vtx_uh60_ccfs_ballVelocity = [vtx_uh60_ccfs_serveSide, -1 + (random 2)] vectorMu
 vtx_uh60_ccfs_lastScore = time;
 vtx_uh60_ccfs_winningScore = 10;
 
+[_vehicle, [0]] enableInfoPanelComponent ["left", "SlingLoadDisplay", false];
+[_vehicle, [0]] enableInfoPanelComponent ["left", "SensorsDisplayComponent", false];
+[_vehicle, [0]] enableInfoPanelComponent ["left", "MinimapDisplay", false];
+[_vehicle, [0]] enableInfoPanelComponent ["right", "SlingLoadDisplay", false];
+[_vehicle, [0]] enableInfoPanelComponent ["right", "SensorsDisplayComponent", false];
+[_vehicle, [0]] enableInfoPanelComponent ["right", "MinimapDisplay", false];
+
 true

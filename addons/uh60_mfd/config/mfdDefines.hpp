@@ -220,7 +220,7 @@
 	class CLASS { \
 		type = "text"; \
 		align = "right"; \
-		scale = 1; \
+		scale = 100; \
 		pos[] = {{X, Y}, 1}; \
 		right[] = {{X + (SCALE*0.75), Y}, 1}; \
 		down[] = {{X, Y + SCALE}, 1};
@@ -588,11 +588,10 @@
         }; \
     };
 
-#define BOXEDTEXT(CLASS,X,Y,W,H,TEXT,CONDITION) \
+#define BOXEDTEXT(CLASS,X,Y,W,H,TEXT) \
     class CLASS { \
-		condition = CONDITION; \
+        COLORED_POLYGON(PB1,(X-(W/2)),(Y-(H/2)),W,H,common_black) \
 		color[] = common_black; \
-		COLORED_POLYGON(PB1,(X-(W/2)),(Y-(H/2)),W,H,common_black) \
 		class white { \
 			color[] = common_white; \
 			TEXT_MID_SCALED(LRD_LASE_TXT,X,(Y-(H/2)),TEXT,H) \
@@ -610,11 +609,33 @@
 		}; \
 	};
 
-#define BOXEDTEXT_USER(CLASS,X,Y,W,H,IDX,CONDITION) \
+#define BOXEDTEXT_CONDITION(CLASS,X,Y,W,H,TEXT,CONDITION) \
     class CLASS { \
 		condition = CONDITION; \
+        COLORED_POLYGON(PB1,(X-(W/2)),(Y-(H/2)),W,H,common_black) \
 		color[] = common_black; \
-		COLORED_POLYGON(PB1,(X-(W/2)),(Y-(H/2)),W,H,common_black) \
+		class white { \
+			color[] = common_white; \
+			TEXT_MID_SCALED(LRD_LASE_TXT,X,(Y-(H/2)),TEXT,H) \
+			class Border { \
+				type="line"; \
+				width = 2; \
+				points[] ={ \
+					{{X - (W/2), Y - (H/2)},1}, \
+					{{X + (W/2), Y - (H/2)},1}, \
+					{{X + (W/2), Y + (H/2)},1}, \
+					{{X - (W/2), Y + (H/2)},1}, \
+					{{X - (W/2), Y - (H/2)},1} \
+				}; \
+			}; \
+		}; \
+	};
+
+
+#define BOXEDTEXT_USER(CLASS,X,Y,W,H,IDX) \
+    class CLASS { \
+		color[] = common_black; \
+        COLORED_POLYGON(PB1,(X-(W/2)),(Y-(H/2)),W,H,common_black) \
 		class white { \
 			color[] = common_white; \
 			TEXT_MID_SCALED_USERTEXT(LRD_LASE_TXT,X,(Y-(H/2)),IDX,H) \
@@ -662,3 +683,23 @@
 #define NM_SCALE(SCALE) (1*0.75*0.000539957*SCALE) 
 
 #define PT34(X,Y) X*0.75,Y
+
+
+#define EICAS_LINE_SPACING 0.035
+#define EICAS_LINE_HEIGHT 0.04
+#define EICAS_LINE_TEXT(CNAME,X,Y,PYLON,TEXT) \
+    class CNAME { \
+        condition = QUOTE((PYLON > 0) * (PYLON < 2)); \
+        color[] = common_yellow; \
+        TEXT_LEFT_SCALED(Left_0_0,X,Y,TEXT,0.04) \
+    };
+
+#define EICAS_LINE_TEXT_BOLD(CNAME,X,Y,PYLON,TEXT) \
+    class CNAME { \
+        condition = QUOTE(PYLON > 1); \
+        color[] = common_yellow; \
+        TEXT_LEFT_SCALED(Left_0_0,X,Y,TEXT,0.032) \
+    };
+
+#define EICAS_LINE_TEXT_USERTEXT(CNAME,X,Y,INDEX) \
+    TEXT_LEFT_SCALED_USERTEXT(CNAME,X,Y,INDEX,EICAS_LINE_HEIGHT)

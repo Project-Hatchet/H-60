@@ -18,5 +18,6 @@ private _eng2Powered = if (_np2 > 0.6) then [{0},{1}];
 _vehicle animate ["CautionEng1Out", _eng1Powered];
 _vehicle animate ["CautionEng2Out", _eng2Powered];
 
-private _rpmWarn = if ((_np1 max _np2) > 0.9) then [{0}, {1}];
+private _realRotorRPM = (_vehicle animationPhase "rotortilt") * 1.025 / 10;
+private _rpmWarn = if (_realRotorRPM < 0.9) then [{1}, {0}];
 _vehicle animate ["CautionLowRpm", _rpmWarn];

@@ -4,6 +4,7 @@ class cfgVehicles {
         class vxf_cargo;
     };
     class Heli_Transport_01_base_F: Helicopter_Base_H {
+        class UserActions;
         class vxf_cargo: vxf_cargo {
             class interaction;
         };
@@ -13,6 +14,22 @@ class cfgVehicles {
         //class ACE_Actions: ACE_Actions {
         //    class ACE_MainActions;
         //};
+        class UserActions: UserActions {
+            class QuickStart
+			{
+				displayName = "Automatic Engine Startup";
+				displayNameDefault = "Automatic Engine Startup";
+				priority = 0;
+				radius = 10; // A too small radius might cause the action to not be visible
+				position = "camera";
+				showWindow = 0;
+				hideOnUse = 1;
+				onlyForPlayer = 0;
+				shortcut = "";
+				condition = "player == driver this"; // Only show if the unit is alive and is not a player
+				statement = "[this] spawn vtx_uh60_misc_fnc_quickstart";
+			};
+        };
         class vxf_cargo: vxf_cargo {
             class interaction: interaction {
                 class fastRopeRight {
@@ -58,8 +75,35 @@ class cfgVehicles {
 
     class Land_MobileScafolding_01_F;
     class vtx_serviceplatform: Land_MobileScafolding_01_F {
-        author = "Project Hatchet Studio";
+        author = "Project Hatchet";
         displayName = "Blackhawk Service Platform";
         model = "\z\vtx\addons\uh60_misc\data\serviceplatform\Yax_service_test.p3d";
+    };
+    class vtx_fuelProbe: vtx_serviceplatform {
+        displayName = "Blackhawk Fuel Probe";
+        model = "\z\vtx\addons\uh60_misc\data\partialModels\refuelingProbe.p3d";
+        ace_cargo_canLoad = 1;
+        ace_dragging_canCarry = 1;
+        ace_cargo_size = 1;
+        ace_cargo_noRename = 1;
+        ace_dragging_carryDirection = -90;
+    };
+    class vtx_hoist: vtx_serviceplatform {
+        displayName = "Blackhawk Hoist";
+        model = "\z\vtx\addons\uh60_misc\data\partialModels\hoist.p3d";
+        ace_cargo_canLoad = 1;
+        ace_dragging_canCarry = 1;
+        ace_cargo_size = 1;
+        ace_cargo_noRename = 1;
+        ace_dragging_carryDirection = -90;
+    };
+    class vtx_cockpitdoors: vtx_serviceplatform {
+        displayName = "Blackhawk Cockpit Doors";
+        model = "\z\vtx\addons\uh60_misc\data\partialModels\cockpitDoors.p3d";
+        ace_cargo_canLoad = 1;
+        ace_dragging_canCarry = 1;
+        ace_cargo_size = 1;
+        ace_cargo_noRename = 1;
+        ace_dragging_carryDirection = -90;
     };
 };

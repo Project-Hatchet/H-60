@@ -27,3 +27,5 @@ class CfgPatches {
 #include "config\cfgMagazines.hpp"
 #include "config\pylonPositionSlider.hpp"
 #include "config\cfgVehicles.hpp"
+#include "config\cfgSoundSets.hpp"
+#include "config\cfgSoundShaders.hpp"

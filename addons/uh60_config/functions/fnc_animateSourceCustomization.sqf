@@ -28,5 +28,5 @@ if (_onPhaseChanged != "") then {
 
 private _mass = getNumber (_cfgAnimSrc >> "mass");
 if (_mass != 0) then {
-  _vehicle setMass (_mass * ([-1, 1] select _phase) + getMass _vehicle);
+  // _vehicle setMass (_mass * ([-1, 1] select _phase) + getMass _vehicle);
 };

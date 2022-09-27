@@ -72,6 +72,14 @@ class Attributes: Attributes {
         name = "Venom";
         value = "\z\vtx\addons\uh60_misc\data\markings\markings_venom_ca.paa";
       };
+      class Student {
+        name = "Student Driver";
+        value = "\z\vtx\addons\uh60_misc\data\markings\markings_studentdriver.paa";
+      };
+      // class Hatchet {
+      //   name = "Hatchet";
+      //   value = "\z\vtx\addons\uh60_misc\data\theme\hatchet.paa";
+      // };
     }; // Values
   }; // vtx_uh60_Markings
 }; // Attributes

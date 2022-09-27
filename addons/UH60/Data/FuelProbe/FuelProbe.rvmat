@@ -2,8 +2,8 @@ ambient[]={1,1,1,1};
 diffuse[]={1,1,1,1};
 forcedDiffuse[]={0,0,0,0};
 emmisive[] = {0,0,0,1};
-specular[] = {0.4,0.4,0.4,1};
-specularPower=3;
+specular[] = {0.25,0.25,0.25,0.25};
+specularPower=12;
 PixelShaderID="Super";
 VertexShaderID="Super";
 class Stage1
@@ -61,7 +61,7 @@ class Stage5
 };
 class Stage6
 {
-	texture="#(ai,32,128,1)fresnel(3.48,1.16)";
+	texture="#(ai,32,128,1)fresnel(4.5,1)";
 	uvSource="none";
 };
 class Stage7

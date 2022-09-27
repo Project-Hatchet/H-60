@@ -32,11 +32,18 @@ private _stationAssign = {
 	private _pylon = switch (_pylon) do {
 		case "LIB": {1};
 		case "RIB": {2};
-		case "LOB": {-1};
-		case "ROB": {-1};
+		case "LOB": {48};
+		case "ROB": {49};
 		default {-1};
 	};
 	if (_pylon == -1) exitWith {};
+	private _pylonControlTurret = (getAllPylonsInfo _vehicle) # (_pylon - 1) # 2;
+	private _pylonOwner = _vehicle turretUnit _pylonControlTurret;
+	if (_pylonOwner != player) exitWith {
+		// systemChat "YOU ARE NOT THE PYLON OWNER, REMOTE EXECUTING AND EXITING";
+		_this remoteExecCall ["vtx_uh60_weapons_fnc_interaction", _pylonOwner, false];
+	};
+	// systemChat "YOU ARE THE PYLON OWNER, HANDOFF STARTING";
 	private _turret = if (_targetOwner == "pilot") then {[]} else {[0]};
 	private _magazine = (getPylonMagazines _vehicle) # (_pylon - 1);
 	private _target = if (_targetOwner == "pilot") then {_vehicle turretUnit [-1]} else {_vehicle turretUnit [0]};

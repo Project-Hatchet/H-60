@@ -1,7 +1,10 @@
 class AnimationSources {
   //#define ANIMSRC(name,src,per,init)
   ANIMSRC(cockpitlight_show,user,1,0);
+  ANIMSRC(cabinlight_show,user,1,0);
   ANIMSRC(Hoist_Hook_hide,user,1,0);
+  ANIMSRC(Door_LF,door,0.5,0);
+  ANIMSRC(Door_RF,door,0.5,0);
   class Hoist_hide {
     displayName = "Hide Hoist";
     source="user";
@@ -26,11 +29,6 @@ class AnimationSources {
   class Switch_minigun_safe_cover_r: Switch_minigun_safe_cover_l {};
   class Switch_minigun_safe_l: Switch_minigun_safe_cover_l {};
   class Switch_minigun_safe_r: Switch_minigun_safe_cover_l {};
-  class FLIR_BACK {
-    source="user";
-    animPeriod=1;
-    initPhase=0;
-  };
   class GAU21_L_Hide {
     source="user";
     animPeriod=1;
@@ -53,17 +51,36 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0;
   };
+  class HH60GRadar_show {
+    displayName = "Show HH-60 Weather Radar";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class HH60GFlir_show {
+    displayName = "Show HH-60 Flir";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Fuelprobe_show {
+    displayName = "Show Fuel Probe";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Cockpitdoors_Hide {
+    displayName = "Hide Cockpit doors";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
   class LandingLight_Show {
     source="user";
     animPeriod=1;
     initPhase=0;
   };
   class PositionLights_Show {
-    source="user";
-    animPeriod=1;
-    initPhase=0;
-  };
-  class CabinLight_Show {
     source="user";
     animPeriod=1;
     initPhase=0;
@@ -81,24 +98,12 @@ class AnimationSources {
   class FLIR_DIRECTION {
     source="user";
     animPeriod=1;
-    initPhase=0;
+    initPhase="rad 180";
   };
   class FLIR_ELEVATION {
     source="user";
     animPeriod=1;
-    initPhase=0;
-  };
-  class Fuelprobe_show {
-    displayName = "Show Fuel Probe";
-    source="user";
-    animPeriod=1;
-    initPhase=0;
-  };
-  class Cockpitdoors_Hide {
-    displayName = "Hide Cockpit doors";
-    source="user";
-    animPeriod=1;
-    initPhase=0;
+    initPhase="rad 80";
   };
   class ERFS_show {
     source="user";
@@ -177,12 +182,12 @@ class AnimationSources {
     initPhase=0;
   };
   class cabindoor_L {
-    source="user";
+    source="door";
     animPeriod=1;
     initPhase=0;
   };
   class cabindoor_R {
-    source="user";
+    source="door";
     animPeriod=1;
     initPhase=0;
   };
@@ -355,6 +360,10 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0.5;
   };
+  
+  class Switch_Egi1: Switch_batt1 {initPhase=1;};
+  class Switch_Egi2: Switch_batt1 {initPhase=1;};
+  class Switch_Ralt_Enable: Switch_batt1 {initPhase=1;};
   class Switch_batt2 {
     source="user";
     animPeriod=1;

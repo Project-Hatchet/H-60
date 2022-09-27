@@ -66,7 +66,7 @@ if (isEngineOn _heli) then {
         //10 sec transient
         if (_engPctTQ > _continuousLimit && _engPctTQ <= _transientLimit) then {
             _dmgTimerTrans = _dmgTimerTrans + _deltaTime;
-            if (vtx_uh60_sfmplus_showDamageHints) then {[format ["Warning!\nYou are at risk of causing damage to your helicopter from excessive torque.\nReduce your torque within\n%1 seconds\nto avoid permanent rotor damage", round (_transientTime - _dmgTimerTrans)]] call vtx_uh60_misc_fnc_hint;};
+            if (vtx_uh60_sfmplus_showDamageHints) then {[format ["Warning!\nYou are at risk of losing lift due to excessive torque.\nReduce your torque within\n%1 seconds\nto avoid a loss of lift.", round (_transientTime - _dmgTimerTrans)]] call vtx_uh60_misc_fnc_hint;};
             if (_dmgTimerTrans >= _transientTime) then {
                 _dmgTimerTrans = _transientTime;
                 _damaged = true;

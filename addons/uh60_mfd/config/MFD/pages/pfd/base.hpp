@@ -190,13 +190,13 @@ class overlayWrapper {
 #define BOTTOM_TEXT_Y 0.96
 #define TOP_TEXT_Y 0.03
 #define DEFAULT_TEXT_SIZE 0.65
-TEXT_LEFT_SMALL(B1,0.095,BOTTOM_TEXT_Y,"PFD")
-TEXT_LEFT_SMALL(B2,0.2,BOTTOM_TEXT_Y,"ND")
-TEXT_LEFT_SMALL(B3,0.325,BOTTOM_TEXT_Y,"EICAS")
+// TEXT_LEFT_SMALL(B1,0.095,BOTTOM_TEXT_Y,"PFD")
+// TEXT_LEFT_SMALL(B2,0.2,BOTTOM_TEXT_Y,"ND")
+// TEXT_LEFT_SMALL(B3,0.325,BOTTOM_TEXT_Y,"EICAS")
 
-TEXT_LEFT_SMALL(B5,0.65,BOTTOM_TEXT_Y,"DCP")
-TEXT_LEFT_SMALL(B7,0.86,BOTTOM_TEXT_Y,"TAC")
-TEXT_LEFT_SMALL(B8,0.98,BOTTOM_TEXT_Y,"JVMF")
+// TEXT_LEFT_SMALL(B5,0.65,BOTTOM_TEXT_Y,"DCP")
+// TEXT_LEFT_SMALL(B7,0.86,BOTTOM_TEXT_Y,"TAC")
+// TEXT_LEFT_SMALL(B8,0.98,BOTTOM_TEXT_Y,"JVMF")
 
 
 TEXT_LEFT_SMALL(STB,0.08,0.05,"STB")
@@ -374,7 +374,7 @@ class fuelBarsWrapper {
 	}; // fuelBar2
 	TEXT_MID_MID_SRC(FUEL_VAL,0.2864,0.8)
 		source="fuel";
-		sourceScale = 2040;
+		sourceScale = 2412;
 		sourceLength = 4;
 	};
 }; // fuelBarsWrapper
@@ -618,7 +618,7 @@ class ADICenterBlack {
 };
 
 class pitchLadderLevelBackgroundWhite {
-	condition = "1";
+	// condition = "1";
 	color[] = common_white;
 	class HorizonLeftHoriz {
 		type = "polygon";

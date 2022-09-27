@@ -17,7 +17,7 @@
 scopeName "main";
 
 {
- if ((getUserMFDValue vxf_vehicle) # _x == MFD_PAGE_FLIR) then {
+ if ((getUserMFDValue vxf_vehicle) # _x > MFD_PAGE_FLIR - 0.99 && (getUserMFDValue vxf_vehicle) # _x < MFD_PAGE_FLIR + 0.99) then {
    true breakOut "main";
  };
 } count [MFD_1_PAGE_INDEX, MFD_2_PAGE_INDEX, MFD_3_PAGE_INDEX, MFD_4_PAGE_INDEX];

@@ -24,9 +24,9 @@ private _slingCam = false;
 switch (true) do {
     case (_pageIndex > MFD_PAGE_TAC - 0.01 && _pageIndex < MFD_PAGE_TAC + 0.99): {
         private _texture = [_vehicle] call vtx_uh60_mfd_fnc_tac_getMapTexture;
-        _vehicle setObjectTexture [MAP_SELECTION(_mfdIndex), _texture];
-        _vehicle setObjectMaterial [MAP_SELECTION(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Emmisive\Emmisive_2.rvmat"];
-        _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Overlay_ca.paa"];
+        _vehicle setObjectTextureGlobal [MAP_SELECTION(_mfdIndex), _texture];
+        _vehicle setObjectMaterialGlobal [MAP_SELECTION(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Emmisive\Emmisive_2.rvmat"];
+        _vehicle setObjectTextureGlobal [MFD_OVERLAY(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Overlay_ca.paa"];
     };
     case (_pageIndex > MFD_PAGE_FLIR - 0.99 && _pageIndex < MFD_PAGE_FLIR + 0.99): {
       if (_vehicle getVariable ["vtx_uh60_flir_stowed", true]) then {
@@ -49,10 +49,10 @@ switch (true) do {
         [_vehicle, "NEW JVMF REPLY"] call vtx_uh60_cas_fnc_removeCautionAdvisory;
     };
     default {
-      _vehicle setObjectTexture [MAP_SELECTION(_mfdIndex), ""];
-      _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), ""];
-      _vehicle setObjectMaterial [MAP_SELECTION(_mfdIndex), ""];
-      _vehicle setObjectMaterial [MFD_OVERLAY(_mfdIndex), ""];
+      _vehicle setObjectTextureGlobal [MAP_SELECTION(_mfdIndex), ""];
+      _vehicle setObjectTextureGlobal [MFD_OVERLAY(_mfdIndex), ""];
+      _vehicle setObjectMaterialGlobal [MAP_SELECTION(_mfdIndex), ""];
+      _vehicle setObjectMaterialGlobal [MFD_OVERLAY(_mfdIndex), ""];
     };
 };
 

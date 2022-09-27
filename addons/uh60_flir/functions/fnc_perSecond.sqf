@@ -15,7 +15,7 @@ if (vtx_uh60_flir_setting_animateTurret && {local _vehicle}) then {
 if (_vehicle getVariable ["vtx_uh60_flir_stowed", true]) then {
   private _bootTime = _vehicle getVariable ["vtx_uh60_flir_boot_time", -1];
   if (_bootTime == -1) then {
-    _vehicle setUserMFDText [10, "PRESS DEPLOY TO BOOT PAYLOAD"];
+    _vehicle setUserMFDText [10, "PRESS DEPLOY TO PREPARE FLIR PAYLOAD"];
   } else {
     if (time < _bootTime + 20) then {
       private _timeRemaining = (_bootTime + 20) - time;

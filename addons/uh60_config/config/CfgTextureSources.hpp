@@ -1,26 +1,38 @@
 class TextureSources {
   class hh60g {
-    displayName = "HH-60G Pavehawk";
-    author = "JLorion";
+    displayName = "HH-60W Pavehawk";
+    author = "Xovolovo";
     textures[] = {
       "","","","","","","","","","","","","","","","",
-      "z\vtx\addons\UH60\Data\JLorion_HH60\Hull Main_co.paa",
-      "z\vtx\addons\UH60\Data\JLorion_HH60\Misc_co.paa",
-      "z\vtx\addons\UH60\Data\JLorion_HH60\Hull Tail_co.paa",
+      "z\vtx\addons\UH60\Data\HH60\Hull_Main_co.paa",
+      "z\vtx\addons\UH60\Data\HH60\Misc_co.paa",
+      "z\vtx\addons\UH60\Data\HH60\Hull_Tail_co.paa",
       "","","","","", // Markings, door numbers L1, L2, R1, R2
-      "z\vtx\addons\UH60\Data\JLorion_HH60\Fuel_probe_co.paa"
+      "z\vtx\addons\UH60\Data\HH60\Fuel_probe_co.paa"
+    };
+  };
+  class hh60g_fire {
+    displayName = "HH-60W Pavehawk (Firefighting)";
+    author = "Xovolovo";
+    textures[] = {
+      "","","","","","","","","","","","","","","","",
+      "z\vtx\addons\UH60\Data\HH60_Fire\Hull_Main_co.paa",
+      "z\vtx\addons\UH60\Data\HH60_Fire\Misc_co.paa",
+      "z\vtx\addons\UH60\Data\HH60_Fire\Hull_Tail_co.paa",
+      "","","","","", // Markings, door numbers L1, L2, R1, R2
+      "z\vtx\addons\UH60\Data\HH60\Fuel_probe_co.paa"
     };
   };
   class mh60m {
     displayName = "MH-60M Blackhawk";
-    author = "RiverX";
+    author = "Lost/Xovolovo";
     textures[] = {
       "","","","","","","","","","","","","","","","",
-      "z\vtx\addons\MH60M\data\main_co.paa",
+      "z\vtx\addons\MH60M\data\Hull_Main_co.paa",
       "z\vtx\addons\MH60M\Data\Misc_co.paa",
-      "z\vtx\addons\MH60M\data\tail_co.paa",
+      "z\vtx\addons\MH60M\data\Hull_Tail_co.paa",
       "","","","","", // Markings, door numbers L1, L2, R1, R2
-      "z\vtx\addons\UH60\data\FuelProbe\Fuel_probe_co.paa"
+      "z\vtx\addons\MH60M\data\Fuel_probe_co.paa"
     };
   };
   class mh60s {
@@ -37,7 +49,7 @@ class TextureSources {
   };
   class uh60m {
     displayName = "UH-60M";
-    author = "RiverX";
+    author = "Lost/Xovolovo";
     textures[] = {
       "","","","","","","","","","","","","","","","",
       "z\vtx\addons\UH60\Data\Exterior\Hull Main_co.paa",

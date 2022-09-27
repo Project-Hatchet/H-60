@@ -1,9 +1,9 @@
 ambient[]={1,1,1,1};
 diffuse[]={1,1,1,1};
 forcedDiffuse[]={0,0,0,0};
-emmisive[] = {0,0,0,0};
-specular[] = {0.2,0.2,0.2,1};
-specularPower=15;
+emmisive[] = {0,0,0,1};
+specular[] = {0.25,0.25,0.25,0.25};
+specularPower=12;
 PixelShaderID="Super";
 VertexShaderID="Super";
 class Stage1
@@ -21,12 +21,12 @@ class Stage1
 class Stage2
 {
 	texture="#(argb,8,8,3)color(0.5,0.5,0.5,1,DT)";
-	uvSource="tex";
+	uvSource="none";
 };
 class Stage3
 {
 	texture="#(argb,8,8,3)color(0,0,0,0,MC)";
-	uvSource="tex";
+	uvSource="none";
 	class uvTransform
 	{
 		aside[]={1,0,0};

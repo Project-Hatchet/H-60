@@ -9,6 +9,10 @@ class SensorTemplateMan;
 class SensorTemplateLaser;
 class SensorTemplateNV;
 class SensorTemplateDataLink;
+
+
+#include "MFD\MFDConfig.hpp"
+
 class CfgVehicles
 {
     #include "crew.hpp"
@@ -54,6 +58,8 @@ class CfgVehicles
         class vtx_templateFLIR {
             #include "turrets\pilotCamera.hpp"
         };
+		driverDoor = "Door_RF";
+		cargoDoors[] = {"cabindoor_L", "cabindoor_R"};
         scope=1;
         category = "Air";
         editorSubcategory = "vtx_h60";
@@ -70,6 +76,7 @@ class CfgVehicles
         mainBladeCenter = "predni osa naklonu";
         tailBladeCenter = "light_collision_tail_upper";
         fuelConsumptionRate = 0;
+        armorStructural = 5;
         //multiplier of lift force
         liftForceCoef = 1.1;
         //multiplier of body friction
@@ -126,7 +133,12 @@ class CfgVehicles
             "right_num_1",
             "right_num_2",
             "Fuel_Probe",
-            "Mlass"
+            "Mlass",
+			"emmisive_goarnd",
+			"emmisive_hvr",
+			"emmisive_fms",
+			"emmisive_cpld",
+			"emmisive_vs"
         };
         hiddenSelectionsTextures[] = {
             "",
@@ -250,7 +262,6 @@ class CfgVehicles
         mainRotorSpeed = 1.0;
 	    backRotorSpeed = 1.5;
 
-        #include "MFD\MFDConfig.hpp"
         class MarkerLights{
             class CollisionRedTailLower{
                 activeLight = 0;
@@ -512,16 +523,18 @@ class CfgVehicles
 
         hiddenSelectionsTextures[] = {
           "","","","","","","","","","","","","","","","",
-          "z\vtx\addons\UH60\Data\JLorion_HH60\Hull Main_co.paa",
-          "z\vtx\addons\UH60\Data\JLorion_HH60\Misc_co.paa",
-          "z\vtx\addons\UH60\Data\JLorion_HH60\Hull Tail_co.paa",
+          "z\vtx\addons\UH60\Data\HH60\Hull_Main_co.paa",
+          "z\vtx\addons\UH60\Data\HH60\Misc_co.paa",
+          "z\vtx\addons\UH60\Data\HH60\Hull_Tail_co.paa",
           "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa", // "markings",
           "", // "left_num_1",
           "", // "left_num_2",
           "", // "right_num_1",
           "", // "right_num_2",
-          "z\vtx\addons\UH60\Data\JLorion_HH60\Fuel_probe_co.paa"
+          "z\vtx\addons\UH60\Data\HH60\Fuel_probe_co.paa"
         };
+        memoryPointCM[] = {"flare_launcher1","flare_launcher2","flare_launcher_3","flare_launcher_4"};
+        memoryPointCMDir[] = {"flare_launcher1_dir","flare_launcher2_dir","flare_launcher_3_dir","flare_launcher_4_dir"};
         class pilotCamera: vtx_templateFLIR {};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
@@ -542,10 +555,10 @@ class CfgVehicles
             ANIM_INIT(FuelProbe_show,1);
             ANIM_INIT(CabinSeats_Hide,1);
             ANIM_INIT(HH60Flares_show,1);
+            ANIM_INIT(HH60GRadar_show,1);
+            ANIM_INIT(HH60GFlir_show,1);
             ANIM_INIT(MAWS_Tubes_Show,1);
             ANIM_INIT(ERFS_show,1);
-            ANIM_INIT(FLIR_HIDE,0);
-            ANIM_INIT(FLIR_BACK,1);
         };
         #include "vehicleTransport.hpp"
     }; // vtx_HH60

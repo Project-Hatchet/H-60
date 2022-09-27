@@ -2,13 +2,13 @@ ambient[]={1,1,1,1};
 diffuse[]={1,1,1,1};
 forcedDiffuse[]={0,0,0,0};
 emmisive[] = {0,0,0,1};
-specular[] = {0.4,0.4,0.4,1};
-specularPower=3;
+specular[] = {0.25,0.25,0.25,0.25};
+specularPower=12;
 PixelShaderID="Super";
 VertexShaderID="Super";
 class Stage1
 {
-	texture="#(argb,8,8,3)color(0,0,0,0,NOHQ)";
+	texture="z\vtx\addons\MH60M\Data\mlass_nohq.paa";
 	uvSource="tex";
 	class uvTransform
 	{
@@ -21,12 +21,12 @@ class Stage1
 class Stage2
 {
 	texture="#(argb,8,8,3)color(0.5,0.5,0.5,1,DT)";
-	uvSource="none";
+	uvSource="tex";
 };
 class Stage3
 {
 	texture="#(argb,8,8,3)color(0,0,0,0,MC)";
-	uvSource="tex1";
+	uvSource="tex";
 	class uvTransform
 	{
 		aside[]={1,0,0};
@@ -37,7 +37,7 @@ class Stage3
 };
 class Stage4
 {
-	texture="z\vtx\addons\MH60M\data\Mlass_ADSHQ.paa";
+	texture="z\vtx\addons\MH60M\Data\mlass_as.paa";
 	uvSource="tex";
 	class uvTransform
 	{
@@ -49,7 +49,7 @@ class Stage4
 };
 class Stage5
 {
-	texture="z\vtx\addons\MH60M\data\Mlass_smdi.paa";
+	texture="z\vtx\addons\MH60M\Data\mlass_smdi.paa";
 	uvSource="tex";
 	class uvTransform
 	{
@@ -61,7 +61,7 @@ class Stage5
 };
 class Stage6
 {
-	texture="#(ai,32,128,1)fresnel(3.48,1.16)";
+	texture="#(ai,32,128,1)fresnel(4.5,1)";
 	uvSource="none";
 };
 class Stage7

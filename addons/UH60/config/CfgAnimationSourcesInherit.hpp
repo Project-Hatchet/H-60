@@ -8,11 +8,12 @@ class AnimationSources: AnimationSources {
   class Switch_minigun_safe_cover_r;
   class Switch_minigun_safe_l;
   class Switch_minigun_safe_r;
-  class FLIR_BACK;
   class GAU21_L_Hide;
   class GAU21_R_Hide;
   class Skis_show;
   class HH60Flares_show;
+  class HH60Radar_show;
+  class HH60FLIR_show;
   class MH60MMisc_show;
   class LandingLight_Show;
   class CabinLight_Show;

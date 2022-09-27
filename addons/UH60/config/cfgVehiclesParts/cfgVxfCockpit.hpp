@@ -12,11 +12,26 @@ class modules {
         startOnEnter = 0;
     };
 };
+
+#define BTN_RADIUS_SWITCH 0.015
+#define SIMPLE_SWITCH(CLASS,POSITION,LABEL,ANIMATION,OFFSTATE,ONSTATE,ANIMEND) \
+    class CLASS { \
+        positionType="static"; \
+        position=POSITION; \
+        label=LABEL; \
+        radius=BTN_RADIUS_SWITCH; \
+        animation=ANIMATION; \
+        animSpeed=0; \
+        animStates[] = {OFFSTATE, ONSTATE}; \
+        animLabels[] = {"OFF", "ON"}; \
+        animEnd=ANIMEND; \
+        clickSound="vxf_Switch_Sound_3"; \
+    };
+
 class interaction {
     crossHair=0;
     #include "interaction\help.hpp"
     class startUp {
-        #define BTN_RADIUS_SWITCH 0.015
         class Lights_collision {
             positionType="static";
             position="b_lights_collision";
@@ -99,6 +114,9 @@ class interaction {
             animation="Switch_batt2";
             animEnd="_this call vtx_uh60_engine_fnc_batteryState";
         }; // b_batt2
+        SIMPLE_SWITCH(b_egi1,"button_egi1","EGI 1","Switch_Egi1",1,0,"")
+        SIMPLE_SWITCH(b_egi2,"button_egi2","EGI 2","Switch_Egi2",1,0,"")
+        SIMPLE_SWITCH(b_ralt_enable,"button_ralt_enable","RAD ALT","Switch_Ralt_enable",1,0,"")
         class b_stbyinst : b_batt1 {
             position="b_stbyinst";
             label="STBY INST";
@@ -246,27 +264,25 @@ class interaction {
             class b_ap_ralt_L {
                     positionType="static";
                     position="ap_fdL_1";
-                    label="RALT AP";
+                    label="Radar Altitude AP";
                     radius=BTN_RADIUS_SWITCH;
                     clickSound="vxf_Switch_Sound";
                     buttonUp="[(_this # 0), ""RALT""] call vtx_uh60_fd_fnc_modeSet;";
                 }; // ralt
             class b_ap_ralt_R : b_ap_ralt_L {
                     position="ap_fdR_1";
-                    label="RALT AP";
                 }; // ralt
         class b_ap_altp_L : b_ap_ralt_L {
                      position="ap_fdL_2";
-                     label="ALTP AP";
+                     label="Barometric Altitude Pre-select AP";
                      buttonUp="[(_this # 0), ""ALTP""] call vtx_uh60_fd_fnc_modeSet;";
                  }; // altp
         class b_ap_altp_R : b_ap_altp_L {
                     position="ap_fdR_2";
-                    label="ALTP AP";
         }; // altp
         class b_ap_alt_L : b_ap_ralt_L {
                     position="ap_fdL_3";
-                    label="ALT AP";
+                    label="Barometric Altitude AP";
                     buttonUp="[(_this # 0), ""ALT""] call vtx_uh60_fd_fnc_modeSet;";
          }; // alt
         class b_ap_alt_R : b_ap_alt_L {
@@ -274,7 +290,7 @@ class interaction {
          }; // alt
         class b_ap_ias_L : b_ap_ralt_L {
                     position="ap_fdL_4";
-                    label="IAS AP";
+                    label="Air Speed AP";
                     buttonUp="[(_this # 0), ""IAS""] call vtx_uh60_fd_fnc_modeSet;";
          }; // IAS
         class b_ap_ias_R : b_ap_ias_L {
@@ -282,11 +298,27 @@ class interaction {
         }; // IAS
         class b_ap_hdg_L : b_ap_ralt_L {
                     position="ap_fdL_5";
-                    label="HDG AP";
+                    label="Heading AP";
                     buttonUp="[(_this # 0), ""HDG""] call vtx_uh60_fd_fnc_modeSet;";
         }; // HDG
         class b_ap_hdg_R : b_ap_hdg_L {
                     position="ap_fdR_5";
+        }; // HDG
+        class b_ap_fms_L : b_ap_ralt_L {
+                    position="ap_fdL_fms";
+                    label="Couple FMS System";
+                    buttonUp="[(_this # 0), ""FMS""] call vtx_uh60_fd_fnc_modeSet;";
+        }; // HDG
+        class b_ap_fms_R : b_ap_fms_L {
+                    position="ap_fdR_fms";
+        }; // HDG
+        class b_ap_hvr_L : b_ap_ralt_L {
+                    position="ap_fdL_hvr";
+                    label="Hover AP";
+                    buttonUp="[(_this # 0), ""HVR""] call vtx_uh60_fd_fnc_modeSet;";
+        }; // HDG
+        class b_ap_hvr_R : b_ap_hvr_L {
+                    position="ap_fdR_hvr";
         }; // HDG
         class Knob_LightUpperConsole {
             positionType="static";

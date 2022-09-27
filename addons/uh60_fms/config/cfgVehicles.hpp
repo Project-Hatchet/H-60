@@ -1,3 +1,22 @@
+#define FMS_PAGE_INDEX FMS_R_PAGE_INDEX
+class VTX_FMS_R
+{
+  topLeft="FMS_ScreenR_LH";
+  topRight="FMS_ScreenR_RH";
+  bottomLeft="FMS_ScreenR_LD";
+  #include "MFD\FMS.hpp"
+}; // FMS_R
+#undef FMS_PAGE_INDEX
+#define FMS_PAGE_INDEX FMS_L_PAGE_INDEX
+class VTX_FMS_L
+{
+  topLeft="FMS_ScreenL_LH";
+  topRight="FMS_ScreenL_RH";
+  bottomLeft="FMS_ScreenL_LD";
+  #include "MFD\FMS.hpp"
+}; // FMS_L
+
+
 class CfgVehicles {
   class Helicopter_Base_F;
   class Helicopter_Base_H: Helicopter_Base_F {
@@ -24,6 +43,7 @@ class CfgVehicles {
       }; // modules
       class interaction: interaction {
         class FMS {
+          #undef FMS_PAGE_INDEX
           #define FMS_PAGE_INDEX FMS_R_PAGE_INDEX
           #define FMS_1 FMS_R_1
           #define FMS_2 FMS_R_2
@@ -73,25 +93,5 @@ class CfgVehicles {
         }; // FMS
       }; // interaction
     }; // vxf_copilot
-    class MFD: MFD {
-      #undef FMS_PAGE_INDEX
-      #define FMS_PAGE_INDEX FMS_R_PAGE_INDEX
-      class FMS_R
-      {
-      	topLeft="FMS_ScreenR_LH";
-      	topRight="FMS_ScreenR_RH";
-      	bottomLeft="FMS_ScreenR_LD";
-        #include "MFD\FMS.hpp"
-      }; // FMS_R
-      #undef FMS_PAGE_INDEX
-      #define FMS_PAGE_INDEX FMS_L_PAGE_INDEX
-      class FMS_L
-      {
-      	topLeft="FMS_ScreenL_LH";
-      	topRight="FMS_ScreenL_RH";
-      	bottomLeft="FMS_ScreenL_LD";
-        #include "MFD\FMS.hpp"
-      }; // FMS_L
-    }; // MFD
   }; // vtx_H60_base
 }; // CfgVehicles

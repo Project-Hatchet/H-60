@@ -104,5 +104,32 @@ class Reflectors
                 hardLimitEnd = 2;
             };
         };
+        class CabinLight
+        {
+            position = "light_cabin";
+            direction = "light_cabin_dir";
+            hitpoint = "light_cabin";
+            selection = "light_cabin";
+            color[] = {0,233/2,255/2};
+            ambient[] = {0,45,90};
+            intensity = 4;
+            size = 2;
+            innerAngle = 90;
+            outerAngle = 180;
+            coneFadeCoef = 0.5;
+            useFlare = 1;
+            flareSize = 0.3;
+            flareMaxDistance = 2;
+            dayLight = 0;
+            class Attenuation
+            {
+                start = 0;
+                constant = 0;
+                linear = 0.5;
+                quadratic = 0.5;
+                hardLimitStart = 1;
+                hardLimitEnd = 2;
+            };
+        };
 };
 aggregateReflectors[] = {};

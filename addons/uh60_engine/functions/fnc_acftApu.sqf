@@ -33,3 +33,4 @@ if (_apuState == "ON") then {
     [_vehicle, "APU ON", {((_this # 0) getVariable ["vtx_uh60_acft_apuState", "OFF"]) == "ON"}, false, true] call vtx_uh60_cas_fnc_registerCautionAdvisory;
 };
 _vehicle setVariable ["vtx_uh60_acft_apuState", _apuState];
+_vehicle animateSource ["APUOn", ([0,1] select (_apuState == "ON"))];

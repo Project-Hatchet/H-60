@@ -23,14 +23,20 @@ class cfgWeapons {
     class autocannon_Base_F;
     class autocannon_30mm_RCWS: autocannon_Base_F {
       class player;
+      class manual;
     };
     class vtx_chaingun_hedp: autocannon_30mm_RCWS {
       displayName = "M230 Chaingun";
       displayNameShort = "M230 HEDP";
       magazines[] = {"VTX_M230_Chaingun_L", "VTX_M230_Chaingun_R"};
-      reloadTime = 0.096; // 625 rpm
       class player: player {
         displayName = "M230 HEDP";
+        reloadTime = 0.109;
+			  dispersion = 0.006;
+      class StandardSound 
+      {
+          soundSetShot[] = {"vtx_m230_soundset"};
+      };	
       };
       class gunParticles
       {
@@ -46,6 +52,11 @@ class cfgWeapons {
               directionName = "muzzleend";
               effectName = "MachineGun1";
           };
+      };
+      class Eventhandlers {
+        class vtx_chaingun {
+          fired = "_this call vtx_uh60_weapons_fnc_firedChaingun";
+        };
       };
     };
     class vtx_chaingun_ap: vtx_chaingun_hedp {

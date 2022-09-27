@@ -105,10 +105,6 @@ class AnimationSources: AnimationSources {
     animPeriod=1;
     initPhase=1;
     mass = -MASS_RADAR;
-    // if forceAnimatePhase is equal to the phase of this animation sources, every sources from forceAnimate will be changed with their given phase
-    forceAnimatePhase = 1;
-    // animationSource1, phase, animationSource2, phase... No probabilities here, only true or false
-    forceAnimate[] = { "FLIR_BACK", 1 };
   };
   class FLIR_HIDE {
     displayName = "Hide FLIR";
@@ -117,21 +113,15 @@ class AnimationSources: AnimationSources {
     initPhase=1;
     mass = -MASS_FLIR;
   };
-  class FLIR_BACK {
-    displayName = "FLIR Off Radar";
-    source="user";
-    animPeriod=1;
-    initPhase=0;
-  };
   class FLIR_DIRECTION {
     source="user";
     animPeriod=1;
-    initPhase=0;
+    initPhase="rad 180";
   };
   class FLIR_ELEVATION {
     source="user";
     animPeriod=1;
-    initPhase=0;
+    initPhase="rad 80";
   };
   class PylonForward_L {
     source="user";
@@ -142,20 +132,6 @@ class AnimationSources: AnimationSources {
     source="user";
     animPeriod=1;
     initPhase=0;
-  };
-  class Fuelprobe_show {
-    displayName = "Show Fuel Probe";
-    source="user";
-    animPeriod=1;
-    initPhase=0;
-    mass = MASS_PROBE;
-  };
-  class Cockpitdoors_Hide {
-    displayName = "Hide Cockpit doors";
-    source="user";
-    animPeriod=1;
-    initPhase=0;
-    mass = -MASS_COCKPITDOORS;
   };
   class ERFS_show {
     displayName = "Show ERFS";
@@ -262,12 +238,38 @@ class AnimationSources: AnimationSources {
     initPhase=0;
     mass = MASS_HH60FLARES;
   };
+  class HH60GRadar_show {
+    displayName = "Show HH-60 Weather Radar";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class HH60GFlir_show {
+    displayName = "Show HH-60 Flir";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
   class MH60MMisc_show {
     displayName = "Show MH-60M Exterior parts";
     source="user";
     animPeriod=1;
     initPhase=0;
     mass = MASS_MH60M_MISC;
+  };
+  class Fuelprobe_show {
+    displayName = "Show Fuel Probe";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = MASS_PROBE;
+  };
+  class Cockpitdoors_Hide {
+    displayName = "Hide Cockpit doors";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = -MASS_COCKPITDOORS;
   };
   class cabindoor_L {
     source="user";
@@ -293,11 +295,7 @@ class AnimationSources: AnimationSources {
   ANIMSRC(hoist_hook_hide,user,1,0);
   //interriorparts
   ANIMSRC(cockpitlight_show,user,1,0);
-  class CabinLight_Show {
-    source="user";
-    animPeriod=1;
-    initPhase=0;
-  };
+  ANIMSRC(cabinlight_show,user,1,0);
   class MAP_X {
     source="user";
     animPeriod=1;

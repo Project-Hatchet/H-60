@@ -35,6 +35,11 @@ _heli setVariable ["vtx_uh60_sfmplus_maxTank3FuelMass", getNumber (_config >> "m
 
 [_heli] call vtx_uh60_sfmplus_fnc_fuelSet;
 [_heli] call vtx_uh60_sfmplus_fnc_massSet;
+if ((_heli animationPhase "ERFS_show") > 0) then {
+	[_heli, 50, 1] call vtx_uh60_mfd_fnc_setPylonValue;
+} else {
+	[_heli, 50, 0] call vtx_uh60_mfd_fnc_setPylonValue;
+};
 
 _heli setVariable ["vtx_uh60_sfmplus_totRtrDmg",     0];
 _heli setVariable ["vtx_uh60_sfmplus_dmgTimerCont",  0];
