@@ -118,7 +118,7 @@ class vtx_Alarm_Damage_Int_SoundSet_Base: vtx_Internal_Base
 	{
 		"vtx_Alarm_Damage_Int_SoundShader_Base"
 	};
-	volumefactor=0.5;
+	volumefactor=3;
 };
 class vtx_Alarm_RotorLow_Int_SoundSet_Base: vtx_Internal_Base
 {
@@ -126,6 +126,7 @@ class vtx_Alarm_RotorLow_Int_SoundSet_Base: vtx_Internal_Base
 	{
 		"vtx_Alarm_RotorLow_Int_SoundShader_Base"
 	};
+	volumefactor=4;
 };
 
 // -Scrub Sound
@@ -164,6 +165,13 @@ class vtx_TransmissionDamage_Int_phase2_SoundSet_Base: vtx_Internal_Base
 	soundshaders[] = 
 	{
 		"vtx_TransmissionDamage_Int_phase2_SoundShader_Base"
+	};
+};
+class vtx_TransmissionDamage_Int_phase3_SoundSet_Base: vtx_Internal_Base
+{
+	soundshaders[] = 
+	{
+		"vtx_TransmissionDamage_Int_phase3_SoundShader_Base"
 	};
 };
 
@@ -206,12 +214,13 @@ class vtx_WindWash_Int_SoundSet_Base: vtx_Internal_Base
 	};
 	volumeFactor=2;
 };
-class vtx_WindWash_Int_Transport_SoundSet_Base: vtx_WindWash_Int_SoundSet_Base
+class vtx_WindWash_Int_Transport_SoundSet_Base: vtx_Internal_Base
 {
 	soundshaders[] = 
 	{
 		"vtx_WindWash_Int_Transport_SoundShader_Base"
 	};
+	volumeFactor=3;
 };
 class vtx_FrameStress_Int_SoundSet_Base: vtx_Internal_Base
 {

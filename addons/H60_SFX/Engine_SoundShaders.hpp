@@ -162,7 +162,7 @@ class vtx_EngineInt_SoundShader
 		}
 	};
 	frequency="rotorSpeed*(1+rotorThrust/6)*0.8";
-	volume="camInt*((rotorSpeed-0.75)*4)*(rotorSpeed factor [0.3, 1])";
+	volume="camInt*(rotorSpeed factor [0.3, 1])";
 };
 class vtx_RotorInt_SoundShader
 {
@@ -188,5 +188,5 @@ class vtx_Engine_Transport_SoundShader_Base
 		}
 	};
 	frequency="rotorSpeed";
-	volume="camInt*(rotorSpeed factor [0.3, 1])*(playerPos factor [2.9, 4])";
+	volume="camInt*(rotorSpeed factor [0.3, 1])*playerPos";
 };
