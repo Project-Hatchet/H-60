@@ -5,7 +5,7 @@ class vtx_Empty_SoundShader
 {
 	samples[]=
 	{
-		
+
 		{
 			"a3\sounds_f\dummysound",
 			1
@@ -19,14 +19,14 @@ class vtx_Empty_SoundShader
 		{0,1},
 		{10000,1}
 	};
-};	
+};
 
 // -Alarm
 class vtx_Alarm_Damage_Ext_SoundShader_Base
 {
 	samples[]=
 	{
-		
+
 		{
 			"H-60\addons\H60_SFX\Sounds\Alarm\Engine_Out",
 			1
@@ -41,7 +41,7 @@ class vtx_Alarm_RotorLow_Ext_SoundShader_Base: vtx_Alarm_Damage_Ext_SoundShader_
 {
 	samples[]=
 	{
-		
+
 		{
 			"H-60\addons\H60_SFX\Sounds\Alarm\Low_Rotor",
 			1
@@ -57,7 +57,7 @@ class vtx_ScrubTree_Ext_SoundShader_Base: vtx_Alarm_Damage_Ext_SoundShader_Base
 {
 	samples[]=
 	{
-		
+
 		{
 			"A3\Sounds_F\vehicles\air\noises\scrubTreeExt",
 			1
@@ -72,7 +72,7 @@ class vtx_TransmissionDamage_Ext_phase1_SoundShader_Base
 {
 	samples[]=
 	{
-		
+
 		{
 			"a3\sounds_f\vehicles\air\noises\heli_damage_transmission_ext_1",
 			1
@@ -86,7 +86,7 @@ class vtx_TransmissionDamage_Ext_phase2_SoundShader_Base: vtx_TransmissionDamage
 {
 	samples[]=
 	{
-		
+
 		{
 			"a3\sounds_f\vehicles\air\noises\heli_damage_transmission_ext_2",
 			1
@@ -100,7 +100,7 @@ class vtx_SlingLoadDown_Ext_SoundShader_Base
 {
 	samples[]=
 	{
-		
+
 		{
 			"A3\Sounds_F\vehicles\air\noises\SL_engineDownEXT",
 			1
@@ -114,7 +114,7 @@ class vtx_SlingLoadUp_Ext_SoundShader_Base: vtx_SlingLoadDown_Ext_SoundShader_Ba
 {
 	samples[]=
 	{
-		
+
 		{
 			"A3\Sounds_F\vehicles\air\noises\SL_engineUpEXT",
 			1
@@ -128,7 +128,7 @@ class vtx_Rain_Ext_SoundShader_Base
 {
 	samples[]=
 	{
-		
+
 		{
 			"A3\Sounds_F\vehicles\noises\rain1_ext",
 			1
@@ -148,7 +148,7 @@ class vtx_Wind_Close_Ext_SoundShader_Base
 {
 	samples[]=
 	{
-		
+
 		{
 			"H-60\addons\H60_SFX\Sounds\Share\Wind_Ext",
 			1
@@ -167,7 +167,7 @@ class vtx_Rotor_Stress_Ext_SoundShader_Base
 {
 	samples[]=
 	{
-		
+
 		{
 			"H-60\addons\H60_SFX\Sounds\Share\BladeSlap_ext",
 			1
@@ -190,7 +190,7 @@ class vtx_Alarm_Damage_Int_SoundShader_Base
 {
 	samples[]=
 	{
-		
+
 		{
 			//"A3\Sounds_F\vehicles\air\noises\heli_alarm_bluefor",
 			"H-60\addons\H60_SFX\Sounds\Alarm\Engine_Out",
@@ -205,7 +205,7 @@ class vtx_Alarm_RotorLow_Int_SoundShader_Base: vtx_Alarm_Damage_Int_SoundShader_
 {
 	samples[]=
 	{
-		
+
 		{
 			//"A3\Sounds_F\vehicles\air\noises\heli_alarm_rotor_low",
 			"H-60\addons\H60_SFX\Sounds\Alarm\Low_Rotor",
@@ -221,7 +221,7 @@ class vtx_ScrubLand_Int_SoundShader_Base: vtx_Alarm_Damage_Int_SoundShader_Base
 {
 	samples[]=
 	{
-		
+
 		{
 			"A3\Sounds_F\vehicles\air\noises\wheelsInt",
 			1
@@ -237,7 +237,7 @@ class vtx_ScrubTree_Int_SoundShader_Base: vtx_ScrubLand_Int_SoundShader_Base
 {
 	samples[]=
 	{
-		
+
 		{
 			"A3\Sounds_F\vehicles\air\noises\wheelsInt",
 			1
@@ -251,7 +251,7 @@ class vtx_TransmissionDamage_Int_phase1_SoundShader_Base
 {
 	samples[]=
 	{
-		
+
 		{
 			"a3\sounds_f\vehicles\air\noises\heli_damage_transmission_int_1",
 			1
@@ -267,7 +267,7 @@ class vtx_TransmissionDamage_Int_phase2_SoundShader_Base
 {
 	samples[]=
 	{
-		
+
 		{
 			"a3\sounds_f\vehicles\air\noises\heli_damage_transmission_int_2",
 			1
@@ -283,7 +283,7 @@ class vtx_TransmissionDamage_Int_phase3_SoundShader_Base
 {
 	samples[]=
 	{
-		
+
 		{
 			"A3\Sounds_F\vehicles\noises\vehicle_stress3",
 			1
@@ -299,7 +299,7 @@ class vtx_SlingLoadDown_Int_SoundShader_Base
 {
 	samples[]=
 	{
-		
+
 		{
 			"A3\Sounds_F\vehicles\air\noises\SL_engineDownINT",
 			1
@@ -313,7 +313,7 @@ class vtx_SlingLoadUp_Int_SoundShader_Base: vtx_SlingLoadDown_Int_SoundShader_Ba
 {
 	samples[]=
 	{
-		
+
 		{
 			"A3\Sounds_F\vehicles\air\noises\SL_engineUpINT",
 			1
@@ -328,7 +328,7 @@ class vtx_Rain_Int_SoundShader_Base: vtx_Rain_Ext_SoundShader_Base
 {
 	samples[]=
 	{
-		
+
 		{
 			"A3\Sounds_F\vehicles\noises\rain1_int",
 			1
@@ -341,7 +341,7 @@ class vtx_Wind_Int_SoundShader_Base
 {
 	samples[]=
 	{
-		
+
 		{
 			"A3\Sounds_F\vehicles\air\noises\wind_closed",
 			1
@@ -355,7 +355,7 @@ class vtx_WindWash_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
 {
 	samples[]=
 	{
-		
+
 		{
 			"H-60\addons\H60_SFX\Sounds\Share\Wind_Int",
 			1
@@ -382,7 +382,7 @@ class vtx_GStress_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
 {
 	samples[]=
 	{
-		
+
 		{
 			"H-60\addons\H60_SFX\Sounds\Share\BladeSlap",
 			1
@@ -395,7 +395,7 @@ class vtx_SpeedStress_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
 {
 	samples[]=
 	{
-		
+
 		{
 			"A3\Sounds_F\vehicles\noises\vehicle_stress3",
 			1

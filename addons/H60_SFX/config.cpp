@@ -140,19 +140,19 @@ class CfgVehicles
 		soundEngineOffInt[] = {"a3\sounds_f\dummysound",1,1};
 		soundEngineOnExt[] = {"a3\sounds_f\dummysound",2,1,600};
 		soundEngineOffExt[] = {"a3\sounds_f\dummysound",2,1,600};
-		
+
 		/*soundEngineOnInt[] = {"H-60\addons\H60_SFX\Sounds\Share\Engine_Start_Int",2,1};
 		soundEngineOffInt[] = {"H-60\addons\H60_SFX\Sounds\Share\Engine_Shutdown_Int",1,1};
 		soundEngineOnExt[] = {"H-60\addons\H60_SFX\Sounds\Share\Engine_Start",2,1,600};
 		soundEngineOffExt[] = {"H-60\addons\H60_SFX\Sounds\Share\Engine_Shutdown",2,1,600};*/
-		
+
 		vtx_soundEngineOnInt[] = {"vtx_H60_Engine_On_Int"};
 		vtx_soundEngineOffInt[] = {"vtx_H60_Engine_Off_Int"};
 		vtx_soundEngineOnExt[] = {"H-60\addons\H60_SFX\Sounds\Share\Engine_Start",2,1,600};
 		vtx_soundEngineOffExt[] = {"H-60\addons\H60_SFX\Sounds\Share\Engine_Shutdown",2,1,600};
 		class sounds
 		{
-			Soundsets[] = 
+			Soundsets[] =
 			{
 				"vtx_Empty_SoundSet",
 				"vtx_APUSoundLoop_Ext_SoundSet",
@@ -180,7 +180,7 @@ class CfgVehicles
 				"vtx_Alarm_Damage_Int_SoundSet_Base",
 				//"vtx_Alarm_RotorLow_Ext_SoundSet_Base",
 				"vtx_Alarm_RotorLow_Int_SoundSet_Base",
-				
+
 				"vtx_Rotor_Distance_SoundSet",
 				"vtx_Engine_Distance_SoundSet",
 				"vtx_Turbine_Ext_SoundSet",
