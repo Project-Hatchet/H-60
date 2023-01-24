@@ -474,4 +474,9 @@ class AnimationSources {
     source="ammoRandom";
     weapon="vtx_wpn_m134_2nd";
   };
+  class River_show {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
 };
