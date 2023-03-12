@@ -85,7 +85,7 @@ def buildSymlink(pathFrom, pathTo):
 def buildPbo(settings,env, pbo):
     optBinarize = "-binarize=C:\\Windows\\System32\\print.exe" if pbo.name in settings["noBinarize"] else ""
     env.Command(pbo.outputPath, allFilesIn(pbo.folder)+["build"], 
-        f'"{addonBuilderPath()}" "{os.path.abspath(pbo.buildSymlink)}" "{os.path.abspath(settings["addonsFolder"])}" "-project=build" -include=tools\\buildExtIncludes.txt {optBinarize}')
+        f'"{addonBuilderPath()}" "{os.path.abspath(pbo.buildSymlink)}" "{os.path.abspath(settings["addonsFolder"])}" "-project=build" "-prefix={pbo.pboPrefix}" -include=tools\\buildExtIncludes.txt {optBinarize}')
     targetDefinition(pbo.name, f"Build the {pbo.name} pbo.")
     return env.Alias(pbo.name, pbo.outputPath)
 
