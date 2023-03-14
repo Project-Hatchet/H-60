@@ -12,6 +12,8 @@ class CfgPatches
 			"vtx_uh60_config",
 			"vtx_uh60_doorguns",
 			"vtx_uh60_sfmplus",
+			"vtx_mh60m",
+			"vtx_mh60s",
 			"vtx_ace_viv"
 		};
 	};
@@ -111,15 +113,11 @@ class CfgSoundShaders
 
 class CfgVehicles
 {
-	class Helicopter;
-	class Helicopter_Base_F: Helicopter
-	{
-		class Turrets;
-	};
+	class Helicopter_Base_F;
 	class Helicopter_Base_H: Helicopter_Base_F
 	{
 		class CargoTurret;
-		class Turrets: Turrets
+		class Turrets
 		{
 			class CopilotTurret;
 			class MainTurret;
@@ -198,6 +196,8 @@ class CfgVehicles
 			class CopilotTurret: CopilotTurret
 			{
 				disableSoundAttenuation = 0;
+				viewGunnerInExternal = 0;
+				soundAttenuationTurret = "HeliAttenuationGunner";
 			};
 			class MainTurret: MainTurret
 			{

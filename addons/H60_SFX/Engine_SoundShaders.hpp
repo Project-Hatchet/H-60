@@ -11,7 +11,7 @@ class vtx_APUSoundLoop_Ext_SoundShader
 		}
 	};
 	frequency = "CustomSoundController1";
-	volume = "camPos*CustomSoundController2";
+	volume = "camPos*CustomSoundController2*(CustomSoundController14+1)";
 };
 class vtx_Rotor_Distance_SoundShader
 {
@@ -24,7 +24,7 @@ class vtx_Rotor_Distance_SoundShader
 		}
 	};
 	frequency="rotorspeed * (1-rotorthrust/15) * 1";
-	volume="camext*(0 max (rotorspeed-0.1))*(1 + rotorthrust)";
+	volume="camext*(0 max (rotorspeed-0.1))*(1 + rotorthrust)*(CustomSoundController14+1)";
 	range=1500;
 	rangecurve[]=
 	{
@@ -46,7 +46,7 @@ class vtx_Engine_Distance_SoundShader
 		}
 	};
 	frequency="rotorspeed * (1-rotorthrust/15) * 1.25";
-	volume="((rotorspeed-0.72)*4)*camext";
+	volume="((rotorspeed-0.72)*4)*camext*(CustomSoundController14+1)";
 	range=1300;
 	rangecurve[]=
 	{
@@ -67,7 +67,7 @@ class vtx_EngineExt_SoundShader
 		}
 	};
 	frequency="rotorSpeed";
-	volume="camext*(rotorSpeed factor [0.3, 1])";
+	volume="camext*(rotorSpeed factor [0.3, 1])*(CustomSoundController14+1)";
 	range=1000;
 	rangecurve[]=
 	{
@@ -88,7 +88,7 @@ class vtx_RotorExt_SoundShader: vtx_EngineExt_SoundShader
 		}
 	};
 	frequency="(rotorSpeed factor [0.3, 0.7])*(1 - rotorThrust/10)";
-	volume="camext*(rotorSpeed factor [0.3, 1])*(1 + rotorThrust)";
+	volume="camext*(rotorSpeed factor [0.3, 1])*(1 + rotorThrust)*(CustomSoundController14+1)";
 	range=1200;
 	rangecurve[]=
 	{
@@ -109,7 +109,7 @@ class vtx_Turbine_Ext_SoundShader
 		}
 	};
 	frequency="rotorSpeed";
-	volume="camext*(0 max (rotorSpeed-0.4))";
+	volume="camext*(0 max (rotorSpeed-0.4))*(CustomSoundController14+1)";
 	range=200;
 	rangecurve[]=
 	{
@@ -130,7 +130,7 @@ class vtx_TailRotor_SoundShader
 		}
 	};
 	frequency="rotorspeed * (1-rotorthrust/15) * 1.25";
-	volume="camext*0.25*(0 max (rotorspeed-0.5))*(1 + rotorthrust)";
+	volume="camext*0.25*(0 max (rotorspeed-0.5))*(1 + rotorthrust)*(CustomSoundController14+1)";
 	range=150;
 };
 
@@ -148,7 +148,7 @@ class vtx_ApuSoundLoop_Int_SoundShader: vtx_ApuSoundLoop_Ext_SoundShader
 			1
 		}
 	};
-	volume = "(1-camPos)*CustomSoundController2";
+	volume = "(1-camPos)*CustomSoundController2*(CustomSoundController16+1)";
 };
 
 class vtx_EngineInt_SoundShader
@@ -162,7 +162,7 @@ class vtx_EngineInt_SoundShader
 		}
 	};
 	frequency="rotorSpeed*(1+rotorThrust/6)*0.8";
-	volume="camInt*(rotorSpeed factor [0.3, 1])";
+	volume="camInt*(rotorSpeed factor [0.3, 1])*(CustomSoundController16+1)";
 };
 class vtx_RotorInt_SoundShader
 {
@@ -175,7 +175,7 @@ class vtx_RotorInt_SoundShader
 		}
 	};
 	frequency="rotorSpeed*(1-rotorThrust/5)*1.2";
-	volume="camInt*(0 max (rotorSpeed-0.1))*(1 + rotorThrust)*(rotorSpeed factor [0.3, 1])";
+	volume="camInt*(0 max (rotorSpeed-0.1))*(1 + rotorThrust)*(rotorSpeed factor [0.3, 1])*(CustomSoundController16+1)";
 };
 class vtx_Engine_Transport_SoundShader_Base
 {
@@ -188,5 +188,5 @@ class vtx_Engine_Transport_SoundShader_Base
 		}
 	};
 	frequency="rotorSpeed";
-	volume="camInt*(rotorSpeed factor [0.3, 1])*playerPos";
+	volume="camInt*(rotorSpeed factor [0.3, 1])*playerPos*(CustomSoundController16+1)";
 };
