@@ -1,0 +1,13 @@
+{
+    "addonsFolder": "addons",
+    "excludePboSymlinks": [],
+    "noBinarize":
+        [ "stretcher"
+        , "UH60"
+        , "uh60_aar"
+        , "uh60_fms"
+        , "uh60_hoist"
+        , "uh60_misc"
+        , "uh60_weapons"
+        ]
+}
