@@ -28,7 +28,7 @@ class vtx_Alarm_Damage_Ext_SoundShader_Base
 	{
 
 		{
-			"H-60\addons\H60_SFX\Sounds\Alarm\Engine_Out",
+			"\z\vtx\addons\H60_SFX\Sounds\Alarm\Engine_Out",
 			1
 		}
 	};
@@ -43,7 +43,7 @@ class vtx_Alarm_RotorLow_Ext_SoundShader_Base: vtx_Alarm_Damage_Ext_SoundShader_
 	{
 
 		{
-			"H-60\addons\H60_SFX\Sounds\Alarm\Low_Rotor",
+			"\z\vtx\addons\H60_SFX\Sounds\Alarm\Low_Rotor",
 			1
 		}
 	};
@@ -150,7 +150,7 @@ class vtx_Wind_Close_Ext_SoundShader_Base
 	{
 
 		{
-			"H-60\addons\H60_SFX\Sounds\Share\Wind_Ext",
+			"\z\vtx\addons\H60_SFX\Sounds\Share\Wind_Ext",
 			1
 		}
 	};
@@ -169,7 +169,7 @@ class vtx_Rotor_Stress_Ext_SoundShader_Base
 	{
 
 		{
-			"H-60\addons\H60_SFX\Sounds\Share\BladeSlap_ext",
+			"\z\vtx\addons\H60_SFX\Sounds\Share\BladeSlap_ext",
 			1
 		}
 	};
@@ -193,7 +193,7 @@ class vtx_Alarm_Damage_Int_SoundShader_Base
 
 		{
 			//"A3\Sounds_F\vehicles\air\noises\heli_alarm_bluefor",
-			"H-60\addons\H60_SFX\Sounds\Alarm\Engine_Out",
+			"\z\vtx\addons\H60_SFX\Sounds\Alarm\Engine_Out",
 			1
 		}
 	};
@@ -208,7 +208,7 @@ class vtx_Alarm_RotorLow_Int_SoundShader_Base: vtx_Alarm_Damage_Int_SoundShader_
 
 		{
 			//"A3\Sounds_F\vehicles\air\noises\heli_alarm_rotor_low",
-			"H-60\addons\H60_SFX\Sounds\Alarm\Low_Rotor",
+			"\z\vtx\addons\H60_SFX\Sounds\Alarm\Low_Rotor",
 			1
 		}
 	};
@@ -357,7 +357,7 @@ class vtx_WindWash_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
 	{
 
 		{
-			"H-60\addons\H60_SFX\Sounds\Share\Wind_Int",
+			"\z\vtx\addons\H60_SFX\Sounds\Share\Wind_Int",
 			1
 		}
 	};
@@ -384,7 +384,7 @@ class vtx_GStress_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
 	{
 
 		{
-			"H-60\addons\H60_SFX\Sounds\Share\BladeSlap",
+			"\z\vtx\addons\H60_SFX\Sounds\Share\BladeSlap",
 			1
 		}
 	};

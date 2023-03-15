@@ -6,7 +6,7 @@ class vtx_APUSoundLoop_Ext_SoundShader
 	{
 		
 		{
-			"H-60\addons\H60_SFX\Sounds\share\apu_ext_loop",
+			"\z\vtx\addons\H60_SFX\Sounds\share\apu_ext_loop",
 			1
 		}
 	};
@@ -19,7 +19,7 @@ class vtx_Rotor_Distance_SoundShader
 	{
 		
 		{
-			"H-60\addons\H60_SFX\Sounds\Ext\Distant_Rotor",
+			"\z\vtx\addons\H60_SFX\Sounds\Ext\Distant_Rotor",
 			1
 		}
 	};
@@ -41,7 +41,7 @@ class vtx_Engine_Distance_SoundShader
 	{
 		
 		{
-			"H-60\addons\H60_SFX\Sounds\Ext\Distant_Engine",
+			"\z\vtx\addons\H60_SFX\Sounds\Ext\Distant_Engine",
 			1
 		}
 	};
@@ -62,7 +62,7 @@ class vtx_EngineExt_SoundShader
 	{
 		
 		{
-			"H-60\addons\H60_SFX\Sounds\Ext\Engine_Ext",
+			"\z\vtx\addons\H60_SFX\Sounds\Ext\Engine_Ext",
 			1
 		}
 	};
@@ -83,7 +83,7 @@ class vtx_RotorExt_SoundShader: vtx_EngineExt_SoundShader
 	{
 		
 		{
-			"H-60\addons\H60_SFX\Sounds\Ext\Rotor_Ext",
+			"\z\vtx\addons\H60_SFX\Sounds\Ext\Rotor_Ext",
 			1
 		}
 	};
@@ -104,7 +104,7 @@ class vtx_Turbine_Ext_SoundShader
 	{
 		
 		{
-			"H-60\addons\H60_SFX\Sounds\Ext\Turbine_Ext",
+			"\z\vtx\addons\H60_SFX\Sounds\Ext\Turbine_Ext",
 			1
 		}
 	};
@@ -125,7 +125,7 @@ class vtx_TailRotor_SoundShader
 	{
 		
 		{
-			"H-60\addons\H60_SFX\Sounds\Ext\tail_rotor",
+			"\z\vtx\addons\H60_SFX\Sounds\Ext\tail_rotor",
 			1
 		}
 	};
@@ -144,7 +144,7 @@ class vtx_ApuSoundLoop_Int_SoundShader: vtx_ApuSoundLoop_Ext_SoundShader
 	{
 		
 		{
-			"H-60\addons\H60_SFX\Sounds\share\apu_int_loop",
+			"\z\vtx\addons\H60_SFX\Sounds\share\apu_int_loop",
 			1
 		}
 	};
@@ -157,7 +157,7 @@ class vtx_EngineInt_SoundShader
 	{
 		
 		{
-			"H-60\addons\H60_SFX\Sounds\Int\Engine_Int",
+			"\z\vtx\addons\H60_SFX\Sounds\Int\Engine_Int",
 			1
 		}
 	};
@@ -170,7 +170,7 @@ class vtx_RotorInt_SoundShader
 	{
 		
 		{
-			"H-60\addons\H60_SFX\Sounds\Int\Rotor_Int",
+			"\z\vtx\addons\H60_SFX\Sounds\Int\Rotor_Int",
 			1
 		}
 	};
@@ -183,7 +183,7 @@ class vtx_Engine_Transport_SoundShader_Base
 	{
 		
 		{
-			"H-60\addons\H60_SFX\Sounds\Int\Engine_Transport",
+			"\z\vtx\addons\H60_SFX\Sounds\Int\Engine_Transport",
 			1
 		}
 	};

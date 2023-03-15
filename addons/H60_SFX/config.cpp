@@ -139,15 +139,15 @@ class CfgVehicles
 		soundEngineOnExt[] = {"a3\sounds_f\dummysound",2,1,600};
 		soundEngineOffExt[] = {"a3\sounds_f\dummysound",2,1,600};
 
-		/*soundEngineOnInt[] = {"H-60\addons\H60_SFX\Sounds\Share\Engine_Start_Int",2,1};
-		soundEngineOffInt[] = {"H-60\addons\H60_SFX\Sounds\Share\Engine_Shutdown_Int",1,1};
-		soundEngineOnExt[] = {"H-60\addons\H60_SFX\Sounds\Share\Engine_Start",2,1,600};
-		soundEngineOffExt[] = {"H-60\addons\H60_SFX\Sounds\Share\Engine_Shutdown",2,1,600};*/
+		/*soundEngineOnInt[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Start_Int",2,1};
+		soundEngineOffInt[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown_Int",1,1};
+		soundEngineOnExt[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Start",2,1,600};
+		soundEngineOffExt[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown",2,1,600};*/
 
 		vtx_soundEngineOnInt[] = {"vtx_H60_Engine_On_Int"};
 		vtx_soundEngineOffInt[] = {"vtx_H60_Engine_Off_Int"};
-		vtx_soundEngineOnExt[] = {"H-60\addons\H60_SFX\Sounds\Share\Engine_Start",2,1,600};
-		vtx_soundEngineOffExt[] = {"H-60\addons\H60_SFX\Sounds\Share\Engine_Shutdown",2,1,600};
+		vtx_soundEngineOnExt[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Start",2,1,600};
+		vtx_soundEngineOffExt[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown",2,1,600};
 		class sounds
 		{
 			Soundsets[] =
@@ -204,82 +204,6 @@ class CfgVehicles
 				playerPosition = 2;
 			};
 		};
-		class vxf_driver
-		{
-			class interaction
-			{
-				class startUp
-				{
-					class b_ignition
-					{
-						clickSound = "vxf_Key_Sound";
-					};
-					//-Engine Sound
-					class powerContRFM
-					{
-						class b_engpowercont1
-						{
-							animEnd = "[(_this # 0), (_this # 2 != ""OFF""), ""throttle"", (_this # 2), (_this # 1)] remoteExecCall [""vtx_uh60_engine_fnc_engineEH"", crew (_this # 0)];[_this # 0] remoteExecCall [""vtx_uh60_Sound_fnc_EngineEH""];diag_log ""powercont"";";
-						};
-					};
-					class powerContRTD
-					{
-						class b_engpowercont1
-						{
-							animEnd = "[(_this # 0), (_this # 2 != ""OFF""), ""throttle"", (_this # 2), (_this # 1)] remoteExecCall [""vtx_uh60_engine_fnc_engineEH"", crew (_this # 0)];[_this # 0] remoteExecCall [""vtx_uh60_Sound_fnc_EngineEH""];diag_log ""powercont"";";
-						};
-					};
-				};
-			};
-		};
-		class vxf_copilot
-		{
-			class interaction
-			{
-				class startUp
-				{
-					class b_ignition
-					{
-						clickSound = "vxf_Key_Sound";
-					};
-					//-Engine Sound
-					class powerContRFM
-					{
-						class b_engpowercont1
-						{
-							animEnd = "[(_this # 0), (_this # 2 != ""OFF""), ""throttle"", (_this # 2), (_this # 1)] remoteExecCall [""vtx_uh60_engine_fnc_engineEH"", crew (_this # 0)];[_this # 0] remoteExecCall [""vtx_uh60_Sound_fnc_EngineEH""];diag_log ""powercont"";";
-						};
-					};
-					class powerContRTD
-					{
-						class b_engpowercont1
-						{
-							animEnd = "[(_this # 0), (_this # 2 != ""OFF""), ""throttle"", (_this # 2), (_this # 1)] remoteExecCall [""vtx_uh60_engine_fnc_engineEH"", crew (_this # 0)];[_this # 0] remoteExecCall [""vtx_uh60_Sound_fnc_EngineEH""];diag_log ""powercont"";";
-						};
-					};
-				};
-			};
-		};
-		class vxf_cargo
-		{
-			class interaction
-			{
-				class l_door
-				{
-					clickSound = "vxf_CabinDoor_Sound";
-					animEnd = "setCustomSoundController [(_this # 0), 'CustomSoundController9', ((1 - ((_this # 0) animationPhase 'cabindoor_L')) / 2) + ((1 - ((_this # 0) animationPhase 'cabindoor_R'))) / 2];";
-				};
-				class r_door
-				{
-					clickSound = "vxf_CabinDoor_Sound";
-					animEnd = "setCustomSoundController [(_this # 0), 'CustomSoundController9', ((1 - ((_this # 0) animationPhase 'cabindoor_L')) / 2) + ((1 - ((_this # 0) animationPhase 'cabindoor_R'))) / 2];";
-				};
-			};
-		};
-		class Eventhandlers: Eventhandlers
-		{
-			Engine = "if(_this # 1) then {setCustomSoundController [(_this # 0), 'CustomSoundController9', ((1 - ((_this # 0) animationPhase 'cabindoor_L')) / 2) + ((1 - ((_this # 0) animationPhase 'cabindoor_R'))) / 2]; setCustomSoundController [(_this # 0), 'CustomSoundController8', ((_this # 0) animationSourcePhase 'Cockpitdoors_Hide')];};";
-		};
 	};
 	//-Turret Compat
 	#include "Compat.hpp"
@@ -289,25 +213,25 @@ class CfgSounds
 	class vtx_H60_Engine_On_Int
 	{
 		name = "vtx_H60_Engine_On_Int";
-		sound[] = {"H-60\addons\H60_SFX\Sounds\Share\Engine_Start_Int",2,1};
+		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Start_Int",2,1};
 		titles[] = {};
 	};
 	class vtx_H60_Engine_Off_Int
 	{
 		name = "vtx_H60_Engine_Off_Int";
-		sound[] = {"H-60\addons\H60_SFX\Sounds\Share\Engine_Shutdown_Int",1,1};
+		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown_Int",1,1};
 		titles[] = {};
 	};
 	class vxf_Key_Sound
 	{
 		name = "vxf_Key_Sound";
-		sound[] = {"H-60\addons\H60_SFX\Sounds\Share\Key",1,1};
+		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Key",1,1};
 		titles[] = {};
 	};
 	class vxf_CabinDoor_Sound
 	{
 		name = "vxf_CabinDoor_Sound";
-		sound[] = {"H-60\addons\H60_SFX\Sounds\Share\Door",3,1};
+		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Door",3,1};
 		titles[] = {};
 	};
 };
@@ -317,7 +241,7 @@ class CfgFunctions
 	{
 		class Main
 		{
-			file="H-60\addons\H60_SFX\functions";
+			file="\z\vtx\addons\H60_SFX\functions";
 			class engineEH;
 		};
 	};

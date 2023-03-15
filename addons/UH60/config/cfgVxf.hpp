@@ -9,7 +9,7 @@ class vxf_copilot {
 class vxf_cargo {
     class interaction {
         class l_door {
-            clickSound="";
+            clickSound = "vxf_CabinDoor_Sound";
             position="cabindoor_L_handle";
             positionType="anim";
             label="Left Door";
@@ -17,12 +17,12 @@ class vxf_cargo {
             interactionCondition="_this call vtx_uh60_misc_fnc_canInteractCabinDoor";
             animStates[] = {0, 1};
             animLabels[] = {"Open", "Closed"};
-            animEnd="";
+            animEnd = "setCustomSoundController [(_this # 0), 'CustomSoundController9', ((1 - ((_this # 0) animationPhase 'cabindoor_L')) / 2) + ((1 - ((_this # 0) animationPhase 'cabindoor_R'))) / 2];";
             radius=0.1;
             animSpeed=1;
         }; // l_door
         class r_door {
-            clickSound="";
+            clickSound = "vxf_CabinDoor_Sound";
             position="cabindoor_R_handle";
             positionType="anim";
             label="Right Door";
@@ -30,7 +30,7 @@ class vxf_cargo {
             interactionCondition="_this call vtx_uh60_misc_fnc_canInteractCabinDoor";
             animStates[] = {0, 1};
             animLabels[] = {"Open", "Closed"};
-            animEnd="";
+            animEnd = "setCustomSoundController [(_this # 0), 'CustomSoundController9', ((1 - ((_this # 0) animationPhase 'cabindoor_L')) / 2) + ((1 - ((_this # 0) animationPhase 'cabindoor_R'))) / 2];";
             radius=0.1;
             animSpeed=1;
         }; // r_door

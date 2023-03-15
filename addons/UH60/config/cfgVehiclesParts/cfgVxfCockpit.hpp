@@ -178,6 +178,7 @@ class interaction {
             animStates[] = {0, 1};
             animLabels[] = {"OFF", "ON"};
             animEnd="_this call vtx_uh60_engine_fnc_starterState";
+            clickSound = "vxf_Key_Sound";
         }; // b_ignition
         class b_starter1 {
             positionType="anim";
