@@ -136,6 +136,11 @@ class CfgAmmo {
   class ammo_Missile_HARM_HL : ammo_Missile_HARM {
     hit = 0;
     indirectHit = 0;
+    autoSeekTarget = 1;
+    flightProfiles[] = {LOALDistance};
+    missileLockMinDistance = 50;
+    lockType = 0;
+    lockSeekRadius = 2000; 
     displayName = "AGM-88 HL";
   	displayNameShort = "AGM-88 HL";
   	description = "Anti Radiation School Project";

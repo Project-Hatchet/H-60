@@ -112,6 +112,8 @@ class cfgWeapons {
     displayName = "AGM-88HL";
     displayNameShort = "AGM-88HL";
     magazines[] = {"PylonMissile_Missile_HARM_x1_HL"};
+    lockAcquire = 1;
+    weaponLockDelay = 0;
     class Eventhandlers {
       class vtx_harm {
         fired = "_this call vtx_uh60_weapons_fnc_fired";

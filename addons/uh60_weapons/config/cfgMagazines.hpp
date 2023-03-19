@@ -123,7 +123,7 @@ class cfgMagazines {
     };
   };
   class PylonMissile_Missile_HARM_x1_HL: PylonMissile_Missile_HARM_x1 {
-    hardpoints[] = {"VTX_ST_L","VTX_ST_R","VTX_ST_OUTBOARD"};
+    hardpoints[] = {"VTX_ST_L","VTX_ST_R","VTX_ST_OUTBOARD","B_HARM_RAIL","I_HARM_RAIL","B_HARM","I_HARM"};
     ammo = "ammo_Missile_HARM_HL";
     count = 1;
     mass = 10;
