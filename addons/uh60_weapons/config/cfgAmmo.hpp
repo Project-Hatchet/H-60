@@ -136,10 +136,10 @@ class CfgAmmo {
   class ammo_Missile_HARM_HL : ammo_Missile_HARM {
     hit = 0;
     indirectHit = 0;
-    // displayName = "AGM-88 HL";
-  	// displayNameShort = "AGM-88 HL";
-  	// description = "Anti Radiation School Project";
-  	// descriptionShort = "Anti Radiation School Project";|
+    displayName = "AGM-88 HL";
+  	displayNameShort = "AGM-88 HL";
+  	description = "Anti Radiation School Project";
+  	descriptionShort = "Anti Radiation School Project";
     model = "\A3\Weapons_F_Sams\Ammo\Missile_AR_01_F_fly.p3d";
 		proxyShape = "\A3\Weapons_F_Sams\Ammo\Missile_AR_01_F.p3d";
   };

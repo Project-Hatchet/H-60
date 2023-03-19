@@ -17,3 +17,13 @@ if (_ammo == "VTX_Hellfire_AGM114K" || _ammo == "VTX_Hellfire_AGM114N") then {
 if (player == _gunner && local _gunner) then {
 	[_vehicle] call vtx_uh60_weapons_fnc_updateMFDValues;
 };
+
+if (_ammo == "ammo_Missile_HARM_HL" && vehicle _gunner == _vehicle) then {
+	_index = 0;
+	while {_index < 4} do {
+		if ((getPylonMagazines _vehicle # _index) == "PylonMissile_Missile_HARM_x1_HL") then {
+			if (_vehicle ammoOnPylon (_index + 1) == 0) then { _vehicle setPylonLoadout [(_index + 1), "", true]; /*systemChat "Reset Pylon"*/};
+		};
+		_index = _index + 1;
+	};
+};

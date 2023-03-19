@@ -109,5 +109,10 @@ class cfgWeapons {
     displayName = "Hobby Lobby 88";
     displayNameShort = "Hobby Lobby 88";
     magazines[] = {"PylonMissile_Missile_HARM_x1_HL"};
+    class Eventhandlers {
+      class vtx_harm {
+        fired = "_this call vtx_uh60_weapons_fnc_fired";
+      };
+    };
   };
 };
