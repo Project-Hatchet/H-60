@@ -1,3 +1,5 @@
+#include "uiDefines.hpp"
+
 /*
  * vtx_uh60_doorguns_fnc_showHelp
  *
@@ -5,9 +7,6 @@
  *
  * params (array)[(object) vehicle, (bool) show]
  */
-
-#include "uiDefines.hpp"
-
 params ["_vehicle", "_show"];
 
 CTRL(4001121) ctrlShow (_show);

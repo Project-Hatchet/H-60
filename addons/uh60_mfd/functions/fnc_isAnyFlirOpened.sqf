@@ -1,3 +1,5 @@
+#include "..\config\mfdDefines.hpp"
+
 /*
  * Author: Ampersand
  * Checks if any MFD is on the FLIR page
@@ -11,9 +13,6 @@
  * Example:
  * [] call vtx_uh60_mfd_fnc_isAnyFlirOpened
  */
-
-#include "..\config\mfdDefines.hpp"
-
 scopeName "main";
 
 {

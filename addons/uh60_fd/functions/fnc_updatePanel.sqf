@@ -1,3 +1,5 @@
+#include "defines.hpp"
+
 /*
  * vtx_uh60_fd_fnc_updatePanel
  *
@@ -5,9 +7,6 @@
  *
  * params (array)[(object) vehicle]
  */
-
-#include "defines.hpp"
-
 params ["_vehicle"];
 
 _vehicle setUserMFDValue [12, GET_RALT];

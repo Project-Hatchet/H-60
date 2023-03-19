@@ -1,3 +1,5 @@
+#include "defines.hpp"
+
 /*
  * vtx_uh60_fd_fnc_setup
  *
@@ -5,9 +7,6 @@
  *
  * params (array)[(object) vehicle]
  */
-
-#include "defines.hpp"
-
 params ["_vehicle"];
 if (!vtx_uh60m_enabled_fd) exitWith {false};
 

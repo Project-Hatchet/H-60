@@ -1,3 +1,5 @@
+#include "uiDefines.hpp"
+
 /*
  * vtx_uh60_ui_fnc_setKeybindText
  *
@@ -5,8 +7,6 @@
  *
  * params (array)[(object) vehicle]
  */
-
-#include "uiDefines.hpp"
 params ["_vehicle"];
 
 private _keybindHelp = ((["UH-60M Blackhawk","vtx_uh60m_c_help"] call CBA_fnc_getKeybind)# 5) call CBA_fnc_localizeKey;

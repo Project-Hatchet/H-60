@@ -1,3 +1,5 @@
+#include "uiDefines.hpp"
+
 /*
  * vtx_uh60_ui_fnc_showHelp
  *
@@ -5,9 +7,6 @@
  *
  * params (array)[(object) vehicle, (bool) show]
  */
-
-#include "uiDefines.hpp"
-
 params ["_vehicle", "_show"];
 
 if ([_vehicle, "doorguns"] call vxf_core_fnc_hasModule) exitWith {

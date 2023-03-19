@@ -1,3 +1,5 @@
+#include "defines.hpp"
+
 /*
  * vtx_uh60_engine_fnc_perSecond
  *
@@ -5,7 +7,6 @@
  *
  * params (array)[(object) vehicle]
  */
-#include "defines.hpp"
 params ["_vehicle"];
 
 private _fuelConsumed = vtx_uh60_engine_lastFuelLevel - fuel _vehicle;

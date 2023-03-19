@@ -1,3 +1,5 @@
+#include "defines.hpp"
+
 /*
  * vtx_uh60_engine_fnc_rotorBrakeInterlock
  *
@@ -5,8 +7,6 @@
  *
  * params (array)[(object) vehicle, (string) animation, (string) animationTarget]
  */
-#include "defines.hpp"
-
 params ["_vehicle", "_animation", "_animationTarget", "_animationTargetLabel", "_animationSpeed", "_animStart", "_animEnd"];
 
 // just stop if rotorbrake is up

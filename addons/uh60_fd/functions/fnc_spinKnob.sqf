@@ -1,11 +1,10 @@
+#include "defines.hpp"
+
 /*
  * vtx_uh60_fd_fnc_spinKnob
  *
  * params (array)[(object) vehicle, (string) mode]
  */
-
-#include "defines.hpp"
-
 params ["_vehicle", "_mode"];
 
 private _ralt = (getPos _vehicle) # 2;

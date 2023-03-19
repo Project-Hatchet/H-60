@@ -1,3 +1,5 @@
+#include "defines.hpp"
+
 /*
  * vtx_uh60_fd_fnc_vs
  *
@@ -5,9 +7,6 @@
  *
  * params (array)[(object) vehicle, (SCALAR) frameTime]
  */
-
-#include "defines.hpp"
-
 params ["_vehicle", "_frameTime"];
 
 private _vsGoal = TO_MS(GET_VS);

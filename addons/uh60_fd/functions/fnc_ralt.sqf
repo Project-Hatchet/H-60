@@ -1,3 +1,5 @@
+#include "defines.hpp"
+
 /*
  * vtx_uh60_fd_fnc_ralt
  *
@@ -5,9 +7,6 @@
  *
  * params (array)[(object) vehicle, (SCALAR) frameTime]
  */
-
-#include "defines.hpp"
-
 params ["_vehicle", "_frameTime"];
 
 private _altGoal = TO_M(GET_RALT);

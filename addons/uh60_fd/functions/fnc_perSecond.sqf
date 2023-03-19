@@ -1,3 +1,5 @@
+#include "defines.hpp"
+
 /*
  * vtx_uh60_fd_fnc_perSecond
  *
@@ -5,8 +7,6 @@
  *
  * params (array)[(object) vehicle, (SCALAR) frameTime]
  */
-
-#include "defines.hpp"
 
 params ["_vehicle", "_frameTime"];
 

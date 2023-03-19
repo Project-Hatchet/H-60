@@ -27,7 +27,7 @@ _vehicle setUserMFDText [4, _timeStr];
 
 // MODULES
 private _modules = vehicle player getVariable "vxf_modules";
-_modulesText =_modules apply {(_x # 0) + (if (_x # 1) then [{"/ACT"},{"/STB"}])} joinString " | ";
+_modulesText = (_modules apply {(_x # 0) + (if (_x # 1) then [{"/ACT"},{"/STB"}]);}) joinString " | ";
 
 // 5 MODULES1
 _vehicle setUserMFDText [5,_modulesText select [0,62]];
@@ -62,7 +62,7 @@ _vehicle setUserMFDText [15, format["%1 %2", worldName, serverName]];
 _vehicle setUserMFDText [16, str time];
 
 // MODS
-private _mods = getLoadedModsInfo apply {((_x # 1) regexReplace ["\W",""]) select [0,15]} joinString "|";
+private _mods = (getLoadedModsInfo apply {((_x # 1) regexReplace ["\W",""]) select [0,15];}) joinString "|";
 // 17 MODS1
 _vehicle setUserMFDText [17, _mods select [0,62]];
 // 18 MODS2
