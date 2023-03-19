@@ -1,8 +1,11 @@
 class cfgWeapons {
+  	class MissileLauncher;
     class ace_hellfire_launcher;
     class ace_hellfire_launcher_L;
     class ace_hellfire_launcher_N;
-    class weapon_HARMLauncher;
+    class weapon_HARMLauncher : MissileLauncher {
+      class LoalDistance: MissileLauncher {};
+    };
     class vtx_hellfire_launcher: ace_hellfire_launcher {
       ace_laser_showHud = 0;
       magazines[] = {"VTX_4Rnd_ACE_Hellfire_AGM114K"};
@@ -106,13 +109,16 @@ class cfgWeapons {
     class Medium_AI: Medium_AI {displayName = "APKWS";};
   };
   class weapon_HARMLauncher_HL : weapon_HARMLauncher {
-    displayName = "Hobby Lobby 88";
-    displayNameShort = "Hobby Lobby 88";
+    displayName = "AGM-88HL";
+    displayNameShort = "AGM-88HL";
     magazines[] = {"PylonMissile_Missile_HARM_x1_HL"};
     class Eventhandlers {
       class vtx_harm {
         fired = "_this call vtx_uh60_weapons_fnc_fired";
       };
+    };
+    class LoalDistance : LoalDistance {
+      displayName = "AGM-88HL";
     };
   };
 };

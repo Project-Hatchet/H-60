@@ -128,13 +128,10 @@ class cfgMagazines {
     count = 1;
     mass = 10;
     author = "Yax (at him on discord)";
-    displayName = "1x Hobby Lobby 88 [H60]";
-    displayNameShort = "1x HL 88";
+    displayName = "1x AGM-88 Hobby Lobby [H60]";
+    displayNameShort = "AGM-88HL";
     model = QPATHTOF(hl_88.p3d);
     pylonWeapon = "weapon_HARMLauncher_HL";
     descriptionShort="Held together with duct tape and powered by a hobby lobby motor.  Explodes into confette";
-  };
-  class PylonRack_Missile_HARM_x1_test : PylonRack_Missile_HARM_x1 {
-    hardpoints[] = {"VTX_ST_L","VTX_ST_R","VTX_ST_OUTBOARD"};
   };
 };
