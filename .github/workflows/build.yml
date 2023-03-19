@@ -33,7 +33,7 @@ jobs:
       - name: Set up A3Tools
         uses: arma-actions/arma3-tools@master
         with:
-          toolsUrl: ${{ secrets.ARMA3_TOOLS_URL }}
+          toolsUrl: ${{ secrets.A3TOOLS_S3_URL }}
       - name: Set up scons
         run: python -m pip install scons
       - name: Build with Scons
