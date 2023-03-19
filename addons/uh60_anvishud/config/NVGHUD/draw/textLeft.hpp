@@ -1,11 +1,11 @@
 TEXT_LEFT_SCALED(GS,0.105,0.025,"G",0.05)
 class speed_imp {
-	condition = hud_is_imperial;
-	TEXT_RIGHT_SCALED_SOURCE(GS_VAL,0.09,0.025,0.05,"speed",0,KMH_TO_KTS,0)
+  condition = hud_is_imperial;
+  TEXT_RIGHT_SCALED_SOURCE(GS_VAL,0.09,0.025,0.05,"speed",0,KMH_TO_KTS,0)
 };
 class speed_met {
-	condition = hud_is_metric;
-	TEXT_RIGHT_SCALED_SOURCE(GS_VAL,0.09,0.025,0.05,"speed",0,KMH_TO_KMH,0)
+  condition = hud_is_metric;
+  TEXT_RIGHT_SCALED_SOURCE(GS_VAL,0.09,0.025,0.05,"speed",0,KMH_TO_KMH,0)
 };
 
 TEXT_LEFT_SCALED(T1,0.105,0.8+0.00,"T1",0.05)

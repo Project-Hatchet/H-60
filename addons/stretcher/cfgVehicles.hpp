@@ -89,8 +89,8 @@ class CfgVehicles {
     allowTabLock = 0;
     autocenter = 1;
     preciseGetInOut = 1;
-  	memoryPointsGetInCargo = "pos_cargo";
-  	memoryPointsGetInCargoDir = "pos_cargo_dir";
+    memoryPointsGetInCargo = "pos_cargo";
+    memoryPointsGetInCargoDir = "pos_cargo_dir";
     slingLoadCargoMemoryPoints[] = {"SlingLoadCargo1","SlingLoadCargo2","SlingLoadCargo3","SlingLoadCargo4"};
     transportSoldier = 1;
     typicalCargo[] = {};
@@ -101,11 +101,11 @@ class CfgVehicles {
     class TextureSources {};
     class Turrets {};
     class VehicleTransport {
-    	class Cargo {
-    		parachuteClass = "";	// Type of parachute used when dropped in air. When empty then parachute is not used.
-    		canBeTransported = 1;				// 0 (false) / 1 (true)
-    		dimensions[] = { "BBox_1_1_pos", "BBox_1_2_pos" }; // Memory-point-based override of automatic bounding box
-    	};
+      class Cargo {
+        parachuteClass = "";  // Type of parachute used when dropped in air. When empty then parachute is not used.
+        canBeTransported = 1;        // 0 (false) / 1 (true)
+        dimensions[] = { "BBox_1_1_pos", "BBox_1_2_pos" }; // Memory-point-based override of automatic bounding box
+      };
     };
   };
   class GVAR(2): GVAR(1) {

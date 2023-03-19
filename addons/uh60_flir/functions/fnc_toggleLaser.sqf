@@ -23,10 +23,10 @@ private _turretPath = [-1];
 private _magazine = "Laserbatteries";
 
 {
-	_x params ["_xMagazine", "_xTurret", "_xAmmo", "_id", "_owner"];
-	if (_xTurret isEqualTo _turretPath && {_xMagazine == _magazine}) exitWith {
-		_vehicle action ["UseMagazine", _vehicle, _pilot, _owner, _id];
-	};
+  _x params ["_xMagazine", "_xTurret", "_xAmmo", "_id", "_owner"];
+  if (_xTurret isEqualTo _turretPath && {_xMagazine == _magazine}) exitWith {
+    _vehicle action ["UseMagazine", _vehicle, _pilot, _owner, _id];
+  };
 } count magazinesAllTurrets _vehicle;
 
 true

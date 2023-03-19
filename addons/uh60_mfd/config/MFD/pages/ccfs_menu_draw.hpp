@@ -1,17 +1,17 @@
 alpha = BACKGROUND_ALPHA;
 class backgroundWrapper {
-	class polygon {
-		type        = "polygon";
-		texture = "z\vtx\addons\uh60_mfd\data\CCFS.paa";
-		points[] ={
-			{
-				{{0, 0},1},
-				{{1, 0},1},
-				{{1, 1},1},
-				{{0, 1},1}
-			}
-		};
-	};
+  class polygon {
+    type        = "polygon";
+    texture = "z\vtx\addons\uh60_mfd\data\CCFS.paa";
+    points[] ={
+      {
+        {{0, 0},1},
+        {{1, 0},1},
+        {{1, 1},1},
+        {{0, 1},1}
+      }
+    };
+  };
 }; // backgroundWrapper
 
 TEXT_MID_SCALED(CCFS_TITLE1,0.45,0.10,"After years of asking for an updated model with UES exhausts",0.045)
@@ -31,24 +31,24 @@ TEXT_MID_SCALED(HOST,0.06,0.32,"Host game",0.05)
 TEXT_MID_SCALED(JOIN,0.06,0.86+JOIN_BOX_OFFSET,"Join game",0.05)
 
 class upArrow {
-	type        = "polygon";
-	points[] ={
-		{
-			{{0.01, 0.62+0.02+JOIN_BOX_OFFSET},1},
-			{{0.03, 0.62-0.02+JOIN_BOX_OFFSET},1},
-			{{0.05, 0.62+0.02+JOIN_BOX_OFFSET},1}
-		}
-	};
+  type        = "polygon";
+  points[] ={
+    {
+      {{0.01, 0.62+0.02+JOIN_BOX_OFFSET},1},
+      {{0.03, 0.62-0.02+JOIN_BOX_OFFSET},1},
+      {{0.05, 0.62+0.02+JOIN_BOX_OFFSET},1}
+    }
+  };
 };
 class downArrow {
-	type        = "polygon";
-	points[] ={
-		{
-			{{0.01, 0.76-0.02+JOIN_BOX_OFFSET},1},
-			{{0.03, 0.76+0.02+JOIN_BOX_OFFSET},1},
-			{{0.05, 0.76-0.02+JOIN_BOX_OFFSET},1}
-		}
-	};
+  type        = "polygon";
+  points[] ={
+    {
+      {{0.01, 0.76-0.02+JOIN_BOX_OFFSET},1},
+      {{0.03, 0.76+0.02+JOIN_BOX_OFFSET},1},
+      {{0.05, 0.76-0.02+JOIN_BOX_OFFSET},1}
+    }
+  };
 };
 
 TEXT_LEFT_SCALED(ROOMLBL,0.01,0.66+JOIN_BOX_OFFSET,"",0.05)

@@ -130,7 +130,7 @@ class HEADINGTAPE_DCLT {
                 {"WP_DIR_BONE",1,"WP_DIR_LIMITS",1,{-0.010, 0.015},1},
                 {"WP_DIR_BONE",1,"WP_DIR_LIMITS",1,{ 0.000, 0.000},1},
                 {"WP_DIR_BONE",1,"WP_DIR_LIMITS",1,{ 0.010, 0.015},1}
-            };					
-        };				
+            };          
+        };        
     };
 };

@@ -25,12 +25,12 @@ private _fixString = {
     _str = _str + _typeText + " ";
     _str = _str + ([_sender, 6] call _fixString) + " ";
     _str = _str + ([_recipient, 6] call _fixString) + " ";
-	private _lastReply = _replies # ((count _replies) - 1);
+  private _lastReply = _replies # ((count _replies) - 1);
     _str = _str + ([_lastReply # 2, 4] call _fixString) + " ";
     if (count _replies > 0) then {
         _str = _str + ((_replies # 0) # 0);
-	};
-	if(vtx_uh60_ui_showDebugMessages) then {systemChat _str;};
-	_ctrl lbAdd _str;
+  };
+  if(vtx_uh60_ui_showDebugMessages) then {systemChat _str;};
+  _ctrl lbAdd _str;
 } forEach VTX_JVMF_MESSAGES;
 

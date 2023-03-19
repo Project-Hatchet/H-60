@@ -12,8 +12,8 @@ private _group = group player;
 private _hasWaypoint = false;
 private _waypoints = waypoints _group;
 {
-	if (waypointName _x == _name) exitWith {
-		_hasWaypoint = true;
-	};
+  if (waypointName _x == _name) exitWith {
+    _hasWaypoint = true;
+  };
 } forEach _waypoints;
 _hasWaypoint

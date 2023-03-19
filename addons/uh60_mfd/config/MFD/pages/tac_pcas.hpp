@@ -103,30 +103,30 @@ class PCAS_HAS_TARGET {
         };
     }; // PCAS_HAS_FAH
     color[] = {0.7,0,0,1};
-	class TargetDiamond {
-		type        = "polygon";
-		points[] ={
-			{
-				{"TAC_PCAS_TGT_DIST", 1, "TAC_PCAS_TGT_Dir", 1, {0, PCAS_TARGET_SYMBOL_SIZE},1},
-				{"TAC_PCAS_TGT_DIST", 1, "TAC_PCAS_TGT_Dir", 1, {PCAS_TARGET_SYMBOL_SIZE, 0},1},
-				{"TAC_PCAS_TGT_DIST", 1, "TAC_PCAS_TGT_Dir", 1, {0, -PCAS_TARGET_SYMBOL_SIZE},1},
-				{"TAC_PCAS_TGT_DIST", 1, "TAC_PCAS_TGT_Dir", 1, {-PCAS_TARGET_SYMBOL_SIZE, 0},1}
-			}
-		}; // points
-	}; // TargetDiamond
+  class TargetDiamond {
+    type        = "polygon";
+    points[] ={
+      {
+        {"TAC_PCAS_TGT_DIST", 1, "TAC_PCAS_TGT_Dir", 1, {0, PCAS_TARGET_SYMBOL_SIZE},1},
+        {"TAC_PCAS_TGT_DIST", 1, "TAC_PCAS_TGT_Dir", 1, {PCAS_TARGET_SYMBOL_SIZE, 0},1},
+        {"TAC_PCAS_TGT_DIST", 1, "TAC_PCAS_TGT_Dir", 1, {0, -PCAS_TARGET_SYMBOL_SIZE},1},
+        {"TAC_PCAS_TGT_DIST", 1, "TAC_PCAS_TGT_Dir", 1, {-PCAS_TARGET_SYMBOL_SIZE, 0},1}
+      }
+    }; // points
+  }; // TargetDiamond
 }; // PCAS_HAS_TARGET
 
 class PCAS_HAS_BPIP {
     condition = ((user37 > -1) * (user38 > -1));
     color[] = {0,0,0.7,1};
-	class BPIPTRIANGLE {
-		type        = "polygon";
-		points[] ={
-			{
-				{"TAC_PCAS_IPBP_DIST", 1, "TAC_PCAS_IPBP_Dir", 1, {-PCAS_TARGET_SYMBOL_SIZE, 0.01},1},
-				{"TAC_PCAS_IPBP_DIST", 1, "TAC_PCAS_IPBP_Dir", 1, {0, -PCAS_TARGET_SYMBOL_SIZE},1},
-				{"TAC_PCAS_IPBP_DIST", 1, "TAC_PCAS_IPBP_Dir", 1, {PCAS_TARGET_SYMBOL_SIZE, 0.01},1}
-			}
-		}; // points
-	}; // BPIPTRIANGLE
+  class BPIPTRIANGLE {
+    type        = "polygon";
+    points[] ={
+      {
+        {"TAC_PCAS_IPBP_DIST", 1, "TAC_PCAS_IPBP_Dir", 1, {-PCAS_TARGET_SYMBOL_SIZE, 0.01},1},
+        {"TAC_PCAS_IPBP_DIST", 1, "TAC_PCAS_IPBP_Dir", 1, {0, -PCAS_TARGET_SYMBOL_SIZE},1},
+        {"TAC_PCAS_IPBP_DIST", 1, "TAC_PCAS_IPBP_Dir", 1, {PCAS_TARGET_SYMBOL_SIZE, 0.01},1}
+      }
+    }; // points
+  }; // BPIPTRIANGLE
 }; // PCAS_HAS_BP

@@ -24,12 +24,12 @@ class VTX_ESIS_Horizon
         class clip1{
             clipTL[] = {0.25, 0.02};
             clipBR[] = {0.75, 0.55};
-    		LEVEL_BACKGROUND(pitch_att_blue,pitch_esis_grey,0.5)
+        LEVEL_BACKGROUND(pitch_att_blue,pitch_esis_grey,0.5)
         };//clip1
         class clip2 {
             clipTL[] = {0.25, 0.15};
             clipBR[] = {0.75, 0.47};
-    		LEVEL0(0.23)
+        LEVEL0(0.23)
             LEVEL_SET(5,10,0.02,0.05,0.08)
             LEVEL_SET(15,20,0.02,0.05,0.08)
             LEVEL_SET(25,30,0.02,0.05,0.08)

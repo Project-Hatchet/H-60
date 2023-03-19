@@ -16,15 +16,15 @@ bottomLeft = ""; // not used because HMD, but still needed
 font="RobotoCondensedLight";
 /*
 class material {
-	ambient[] = {1, 1, 1, 1};
-	diffuse[] = {0.5, 0.5, 0.5, 1};
-	emissive[] = {100, 100, 100, 50};
+  ambient[] = {1, 1, 1, 1};
+  diffuse[] = {0.5, 0.5, 0.5, 1};
+  emissive[] = {100, 100, 100, 50};
 };
 */
 class Bones {
-	#include "bones\base.hpp"
+  #include "bones\base.hpp"
 }; // Bones
 class Draw {
-	condition="(user15>4)";
-	#include "draw\base.hpp"
+  condition="(user15>4)";
+  #include "draw\base.hpp"
 }; // Draw

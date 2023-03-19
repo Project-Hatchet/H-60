@@ -27,15 +27,15 @@ switch (_mode) do {
         _vehicle setUserMFDValue [41, GET_IAS];
     };
     case "HDG": {
-		private _heading = GET_HDG;
-		if (_heading < 0) then {
-			SET_HDG(360);
-		};
-		if (_heading > 360) then {
-			SET_HDG(0);
-		};
+    private _heading = GET_HDG;
+    if (_heading < 0) then {
+      SET_HDG(360);
+    };
+    if (_heading > 360) then {
+      SET_HDG(0);
+    };
         _vehicle setUserMFDValue [42, GET_HDG];
-		(_this # 0) setUserMFDValue [42, GET_HDG];
+    (_this # 0) setUserMFDValue [42, GET_HDG];
     };
 };
 

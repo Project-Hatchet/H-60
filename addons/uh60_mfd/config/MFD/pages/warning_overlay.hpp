@@ -1,18 +1,18 @@
 /*
 class warning_enabled {
-	condition = COND_ISNUMBER(WARN_INDEX,1);
+  condition = COND_ISNUMBER(WARN_INDEX,1);
     class background {
         color[] = {1,0,0,1};
         class background_polygon {
-    		type        = "polygon";
-    		points[] ={
-    			{
+        type        = "polygon";
+        points[] ={
+          {
                     {{0.25, 0.29},1},
-    				{{0.75, 0.29},1},
-    				{{0.75, 0.4},1},
-    				{{0.25, 0.4},1}
-    			}
-    		}; // points
+            {{0.75, 0.29},1},
+            {{0.75, 0.4},1},
+            {{0.25, 0.4},1}
+          }
+        }; // points
         }; // background_polygon
     }; // background
     class text {

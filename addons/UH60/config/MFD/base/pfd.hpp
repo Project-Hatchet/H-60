@@ -7,9 +7,9 @@ enableParallax=0;
 font="RobotoCondensedLight";
 class material
 {
-	ambient[] = {1, 1, 1, 1};
-	diffuse[] = {0.5, 0.5, 0.5, 1};
-	emissive[] = {100, 100, 100, 1};
+  ambient[] = {1, 1, 1, 1};
+  diffuse[] = {0.5, 0.5, 0.5, 1};
+  emissive[] = {100, 100, 100, 1};
 };
 class Bones
 {

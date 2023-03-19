@@ -18,10 +18,10 @@ params ["_vehicle", ["_turretPath", [0]]];
 weaponState [_vehicle, _turretPath] params ["_weapon", "", "", "_magazine", "_ammo"];
 
 {
-	_x params ["_xMagazine", "_xTurret", "_xAmmo", "_id", "_owner"];
-	if (_xTurret isEqualTo _turretPath && {_xMagazine == _magazine}) exitWith {
-		_vehicle action ["UseMagazine", _vehicle, player, _owner, _id];
-	};
+  _x params ["_xMagazine", "_xTurret", "_xAmmo", "_id", "_owner"];
+  if (_xTurret isEqualTo _turretPath && {_xMagazine == _magazine}) exitWith {
+    _vehicle action ["UseMagazine", _vehicle, player, _owner, _id];
+  };
 } count magazinesAllTurrets _vehicle;
 
 true

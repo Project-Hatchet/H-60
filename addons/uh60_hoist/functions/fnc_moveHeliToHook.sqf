@@ -21,11 +21,11 @@ _hoist_vars params ["_rope", "_dummy", "_hook"];
 
 moveOut _unit;
 [{
-	params ["_unit"];
-	vehicle _unit == _unit
+  params ["_unit"];
+  vehicle _unit == _unit
 }, {
-	params ["_unit", "_hook"];
-	_unit moveInCargo _hook;
+  params ["_unit", "_hook"];
+  _unit moveInCargo _hook;
     [_unit, _hook] spawn vtx_uh60_hoist_fnc_attachHook;
 }, [_unit, _hook]] call CBA_fnc_waitUntilAndExecute;
 

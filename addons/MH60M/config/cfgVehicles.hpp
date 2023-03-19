@@ -333,9 +333,9 @@ class CfgVehicles {
 }; // CfgVehicles
 
 class cfgNonAIVehicles{
-	class ProxyRetex;
-	class LASS: ProxyRetex{
-		hiddenSelections[] ={"LASS"};
-		model = "z\vtx\addons\UH60\LASS.p3d";
-	};
+  class ProxyRetex;
+  class LASS: ProxyRetex{
+    hiddenSelections[] ={"LASS"};
+    model = "z\vtx\addons\UH60\LASS.p3d";
+  };
 };

@@ -24,9 +24,9 @@ private _found = false;
   if (_found) exitWith {
     _vehicle selectWeaponTurret [_x, _turret];
   };
-	if (_weapon == _x) then {
+  if (_weapon == _x) then {
     _found = true;
-	};
+  };
 } count _weapons;
 
 true

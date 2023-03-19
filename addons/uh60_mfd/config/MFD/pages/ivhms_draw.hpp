@@ -1,17 +1,17 @@
 alpha = BACKGROUND_ALPHA;
 class backgroundWrapper {
   color[] = common_black;
-	class polygon {
-		type        = "polygon";
-		points[] ={
-			{
-				{{0, 0},1},
-				{{1, 0},1},
-				{{1, 1},1},
-				{{0, 1},1}
-			}
-		};
-	};
+  class polygon {
+    type        = "polygon";
+    points[] ={
+      {
+        {{0, 0},1},
+        {{1, 0},1},
+        {{1, 1},1},
+        {{0, 1},1}
+      }
+    };
+  };
 }; // backgroundWrapper
 
 class HEADER_BARS_TOP {

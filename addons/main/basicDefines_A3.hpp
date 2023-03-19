@@ -38,9 +38,9 @@
 
 #define SPEED_STATIC 1e10
 
-#define LockNo		0
-#define LockCadet	1
-#define LockYes		2
+#define LockNo    0
+#define LockCadet  1
+#define LockYes    2
 
 enum {StabilizedInAxesNone,StabilizedInAxisX,StabilizedInAxisY,StabilizedInAxesBoth,StabilizedInAxesXYZ};
 
@@ -85,8 +85,8 @@ enum {StabilizedInAxesNone,StabilizedInAxisX,StabilizedInAxisY,StabilizedInAxesB
 #define BACKPACK_SLOT    901
 
 #define LOAD(weight,capacity) maximumLoad = ##capacity##; \
-							    mass = ##weight##;
-							    
+                  mass = ##weight##;
+                  
 #define HeadArmourCoef 2.5
 #define BodyArmourCoef 10
 #define HandArmourCoef 5

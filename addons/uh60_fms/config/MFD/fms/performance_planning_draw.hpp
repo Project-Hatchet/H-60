@@ -1,6 +1,6 @@
 TEXT_FMS_C(HEADER_TEXT,0.5,FMS_YHEAD)
-	source = "static";
-	text = "PERFORMANCE CALC";
+  source = "static";
+  text = "PERFORMANCE CALC";
 }; // HEADER_TEXT
 
 

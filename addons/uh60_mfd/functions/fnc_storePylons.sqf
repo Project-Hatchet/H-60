@@ -14,9 +14,9 @@ private _pylonArray = [];
 {
   _x params ["_index", "", "", "_mag", "_value"];
 
-	if (_mag == "vtx_1000rnd_dummy") then {
-		_pylonArray pushBack [_index, _value];
-	};
+  if (_mag == "vtx_1000rnd_dummy") then {
+    _pylonArray pushBack [_index, _value];
+  };
 } forEach getAllPylonsInfo _vehicle;
 
 _vehicle setVariable [QGVAR(pylonConfig), _pylonArray];

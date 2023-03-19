@@ -25,7 +25,7 @@ class LeftWindow: CargoTurret { //Left Doorgun
     limitsArrayTop[] = {{40, 55}, {45, 0}, {40, -95}};
     limitsArrayBottom[] = {{-20, 35}, {-25, 0}, {-20, -20}, {0, -30}};
   };
-	class TurnOut: TurnIn {
+  class TurnOut: TurnIn {
     limitsArrayTop[] = {{60, 90}, {60, -95}};
     limitsArrayBottom[] = {{-30, 90}, {-80, 20}, {-80, -30}, {0, -95}};
   };
@@ -44,7 +44,7 @@ class RightWindow: LeftWindow {
     limitsArrayTop[] = {{40, 65}, {45, 0}, {40, -95}};
     limitsArrayBottom[] = {{-1, 45}, {-20, 25}, {-25, 0}, {-20, -20}, {0, -30}};
   };
-	class TurnOut: TurnIn {
+  class TurnOut: TurnIn {
     limitsArrayTop[] = {{20, 125}, {80, 90}, {45, 0}, {40, -95}};
     limitsArrayBottom[] = {{-1, 125}, {-35, 90}, {-55, 70}, {-80, 20}, {-80, -40}, {-40, -65}, {0, -75}};
   };

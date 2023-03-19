@@ -101,13 +101,13 @@ switch (_action) do {
         private _wayPoint = [group player, currentWaypoint group player];
         private _position = waypointPosition _wayPoint;
         _vehicle setPilotCameraTarget (AGLtoASL (_position));
-		[true, (AGLtoASL _position)] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", crew _vehicle];
+    [true, (AGLtoASL _position)] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", crew _vehicle];
     };
     case "slew_flir": { 
         if (isNil "fms_locations_selected") exitWith {};
         private _location = fms_locations_selected;
         _vehicle setPilotCameraTarget (AGLtoASL (locationPosition _location));
-		[true, (AGLtoASL (locationPosition _location))] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", crew _vehicle];
+    [true, (AGLtoASL (locationPosition _location))] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", crew _vehicle];
     };
 };
 

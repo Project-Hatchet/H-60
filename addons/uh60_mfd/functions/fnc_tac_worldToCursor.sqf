@@ -17,8 +17,8 @@ private _mapScale = _worldSize / _zoomLevel;
 private _vect = _center vectorDiff _position;
 private _cursorToMapRotated = [_vect, _rotation] call BIS_fnc_rotateVector2D;
 private _cursorPos = [
-	((_cursorToMapRotated # 0) * 1) / _mapScale,
-	-((_cursorToMapRotated # 1) * 4/3) / _mapScale
+  ((_cursorToMapRotated # 0) * 1) / _mapScale,
+  -((_cursorToMapRotated # 1) * 4/3) / _mapScale
 ];
 _cursorPos = _cursorPos vectorAdd [0.5, 0.5];
 _cursorPos

@@ -10,8 +10,8 @@ private _message = VTX_JVMF_MESSAGES # _curSel;
 _message params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
 closeDialog 2;
 switch (_type) do {
-	case 0: {createDialog "vtx_uh60_jvmf_writeDialog";};
-	case 2: {createDialog "vtx_uh60_jvmf_positionDialog";};
+  case 0: {createDialog "vtx_uh60_jvmf_writeDialog";};
+  case 2: {createDialog "vtx_uh60_jvmf_positionDialog";};
 };
 // sleep 0.1;
 private _newDisplay = uiNamespace getVariable "vtx_uh60_jvmf_display";
@@ -23,7 +23,7 @@ for "_i" from 0 to 9 do {
 
 if (count _replies > 0) then {
     private _lastReply = _replies # ((count _replies) - 1);
-	private _status = format["%1 %2 %3", _lastReply # 0, _lastReply # 1, _lastReply # 2];
+  private _status = format["%1 %2 %3", _lastReply # 0, _lastReply # 1, _lastReply # 2];
     (_newDisplay displayCtrl (1101)) ctrlSetText _status;
 };
 

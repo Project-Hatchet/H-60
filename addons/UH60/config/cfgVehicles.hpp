@@ -58,8 +58,8 @@ class CfgVehicles
         class vtx_templateFLIR {
             #include "turrets\pilotCamera.hpp"
         };
-		driverDoor = "Door_RF";
-		cargoDoors[] = {"cabindoor_L", "cabindoor_R"};
+    driverDoor = "Door_RF";
+    cargoDoors[] = {"cabindoor_L", "cabindoor_R"};
         scope=1;
         category = "Air";
         editorSubcategory = "vtx_h60";
@@ -68,11 +68,11 @@ class CfgVehicles
         armor = 600;
         // damageResistance = 0.000555;
         epeImpulseDamageCoef = 0;
-        altFullForce = 1500;	/// in what height do the engines still have full thrust
-        altNoForce = 4000;		/// thrust of the engines interpolates to zero between altFullForce and altNoForce
-        maxSpeed = 300;			/// what is the maximum speed of the vehicle
-        maxFordingDepth = 2.0;	/// how deep could the vehicle be in water without getting some damage
-        mainBladeRadius = 8.0;	/// describes the radius of main rotor - used for collision detection
+        altFullForce = 1500;  /// in what height do the engines still have full thrust
+        altNoForce = 4000;    /// thrust of the engines interpolates to zero between altFullForce and altNoForce
+        maxSpeed = 300;      /// what is the maximum speed of the vehicle
+        maxFordingDepth = 2.0;  /// how deep could the vehicle be in water without getting some damage
+        mainBladeRadius = 8.0;  /// describes the radius of main rotor - used for collision detection
         mainBladeCenter = "predni osa naklonu";
         tailBladeCenter = "light_collision_tail_upper";
         fuelConsumptionRate = 0;
@@ -134,11 +134,11 @@ class CfgVehicles
             "right_num_2",
             "Fuel_Probe",
             "Mlass",
-			"emmisive_goarnd",
-			"emmisive_hvr",
-			"emmisive_fms",
-			"emmisive_cpld",
-			"emmisive_vs"
+      "emmisive_goarnd",
+      "emmisive_hvr",
+      "emmisive_fms",
+      "emmisive_cpld",
+      "emmisive_vs"
         };
         hiddenSelectionsTextures[] = {
             "",
@@ -197,8 +197,8 @@ class CfgVehicles
 
 
 
-        icon = "z\vtx\addons\UH60\Data\UI\Map_vtx_UH60_CA.paa";	/// icon in map/editor
-        picture = "z\vtx\addons\UH60\Data\UI\vtx_UH60_CA.paa";	/// small picture in command menu
+        icon = "z\vtx\addons\UH60\Data\UI\Map_vtx_UH60_CA.paa";  /// icon in map/editor
+        picture = "z\vtx\addons\UH60\Data\UI\vtx_UH60_CA.paa";  /// small picture in command menu
 
         hideProxyInCombat = 1;
         viewDriverInExternal = 1;
@@ -206,9 +206,9 @@ class CfgVehicles
         driverInAction = UH60_Pilot;
         driverAction = UH60_Pilot;
         driverRightHandAnimName="Cyclic_right";
-    	driverLeftHandAnimName="Collective_right";
-    	driverLeftLegAnimName="Pedal_Left_P";
-    	driverRightLegAnimName="Pedal_Right_P";
+      driverLeftHandAnimName="Collective_right";
+      driverLeftLegAnimName="Pedal_Left_P";
+      driverRightLegAnimName="Pedal_Right_P";
         precisegetinout = 0;
         transportSoldier = 11;
 
@@ -217,15 +217,15 @@ class CfgVehicles
         gunnerAction = UH60_Gunner;
         gunnerInAction = UH60_Gunner;
         transportMaxBackpacks = 11;
-		cargoAction[] = {"passenger_low01", "passenger_generic01_leanleft", "passenger_generic01_leanleft", "passenger_generic01_leanright", "passenger_generic01_foldhands", "passenger_mantisrear", "passenger_mantisrear", "passenger_generic01_foldhands"};
+    cargoAction[] = {"passenger_low01", "passenger_generic01_leanleft", "passenger_generic01_leanleft", "passenger_generic01_leanright", "passenger_generic01_foldhands", "passenger_mantisrear", "passenger_mantisrear", "passenger_generic01_foldhands"};
 
         cargoIsCoDriver[]={0,0};
         memoryPointsGetInDriver    = "pos Driver";
         memoryPointsGetInDriverDir    = "pos Driver dir";
 
-		memoryPointsGetInGunner[] = {"pos Cargo L","pos Cargo R"};
-		memoryPointsGetInGunnerDir[] = {"pos Cargo L dir","pos Cargo R dir"};
-		memoryPointsGetInCargo[] = {
+    memoryPointsGetInGunner[] = {"pos Cargo L","pos Cargo R"};
+    memoryPointsGetInGunnerDir[] = {"pos Cargo L dir","pos Cargo R dir"};
+    memoryPointsGetInCargo[] = {
       "pos Cargo L5",
       "pos Cargo L5",
       "pos Cargo R5",
@@ -238,7 +238,7 @@ class CfgVehicles
       "pos Cargo R",
       "pos Cargo R"
     };
-		memoryPointsGetInCargoDir[] = {
+    memoryPointsGetInCargoDir[] = {
       "pos Cargo L5 dir",
       "pos Cargo L5 dir",
       "pos Cargo R5 dir",
@@ -255,12 +255,12 @@ class CfgVehicles
         cargoCanEject = 1;
         driverCanEject = 0;
         selectionFireAnim = "";
-        selectionHRotorStill	="rotorBlades";
-		selectionHRotorMove		="rotorBlurred";
-        selectionVRotorStill	="VrotorBlades";
-		selectionVRotorMove		="VrotorBlurred";
+        selectionHRotorStill  ="rotorBlades";
+    selectionHRotorMove    ="rotorBlurred";
+        selectionVRotorStill  ="VrotorBlades";
+    selectionVRotorMove    ="VrotorBlurred";
         mainRotorSpeed = 1.0;
-	    backRotorSpeed = 1.5;
+      backRotorSpeed = 1.5;
 
         class MarkerLights{
             class CollisionRedTailLower{
@@ -299,39 +299,39 @@ class CfgVehicles
             #include "turrets\ViewPilot.hpp"
         };
 
-		LODDriverOpticsIn = 1100;
+    LODDriverOpticsIn = 1100;
 
-    	class TransportBackpacks
-    	{
-    		class _xx_B_Parachute
-    		{
-    			backpack = "B_AssaultPack_rgr"; // For repairs
-    			count = 2;
-    		};
-    	};
-    	class TransportItems
-    	{
-    		class _xx_FirstAidKit
-    		{
-    			name = "FirstAidKit";
-    			count = 8;
-    		};
-    		class _xx_Toolkit
-    		{
-    			name = "Toolkit";
-    			count = 1;
-    		};
-    		class _xx_Medikit
-    		{
-    			name = "Medikit";
-    			count = 1;
-    		};
-    		class _xx_ItemGPS
-    		{
-    			name = "ACE_microDAGR"; // For wayopints
-    			count = 2;
-    		};
-    	};
+      class TransportBackpacks
+      {
+        class _xx_B_Parachute
+        {
+          backpack = "B_AssaultPack_rgr"; // For repairs
+          count = 2;
+        };
+      };
+      class TransportItems
+      {
+        class _xx_FirstAidKit
+        {
+          name = "FirstAidKit";
+          count = 8;
+        };
+        class _xx_Toolkit
+        {
+          name = "Toolkit";
+          count = 1;
+        };
+        class _xx_Medikit
+        {
+          name = "Medikit";
+          count = 1;
+        };
+        class _xx_ItemGPS
+        {
+          name = "ACE_microDAGR"; // For wayopints
+          count = 2;
+        };
+      };
         class TransportMagazines
         {
             mag_xx(SmokeShellGreen,2);
@@ -396,55 +396,55 @@ class CfgVehicles
             };
         };
         #include "cfgAnimationSources.hpp"
-        gearRetracting		= 0;
-        gearMinAlt			= 999999;
+        gearRetracting    = 0;
+        gearMinAlt      = 999999;
 
-        turnCoef			= 4; // Rolling Friction, higher stops more quickly
-        terrainCoef 		= 1;
-        damperSize 			= 1;
-        damperForce 		= 10;
-        damperDamping 		= 100;
-        wheelWeight 		= 30;
+        turnCoef      = 4; // Rolling Friction, higher stops more quickly
+        terrainCoef     = 1;
+        damperSize       = 1;
+        damperForce     = 10;
+        damperDamping     = 100;
+        wheelWeight     = 30;
 
         driveOnComponent[]=
         {
             wheels
         };
-        minOmega	= 0;
+        minOmega  = 0;
         maxOmega=2000;
         class Wheels
         {
             class Wheel_1
             {
-                steering					= false;
-                side						= "left";
-                boneName					= "wheel_1_1";
-                suspForceAppPointOffset		= "wheel_1_1_center";
-                tireForceAppPointOffset		= "wheel_1_1_center";
-                center						= "wheel_1_1_center";
-                boundary					= "wheel_1_1_rim";
-                width						= 0.3;
-                mass						= 15;
-                MOI							= 30;
+                steering          = false;
+                side            = "left";
+                boneName          = "wheel_1_1";
+                suspForceAppPointOffset    = "wheel_1_1_center";
+                tireForceAppPointOffset    = "wheel_1_1_center";
+                center            = "wheel_1_1_center";
+                boundary          = "wheel_1_1_rim";
+                width            = 0.3;
+                mass            = 15;
+                MOI              = 30;
 
-                dampingRate					= 0.1;
-                dampingRateDamaged			= 1.0;
-                dampingRateDestroyed		= 1000.0;
-                suspTravelDirection[]		= {0, -1, 0};
+                dampingRate          = 0.1;
+                dampingRateDamaged      = 1.0;
+                dampingRateDestroyed    = 1000.0;
+                suspTravelDirection[]    = {0, -1, 0};
 
-                maxBrakeTorque				= 8000;
-                maxHandBrakeTorque			= 8000;
+                maxBrakeTorque        = 8000;
+                maxHandBrakeTorque      = 8000;
 
-                maxCompression				= 0.3;
-                maxDroop					= 0.1337;
+                maxCompression        = 0.3;
+                maxDroop          = 0.1337;
 
-                sprungMass					= 3000;
-                springStrength				= 200000;
-                springDamperRate			= 50000;
+                sprungMass          = 3000;
+                springStrength        = 200000;
+                springDamperRate      = 50000;
 
-                longitudinalStiffnessPerUnitGravity	= 10000;
-                latStiffX					= 2.5;
-                latStiffY					= 18.0;
+                longitudinalStiffnessPerUnitGravity  = 10000;
+                latStiffX          = 2.5;
+                latStiffY          = 18.0;
                 frictionVsSlipGraph[]=
                 {
                     {0,1},
@@ -454,31 +454,31 @@ class CfgVehicles
             };
             class Wheel_2: Wheel_1
             {
-                boneName					= "wheel_1_2";
-                suspForceAppPointOffset		= "wheel_1_2_center";
-                tireForceAppPointOffset		= "wheel_1_2_center";
-                center						= "wheel_1_2_center";
-                boundary					= "wheel_1_2_rim";
+                boneName          = "wheel_1_2";
+                suspForceAppPointOffset    = "wheel_1_2_center";
+                tireForceAppPointOffset    = "wheel_1_2_center";
+                center            = "wheel_1_2_center";
+                boundary          = "wheel_1_2_rim";
             };
             class Wheel_3: Wheel_2
             {
-                steering					= true;
-                side						= "right";
-                boneName					= "wheel_2_1";
-                suspForceAppPointOffset		= "wheel_2_1_center";
-                tireForceAppPointOffset		= "wheel_2_1_center";
-                center						= "wheel_2_1_center";
-                boundary					= "wheel_2_1_rim";
+                steering          = true;
+                side            = "right";
+                boneName          = "wheel_2_1";
+                suspForceAppPointOffset    = "wheel_2_1_center";
+                tireForceAppPointOffset    = "wheel_2_1_center";
+                center            = "wheel_2_1_center";
+                boundary          = "wheel_2_1_rim";
 
-                width						= 0.12;
-                maxCompression				= 0.2;
-                maxDroop					= 0.05;
-                maxBrakeTorque				= 8000;
-                suspTravelDirection[]		= {0, -1.0, 0.0};
+                width            = 0.12;
+                maxCompression        = 0.2;
+                maxDroop          = 0.05;
+                maxBrakeTorque        = 8000;
+                suspTravelDirection[]    = {0, -1.0, 0.0};
 
-                sprungMass					= 200;
-                springStrength				= 5000;
-                springDamperRate			= 1000;
+                sprungMass          = 200;
+                springStrength        = 5000;
+                springDamperRate      = 1000;
             };
         }; // Wheels
     }; // vtx_H60_base
@@ -589,9 +589,9 @@ class CfgVehicles
 };
 
 class cfgNonAIVehicles{
-	class ProxyRetex;
-	class Fuel_Probe: ProxyRetex{
-		hiddenSelections[] ={"Fuel_Probe"};
-		model = "\z\vtx\addons\UH60\Data\FuelProbe\Fuel_Probe.p3d";
-	};
+  class ProxyRetex;
+  class Fuel_Probe: ProxyRetex{
+    hiddenSelections[] ={"Fuel_Probe"};
+    model = "\z\vtx\addons\UH60\Data\FuelProbe\Fuel_Probe.p3d";
+  };
 };

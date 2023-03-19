@@ -25,10 +25,10 @@ _unit leaveVehicle _hook;
 moveOut _unit;
 
 [{
-	params ["_unit"];
-	vehicle _unit == _unit
+  params ["_unit"];
+  vehicle _unit == _unit
 }, {
-	params ["_unit", "_heli"];
+  params ["_unit", "_heli"];
     _unit assignAsCargo _heli;
     _unit moveInCargo _heli;
     /*

@@ -46,14 +46,14 @@ _vehicle setVariable ["vtx_uh60_flir_stowed", _vehicle getVariable ["vtx_uh60_fl
 private _OpticsIn = _pilotCameraConfig >> "OpticsIn";
 private _fovClasses = "true" configClasses _OpticsIn;
 vtx_uh60_flir_OpticsInfo = createHashMapFromArray (_fovClasses apply {
-	[
+  [
     getNumber (_x >> "initFov"),
-		[
+    [
       getArray (_x >> "visionMode"),
-  		getArray (_x >> "thermalMode"),
-  		getText (_x >> "opticsDisplayName")
+      getArray (_x >> "thermalMode"),
+      getText (_x >> "opticsDisplayName")
     ]
-	]
+  ]
 });
 vtx_uh60_flir_camFOVLevels = keys vtx_uh60_flir_OpticsInfo;
 vtx_uh60_flir_camFOVLevels sort false; // Descending
@@ -73,7 +73,7 @@ if (vtx_uh60_flir_playerIsPilot) then {
   if (productVersion # 2 >= 207) then {
     // https://community.bistudio.com/wiki/Arma_3:_Event_Handlers#VisionModeChanged
     _id = player addEventHandler ["VisionModeChanged", {
-    	params ["", "_visionMode", "_TIindex"];
+      params ["", "_visionMode", "_TIindex"];
       if (cameraView == "GUNNER") then {
         [vtx_uh60_flir_visionModesHashMap get [_visionMode, _TIindex]] call vtx_uh60_flir_fnc_setVisionMode;
       };

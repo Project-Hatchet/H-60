@@ -38,7 +38,9 @@ def arma3Path():
         return winreg.EnumValue(key,1)[1]
 
 def addonBuilderPath():
-    return os.path.join(a3toolsPath(), "AddonBuilder", "AddonBuilder.exe")
+    path = os.path.join(a3toolsPath(), "AddonBuilder", "AddonBuilder.exe")
+    print("Addon builder path: " + path)
+    return path
 
 class Object(object):
     pass

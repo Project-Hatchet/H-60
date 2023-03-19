@@ -1,17 +1,17 @@
 alpha = BACKGROUND_ALPHA;
 class backgroundWrapper {
-	class polygon {
-		type        = "polygon";
-		texture = "z\vtx\addons\uh60_mfd\data\JVMF.paa";
-		points[] ={
-			{
-				{{0, 0},1},
-				{{1, 0},1},
-				{{1, 1},1},
-				{{0, 1},1}
-			}
-		};
-	};
+  class polygon {
+    type        = "polygon";
+    texture = "z\vtx\addons\uh60_mfd\data\JVMF.paa";
+    points[] ={
+      {
+        {{0, 0},1},
+        {{1, 0},1},
+        {{1, 1},1},
+        {{0, 1},1}
+      }
+    };
+  };
 }; // backgroundWrapper
 
 #define JVMF_LINE_HEIGHT 0.06
@@ -54,30 +54,30 @@ class cantco_wrap {
     };
 
 class jvmf_type_0 {
-	condition=COND_ISNUMBER(JVMF_TYPE,0);
-	#include "jvmf\jvmf_freetext.hpp"
+  condition=COND_ISNUMBER(JVMF_TYPE,0);
+  #include "jvmf\jvmf_freetext.hpp"
 };
 
 class jvmf_type_1 {
-	condition=COND_ISNUMBER(JVMF_TYPE,1);
-	#include "jvmf\jvmf_1.hpp"
+  condition=COND_ISNUMBER(JVMF_TYPE,1);
+  #include "jvmf\jvmf_1.hpp"
 };
 
 class jvmf_type_2 {
-	// condition=COND_ISNUMBER(JVMF_TYPE,2);
-	condition="0";
-	#include "jvmf\jvmf_position.hpp"
+  // condition=COND_ISNUMBER(JVMF_TYPE,2);
+  condition="0";
+  #include "jvmf\jvmf_position.hpp"
 };
 
 class jvmf_position {
-	condition=COND_ISNUMBER(JVMF_TYPE,2);
-	#include "jvmf\jvmf_position.hpp"
+  condition=COND_ISNUMBER(JVMF_TYPE,2);
+  #include "jvmf\jvmf_position.hpp"
 };
 
 // class jvmf_text {
-// 	// condition=COND_ISNUMBER(JVMF_TYPE,0);
-// 	condition="0";
-// 	#include "jvmf\jvmf_shared.hpp"
+//   // condition=COND_ISNUMBER(JVMF_TYPE,0);
+//   condition="0";
+//   #include "jvmf\jvmf_shared.hpp"
 // };
 
 #define BOTTOM_TEXT_Y 0.96

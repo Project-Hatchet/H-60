@@ -7,7 +7,7 @@ params ["_vehicle"];
 [_vehicle, ["startup", "b_batt2"], "ON"] call vxf_interaction_fnc_scriptedInteract;  sleep 0.5;
 
 [_vehicle, ["startup", "fuelPump"], "APU BOOST"] call vxf_interaction_fnc_scriptedInteract;  sleep 0.5;
-[_vehicle, ["startup", "apucont"], "ON"] call vxf_interaction_fnc_scriptedInteract;		sleep 0.5;
+[_vehicle, ["startup", "apucont"], "ON"] call vxf_interaction_fnc_scriptedInteract;    sleep 0.5;
 sleep 12;
 
 [_vehicle, ["startup", "b_apugen"], "ON"] call vxf_interaction_fnc_scriptedInteract;  sleep 0.5;

@@ -25,8 +25,8 @@ class FLIR_LevelP45:FLIR_Level0{angle=45;};
 class FLIR_LevelM45:FLIR_Level0{angle=-45;};
 
 class FLIR_Center {
-	type="fixed";
-	pos[]={0.5,0.5};
+  type="fixed";
+  pos[]={0.5,0.5};
 };
 
 class FLIR_VelocityVector
@@ -62,20 +62,20 @@ class FLIR_DIR_BONE
 {
     type="vector";
     source="pilotcamera";
-    pos0[] = 	{0.50,0.10};
-    pos10[] = 	{0.53,0.10};
+    pos0[] =   {0.50,0.10};
+    pos10[] =   {0.53,0.10};
 };
 class FLIR_ELEV_BONE
 {
     type="vector";
     source="pilotcamera";
-    pos0[] = 	{0.08,0.5};
-    pos10[] = 	{0.08 ,0.518};
+    pos0[] =   {0.08,0.5};
+    pos10[] =   {0.08 ,0.518};
 };
 class FLIR_HELLFIRE_REF
 {
     type="vector";
     source="pilotcamera";
-    pos0[] = 	{0.50,0.50};
-    pos10[] = 	{0.47*(4/3),0.60};
+    pos0[] =   {0.50,0.50};
+    pos10[] =   {0.47*(4/3),0.60};
 };

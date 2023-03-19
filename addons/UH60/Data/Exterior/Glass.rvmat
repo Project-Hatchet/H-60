@@ -6,7 +6,7 @@ specular[]={0.000000,0.000000,0.000000,0.000000};
 specularPower=0.000000;
 renderFlags[]=
 {
-	"NoColorWrite"
+  "NoColorWrite"
 };
 PixelShaderID="AlphaShadow";
 VertexShaderID="Basic";

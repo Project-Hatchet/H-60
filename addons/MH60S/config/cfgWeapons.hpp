@@ -10,21 +10,21 @@ class cfgWeapons {
             reloadTime = 0.0545;
         };
         class GunParticles {
-        	class effect1 {
-        		positionName = "GAU21L_End";
-        		directionName = "GAU21L_Beg";
-        		effectName = "MachineGunCloud";
-        	};
-        	class effect2 {
-        		positionName = "GAU21L_eject_pos";
-        		directionName = "GAU21L_eject_dir";
-        		effectName = "MachineGunEject";
-        	};
-        	class effect3 {
-        		positionName = "GAU21L_eject_pos";
-        		directionName = "GAU21L_eject_dir";
-        		effectName = "MachineGunCartridge2";
-        	};
+          class effect1 {
+            positionName = "GAU21L_End";
+            directionName = "GAU21L_Beg";
+            effectName = "MachineGunCloud";
+          };
+          class effect2 {
+            positionName = "GAU21L_eject_pos";
+            directionName = "GAU21L_eject_dir";
+            effectName = "MachineGunEject";
+          };
+          class effect3 {
+            positionName = "GAU21L_eject_pos";
+            directionName = "GAU21L_eject_dir";
+            effectName = "MachineGunCartridge2";
+          };
         };
 
     };

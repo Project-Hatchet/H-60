@@ -9,7 +9,7 @@ class cfgWeapons {
     };
     class vtx_wpn_m134 : LMG_Minigun_Transport {
         magazines[] = {"vtx_2000Rnd_65x39_Belt_Tracer_Red"};
-	class gunParticles
+  class gunParticles
     {
         class effect1
         {
@@ -169,7 +169,7 @@ class cfgWeapons {
 
     };
     class vtx_wpn_m134_2nd : vtx_wpn_m134 {
-	    class gunParticles
+      class gunParticles
         {
             class effect1
             {

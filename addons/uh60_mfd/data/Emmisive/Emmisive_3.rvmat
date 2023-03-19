@@ -1,5 +1,5 @@
 class StageTI {
-	texture = "";
+  texture = "";
 };
 ambient[] = {0.6, 0.6, 0.6, 1};
 diffuse[] = {0, 0, 0, 0.5};

@@ -1,18 +1,18 @@
 alpha = 1;
 class backgroundWrapper {
-	alpha = BACKGROUND_ALPHA;
-	class polygon {
-		type        = "polygon";
-		texture = "z\vtx\addons\uh60_mfd\data\CCFS.paa";
-		points[] ={
-			{
-				{{0, 0},1},
-				{{1, 0},1},
-				{{1, 1},1},
-				{{0, 1},1}
-			}
-		};
-	};
+  alpha = BACKGROUND_ALPHA;
+  class polygon {
+    type        = "polygon";
+    texture = "z\vtx\addons\uh60_mfd\data\CCFS.paa";
+    points[] ={
+      {
+        {{0, 0},1},
+        {{1, 0},1},
+        {{1, 1},1},
+        {{0, 1},1}
+      }
+    };
+  };
 }; // backgroundWrapper
 
 
@@ -29,40 +29,40 @@ TEXT_LEFT_SMALL(MENU,0.16,0.01,"EXIT")
 TEXT_LEFT_SMALL(PAUSEPLAY,0.90,0.01,"PAUSE/PLAY")
 
 class ballColor {
-	color[] = common_red;
-	class ball {
-		type        = "polygon";
-		points[] ={
-			{
-				CCFS_POLYGON(BALL_X,BALL_Y)
-			}
-		};
-	};
+  color[] = common_red;
+  class ball {
+    type        = "polygon";
+    points[] ={
+      {
+        CCFS_POLYGON(BALL_X,BALL_Y)
+      }
+    };
+  };
 };
 
 class LEFT {
-	type        = "polygon";
-	points[] ={
-		{
-			{"LEFT_POS", {-0.01,-0.08},1},
-			{"LEFT_POS", { 0.01,-0.08},1},
-			{"LEFT_POS", { 0.01, 0.08},1},
-			{"LEFT_POS", {-0.01, 0.08},1}
-		}
-	};
+  type        = "polygon";
+  points[] ={
+    {
+      {"LEFT_POS", {-0.01,-0.08},1},
+      {"LEFT_POS", { 0.01,-0.08},1},
+      {"LEFT_POS", { 0.01, 0.08},1},
+      {"LEFT_POS", {-0.01, 0.08},1}
+    }
+  };
 }; // textBackground
 
 
 class RIGHT {
-	type        = "polygon";
-	points[] ={
-		{
-			{"RIGHT_POS", {-0.01,-0.08},1},
-			{"RIGHT_POS", { 0.01,-0.08},1},
-			{"RIGHT_POS", { 0.01, 0.08},1},
-			{"RIGHT_POS", {-0.01, 0.08},1}
-		}
-	};
+  type        = "polygon";
+  points[] ={
+    {
+      {"RIGHT_POS", {-0.01,-0.08},1},
+      {"RIGHT_POS", { 0.01,-0.08},1},
+      {"RIGHT_POS", { 0.01, 0.08},1},
+      {"RIGHT_POS", {-0.01, 0.08},1}
+    }
+  };
 }; // textBackground
 
 class MID_LINE {

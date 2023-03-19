@@ -51,8 +51,8 @@ class FLIR {
     };
 
     class TargetDirMarker {
-    	type="line";
-    	width = 2;
+      type="line";
+      width = 2;
         points[] ={
             {"FLIR_DIR_BONE", {-0.02, 0+0.0},1},
             {"FLIR_DIR_BONE", {0.00, 0-0.02},1},
@@ -60,8 +60,8 @@ class FLIR {
         };
     };
     class TargetElevMarker {
-    	type="line";
-    	width = 2;
+      type="line";
+      width = 2;
         points[] ={
             {"FLIR_ELEV_BONE", {0.02*0.75,  0-0.02},1},
             {"FLIR_ELEV_BONE", {0.0, 0-0.00},1},
@@ -119,14 +119,14 @@ class HeadingTape {
 TEXT_MID_SCALED(LEFT_FLIR_90,0.23,0.05,"-90",0.04)
 TEXT_MID_SCALED(RIGHT_FLIR_90,0.77,0.05,"+90",0.04)
 class headingArrow {
-	type        = "polygon";
-	points[] ={
-		{
-			{{0.5-0.01,0.06},1},
-			{{0.5+0.00,0.08},1},
-			{{0.5+0.01,0.06},1}
-		}
-	};
+  type        = "polygon";
+  points[] ={
+    {
+      {{0.5-0.01,0.06},1},
+      {{0.5+0.00,0.08},1},
+      {{0.5+0.01,0.06},1}
+    }
+  };
 };
 
 TEXT_MID_SCALED_SRC(HEADING,0.5,0.02,0.04)
@@ -234,15 +234,15 @@ class LaserOn {
     blinkingPattern[] = {0.5, 0.5};
     TEXT_MID_SCALED(LRD_LASE_TXT,0.5,0.2,"LRD LASE DES",0.04)
     class Border {
-    	type="line";
-    	width = 2;
-    	points[] ={
-    		{{0.5 - 0.10, 0.2 - 0.00},1},
+      type="line";
+      width = 2;
+      points[] ={
+        {{0.5 - 0.10, 0.2 - 0.00},1},
             {{0.5 + 0.10, 0.2 - 0.00},1},
             {{0.5 + 0.10, 0.2 + 0.04},1},
             {{0.5 - 0.10, 0.2 + 0.04},1},
-    		{{0.5 - 0.10, 0.2 - 0.00},1}
-    	};
+        {{0.5 - 0.10, 0.2 - 0.00},1}
+      };
     }; // Border
 }; // LaserOn
 
@@ -264,18 +264,18 @@ class Pylon2
 
 class flirDamage {
     condition = FLIR_DISABLED;
-	class PolygonJet {
-		type        = "polygon";
-		texture = "z\vtx\addons\uh60_mfd\data\FLIR_Cracked.paa";
-		points[] ={
-			{
-				{{-1, -1},1},
-				{{ 2, -1},1},
-				{{ 2,  2},1},
-				{{-1,  2},1}
-			}
-		};
-	};
+  class PolygonJet {
+    type        = "polygon";
+    texture = "z\vtx\addons\uh60_mfd\data\FLIR_Cracked.paa";
+    points[] ={
+      {
+        {{-1, -1},1},
+        {{ 2, -1},1},
+        {{ 2,  2},1},
+        {{-1,  2},1}
+      }
+    };
+  };
     class blackBackground {
         color[] = common_black;
         class bottomPoly {
@@ -287,7 +287,7 @@ class flirDamage {
                     {{1, 1},1},
                     {{0, 1},1}
                 }
-		    };
+        };
         };
         class errorPoly {
             type        = "polygon";
@@ -298,7 +298,7 @@ class flirDamage {
                     {{0.5 + 0.10, 0.4 + 0.04},1},
                     {{0.5 - 0.10, 0.4 + 0.04},1}
                 }
-		    };
+        };
         };
         class whiteOverlay {
             color[] = common_white;

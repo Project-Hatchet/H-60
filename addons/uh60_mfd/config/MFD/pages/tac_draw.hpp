@@ -25,18 +25,18 @@ class CLASS { \
 
 alpha = 1;
 class overlayWrapper {
-	class PolygonJet {
-		type        = "polygon";
-		texture = "z\vtx\addons\uh60_mfd\data\TAC_MINIMAL.paa";
-		points[] ={
-			{
-				{{0, 0},1},
-				{{1, 0},1},
-				{{1, 1},1},
-				{{0, 1},1}
-			}
-		};
-	};
+  class PolygonJet {
+    type        = "polygon";
+    texture = "z\vtx\addons\uh60_mfd\data\TAC_MINIMAL.paa";
+    points[] ={
+      {
+        {{0, 0},1},
+        {{1, 0},1},
+        {{1, 1},1},
+        {{0, 1},1}
+      }
+    };
+  };
 }; // overlayWrapper
 
 //zoom
@@ -76,22 +76,22 @@ class HAS_NO_PREVWP {
     condition = ((user2 < 0) * (user4 > -1));
     color[]=light_black;
     class WP1_Line_back {
-    	type="line";
-    	width = 6;
-    	points[] ={
-    		{"TAC_CENTER", 1},
-    		{"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1}
-    	};
+      type="line";
+      width = 6;
+      points[] ={
+        {"TAC_CENTER", 1},
+        {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1}
+      };
     }; // WP1_Line
     class white {
         color[]=common_purple;
         class WP1_Line_back {
-        	type="line";
-        	width = 2;
-        	points[] ={
-        		{"TAC_CENTER", 1},
-        		{"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1}
-        	};
+          type="line";
+          width = 2;
+          points[] ={
+            {"TAC_CENTER", 1},
+            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1}
+          };
         }; // WP1_Line
     }; // color
 };
@@ -100,22 +100,22 @@ class HAS_WP1_2 {
     condition = ((user2 > -1) * (user4 > -1));
     color[]=light_black;
     class WP1_Line_back {
-    	type="line";
-    	width = 6;
-    	points[] ={
-    		{"TAC_WP1_DIST", 1, "TAC_WP1_Dir", 1},
-    		{"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1}
-    	};
+      type="line";
+      width = 6;
+      points[] ={
+        {"TAC_WP1_DIST", 1, "TAC_WP1_Dir", 1},
+        {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1}
+      };
     }; // WP1_Line
     class white {
         color[]=common_purple;
         class WP1_Line_back {
-        	type="line";
-        	width = 2;
-        	points[] ={
-        		{"TAC_WP1_DIST", 1, "TAC_WP1_Dir", 1},
-        		{"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1}
-        	};
+          type="line";
+          width = 2;
+          points[] ={
+            {"TAC_WP1_DIST", 1, "TAC_WP1_Dir", 1},
+            {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1}
+          };
         }; // WP1_Line
     }; // color
 }; // cond
@@ -187,24 +187,24 @@ class HAS_WP2_3 {
     condition = ((user4 > -1) * (user6 > -1));
     color[]=light_black;
     class WP2_Line_back {
-    	type="line";
-    	width = 6;
-    	points[] ={
+      type="line";
+      width = 6;
+      points[] ={
             {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1},
-    		{"TAC_WP3_DIST", 1, "TAC_WP3_Dir", 1},{},
+        {"TAC_WP3_DIST", 1, "TAC_WP3_Dir", 1},{},
             SHAPE_STAR("TAC_WP3_DIST","TAC_WP3_Dir")
-    	};
+      };
     }; // WP2_Line
     class white {
         color[]=common_white;
         class WP2_Line {
-        	type="line";
-        	width = 2;
-        	points[] ={
+          type="line";
+          width = 2;
+          points[] ={
                 {"TAC_WP2_DIST", 1, "TAC_WP2_Dir", 1},
-        		{"TAC_WP3_DIST", 1, "TAC_WP3_Dir", 1},{},
+            {"TAC_WP3_DIST", 1, "TAC_WP3_Dir", 1},{},
                 SHAPE_STAR("TAC_WP3_DIST","TAC_WP3_Dir")
-        	};
+          };
         }; // WP2_Line
     }; // color
 }; // cond
@@ -212,24 +212,24 @@ class HAS_WP3 {
     condition = ((user6 > -1) * (user8 > -1));
     color[]=light_black;
     class WP3_Line_back {
-    	type="line";
-    	width = 6;
-    	points[] ={
+      type="line";
+      width = 6;
+      points[] ={
             {"TAC_WP3_DIST", 1, "TAC_WP3_Dir", 1},
-    		{"TAC_WP4_DIST", 1, "TAC_WP4_Dir", 1},{},
+        {"TAC_WP4_DIST", 1, "TAC_WP4_Dir", 1},{},
             SHAPE_STAR("TAC_WP4_DIST","TAC_WP4_Dir")
-    	};
+      };
     }; // WP3_Line
     class black {
         color[]=common_white;
         class WP3_Line {
-        	type="line";
-        	width = 2;
-        	points[] ={
+          type="line";
+          width = 2;
+          points[] ={
                 {"TAC_WP3_DIST", 1, "TAC_WP3_Dir", 1},
-        		{"TAC_WP4_DIST", 1, "TAC_WP4_Dir", 1},{},
+            {"TAC_WP4_DIST", 1, "TAC_WP4_Dir", 1},{},
             SHAPE_STAR("TAC_WP4_DIST","TAC_WP4_Dir")
-        	};
+          };
         }; // WP3_Line
     }; // black
 }; // cond
@@ -237,24 +237,24 @@ class HAS_WP4 {
     condition = ((user8 > -1) * (user33 > -1));
     color[]=light_black;
     class WP4_Line_back {
-    	type="line";
-    	width = 6;
-    	points[] ={
+      type="line";
+      width = 6;
+      points[] ={
             {"TAC_WP4_DIST", 1, "TAC_WP4_Dir", 1},
-    		{"TAC_WP5_DIST", 1, "TAC_WP5_Dir", 1},{},
+        {"TAC_WP5_DIST", 1, "TAC_WP5_Dir", 1},{},
             SHAPE_STAR("TAC_WP5_DIST","TAC_WP5_Dir")
-    	};
+      };
     }; // WP4_Line
     class black {
         color[]=common_white;
         class WP4_Line {
-        	type="line";
-        	width = 2;
-        	points[] ={
+          type="line";
+          width = 2;
+          points[] ={
                 {"TAC_WP4_DIST", 1, "TAC_WP4_Dir", 1},
-        		{"TAC_WP5_DIST", 1, "TAC_WP5_Dir", 1},{},
+            {"TAC_WP5_DIST", 1, "TAC_WP5_Dir", 1},{},
             SHAPE_STAR("TAC_WP5_DIST","TAC_WP5_Dir")
-        	};
+          };
         }; // WP4_Line
     }; // black
 }; // cond
@@ -262,24 +262,24 @@ class HAS_WP5 {
     condition = ((user33 > -1) * (user35 > -1));
     color[]=light_black;
     class WP5_Line_back {
-    	type="line";
-    	width = 6;
-    	points[] ={
+      type="line";
+      width = 6;
+      points[] ={
             {"TAC_WP5_DIST", 1, "TAC_WP5_Dir", 1},
-    		{"TAC_WP6_DIST", 1, "TAC_WP6_Dir", 1},{},
+        {"TAC_WP6_DIST", 1, "TAC_WP6_Dir", 1},{},
             SHAPE_STAR("TAC_WP6_DIST","TAC_WP6_Dir")
-    	};
+      };
     }; // WP5_Line
     class black {
         color[]=common_white;
         class WP5_Line {
-        	type="line";
-        	width = 2;
-        	points[] ={
+          type="line";
+          width = 2;
+          points[] ={
                 {"TAC_WP5_DIST", 1, "TAC_WP5_Dir", 1},
-        		{"TAC_WP6_DIST", 1, "TAC_WP6_Dir", 1},{},
+            {"TAC_WP6_DIST", 1, "TAC_WP6_Dir", 1},{},
                 SHAPE_STAR("TAC_WP6_DIST","TAC_WP6_Dir")
-        	};
+          };
         }; // WP5_Line
     }; // black
 }; // cond
@@ -320,15 +320,15 @@ class JVMF_STABILIZED {
         };
     }; // Mark_Circle
     class textBackground {
-		type        = "polygon";
-		points[] ={
-			{
+    type        = "polygon";
+    points[] ={
+      {
                 {"TAC_JVMF_DIST", 1, "TAC_JVMF_Dir", 1,{-0.08, 0.015},1},
                 {"TAC_JVMF_DIST", 1, "TAC_JVMF_Dir", 1,{ 0.08, 0.015},1},
                 {"TAC_JVMF_DIST", 1, "TAC_JVMF_Dir", 1,{ 0.08, 0.055},1},
                 {"TAC_JVMF_DIST", 1, "TAC_JVMF_Dir", 1,{-0.08, 0.055},1},
-			}
-		};
+      }
+    };
     }; // textBackground
     class blue {
         color[] = common_blue;
