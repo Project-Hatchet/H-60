@@ -124,6 +124,8 @@ class cfgMagazines {
   class PylonMissile_Missile_HARM_x1_HL: PylonMissile_Missile_HARM_x1 {
     hardpoints[] = {"VTX_ST_L","VTX_ST_R","VTX_ST_OUTBOARD"};
     ammo = "ammo_Missile_HARM_HL";
+    count = 1;
+    mass = 10;
     author = "Yax (at him on discord)";
     displayName = "1x Hobby Lobby 88";
     displayNameShort = "1x HL 88";

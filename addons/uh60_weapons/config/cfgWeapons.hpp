@@ -109,8 +109,5 @@ class cfgWeapons {
     displayName = "Hobby Lobby 88";
     displayNameShort = "Hobby Lobby 88";
     magazines[] = {"PylonMissile_Missile_HARM_x1_HL"};
-    class Burst;
-    class Far_AI;
-    class Medium_AI;
   };
 };
