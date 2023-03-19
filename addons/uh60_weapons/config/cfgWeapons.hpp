@@ -2,6 +2,7 @@ class cfgWeapons {
     class ace_hellfire_launcher;
     class ace_hellfire_launcher_L;
     class ace_hellfire_launcher_N;
+    class weapon_HARMLauncher;
     class vtx_hellfire_launcher: ace_hellfire_launcher {
       ace_laser_showHud = 0;
       magazines[] = {"VTX_4Rnd_ACE_Hellfire_AGM114K"};
@@ -103,5 +104,13 @@ class cfgWeapons {
     };
     class Far_AI: Far_AI {displayName = "APKWS";};
     class Medium_AI: Medium_AI {displayName = "APKWS";};
+  };
+  class weapon_HARMLauncher_HL : weapon_HARMLauncher {
+    displayName = "Hobby Lobby 88";
+    displayNameShort = "Hobby Lobby 88";
+    magazines[] = {"PylonMissile_Missile_HARM_x1_HL"};
+    class Burst;
+    class Far_AI;
+    class Medium_AI;
   };
 };

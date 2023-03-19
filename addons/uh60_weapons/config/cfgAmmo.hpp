@@ -1,6 +1,7 @@
 class CfgAmmo {
   class M_Scalpel_AT;
   class B_30mm_MP_Tracer_Green;
+  class ammo_Missile_HARM;
   class ACE_Hellfire_AGM114K: M_Scalpel_AT {class ace_missileguidance;};
   class ACE_Hellfire_AGM114N: M_Scalpel_AT {class ace_missileguidance;};
   class VTX_Hellfire_AGM114K: ACE_Hellfire_AGM114K {
@@ -131,6 +132,15 @@ class CfgAmmo {
     tracerColorR[] = {0.7,0.1,0.1,0.04};
     // https://ace3mod.com/wiki/framework/frag-framework.html
     
+  };
+  class ammo_Missile_HARM_HL : ammo_Missile_HARM {
+    hit = 0;
+    indirectHit = 0;
+    displayName = "AGM-88 HL";
+  	displayNameShort = "AGM-88 HL";
+  	description = "Anti Radiation School Project";
+  	descriptionShort = "Anti Radiation School Project";
+    model = QPATHTOF(hl_88.p3d);
   };
   
 };

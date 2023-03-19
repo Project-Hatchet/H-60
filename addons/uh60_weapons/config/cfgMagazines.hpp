@@ -1,5 +1,6 @@
 class cfgMagazines {
   class VehicleMagazine;
+  class PylonMissile_Missile_HARM_x1;
   class PylonRack_4Rnd_ACE_Hellfire_AGM114K;
   class PylonRack_4Rnd_ACE_Hellfire_AGM114N;
   class VTX_4Rnd_ACE_Hellfire_AGM114K: PylonRack_4Rnd_ACE_Hellfire_AGM114K { // 4x Launcher Support Rack
@@ -119,5 +120,15 @@ class cfgMagazines {
         #include "rocketMFD.hpp"
       };
     };
+  };
+  class PylonMissile_Missile_HARM_x1_HL: PylonMissile_Missile_HARM_x1 {
+    hardpoints[] = {"VTX_ST_L","VTX_ST_R","VTX_ST_OUTBOARD"};
+    ammo = "ammo_Missile_HARM_HL";
+    author = "Yax (at him on discord)";
+    displayName = "1x Hobby Lobby 88";
+    displayNameShort = "1x HL 88";
+    model = QPATHTOF(hl_88.p3d);
+    pylonWeapon = "weapon_HARMLauncher_HL";
+    descriptionShort="Held together with duct tape and powered by a hobby lobby motor.  Explodes into confette";
   };
 };
