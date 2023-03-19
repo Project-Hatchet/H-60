@@ -153,99 +153,99 @@
     {OFFSET1, 1, DIST, 1, DIR, 1,{0.75*STAR_INNER_SCALE*-0.015, STAR_INNER_SCALE*-0.015},1}
 
 #define TEXT_RIGHT_SCALED_SRC(CLASS,X,Y,SCALE) \
-	class CLASS { \
-		type = "text"; \
-		align = "left"; \
-		scale = 1; \
-		pos[] = {{X, Y}, 1}; \
-		right[] = {{X + (SCALE*0.75), Y}, 1}; \
-		down[] = {{X, Y + SCALE}, 1};
+  class CLASS { \
+    type = "text"; \
+    align = "left"; \
+    scale = 1; \
+    pos[] = {{X, Y}, 1}; \
+    right[] = {{X + (SCALE*0.75), Y}, 1}; \
+    down[] = {{X, Y + SCALE}, 1};
 
 #define TEXT_RIGHT_SCALED(CLASS,X,Y,TEXT,SCALE) \
-	TEXT_RIGHT_SCALED_SRC(CLASS,X,Y,SCALE) \
-		source = "static"; \
-		text = TEXT; \
-	};
+  TEXT_RIGHT_SCALED_SRC(CLASS,X,Y,SCALE) \
+    source = "static"; \
+    text = TEXT; \
+  };
 
 #define TEXT_RIGHT_SCALED_USERTEXT(CLASS,X,Y,IDX,SCALE) \
-	TEXT_RIGHT_SCALED_SRC(CLASS,X,Y,SCALE) \
-		source = "userText"; \
+  TEXT_RIGHT_SCALED_SRC(CLASS,X,Y,SCALE) \
+    source = "userText"; \
         sourceIndex = IDX; \
         sourceScale = 1; \
-		text = ""; \
-	};
+    text = ""; \
+  };
 
 #define TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
-	class CLASS { \
-		type = "text"; \
-		align = "center"; \
-		scale = 1; \
-		pos[] = {{X, Y}, 1}; \
-		right[] = {{X + (SCALE*0.75), Y}, 1}; \
-		down[] = {{X, Y + SCALE}, 1};
+  class CLASS { \
+    type = "text"; \
+    align = "center"; \
+    scale = 1; \
+    pos[] = {{X, Y}, 1}; \
+    right[] = {{X + (SCALE*0.75), Y}, 1}; \
+    down[] = {{X, Y + SCALE}, 1};
 
 #define TEXT_MID_SCALED(CLASS,X,Y,TEXT,SCALE) \
-	TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
-		source = "static"; \
-		text = TEXT; \
-	};
+  TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
+    source = "static"; \
+    text = TEXT; \
+  };
 
 
 #define TEXT_MID_SCALED_SOURCE(CLASS,X,Y,SCALE,SOURCE,SOURCEINDEX,SOURCESCALE,DECIMALS) \
-	TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
-		source = SOURCE; \
+  TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
+    source = SOURCE; \
         sourceIndex = SOURCEINDEX; \
-		sourceScale = SOURCESCALE; \
+    sourceScale = SOURCESCALE; \
         sourcePrecision = DECIMALS; \
-	};
+  };
 
 
 #define TEXT_LEFT_SCALED_SOURCE(CLASS,X,Y,SCALE,SOURCE,SOURCEINDEX,SOURCESCALE,DECIMALS) \
-	TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
-		source = SOURCE; \
+  TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
+    source = SOURCE; \
         sourceIndex = SOURCEINDEX; \
-		sourceScale = SOURCESCALE; \
+    sourceScale = SOURCESCALE; \
         sourcePrecision = DECIMALS; \
-	};
+  };
 
 #define TEXT_MID_SCALED_USERTEXT(CLASS,X,Y,IDX,SCALE) \
-	TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
-		source = "userText"; \
+  TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
+    source = "userText"; \
         sourceIndex = IDX; \
         sourceScale = 1; \
-		text = ""; \
-	};
+    text = ""; \
+  };
 
 #define TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
-	class CLASS { \
-		type = "text"; \
-		align = "right"; \
-		scale = 100; \
-		pos[] = {{X, Y}, 1}; \
-		right[] = {{X + (SCALE*0.75), Y}, 1}; \
-		down[] = {{X, Y + SCALE}, 1};
+  class CLASS { \
+    type = "text"; \
+    align = "right"; \
+    scale = 100; \
+    pos[] = {{X, Y}, 1}; \
+    right[] = {{X + (SCALE*0.75), Y}, 1}; \
+    down[] = {{X, Y + SCALE}, 1};
 
 #define TEXT_LEFT_SCALED(CLASS,X,Y,TEXT,SCALE) \
-	TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
-		source = "static"; \
-		text = TEXT; \
-	};
+  TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
+    source = "static"; \
+    text = TEXT; \
+  };
 
 #define TEXT_LEFT_SCALED_USERTEXT(CLASS,X,Y,IDX,SCALE) \
-	TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
-		source = "userText"; \
+  TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
+    source = "userText"; \
         sourceIndex = IDX; \
         sourceScale = 1; \
-		text = ""; \
-	};
+    text = ""; \
+  };
 
 #define TEXT_LEFT_SCALED_USERVAL(CLASS,X,Y,IDX,SCALE) \
-	TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
-		source = "user"; \
+  TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
+    source = "user"; \
         sourceIndex = IDX; \
         sourceScale = 1; \
-		text = ""; \
-	};
+    text = ""; \
+  };
 
 
 #define TEXT_LEFT_OPEN(CLASS) \
@@ -591,67 +591,67 @@
 #define BOXEDTEXT(CLASS,X,Y,W,H,TEXT) \
     class CLASS { \
         COLORED_POLYGON(PB1,(X-(W/2)),(Y-(H/2)),W,H,common_black) \
-		color[] = common_black; \
-		class white { \
-			color[] = common_white; \
-			TEXT_MID_SCALED(LRD_LASE_TXT,X,(Y-(H/2)),TEXT,H) \
-			class Border { \
-				type="line"; \
-				width = 2; \
-				points[] ={ \
-					{{X - (W/2), Y - (H/2)},1}, \
-					{{X + (W/2), Y - (H/2)},1}, \
-					{{X + (W/2), Y + (H/2)},1}, \
-					{{X - (W/2), Y + (H/2)},1}, \
-					{{X - (W/2), Y - (H/2)},1} \
-				}; \
-			}; \
-		}; \
-	};
+    color[] = common_black; \
+    class white { \
+      color[] = common_white; \
+      TEXT_MID_SCALED(LRD_LASE_TXT,X,(Y-(H/2)),TEXT,H) \
+      class Border { \
+        type="line"; \
+        width = 2; \
+        points[] ={ \
+          {{X - (W/2), Y - (H/2)},1}, \
+          {{X + (W/2), Y - (H/2)},1}, \
+          {{X + (W/2), Y + (H/2)},1}, \
+          {{X - (W/2), Y + (H/2)},1}, \
+          {{X - (W/2), Y - (H/2)},1} \
+        }; \
+      }; \
+    }; \
+  };
 
 #define BOXEDTEXT_CONDITION(CLASS,X,Y,W,H,TEXT,CONDITION) \
     class CLASS { \
-		condition = CONDITION; \
+    condition = CONDITION; \
         COLORED_POLYGON(PB1,(X-(W/2)),(Y-(H/2)),W,H,common_black) \
-		color[] = common_black; \
-		class white { \
-			color[] = common_white; \
-			TEXT_MID_SCALED(LRD_LASE_TXT,X,(Y-(H/2)),TEXT,H) \
-			class Border { \
-				type="line"; \
-				width = 2; \
-				points[] ={ \
-					{{X - (W/2), Y - (H/2)},1}, \
-					{{X + (W/2), Y - (H/2)},1}, \
-					{{X + (W/2), Y + (H/2)},1}, \
-					{{X - (W/2), Y + (H/2)},1}, \
-					{{X - (W/2), Y - (H/2)},1} \
-				}; \
-			}; \
-		}; \
-	};
+    color[] = common_black; \
+    class white { \
+      color[] = common_white; \
+      TEXT_MID_SCALED(LRD_LASE_TXT,X,(Y-(H/2)),TEXT,H) \
+      class Border { \
+        type="line"; \
+        width = 2; \
+        points[] ={ \
+          {{X - (W/2), Y - (H/2)},1}, \
+          {{X + (W/2), Y - (H/2)},1}, \
+          {{X + (W/2), Y + (H/2)},1}, \
+          {{X - (W/2), Y + (H/2)},1}, \
+          {{X - (W/2), Y - (H/2)},1} \
+        }; \
+      }; \
+    }; \
+  };
 
 
 #define BOXEDTEXT_USER(CLASS,X,Y,W,H,IDX) \
     class CLASS { \
-		color[] = common_black; \
+    color[] = common_black; \
         COLORED_POLYGON(PB1,(X-(W/2)),(Y-(H/2)),W,H,common_black) \
-		class white { \
-			color[] = common_white; \
-			TEXT_MID_SCALED_USERTEXT(LRD_LASE_TXT,X,(Y-(H/2)),IDX,H) \
-			class Border { \
-				type="line"; \
-				width = 1; \
-				points[] ={ \
-					{{X - (W/2), Y - (H/2)},1}, \
-					{{X + (W/2), Y - (H/2)},1}, \
-					{{X + (W/2), Y + (H/2)},1}, \
-					{{X - (W/2), Y + (H/2)},1}, \
-					{{X - (W/2), Y - (H/2)},1} \
-				}; \
-			}; \
-		}; \
-	};
+    class white { \
+      color[] = common_white; \
+      TEXT_MID_SCALED_USERTEXT(LRD_LASE_TXT,X,(Y-(H/2)),IDX,H) \
+      class Border { \
+        type="line"; \
+        width = 1; \
+        points[] ={ \
+          {{X - (W/2), Y - (H/2)},1}, \
+          {{X + (W/2), Y - (H/2)},1}, \
+          {{X + (W/2), Y + (H/2)},1}, \
+          {{X - (W/2), Y + (H/2)},1}, \
+          {{X - (W/2), Y - (H/2)},1} \
+        }; \
+      }; \
+    }; \
+  };
 
 #define BEZEL_SPACE_Y 0.14
 #define BEZEL_Y1 0.2

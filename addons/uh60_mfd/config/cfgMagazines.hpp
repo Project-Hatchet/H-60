@@ -10,5 +10,5 @@ class CfgMagazines {
                 //                 #include "MFD/dummyPylon.hpp"
                 //         };
                 // };
-	};
+  };
 };

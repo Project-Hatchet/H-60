@@ -19,19 +19,19 @@ class CfgVehicles {
     class vtx_H60_base: Heli_Transport_01_base_F {
         class UserActions: UserActions {
             class OpenIVHMS
-			{
-				displayName = "Open IVHMS";
-				displayNameDefault = "Open IVHMS";
-				priority = 0;
-				radius = 10; // A too small radius might cause the action to not be visible
-				position = "camera";
-				showWindow = 0;
-				hideOnUse = 1;
-				onlyForPlayer = 0;
-				shortcut = "";
-				condition = "player == driver this"; // Only show if the unit is alive and is not a player
-				statement = "[this] call vtx_uh60_mfd_fnc_ivhms";
-			};
+      {
+        displayName = "Open IVHMS";
+        displayNameDefault = "Open IVHMS";
+        priority = 0;
+        radius = 10; // A too small radius might cause the action to not be visible
+        position = "camera";
+        showWindow = 0;
+        hideOnUse = 1;
+        onlyForPlayer = 0;
+        shortcut = "";
+        condition = "player == driver this"; // Only show if the unit is alive and is not a player
+        statement = "[this] call vtx_uh60_mfd_fnc_ivhms";
+      };
         };
         class vxf_driver: vxf_driver {
             class modules: modules {

@@ -2,20 +2,20 @@
 Function: vtx_uh60_sfmplus_fnc_antiLift
 
 Description:
-	Applies a negative lift force if the player attempts to takeoff with the
+  Applies a negative lift force if the player attempts to takeoff with the
     engines at idle.
 
 Parameters:
-	_heli - The helicopter to get information from [Unit].
+  _heli - The helicopter to get information from [Unit].
 
 Returns:
-	...
+  ...
 
 Examples:
-	...
+  ...
 
 Author:
-	BradMick
+  BradMick
 ---------------------------------------------------------------------------- */
 params ["_heli", "_deltaTime"];
 
