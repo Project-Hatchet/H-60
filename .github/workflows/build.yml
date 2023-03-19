@@ -43,7 +43,7 @@ jobs:
         with:
           args: zip -qq -r hatchet_h60.zip release
       - name: Upload Artifact
-          uses: actions/upload-artifact@v2-preview
-          with:
-            name: hatchet-${{ github.sha }}-nobin
-            path: hatchet_h60.zip
+        uses: actions/upload-artifact@v2-preview
+        with:
+          name: hatchet-${{ github.sha }}-nobin
+          path: hatchet_h60.zip
