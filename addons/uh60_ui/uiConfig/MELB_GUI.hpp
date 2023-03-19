@@ -9,10 +9,10 @@ class MELB_GUI: RscControlsGroup
     {
         height = 0;
     };
-    x = "0 * 		(0.01875 * SafezoneH) + 		(SafezoneX + ((SafezoneW - SafezoneH) / 2))";
-    y = "0 * 		(0.025 * SafezoneH) + 		(SafezoneY)";
-    w = "53.5 * 		(0.01875 * SafezoneH)";
-    h = "40 * 		(0.025 * SafezoneH)";
+    x = "0 *     (0.01875 * SafezoneH) +     (SafezoneX + ((SafezoneW - SafezoneH) / 2))";
+    y = "0 *     (0.025 * SafezoneH) +     (SafezoneY)";
+    w = "53.5 *     (0.01875 * SafezoneH)";
+    h = "40 *     (0.025 * SafezoneH)";
     class controls
     {
         class TextDistance: RangeText
@@ -23,10 +23,10 @@ class MELB_GUI: RscControlsGroup
             sizeEx = "0.0255*SafezoneH";
             colorText[] = {1,1,1,1};
             shadow = 2;
-            x = "41.8 * 		(0.01875 * SafezoneH)";
-            y = "4.8 * 		(0.025 * SafezoneH)";
-            w = "3* 		(0.01875 * SafezoneH)";
-            h = "1.2 * 		(0.025 * SafezoneH)";
+            x = "41.8 *     (0.01875 * SafezoneH)";
+            y = "4.8 *     (0.025 * SafezoneH)";
+            w = "3*     (0.01875 * SafezoneH)";
+            h = "1.2 *     (0.025 * SafezoneH)";
         };
         class CA_Distance: RscText
         {
@@ -35,10 +35,10 @@ class MELB_GUI: RscControlsGroup
             colorText[] = {1,1,1,1};
             shadow = 2;
             font = "PuristaMedium";
-            x = "46 * 		(0.01875 * SafezoneH)";
-            y = "4.8 * 		(0.025 * SafezoneH)";
-            w = "4 * 		(0.01875 * SafezoneH)";
-            h = "1.2 * 		(0.025 * SafezoneH)";
+            x = "46 *     (0.01875 * SafezoneH)";
+            y = "4.8 *     (0.025 * SafezoneH)";
+            w = "4 *     (0.01875 * SafezoneH)";
+            h = "1.2 *     (0.025 * SafezoneH)";
         };
         class TextSpeed: RangeText
         {
@@ -48,10 +48,10 @@ class MELB_GUI: RscControlsGroup
             sizeEx = "0.0255*SafezoneH";
             colorText[] = {1,1,1,1};
             shadow = 2;
-            x = "2.5 * 		(0.01875 * SafezoneH)";
-            y = "4.8 * 		(0.025 * SafezoneH)";
-            w = "8 * 		(0.01875 * SafezoneH)";
-            h = "1.2 * 		(0.025 * SafezoneH)";
+            x = "2.5 *     (0.01875 * SafezoneH)";
+            y = "4.8 *     (0.025 * SafezoneH)";
+            w = "8 *     (0.01875 * SafezoneH)";
+            h = "1.2 *     (0.025 * SafezoneH)";
         };
         class CA_Speed: RangeText
         {
@@ -61,10 +61,10 @@ class MELB_GUI: RscControlsGroup
             shadow = 2;
             font = "PuristaMedium";
             text = "120";
-            x = "8 * 		(0.01875 * SafezoneH)";
-            y = "4.8 * 		(0.025 * SafezoneH)";
-            w = "4 * 		(0.01875 * SafezoneH)";
-            h = "1.2 * 		(0.025 * SafezoneH)";
+            x = "8 *     (0.01875 * SafezoneH)";
+            y = "4.8 *     (0.025 * SafezoneH)";
+            w = "4 *     (0.01875 * SafezoneH)";
+            h = "1.2 *     (0.025 * SafezoneH)";
         };
         class TextAlt: RangeText
         {
@@ -74,10 +74,10 @@ class MELB_GUI: RscControlsGroup
             sizeEx = "0.0255*SafezoneH";
             colorText[] = {1,1,1,1};
             shadow = 2;
-            x = "2.5 * 		(0.01875 * SafezoneH)";
-            y = "5.6 * 		(0.025 * SafezoneH)";
-            w = "8 * 		(0.01875 * SafezoneH)";
-            h = "1.2 * 		(0.025 * SafezoneH)";
+            x = "2.5 *     (0.01875 * SafezoneH)";
+            y = "5.6 *     (0.025 * SafezoneH)";
+            w = "8 *     (0.01875 * SafezoneH)";
+            h = "1.2 *     (0.025 * SafezoneH)";
         };
         class CA_Alt: RangeText
         {
@@ -87,10 +87,10 @@ class MELB_GUI: RscControlsGroup
             shadow = 2;
             font = "PuristaMedium";
             text = "3825";
-            x = "8 * 		(0.01875 * SafezoneH)";
-            y = "5.6 * 		(0.025 * SafezoneH)";
-            w = "4 * 		(0.01875 * SafezoneH)";
-            h = "1.2 * 		(0.025 * SafezoneH)";
+            x = "8 *     (0.01875 * SafezoneH)";
+            y = "5.6 *     (0.025 * SafezoneH)";
+            w = "4 *     (0.01875 * SafezoneH)";
+            h = "1.2 *     (0.025 * SafezoneH)";
         };
         class CA_VisionMode: RscText
         {
@@ -101,10 +101,10 @@ class MELB_GUI: RscControlsGroup
             shadow = 0;
             font = "PuristaMedium";
             text = "VIS";
-            x = "25.75 * 		(0.01875 * SafezoneH)";
-            y = "7.25 * 		(0.025 * SafezoneH)";
-            w = "1.5 * 		(0.01875 * SafezoneH)";
-            h = "0.6 * 		(0.025 * SafezoneH)";
+            x = "25.75 *     (0.01875 * SafezoneH)";
+            y = "7.25 *     (0.025 * SafezoneH)";
+            w = "1.5 *     (0.01875 * SafezoneH)";
+            h = "0.6 *     (0.025 * SafezoneH)";
         };
         class CA_FlirMode: RscText
         {
@@ -114,10 +114,10 @@ class MELB_GUI: RscControlsGroup
             colorText[] = {1,1,1,1};
             font = "PuristaMedium";
             text = "BHOT";
-            x = "25.5* 		(0.01875 * SafezoneH)";
-            y = "7.75 * 		(0.025 * SafezoneH)";
-            w = "2* 		(0.01875 * SafezoneH)";
-            h = "0.8 * 		(0.025 * SafezoneH)";
+            x = "25.5*     (0.01875 * SafezoneH)";
+            y = "7.75 *     (0.025 * SafezoneH)";
+            w = "2*     (0.01875 * SafezoneH)";
+            h = "0.8 *     (0.025 * SafezoneH)";
         };
         class TextACPOS: RangeText
         {
@@ -127,10 +127,10 @@ class MELB_GUI: RscControlsGroup
             sizeEx = "0.0255*SafezoneH";
             colorText[] = {1,1,1,1};
             shadow = 2;
-            x = "2.5 * 		(0.01875 * SafezoneH)";
-            y = "3 * 		(0.025 * SafezoneH)";
-            w = "8 * 		(0.01875 * SafezoneH)";
-            h = "1.2 * 		(0.025 * SafezoneH)";
+            x = "2.5 *     (0.01875 * SafezoneH)";
+            y = "3 *     (0.025 * SafezoneH)";
+            w = "8 *     (0.01875 * SafezoneH)";
+            h = "1.2 *     (0.025 * SafezoneH)";
         };
         class ValueACPOS: RangeText
         {
@@ -139,10 +139,10 @@ class MELB_GUI: RscControlsGroup
             sizeEx = "0.0295*SafezoneH";
             colorText[] = {1,1,1,1};
             shadow = 2;
-            x = "2.5 * 		(0.01875 * SafezoneH)";
-            y = "4 * 		(0.025 * SafezoneH)";
-            w = "6 * 		(0.01875 * SafezoneH)";
-            h = "1 * 		(0.025 * SafezoneH)";
+            x = "2.5 *     (0.01875 * SafezoneH)";
+            y = "4 *     (0.025 * SafezoneH)";
+            w = "6 *     (0.01875 * SafezoneH)";
+            h = "1 *     (0.025 * SafezoneH)";
         };
         class TextTPOS: RangeText
         {
@@ -152,10 +152,10 @@ class MELB_GUI: RscControlsGroup
             sizeEx = "0.0255*SafezoneH";
             colorText[] = {1,1,1,1};
             shadow = 2;
-            x = "41.8* 		(0.01875 * SafezoneH)";
-            y = "3 * 		(0.025 * SafezoneH)";
-            w = "8 * 		(0.01875 * SafezoneH)";
-            h = "1.2 * 		(0.025 * SafezoneH)";
+            x = "41.8*     (0.01875 * SafezoneH)";
+            y = "3 *     (0.025 * SafezoneH)";
+            w = "8 *     (0.01875 * SafezoneH)";
+            h = "1.2 *     (0.025 * SafezoneH)";
         };
         class ValueTPOS: RangeText
         {
@@ -164,10 +164,10 @@ class MELB_GUI: RscControlsGroup
             sizeEx = "0.0295*SafezoneH";
             colorText[] = {1,1,1,1};
             shadow = 2;
-            x = "41.8* 		(0.01875 * SafezoneH)";
-            y = "4 * 		(0.025 * SafezoneH)";
-            w = "6 * 		(0.01875 * SafezoneH)";
-            h = "1 * 		(0.025 * SafezoneH)";
+            x = "41.8*     (0.01875 * SafezoneH)";
+            y = "4 *     (0.025 * SafezoneH)";
+            w = "6 *     (0.01875 * SafezoneH)";
+            h = "1 *     (0.025 * SafezoneH)";
         };
         class ValueTime: RangeText
         {
@@ -177,10 +177,10 @@ class MELB_GUI: RscControlsGroup
             sizeEx = "0.0295*SafezoneH";
             colorText[] = {1,1,1,1};
             shadow = 2;
-            x = "2.5* 		(0.01875 * SafezoneH)";
-            y = "9 * 		(0.025 * SafezoneH)";
-            w = "6 * 		(0.01875 * SafezoneH)";
-            h = "1 * 		(0.025 * SafezoneH)";
+            x = "2.5*     (0.01875 * SafezoneH)";
+            y = "9 *     (0.025 * SafezoneH)";
+            w = "6 *     (0.01875 * SafezoneH)";
+            h = "1 *     (0.025 * SafezoneH)";
         };
         class TextLaser: RangeText
         {
@@ -190,10 +190,10 @@ class MELB_GUI: RscControlsGroup
             sizeEx = "0.0255*SafezoneH";
             colorText[] = {0.9,0,0,1};
             shadow = 2;
-            x = "3* 		(0.01875 * SafezoneH)";
-            y = "14.1 * 		(0.025 * SafezoneH)";
-            w = "13 * 		(0.01875 * SafezoneH)";
-            h = "2 * 		(0.025 * SafezoneH)";
+            x = "3*     (0.01875 * SafezoneH)";
+            y = "14.1 *     (0.025 * SafezoneH)";
+            w = "13 *     (0.01875 * SafezoneH)";
+            h = "2 *     (0.025 * SafezoneH)";
         };
         class CA_Heading: RscText
         {
@@ -203,10 +203,10 @@ class MELB_GUI: RscControlsGroup
             shadow = 2;
             font = "PuristaMedium";
             text = "023";
-            x = "27.25* 		(0.01875 * SafezoneH)";
-            y = "5 * 		(0.025 * SafezoneH)";
-            w = "4 * 		(0.01875 * SafezoneH)";
-            h = "1.2 * 		(0.025 * SafezoneH)";
+            x = "27.25*     (0.01875 * SafezoneH)";
+            y = "5 *     (0.025 * SafezoneH)";
+            w = "4 *     (0.01875 * SafezoneH)";
+            h = "1.2 *     (0.025 * SafezoneH)";
         };
         class TextHDG: RangeText
         {
@@ -216,10 +216,10 @@ class MELB_GUI: RscControlsGroup
             sizeEx = "0.0255*SafezoneH";
             colorText[] = {1,1,1,1};
             shadow = 2;
-            x = "24* 		(0.01875 * SafezoneH)";
-            y = "5* 		(0.025 * SafezoneH)";
-            w = "4 * 		(0.01875 * SafezoneH)";
-            h = "1.2 * 		(0.025 * SafezoneH)";
+            x = "24*     (0.01875 * SafezoneH)";
+            y = "5*     (0.025 * SafezoneH)";
+            w = "4 *     (0.01875 * SafezoneH)";
+            h = "1.2 *     (0.025 * SafezoneH)";
         };
         class OpticsZoom1: RangeText
         {
@@ -229,10 +229,10 @@ class MELB_GUI: RscControlsGroup
             font = "PuristaMedium";
             sizeEx = "0.0255*SafezoneH";
             shadow = 2;
-            x = "5 * 		(0.01875 * SafezoneH)";
-            y = "25 * 		(0.025 * SafezoneH)";
-            w = "6 * 		(0.01875 * SafezoneH)";
-            h = "1 * 		(0.025 * SafezoneH)";
+            x = "5 *     (0.01875 * SafezoneH)";
+            y = "25 *     (0.025 * SafezoneH)";
+            w = "6 *     (0.01875 * SafezoneH)";
+            h = "1 *     (0.025 * SafezoneH)";
         };
         class TextZOOM: RangeText
         {
@@ -242,10 +242,10 @@ class MELB_GUI: RscControlsGroup
             sizeEx = "0.0255*SafezoneH";
             colorText[] = {1,1,1,1};
             shadow = 2;
-            x = "2.5 * 		(0.01875 * SafezoneH)";
-            y = "25 * 		(0.025 * SafezoneH)";
-            w = "4 * 		(0.01875 * SafezoneH)";
-            h = "1 * 		(0.025 * SafezoneH)";
+            x = "2.5 *     (0.01875 * SafezoneH)";
+            y = "25 *     (0.025 * SafezoneH)";
+            w = "4 *     (0.01875 * SafezoneH)";
+            h = "1 *     (0.025 * SafezoneH)";
         };
         class ValueGEOLOCK: RscText
         {
@@ -255,10 +255,10 @@ class MELB_GUI: RscControlsGroup
             sizeEx = "0.0255*SafezoneH";
             colorText[] = {1,1,1,1};
             shadow = 2;
-            x = "42* 		(0.01875 * SafezoneH)";
-            y = "33 * 		(0.025 * SafezoneH)";
-            w = "8 * 		(0.01875 * SafezoneH)";
-            h = "1 * 		(0.025 * SafezoneH)";
+            x = "42*     (0.01875 * SafezoneH)";
+            y = "33 *     (0.025 * SafezoneH)";
+            w = "8 *     (0.01875 * SafezoneH)";
+            h = "1 *     (0.025 * SafezoneH)";
         };
         class TextGEOLOCK: RangeText
         {
@@ -268,10 +268,10 @@ class MELB_GUI: RscControlsGroup
             sizeEx = "0.0255*SafezoneH";
             colorText[] = {1,1,1,1};
             shadow = 2;
-            x = "42* 		(0.01875 * SafezoneH)";
-            y = "32 * 		(0.025 * SafezoneH)";
-            w = "8 * 		(0.01875 * SafezoneH)";
-            h = "1.2 * 		(0.025 * SafezoneH)";
+            x = "42*     (0.01875 * SafezoneH)";
+            y = "32 *     (0.025 * SafezoneH)";
+            w = "8 *     (0.01875 * SafezoneH)";
+            h = "1.2 *     (0.025 * SafezoneH)";
         };
     };
 };

@@ -2,19 +2,19 @@
 Function: vtx_uh60_sfmplus_fnc_getArea
 
 Description:
-	Returns the area of a four point polygon.
+  Returns the area of a four point polygon.
 
 Parameters:
-	_A, _B, _C, _D 
+  _A, _B, _C, _D 
 
 Returns:
-	...
+  ...
 
 Examples:
-	...
+  ...
 
 Author:
-	BradMick
+  BradMick
 ---------------------------------------------------------------------------- */
 params ["_A","_B","_C","_D"];
 

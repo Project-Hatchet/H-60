@@ -1,6 +1,6 @@
 class CfgFunctions {
-    class vtx {	//tag
-        class vtx {	//category
+    class vtx {  //tag
+        class vtx {  //category
             class initBox {
                 file  = "functions\initBox.sqf";
             };

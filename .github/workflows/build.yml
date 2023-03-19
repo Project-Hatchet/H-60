@@ -24,7 +24,7 @@ jobs:
     - name: Check for BOM
       uses: arma-actions/bom-check@master
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-2022
     steps:
       - name: Checkout the source code
         uses: actions/checkout@v2

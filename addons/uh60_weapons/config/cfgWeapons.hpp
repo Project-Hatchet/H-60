@@ -32,11 +32,11 @@ class cfgWeapons {
       class player: player {
         displayName = "M230 HEDP";
         reloadTime = 0.109;
-			  dispersion = 0.006;
+        dispersion = 0.006;
       class StandardSound 
       {
           soundSetShot[] = {"vtx_m230_soundset"};
-      };	
+      };  
       };
       class gunParticles
       {
@@ -79,7 +79,7 @@ class cfgWeapons {
     class Far_AI;
     class Medium_AI;
   };
-	class vtx_apkws: vtx_dagr {
+  class vtx_apkws: vtx_dagr {
     displayName = "APKWS";
     displayNameShort = "APKWS";
     magazines[] = {"VTX_PylonRack_M261_APKWS"};

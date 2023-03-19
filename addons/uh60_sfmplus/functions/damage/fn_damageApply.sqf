@@ -6,7 +6,7 @@ Description:
     operating limits. 
 
 Parameters:
-	_heli      - The helicopter to get information from [Unit].
+  _heli      - The helicopter to get information from [Unit].
     _deltaTime - Passed delta time from core update.
 
 Returns:
@@ -16,7 +16,7 @@ Examples:
     ...
 
 Author:
-	BradMick
+  BradMick
 ---------------------------------------------------------------------------- */
 params ["_heli", "_deltaTime"];
 

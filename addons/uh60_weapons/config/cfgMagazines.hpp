@@ -72,10 +72,10 @@ class cfgMagazines {
   };
 
   class PylonRack_12Rnd_missiles;
-	class VTX_PylonRack_M261_M229: PylonRack_12Rnd_missiles {
+  class VTX_PylonRack_M261_M229: PylonRack_12Rnd_missiles {
     hardpoints[] = {"VTX_ST_L","VTX_ST_R","VTX_ST_OUTBOARD"};
-		author = "Ampersand";
-		count = 19;
+    author = "Ampersand";
+    count = 19;
     displayName = "19x Hydra 70 M229 [H60]";
     displayNameShort = "19x Hydra 70 M229";
     weight = 237.59;
@@ -85,7 +85,7 @@ class cfgMagazines {
         #include "rocketMFD.hpp"
       };
     };
-	};
+  };
   class PylonRack_12Rnd_PG_missiles;
   class VTX_PylonRack_M261_DAGR: PylonRack_12Rnd_PG_missiles {
     hardpoints[] = {"VTX_ST_L","VTX_ST_R","VTX_ST_OUTBOARD"};

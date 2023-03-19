@@ -2,11 +2,11 @@
 #define CSAT(heli) \
 class heli; \
 class OO(heli): heli { \
-	_generalMacro = QUOTE(OO(heli)); \
-	side = 0; \
-	faction = "OPF_F"; \
-	crew = "O_helipilot_F"; \
-	typicalCargo[] = {"O_Soldier_lite_F"}; \
+  _generalMacro = QUOTE(OO(heli)); \
+  side = 0; \
+  faction = "OPF_F"; \
+  crew = "O_helipilot_F"; \
+  typicalCargo[] = {"O_Soldier_lite_F"}; \
 };
 
 class CfgVehicles {

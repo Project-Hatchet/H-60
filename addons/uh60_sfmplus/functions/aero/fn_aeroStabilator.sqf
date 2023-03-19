@@ -6,7 +6,7 @@ Description:
     collective position and airspeed.
 
 Parameters:
-	_heli      - The helicopter to get information from [Unit].
+  _heli      - The helicopter to get information from [Unit].
     _deltaTime - Passed delta time from core update.
 
 Returns:
@@ -16,7 +16,7 @@ Examples:
     ...
 
 Author:
-	BradMick
+  BradMick
 ---------------------------------------------------------------------------- */
 params ["_heli", "_deltaTime"];
 
@@ -27,8 +27,8 @@ if (!local _heli) exitWith {};
 private _colorRed = [1,0,0,1]; private _colorGreen = [0,1,0,1]; private _colorBlue = [0,0,1,1]; private _colorWhite = [1,1,1,1];
 
 DRAW_LINE = {
-	params ["_heli", "_p1", "_p2", "_col"];
-	drawLine3D [_heli modelToWorldVisual _p1, _heli modelToWorldVisual _p2, _col];
+  params ["_heli", "_p1", "_p2", "_col"];
+  drawLine3D [_heli modelToWorldVisual _p1, _heli modelToWorldVisual _p2, _col];
 };
 
 private _objCtr  = _heli selectionPosition ["modelCenter", "Memory"];
@@ -39,8 +39,8 @@ private _stabPvt = _objCtr vectorAdd _stabPos;
 private _intStabTable = [getArray (_config >> "stabTable"), vtx_uh60_sfmplus_collectiveOutput] call vtx_uh60_sfmplus_fnc_linearInterp;
 
 private _stabOutputTable = [[15.43, _intStabTable select 1],  //30kts
-							[36.01, _intStabTable select 2],  //70kts
-							[66.87, _intStabTable select 3],  //130kts
+              [36.01, _intStabTable select 2],  //70kts
+              [66.87, _intStabTable select 3],  //130kts
                             [77.17, _intStabTable select 4]]; //150kts
 
 private _V_mps = abs vectorMagnitude [velocity _heli select 0, velocity _heli select 1];

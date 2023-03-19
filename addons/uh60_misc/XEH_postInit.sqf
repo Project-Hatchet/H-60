@@ -85,33 +85,33 @@ private _editNumbersRight = ["vtx_uh60_paintNumbersRight" + (str random 1), "Cha
 ["vtx_h60_base",0,[],(_editNumbersRight call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
 
 private _customizationOptions = [
-	["vtx_fuelprobe", "Fuel Probe", ["vtx_fuelProbe", "fuelProbe_show", 1, 0, 7], {[1.3,4.1,-1.2]}],
-	["vtx_hoist", "Rescue Hoist", ["vtx_hoist", "Hoist_hide", 0, 1, 3], {[1.1,1.9,0.35]}],
-	["vtx_cockpitdoors", "Cockpit Doors", ["vtx_cockpitdoors", "Cockpitdoors_Hide", 0, 1, 3], {[1.1,5.1,-0.7]}]
+  ["vtx_fuelprobe", "Fuel Probe", ["vtx_fuelProbe", "fuelProbe_show", 1, 0, 7], {[1.3,4.1,-1.2]}],
+  ["vtx_hoist", "Rescue Hoist", ["vtx_hoist", "Hoist_hide", 0, 1, 3], {[1.1,1.9,0.35]}],
+  ["vtx_cockpitdoors", "Cockpit Doors", ["vtx_cockpitdoors", "Cockpitdoors_Hide", 0, 1, 3], {[1.1,5.1,-0.7]}]
 ];
 
 {
-	_x params ["_className", "_description", "_addParams", "_position", ["_range", 2]];
-	private _addOption = [
-		(_className + "_attach"),
-		("Attach " + _description),
-		"",
-		vtx_uh60_misc_fnc_addCustomization,
-		vtx_uh60_misc_fnc_canCustomizeVariant,
-		nil,
-		_addParams,
-		_position,
-		_range,
-		[false,false,false,false,false],
-		{}
-	];
-	private _removeOption = [
-		(_className + "_remove"),
-		("Remove " + _description),
-		"",
-		vtx_uh60_misc_fnc_removeCustomization,
-		vtx_uh60_misc_fnc_canRemoveCustomization, nil, _addParams, _position, _range, [false,false,false,false,false], {}
-	];
-	["vtx_h60_base",0,[],(_addOption call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
-	["vtx_h60_base",0,[],(_removeOption call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
+  _x params ["_className", "_description", "_addParams", "_position", ["_range", 2]];
+  private _addOption = [
+    (_className + "_attach"),
+    ("Attach " + _description),
+    "",
+    vtx_uh60_misc_fnc_addCustomization,
+    vtx_uh60_misc_fnc_canCustomizeVariant,
+    nil,
+    _addParams,
+    _position,
+    _range,
+    [false,false,false,false,false],
+    {}
+  ];
+  private _removeOption = [
+    (_className + "_remove"),
+    ("Remove " + _description),
+    "",
+    vtx_uh60_misc_fnc_removeCustomization,
+    vtx_uh60_misc_fnc_canRemoveCustomization, nil, _addParams, _position, _range, [false,false,false,false,false], {}
+  ];
+  ["vtx_h60_base",0,[],(_addOption call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
+  ["vtx_h60_base",0,[],(_removeOption call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
 } forEach _customizationOptions;

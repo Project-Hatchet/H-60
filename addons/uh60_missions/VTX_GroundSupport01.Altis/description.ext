@@ -1,6 +1,6 @@
 /*--------------------------------------------------------------------------------------------------
 
-	MISSION DESCRIPTION
+  MISSION DESCRIPTION
 
 --------------------------------------------------------------------------------------------------*/
 dev = "Ampersand";
@@ -13,47 +13,47 @@ overviewPicture = "VTX_GroundSupport01_overview_CA.paa";
 
 /*--------------------------------------------------------------------------------------------------
 
-	MP HEADER
+  MP HEADER
 
 --------------------------------------------------------------------------------------------------*/
 class Header
 {
-	gameType = Support;
-	minPlayers = 1;
-	maxPlayers = 6;
+  gameType = Support;
+  minPlayers = 1;
+  maxPlayers = 6;
 };
 
 /*--------------------------------------------------------------------------------------------------
 
-	SERVER PARAMS
+  SERVER PARAMS
 
 --------------------------------------------------------------------------------------------------*/
 class Params
 {
-	#define DAYTIMEHOUR_DEFAULT	18
+  #define DAYTIMEHOUR_DEFAULT  18
 
-	#define DEBUGCONSOLE_DEFAULT	1
+  #define DEBUGCONSOLE_DEFAULT  1
 
-	#define TICKETS_MIN		200
-	#define TICKETS_MAX		1000
-	#define TICKETS_DEFAULT		500
+  #define TICKETS_MIN    200
+  #define TICKETS_MAX    1000
+  #define TICKETS_DEFAULT    500
 
-	#define WEATHER_DEFAULT		75
+  #define WEATHER_DEFAULT    75
 
-	#define VIEW_DISTANCE_MIN	1500
-	#define VIEW_DISTANCE_MAX	6000
-	#define VIEW_DISTANCE_DEFAULT 2000
+  #define VIEW_DISTANCE_MIN  1500
+  #define VIEW_DISTANCE_MAX  6000
+  #define VIEW_DISTANCE_DEFAULT 2000
 
-	#include "\a3\functions_f\Params\paramWeather.inc"
-	#include "\a3\functions_f\Params\paramRespawnTicketsNoDisabled.inc"
-	#include "\a3\functions_f\Params\paramDebugConsole.inc"
-	#include "\a3\functions_f\Params\paramDaytimeHour.inc"
-	#include "\a3\Functions_F_Heli\Params\paramViewDistance.inc"
+  #include "\a3\functions_f\Params\paramWeather.inc"
+  #include "\a3\functions_f\Params\paramRespawnTicketsNoDisabled.inc"
+  #include "\a3\functions_f\Params\paramDebugConsole.inc"
+  #include "\a3\functions_f\Params\paramDaytimeHour.inc"
+  #include "\a3\Functions_F_Heli\Params\paramViewDistance.inc"
 };
 
 /*--------------------------------------------------------------------------------------------------
 
-	RESPAWN
+  RESPAWN
 
 --------------------------------------------------------------------------------------------------*/
 respawn = 2;
@@ -66,7 +66,7 @@ respawnDialog = 0;
 
 /*--------------------------------------------------------------------------------------------------
 
-	CUSTOM GROUPS
+  CUSTOM GROUPS
 
 --------------------------------------------------------------------------------------------------*/
 #include "cfgGroupsRodopoli.hpp"
