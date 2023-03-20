@@ -136,17 +136,21 @@ class CfgAmmo {
   class ammo_Missile_HARM_HL : ammo_Missile_HARM {
     hit = 0;
     indirectHit = 0;
-    autoSeekTarget = 1;
-    flightProfiles[] = {LOALDistance};
+    autoSeekTarget = 0;//was 1
+    //flightProfiles[] = {LOALDistance};
     missileLockMinDistance = 50;
-    lockType = 0;
+    lockType = 2;//was 0
     lockSeekRadius = 2000; 
     displayName = "AGM-88 HL";
   	displayNameShort = "AGM-88 HL";
   	description = "Anti Radiation School Project";
   	descriptionShort = "Anti Radiation School Project";
-    model = "\A3\Weapons_F_Sams\Ammo\Missile_AR_01_F_fly.p3d";
-		proxyShape = "\A3\Weapons_F_Sams\Ammo\Missile_AR_01_F.p3d";
+    model = QPATHTOF(hl_88.p3d);
+    proxyShape = QPATHTOF(hl_88.p3d);
+    aiAmmoUsageFlags = 128 + 512;
+    explosionEffects = "TrainingMineEffect";
+    //model = "\A3\Weapons_F_Sams\Ammo\Missile_AR_01_F_fly.p3d";
+		//proxyShape = "\A3\Weapons_F_Sams\Ammo\Missile_AR_01_F.p3d";
   };
   
 };
