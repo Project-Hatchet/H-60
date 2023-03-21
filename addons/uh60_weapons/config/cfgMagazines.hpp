@@ -77,8 +77,8 @@ class cfgMagazines {
 		author = "Ampersand";
 		count = 19;
     displayName = "19x Hydra 70 M229 [H60]";
-    weight = 237.59;
     displayNameShort = "Hydra 70 M229";
+    mass = 300.4; // 36.3 kg launcher, 6.2 per motor, 7.7 per warhead
     model = QPATHTOF(fza_pod_m261.p3d);
     pylonWeapon = "vtx_hydra";
     class mfdElements {
@@ -95,7 +95,7 @@ class cfgMagazines {
     count = 19;
     displayName = "19x DAGR [H60]";
     displayNameShort = "DAGR";
-    weight = 237.59;
+    mass = 336.5; // 36.3 kg launcher, 15.8 per rocket
     model = QPATHTOF(fza_pod_m261.p3d);
     pylonWeapon = "vtx_dagr";
     class mfdElements {
