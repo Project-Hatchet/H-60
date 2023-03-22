@@ -3,9 +3,7 @@ class cfgWeapons {
     class ace_hellfire_launcher;
     class ace_hellfire_launcher_L;
     class ace_hellfire_launcher_N;
-    class weapon_HARMLauncher : MissileLauncher {
-      class LoalDistance: MissileLauncher {};
-    };
+    class weapon_HARMLauncher;
     class vtx_hellfire_launcher: ace_hellfire_launcher {
       ace_laser_showHud = 0;
       magazines[] = {"VTX_4Rnd_ACE_Hellfire_AGM114K"};
@@ -112,15 +110,12 @@ class cfgWeapons {
     displayName = "AGM-88HL";
     displayNameShort = "AGM-88HL";
     magazines[] = {"PylonMissile_Missile_HARM_x1_HL"};
-    lockAcquire = 1;
+    lockAcquire = 0;
     weaponLockDelay = 0;
     class Eventhandlers {
       class vtx_harm {
         fired = "_this call vtx_uh60_weapons_fnc_fired";
       };
-    };
-    class LoalDistance : LoalDistance {
-      displayName = "AGM-88HL"; 
     };
   };
   /* class missile : missilecore {
