@@ -133,7 +133,7 @@ class CfgAmmo {
     // https://ace3mod.com/wiki/framework/frag-framework.html
     
   };
-  class ammo_Missile_HARM_HL : ammo_Missile_HARM {
+  class vtx_ammo_Missile_HARM_HL : ammo_Missile_HARM {
     hit = 0;
     indirectHit = 0;
     //autoSeekTarget = 0;
@@ -154,9 +154,10 @@ class CfgAmmo {
     model = QPATHTOF(hl_88.p3d);
     proxyShape = QPATHTOF(hl_88.p3d);
     aiAmmoUsageFlags = 128 + 512;
-    explosionEffects = "TrainingMineEffect";
+    explosionEffects = "vtx_uh60_cardboardExplosion";
     //model = "\A3\Weapons_F_Sams\Ammo\Missile_AR_01_F_fly.p3d";
 		//proxyShape = "\A3\Weapons_F_Sams\Ammo\Missile_AR_01_F.p3d";
+    craterEffects = "";
   };
   
 };

@@ -106,10 +106,10 @@ class cfgWeapons {
     class Far_AI: Far_AI {displayName = "APKWS";};
     class Medium_AI: Medium_AI {displayName = "APKWS";};
   };
-  class weapon_HARMLauncher_HL : weapon_HARMLauncher {
+  class vtx_weapon_HARMLauncher_HL : weapon_HARMLauncher {
     displayName = "AGM-88HL";
     displayNameShort = "AGM-88HL";
-    magazines[] = {"PylonMissile_Missile_HARM_x1_HL"};
+    magazines[] = {"VTX_PylonMissile_Missile_HARM_x1_HL"};
     lockAcquire = 0;
     weaponLockDelay = 0;
     class Eventhandlers {
