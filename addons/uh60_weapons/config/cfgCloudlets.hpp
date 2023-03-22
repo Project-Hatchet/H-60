@@ -123,11 +123,11 @@ class cfgCloudlets {
 		animationName = "";
 		particleType = "Billboard";
 		timerPeriod = 1;
-		lifeTime = 0.5;
+		lifeTime = 2;
 		moveVelocity[] = {0,-1,0};
 		rotationVelocity = 0;
 		weight = 1;
-		volume = 1;
+		volume = 5;
 		rubbing = 0;
 		size[] = {0.1};
 		color[] = {{1,1,1,1}};

@@ -58,6 +58,6 @@ class vtx_uh60_cardboardExplosion {
 		position[] = {0,0,0};
 		intensity = 1;
 		interval = 1;
-		lifeTime = 1;
+		lifeTime = 2;
 	};
 };

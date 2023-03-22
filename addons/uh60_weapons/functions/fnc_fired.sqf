@@ -54,18 +54,25 @@ if (_ammo == "ammo_Missile_HARM_HL" && vehicle _gunner == _vehicle) then {
 				};
 				
 				//systemChat format ["MslTgtPos: %1 DisToTgt: %2 TgtPos: %3", (_missileTgtPos # 0), (_missileTgtPos # 1), _targetPos];
-				//systemChat format ["Targets in List: %1", (count _seenObjects)];
+				systemChat format ["Direct Mode Enabled"];
 			} else {
 			/*  Backup Function to default to _targetPos 
 			*  Adds a point 6000m in the distance and flys to that point 
-			*  Todo:  Find a grid 80 degrees down from the missile and search there for targets
+			*  Finds a grid 30 degrees down from the missile and search there for targets
 			*		As the missile flys, it should check the ground for other targets to try and narrow down the position of the target
 			*		Should check missile altitude as well to adjust the radius of the search 
-			*/
-				_targetPos = _projectile vectorModelToWorld [6000, 0, 0];
-				_targetPos set [2, ((getPosATL _projectile) # 2)];		//maintains the same altitude 
-				(_this select 0) set [5, _targetPos];
-				//systemChat "Cannot See Target";
+			*/	
+				_vecDir = [6000 + ((getPosATL _projectile) # 2), getDir _projectile, -30] call CBA_fnc_polar2vect;
+				_vecDir = vectorNormalized _vecDir;
+				_missileTgtPos = [getPosASL player, _thingy, player, blockey] call ace_laser_fnc_shootRay;
+				if ((_missileTgtPos # 1) != 0) then {
+					_seenObjects = nearestObjects [(_missileTgtPos # 0), ["AllVehicles"], (_missileTgtPos # 1)*5.6712818 + 10];
+					_targetPos = (_missileTgtPos # 0);
+					for "_i" from 0 to (count _seenObjects) do {
+						if (isVehicleRadarOn (_seenObjects # _i)) exitWith {_targetPos = getPosASL (_seenObjects # _i);(_this select 0) set [5, _targetPos];(_this select 0) set [2, true];};
+					};
+				};
+				systemChat format ["Search Mode Enabled"];
 			};
 		} else {
 			//systemChat format ["MslTgtPos: %1 DisToTgt: %2 TgtPos: %3", (_missileTgtPos # 0), (_missileTgtPos # 1), _targetPos];
