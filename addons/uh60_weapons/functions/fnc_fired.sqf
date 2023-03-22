@@ -39,6 +39,7 @@ if (_ammo == "ammo_Missile_HARM_HL" && vehicle _gunner == _vehicle) then {
 		};
 
 		//Start of Donov HARM Guidence computer
+		systemChat "Missile Alive";
 		_missileTgtPos = [getPosASL _projectile, vectorDir _projectile, _projectile, vehicle _gunner] call ace_laser_fnc_shootRay;
 		/*  Using Shoot ray to determine a spot in space where the missile is looking in front of it 
 		 *  Then using nearestObjects to pull a list of "AllVehicles" from the radius of the seekerhead
@@ -50,11 +51,11 @@ if (_ammo == "ammo_Missile_HARM_HL" && vehicle _gunner == _vehicle) then {
 				_seenObjects = nearestObjects [(_missileTgtPos # 0), ["AllVehicles"], (_missileTgtPos # 1)*5.6712818 + 10];
 				_targetPos = (_missileTgtPos # 0);
 				for "_i" from 0 to (count _seenObjects) do {
-					if (isVehicleRadarOn (_seenObjects # _i)) exitWith {_targetPos = getPosASL (_seenObjects # _i);(_this select 0) set [5, _targetPos];(_this select 0) set [2, true];};
+					if (isVehicleRadarOn (_seenObjects # _i)) exitWith {_targetPos = getPosASL (_seenObjects # _i);(_this select 0) set [5, _targetPos];(_this select 0) set [2, true];systemChat "Direct Mode Enabled, Target Found";};
 				};
 				
+				systemChat "Direct Mode Enabled, Searching";
 				//systemChat format ["MslTgtPos: %1 DisToTgt: %2 TgtPos: %3", (_missileTgtPos # 0), (_missileTgtPos # 1), _targetPos];
-				systemChat format ["Direct Mode Enabled"];
 			} else {
 			/*  Backup Function to default to _targetPos 
 			*  Adds a point 6000m in the distance and flys to that point 
@@ -69,36 +70,30 @@ if (_ammo == "ammo_Missile_HARM_HL" && vehicle _gunner == _vehicle) then {
 					_seenObjects = nearestObjects [(_missileTgtPos # 0), ["AllVehicles"], (_missileTgtPos # 1)*5.6712818 + 10];
 					_targetPos = (_missileTgtPos # 0);
 					for "_i" from 0 to (count _seenObjects) do {
-						if (isVehicleRadarOn (_seenObjects # _i)) exitWith {_targetPos = getPosASL (_seenObjects # _i);(_this select 0) set [5, _targetPos];(_this select 0) set [2, true];};
+						if (isVehicleRadarOn (_seenObjects # _i)) exitWith {_targetPos = getPosASL (_seenObjects # _i);(_this select 0) set [5, _targetPos];(_this select 0) set [2, true];systemChat "Search Mode Enabled, Target Found";};
 					};
 				};
-				systemChat format ["Search Mode Enabled"];
+				systemChat "Search Mode Enabled, Searching";
 			};
 		} else {
-			//systemChat format ["MslTgtPos: %1 DisToTgt: %2 TgtPos: %3", (_missileTgtPos # 0), (_missileTgtPos # 1), _targetPos];
 
 		//End of Donov HARM Guidence Code
-			if(time > _launchTime + 1) then {
-				_targetCoordinates = _targetPos; //vectorAdd [0,0,1];
+			if(time > _launchTime + 1 && !isNil _targetPos) then {
+				_targetCoordinates = _targetPos vectorAdd [0,0,0.2];
 				_position = getPosASL _projectile;
-				//systemChat format ["_targetCoordinates: %1, _position: %2", _targetCoordinates, _position];
 				(_projectile call BIS_fnc_getPitchBank) params ["_pitch", "_bank"];
 				_vectToTarget = vectorNormalized (_targetCoordinates vectorDiff _position);
 				_vectToTargetDiff = _vectToTarget vectorDiff (vectorNormalized (velocity _projectile));
 				_vectorModelSpace = _projectile vectorWorldToModel _vectToTargetDiff;
-				//systemChat format ["_vectToTarget: %1, _vectToTargetDiff: %2, _vectorModelSpace: %3", _vectToTarget, _vectToTargetDiff, _vectorModelSpace];
 				_angleX = asin (_vectorModelSpace # 0);
 				_angleY = asin (_vectorModelSpace # 2);
 				_turnRate = 4 * _frameTime;
 				_projectile setDir (getDir _projectile) + ((_turnRate * _angleX) min _angleX);
 				[_projectile, _pitch + ((_turnRate * _angleY) min _angleY), 0] call BIS_fnc_setPitchBank;
-				//systemChat format ["_angleX: %1 _angleY: %2 _turnRate: %3", _angleX, _angleY, _turnRate];
-				//systemChat format ["_pitch: %1 _bank: %2", _pitch, _bank];
-
+				systemChat "Guidence Mode Engaged";
 			};
 		};	
 	}, 0, [_projectile, _ammo, false, time, time, getPos _projectile]] call CBA_fnc_addPerFrameHandler;
 	//End of Yax's ITC APK Code 
-	//comment
 };
 
