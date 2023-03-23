@@ -112,6 +112,9 @@ class cfgWeapons {
     magazines[] = {"VTX_PylonMissile_Missile_HARM_x1_HL"};
     lockAcquire = 0;
     weaponLockDelay = 0;
+    soundFly[] = {"\z\vtx\addons\uh60_weapons\Data\Audio\AGM_88_HL_Running.ogg", db-10, 1, 2000};
+    soundLoop[] = {"\z\vtx\addons\uh60_weapons\Data\Audio\AGM_88_HL_Running.ogg", db-10, 1, 2000};
+    soundBegin[] = {"\z\vtx\addons\uh60_weapons\Data\Audio\AGM_88_HL_Launch.ogg", db-10, 1, 2000};
     class Eventhandlers {
       class vtx_harm {
         fired = "_this call vtx_uh60_weapons_fnc_fired";

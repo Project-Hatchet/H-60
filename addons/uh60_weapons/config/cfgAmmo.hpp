@@ -158,6 +158,9 @@ class CfgAmmo {
     //model = "\A3\Weapons_F_Sams\Ammo\Missile_AR_01_F_fly.p3d";
 		//proxyShape = "\A3\Weapons_F_Sams\Ammo\Missile_AR_01_F.p3d";
     craterEffects = "";
+    soundHit1[] = {"\z\vtx\addons\uh60_weapons\Data\Audio\AGM_88_HL_Impact.ogg", db-10, 1, 2000};
+    soundHit2[] = {"\z\vtx\addons\uh60_weapons\Data\Audio\AGM_88_HL_Impact.ogg", db-10, 1, 2000};
+    soundHit3[] = {"\z\vtx\addons\uh60_weapons\Data\Audio\AGM_88_HL_Impact.ogg", db-10, 1, 2000};
   };
   
 };
