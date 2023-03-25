@@ -15,7 +15,7 @@
  * Example:
  * [_projectile, _projCheckDist, _tempTgtGrid] call vtx_uh60_weapons_fnc_getHARMTarget
  */
- 
+
 params ["_projectile", "_projCheckDist", "_tempTgtGrid"];
 
 _sortList = vehicles;   

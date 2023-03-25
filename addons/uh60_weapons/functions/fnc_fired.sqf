@@ -19,7 +19,7 @@ if (player == _gunner && local _gunner) then {
 };
 
 //spaggetti code:  Mix of Yax's ITC Air APKs and HARM Guidence by Donov
-if (_ammo == "ammo_Missile_HARM_HL" && vehicle _gunner == _vehicle) then {
+if (_ammo == "vtx_ammo_Missile_HARM_HL" && vehicle _gunner == _vehicle) then {
 	_index = 0;	//reset index to enter while loop
 	while {_index < 4} do {
 		if ((getPylonMagazines _vehicle # _index) == "PylonMissile_Missile_HARM_x1_HL") then {
@@ -29,5 +29,6 @@ if (_ammo == "ammo_Missile_HARM_HL" && vehicle _gunner == _vehicle) then {
 		_index = _index + 1;  //python be like
 	};
 	[_projectile, _ammo] call vtx_uh60_weapons_fnc_HARMGuidence; 
+
 };
 

@@ -29,9 +29,6 @@ params ["_projectile", "_ammo"];
 
 		//Start of Donov HARM Guidence computer
 		//systemChat "Missile Alive";
-		if (isNil _targetPos) then {
-			_targetPos = objNull;
-		};
 		_missileTgtPos = [getPosASL _projectile, vectorDir _projectile, _projectile, vehicle _gunner] call ace_laser_fnc_shootRay;
 		/*  Using Shoot ray to determine a spot in space where the missile is looking in front of it 
 		 *  Then using nearestObjects to pull a list of "AllVehicles" from the radius of the seekerhead
@@ -40,13 +37,12 @@ params ["_projectile", "_ammo"];
 		*/
 		if (!_foundTarget) then {
 			if ((_missileTgtPos # 1) != 0) then {
-				_targetPos = [_projectile, _projCheckDist, _tempTgtGrid] call vtx_uh60_weapons_fnc_getHARMTarget
-				_seenObjects = nearestObjects [(_missileTgtPos # 0), ["AllVehicles"], (_missileTgtPos # 1)*5.6712818 + 10];
-				_targetPos = (_missileTgtPos # 0);
-				for "_i" from 0 to (count _seenObjects) do {
-					if (isVehicleRadarOn (_seenObjects # _i)) exitWith {_targetPos = getPosASL (_seenObjects # _i);(_this select 0) set [5, _targetPos];(_this select 0) set [2, true];};
+				_target = [_projectile, ((_missileTgtPos # 1)*5.6712818 + 10), (_missileTgtPos # 0)] call vtx_uh60_weapons_fnc_HARMGuidence; 
+				if (_target != objNull) then {
+					_targetPos = getPosASL _target;
+				} else {
+					_targetPos = (_missileTgtPos # 0);
 				};
-				
 			} else {
 			/*  Backup Function to default to _targetPos 
 			*  Adds a point 6000m in the distance and flys to that point 
@@ -58,16 +54,16 @@ params ["_projectile", "_ammo"];
 				_vecDir = vectorNormalized _vecDir;
 				_missileTgtPos = [getPosASL _projectile, _vecDir, _projectile, blockey] call ace_laser_fnc_shootRay;
 				if ((_missileTgtPos # 1) != 0) then {
-					_seenObjects = nearestObjects [(_missileTgtPos # 0), ["AllVehicles"], (_missileTgtPos # 1)*5.6712818 + 10];
-					_targetPos = (_missileTgtPos # 0);
-					for "_i" from 0 to (count _seenObjects) do {
-						if (isVehicleRadarOn (_seenObjects # _i)) exitWith {_targetPos = getPosASL (_seenObjects # _i);(_this select 0) set [5, _targetPos];(_this select 0) set [2, true];};
+					_target = [_projectile, ((_missileTgtPos # 1)*5.6712818 + 10), (_missileTgtPos # 0)] call vtx_uh60_weapons_fnc_HARMGuidence; 
+					if (_target != objNull) then {
+						_targetPos = getPosASL _target;
+					} else {
+						_targetPos = (_missileTgtPos # 0);
 					};
 				} else {
 					_targetPos = _projectile vectorModelToWorld [6000, 0, 0];
 					_targetPos set [2, 0];
 				};
-				//systemChat "Search Mode Enabled, Searching";
 			};
 		} else {
 
@@ -84,7 +80,6 @@ params ["_projectile", "_ammo"];
 				_turnRate = 4 * _frameTime;
 				_projectile setDir (getDir _projectile) + ((_turnRate * _angleX) min _angleX);
 				[_projectile, _pitch + ((_turnRate * _angleY) min _angleY), 0] call BIS_fnc_setPitchBank;
-				//systemChat "Guidence Mode Engaged";
 			};
 		};	
 	}, 0, [_projectile, _ammo, false, time, time, getPos _projectile]] call CBA_fnc_addPerFrameHandler;
