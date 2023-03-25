@@ -29,6 +29,9 @@ params ["_projectile", "_ammo"];
 
 		//Start of Donov HARM Guidence computer
 		//systemChat "Missile Alive";
+		if (isNil _targetPos) then {
+			_targetPos = objNull;
+		};
 		_missileTgtPos = [getPosASL _projectile, vectorDir _projectile, _projectile, vehicle _gunner] call ace_laser_fnc_shootRay;
 		/*  Using Shoot ray to determine a spot in space where the missile is looking in front of it 
 		 *  Then using nearestObjects to pull a list of "AllVehicles" from the radius of the seekerhead
@@ -37,14 +40,13 @@ params ["_projectile", "_ammo"];
 		*/
 		if (!_foundTarget) then {
 			if ((_missileTgtPos # 1) != 0) then {
+				_targetPos = [_projectile, _projCheckDist, _tempTgtGrid] call vtx_uh60_weapons_fnc_getHARMTarget
 				_seenObjects = nearestObjects [(_missileTgtPos # 0), ["AllVehicles"], (_missileTgtPos # 1)*5.6712818 + 10];
 				_targetPos = (_missileTgtPos # 0);
 				for "_i" from 0 to (count _seenObjects) do {
 					if (isVehicleRadarOn (_seenObjects # _i)) exitWith {_targetPos = getPosASL (_seenObjects # _i);(_this select 0) set [5, _targetPos];(_this select 0) set [2, true];};
 				};
 				
-				//systemChat "Direct Mode Enabled, Searching";
-				//systemChat format ["MslTgtPos: %1 DisToTgt: %2 TgtPos: %3", (_missileTgtPos # 0), (_missileTgtPos # 1), _targetPos];
 			} else {
 			/*  Backup Function to default to _targetPos 
 			*  Adds a point 6000m in the distance and flys to that point 
@@ -54,20 +56,23 @@ params ["_projectile", "_ammo"];
 			*/	
 				_vecDir = [6000 + ((getPosATL _projectile) # 2), getDir _projectile, -30] call CBA_fnc_polar2vect;
 				_vecDir = vectorNormalized _vecDir;
-				_missileTgtPos = [getPosASL player, _thingy, player, blockey] call ace_laser_fnc_shootRay;
+				_missileTgtPos = [getPosASL _projectile, _vecDir, _projectile, blockey] call ace_laser_fnc_shootRay;
 				if ((_missileTgtPos # 1) != 0) then {
 					_seenObjects = nearestObjects [(_missileTgtPos # 0), ["AllVehicles"], (_missileTgtPos # 1)*5.6712818 + 10];
 					_targetPos = (_missileTgtPos # 0);
 					for "_i" from 0 to (count _seenObjects) do {
 						if (isVehicleRadarOn (_seenObjects # _i)) exitWith {_targetPos = getPosASL (_seenObjects # _i);(_this select 0) set [5, _targetPos];(_this select 0) set [2, true];};
 					};
+				} else {
+					_targetPos = _projectile vectorModelToWorld [6000, 0, 0];
+					_targetPos set [2, 0];
 				};
 				//systemChat "Search Mode Enabled, Searching";
 			};
 		} else {
 
 		//End of Donov HARM Guidence Code
-			if(time > _launchTime + 1 && !isNil _targetPos) then {
+			if(time > _launchTime + 1 && _targetPos != objNull) then {
 				_targetCoordinates = _targetPos vectorAdd [0,0,0.2];
 				_position = getPosASL _projectile;
 				(_projectile call BIS_fnc_getPitchBank) params ["_pitch", "_bank"];
