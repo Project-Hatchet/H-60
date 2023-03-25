@@ -121,22 +121,4 @@ class cfgWeapons {
       };
     };
   };
-  /* class missile : missilecore {
-      params["_whereItIsnt", "_whereItIs"];
-      class vtx_guidenceSubsystem {
-        _variation = _signifigantFactor + 1; //temp assignment to enter loop
-        while {(abs _variation) >  _signifigantFactor} do {
-          _deviation = _whereItIs - _whereItIsnt;
-          if (_whereItIsnt - _whereItIs > _whereItIs - _whereItIsnt) then {
-            _deviation = _whereItIsnt - _whereItIs;
-          };
-          _correctiveCommands = _deviation call vtx_uh60_weapons_fnc_guidence_subsystem;
-          _positionWhereItWasnt = _correctiveCommands call vtx_uh60_weapons_fnc_missile_driver;
-          if (_positionWhereItWasnt != _whereItIs) then {
-            _variation = _whereItIs - _positionWhereItWasnt;
-          };
-        };
-      };
-  };*/
-
 };
