@@ -9,5 +9,6 @@
         , "uh60_hoist"
         , "uh60_misc"
         , "uh60_weapons"
-        ]
+        ],
+    "outputFolder": "release"
 }
