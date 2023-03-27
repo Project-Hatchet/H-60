@@ -30,10 +30,19 @@ for "_i" from 0 to (count _sortList) do {
   	_tempPos = (getPosASL (_sortList # _i)); 
   	_dist = _tempPos distance _checkPos; 
   	if (isVehicleRadarOn (_sortList # _i) && _dist <= _maxDist) then { 
-		_lookingDir = [0,0,0] getdir (getCameraViewDirection  (gunner (_sortList # _i))); 
+		//https://community.bistudio.com/wiki/Arma_3:_Sensors_config_reference   //look for animDirection
+		//For sensor direction, if there is no selection name setup, then there is no direction, so align with vehicle body 
+			//This only really happens with radars with 360 degree visibility 
+		//What's even worse, is the base game only changes the animDirection to = "mainGun"
+		//So it's not like this script does much other than cause headache 
+		_lookingDir = getDir (_sortList # _i); 
+		_selectionName = (getText (configOf (_sortList # _i)) >> "Components" >> "SensorsManagerComponent" >> "Components" >> "ActiveRadarSensorComponent" >> "angleRangeHorizontal");
+		if (_selectionName != "") then {
+			_lookingDir = [0,0,0] getdir (getCameraViewDirection  (gunner (_sortList # _i)));
+		};
  		_radarOffset = getNumber ((configOf (_sortList # _i)) >> "Components" >> "SensorsManagerComponent" >> "Components" >> "ActiveRadarSensorComponent" >> "angleRangeHorizontal");
  		//checks if the back asimuth of the missile is within the radar's range
-		if ((_missileDirBA < (_lookingDir + _radarOffset)) && (_missileDirBA > (_lookingDir - _radarOffset))) then { 
+		if ((_missileDirBA <= (_lookingDir + _radarOffset)) && (_missileDirBA >= (_lookingDir - _radarOffset))) then { 
 			_maxDist = _dist; 
 			_chosenOne = (_sortList # _i); 
 		};

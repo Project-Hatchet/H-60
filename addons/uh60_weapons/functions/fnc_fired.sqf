@@ -31,4 +31,3 @@ if (_ammo == "vtx_ammo_Missile_HARM_HL" && vehicle _gunner == _vehicle) then {
 	[_projectile, _ammo] call vtx_uh60_weapons_fnc_HARMGuidence; 
 
 };
-
