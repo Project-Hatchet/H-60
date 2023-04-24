@@ -237,7 +237,7 @@ class interaction {
             }; // b_engpowercont2
         }; // powerContRTD
         class l_rotorbrake : b_airsce {
-            clickSound="";
+            clickSound="vxf_RotorBrake_Sound";
             position="RotorBrake";
             positionType="anim";
             label="Rotor Brake";
