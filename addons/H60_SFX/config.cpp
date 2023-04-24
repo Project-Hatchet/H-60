@@ -234,6 +234,12 @@ class CfgSounds
 		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Door",3,1};
 		titles[] = {};
 	};
+	class vxf_RotorBrake_Sound
+	{
+		name = "vxf_RotorBrake_Sound";
+		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\RotorBrake",3,1};
+		titles[] = {};
+	};
 };
 class CfgFunctions
 {
