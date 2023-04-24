@@ -45,8 +45,8 @@ class vtx_Engine_Distance_SoundShader
 			1
 		}
 	};
-	frequency="rotorspeed * (1-rotorthrust/15) * 1.25";
-	volume="((rotorspeed-0.72)*4)*camext*(CustomSoundController14+1)";
+	frequency="1.25*rotorspeed*(1-rotorthrust/15)";
+	volume="camext*((rotorspeed-0.72)*4)*(CustomSoundController14+1)";
 	range=1300;
 	rangecurve[]=
 	{
@@ -66,7 +66,7 @@ class vtx_EngineExt_SoundShader
 			1
 		}
 	};
-	frequency="rotorSpeed";
+	frequency="rotorSpeed*(1+rotorThrust/6)";
 	volume="camext*(rotorSpeed factor [0.3, 1])*(CustomSoundController14+1)";
 	range=1000;
 	rangecurve[]=
