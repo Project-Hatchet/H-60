@@ -21,14 +21,14 @@ _Main_Process = {
 
     //-Exterior or Interior
     if (_forEachIndex == 1) then {
-      if (((cameraView == "EXTERNAL") or !(cameraOn isEqualTo _vehicle)) && (local _vehicle)) then {
+      if ((cameraView == "EXTERNAL") or !(cameraOn isEqualTo _vehicle)) then {
         //Ext
         _file = [_file + ".wss",_file] select ("." in _file);
         _volume = _array # 1;
         _freq = _array # 2;
         _range = _array # 3;
 
-        _sound = playSound3D [_file, _vehicle, false, getPosASL _vehicle, _volume, _freq, _range];
+        _sound = playSound3D [_file, _vehicle, false, getPosASL _vehicle, _volume, _freq, _range, 0, true];
       };
     } else {
       //Int
