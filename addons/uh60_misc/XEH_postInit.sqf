@@ -18,7 +18,10 @@ private _doorOpenLeft = [
  "vtx_uh60_cabinDoorLeft", // * 0: Action name <STRING>
  "Open/Close cabin door",  // * 1: Name of the action shown in the menu <STRING>
  "", // * 2: Icon <STRING>
- {_target animateSource ["cabinDoor_L", (if ((_target animationPhase "cabinDoor_L") > 0) then {0} else {1})]}, // * 3: Statement <CODE>
+ {
+   _target animateSource ["cabinDoor_L", (if ((_target animationPhase "cabinDoor_L") > 0) then {0} else {1})];
+   playSound3D ["z\vtx\addons\H60_SFX\Sounds\Share\Door.wss", _target, false, getPosASLVisual _target, 3];
+ }, // * 3: Statement <CODE>
  {true}, // * 4: Condition <CODE>
  nil, // * 5: Insert children code <CODE> (Optional)
  [], // * 6: Action parameters <ANY> (Optional)
@@ -27,10 +30,30 @@ private _doorOpenLeft = [
  [false,false,false,false,false], // * 9: Other parameters [showDisabled,enableInside,canCollapse,runOnHover,doNotCheckLOS] <ARRAY> (Optional)
  {} // * 10: Modifier function <CODE> (Optional)
 ];
-private _doorOpenRight = ["vtx_uh60_cabinDoorRight", "Open/Close cabin door", "", {_target animateSource ["cabinDoor_R", (if ((_target animationPhase "cabinDoor_R") > 0) then {0} else {1})]}, {true}, nil, [], {_target selectionPosition "cabindoor_R_handle"}, 2, [false,false,false,false,false], {} ];
+private _doorOpenRight = ["vtx_uh60_cabinDoorRight", "Open/Close cabin door", "", {_target animateSource ["cabinDoor_R", [1,0] select ((_target animationPhase "cabinDoor_R") > 0)]; playSound3D ["z\vtx\addons\H60_SFX\Sounds\Share\Door.wss", _target, false, getPosASLVisual _target, 3];}, {true}, nil, [], {_target selectionPosition "cabindoor_R_handle"}, 2, [false,false,false,false,false], {} ];
 
-private _doorOpenRightCpt = ["vtx_uh60_cptDoorRight", "Open/Close cockpit door", "", {_target animateDoor ["Door_RF", (if ((_target doorPhase "Door_RF") > 0) then {0} else {1})]}, {true}, nil, [], {_target selectionPosition "cockpitdoor_right"}, 2, [false,false,false,false,false], {} ];
-private _doorOpenLefttCpt = ["vtx_uh60_cptDoorRight", "Open/Close cockpit door", "", {_target animateDoor ["Door_LF", (if ((_target doorPhase "Door_LF") > 0) then {0} else {1})]}, {true}, nil, [], {_target selectionPosition "cockpitdoor_left"}, 2, [false,false,false,false,false], {} ];
+private _doorOpenRightCpt = ["vtx_uh60_cptDoorRight", "Open/Close cockpit door", "", {
+  private _condition = (_target doorPhase "Door_RF") > 0;
+  _target animateDoor ["Door_RF", [1,0] select _condition];
+  playSound3D [
+    ["z\vtx\addons\H60_SFX\Sounds\Share\CptDoor_Open.wss","z\vtx\addons\H60_SFX\Sounds\Share\CptDoor_Close.wss"] select _condition,
+    _target,
+    false,
+    _target modelToWorldVisualWorld (_target selectionPosition "cockpitdoor_right"),
+    3
+  ];
+}, {true}, nil, [], {_target selectionPosition "cockpitdoor_right"}, 2, [false,false,false,false,false], {} ];
+private _doorOpenLefttCpt = ["vtx_uh60_cptDoorRight", "Open/Close cockpit door", "", {
+  private _condition = (_target doorPhase "Door_LF") > 0;
+  _target animateDoor ["Door_LF", [1,0] select _condition];
+  playSound3D [
+    ["z\vtx\addons\H60_SFX\Sounds\Share\CptDoor_Open.wss","z\vtx\addons\H60_SFX\Sounds\Share\CptDoor_Close.wss"] select _condition,
+    _target,
+    false,
+    _target modelToWorldVisualWorld (_target selectionPosition "cockpitdoor_left"),
+    3
+  ];
+}, {true}, nil, [], {_target selectionPosition "cockpitdoor_left"}, 2, [false,false,false,false,false], {} ];
 
 {
     ["vtx_h60_base",0,[],(_x call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
