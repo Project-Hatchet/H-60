@@ -9,7 +9,8 @@ private _isEnabled = false;
 if (count _this > 2) then {
     params ["_vehicle", "_animation", "_animationTargetLabel", "_animationTarget"];
     private _state = if (_this # 2 == "OFF") then [{0},{1}];
-    [_vehicle, [_state, 3]] remoteExec ["setBrakesRTD", _vehicle]; diag_log "brakes exec";
+    [_vehicle, [_state, 3]] remoteExec ["setBrakesRTD", _vehicle];
+    if (vtx_uh60_ui_showDebugMessages) then {diag_log "brakes exec";};
     _isEnabled = (_this # 2 == "ON");
 } else {
     params ["_vehicle"];
