@@ -30,3 +30,5 @@ sleep 15;
 [_vehicle, ["startup", "apucont"], "OFF"] call vxf_interaction_fnc_scriptedInteract;
 _vehicle setObjectTextureGlobal ["markings","\z\vtx\addons\uh60_misc\data\markings\markings_studentdriver.paa"];
 _vehicle setVariable ["vtx_autostarted", true];
+
+[QGVAR(autostarted), _vehicle] call CBA_fnc_localEvent;
