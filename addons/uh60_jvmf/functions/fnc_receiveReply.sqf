@@ -15,7 +15,7 @@ VTX_JVMF_MESSAGES set [_messageIndex, _message];
 
 
 if (_senderObject != player) then {
-	systemChat "REGISTERING ADVISORY";
+	if(vtx_uh60_ui_showDebugMessages) then {systemChat "REGISTERING ADVISORY";};
 	[vehicle player,"NEW JVMF REPLY",{},false,false] call vtx_uh60_cas_fnc_registerCautionAdvisory;
 };
 
