@@ -198,6 +198,7 @@ class CfgVehicles
 				disableSoundAttenuation = 0;
 				viewGunnerInExternal = 0;
 				soundAttenuationTurret = "HeliAttenuationGunner";
+        isPersonTurret = 2;
 			};
 			class MainTurret: MainTurret
 			{
