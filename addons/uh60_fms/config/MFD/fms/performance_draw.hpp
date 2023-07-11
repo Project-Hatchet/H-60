@@ -9,7 +9,7 @@ TEXT_FMS_L(FUEL_QTY_LABEL,FMS_MARGIN_L,FMS_Y1)
 }; // FUEL_QTY_LABEL
 TEXT_FMS_L(FUEL_QTY,FMS_MARGIN_L,FMS_Y12)
   source="fuel";
-  sourceScale = 2040;
+  sourceScale = 3506;
   sourceLength = 4;
 }; // FUEL_QTY
 
