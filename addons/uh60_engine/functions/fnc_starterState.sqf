@@ -17,13 +17,13 @@ private _eng1PwrCtrlLeverState = _vehicle getVariable "vtx_uh60_acft_eng1PwrCtrl
 private _eng2PwrCtrlLeverState = _vehicle getVariable "vtx_uh60_acft_eng2PwrCtrlLeverState";
 
 if (_animName == "STARTER1") then {
-    if (_mikSwitchState == "ON" && _dcBusState == "ON" && _eng1PwrCtrlLeverState != "OFF") then {
+    if (_mikSwitchState == "ON" && _dcBusState == "ON" && _eng1PwrCtrlLeverState == "OFF") then {
         [_vehicle, 0] call vtx_uh60_sfmplus_fnc_interactStartSwitch;
     };
 };
 
 if (_animName == "STARTER2") then {
-    if (_mikSwitchState == "ON" && _dcBusState == "ON" && _eng2PwrCtrlLeverState != "OFF") then {
+    if (_mikSwitchState == "ON" && _dcBusState == "ON" && _eng2PwrCtrlLeverState == "OFF") then {
         [_vehicle, 1] call vtx_uh60_sfmplus_fnc_interactStartSwitch;
     };
 };
