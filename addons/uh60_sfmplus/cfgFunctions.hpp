@@ -52,6 +52,7 @@ class CfgFunctions
 			class getArea {R;};
 			class getInput {R;};
 			class linearInterp {R;};
+			class standbyInst {R;};
 			//class perFrame {R;};
 			class setArrayVariable {R;};
 			//class setup {R;};
