@@ -32,10 +32,6 @@ class cfgWeapons {
                 };
             };
         };
-        class HighROF: HighROF {
-            displayName = "2x M134";
-            displayNameShort = "2x M134";
-        };
         class GunParticles {
             class effect1 {
                 directionName = "cartridge_dir";
