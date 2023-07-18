@@ -258,7 +258,7 @@ class vtx_TransmissionDamage_Int_phase1_SoundShader_Base
 		}
 	};
 	frequency = "0.66 + CustomSoundController3 / 3";
-	volume = "(1-camPos) * CustomSoundController4 *(CustomSoundController16+1)";
+	volume = "(1-camPos)*rotorSpeed*CustomSoundController4*(CustomSoundController16+1)";
 	range=100;
 	//frequency="0.66 + rotorspeed / 3";
 	//volume="(1-camPos)*(transmissiondamage factor [0.3, 0.35])*(transmissiondamage factor [0.5, 0.45])*(rotorspeed factor [0.2, 0.5])";
@@ -274,7 +274,7 @@ class vtx_TransmissionDamage_Int_phase2_SoundShader_Base
 		}
 	};
 	frequency = "CustomSoundController3";
-	volume = "(1-camPos) * CustomSoundController4 *(CustomSoundController16+1)";
+	volume = "(1-camPos)*rotorSpeed*CustomSoundController4*(CustomSoundController16+1)";
 	range=100;
 	//frequency="0.66 + rotorspeed / 3";
 	//volume="(1-camPos)*(transmissiondamage factor [0.45, 0.5])*(rotorspeed factor [0.2, 0.5])";
@@ -290,7 +290,7 @@ class vtx_TransmissionDamage_Int_phase3_SoundShader_Base
 		}
 	};
 	frequency = "CustomSoundController3";
-	volume = "(1-camPos) * CustomSoundController4 *(CustomSoundController16+1)";
+	volume = "(1-camPos)*rotorSpeed*CustomSoundController4*(CustomSoundController16+1)";
 	range=50;
 };
 
@@ -361,11 +361,11 @@ class vtx_WindWash_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
 			1
 		}
 	};
-	volume="(rotorSpeed factor [0.3, 1])*(1-camPos)*CustomSoundController8*(-playerPos + 1)*(CustomSoundController16+1)";
+	volume="(1-camPos)*CustomSoundController8*(-playerPos + 1)*(CustomSoundController16+1)*((rotorSpeed factor [0.3, 0.5])+((lateralMovement*((speed factor [5,40])+(speed factor [-5,-40]))) min 1))";
 };
 class vtx_WindWash_Int_Transport_SoundShader_Base: vtx_WindWash_Int_SoundShader_Base
 {
-	volume="(rotorSpeed factor [0.3, 1])*(1-camPos)*CustomSoundController9*(playerPos envelope [0,1,1.5,3])*(CustomSoundController16+1)";
+	volume="(1-camPos)*CustomSoundController9*(playerPos envelope [0,1,1.5,3])*(CustomSoundController16+1)*((rotorSpeed factor [0.3, 0.5])+((lateralMovement*((speed factor [5,40])+(speed factor [-5,-40]))) min 1))";
 };
 class vtx_FrameStress_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
 {
