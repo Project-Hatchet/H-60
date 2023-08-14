@@ -190,6 +190,52 @@ class CfgVehicles
 				"vtx_Wind_Close_Ext_SoundSet_Base"
 			};
 		};
+		class soundsext
+		{
+			class soundevents;
+			class sounds
+			{
+				Soundsets[] =
+				{
+					"vtx_Empty_SoundSet",
+					"vtx_APUSoundLoop_Ext_SoundSet",
+					"vtx_APUSoundLoop_Int_Soundet",
+					"vtx_EngineInt_SoundSet",
+					"vtx_RotorInt_SoundSet",
+					"vtx_TransmissionDamage_Int_phase1_SoundSet_Base",
+					"vtx_TransmissionDamage_Int_phase2_SoundSet_Base",
+					"vtx_TransmissionDamage_Int_phase3_SoundSet_Base",
+					"vtx_ScrubLand_Int_SoundSet_Base",
+					"vtx_ScrubBuilding_Int_SoundSet_Base",
+					"vtx_ScrubTree_Ext_SoundSet_Base",
+					"vtx_Rain_Int_SoundSet_Base",
+					"vtx_Wind_Int_SoundSet_Base",
+					"vtx_WindWash_Int_SoundSet_Base",
+					"vtx_WindWash_Int_Transport_SoundSet_Base",
+					"vtx_Engine_Transport_SoundSet_Base",
+					"vtx_GStress_Int_SoundSet_Base",
+					"vtx_FrameStress_Int_SoundSet_Base",
+					"vtx_SpeedStress_Int_SoundSet_Base",
+					"vtx_EngineExt_SoundSet",
+					"vtx_RotorExt_SoundSet",
+					//-Alarms
+					//"vtx_Alarm_Damage_Ext_SoundSet_Base",
+					"vtx_Alarm_Damage_Int_SoundSet_Base",
+					//"vtx_Alarm_RotorLow_Ext_SoundSet_Base",
+					"vtx_Alarm_RotorLow_Int_SoundSet_Base",
+	
+					"vtx_Rotor_Distance_SoundSet",
+					"vtx_Engine_Distance_SoundSet",
+					"vtx_Turbine_Ext_SoundSet",
+					"vtx_TailRotor_SoundSet",
+					"vtx_Rotor_Stress_Ext_SoundSet_Base",
+					"vtx_TransmissionDamage_Ext_phase1_SoundSet_Base",
+					"vtx_TransmissionDamage_Ext_phase2_SoundSet_Base",
+					"vtx_Rain_Ext_SoundSet_Base",
+					"vtx_Wind_Close_Ext_SoundSet_Base"
+				};
+			};
+		};
 		//-Set PlayerPOS SoundController and disable SoundAttenuation (Internal Filter)
 		class Turrets: Turrets
 		{
@@ -198,7 +244,7 @@ class CfgVehicles
 				disableSoundAttenuation = 0;
 				viewGunnerInExternal = 0;
 				soundAttenuationTurret = "HeliAttenuationGunner";
-        isPersonTurret = 2;
+				isPersonTurret = 2;
 			};
 			class MainTurret: MainTurret
 			{
