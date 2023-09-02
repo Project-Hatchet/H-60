@@ -148,6 +148,9 @@ class CfgVehicles
 		vtx_soundEngineOffInt[] = {"vtx_H60_Engine_Off_Int"};
 		vtx_soundEngineOnExt[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Start",2,1,600};
 		vtx_soundEngineOffExt[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown",2,1,600};
+		
+		vtx_soundAPUInt[] = {"vtx_H60_APU_On_Int"};
+		vtx_soundAPUExt[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\APU_Start",2,1,600};
 		class sounds
 		{
 			Soundsets[] =
@@ -267,6 +270,12 @@ class CfgSounds
 	{
 		name = "vtx_H60_Engine_Off_Int";
 		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown_Int",1,1};
+		titles[] = {};
+	};
+	class vtx_H60_APU_On_Int
+	{
+		name = "vtx_H60_APU_On_Int";
+		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\APU_Start_Int",1,0.8};
 		titles[] = {};
 	};
 	class vxf_Key_Sound

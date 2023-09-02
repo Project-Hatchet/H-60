@@ -12,8 +12,8 @@ private _apuRPM_pct         = _vehicle getVariable "vtx_uh60_acft_apuRPM_pct";
 //Simulate the APU spooling up
 if (_apuPwrSwitchState == "ON" && _apuFuelSwitchState == "ON" && _battBusState == "ON") then {
     _apuRPM_pct = [_apuRPM_pct, 1.0, (1.0 / _apuStartDelay_sec) * _deltaTime] call BIS_fnc_lerp;
-} else { 
-    _apuRPM_pct = [_apuRPM_pct, 0.0, _deltaTime] call BIS_fnc_lerp; 
+} else {
+    _apuRPM_pct = [_apuRPM_pct, 0.0, _deltaTime] call BIS_fnc_lerp;
 };
 _vehicle setVariable ["vtx_uh60_acft_apuRPM_pct", _apuRPM_pct];
 setCustomSoundController [_vehicle, "CustomSoundController1", _apuRPM_pct * 2];
