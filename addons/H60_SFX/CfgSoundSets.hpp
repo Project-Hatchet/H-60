@@ -9,8 +9,8 @@ class vtx_External_Base
 	sound3dprocessingtype="vtx_Close_3DProcessor";
 	distancefilter="vtx_Close_Engine_Filter";
 	volumecurve="vtx_Ext_Base_Curve";
-	occlusionfactor=0.35;
-	obstructionfactor=0;
+	occlusionfactor=0.5;
+	obstructionfactor=0.65;
 	volumefactor=1;
 	spatial=1;
 	loop=1;
