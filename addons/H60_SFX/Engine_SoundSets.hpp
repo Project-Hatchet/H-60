@@ -15,7 +15,7 @@ class vtx_Rotor_Distance_SoundSet: vtx_External_Base
 	{
 		"vtx_Rotor_Distance_SoundShader"
 	};
-	volumeFactor=0.7;
+	volumeFactor=0.5;
 	distancefilter="vtx_Distant_Engine_Filter";
 	sound3dprocessingtype="vtx_Distant_3DProcessor";
 	doppler=1;
@@ -26,7 +26,7 @@ class vtx_Engine_Distance_SoundSet: vtx_Rotor_Distance_SoundSet
 	{
 		"vtx_Engine_Distance_SoundShader"
 	};
-	volumeFactor=0.7;
+	volumeFactor=0.5;
 	shape="vtx_Front_Shape";
 	doppler=1;
 };
@@ -54,7 +54,7 @@ class vtx_Turbine_Ext_SoundSet: vtx_External_Base
 	{
 		"vtx_Turbine_Ext_SoundShader"
 	};
-	volumeFactor=0.4;
+	volumeFactor=0.5;
 	shape="vtx_Turbine_Shape";
 };
 class vtx_TailRotor_SoundSet: vtx_External_Base
