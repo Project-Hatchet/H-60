@@ -36,7 +36,7 @@ class vtx_EngineExt_SoundSet: vtx_External_Base
 	{
 		"vtx_EngineExt_SoundShader"
 	};
-	volumefactor=1.5;
+	volumefactor=1.1;
 	doppler=1;
 };
 class vtx_RotorExt_SoundSet: vtx_External_Base
@@ -45,7 +45,7 @@ class vtx_RotorExt_SoundSet: vtx_External_Base
 	{
 		"vtx_RotorExt_SoundShader"
 	};
-	volumeFactor=1.35;
+	volumeFactor=0.85;
 	doppler=1;
 };
 class vtx_Turbine_Ext_SoundSet: vtx_External_Base
@@ -54,7 +54,7 @@ class vtx_Turbine_Ext_SoundSet: vtx_External_Base
 	{
 		"vtx_Turbine_Ext_SoundShader"
 	};
-	volumeFactor=0.8;
+	volumeFactor=0.4;
 	shape="vtx_Turbine_Shape";
 };
 class vtx_TailRotor_SoundSet: vtx_External_Base
