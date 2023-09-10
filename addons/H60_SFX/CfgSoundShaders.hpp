@@ -179,6 +179,7 @@ class vtx_Rotor_Stress_Ext_SoundShader_Base
 	rangecurve[]=
 	{
 		{0,1},
+		{800,0.5},
 		{1200,0}
 	};
 };
@@ -361,7 +362,7 @@ class vtx_WindWash_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
 			1
 		}
 	};
-	volume="(1-camPos)*CustomSoundController8*(-playerPos + 1)*(CustomSoundController16+1)*((rotorSpeed factor [1.0, 0.5])+((lateralMovement*((speed factor [5,40])+(speed factor [-5,-40]))) min 1))";
+	volume="engineOn*(1-camPos)*CustomSoundController8*(-playerPos + 1)*(CustomSoundController16+1)*((rotorSpeed factor [0.3, 0.5])+((lateralMovement*((speed factor [5,40])+(speed factor [-5,-40]))) min 1))";
 };
 class vtx_WindWash_Int_Transport_SoundShader_Base: vtx_WindWash_Int_SoundShader_Base
 {

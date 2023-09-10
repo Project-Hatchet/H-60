@@ -40,5 +40,5 @@ if (_enableViV != vehicleCargoEnabled _vehicle) then {
     _vehicle enableVehicleCargo _enableViV;
 };
 
-setCustomSoundController [_vehicle, 'CustomSoundController9', ((1 - (_vehicle animationPhase 'cabindoor_L')) / 2) + ((1 - (_vehicle animationPhase 'cabindoor_R'))) / 2];
-setCustomSoundController [_vehicle, 'CustomSoundController8', (_vehicle animationSourcePhase 'Cockpitdoors_Hide')];
+setCustomSoundController [_vehicle, 'CustomSoundController9', ((1 - (_vehicle animationPhase 'cabindoor_L')) / 2 + (1 - (_vehicle animationPhase 'cabindoor_R'))) / 2];
+setCustomSoundController [_vehicle, 'CustomSoundController8', _vehicle animationSourcePhase 'Cockpitdoors_Hide'];

@@ -7,13 +7,16 @@
  * By: Aaren
  */
 
-params["_vehicle","_types","_state","_status","_status_count"];
+params["_vehicle","_types","_state","_condition","_status_count"];
 
-private _sound = objNull;
+if !(isnull (_vehicle getVariable ["vtx_uh60_sound_obj",objNull])) exitWith {};
+
 {
-  private ["_array","_file","_volume","_freq","_file"];
+  private ["_array","_file","_volume","_freq","_file","_sound"];
   _array = getArray (configOf _vehicle >> _x);
   _file = _array # 0;
+
+  _sound = objNull;
 
   //-Exterior or Interior
   if (_forEachIndex == 1) then {
@@ -26,28 +29,35 @@ private _sound = objNull;
     };
   } else {
     //Int
-    if (cameraView == "INTERNAL") then {
+    if ((cameraView == "INTERNAL") && (cameraOn isEqualTo _vehicle)) then {
       _sound = playSound _file;
     };
+  };
+
+  if (_sound isEqualType 0) then {
+    _sound = objNull;
   };
 
   //-Player in _vehicle
   if ((cameraOn isEqualTo _vehicle) && !(isNull _sound)) then {
     [{
-      params["_cameraView","_sound","_state","_status","_status_count"];
+      params["_vehicle","_cameraView",["_sound",objNull],"_state","_condition","_status_count"];
 
-      _exit_state = [
-        ({_x == "OFF"} count _status) == _status_count,
-        ({_x != "OFF"} count _status) > 0
+      _exit = [
+        ({_x != "OFF"} count _condition) < _status_count,
+        ({_x != "OFF"} count _condition) > 0
       ] select (_state == "OFF");
 
-      (cameraView != _cameraView) or (isNull _sound) or (_exit_state)
+      (cameraView != _cameraView) or (isNull _sound) or (_exit)
       },{
-        params["_cameraView","_sound","_state"];
+        params["_vehicle","","_sound"];
 
         if !(isNull _sound) then {
           deleteVehicle _sound;
+          _vehicle setVariable ["vtx_uh60_sound_obj",objNull];
         };
-    }, [cameraView,_sound,_state,call _status,_status_count]] call CBA_fnc_waitUntilAndExecute;
+    }, [_vehicle,cameraView,_sound,_state,call _condition,_status_count]] call CBA_fnc_waitUntilAndExecute;
   };
 } foreach _types;
+
+_vehicle setVariable ["vtx_uh60_sound_obj",_sound];

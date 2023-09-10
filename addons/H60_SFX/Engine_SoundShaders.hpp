@@ -10,8 +10,15 @@ class vtx_APUSoundLoop_Ext_SoundShader
 			1
 		}
 	};
-	frequency = "CustomSoundController1";
-	volume = "camPos*CustomSoundController2*(CustomSoundController14+1)";
+	frequency="CustomSoundController1";
+	volume="camPos*CustomSoundController2*(CustomSoundController14+1)";
+	range=200;
+	rangecurve[]=
+	{
+		{0,1},
+		{100,0.6},
+		{200,0}
+	};
 };
 class vtx_Rotor_Distance_SoundShader
 {
@@ -71,7 +78,7 @@ class vtx_EngineExt_SoundShader
 	range=1000;
 	rangecurve[]=
 	{
-		{0,2},
+		{0,1},
 		{300,0.8},
 		{800,0.3},
 		{1000,0}
@@ -92,7 +99,7 @@ class vtx_RotorExt_SoundShader: vtx_EngineExt_SoundShader
 	range=1200;
 	rangecurve[]=
 	{
-		{0,0},
+		{0,0.2},
 		{150,1},
 		{1000,0.4},
 		{1200,0}
@@ -113,9 +120,9 @@ class vtx_Turbine_Ext_SoundShader
 	range=200;
 	rangecurve[]=
 	{
-		{0,0.3},
-		{75,1},
-		{100,0.3},
+		{0,0},
+		{30,1},
+		{100,0.65},
 		{200,0}
 	};
 };

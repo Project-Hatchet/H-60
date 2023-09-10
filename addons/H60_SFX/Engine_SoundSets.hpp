@@ -5,7 +5,7 @@ class vtx_APUSoundLoop_Ext_SoundSet: vtx_External_Base
 	{
 		"vtx_APUSoundLoop_Ext_SoundShader"
 	};
-	volumefactor=0.05;
+	volumefactor=0.2;
 };
 
 //External
@@ -36,7 +36,7 @@ class vtx_EngineExt_SoundSet: vtx_External_Base
 	{
 		"vtx_EngineExt_SoundShader"
 	};
-	volumefactor=1.1;
+	volumefactor=1.25;
 	doppler=1;
 };
 class vtx_RotorExt_SoundSet: vtx_External_Base
