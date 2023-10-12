@@ -69,12 +69,12 @@ class CfgSound3DProcessors
 		type="panner";
 		rangeCurve="Smooth1Curve";
 		innerRange=0;
-		range=800;
+		range=200;
 	};
 	class vtx_Distant_3DProcessor: vtx_Close_3DProcessor
 	{
-		innerrange = 2000;
-		range = 3000;
+		innerrange = 100;
+		range = 300;
 	};
 	class vtx_TailRotor_3DProcessor: vtx_Close_3DProcessor
 	{

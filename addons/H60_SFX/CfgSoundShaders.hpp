@@ -175,11 +175,11 @@ class vtx_Rotor_Stress_Ext_SoundShader_Base
 	};
 	range=1200;
 	frequency="rotorSpeed";
-	volume="engineOn*camPos*((gmeterZ factor[1.5, 2.5]) + (gmeterZ factor[0.5, -0.5]))*(CustomSoundController14+1)";
+	volume="(CustomSoundController14+1)*engineOn*camPos*((gmeterZ factor[1.5, 2.5]) + (gmeterZ factor[0.5, -0.5]))";
 	rangecurve[]=
 	{
 		{0,1},
-		{800,0.5},
+		{300,0.8},
 		{1200,0}
 	};
 };
