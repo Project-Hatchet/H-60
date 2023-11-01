@@ -14,7 +14,7 @@ private _laserResult = [
 	_vehicle vectorModelToWorldVisual _direction,
 	20,
 	10000,
-	[1550,1550],
+	[1064,1064],
 	_laserCode
 ] call ace_laser_fnc_seekerFindLaserSpot;
 if (isNil "_laserResult" || {isNull (_laserResult # 1)}) exitWith {};
