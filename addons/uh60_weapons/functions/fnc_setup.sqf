@@ -11,7 +11,4 @@ vtx_uh60_hellfire_currentTof = -1;
 	40, 41, 42, 43, 44, 45, 46, 47
 ];
 
-_lrfdCode = [_vehicle, "LRFD"] call vtx_uh60_weapons_fnc_getLaserCode;
-_vehicle setVariable ["ace_laser_code", _lrfdCode, true];
-
 true
