@@ -40,6 +40,7 @@ class CfgSoundShapes
 	};
   class vtx_Turbine_Shape: vtx_Rear_Shape
 	{
+    outervolume=0.8;
 		innerangle=130;
 		outerangle=210;
 	};

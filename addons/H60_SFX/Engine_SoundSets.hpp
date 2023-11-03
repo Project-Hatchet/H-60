@@ -6,6 +6,7 @@ class vtx_APUSoundLoop_Ext_SoundSet: vtx_External_Base
 		"vtx_APUSoundLoop_Ext_SoundShader"
 	};
 	volumefactor=0.2;
+	sound3dprocessingtype="default3DProcessingType";
 };
 
 //External
@@ -53,7 +54,7 @@ class vtx_Turbine_Ext_SoundSet: vtx_External_Base
 	{
 		"vtx_Turbine_Ext_SoundShader"
 	};
-	volumeFactor=0.5;
+	volumeFactor=0.8;
 	shape="vtx_Turbine_Shape";
 };
 class vtx_TailRotor_SoundSet: vtx_External_Base
