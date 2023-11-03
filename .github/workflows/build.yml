@@ -2,9 +2,10 @@
 name: CI/Validate
 
 on:
+  workflow_dispatch:
   push:
     branches:
-    - main
+    - Main
   pull_request:
 
 jobs:
