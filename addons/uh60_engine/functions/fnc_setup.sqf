@@ -48,6 +48,7 @@ player addEventHandler ["SelectedRotorLibActionPerformed", {
 SET_GLOBAL_DEFAULT("vtx_uh60_acft_mikSwitchState",      "OFF");
 //--Standby instrument switch
 SET_GLOBAL_DEFAULT("vtx_uh60_acft_stbyInstSwitchState", "OFF");
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_stbyInstBatt", 1800);
 //--Battery
 SET_GLOBAL_DEFAULT("vtx_uh60_acft_batt1SwitchState",    "OFF");
 SET_GLOBAL_DEFAULT("vtx_uh60_acft_batt2SwitchState",    "OFF");

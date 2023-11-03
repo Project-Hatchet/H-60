@@ -167,3 +167,6 @@ hintsilent format ["v0.11
 					_heli getVariable "vtx_uh60_sfmplus_engBaseNG"];         //13
 */
 #endif
+
+//Standby Inst 
+[_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_standbyInst;
