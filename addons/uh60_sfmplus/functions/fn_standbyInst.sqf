@@ -27,13 +27,13 @@ private _stbyInstSwitchState = _vehicle getVariable "vtx_uh60_acft_stbyInstSwitc
 if (_ACBusState != "ON" && _stbyInstSwitchState == "ON") then {
 	if (_stbyInstBatt >= 0) then {
 		_stbyInstBatt = _stbyInstBatt - _deltaTime;
-		_vehicle setVariable ["vtx_uh60_acft_stbyInstBatt", _stbyInstBatt];
+		_vehicle setVariable ["vtx_uh60_acft_stbyInstBatt", _stbyInstBatt, true];
 	};
 };
 if (_ACBusState == "ON") then {
 	if (_stbyInstBatt < 1800) then {
 		_stbyInstBatt = _stbyInstBatt + _deltaTime;
-		_vehicle setVariable ["vtx_uh60_acft_stbyInstBatt", _stbyInstBatt];
+		_vehicle setVariable ["vtx_uh60_acft_stbyInstBatt", _stbyInstBatt, true];
 	};
 }; 
 
