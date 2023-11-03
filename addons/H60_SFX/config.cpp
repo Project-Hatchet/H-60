@@ -20,16 +20,6 @@ class CfgPatches
 };
 class CfgSoundShapes
 {
-	class vtx_Turbine_Shape
-	{
-		type="cone";
-		innerVolume=1.0;
-		outervolume=0.4;
-		innerangle=130;
-		outerangle=210;
-		azimuth=180;
-		elevation=0;
-	};
 	class vtx_Front_Shape
 	{
 		type="cone";
@@ -39,6 +29,19 @@ class CfgSoundShapes
 		outerangle=230;
 		azimuth=0;
 		elevation=0;
+	};
+  class vtx_Rear_Shape: vtx_Front_Shape
+	{
+		innerVolume=1.0;
+		outervolume=0.65;
+		innerangle=240;
+		outerangle=120;
+		azimuth=180;
+	};
+  class vtx_Turbine_Shape: vtx_Rear_Shape
+	{
+		innerangle=130;
+		outerangle=210;
 	};
 	class vtx_TailRotor_Shape: vtx_Turbine_Shape
 	{
@@ -68,7 +71,7 @@ class CfgSound3DProcessors
 	{
 		type="panner";
 		rangeCurve="Smooth1Curve";
-		innerRange=50;
+		innerRange=100;
 		range=300;
 	};
 	class vtx_Distant_3DProcessor: vtx_Close_3DProcessor

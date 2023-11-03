@@ -32,14 +32,14 @@ class vtx_Rotor_Distance_SoundShader
 	};
 	frequency="rotorspeed * (1-rotorthrust/15) * 1";
 	volume="(CustomSoundController14+1)*camext*(0 max (rotorspeed-0.1))*(1 + rotorthrust)";
-	range=1500;
+	range=1300;
 	rangecurve[]=
 	{
 		{0,0},
 		{100,0},
 		{600,1},
 		{1000,0.15},
-		{1500,0}
+		{1300,0}
 	};
 };
 class vtx_Engine_Distance_SoundShader
