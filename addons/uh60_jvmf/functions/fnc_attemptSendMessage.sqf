@@ -41,7 +41,8 @@ private _success = switch (_type) do {
 if (_success) then {
     private _timestamp = [daytime, "HH:MM"] call BIS_fnc_timeToString;
     _this set [6, [[_timestamp, _sender, "SENT", player]]];
-    _this remoteExecCall ["vtx_uh60_jvmf_fnc_receiveMessage", 0];diag_log "attemptSend";
+    _this remoteExecCall ["vtx_uh60_jvmf_fnc_receiveMessage", 0];
+    if (vtx_uh60_ui_showDebugMessages) then {diag_log "attemptSend";};
 };
 
 _success

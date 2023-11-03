@@ -29,11 +29,11 @@ if (_rtrRPM > 0 && _rtrRPM < 0.7) then {
     private _realRPM = _heli animationPhase "rotortilt";
     // systemChat str [_realRPM / 10, _rtrRPM];
     if ((_realRPM / 10) > _rtrRPM) then {
-        systemchat "BREAKING";
+        if (vtx_uh60_ui_showDebugMessages) then {systemchat "BREAKING";};
         // _heli setHitpointDamage ["HitHRotor", 0.9];
         _heli engineOn false;
     } else {
-        systemchat "FIXING";
+        if (vtx_uh60_ui_showDebugMessages) then {systemchat "FIXING";};
         // _heli setHitpointDamage ["HitHRotor", 0];
         _heli engineOn true;
     };

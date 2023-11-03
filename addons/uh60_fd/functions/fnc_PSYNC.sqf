@@ -33,4 +33,5 @@ switch (_mode) do {
     };
 };
 
-[_vehicle] remoteExecCall ["vtx_uh60_fd_fnc_updatePanel", crew _vehicle];diag_log "psync";
+[_vehicle] remoteExecCall ["vtx_uh60_fd_fnc_updatePanel", crew _vehicle];
+if (vtx_uh60_ui_showDebugMessages) then {diag_log "psync";};

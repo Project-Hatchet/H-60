@@ -15,7 +15,7 @@ switch (_type) do {
 };
 // sleep 0.1;
 private _newDisplay = uiNamespace getVariable "vtx_uh60_jvmf_display";
-if (isNil "_newDisplay") exitWith {systemChat "NO DISPLAY";};
+if (isNil "_newDisplay") exitWith {if(vtx_uh60_ui_showDebugMessages) then {systemChat "NO DISPLAY";}};
 (_newDisplay displayCtrl 1400) ctrlSetText _recipient;
 for "_i" from 0 to 9 do {
     (_newDisplay displayCtrl (1402 + _i)) ctrlSetText (_text # _i);
