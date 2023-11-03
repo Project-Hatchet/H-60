@@ -37,7 +37,7 @@ params ["_projectile", "_ammo"];
 		*/
 		if (!_foundTarget) then {
 			if ((_missileTgtPos # 1) != 0) then {
-				_target = [_projectile, ((_missileTgtPos # 1)*5.6712818 + 10), (_missileTgtPos # 0)] call vtx_uh60_weapons_fnc_HARMGuidence; 
+				_target = [_projectile, ((_missileTgtPos # 1)*5.6712818 + 10), (_missileTgtPos # 0)] call vtx_uh60_weapons_fnc_getHARMTarget; 
 				if (_target != objNull) then {
 					_targetPos = getPosASL _target;
 				} else {
@@ -54,7 +54,7 @@ params ["_projectile", "_ammo"];
 				_vecDir = vectorNormalized _vecDir;
 				_missileTgtPos = [getPosASL _projectile, _vecDir, _projectile, blockey] call ace_laser_fnc_shootRay;
 				if ((_missileTgtPos # 1) != 0) then {
-					_target = [_projectile, ((_missileTgtPos # 1)*5.6712818 + 10), (_missileTgtPos # 0)] call vtx_uh60_weapons_fnc_HARMGuidence; 
+					_target = [_projectile, ((_missileTgtPos # 1)*5.6712818 + 10), (_missileTgtPos # 0)] call vtx_uh60_weapons_fnc_getHARMTarget; 
 					if (_target != objNull) then {
 						_targetPos = getPosASL _target;
 					} else {
