@@ -29,7 +29,7 @@ params ["_projectile", "_ammo"];
 
 		//Start of Donov HARM Guidance computer
 		//systemChat "Missile Alive";
-		_missileTgtPos = [getPosASL _projectile, vectorDir _projectile, _projectile, vehicle _gunner] call ace_laser_fnc_shootRay;
+		_missileTgtPos = [getPosASL _projectile, vectorDir _projectile, _projectile] call ace_laser_fnc_shootRay;
 		/*  Using Shoot ray to determine a spot in space where the missile is looking in front of it 
 		 *  Then using nearestObjects to pull a list of "AllVehicles" from the radius of the seekerhead
 		 *  Then sorting through the list of "AllVehicls" and setting the target as the first vehicle (closest) in the list
@@ -52,7 +52,7 @@ params ["_projectile", "_ammo"];
 			*/	
 				_vecDir = [6000 + ((getPosATL _projectile) # 2), getDir _projectile, -30] call CBA_fnc_polar2vect;
 				_vecDir = vectorNormalized _vecDir;
-				_missileTgtPos = [getPosASL _projectile, _vecDir, _projectile, blockey] call ace_laser_fnc_shootRay;
+				_missileTgtPos = [getPosASL _projectile, _vecDir, _projectile] call ace_laser_fnc_shootRay;
 				if ((_missileTgtPos # 1) != 0) then {
 					_target = [_projectile, ((_missileTgtPos # 1)*5.6712818 + 10), (_missileTgtPos # 0)] call vtx_uh60_weapons_fnc_getHARMTarget; 
 					if (_target != objNull) then {
