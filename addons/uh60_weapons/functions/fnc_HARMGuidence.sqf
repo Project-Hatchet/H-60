@@ -27,7 +27,7 @@ params ["_projectile", "_ammo"];
 			[_this select 1] call CBA_fnc_removePerFrameHandler;
 		};
 
-		//Start of Donov HARM Guidence computer
+		//Start of Donov HARM Guidance computer
 		//systemChat "Missile Alive";
 		_missileTgtPos = [getPosASL _projectile, vectorDir _projectile, _projectile, vehicle _gunner] call ace_laser_fnc_shootRay;
 		/*  Using Shoot ray to determine a spot in space where the missile is looking in front of it 
@@ -67,7 +67,7 @@ params ["_projectile", "_ammo"];
 			};
 		} else {
 
-		//End of Donov HARM Guidence Code
+		//End of Donov HARM Guidance Code
 			if(time > _launchTime + 1 && _targetPos != objNull) then {
 				_targetCoordinates = _targetPos vectorAdd [0,0,0.2];
 				_position = getPosASL _projectile;
