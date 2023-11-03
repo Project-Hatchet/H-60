@@ -17,8 +17,11 @@ if (_vehicle getVariable ["vtx_uh60_flir_stowed", true]) then {
   if (_bootTime == -1) then {
     _vehicle setUserMFDText [10, "PRESS DEPLOY TO PREPARE FLIR PAYLOAD"];
   } else {
-    if (time < _bootTime + 20) then {
-      private _timeRemaining = (_bootTime + 20) - time;
+    if (cba_missionTime < _bootTime + 20) then {
+      // must be cba_missionTime (and not 'time') to match
+      // _vehicle setVariable ["vtx_uh60_flir_boot_time", _vehicle getvariable ["vtx_uh60_flir_boot_time",cba_missionTime], true];
+      // in \addons\uh60_flir\functions\fnc_interaction.sqf
+      private _timeRemaining = (_bootTime + 20) - cba_missionTime;
       _vehicle setUserMFDText [10, format["PREPARING PAYLOAD %1", floor _timeRemaining]];
     } else {
       _vehicle setVariable ["vtx_uh60_flir_stowed", false, true];
