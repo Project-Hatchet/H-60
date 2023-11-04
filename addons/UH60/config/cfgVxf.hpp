@@ -1,15 +1,15 @@
-class vxf_driver {
-    #include "cfgVehiclesParts\cfgVxfCockpit.hpp"
+class hatchet_driver {
+    #include "cfgVehiclesParts\cfghatchetCockpit.hpp"
 };
 
-class vxf_copilot {
-    #include "cfgVehiclesParts\cfgVxfCockpit.hpp"
+class hatchet_copilot {
+    #include "cfgVehiclesParts\cfghatchetCockpit.hpp"
 };
 
-class vxf_cargo {
+class hatchet_cargo {
     class interaction {
         class l_door {
-            clickSound = "vxf_CabinDoor_Sound";
+            clickSound = "hatchet_CabinDoor_Sound";
             position="cabindoor_L_handle";
             positionType="anim";
             label="Left Door";
@@ -22,7 +22,7 @@ class vxf_cargo {
             animSpeed=1;
         }; // l_door
         class r_door {
-            clickSound = "vxf_CabinDoor_Sound";
+            clickSound = "hatchet_CabinDoor_Sound";
             position="cabindoor_R_handle";
             positionType="anim";
             label="Right Door";
@@ -35,7 +35,7 @@ class vxf_cargo {
             animSpeed=1;
         }; // r_door
         class toCockpit {
-          condition = "isNull driver vxf_vehicle || {isNull (vxf_vehicle turretUnit [0])}";
+          condition = "isNull driver hatchet_vehicle || {isNull (hatchet_vehicle turretUnit [0])}";
           positionType = "coordinates";
           position[] = POS_MOVE_CABIN_COCKPIT;
           label = "Move To Cockpit";

@@ -131,7 +131,7 @@ _id = ["featureCamera", {
       call vtx_uh60_flir_fnc_pipStart;
     };
     if (!isNil "vtx_uh60_mfd_slingCam") then {
-      [vxf_vehicle, true] call vtx_uh60_mfd_fnc_slingCam;
+      [hatchet_vehicle, true] call vtx_uh60_mfd_fnc_slingCam;
     };
   };
   if (vtx_uh60_flir_isInScriptedCamera) then {

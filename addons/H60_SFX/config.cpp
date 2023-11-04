@@ -222,21 +222,21 @@ class CfgSounds
 		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown_Int",1,1};
 		titles[] = {};
 	};
-	class vxf_Key_Sound
+	class hatchet_Key_Sound
 	{
-		name = "vxf_Key_Sound";
+		name = "hatchet_Key_Sound";
 		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Key",1,1};
 		titles[] = {};
 	};
-	class vxf_CabinDoor_Sound
+	class hatchet_CabinDoor_Sound
 	{
-		name = "vxf_CabinDoor_Sound";
+		name = "hatchet_CabinDoor_Sound";
 		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Door",3,1};
 		titles[] = {};
 	};
-	class vxf_RotorBrake_Sound
+	class hatchet_RotorBrake_Sound
 	{
-		name = "vxf_RotorBrake_Sound";
+		name = "hatchet_RotorBrake_Sound";
 		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\RotorBrake",3,1};
 		titles[] = {};
 	};

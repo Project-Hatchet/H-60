@@ -1,11 +1,11 @@
 class cfgVehicles {
     class Helicopter_Base_F;
     class Helicopter_Base_H: Helicopter_Base_F {
-        class vxf_cargo;
+        class hatchet_cargo;
     };
     class Heli_Transport_01_base_F: Helicopter_Base_H {
         class UserActions;
-        class vxf_cargo: vxf_cargo {
+        class hatchet_cargo: hatchet_cargo {
             class interaction;
         };
         //class ACE_Actions;
@@ -30,7 +30,7 @@ class cfgVehicles {
 				statement = "[this] spawn vtx_uh60_misc_fnc_quickstart";
 			};
         };
-        class vxf_cargo: vxf_cargo {
+        class hatchet_cargo: hatchet_cargo {
             class interaction: interaction {
                 class fastRopeRight {
                     condition = "[player, vehicle player] call ace_fastroping_fnc_canFastRope";
@@ -43,7 +43,7 @@ class cfgVehicles {
                 class fastRopeLeft: fastRopeRight {
                     position[] = {-1.66, 1.815,-0.3};
                 }; // fastRopeLeft
-                class vxf_friesDeployed {
+                class hatchet_friesDeployed {
                     condition = "[_this] call ace_fastroping_fnc_canStowFRIES";
                     class ropesNotDeployed {
                         condition = "[_this, player, ""ACE_rope36"", true] call ace_fastroping_fnc_canDeployRopes";
@@ -58,8 +58,8 @@ class cfgVehicles {
                             position[] = {-1.66, 1.815,-0.09};
                         }; // deploytRopeLeft
                     }; // ropesNotDeployed
-                }; // vxf_friesDeployed
-                class vxf_friesNotDeployed {
+                }; // hatchet_friesDeployed
+                class hatchet_friesNotDeployed {
                     condition = "[_this] call ace_fastroping_fnc_canPrepareFRIES";
                     class prepareFRIES {
                         positionType="coordinates";
@@ -68,9 +68,9 @@ class cfgVehicles {
                         label="Prepare FRIES";
                         radius=0.3;
                     }; // fastRopeRight
-                }; // vxf_friesNotDeployed
+                }; // hatchet_friesNotDeployed
             }; // interaction
-        }; // vxf_cargo
+        }; // hatchet_cargo
     }; // vtx_H60_base
 
     class Land_MobileScafolding_01_F;

@@ -25,7 +25,7 @@ class modules {
         animStates[] = {OFFSTATE, ONSTATE}; \
         animLabels[] = {"OFF", "ON"}; \
         animEnd=ANIMEND; \
-        clickSound="vxf_Switch_Sound_3"; \
+        clickSound="hatchet_Switch_Sound_3"; \
     };
 
 class interaction {
@@ -42,7 +42,7 @@ class interaction {
             animStates[] = {0.5, 1};
             animLabels[] = {"OFF", "ON"};
             animEnd="(_this # 0) setCollisionLight !(isCollisionLightOn (_this # 0))";
-            clickSound="vxf_Switch_Sound";
+            clickSound="hatchet_Switch_Sound";
         }; // Lights_collision
         class Lights_position {
             positionType="static";
@@ -54,7 +54,7 @@ class interaction {
             animStates[] = {0.5, 1};
             animLabels[] = {"OFF", "ON"};
             animEnd="_this call vtx_uh60_misc_fnc_toggleLights";
-            clickSound="vxf_Switch_Sound";
+            clickSound="hatchet_Switch_Sound";
         }; // Lights_position
         class Lights_cockpit {
             positionType="static";
@@ -66,7 +66,7 @@ class interaction {
             animStates[] = {0.5, 1};
             animLabels[] = {"OFF", "ON"};
             animEnd="_this call vtx_uh60_misc_fnc_toggleLights";
-            clickSound="vxf_Switch_Sound";
+            clickSound="hatchet_Switch_Sound";
         }; // Lights_position
         class fuelPump {
             positionType="static";
@@ -78,7 +78,7 @@ class interaction {
             animStates[] = {0.5, 0};
             animLabels[] = {"OFF", "APU BOOST"};
             animEnd="_this call vtx_uh60_engine_fnc_apuState";
-            clickSound="vxf_Switch_Sound";
+            clickSound="hatchet_Switch_Sound";
         }; // fuelPump
         class apucont {
             positionType="static";
@@ -90,7 +90,7 @@ class interaction {
             animStates[] = {0.5, 0};
             animLabels[] = {"OFF", "ON"};
             animEnd="_this call vtx_uh60_engine_fnc_apuState; _this call vtx_uh60_engine_fnc_batteryState";
-            clickSound="vxf_Switch_Sound_3";
+            clickSound="hatchet_Switch_Sound_3";
         }; // apucont
         class b_airsce : apucont {
             position="b_airsce";
@@ -98,7 +98,7 @@ class interaction {
             animation="Switch_airsce";
             animStates[] = {1, 0.5, 0};
             animLabels[] = {"ENG" ,"OFF", "APU"};
-            clickSound="vxf_Switch_Sound_3";
+            clickSound="hatchet_Switch_Sound_3";
             animEnd="";
         }; // b_airsce
         class b_batt1 : apucont {
@@ -106,7 +106,7 @@ class interaction {
             label="BATT 1";
             animation="Switch_batt1";
             animEnd="_this call vtx_uh60_engine_fnc_batteryState";
-            clickSound="vxf_Switch_Sound_3";
+            clickSound="hatchet_Switch_Sound_3";
         }; // b_batt1
         class b_batt2 : b_batt1 {
             position="b_batt2";
@@ -178,7 +178,7 @@ class interaction {
             animStates[] = {0, 1};
             animLabels[] = {"OFF", "ON"};
             animEnd="_this call vtx_uh60_engine_fnc_starterState";
-            clickSound = "vxf_Key_Sound";
+            clickSound = "hatchet_Key_Sound";
         }; // b_ignition
         class b_starter1 {
             positionType="anim";
@@ -186,7 +186,7 @@ class interaction {
             label="Engine Start 1";
             radius=0.025;
             buttonUp="[_this # 0, ""STARTER1"", ""ON""] call vtx_uh60_engine_fnc_starterState";
-            clickSound="vxf_Switch_Sound";
+            clickSound="hatchet_Switch_Sound";
         }; // b_starter1
         class b_starter2 {
             positionType="anim";
@@ -194,7 +194,7 @@ class interaction {
             label="Engine Start 2";
             radius=0.025;
             buttonUp="[_this # 0, ""STARTER2"", ""ON""] call vtx_uh60_engine_fnc_starterState";
-            clickSound="vxf_Switch_Sound";
+            clickSound="hatchet_Switch_Sound";
         }; // b_starter2
         class powerContRFM {
             condition="!difficultyEnabledRTD";
@@ -237,7 +237,7 @@ class interaction {
             }; // b_engpowercont2
         }; // powerContRTD
         class l_rotorbrake : b_airsce {
-            clickSound="vxf_RotorBrake_Sound";
+            clickSound="hatchet_RotorBrake_Sound";
             position="RotorBrake";
             positionType="anim";
             label="Rotor Brake";
@@ -267,7 +267,7 @@ class interaction {
                     position="ap_fdL_1";
                     label="Radar Altitude AP";
                     radius=BTN_RADIUS_SWITCH;
-                    clickSound="vxf_Switch_Sound";
+                    clickSound="hatchet_Switch_Sound";
                     buttonUp="[(_this # 0), ""RALT""] call vtx_uh60_fd_fnc_modeSet;";
                 }; // ralt
             class b_ap_ralt_R : b_ap_ralt_L {
@@ -412,7 +412,7 @@ class interaction {
         }; // KnobFDRight_IAS
         class KnobFDLeftHDG : KnobFDRightHDG {position="knob_fdL_5";};// KnobFDLeftHDG
         class toCabin {
-          condition = "isNull (vxf_vehicle turretUnit [1]) || {isNull (vxf_vehicle turretUnit [2])}";
+          condition = "isNull (hatchet_vehicle turretUnit [1]) || {isNull (hatchet_vehicle turretUnit [2])}";
           positionType = "coordinates";
           position[] = POS_MOVE_CABIN_COCKPIT;
           label = "Move To Cabin";

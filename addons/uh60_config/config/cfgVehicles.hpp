@@ -176,8 +176,8 @@ class CfgVehicles {
       #include "..\..\UH60\config\turrets\cargoTurrets.hpp"
     };
     #include "..\..\UH60\config\vehicleTransport.hpp"
-    class vxf_turret_1 {};
-    class vxf_turret_2 {};
+    class hatchet_turret_1 {};
+    class hatchet_turret_2 {};
     class MFD: MFD {
       class VTX_MFD_1_NOFLIR :           VTX_MFD_1_NOFLIR {};
       class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};

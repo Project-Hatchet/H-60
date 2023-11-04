@@ -14,7 +14,7 @@ private _label = format ["Press %1 For Help", _keybindHelp];
 
 SETTEXT(4001119,_label);
 
-private _keybindInteract = ((["VXF Interaction","vxf_interaction"] call CBA_fnc_getKeybind)# 5) call CBA_fnc_localizeKey;
+private _keybindInteract = ((["hatchet Interaction","hatchet_interaction"] call CBA_fnc_getKeybind)# 5) call CBA_fnc_localizeKey;
 _label = format ["Interaction: %1", _keybindInteract];
 
 SETTEXTGRP(HELP,1,_label);

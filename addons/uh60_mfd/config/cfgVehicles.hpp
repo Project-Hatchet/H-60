@@ -1,18 +1,18 @@
 class CfgVehicles {
     class Helicopter_Base_F;
     class Helicopter_Base_H: Helicopter_Base_F {
-        class vxf_driver;
-        class vxf_copilot;
+        class hatchet_driver;
+        class hatchet_copilot;
     }; // Helicopter_Base_H
     class Heli_Transport_01_base_F: Helicopter_Base_H {
-        class vxf_driver: vxf_driver {
+        class hatchet_driver: hatchet_driver {
             class interaction;
             class modules;
-        }; // vxf_driver
-        class vxf_copilot: vxf_copilot {
+        }; // hatchet_driver
+        class hatchet_copilot: hatchet_copilot {
             class interaction;
             class modules;
-        }; // vxf_copilot
+        }; // hatchet_copilot
         class MFD;
         class UserActions;
     }; // Heli_Transport_01_base_F
@@ -33,7 +33,7 @@ class CfgVehicles {
 				statement = "[this] call vtx_uh60_mfd_fnc_ivhms";
 			};
         };
-        class vxf_driver: vxf_driver {
+        class hatchet_driver: hatchet_driver {
             class modules: modules {
                 class mfd {
                     startOnEnter = 1;
@@ -135,8 +135,8 @@ class CfgVehicles {
                     #include "interaction.hpp"
                 }; // MFD4
             }; // interaction
-        }; // vxf_driver
-        class vxf_copilot: vxf_copilot {
+        }; // hatchet_driver
+        class hatchet_copilot: hatchet_copilot {
             class modules: modules {
                 class mfd {
                     startOnEnter = 1;
@@ -268,7 +268,7 @@ class CfgVehicles {
                     #include "interaction.hpp"
                 }; // MFD4
             }; // interaction
-        }; // vxf_copilot
+        }; // hatchet_copilot
         // class MFD {}; // MFD
     }; // vtx_H60_base
 }; // CfgVehicles

@@ -14,12 +14,12 @@
 
 params ["_vehicle"];
 
-private _camPosASL = vxf_vehicle modelToWorldVisualWorld vtx_uh60_flir_camPos;
+private _camPosASL = hatchet_vehicle modelToWorldVisualWorld vtx_uh60_flir_camPos;
 vtx_uh60_flir_camera setPosASL _camPosASL;
 getPilotCameraTarget _vehicle params ["_isTracking", "_tgtPosASL", ""];
 if (_isTracking) then {
   if (vtx_uh60_flir_isInScriptedCamera) then { // Fix laser target wandering off
-    private _laserTarget = laserTarget vxf_vehicle;
+    private _laserTarget = laserTarget hatchet_vehicle;
     if (!isNull _laserTarget) then {
       _laserTarget setPosASL _tgtPosASL;
     };
@@ -38,7 +38,7 @@ if (_isTracking) then {
 };
 
 //drawLine3D [ASLToAGL _camPosASL, ASLToAGL _tgtPosASL, [0,1,0,1]];
-//drawLine3D [ASLToAGL _camPosASL, _camPosASL vectorAdd (vxf_vehicle vectorModelToWorldVisual _dir), [1,0,0,1]];
-//drawLine3D [ASLToAGL _camPosASL, _camPosASL vectorAdd ((vxf_vehicle vectorModelToWorldVisual getPilotCameraDirection vxf_vehicle) vectorMultiply 1000), [0,0,1,1]];
+//drawLine3D [ASLToAGL _camPosASL, _camPosASL vectorAdd (hatchet_vehicle vectorModelToWorldVisual _dir), [1,0,0,1]];
+//drawLine3D [ASLToAGL _camPosASL, _camPosASL vectorAdd ((hatchet_vehicle vectorModelToWorldVisual getPilotCameraDirection hatchet_vehicle) vectorMultiply 1000), [0,0,1,1]];
 
 true

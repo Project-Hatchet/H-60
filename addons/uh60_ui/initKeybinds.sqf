@@ -6,7 +6,7 @@
     LSTRING(HelpMode),
     {},{
         private _vehicle = vehicle player;
-        if ([_vehicle, "ui", "vtx_H60_base"] call vxf_core_fnc_hasModule) then {
+        if ([_vehicle, "ui", "vtx_H60_base"] call hatchet_core_fnc_hasModule) then {
             vtx_uh60_ui_helpEnabled = !vtx_uh60_ui_helpEnabled;
             [_vehicle, vtx_uh60_ui_helpEnabled] call vtx_uh60_ui_fnc_showHelp;
         };

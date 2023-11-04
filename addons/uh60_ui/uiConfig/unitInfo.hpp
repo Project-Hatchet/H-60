@@ -4,7 +4,7 @@ class RscInGameUI
     class RscUnitInfoAir;
     class vtx_uh60_rscUnitInfoMinimal: RscUnitInfoAir
     {
-        onLoad="[(vehicle player), ""ui"", _this # 0] call vxf_core_fnc_start;";
+        onLoad="[(vehicle player), ""ui"", _this # 0] call hatchet_core_fnc_start;";
         controls[] = {
             //"CA_BackgroundVehicle",
             //"CA_BackgroundVehicleTitle",
