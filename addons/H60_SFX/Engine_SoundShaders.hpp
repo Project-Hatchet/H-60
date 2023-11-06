@@ -155,7 +155,7 @@ class vtx_ApuSoundLoop_Int_SoundShader: vtx_ApuSoundLoop_Ext_SoundShader
 			1
 		}
 	};
-	volume = "(1-camPos)*CustomSoundController2*(CustomSoundController16+1)";
+	volume="camInt*CustomSoundController2*(CustomSoundController16+1)";
 };
 
 class vtx_EngineInt_SoundShader
@@ -182,7 +182,7 @@ class vtx_RotorInt_SoundShader
 		}
 	};
 	frequency="rotorSpeed*(1-rotorThrust/5)*1.2";
-	volume="camInt*(0 max (rotorSpeed-0.1))*(1 + rotorThrust)*(rotorSpeed factor [0.3, 1])*(CustomSoundController16+1)";
+	volume="camInt*(0 max (rotorSpeed-0.1))*(1 + rotorThrust)*(rotorSpeed factor [0.3, 1])*((playerPos interpolate [0,1,1,4]) max 1)*(CustomSoundController16+1)";
 };
 class vtx_Engine_Transport_SoundShader_Base
 {

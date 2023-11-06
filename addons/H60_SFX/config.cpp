@@ -18,6 +18,9 @@ class CfgPatches
 		};
 	};
 };
+
+#define vtx_Vol_Multi_Int(NUM) __EVAL(0.75*NUM)
+
 class CfgSoundShapes
 {
 	class vtx_Front_Shape
@@ -267,19 +270,19 @@ class CfgSounds
 	class vtx_H60_Engine_On_Int
 	{
 		name = "vtx_H60_Engine_On_Int";
-		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Start_Int",2,1};
+		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Start_Int",vtx_Vol_Multi_Int(2),1};
 		titles[] = {};
 	};
 	class vtx_H60_Engine_Off_Int
 	{
 		name = "vtx_H60_Engine_Off_Int";
-		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown_Int",1,1};
+		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown_Int",vtx_Vol_Multi_Int(1),1};
 		titles[] = {};
 	};
 	class vtx_H60_APU_On_Int
 	{
 		name = "vtx_H60_APU_On_Int";
-		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\APU_Start_Int",1,0.8};
+		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\APU_Start_Int",vtx_Vol_Multi_Int(1),0.8};
 		titles[] = {};
 	};
 	class vxf_Key_Sound

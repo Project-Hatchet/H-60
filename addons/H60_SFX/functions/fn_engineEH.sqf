@@ -48,7 +48,7 @@ if !(isnull (_vehicle getVariable ["vtx_uh60_sound_obj",objNull])) exitWith {};
         ({_x != "OFF"} count _condition) > 0
       ] select (_state == "OFF");
 
-      (cameraView != _cameraView) or (isNull _sound) or (_exit)
+      (cameraView != _cameraView) || (isNull _sound) || (_exit)
       },{
         params["_vehicle","","_sound"];
 

@@ -1,12 +1,11 @@
 // -APU
-class vtx_APUSoundLoop_Ext_SoundSet: vtx_External_Base
+class vtx_APUSoundLoop_Ext_SoundSet: vtx_Standard_External_Base
 {
 	soundshaders[] = 
 	{
 		"vtx_APUSoundLoop_Ext_SoundShader"
 	};
 	volumefactor=0.2;
-	sound3dprocessingtype="default3DProcessingType";
 };
 
 //External
@@ -77,7 +76,7 @@ class vtx_ApuSoundLoop_Int_Soundet: vtx_Internal_Base
 	{
 		"vtx_ApuSoundLoop_Int_SoundShader"
 	};
-	volumefactor=0.35;
+	volumefactor=vtx_Vol_Multi_Int(0.35);
 };
 
 //Internal
@@ -87,7 +86,7 @@ class vtx_EngineInt_SoundSet: vtx_Internal_Base
 	{
 		"vtx_EngineInt_SoundShader"
 	};
-	volumefactor=0.8;
+	volumefactor=vtx_Vol_Multi_Int(0.8);
 };
 class vtx_RotorInt_SoundSet: vtx_EngineInt_SoundSet
 {
