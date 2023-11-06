@@ -4,6 +4,7 @@ private _positionType = switch (true) do {
 	case (_iconIndex < 14): {"SALUTE"};
 	case (_iconIndex < 24): {"MEDIC"};
 	case (_iconIndex < 32): {"OTHER"};
+	case (_iconIndex > 32): {"UNKOWN"};
 };
 
 private _position3d = [_position # 0, _position # 1, getTerrainHeightASL _position];
@@ -41,6 +42,10 @@ private _messageComments = switch (_positionType) do {
 		private _otherType = [
 			"HQ", "LZ"
 		] # (_iconIndex - 30);
+		[_otherType, "", "", "", "", "", ""]
+	};
+	case "UNKNOWN": {
+		private _otherType = "UNKNOWN";
 		[_otherType, "", "", "", "", "", ""]
 	};
 	default {
