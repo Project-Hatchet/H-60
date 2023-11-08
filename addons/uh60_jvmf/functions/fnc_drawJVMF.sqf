@@ -46,7 +46,15 @@ private _strings = [
 } forEach VTX_JVMF_MESSAGES;
 
 private _message = VTX_JVMF_MESSAGES # VTX_JVMF_SELECTED_IDX;
-//_message params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
+if (isNil "_message") then{ 
+    _type = 0;
+    _sender = "";
+    _recipient = "";
+    _text = "";
+    _repilies = 0;
+} else {
+    _message params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
+}
 
 _vehicle setUserMFDValue [16, _type];
 [_vehicle, 30, _sender + "/" + _recipient] call vtx_uh60_mfd_fnc_setUserText;
