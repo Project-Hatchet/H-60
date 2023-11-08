@@ -114,6 +114,9 @@ VTX_JVMF_MESSAGES = [
     ]
     */
 ];
+if (!vtx_uh60_jvmf_defaults) then {
+    VTX_JVMF_MESSAGES = [];
+};
 VTX_JVMF_SELECTED_IDX = 0;
 
 ADDON = true;
