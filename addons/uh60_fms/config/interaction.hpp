@@ -82,6 +82,7 @@ class nav {
   condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT);
   FMS_BTN(FMS_1,"Next Waypoint") buttonUp="[vehicle player,""cycle"", 1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
   FMS_BTN(FMS_2,"Previous waypoint") buttonUp="[vehicle player,""cycle"", -1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
+  FMS_BTN(FMS_3,"Delete Waypoint") buttonUp="[player] call vtx_uh60_fms_fnc_deleteWaypoint;"; };
   FMS_BTN(FMS_4,"Location Stores")
     buttonUp= [(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_NAV_LOCATIONS_LIST)], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
