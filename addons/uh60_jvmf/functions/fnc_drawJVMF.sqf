@@ -86,4 +86,7 @@ if (count _replies > 0) then {
 };
 
 private _messageCount = count VTX_JVMF_MESSAGES;
+if (count VTX_JVMF_MESSAGES == 0) then {
+    _messageCount = 1;
+}
 [_vehicle, 42, format["%1/%2", VTX_JVMF_SELECTED_IDX + 1, count VTX_JVMF_MESSAGES]] call vtx_uh60_mfd_fnc_setUserText;
