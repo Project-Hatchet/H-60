@@ -46,10 +46,10 @@ private _strings = [
 } forEach VTX_JVMF_MESSAGES;
 
 private _message = VTX_JVMF_MESSAGES # VTX_JVMF_SELECTED_IDX;
-if (isNil "_message") then{ 
+if (count VTX_JVMF_MESSAGES == 0) then{ 
     _type = 0;
-    _sender = "";
-    _recipient = "";
+    _sender = "Debug";
+    _recipient = "Test";
     _text = "";
     _repilies = 0;
 } else {
