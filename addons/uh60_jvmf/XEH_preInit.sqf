@@ -14,7 +14,7 @@ ADDON = false;
 	,"CHECKBOX"
 	,["Enable JVMF Default Messages", "The JVMF Default messages provide an example of usage of the JVMF"]
 	,["UH-60M", "JVMF"]
-	,true;
+	,true
 ] call CBA_fnc_addSetting;
 
 vtx_uh60_jvmf_importedCtabMarkersList = [];
