@@ -6,6 +6,9 @@
  */
 params ["_vehicle"];
 
+//Do not draw JVMF is there are no JVMF Messages
+if (count VTX_JVMF_MESSAGES == 0) exitWith {};
+
 private _fixString = {
     params ["_str", "_length"];
     private _str = _str select [0,_length];
@@ -46,15 +49,7 @@ private _strings = [
 } forEach VTX_JVMF_MESSAGES;
 
 private _message = VTX_JVMF_MESSAGES # VTX_JVMF_SELECTED_IDX;
-if (count VTX_JVMF_MESSAGES == 0) then{ 
-    _type = 0;
-    _sender = "Debug";
-    _recipient = "Test";
-    _text = "";
-    _repilies = 0;
-} else {
-    _message params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
-}
+_message params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
 
 _vehicle setUserMFDValue [16, _type];
 [_vehicle, 30, _sender + "/" + _recipient] call vtx_uh60_mfd_fnc_setUserText;
@@ -86,7 +81,4 @@ if (count _replies > 0) then {
 };
 
 private _messageCount = count VTX_JVMF_MESSAGES;
-if (count VTX_JVMF_MESSAGES == 0) then {
-    _messageCount = 1;
-}
 [_vehicle, 42, format["%1/%2", VTX_JVMF_SELECTED_IDX + 1, count VTX_JVMF_MESSAGES]] call vtx_uh60_mfd_fnc_setUserText;
