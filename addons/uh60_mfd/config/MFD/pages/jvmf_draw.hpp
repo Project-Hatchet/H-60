@@ -55,6 +55,11 @@ class cantco_wrap {
         }; \
     };
 
+class jvmf_type_empty {
+	condition=COND_ISNUMBER(JVMF_TYPE,-1);
+	#include "jvmf\jvmf_empty.hpp"
+};
+
 class jvmf_type_0 {
 	condition=COND_ISNUMBER(JVMF_TYPE,0);
 	#include "jvmf\jvmf_freetext.hpp"

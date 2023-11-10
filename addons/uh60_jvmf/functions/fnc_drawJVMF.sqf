@@ -7,7 +7,9 @@
 params ["_vehicle"];
 
 //Do not draw JVMF is there are no JVMF Messages
-if (count VTX_JVMF_MESSAGES == 0) exitWith {};
+if (count VTX_JVMF_MESSAGES == 0) exitWith {
+    _vehicle setUserMFDValue [16, -1];  //-1 sets as empty
+};
 
 private _fixString = {
     params ["_str", "_length"];
