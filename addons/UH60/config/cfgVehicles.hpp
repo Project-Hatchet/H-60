@@ -65,7 +65,9 @@ class CfgVehicles
         editorSubcategory = "vtx_h60";
         side = 1;
         faction = "BLU_F";
-        armor = 600;
+        armor = 575;
+        type = 2;
+        threat[] = {1,1,0.5};
         // damageResistance = 0.000555;
         epeImpulseDamageCoef = 0;
         altFullForce = 1500;	/// in what height do the engines still have full thrust
