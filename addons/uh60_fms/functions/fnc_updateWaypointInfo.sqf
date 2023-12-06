@@ -73,16 +73,18 @@ if (vtx_uh60_fms_renderWaypointsOnTAC) then {
 
     //
     //43 44
-    if (!isNil {VTX_JVMF_MESSAGES # VTX_JVMF_SELECTED_IDX}) then {
-        (VTX_JVMF_MESSAGES # VTX_JVMF_SELECTED_IDX) params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
-        if (_type == 2) then {
-            _data params ["_position"];
-            [_position, 43, 44] call _positionToMfd;
+    if (count VTX_JVMF_MESSAGES > 0) then {
+        if (!isNil {VTX_JVMF_MESSAGES # VTX_JVMF_SELECTED_IDX}) then {
+            (VTX_JVMF_MESSAGES # VTX_JVMF_SELECTED_IDX) params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
+            if (_type == 2) then {
+                _data params ["_position"];
+                [_position, 43, 44] call _positionToMfd;
+            } else {
+                [43, 44] call _clearPos;
+            };
         } else {
             [43, 44] call _clearPos;
         };
-    } else {
-        [43, 44] call _clearPos;
     };
 };
 

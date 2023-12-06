@@ -9,6 +9,13 @@ ADDON = false;
  * 1 - 5-line CAS
  * 2 - location
  */
+[
+	"vtx_uh60_jvmf_defaults"
+	,"CHECKBOX"
+	,["Enable JVMF Default Messages", "The JVMF Default messages provide an example of usage of the JVMF"]
+	,["UH-60M", "JVMF"]
+	,true
+] call CBA_fnc_addSetting;
 
 vtx_uh60_jvmf_importedCtabMarkersList = [];
 VTX_JVMF_MESSAGES = [
