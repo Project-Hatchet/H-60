@@ -5,7 +5,7 @@ class vtx_APUSoundLoop_Ext_SoundSet: vtx_Standard_External_Base
 	{
 		"vtx_APUSoundLoop_Ext_SoundShader"
 	};
-	volumefactor=0.2;
+	volumefactor=0.25;
 };
 
 //External
