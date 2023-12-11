@@ -3,11 +3,10 @@
  *
  * engine power eventhandler for sound
  *
- * params [vehicle]
  * By: Aaren
  */
 
-params["_vehicle","_types","_state","_condition","_status_count"];
+params["_vehicle","_types","_state","_condition","_status_count",["_NotSave",false]];
 
 if !(isnull (_vehicle getVariable ["vtx_uh60_sound_obj",objNull])) exitWith {};
 
@@ -20,12 +19,10 @@ if !(isnull (_vehicle getVariable ["vtx_uh60_sound_obj",objNull])) exitWith {};
 
   //-Exterior or Interior
   if (_forEachIndex == 1) then {
-    if ((cameraView == "EXTERNAL") or !(cameraOn isEqualTo _vehicle)) then {
+    if ((cameraView == "EXTERNAL") || !(cameraOn isEqualTo _vehicle)) then {
       //Ext
-      _file = [_file + ".wss",_file] select ("." in _file);
-      _array params ["","_volume","_freq","_range"];
-
-      _sound = playSound3D [_file, _vehicle, false, getPosASL _vehicle, _volume, _freq, _range, 0, true];
+      _array params ["","_freq","_range"];
+      _sound = _vehicle say3D  [_file, _range, _freq, 2];
     };
   } else {
     //Int
@@ -33,31 +30,29 @@ if !(isnull (_vehicle getVariable ["vtx_uh60_sound_obj",objNull])) exitWith {};
       _sound = playSound _file;
     };
   };
-
-  if (_sound isEqualType 0) then {
-    _sound = objNull;
+  
+  if !(_NotSave) then {
+    _vehicle setVariable ["vtx_uh60_sound_obj",_sound];
   };
 
   //-Player in _vehicle
-  if ((cameraOn isEqualTo _vehicle) && !(isNull _sound)) then {
+  if ((cameraOn isEqualTo _vehicle) && !(isnull _sound)) then {
     [{
       params["_vehicle","_cameraView",["_sound",objNull],"_state","_condition","_status_count"];
 
       _exit = [
-        ({_x != "OFF"} count _condition) < _status_count,
-        ({_x != "OFF"} count _condition) > 0
+        ({_x != "OFF"} count call _condition) < _status_count,
+        ({_x != "OFF"} count call _condition) > 0
       ] select (_state == "OFF");
 
-      (cameraView != _cameraView) || (isNull _sound) || (_exit)
+      (cameraView != _cameraView) || (isnull _sound) || _exit || _exit2
       },{
         params["_vehicle","","_sound"];
 
-        if !(isNull _sound) then {
+        if !(isnull _sound) then {
           deleteVehicle _sound;
           _vehicle setVariable ["vtx_uh60_sound_obj",objNull];
         };
-    }, [_vehicle,cameraView,_sound,_state,call _condition,_status_count]] call CBA_fnc_waitUntilAndExecute;
+    }, [_vehicle,cameraView,_sound,_state,_condition,_status_count]] call CBA_fnc_waitUntilAndExecute;
   };
 } foreach _types;
-
-_vehicle setVariable ["vtx_uh60_sound_obj",_sound];

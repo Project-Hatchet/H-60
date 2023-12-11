@@ -153,11 +153,11 @@ class CfgVehicles
 
 		vtx_soundEngineOnInt[] = {"vtx_H60_Engine_On_Int"};
 		vtx_soundEngineOffInt[] = {"vtx_H60_Engine_Off_Int"};
-		vtx_soundEngineOnExt[] = {"z\vtx\addons\H60_SFX\Sounds\Share\Engine_Start",2,1,600};
-		vtx_soundEngineOffExt[] = {"z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown",2,1,600};
+		vtx_soundEngineOnExt[] = {"vtx_H60_Engine_On_Ext",1,600};
+		vtx_soundEngineOffExt[] = {"vtx_H60_Engine_Off_Ext",1,600};
 		
 		vtx_soundAPUInt[] = {"vtx_H60_APU_On_Int"};
-		vtx_soundAPUExt[] = {"z\vtx\addons\H60_SFX\Sounds\Share\APU_Start",0.8,1,600};
+		vtx_soundAPUExt[] = {"vtx_H60_APU_On_Ext",1,600};
 		class sounds
 		{
 			Soundsets[] =
@@ -285,6 +285,26 @@ class CfgSounds
 		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\APU_Start_Int",vtx_Vol_Multi_Int(1),0.8};
 		titles[] = {};
 	};
+  
+	class vtx_H60_Engine_On_Ext
+	{
+		name = "vtx_H60_Engine_On_Ext";
+		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Start",2,1,600};
+		titles[] = {};
+	};
+	class vtx_H60_Engine_Off_Ext
+	{
+		name = "vtx_H60_Engine_Off_Ext";
+		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown",2,1,600};
+		titles[] = {};
+	};
+  class vtx_H60_APU_On_Ext
+	{
+		name = "vtx_H60_APU_On_Ext";
+		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\APU_Start",0.8,1,600};
+		titles[] = {};
+	};
+
 	class vxf_Key_Sound
 	{
 		name = "vxf_Key_Sound";

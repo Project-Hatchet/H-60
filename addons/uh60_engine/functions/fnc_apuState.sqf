@@ -7,15 +7,12 @@
  */
 #include "defines.hpp"
 params ["_vehicle", "_animName", "_animEndState"];
-private ["_battBusState","_apuPwrSwitchState","_apuFuelSwitchState"];
 
 _vehicle call vtx_uh60_engine_fnc_UpdateAPU_State;
 
-_battBusState = _vehicle getVariable "vtx_uh60_acft_battBusState";
-_apuPwrSwitchState = _vehicle getVariable "vtx_uh60_acft_apuPwrSwitchState";
-_apuFuelSwitchState = _vehicle getVariable "vtx_uh60_acft_apuFuelSwitchState";
-
-_Vars = [_battBusState, _apuPwrSwitchState, _apuFuelSwitchState];
+private _Vars = ["battBusState","apuPwrSwitchState","apuFuelSwitchState"] apply {
+  _vehicle getVariable ("vtx_uh60_acft_" + _x)
+};
 
 //- Play Sound Globally
 [
@@ -23,7 +20,7 @@ _Vars = [_battBusState, _apuPwrSwitchState, _apuFuelSwitchState];
     [
       _vehicle ,_Vars,({_x == "ON"} count _Vars) == 3
     ],
-  _Vars
+  {["battBusState","apuPwrSwitchState","apuFuelSwitchState"] apply {_vehicle getVariable ("vtx_uh60_acft_" + _x)}}
 ], {
   params ["_args","_Vars"];
 
@@ -38,7 +35,7 @@ _Vars = [_battBusState, _apuPwrSwitchState, _apuFuelSwitchState];
     _status = ["vtx_uh60_acft_battBusState","vtx_uh60_acft_apuPwrSwitchState","vtx_uh60_acft_apuFuelSwitchState"] apply {_vehicle getVariable _x};
     _condition = [_apuRPM_pct <= 0.001, _apuRPM_pct >= 0.9] select _state;
 
-    !(alive _vehicle) or (_condition) or (_old_status isNotEqualTo _status)
+    !(alive _vehicle) || (_condition) || (_old_status isNotEqualTo _status)
     },{
       params["_vehicle"];
       if ((_vehicle getVariable "vtx_uh60_acft_apuRPM_pct") <= 0.001) then {
@@ -46,11 +43,11 @@ _Vars = [_battBusState, _apuPwrSwitchState, _apuFuelSwitchState];
         setCustomSoundController [_vehicle, "CustomSoundController2", 0];
         _vehicle setVariable ["vtx_uh60_acft_apuRPM_pct",0];
       };
-  },_args] call CBA_fnc_waitUntilAndExecute;
+  }, _args] call CBA_fnc_waitUntilAndExecute;
 
   //-Play APU startup sound
   private _vehicle = _args # 0;
-  if (({_x == "ON"} count _Vars) == 3) then {
-    [_vehicle, ["vtx_soundAPUInt","vtx_soundAPUExt"],"ON", {_Vars}, 3] call vtx_uh60_Sound_fnc_EngineEH;
+  if (({_x == "ON"} count (call _Vars)) == 3) then {
+    [_vehicle, ["vtx_soundAPUInt","vtx_soundAPUExt"],"ON", _Vars, 3, true] call vtx_uh60_Sound_fnc_EngineEH;
   };
 }] remoteExecCall ['call', [0, -2] select isDedicated];
