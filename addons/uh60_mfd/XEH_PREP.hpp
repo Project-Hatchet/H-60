@@ -1,6 +1,7 @@
 PREP(interaction_tac);
 PREP(interaction_slew);
 PREP(isAnyFlirOpened);
+PREP(initPylons);
 PREP(perSecond);
 PREP(perFrame);
 PREP(setup);
