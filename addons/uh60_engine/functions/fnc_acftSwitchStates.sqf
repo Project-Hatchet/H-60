@@ -10,46 +10,6 @@ if (_mikSwitchPos >= 0.90) then {
 };
 _vehicle setVariable ["vtx_uh60_acft_mikSwitchState", _mikSwitchState];
 
-//Battery 1 switch
-private _batt1SwitchPos   = _vehicle animationPhase "Switch_batt1";         //0.5 = OFF, 0.0 = ON
-private _batt1SwitchState = _vehicle getVariable "vtx_uh60_acft_batt1SwitchState";
-if (_batt1SwitchPos <= 0.10) then {
-    _batt1SwitchState = "ON";
-} else {
-    _batt1SwitchState = "OFF";
-};
-_vehicle setVariable ["vtx_uh60_acft_batt1SwitchState", _batt1SwitchState];
-
-//Battery 2 switch
-private _batt2SwitchPos   = _vehicle animationPhase "Switch_batt2";         //0.5 = OFF, 0.0 = ON
-private _batt2SwitchState = _vehicle getVariable "vtx_uh60_acft_batt2SwitchState";
-if (_batt2SwitchPos <= 0.10) then {
-    _batt2SwitchState = "ON";
-} else {
-    _batt2SwitchState = "OFF";
-};
-_vehicle setVariable ["vtx_uh60_acft_batt2SwitchState", _batt2SwitchState];
-
-//APU power switch
-private _apuPwrSwitchPos   = _vehicle animationPhase "Switch_apucont";      //0.5 = OFF, 0.0 = ON
-private _apuPwrSwitchState = _vehicle getVariable "vtx_uh60_acft_apuPwrSwitchState";
-if (_apuPwrSwitchPos <= 0.10) then {
-    _apuPwrSwitchState = "ON";
-} else {
-    _apuPwrSwitchState = "OFF";
-};
-_vehicle setVariable ["vtx_uh60_acft_apuPwrSwitchState", _apuPwrSwitchState];
-
-//APU fuel pump switch
-private _apuFuelSwitchPos   = _vehicle animationPhase "Switch_fuelPump";    //0.5 = OFF, 0.0 = ON
-private _apuFuelSwitchState = _vehicle getVariable "vtx_uh60_acft_apuFuelSwitchState";
-if (_apuFuelSwitchPos <= 0.10) then {
-    _apuFuelSwitchState = "ON";
-} else {
-    _apuFuelSwitchState = "OFF";
-};
-_vehicle setVariable ["vtx_uh60_acft_apuFuelSwitchState", _apuFuelSwitchState];
-
 //APU generator switch
 private _apuGenSwitchPos   = _vehicle animationPhase "Switch_apugen";    //0.5 = OFF, 0.0 = ON
 private _apuGenSwitchState = _vehicle getVariable "vtx_uh60_acft_apuGenSwitchState";

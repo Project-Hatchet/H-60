@@ -7,13 +7,25 @@ TEXT_FMS_L(FUEL_QTY_LABEL,FMS_MARGIN_L,FMS_Y1)
 	source = "static";
 	text = "FUEL QTY";
 }; // FUEL_QTY_LABEL
-TEXT_FMS_L(FUEL_QTY,FMS_MARGIN_L,FMS_Y12)
-  source="fuel";
-  sourceScale = 2040;
-  sourceLength = 4;
-}; // FUEL_QTY
 
-TEXT_FMS_L(FUEL_QTY_UNIT,0.2,FMS_Y12)
+class noAuxTanks {
+	condition = "pylonAmmo50 < 1";
+	TEXT_FMS_L(FUEL_QTY,FMS_MARGIN_L,FMS_Y12)
+		source="fuel";
+		sourceScale = 2412;
+		sourceLength = 4;
+	};
+}; //FUEL_QTY
+class hasInternalAux {
+	condition = "pylonAmmo50 > 0";
+	TEXT_FMS_L(FUEL_QTY,FMS_MARGIN_L,FMS_Y12)
+		source="fuel";
+		sourceScale = 3506;
+		sourceLength = 4;
+	};
+}; //FUEL_QTY
+
+TEXT_FMS_L(FUEL_QTY_UNIT,0.22,FMS_Y12)
 	source = "static";
 	text = "LBS";
 }; // FUEL_QTY_UNIT

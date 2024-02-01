@@ -26,7 +26,7 @@ class cfgVehicles {
 				hideOnUse = 1;
 				onlyForPlayer = 0;
 				shortcut = "";
-				condition = "player == driver this"; // Only show if the unit is alive and is not a player
+				condition = "player == driver this && vtx_uh60m_simpleStartup"; // Only show if the unit is alive and is not a player
 				statement = "[this] spawn vtx_uh60_misc_fnc_quickstart";
 			};
         };

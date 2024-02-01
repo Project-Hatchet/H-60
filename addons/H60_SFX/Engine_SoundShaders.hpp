@@ -10,8 +10,15 @@ class vtx_APUSoundLoop_Ext_SoundShader
 			1
 		}
 	};
-	frequency = "CustomSoundController1";
-	volume = "camPos*CustomSoundController2*(CustomSoundController14+1)";
+	frequency="CustomSoundController1";
+	volume="camPos*CustomSoundController2*(CustomSoundController14+1)";
+	range=200;
+	rangecurve[]=
+	{
+		{0,1},
+		{100,0.6},
+		{200,0}
+	};
 };
 class vtx_Rotor_Distance_SoundShader
 {
@@ -24,15 +31,15 @@ class vtx_Rotor_Distance_SoundShader
 		}
 	};
 	frequency="rotorspeed * (1-rotorthrust/15) * 1";
-	volume="camext*(0 max (rotorspeed-0.1))*(1 + rotorthrust)*(CustomSoundController14+1)";
-	range=1500;
+	volume="(CustomSoundController14+1)*camext*(0 max (rotorspeed-0.1))*(1 + rotorthrust)";
+	range=1300;
 	rangecurve[]=
 	{
 		{0,0},
 		{100,0},
 		{600,1},
 		{1000,0.15},
-		{1500,0}
+		{1300,0}
 	};
 };
 class vtx_Engine_Distance_SoundShader
@@ -71,7 +78,7 @@ class vtx_EngineExt_SoundShader
 	range=1000;
 	rangecurve[]=
 	{
-		{0,2},
+		{0,1},
 		{300,0.8},
 		{800,0.3},
 		{1000,0}
@@ -92,7 +99,7 @@ class vtx_RotorExt_SoundShader: vtx_EngineExt_SoundShader
 	range=1200;
 	rangecurve[]=
 	{
-		{0,0},
+		{0,0.2},
 		{150,1},
 		{1000,0.4},
 		{1200,0}
@@ -109,13 +116,13 @@ class vtx_Turbine_Ext_SoundShader
 		}
 	};
 	frequency="rotorSpeed";
-	volume="camext*(0 max (rotorSpeed-0.4))*(CustomSoundController14+1)";
+	volume="(CustomSoundController14+1)*camext*(0 max (rotorSpeed-0.4))";
 	range=200;
 	rangecurve[]=
 	{
-		{0,0.3},
-		{75,1},
-		{100,0.3},
+		{0,0},
+		{30,1},
+		{100,0.65},
 		{200,0}
 	};
 };
@@ -148,7 +155,7 @@ class vtx_ApuSoundLoop_Int_SoundShader: vtx_ApuSoundLoop_Ext_SoundShader
 			1
 		}
 	};
-	volume = "(1-camPos)*CustomSoundController2*(CustomSoundController16+1)";
+	volume="camInt*CustomSoundController2*(CustomSoundController16+1)";
 };
 
 class vtx_EngineInt_SoundShader
@@ -175,7 +182,7 @@ class vtx_RotorInt_SoundShader
 		}
 	};
 	frequency="rotorSpeed*(1-rotorThrust/5)*1.2";
-	volume="camInt*(0 max (rotorSpeed-0.1))*(1 + rotorThrust)*(rotorSpeed factor [0.3, 1])*(CustomSoundController16+1)";
+	volume="camInt*(0 max (rotorSpeed-0.1))*(1 + rotorThrust)*(rotorSpeed factor [0.3, 1])*((playerPos interpolate [0,1,1,4]) max 1)*(CustomSoundController16+1)";
 };
 class vtx_Engine_Transport_SoundShader_Base
 {

@@ -20,7 +20,7 @@ if (_fuelConsumed > 0) then {
 };
 
 private _esisCount = _vehicle getVariable ["ESIS_COUNTER", 0];
-if (!local _vehicle || vtx_uh60m_simpleStartup) exitWith {
+if (!local _vehicle) exitWith {
     _vehicle setUserMFDValue [49, _esisCount];
 };
 

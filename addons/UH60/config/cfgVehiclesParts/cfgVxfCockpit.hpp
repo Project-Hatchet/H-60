@@ -150,7 +150,7 @@ class interaction {
             position="b_apugen";
             label="APU GEN";
             animation="Switch_apugen";
-            animEnd="_this call vtx_uh60_engine_fnc_apuState; _this call vtx_uh60_engine_fnc_batteryState";
+            animEnd="_this call vtx_uh60_engine_fnc_batteryState";
         }; // b_apugen
         class b_fuelsys1 {
             positionType="anim";

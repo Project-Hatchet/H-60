@@ -50,6 +50,10 @@ TEXT_FMS_L(L4,FMS_MARGIN_L,FMS_Y4)
 	source = "static";
 	text = "SEND";
 }; // R3
+TEXT_FMS_R(R3,FMS_MARGIN_R, FMS_Y3)
+	source = "static";
+	text = "DEL";
+}; //DEL WP
 TEXT_FMS_R(R32,FMS_MARGIN_R,FMS_Y4-FMS_Y_HALF)
 	source = "static";
 	text = "LOCATION";
@@ -119,7 +123,7 @@ TEXT_FMS_L(WAYPOINT_DIST,FMS_MARGIN_L+0.3,FMS_Y22)
 	sourceLength=3;
 	sourcePrecision=1;
 }; // WAYPOINT_DIST
-TEXT_FMS_L(WAYPOINT_DIST_LABEL,(FMS_MARGIN_L+0.4),FMS_Y22)
+TEXT_FMS_L(WAYPOINT_DIST_LABEL,(FMS_MARGIN_L+0.5),FMS_Y22)
 	source = "static";
 	text = "NM";
 }; // WAYPOINT_DIST_LABEL
