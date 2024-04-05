@@ -47,11 +47,11 @@ class CfgSoundShapes
 		innerangle=130;
 		outerangle=210;
 	};
-	class vtx_TailRotor_Shape: vtx_Turbine_Shape
+	class vtx_Distance_Shape: vtx_Rear_Shape
 	{
-		outervolume=0.5;
-		innerangle=70;
-		outerangle=120;
+		outervolume=0.45;
+		innerangle=65;
+		outerangle=100;
 	};
 };
 class CfgSoundCurves
@@ -68,6 +68,21 @@ class CfgSoundCurves
 			{1.0,0.0}
 		};
 	};
+	class vtx_Tail_Rotor_Curve
+	{
+		points[]=
+		{
+			{0.0,1.0},
+			{0.1,0.8},
+			{0.3,0.75},
+			{0.4,0.54},
+			{0.6,0.42},
+			{0.6,0.256},
+			{0.8,0.152},
+			{0.9,0.091},
+			{1.0,0.0}
+		};
+	};
 };
 class CfgSound3DProcessors
 {
@@ -78,6 +93,11 @@ class CfgSound3DProcessors
 		innerRange=100;
 		range=300;
 	};
+	class vtx_WindWash_3DProcessor: vtx_Close_3DProcessor
+	{
+		innerRange=5;
+		range=15;
+	};
 	class vtx_Distant_3DProcessor: vtx_Close_3DProcessor
 	{
 		innerrange = 100;
@@ -85,9 +105,14 @@ class CfgSound3DProcessors
 	};
 	class vtx_TailRotor_3DProcessor: vtx_Close_3DProcessor
 	{
-		innerrange = 1;
-		range = 5;
-		rangecurve="LinearCurve";
+		innerRange=10;
+		range=75;
+	};
+	class vtx_Turbine_3DProcessor: vtx_TailRotor_3DProcessor
+	{
+		type="emitter";
+		innerRange=8;
+		range=15;
 	};
 };
 class cfgDistanceFilters
@@ -104,8 +129,8 @@ class cfgDistanceFilters
 	class vtx_Distant_Engine_Filter: vtx_Close_Engine_Filter
 	{
 		mincutofffrequency=200;
-		innerrange=1000;
-		range=4000;
+		innerrange=800;
+		range=3000;
 		powerfactor=18;
 	};
 };
@@ -192,7 +217,6 @@ class CfgVehicles
 				"vtx_Rotor_Distance_SoundSet",
 				"vtx_Engine_Distance_SoundSet",
 				"vtx_Turbine_Ext_SoundSet",
-				"vtx_TailRotor_SoundSet",
 				"vtx_Rotor_Stress_Ext_SoundSet_Base",
 				"vtx_TransmissionDamage_Ext_phase1_SoundSet_Base",
 				"vtx_TransmissionDamage_Ext_phase2_SoundSet_Base",
@@ -237,7 +261,6 @@ class CfgVehicles
 					"vtx_Rotor_Distance_SoundSet",
 					"vtx_Engine_Distance_SoundSet",
 					"vtx_Turbine_Ext_SoundSet",
-					"vtx_TailRotor_SoundSet",
 					"vtx_Rotor_Stress_Ext_SoundSet_Base",
 					"vtx_TransmissionDamage_Ext_phase1_SoundSet_Base",
 					"vtx_TransmissionDamage_Ext_phase2_SoundSet_Base",

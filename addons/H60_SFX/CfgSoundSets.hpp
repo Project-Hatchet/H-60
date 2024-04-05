@@ -11,7 +11,7 @@ class vtx_External_Base
 	volumecurve="vtx_Ext_Base_Curve";
 	occlusionObstruction=1;
 	occlusionFactor=0.3;
-	obstructionFactor=0;
+	obstructionFactor=0.2;
 	volumefactor=1;
 	spatial=1;
 	loop=1;
@@ -115,6 +115,7 @@ class vtx_Wind_Close_Ext_SoundSet_Base: vtx_External_Base
 		"vtx_Wind_Close_Ext_SoundShader_Base"
 	};
 	volumefactor=0.15;
+	sound3dprocessingtype="vtx_WindWash_3DProcessor";
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

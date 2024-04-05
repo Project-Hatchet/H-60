@@ -37,7 +37,11 @@ class vtx_EngineExt_SoundSet: vtx_External_Base
 		"vtx_EngineExt_SoundShader"
 	};
 	volumefactor=1.25;
+	volumecurve="vtx_Tail_Rotor_Curve";
 	shape="vtx_Rear_Shape";
+	sound3dprocessingtype="vtx_TailRotor_3DProcessor";
+	posoffset[]={0,0,-10};
+	doppler=1;
 };
 class vtx_RotorExt_SoundSet: vtx_External_Base
 {
@@ -45,7 +49,7 @@ class vtx_RotorExt_SoundSet: vtx_External_Base
 	{
 		"vtx_RotorExt_SoundShader"
 	};
-	volumeFactor=0.9;
+	volumeFactor=0.75;
 };
 class vtx_Turbine_Ext_SoundSet: vtx_External_Base
 {
@@ -53,18 +57,9 @@ class vtx_Turbine_Ext_SoundSet: vtx_External_Base
 	{
 		"vtx_Turbine_Ext_SoundShader"
 	};
-	volumeFactor=0.8;
+	volumeFactor=1;
 	shape="vtx_Turbine_Shape";
-};
-class vtx_TailRotor_SoundSet: vtx_External_Base
-{
-	soundshaders[]=
-	{
-		"vtx_TailRotor_SoundShader"
-	};
-	shape="vtx_TailRotor_Shape";
-	sound3dprocessingtype="vtx_TailRotor_3DProcessor";
-	posoffset[]={0,0,-10};
+	sound3dprocessingtype="vtx_Turbine_3DProcessor";
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

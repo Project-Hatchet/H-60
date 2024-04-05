@@ -95,7 +95,7 @@ class vtx_RotorExt_SoundShader: vtx_EngineExt_SoundShader
 		}
 	};
 	frequency="(rotorSpeed factor [0.3, 0.7])*(1 - rotorThrust/10)";
-	volume="camext*(rotorSpeed factor [0.3, 1])*(1 + rotorThrust)*(CustomSoundController14+1)";
+	volume="camext*(rotorSpeed factor [0.3, 1])*(1 + (rotorThrust * 1.2))*(CustomSoundController14+1)";
 	range=1200;
 	rangecurve[]=
 	{
@@ -120,13 +120,13 @@ class vtx_Turbine_Ext_SoundShader
 	range=200;
 	rangecurve[]=
 	{
-		{0,0},
+		{0,1},
 		{30,1},
 		{100,0.65},
 		{200,0}
 	};
 };
-class vtx_TailRotor_SoundShader
+/*class vtx_TailRotor_SoundShader
 {
 	samples[]=
 	{
@@ -139,7 +139,7 @@ class vtx_TailRotor_SoundShader
 	frequency="rotorspeed * (1-rotorthrust/15) * 1.25";
 	volume="camext*0.25*(0 max (rotorspeed-0.5))*(1 + rotorthrust)*(CustomSoundController14+1)";
 	range=150;
-};
+};*/
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Internal
