@@ -6,9 +6,22 @@
  * By: Aaren
  */
 
-params["_vehicle","_types","_state","_condition","_status_count",["_NotSave",false]];
+params["_vehicle","_type","_delay"];
 
-if !(isnull (_vehicle getVariable ["vtx_uh60_sound_obj",objNull])) exitWith {};
+private _index = ["Startup","Shutdown","APU"] find _type;
+{
+  setCustomSoundController [_vehicle, "CustomSoundController1" + _x, [0,1] select (_index == _forEachIndex)];
+} forEach ["0","1","2"];
+
+
+[{
+  params ["_vehicle","_index"];
+  setCustomSoundController [_vehicle, "CustomSoundController1" + str _index, 0];
+},
+[_vehicle, _index],
+_delay
+] call CBA_fnc_waitAndExecute;
+/*if !(isnull (_vehicle getVariable ["vtx_uh60_sound_obj",objNull])) exitWith {};
 
 {
   private ["_array","_file","_volume","_freq","_file","_sound"];
@@ -55,4 +68,4 @@ if !(isnull (_vehicle getVariable ["vtx_uh60_sound_obj",objNull])) exitWith {};
         };
     }, [_vehicle,cameraView,_sound,_state,_condition,_status_count]] call CBA_fnc_waitUntilAndExecute;
   };
-} foreach _types;
+} foreach _types;*/

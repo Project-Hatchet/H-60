@@ -26,12 +26,12 @@ private _rotorspeed = _vehicle getSoundController "RotorSpeed";
   params ["_vehicle","_Vars"];
   //-Engine Start
   if (({_x == "STARTING"} count _Vars > 0) && (_rotorspeed < 0.6)) then {
-    [_vehicle,["vtx_soundEngineOnInt","vtx_soundEngineOnExt"],"ON",{(_vehicle getVariable ["vtx_uh60_sfmplus_engState", ["OFF", "OFF"]])},1] call vtx_uh60_Sound_fnc_EngineEH;
+    [_vehicle,"Startup",40] call vtx_uh60_Sound_fnc_EngineEH;
   };
 
   //-Engine Off
   if (({_x == "OFF"} count _Vars > 0) && (_rotorspeed != 0)) then {
-    [_vehicle,["vtx_soundEngineOffInt","vtx_soundEngineOffExt"],"OFF",{(_vehicle getVariable ["vtx_uh60_sfmplus_engState", ["OFF", "OFF"]])},1] call vtx_uh60_Sound_fnc_EngineEH;
+    [_vehicle,"Shutdown",18] call vtx_uh60_Sound_fnc_EngineEH;
   };
 }] remoteExecCall ['call', [0, -2] select isDedicated];
 

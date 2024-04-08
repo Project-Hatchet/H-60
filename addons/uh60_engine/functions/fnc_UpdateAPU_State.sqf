@@ -9,12 +9,6 @@
 params ["_vehicle"];
 private ["_apuFuelSwitchPos","_apuFuelSwitchState","_apuPwrSwitchPos","_apuPwrSwitchState","_battSwitch1State","_battSwitch2State","_batt1SwitchPos","_batt1SwitchState","_batt2SwitchPos","_batt2SwitchState","_battBusState"];
 
-//APU fuel pump switch
-_apuFuelSwitchPos = _vehicle animationPhase "Switch_fuelPump";    //0.5 = OFF, 0.0 = ON
-
-_apuFuelSwitchState = ["OFF","ON"] select (_apuFuelSwitchPos <= 0.1);
-_vehicle setVariable ["vtx_uh60_acft_apuFuelSwitchState", _apuFuelSwitchState, true];
-
 //APU power switch
 _apuPwrSwitchPos = _vehicle animationPhase "Switch_apucont";      //0.5 = OFF, 0.0 = ON
 

@@ -32,14 +32,14 @@ class vtx_Rotor_Distance_SoundShader
 	};
 	frequency="rotorspeed * (1-rotorthrust/15) * 1";
 	volume="(CustomSoundController14+1)*camext*(0 max (rotorspeed-0.1))*(1 + rotorthrust)";
-	range=1300;
+	range=3000;
 	rangecurve[]=
 	{
 		{0,0},
 		{100,0},
 		{600,1},
 		{1000,0.15},
-		{1300,0}
+		{3000,0}
 	};
 };
 class vtx_Engine_Distance_SoundShader
@@ -54,13 +54,13 @@ class vtx_Engine_Distance_SoundShader
 	};
 	frequency="1.25*rotorspeed*(1-rotorthrust/15)";
 	volume="camext*((rotorspeed-0.72)*4)*(CustomSoundController14+1)";
-	range=1300;
+	range=3000;
 	rangecurve[]=
 	{
 		{0,0},
 		{300,1},
 		{1000,0.3},
-		{1300,0}
+		{3000,0}
 	};
 };
 class vtx_EngineExt_SoundShader
@@ -122,27 +122,97 @@ class vtx_Turbine_Ext_SoundShader
 	{
 		{0,1},
 		{30,1},
-		{100,0.65},
+		{150,0.65},
 		{200,0}
 	};
 };
-/*class vtx_TailRotor_SoundShader
+
+//-Startup + Shutdown
+class vtx_H60_Startup_Ext_SoundShader
 {
 	samples[]=
 	{
-		
+
 		{
-			"\z\vtx\addons\H60_SFX\Sounds\Ext\tail_rotor",
+			"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Start",
 			1
 		}
 	};
-	frequency="rotorspeed * (1-rotorthrust/15) * 1.25";
-	volume="camext*0.25*(0 max (rotorspeed-0.5))*(1 + rotorthrust)*(CustomSoundController14+1)";
-	range=150;
-};*/
+	frequency=1;
+	volume="camext*(CustomSoundController14+1) * CustomSoundController10";
+	range=300;
+	rangecurve[]=
+	{
+		{0,1},
+		{30,1},
+		{100,0.65},
+		{600,0}
+	};
+};
+class vtx_H60_Shutdown_Ext_SoundShader: vtx_H60_Startup_Ext_SoundShader
+{
+	samples[]=
+	{
+
+		{
+			"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown",
+			1
+		}
+	};
+	volume="camext*(CustomSoundController14+1) * CustomSoundController11";
+};
+class vtx_H60_APU_Start_Ext_SoundShader: vtx_H60_Startup_Ext_SoundShader
+{
+	samples[]=
+	{
+
+		{
+			"\z\vtx\addons\H60_SFX\Sounds\Share\APU_Start_Int",
+			1
+		}
+	};
+	volume="camext*(CustomSoundController14+1) * CustomSoundController12";
+};
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Internal
+
+class vtx_H60_Startup_Int_SoundShader: vtx_H60_Startup_Ext_SoundShader
+{
+	samples[]=
+	{
+
+		{
+			"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Start_Int",
+			1
+		}
+	};
+	volume="camInt*(CustomSoundController16+1) * CustomSoundController10";
+};
+class vtx_H60_Shutdown_Int_SoundShader: vtx_H60_Startup_Int_SoundShader
+{
+	samples[]=
+	{
+
+		{
+			"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown_Int",
+			1
+		}
+	};
+	volume="camInt*(CustomSoundController16+1) * CustomSoundController11";
+};
+class vtx_H60_APU_Start_Int_SoundShader: vtx_H60_Startup_Int_SoundShader
+{
+	samples[]=
+	{
+
+		{
+			"\z\vtx\addons\H60_SFX\Sounds\Share\APU_Start_Int",
+			1
+		}
+	};
+	volume="camInt*(CustomSoundController16+1) * CustomSoundController12";
+};
 
 // -APU
 class vtx_ApuSoundLoop_Int_SoundShader: vtx_ApuSoundLoop_Ext_SoundShader

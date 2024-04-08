@@ -13,11 +13,11 @@ class vtx_Empty_SoundShader
 	};
 	frequency=1;
 	volume="engineOn*camPos";
-	range=1500;
+	range=3000;
 	rangeCurve[]=
 	{
 		{0,1},
-		{1500,1}
+		{3000,1}
 	};
 };
 

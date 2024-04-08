@@ -37,9 +37,25 @@ class CfgSoundShapes
 	{
 		innerVolume=1.0;
 		outervolume=0.65;
-		innerangle=240;
-		outerangle=120;
+		innerangle=120;
+		outerangle=240;
 		azimuth=180;
+	};
+  class vtx_Bottom_Shape
+	{
+		innerVolume=1;
+		outervolume=0.8;
+		innerangle=140;
+		outerangle=160;
+		azimuth=0;
+    elevation=-90;
+	};
+  class vtx_BottomLess_Shape: vtx_Bottom_Shape
+	{
+		innerVolume=0;
+		outervolume=1;
+		innerangle=140;
+		outerangle=160;
 	};
   class vtx_Turbine_Shape: vtx_Rear_Shape
 	{
@@ -93,6 +109,11 @@ class CfgSound3DProcessors
 		innerRange=100;
 		range=300;
 	};
+  class vtx_ENG_Trigger_3DProcessor: vtx_Close_3DProcessor
+	{
+		innerRange=3;
+		range=20;
+	};
 	class vtx_WindWash_3DProcessor: vtx_Close_3DProcessor
 	{
 		innerRange=5;
@@ -105,8 +126,13 @@ class CfgSound3DProcessors
 	};
 	class vtx_TailRotor_3DProcessor: vtx_Close_3DProcessor
 	{
-		innerRange=10;
-		range=75;
+		innerRange=0;
+		range=120;
+	};
+	class vtx_Rotor_3DProcessor: vtx_Close_3DProcessor
+	{
+		innerRange=0;
+		range=50;
 	};
 	class vtx_Turbine_3DProcessor: vtx_TailRotor_3DProcessor
 	{
@@ -176,13 +202,15 @@ class CfgVehicles
 		soundEngineOnExt[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Start",2,1,600};
 		soundEngineOffExt[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown",2,1,600};*/
 
-		vtx_soundEngineOnInt[] = {"vtx_H60_Engine_On_Int"};
+		/*vtx_soundEngineOnInt[] = {"vtx_H60_Engine_On_Int"};
 		vtx_soundEngineOffInt[] = {"vtx_H60_Engine_Off_Int"};
 		vtx_soundEngineOnExt[] = {"vtx_H60_Engine_On_Ext",1,600};
 		vtx_soundEngineOffExt[] = {"vtx_H60_Engine_Off_Ext",1,600};
 		
 		vtx_soundAPUInt[] = {"vtx_H60_APU_On_Int"};
-		vtx_soundAPUExt[] = {"vtx_H60_APU_On_Ext",1,600};
+		vtx_soundAPUExt[] = {"vtx_H60_APU_On_Ext",1,600};*/
+
+    // vtx_Sound_ShutDelay = 40;
 		class sounds
 		{
 			Soundsets[] =
@@ -209,10 +237,15 @@ class CfgVehicles
 				"vtx_EngineExt_SoundSet",
 				"vtx_RotorExt_SoundSet",
 				//-Alarms
-				//"vtx_Alarm_Damage_Ext_SoundSet_Base",
 				"vtx_Alarm_Damage_Int_SoundSet_Base",
-				//"vtx_Alarm_RotorLow_Ext_SoundSet_Base",
 				"vtx_Alarm_RotorLow_Int_SoundSet_Base",
+        //- Startup + Shutdown
+        "vtx_H60_Startup_Ext_SoundSet",
+        "vtx_H60_Shutdown_Ext_SoundSet",
+        "vtx_H60_APU_Start_Ext_SoundSet",
+        "vtx_H60_Startup_Int_SoundSet",
+        "vtx_H60_Shutdown_Int_SoundSet",
+        "vtx_H60_APU_Start_Int_SoundSet",
 
 				"vtx_Rotor_Distance_SoundSet",
 				"vtx_Engine_Distance_SoundSet",
@@ -290,43 +323,6 @@ class CfgVehicles
 };
 class CfgSounds
 {
-	class vtx_H60_Engine_On_Int
-	{
-		name = "vtx_H60_Engine_On_Int";
-		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Start_Int",vtx_Vol_Multi_Int(2),1};
-		titles[] = {};
-	};
-	class vtx_H60_Engine_Off_Int
-	{
-		name = "vtx_H60_Engine_Off_Int";
-		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown_Int",vtx_Vol_Multi_Int(1),1};
-		titles[] = {};
-	};
-	class vtx_H60_APU_On_Int
-	{
-		name = "vtx_H60_APU_On_Int";
-		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\APU_Start_Int",vtx_Vol_Multi_Int(1),0.8};
-		titles[] = {};
-	};
-  
-	class vtx_H60_Engine_On_Ext
-	{
-		name = "vtx_H60_Engine_On_Ext";
-		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Start",2,1,600};
-		titles[] = {};
-	};
-	class vtx_H60_Engine_Off_Ext
-	{
-		name = "vtx_H60_Engine_Off_Ext";
-		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown",2,1,600};
-		titles[] = {};
-	};
-  class vtx_H60_APU_On_Ext
-	{
-		name = "vtx_H60_APU_On_Ext";
-		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\APU_Start",0.8,1,600};
-		titles[] = {};
-	};
 
 	class vxf_Key_Sound
 	{

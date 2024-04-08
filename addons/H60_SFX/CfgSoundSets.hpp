@@ -107,6 +107,8 @@ class vtx_Rotor_Stress_Ext_SoundSet_Base: vtx_External_Base
 	{
 		"vtx_Rotor_Stress_Ext_SoundShader_Base"
 	};
+	shape="vtx_BottomLess_Shape";
+	sound3dprocessingtype="vtx_Rotor_3DProcessor";
 };
 class vtx_Wind_Close_Ext_SoundSet_Base: vtx_External_Base
 {
