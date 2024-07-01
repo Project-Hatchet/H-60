@@ -1,5 +1,5 @@
 #define COMPONENT uh60_aiDamage
-#define COMPONENT_BEAUTIFIED UH60_AIDamage
+#define COMPONENT_BEAUTIFIED UH60_AIDAMAGE
 #include "\z\vtx\addons\main\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL
@@ -7,12 +7,12 @@
 // #define CBA_DEBUG_SYNCHRONOUS
 // #define ENABLE_PERFORMANCE_COUNTERS
 
-#ifdef DEBUG_ENABLED_UH60_ANVISHUD
+#ifdef DEBUG_ENABLED_UH60_AIDAMAGE
     #define DEBUG_MODE_FULL
 #endif
 
-#ifdef DEBUG_SETTINGS_UH60_ANVISHUD
-    #define DEBUG_SETTINGS DEBUG_SETTINGS_UH60_ANVISHUD
+#ifdef DEBUG_SETTINGS_UH60_AIDAMAGE
+    #define DEBUG_SETTINGS DEBUG_SETTINGS_UH60_AIDAMAGE
 #endif
 
 #include "\z\vtx\addons\main\script_macros.hpp"

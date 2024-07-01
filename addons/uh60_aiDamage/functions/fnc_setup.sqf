@@ -5,7 +5,8 @@
 */
 
 params ["_bird"];
-
+systemChat "in EH";
+systemChat format ["_bird is %1", _bird];
 //init set variable.  Failsafe incase I messed up somehow 
 _bird setVariable ["VTX_AICompDamage", true];
 _pilots = [(fullCrew _bird # 0 # 0), (fullCrew _bird # 1 # 0)];
@@ -19,17 +20,14 @@ _pilots = [(fullCrew _bird # 0 # 0), (fullCrew _bird # 1 # 0)];
 
 
 // checks to see if x part was hit and passes it to a switch in another function
-_bird addEventHandler["HitPart", {
-	params["_target","","","","","_hitParts","_ammo"];
-
-	_partsCheckedArray = ["hitengine1", "hitengine2", "mainrotorgearbox", "tailgearbox"];
-	_hitDmg = _ammo # 0;
-
-	{
-		if (_x in _partsCheckedArray) then {
-			[_target, _x] call vtx_uh60_aiDamage_fnc_dmgTracker;
-		};
-	} forEach _hitParts;
+_bird addEventHandler["Hit", {
+	params ["_bird"];
+	_isAICrew = _bird getVariable "VTX_AICompDamage";
+	if (_isAICrew) then {
+		_bird setHitPointDamage["hitengine", ((_bird getHitPointDamage("hitengine1") + _bird getHitPointDamage("hitengine2"))/2)];
+		_bird setHitPointDamage["hitvrotor", (_bird getHitPointDamage("mainrotorgearbox"))];
+		_bird setHitPointDamage["hithrotor", (_bird getHitPointDamage("tailgearbox"))];
+	};
 }];
 
 //Checks to see if a player is in the pilot or copilot seat
