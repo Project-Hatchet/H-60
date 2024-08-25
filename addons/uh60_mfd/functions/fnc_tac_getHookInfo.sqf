@@ -1,7 +1,7 @@
 params ["_object", "_type", "_side"];
 private _position = switch (_this # 1) do {
 	case "ground": {
-		if (typeName (_this # 0) == "GROUP") then [{getPos leader (_this # 0)}, {getPos (_this # 0)}];
+		if (typeName (_this # 0) == "GROUP") then [{getPosVisual leader (_this # 0)}, {getPosVisual (_this # 0)}];
 	};
 	case "waypoint": {waypointPosition (_this # 0)};
 	default {[-10000,0,0]};

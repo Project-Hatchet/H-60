@@ -1,3 +1,9 @@
+/*
+ * vtx_uh60_jvmf_fnc_ctabToJvmf
+ *
+ * Convert data into Jvmf format
+ *
+ */
 params ["_index", "_marker"];
 _marker params ["_position", "_iconIndex", "_size", "_direction", "_time", "_sender"];
 
@@ -32,7 +38,7 @@ private _positionType = switch (true) do {
 
 #if __has_include("\z\ctab\addons\core\config.bin")
 	if ((_iconIndex >= 100) && (_size > 0)) then {
-		_time = format ["%1-%2", ["A","B","C","D","E","F"] # (_size - 1), _time];
+		_time = [["A","B","C","D","E","F"] # (_size - 1), _time] joinString "-";
 	};
 #endif
 
@@ -101,7 +107,7 @@ private _messageComments = switch (_positionType) do {
 
 private _gridZone = [] call ace_common_fnc_getMGRSdata;
 private _gridStr = [_position3d] call ace_common_fnc_getMapGridFromPos;
-private _fullPositionString = format ["%1 %2 %3 %4", _gridZone # 0, _gridZone # 1, _gridStr # 0, _gridStr # 1];
+private _fullPositionString = [_gridZone # 0, _gridZone # 1, _gridStr # 0, _gridStr # 1] joinString " ";
 
 // build the message
 private _id = "CTAB" + str _index;
