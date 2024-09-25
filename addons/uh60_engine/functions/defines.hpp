@@ -8,5 +8,5 @@
 #define BATT_POWER_CHANGE(BATT,RATE) _vehicle setVariable [BATT, (_vehicle getVariable BATT) + (RATE) min 100 max 0];
 #define BATT_ON ((_vehicle animationPhase "Switch_batt1" < 0.1) && (_vehicle animationPhase "Switch_batt2" < 0.1))
 #define BATT_ON_AND_POWERED (BATT_ON && BATT_POWER > 0)
-#define APU_GEN_POWERED (ANIM("Switch_apugen") < 0.1 && GET("APU_POWER",false))
+#define APU_GEN_POWERED (ANIM("Switch_apugen") < 0.1 && (GET("vtx_uh60_acft_apuState","OFF") == "ON"))
 #define ENGINE_GEN_POWERED (isEngineOn _vehicle && (ANIM("Switch_gen1") < 0.1 || ANIM("Switch_gen2") < 0.1))
