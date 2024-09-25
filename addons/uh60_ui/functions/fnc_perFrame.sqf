@@ -51,6 +51,7 @@ if (vtx_uh60m_trackIR_interaction_cursor) then {
     ];
     CTRL(4001120) ctrlSetText "\A3\ui_f\data\igui\cfg\cursors\iconCursorSupport_ca.paa";
 } else {
+    if (vxf_interaction_cursorPos isNotEqualTo [0.5,0.5]) then {vxf_interaction_cursorPos = [0.5,0.5];};
     CTRL(4001120) ctrlSetText "\A3\ui_f\data\igui\cfg\cursors\iconComplex_ca.paa";
 };
 CTRL(4001120) ctrlSetPosition [
