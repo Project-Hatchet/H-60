@@ -7,7 +7,7 @@
     "UH-60M",
     [false],
     nil,
-    {}
+    {if !vtx_uh60m_trackIR_interaction_cursor then {vxf_interaction_cursorPos = [0.5,0.5];};}
 ] call CBA_Settings_fnc_init;
 
 [
