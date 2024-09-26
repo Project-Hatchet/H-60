@@ -28,7 +28,7 @@ jobs:
     runs-on: windows-2022
     steps:
       - name: Checkout the source code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4.2.0
         with:
           fetch-depth: 1
       - name: Set up A3Tools
@@ -46,7 +46,7 @@ jobs:
           path: 'release'
           filename: 'hatchet_h60.zip'
       - name: Upload Artifact
-        uses: actions/upload-artifact@v2-preview
+        uses: actions/upload-artifact@v3.2.1
         with:
           name: hatchet-${{ github.sha }}-nobin
           path: hatchet_h60.zip
