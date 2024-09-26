@@ -46,7 +46,7 @@ jobs:
           path: 'release'
           filename: 'hatchet_h60.zip'
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3.2.1
+        uses: actions/upload-artifact@v4.4.0
         with:
           name: hatchet-${{ github.sha }}-nobin
           path: hatchet_h60.zip
