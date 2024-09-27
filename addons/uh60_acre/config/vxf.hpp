@@ -4,7 +4,7 @@ class vxf_driver: vxf_driver {
             startOnEnter = 1;
         };
     };
-    class interaction: interaction {
+    /*class interaction: interaction {
         class acreConfig {
             condition="vtx_uh60_acre_enabled";
             class Knob_radioVolume1 {
@@ -61,7 +61,7 @@ class vxf_driver: vxf_driver {
                 clickSound="vxf_Switch_Sound";
             }; // knob_tx
         }; // acreConfig
-    }; // interaction
+    }; // interaction*/
 }; // pilot
 
 class vxf_copilot: vxf_copilot {
@@ -70,10 +70,10 @@ class vxf_copilot: vxf_copilot {
             startOnEnter = 1;
         };
     };
-    class interaction: interaction {
+    /*class interaction: interaction {
         class acreConfig {
             condition="vtx_uh60_acre_enabled";
 
         }; // acreConfig
-    }; // interaction
+    }; // interaction*/
 }; // copilot

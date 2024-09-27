@@ -74,15 +74,15 @@ class Draw {
 	class MSN {
 		condition = COND_ISNUMBER(FMS_PAGE_INDEX,FMS_PAGE_MSN);
 		#include "fms\mission_draw.hpp"
-	}; // nav_wpn
+	}; // MSN
 	class RDR {
 		condition = COND_ISNUMBER(FMS_PAGE_INDEX,FMS_PAGE_RDR);
 		#include "fms\radar_draw.hpp"
-	}; // nav_wpn
+	}; // RDR
 	class FLIR {
 		condition = COND_ISNUMBER(FMS_PAGE_INDEX,FMS_PAGE_FLIR);
 		#include "fms\flir_draw.hpp"
-	}; // nav_wpn
+	}; // FLIR
 	class HMD {
 		condition = COND_ISNUMBER(FMS_PAGE_INDEX,FMS_PAGE_HMD);
 		#include "fms\hmd_draw.hpp"
@@ -95,4 +95,16 @@ class Draw {
 		condition = COND_ISNUMBER(FMS_PAGE_INDEX,FMS_PAGE_PERFPLAN);
 		#include "fms\performance_planning_draw.hpp"
 	}; // nav_wpn
+	class COMM_ACRE {
+		condition = COND_ISNUMBER(FMS_PAGE_INDEX,FMS_PAGE_COMM_ACRE);
+		#include "fms\comm_acre_draw.hpp"
+	}; // COMM
+	class COMM_INFO_ACRE {
+		condition = COND_ISNUMBER(FMS_PAGE_INDEX,FMS_PAGE_COMM_INFO_ACRE);
+		#include "fms\comm_info_acre_draw.hpp"
+	}; //COMM_INFO_ACRE
+	class COMM_PRESETS_ACRE {
+		condition = COND_ISNUMBER(FMS_PAGE_INDEX,FMS_PAGE_COMM_PRESETS_ACRE);
+		#include "fms\comm_presets_acre.hpp"
+	}; //COMM_PRESETS_ACRE
 }; // Draw

@@ -8,7 +8,6 @@ class CfgPatches
 		requiredAddons[]=
 		{
 			"vtx_uh60",
-			"vtx_uh60_acre",
 			"vtx_uh60_config",
 			"vtx_uh60_doorguns",
 			"vtx_uh60_sfmplus",
