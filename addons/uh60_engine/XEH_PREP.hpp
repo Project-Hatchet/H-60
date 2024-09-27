@@ -12,6 +12,7 @@ PREP(wheelBrakes);
 
 //New aircraft module stuff
 PREP(acftAPU);
+PREP(acft_SetAPU);
 PREP(acftBattery);
 PREP(acftDebug);
 PREP(acftEngController);
@@ -21,4 +22,4 @@ PREP(acftRTDController);
 //PREP(acftSoundController);
 PREP(acftSwitchStates);
 
-
+PREP(UpdateAPU_State);

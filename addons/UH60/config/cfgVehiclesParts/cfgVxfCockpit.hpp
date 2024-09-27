@@ -89,7 +89,7 @@ class interaction {
             animSpeed=0;
             animStates[] = {0.5, 0};
             animLabels[] = {"OFF", "ON"};
-            animEnd="_this call vtx_uh60_engine_fnc_apuState; _this call vtx_uh60_engine_fnc_batteryState";
+            animEnd="_this call vtx_uh60_engine_fnc_apuState; (_this # 0) call vtx_uh60_cas_fnc_updateCautionPanel;";
             clickSound="vxf_Switch_Sound_3";
         }; // apucont
         class b_airsce : apucont {
@@ -112,7 +112,6 @@ class interaction {
             position="b_batt2";
             label="BATT 2";
             animation="Switch_batt2";
-            animEnd="_this call vtx_uh60_engine_fnc_batteryState";
         }; // b_batt2
         SIMPLE_SWITCH(b_egi1,"button_egi1","EGI 1","Switch_Egi1",1,0,"")
         SIMPLE_SWITCH(b_egi2,"button_egi2","EGI 2","Switch_Egi2",1,0,"")
@@ -150,7 +149,7 @@ class interaction {
             position="b_apugen";
             label="APU GEN";
             animation="Switch_apugen";
-            animEnd="_this call vtx_uh60_engine_fnc_apuState; _this call vtx_uh60_engine_fnc_batteryState";
+            animEnd="_this call vtx_uh60_engine_fnc_batteryState";
         }; // b_apugen
         class b_fuelsys1 {
             positionType="anim";

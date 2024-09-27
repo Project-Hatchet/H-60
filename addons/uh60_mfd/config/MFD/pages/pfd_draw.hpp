@@ -372,12 +372,24 @@ class fuelBarsWrapper {
 			}
 		}; // points
 	}; // fuelBar2
+}; // fuelBarsWrapper
+
+class noAuxTanks {
+	condition = "pylonAmmo50 < 1";
 	TEXT_MID_MID_SRC(FUEL_VAL,0.2864,0.8)
 		source="fuel";
-		sourceScale = 2040;
+		sourceScale = 2412;
 		sourceLength = 4;
 	};
-}; // fuelBarsWrapper
+}; //FUEL_QTY
+class hasInternalAux {
+	condition = "pylonAmmo50 > 0";
+	TEXT_MID_MID_SRC(FUEL_VAL,0.2864,0.8)
+		source="fuel";
+		sourceScale = 3506;
+		sourceLength = 4;
+	};
+}; //FUEL_QTY
 
 class BAltArm {
 	type="line";

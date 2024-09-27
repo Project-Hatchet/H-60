@@ -13,13 +13,13 @@ private _zoomLevel = _vehicle getVariable ["MAP_ZoomMult", 1];
 private _centered = _vehicle ammoOnPylon 4 == 0;
 private _fixed = _vehicle ammoOnPylon 7 == 0;
 private _selfAligned = _vehicle ammoOnPylon 5 == 0;
-private _rotation = if (_selfAligned) then {getDir _vehicle} else {0};
+private _rotation = if (_selfAligned) then {getDirVisual _vehicle} else {0};
 
 private _center = if (_centered) then {
-	getPos _vehicle;
+	getPosVisual _vehicle;
 } else {
 	private _cursorToMapRotated = [[0,_worldSize / _zoomLevel * 0.15], -(_rotation)] call BIS_fnc_rotateVector2D;
-	getPos _vehicle vectorAdd [_cursorToMapRotated # 0, _cursorToMapRotated # 1, 0];
+	getPosVisual _vehicle vectorAdd [_cursorToMapRotated # 0, _cursorToMapRotated # 1, 0];
 };
 
 private _movingCursor = (vtx_uh60_mfd_slewX != 0) || (vtx_uh60_mfd_slewY != 0);
@@ -34,7 +34,7 @@ if (_staticMap) then {
 if (!isNil "vtx_uh60_tac_hookedObject") then {
 	private _position = switch (vtx_uh60_tac_hookedObject # 1) do {
 		case "ground": {
-			if (typeName (vtx_uh60_tac_hookedObject # 0) == "GROUP") then [{getPos leader (vtx_uh60_tac_hookedObject # 0)}, {getPos (vtx_uh60_tac_hookedObject # 0)}];
+			if (typeName (vtx_uh60_tac_hookedObject # 0) == "GROUP") then [{getPosVisual leader (vtx_uh60_tac_hookedObject # 0)}, {getPosVisual (vtx_uh60_tac_hookedObject # 0)}];
 		};
 		case "waypoint": {waypointPosition (vtx_uh60_tac_hookedObject # 0)};
 		default {[-10000,0,0]};
@@ -56,7 +56,7 @@ if (_movingCursor) then {
 			_moveVector = _moveVector vectorAdd [0,50 * (vtx_uh60_mfd_slewY / _zoomLevel),0];
 		};
 		if (_selfAligned) then {
-			_moveVector = [_moveVector, -(getDir _vehicle)] call BIS_fnc_rotateVector2D;
+			_moveVector = [_moveVector, -(getDirVisual _vehicle)] call BIS_fnc_rotateVector2D;
 		};
 		_center = _center vectorAdd _moveVector;
 
@@ -81,7 +81,7 @@ if (local _vehicle) then {
 
 	_vehicle animateSource ["MAP_X", _map_anim_x, true];
 	_vehicle animateSource ["MAP_Y", _map_anim_y, true];
-	private _rotation = if (_selfAligned) then {getDir _vehicle} else {0};
+	private _rotation = if (_selfAligned) then {getDirVisual _vehicle} else {0};
 	_vehicle animateSource ["MAP_Rotation", _rotation, true];
 };
 
@@ -104,4 +104,4 @@ private _positionToMfd = {
 
 };
 
-[getPos _vehicle, 27, 28] call _positionToMfd;
+[getPosVisual _vehicle, 27, 28] call _positionToMfd;
