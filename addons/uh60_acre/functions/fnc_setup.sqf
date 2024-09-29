@@ -7,6 +7,5 @@
  */
 
 params ["_vehicle"];
-if (!(isClass (configFile >> "cfgPatches" >> "acre_main"))) exitWith {false};
 
 true

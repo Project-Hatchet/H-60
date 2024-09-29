@@ -229,7 +229,7 @@ class menu_comm_acre {
 
 class COMM_ACRE {
   condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_COMM_ACRE);
-  FMS_BTN(FMS_10, "Return")
+  FMS_BTN(FMS_10, "Main Menu")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_MENU], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
   /*FMS_BTN(FMS_5, "Initialize")
@@ -257,17 +257,20 @@ class COMM_INFO_ACRE {
   FMS_BTN(FMS_1, "Preset Selection")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_COMM_PRESETS_ACRE], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
+  FMS_BTN(FMS_5, "On/Off")
+    buttonUp= [(_this select 0),fms_radio_index] call vtx_uh60_acre_fnc_radioStatusUpdate;
+  };
   FMS_BTN(FMS_6, "Channel Up")
-    buttonUp=[(_this select 0),fms_radio_index, 1] call vtx_uh60_acre_fnc_cycleRadioChannel;
+    buttonUp= "[(_this select 0),fms_radio_index, 1] call vtx_uh60_acre_fnc_cycleRadioChannel; [vehicle player] call vtx_uh60_fms_fnc_perSecond;";
   };
   FMS_BTN(FMS_7, "Channel Down")
-    buttonUp=[(_this select 0),fms_radio_index, -1] call vtx_uh60_acre_fnc_cycleRadioChannel;
+    buttonUp= "[(_this select 0),fms_radio_index, -1] call vtx_uh60_acre_fnc_cycleRadioChannel; [vehicle player] call vtx_uh60_fms_fnc_perSecond;";
   };
   FMS_BTN(FMS_8, "Spatial Next")
-    buttonUp=[(_this select 0),fms_radio_index, 1] call vtx_uh60_acre_fnc_cycleSpatial;
+    buttonUp= "[(_this select 0),fms_radio_index, 1] call vtx_uh60_acre_fnc_cycleSpatial; [vehicle player] call vtx_uh60_fms_fnc_perSecond;";
   };
   FMS_BTN(FMS_9, "Spatial Prev")
-    buttonUp=[(_this select 0),fms_radio_index, -1] call vtx_uh60_acre_fnc_cycleSpatial;
+    buttonUp= "[(_this select 0),fms_radio_index, -1] call vtx_uh60_acre_fnc_cycleSpatial; [vehicle player] call vtx_uh60_fms_fnc_perSecond;";
   };
 };
 

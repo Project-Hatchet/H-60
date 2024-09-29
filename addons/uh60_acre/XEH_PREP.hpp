@@ -5,3 +5,4 @@ PREP(initComms);
 PREP(cycleRadioChannel);
 PREP(cycleSpatial);
 PREP(fmsSetPreset);
+PREP(radioStatusUpdate);

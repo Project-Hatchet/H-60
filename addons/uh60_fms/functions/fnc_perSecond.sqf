@@ -84,33 +84,42 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
     };
     case FMS_PAGE_COMM_ACRE: {
         private _strings = ["", "", "", "", ""];
+        private _status = missionNamespace getVariable (format ["vtx_uh60_radio_%1", fms_radio_index]);
         private _racks = [_vehicle] call acre_api_fnc_getVehicleRacks;
         _racks resize 4;
-        private _radios = _racks apply {[_x] call acre_api_fnc_getMountedRackRadio};
         {
-            private _radio = _x;
-            private _radioBase = [_x] call acre_api_fnc_getBaseRadio;
-            private _radioChannel =  [_x] call acre_api_fnc_getRadioChannel;
-            private _radioPreset = [_x] call acre_api_fnc_getPreset;
-            private _frequencyTX = ([_x, "getCurrentChannelData"] call acre_sys_data_fnc_dataEvent) getVariable "frequencyTx";
-            private _channelOut = [_radioBase, "default", _radioChannel, "label"] call acre_api_fnc_getPresetChannelField;
-            private _frequencyTXOut = [_frequencyTX, 1, 3] call CBA_fnc_formatNumber;
-            _strings set [_forEachIndex, format ["%1 MHz     CH%2", _frequencyTXOut, _radioChannel]];
-        } forEach _radios;
+            private _status = _vehicle getVariable [(format ["vtx_uh60_radio_%1", _forEachIndex]), 0];
+            if (_status == 0) then {
+                _strings set [_forEachIndex, "--.---MHz     STBY"]
+            } else {
+                private _radioChannel =  [_x] call acre_api_fnc_getRadioChannel;
+                _radioPreset = ["ACRE_PRC117F", "default", _radioChannel, "label"] call acre_api_fnc_getPresetChannelField;
+                private _frequencyTX = ([_x, "getCurrentChannelData"] call acre_sys_data_fnc_dataEvent) getVariable "frequencyTx";
+                _frequencyTXOut = [_frequencyTX, 1, 3] call CBA_fnc_formatNumber;
+
+                _strings set [_forEachIndex, format ["%1MHz     %2", _frequencyTXOut, [_radioPreset, 0, 7] call BIS_fnc_trimString]];
+            };
+        } forEach (_racks apply {[_x] call acre_api_fnc_getMountedRackRadio});
         _strings
     };
     case FMS_PAGE_COMM_INFO_ACRE: {
-        private _racks = [_vehicle] call acre_api_fnc_getVehicleRacks;
-        private _radio = [_racks # fms_radio_index] call acre_api_fnc_getMountedRackRadio;
-        private _radioBase = [_radio] call acre_api_fnc_getBaseRadio;
-        private _radioChannel = [_radio] call acre_api_fnc_getRadioChannel;
-        private _spatial = [_radio] call acre_api_fnc_getRadioSpatial; 
-        _radioPreset = [_radioBase, "default", _radioChannel, "label"] call acre_api_fnc_getPresetChannelField;
-        private _presetOut = [_radioPreset, 0, 7] call BIS_fnc_trimString;
-        _frequencyTX = ([_radio, "getCurrentChannelData"] call acre_sys_data_fnc_dataEvent) getVariable "frequencyTx";
-        private _frequencyTXOut = [_frequencyTX, 1, 3] call CBA_fnc_formatNumber;
+        private _strings = ["", "", "", "", ""];
+        private _status = _vehicle getVariable [(format ["vtx_uh60_radio_%1", fms_radio_index]), 0];
+        if (_status == 0) then {
+            _strings = [format ["COM %1 SETTINGS", fms_radio_index + 1], "STBY", "---", "CENTER", "---.---"]
+        } else {
+            private _racks = [_vehicle] call acre_api_fnc_getVehicleRacks;
+            private _radio = [_racks # fms_radio_index] call acre_api_fnc_getMountedRackRadio;
+            private _radioChannel = [_radio] call acre_api_fnc_getRadioChannel;
+            private _spatial = [_radio] call acre_api_fnc_getRadioSpatial; 
+            _radioPreset = ["ACRE_PRC117F", "default", _radioChannel, "label"] call acre_api_fnc_getPresetChannelField;
+            private _presetOut = [_radioPreset, 0, 7] call BIS_fnc_trimString;
+            _frequencyTX = ([_radio, "getCurrentChannelData"] call acre_sys_data_fnc_dataEvent) getVariable "frequencyTx";
+            _frequencyTXOut = [_frequencyTX, 1, 3] call CBA_fnc_formatNumber;
 
-        [format ["COM %1 SETTINGS", fms_radio_index + 1], format ["CH%1", _radioChannel], _presetOut, _spatial, format ["%1Mhz", _frequencyTXOut]]
+            _strings = [format ["COM %1 SETTINGS", fms_radio_index + 1], "RX/TX", _presetOut, _spatial, format ["%1Mhz", _frequencyTXOut]]
+        };
+        _strings
     };
     case FMS_PAGE_COMM_PRESETS_ACRE: {
         private _racks = [_vehicle] call acre_api_fnc_getVehicleRacks;
