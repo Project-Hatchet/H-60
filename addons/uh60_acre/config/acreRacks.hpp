@@ -4,7 +4,7 @@ class AcreRacks {
         displayName = "Comm 1 - AN/ARC-201";            // Name displayed in the interaction menu
         shortName = "COMM1";                                     // Short name displayed on the HUD. Maximum of 5 characters
         componentName = "ACRE_VRC103";                // Able to mount a PRC152
-        allowedPositions[] = {"driver", "commander", {"cargo", 9}, {"turret", "all"}}; // Who can configure the radio and open the radio GUI. Same wildcards as the intercom. It also allows transmitting/receiving
+        allowedPositions[] = {"driver", {"turret", {0}}}; // Who can configure the radio and open the radio GUI. Same wildcards as the intercom. It also allows transmitting/receiving
         disabledPositions[] = {};
         defaultComponents[] = {};                         // Use this to attach simple components like Antennas. Not yet fully implemented
         mountedRadio = "ACRE_PRC117F";                                        // Predefined mounted radio
@@ -40,13 +40,15 @@ class AcreIntercoms {
         displayName = "Intercommunications system";                         // Name of the intercom network displayed to the players
         shortName = "ICS";
         // "all" is a wildcard that selects, in this case, all turrets (not including ffv)
-        allowedPositions[] = {"driver", "commander", {"turret", "all"}, {"cargo", 9}};
+        allowedPositions[] = {"crew", {"turret", {0}}};
         // Commander FFV turret and turret positions [1] and [2] do not have access to crew intercom
         disabledPositions[] = {};
         // Noone else can have access to this intercom network
-        limitedPositions[] = {};
-        masterPositions[] = {"driver"};
-        numLimitedPositions = 0;
+        limitedPositions[] = {{"cargo", "all"}};
+        // This is the number of simultaneous connections that units defined in the previous array can have (default: 0)
+        numLimitedPositions = 2;
+        // Seats with master stations have the possibility of broadcasting a message in that network (default: {})
+        masterPositions[] = {"driver", {"turret", {0}}};
         connectedByDefault = 1;
     };
 };

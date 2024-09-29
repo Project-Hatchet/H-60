@@ -10,11 +10,6 @@
 
 class menu {
   condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_MENU);
-  //FMS_BTN(FMS_6,"COMM 1","") buttonUp=""; };
-  //FMS_BTN(FMS_7,"COMM 2","") buttonUp=""; };
-  //FMS_BTN(FMS_8,"COMM 3","") buttonUp=""; };
-  //FMS_BTN(FMS_9,"COMM 4","") buttonUp=""; };
-
   // THE BUTTON UP CODE CAUSES LIVELOADING THIS CONFIG TO CRASH ARMA
   FMS_BTN(FMS_1,"Checklists")
     buttonUp= QUOTE([ARR_3((_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_LISTS_MENU)], true)] call vtx_uh60_fms_fnc_interaction_pageChange);
@@ -223,4 +218,71 @@ class hud {
   FMS_BTN(FMS_10,"Mission Systems")
     buttonUp= [(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_MSN)], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
+};
+
+class menu_comm_acre {
+  condition = QUOTE((((getUserMFDValue _this) select FMS_PAGE_INDEX) == FMS_PAGE_MENU) && (isClass (configFile >> ""cfgPatches"" >> ""acre_main"")));
+  FMS_BTN(FMS_6,"Radio Page") 
+    buttonUp=[(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_COMM_ACRE)], true] call vtx_uh60_fms_fnc_interaction_pageChange; 
+  };
+};
+
+class COMM_ACRE {
+  condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_COMM_ACRE);
+  FMS_BTN(FMS_10, "Main Menu")
+    buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_MENU], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+  };
+  /*FMS_BTN(FMS_5, "Initialize")
+    buttonUp= [(_this select 0)] call vtx_uh60_acre_fnc_initComms;
+  };*/
+  FMS_BTN(FMS_6, "Radio 1 Settings")
+    buttonUp= QUOTE([ARR_3((_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_COMM_INFO_ACRE)], true)] call vtx_uh60_fms_fnc_interaction_pageChange; fms_radio_index = 0; [vehicle player] call vtx_uh60_fms_fnc_perSecond;);
+  };
+  FMS_BTN(FMS_7, "Radio 2 Settings")
+    buttonUp= QUOTE([ARR_3((_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_COMM_INFO_ACRE)], true)] call vtx_uh60_fms_fnc_interaction_pageChange; fms_radio_index = 1; [vehicle player] call vtx_uh60_fms_fnc_perSecond;);
+  };
+  FMS_BTN(FMS_8, "Radio 3 Settings")
+    buttonUp= QUOTE([ARR_3((_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_COMM_INFO_ACRE)], true)] call vtx_uh60_fms_fnc_interaction_pageChange; fms_radio_index = 2; [vehicle player] call vtx_uh60_fms_fnc_perSecond;);
+  };
+  FMS_BTN(FMS_9, "Radio 4 Settings")
+    buttonUp= QUOTE([ARR_3((_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_COMM_INFO_ACRE)], true)] call vtx_uh60_fms_fnc_interaction_pageChange; fms_radio_index = 3; [vehicle player] call vtx_uh60_fms_fnc_perSecond;);
+  };
+};
+
+class COMM_INFO_ACRE {
+  condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_COMM_INFO_ACRE);
+  FMS_BTN(FMS_10, "Return")
+    buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_COMM_ACRE], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+  };
+  FMS_BTN(FMS_1, "Preset Selection")
+    buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_COMM_PRESETS_ACRE], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+  };
+  FMS_BTN(FMS_5, "On/Off")
+    buttonUp= [(_this select 0),fms_radio_index] call vtx_uh60_acre_fnc_radioStatusUpdate;
+  };
+  FMS_BTN(FMS_6, "Channel Up")
+    buttonUp= "[(_this select 0),fms_radio_index, 1] call vtx_uh60_acre_fnc_cycleRadioChannel; [vehicle player] call vtx_uh60_fms_fnc_perSecond;";
+  };
+  FMS_BTN(FMS_7, "Channel Down")
+    buttonUp= "[(_this select 0),fms_radio_index, -1] call vtx_uh60_acre_fnc_cycleRadioChannel; [vehicle player] call vtx_uh60_fms_fnc_perSecond;";
+  };
+  FMS_BTN(FMS_8, "Spatial Next")
+    buttonUp= "[(_this select 0),fms_radio_index, 1] call vtx_uh60_acre_fnc_cycleSpatial; [vehicle player] call vtx_uh60_fms_fnc_perSecond;";
+  };
+  FMS_BTN(FMS_9, "Spatial Prev")
+    buttonUp= "[(_this select 0),fms_radio_index, -1] call vtx_uh60_acre_fnc_cycleSpatial; [vehicle player] call vtx_uh60_fms_fnc_perSecond;";
+  };
+};
+
+class COMM_PRESETS_ACRE {
+  condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_COMM_PRESETS_ACRE);
+  FMS_BTN(FMS_10, "Return")
+    buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_COMM_INFO_ACRE], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+  };
+  FMS_BTN(FMS_1,"Prev Page") buttonUp="fms_comm_presets_page_index = fms_comm_presets_page_index - 1;[vehicle player] call vtx_uh60_fms_fnc_perSecond;"; };
+  FMS_BTN(FMS_2,"Next Page") buttonUp="fms_comm_presets_page_index = fms_comm_presets_page_index + 1;[vehicle player] call vtx_uh60_fms_fnc_perSecond;"; };
+  FMS_BTN(FMS_6,"Set to Preset") buttonUp=[(_this select 0),fms_radio_index, 1, [FMS_PAGE_INDEX,FMS_PAGE_COMM_INFO_ACRE]] call vtx_uh60_acre_fnc_fmsSetPreset;};
+  FMS_BTN(FMS_7,"Set to Preset") buttonUp=[(_this select 0),fms_radio_index, 2, [FMS_PAGE_INDEX,FMS_PAGE_COMM_INFO_ACRE]] call vtx_uh60_acre_fnc_fmsSetPreset;};
+  FMS_BTN(FMS_8,"Set to Preset") buttonUp=[(_this select 0),fms_radio_index, 3, [FMS_PAGE_INDEX,FMS_PAGE_COMM_INFO_ACRE]] call vtx_uh60_acre_fnc_fmsSetPreset;};
+  FMS_BTN(FMS_9,"Set to Preset") buttonUp=[(_this select 0),fms_radio_index, 4, [FMS_PAGE_INDEX,FMS_PAGE_COMM_INFO_ACRE]] call vtx_uh60_acre_fnc_fmsSetPreset;};
 };

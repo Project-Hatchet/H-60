@@ -5,7 +5,7 @@ TEXT_FMS_C(HEADER_TEXT,0.5,FMS_YHEAD)
 
 TEXT_FMS_L(LOC_Text,FMS_MARGIN_L,FMS_Y1)
 	source = "static";
-	text = "COMMS";
+	text = "COM";
 }; // LOC_Text
 TEXT_FMS_L(LOC_Text2,FMS_MARGIN_L,FMS_Y2)
 	source = "static";
