@@ -44,9 +44,11 @@ class AcreIntercoms {
         // Commander FFV turret and turret positions [1] and [2] do not have access to crew intercom
         disabledPositions[] = {};
         // Noone else can have access to this intercom network
-        limitedPositions[] = {};
+        limitedPositions[] = {{"cargo", "all"}};
+        // This is the number of simultaneous connections that units defined in the previous array can have (default: 0)
+        numLimitedPositions = 2;
+        // Seats with master stations have the possibility of broadcasting a message in that network (default: {})
         masterPositions[] = {"driver", {"turret", {0}}};
-        numLimitedPositions = 0;
         connectedByDefault = 1;
     };
 };

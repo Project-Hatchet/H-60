@@ -39,9 +39,8 @@ class PGUP_CH
   }; // points
 }; // PGUP
 TEXT_FMS_L(CH_ROCKER,FMS_MARGIN_L + 0.02,FMS_Y2-(0.07))
-  source = "userText";
-  sourceIndex = 21;
-  sourceScale = 1;
+  source = "static";
+  text = "CHN";
 }; // Radio2_Line1
 class PGDOWN_CH
 {
@@ -110,6 +109,27 @@ class FREQ_box {
     {{FMS_MARGIN_R + 0.04, FMS_Y3 + 0.10},1} //BR
   };
 }; // FREQ_box
+TEXT_FMS_R(MODE_Text,FMS_MARGIN_R,0.755)
+  source = "static";
+  text = "MODE";
+}; // MODE_Text
+TEXT_FMS_C(RADIO_STATUS,FMS_MARGIN_R - 0.17, FMS_Y5 + 0.012)
+  source = "userText";
+  sourceIndex = 21;
+  sourceScale = 1;
+}; //Status_Value
+class MODE_box {
+  type="line";
+  width = 5;
+  lineType = 2;
+  points[] ={
+    {{FMS_MARGIN_R + 0.02, FMS_Y5 - FMS_HALF_LINE + 0.10},1}, //BR
+    {{FMS_MARGIN_R - 0.32, FMS_Y5 - FMS_HALF_LINE + 0.10},1}, //BL
+    {{FMS_MARGIN_R - 0.32, FMS_Y5 - FMS_HALF_LINE + 0.045},1}, //TL
+    {{FMS_MARGIN_R + 0.02, FMS_Y5 - FMS_HALF_LINE + 0.045},1}, //TR
+    {{FMS_MARGIN_R + 0.02, FMS_Y5 - FMS_HALF_LINE + 0.10},1} //BR
+  };
+}; // MODE_box
 TEXT_FMS_L(MENU_Text,FMS_MARGIN_L,FMS_Y5)
   source = "static";
   text = "< RTN";
