@@ -15,7 +15,6 @@ if (count VTX_JVMF_MESSAGES == 0) exitWith {};
 
 //this function deletes a JVMF at the selected index
 VTX_JVMF_MESSAGES deleteAt VTX_JVMF_SELECTED_IDX;
-systemChat format ["Deleted Message at index: %1", VTX_JVMF_SELECTED_IDX];
 
 //reset JVMF index after deleting the messages at the index
 if (VTX_JVMF_SELECTED_IDX != 0) then {
@@ -24,7 +23,9 @@ if (VTX_JVMF_SELECTED_IDX != 0) then {
 	VTX_JVMF_SELECTED_IDX = 0; 
 };
 
-systemChat format ["New Index is: %1", VTX_JVMF_SELECTED_IDX];
+if(vtx_uh60_ui_showDebugMessages) then {
+	systemChat format ["Deleted Message at index: %1 and new index is %2.", VTX_JVMF_SELECTED_IDX, VTX_JVMF_SELECTED_IDX];
+};
 
 //redraw JVMF if there are more messages remaining, otherwise manually clear the JVMF
 if (count VTX_JVMF_MESSAGES > 0) exitWith {
