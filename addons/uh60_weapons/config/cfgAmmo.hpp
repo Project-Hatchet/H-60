@@ -14,16 +14,29 @@ class CfgAmmo {
       defaultSeekerLockMode = "LOAL";
       defaultSeekerType = "SALH";
       enabled = 0;
-      incDeflection = 0.0005;
-      maxDeflection = 0.009;
-      minDeflection = 0.0005;
+      pitchRate = 30; // degrees per second
+      yawRate = 30;
       seekerAccuracy = 0.99;
       seekerAngle = 75;
       seekerLockModes[] = {"LOAL","LOBL"};
+      defaultNavigationType = "Direct";
+      navigationTypes[] = { "Direct", "ZeroEffortMiss" };
       seekerMaxRange = 8000;
       seekerMinRange = 1;
       seekerTypes[] = {"SALH"};
       seekLastTargetPos = 0;
+      class navigationStates {
+          class initial {
+              transitionCondition = "ace_hellfire_fnc_midCourseTransition";
+              navigationType = "Direct";
+          };
+          class terminal {
+              transitionCondition = "";
+              navigationType = "ZeroEffortMiss";
+          };
+          // transitions from initial -> termimal
+          states[] = {"initial", "terminal"};
+      };
     };
     initTime = 0.2;
     thrust = 100;
@@ -45,16 +58,29 @@ class CfgAmmo {
       defaultSeekerLockMode = "LOAL";
       defaultSeekerType = "SALH";
       enabled = 0;
-      incDeflection = 0.0005;
-      maxDeflection = 0.009;
-      minDeflection = 0.0005;
+      pitchRate = 30; // degrees per second
+      yawRate = 30;
       seekerAccuracy = 0.99;
       seekerAngle = 75;
       seekerLockModes[] = {"LOAL","LOBL"};
+      defaultNavigationType = "Direct";
+      navigationTypes[] = { "Direct", "ZeroEffortMiss" };
       seekerMaxRange = 8000;
       seekerMinRange = 1;
       seekerTypes[] = {"SALH"};
       seekLastTargetPos = 0;
+      class navigationStates {
+          class initial {
+              transitionCondition = "ace_hellfire_fnc_midCourseTransition";
+              navigationType = "Direct";
+          };
+          class terminal {
+              transitionCondition = "";
+              navigationType = "ZeroEffortMiss";
+          };
+          // transitions from initial -> termimal
+          states[] = {"initial", "terminal"};
+      };
     };
     hit = 400;
     initTime = 0.2;
