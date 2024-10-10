@@ -1,5 +1,6 @@
 params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
-// systemchat "HELLFIRE LAUNCHED";
+if (vtx_uh60_ui_showDebugMessages) then {systemchat "HELLFIRE LAUNCHED";};
+
 private _vehicle = vehicle player;
 if (vehicle _gunner == _vehicle) then {
 	addCamShake [3, 1, 25];
