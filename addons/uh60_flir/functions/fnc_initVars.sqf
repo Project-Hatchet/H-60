@@ -48,4 +48,4 @@ vtx_uh60_flir_otherPilotIsPlayer = false;
 vtx_uh60_flir_isCopilotInGunnerView = false;
 vtx_uh60_flir_lastSyncTimePilotCamera = 0;
 vtx_uh60_flir_lastSyncTimeAnimation = 0;
-vtx_uh60_flir_pipEffect = [];
+vtx_uh60_flir_pipEffect = [0];

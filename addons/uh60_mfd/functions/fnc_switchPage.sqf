@@ -39,6 +39,7 @@ switch (true) do {
           _slingCam = true;
         } else {
           [_vehicle] call vtx_uh60_flir_fnc_pipStart;
+          "vtx_uh60_flir_feed" setPiPEffect vtx_uh60_flir_pipEffect;
         };
       };
     };
