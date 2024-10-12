@@ -573,11 +573,7 @@ class CfgVehicles
 
       class AnimationSources: AnimationSources {
         ANIM_INIT(CabinSeats_Hide,1);
-        ANIM_INIT(GunnerSeats_Hide,1);
-        ANIM_INIT(Minigun_Mount_L_hide,1);
-        ANIM_INIT(Minigun_Mount_R_hide,1);
-        ANIM_INIT(Minigun_L_hide,1);
-        ANIM_INIT(Minigun_R_hide,1);
+        ANIM_INIT(Hoist_hide,1);
       };
       class Turrets: Turrets {
         class CopilotTurret: CopilotTurret {};
