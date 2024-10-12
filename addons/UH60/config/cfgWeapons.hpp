@@ -50,7 +50,7 @@ class cfgWeapons {
         ffMagnitude=0.5;
         ffFrequency=11;
         ffCount=6;
-        burst=20;
+        burst=1;
         soundContinuous=1;
         autoFire=1;
     };

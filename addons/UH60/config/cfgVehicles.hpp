@@ -577,6 +577,8 @@ class CfgVehicles
       };
       class Turrets: Turrets {
         class CopilotTurret: CopilotTurret {};
+        class MainTurret: MainTurret {};
+        class RightDoorGun: RightDoorGun {};
         #include "turrets\cargoTurretsDoor.hpp"
       };
       //#include "vehicleTransportSlick.hpp" // model missing mempoints

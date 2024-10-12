@@ -213,12 +213,12 @@ class CfgVehicles {
       ANIM_INIT(CabinSeats_2_Hide,1);
       ANIM_INIT(CabinSeats_3_Hide,1);
       // Guns
-      ANIM_INIT(Minigun_Mount_L_hide,1);
-      ANIM_INIT(Minigun_Mount_R_hide,1);
-      ANIM_INIT(Minigun_L_hide,1);
-      ANIM_INIT(Minigun_R_hide,1);
+      ANIM_INIT(Minigun_Mount_L_hide,0);
+      ANIM_INIT(Minigun_Mount_R_hide,0);
+      ANIM_INIT(Minigun_L_hide,0);
+      ANIM_INIT(Minigun_R_hide,0);
       class GunnerSeats_Hide: GunnerSeats_Hide {
-        initPhase = 1;
+        initPhase = 0;
         onPhaseChanged = "";
       };
       // Door seats
