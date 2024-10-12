@@ -140,7 +140,7 @@ class CfgVehicles {
       "passenger_generic01_leanright"
     };
     cargoProxyIndexes[] = {1, 2, 3, 4, 24, 25, 6, 7, 12, 13, 14, 15, 16, 17, 20, 21, 22, 23};
-    displayName = "UH-60M MEDEVAC";
+    displayName = "HH-60M MEDEVAC";
     hiddenSelectionsTextures[] = {
       "","","","","","","","","","","","","","","","",
       "z\vtx\addons\uh60_misc\data\textures\UH-60M_US_Army_Medevac\main_co.paa",
