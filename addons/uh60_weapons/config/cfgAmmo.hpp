@@ -1,6 +1,7 @@
 class CfgAmmo {
   class M_Scalpel_AT;
   class B_30mm_MP_Tracer_Green;
+  class ammo_Missile_HARM;
   class ACE_Hellfire_AGM114K: M_Scalpel_AT {class ace_missileguidance;};
   class ACE_Hellfire_AGM114N: M_Scalpel_AT {class ace_missileguidance;};
   class VTX_Hellfire_AGM114K: ACE_Hellfire_AGM114K {
@@ -157,6 +158,35 @@ class CfgAmmo {
     tracerColorR[] = {0.7,0.1,0.1,0.04};
     // https://ace3mod.com/wiki/framework/frag-framework.html
     
+  };
+  class vtx_ammo_Missile_HARM_HL : ammo_Missile_HARM {
+    hit = 0;
+    indirectHit = 0;
+    //autoSeekTarget = 0;
+    //flightProfiles[] = {LOALDistance};
+    //manualControl = 1;
+    //missileLockMinDistance = 50;
+    //missileLockMaxDistance = 2000;
+    //maxControlRange = 10000;
+   // missileKeepLockedCone = 90;
+    //missileLockCone = 160;
+    //missileLockMaxSpeed = 120;
+    //lockType = 1;
+    //lockSeekRadius = 2000; 
+    displayName = "AGM-88 HL";
+  	displayNameShort = "AGM-88 HL";
+  	description = "Anti Radiation School Project";
+  	descriptionShort = "Anti Radiation School Project";
+    model = QPATHTOF(hl_88.p3d);
+    proxyShape = QPATHTOF(hl_88.p3d);
+    aiAmmoUsageFlags = 128 + 512;
+    explosionEffects = "vtx_uh60_cardboardExplosion";
+    //model = "\A3\Weapons_F_Sams\Ammo\Missile_AR_01_F_fly.p3d";
+		//proxyShape = "\A3\Weapons_F_Sams\Ammo\Missile_AR_01_F.p3d";
+    craterEffects = "";
+    soundHit1[] = {"\z\vtx\addons\uh60_weapons\Data\Audio\AGM_88_HL_Impact.ogg", db-10, 1, 2000};
+    soundHit2[] = {"\z\vtx\addons\uh60_weapons\Data\Audio\AGM_88_HL_Impact.ogg", db-10, 1, 2000};
+    soundHit3[] = {"\z\vtx\addons\uh60_weapons\Data\Audio\AGM_88_HL_Impact.ogg", db-10, 1, 2000};
   };
   
 };
