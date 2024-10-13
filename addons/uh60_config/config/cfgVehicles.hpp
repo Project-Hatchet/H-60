@@ -126,9 +126,18 @@ class CfgVehicles {
               class NVGHUD: NVGHUD_COPILOT {};
         };
       };
+      #include "\z\vtx\addons\UH60\config\turrets\troopCommander.hpp"
       class MainTurret: MainTurret {};
       class RightDoorGun: RightDoorGun {};
     };
+    class vxf_turret_3 {
+    projectPrefix = "vtx_uh60";
+      class modules {
+          class ui {
+              startOnEnter = 0;
+          };
+      }; // modules
+    }; //TC Seat
   }; // vtx_UH60M
 
   class vtx_UH60M_MEDEVAC: vtx_H60_base {

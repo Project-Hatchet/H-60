@@ -210,7 +210,7 @@ class CfgVehicles
     	driverLeftLegAnimName="Pedal_Left_P";
     	driverRightLegAnimName="Pedal_Right_P";
         precisegetinout = 0;
-        transportSoldier = 11;
+        transportSoldier = 10;
 
         crew = vtx_uh60_pilot;
         typicalCargo[]={vtx_uh60_doorgunner,vtx_uh60_doorgunner,vtx_uh60_doorgunner};
