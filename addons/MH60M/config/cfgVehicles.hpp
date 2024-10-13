@@ -99,7 +99,16 @@ class CfgVehicles {
             class MainTurret: MainTurret {};
             class RightDoorGun: RightDoorGun {};
             #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
+            #include "\z\vtx\addons\MH60M\config\turrets\troopCommander.hpp"
         };
+        class vxf_turret_3 {
+    projectPrefix = "vtx_uh60";
+      class modules {
+          class ui {
+              startOnEnter = 0;
+          };
+      }; // modules
+    }; //TC Seat
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa"};
         #include "\z\vtx\addons\UH60\config\vehicleTransport.hpp"
         class MFD: MFD {
