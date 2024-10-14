@@ -126,9 +126,9 @@ class CfgVehicles {
               class NVGHUD: NVGHUD_COPILOT {};
         };
       };
-      #include "\z\vtx\addons\UH60\config\turrets\troopCommander.hpp"
       class MainTurret: MainTurret {};
       class RightDoorGun: RightDoorGun {};
+      #include "\z\vtx\addons\UH60\config\turrets\troopCommander.hpp"
     };
     class vxf_turret_3 {
     projectPrefix = "vtx_uh60";
