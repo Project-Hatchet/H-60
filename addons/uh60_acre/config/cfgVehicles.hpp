@@ -4,8 +4,7 @@ class CfgVehicles {
         class vxf_driver;
         class vxf_copilot;
     };
-    class Heli_Transport_01_base_F: Helicopter_Base_H
-    {
+    class Heli_Transport_01_base_F: Helicopter_Base_H {
         class vxf_driver: vxf_driver {
             class interaction;
             class modules;
@@ -15,9 +14,14 @@ class CfgVehicles {
             class modules;
         };
     };
-    class vtx_H60_base: Heli_Transport_01_base_F
-    {
-        #include "acreRacks.hpp"
+    class vtx_H60_base: Heli_Transport_01_base_F {
+        #include "acreRacks_base.hpp"
         #include "vxf.hpp"
+    };
+    class vtx_MH60M: vtx_H60_base {
+        #include "acreRacks_mh60m.hpp"
+    };
+    class vtx_UH60M : vtx_H60_base {
+        #include "acreRacks_uh60m.hpp"
     };
 };
