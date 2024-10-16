@@ -54,13 +54,10 @@ class MainTurret: MainTurret { //Left Doorgun
     minOutElev=0; maxOutElev=0; initOutElev=0;
     minOutTurn=0; maxOutTurn=0; initOutTurn=0;
     class TurnIn {
-        limitsArrayTop[] = {{10, 185}, {10, -10}};
-        limitsArrayBottom[] = {{-70, 185}, {-70, -10}};
+        limitsArrayTop[] = {{1.5, 165}, {1.55, 10}};
+        limitsArrayBottom[] = {{-90, 165}, {-90, 10}};
     };
-  	class TurnOut {
-        limitsArrayTop[] = {{10, 80}, {50,0}, {10, -90}};
-        limitsArrayBottom[] = {{-9.5111, -85.0371}, {-38.3027, -63.4442}, {-70, 0}, {-30, 80}};
-    };
+    class TurnOut : TurnIn {};
     class ViewOptics {
         initAngleX=0; minAngleX=0; maxAngleX=0;
         initAngleY=0; minAngleY=0; maxAngleY=0;
@@ -100,13 +97,10 @@ class RightDoorGun: MainTurret {
     proxyIndex = 7;
     selectionFireAnim="zasleh_1";
     class TurnIn {
-        limitsArrayTop[] = {{10, 10}, {10, -185}};
-        limitsArrayBottom[] = {{-70, 10}, {-70, -185}};
+        limitsArrayTop[] = {{1.5, -10}, {1.5, -165}};
+        limitsArrayBottom[] = {{-90, -10}, {-90, -165}};
     };
-  	class TurnOut {
-        limitsArrayTop[] = {{10, -80}, {50, 0}, {10, 90}};
-        limitsArrayBottom[] = {{-9.5111, 85.0371}, {-38.3027, 63.4442}, {-70, 0}, {-30, -80}};
-    };
+  	class TurnOut : TurnIn {};
     weapons[]=
     {
         "vtx_wpn_m134_2nd"

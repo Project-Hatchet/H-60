@@ -210,7 +210,7 @@ class CfgVehicles
     	driverLeftLegAnimName="Pedal_Left_P";
     	driverRightLegAnimName="Pedal_Right_P";
         precisegetinout = 0;
-        transportSoldier = 11;
+        transportSoldier = 10;
 
         crew = vtx_uh60_pilot;
         typicalCargo[]={vtx_uh60_doorgunner,vtx_uh60_doorgunner,vtx_uh60_doorgunner};
@@ -573,14 +573,12 @@ class CfgVehicles
 
       class AnimationSources: AnimationSources {
         ANIM_INIT(CabinSeats_Hide,1);
-        ANIM_INIT(GunnerSeats_Hide,1);
-        ANIM_INIT(Minigun_Mount_L_hide,1);
-        ANIM_INIT(Minigun_Mount_R_hide,1);
-        ANIM_INIT(Minigun_L_hide,1);
-        ANIM_INIT(Minigun_R_hide,1);
+        ANIM_INIT(Hoist_hide,1);
       };
       class Turrets: Turrets {
         class CopilotTurret: CopilotTurret {};
+        class MainTurret: MainTurret {};
+        class RightDoorGun: RightDoorGun {};
         #include "turrets\cargoTurretsDoor.hpp"
       };
       //#include "vehicleTransportSlick.hpp" // model missing mempoints

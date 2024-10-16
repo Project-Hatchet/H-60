@@ -128,7 +128,16 @@ class CfgVehicles {
       };
       class MainTurret: MainTurret {};
       class RightDoorGun: RightDoorGun {};
+      #include "\z\vtx\addons\UH60\config\turrets\troopCommander.hpp"
     };
+    class vxf_turret_3 {
+    projectPrefix = "vtx_uh60";
+      class modules {
+          class ui {
+              startOnEnter = 0;
+          };
+      }; // modules
+    }; //TC Seat
   }; // vtx_UH60M
 
   class vtx_UH60M_MEDEVAC: vtx_H60_base {
@@ -140,7 +149,7 @@ class CfgVehicles {
       "passenger_generic01_leanright"
     };
     cargoProxyIndexes[] = {1, 2, 3, 4, 24, 25, 6, 7, 12, 13, 14, 15, 16, 17, 20, 21, 22, 23};
-    displayName = "UH-60M MEDEVAC";
+    displayName = "HH-60M MEDEVAC";
     hiddenSelectionsTextures[] = {
       "","","","","","","","","","","","","","","","",
       "z\vtx\addons\uh60_misc\data\textures\UH-60M_US_Army_Medevac\main_co.paa",
@@ -213,12 +222,12 @@ class CfgVehicles {
       ANIM_INIT(CabinSeats_2_Hide,1);
       ANIM_INIT(CabinSeats_3_Hide,1);
       // Guns
-      ANIM_INIT(Minigun_Mount_L_hide,1);
-      ANIM_INIT(Minigun_Mount_R_hide,1);
-      ANIM_INIT(Minigun_L_hide,1);
-      ANIM_INIT(Minigun_R_hide,1);
+      ANIM_INIT(Minigun_Mount_L_hide,0);
+      ANIM_INIT(Minigun_Mount_R_hide,0);
+      ANIM_INIT(Minigun_L_hide,0);
+      ANIM_INIT(Minigun_R_hide,0);
       class GunnerSeats_Hide: GunnerSeats_Hide {
-        initPhase = 1;
+        initPhase = 0;
         onPhaseChanged = "";
       };
       // Door seats
