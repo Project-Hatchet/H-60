@@ -418,6 +418,16 @@ class interaction {
           radius = 0.1;
           buttonDown = "call vtx_uh60_misc_fnc_moveToCabin";
         }; // toCabin
+        class River_show {
+            positionType="static";
+            position="River_meme";
+            label="Toggle";
+            radius=BTN_RADIUS_SWITCH;
+            animation="River_show";
+            animSpeed=0;
+            animStates[] = {0, 1};
+            animLabels[] = {"OFF", "ON"};
+        }; // Show river
     }; // misc
     class JettStores {
         positionType = "coordinates";
@@ -428,4 +438,5 @@ class interaction {
     }; // toCabin
     class MFDs {
     };
+    
 };
