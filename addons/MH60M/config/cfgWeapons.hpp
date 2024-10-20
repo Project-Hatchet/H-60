@@ -77,8 +77,9 @@ class cfgWeapons {
             };
         };
         class HighROF : HighROF {
-            displayName = "M134 HI";
-            displayNameShort = "M134 HI";
+            displayName = "2x M134";
+            displayNameShort = "2x M134";
+
             sounds[]=
             {
                 "StandardSound"
