@@ -109,6 +109,7 @@ class tac {
 
 class jvmf {
     condition= USERVAL(MFD_PAGE_INDEX,MFD_PAGE_JVMF);
+    MFD_BTN(MFD_20,QUOTE(Del Message)) buttonUp="[vehicle player] call vtx_uh60_jvmf_fnc_deleteMessage;"; };
     MFD_BTN(MFD_24,QUOTE(New message)) buttonUp="createDialog 'vtx_uh60_jvmf_writeDialog';"; };
     MFD_BTN(MFD_23,QUOTE(Prev MSG)) buttonUp="[vehicle player,'cycle', -1] call vtx_uh60_jvmf_fnc_mfdInteraction;"; };
     MFD_BTN(MFD_22,QUOTE(Next MSG)) buttonUp="[vehicle player,'cycle', 1] call vtx_uh60_jvmf_fnc_mfdInteraction;"; };

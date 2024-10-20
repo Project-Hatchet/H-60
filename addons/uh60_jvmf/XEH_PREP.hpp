@@ -10,3 +10,4 @@ PREP(submitMessage);
 PREP(openMessage);
 PREP(prepareInboxDialog);
 PREP(ctabToJvmf);
+PREP(deleteMessage);
