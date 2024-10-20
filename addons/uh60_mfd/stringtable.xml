@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="VTX">
+    <Package name="UH60_FD">
+        <Key ID="STR_VTX_UH60_MFD_SlewUp">
+            <English>MFD Slew Up</English>
+            <Chinesesimp>MFD视角上</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_MFD_SlewDown">
+            <English>MFD Slew Down</English>
+            <Chinesesimp>MFD视角下</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_MFD_SlewLeft">
+            <English>MFD Slew Left</English>
+            <Chinesesimp>MFD视角左</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_MFD_SlewRight">
+            <English>MFD Slew Right</English>
+            <Chinesesimp>MFD视角右</Chinesesimp>
+        </Key>
+        <Key ID="STR_VTX_UH60_MFD_SlewAction">
+            <English>MFD Slew Action</English>
+            <Chinesesimp>MFD视角行为</Chinesesimp>
+        </Key>
+    </Package>
+</Project>

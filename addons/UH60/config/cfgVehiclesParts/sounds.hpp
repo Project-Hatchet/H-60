@@ -7,6 +7,16 @@
 
 class Sounds: Sounds
 {
+    class damageAlarmExt {
+        frequency = 1;
+        sound[] = {"A3\Sounds_F\vehicles\air\noises\heli_alarm_bluefor",0.223872,1,20};
+        volume = "0";
+    };
+    class damageAlarmInt {
+        frequency = 1;
+        sound[] = {"A3\Sounds_F\vehicles\air\noises\heli_alarm_bluefor",0.223872,1,20};
+        volume = "0";
+    };
     /*External UH60 */
     class Engine
     {
@@ -50,6 +60,30 @@ class Sounds: Sounds
         sound[] = {"z\vtx\addons\UH60\sounds\Rotor.ogg", db5, 1.1};
         frequency = "rotorSpeed-(rotorThrust*0.3)";
 		volume="2*(1-camPos)*((rotorSpeed factor[0.3, 1.1]) min (rotorSpeed factor[1.1, 0.3]))";
+    };
+    class ApuSoundLoop
+    {
+        sound[] = {"z\vtx\addons\UH60\sounds\apu_int_loop.wss", db5, 1.1};
+        frequency = "CustomSoundController1";
+		volume="(1-camPos)*CustomSoundController2";
+    };
+    class RotorBrakeCrash
+    {
+        frequency = "0.66 + CustomSoundController3 / 3";
+        sound[] = {"A3\Sounds_F\vehicles\air\noises\heli_damage_transmission_int_1",1,1,150};
+        volume = "(1-camPos) * 3 * CustomSoundController4";
+    };
+    class RotorBrakeCrash2
+    {
+        frequency = "0.66 + CustomSoundController3 / 3";
+        sound[] = {"A3\Sounds_F\vehicles\air\noises\heli_damage_transmission_int_2",1,1,150};
+        volume = "(1-camPos) * 3 * CustomSoundController4";
+    };
+    class RotorBrakeCrash3
+    {
+        frequency = "CustomSoundController3";
+        sound[] = {"A3\Sounds_F\vehicles\noises\vehicle_stress3",1,1,50};
+        volume = "(1-camPos) * 3 * CustomSoundController4";
     };
     /*class RotorHighIn
     {

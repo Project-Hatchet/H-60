@@ -6,62 +6,56 @@
 
 params ["_vehicle", "_frameTime"];
 
-private _left = ((inputAction "LookLeft") min 1) + ((inputAction "AimLeft") min 1);
-private _right = ((inputAction "LookRight") min 1) + ((inputAction "AimRight") min 1);
-private _up = ((inputAction "LookUp") min 1) + ((inputAction "AimUp") min 1);
-private _down = ((inputAction "LookDown") min 1) + ((inputAction "AimDown") min 1);
-private _wasSlewing = (vtx_uh60_flir_slewX > 0 || vtx_uh60_flir_slewY > 0);
-vtx_uh60_flir_slewX = 0 - _left + _right;
-vtx_uh60_flir_slewY = 0 - _down + _up;
-private _isSlewing = (vtx_uh60_flir_slewX > 0 || vtx_uh60_flir_slewY > 0);
-private _slewingStopped = (_wasSlewing && !_isSlewing);
-private _isDriver = player == driver _vehicle;
-private _isInCamera = ((_isDriver && cameraView == "GUNNER") || !isNil "vtx_uh60_flir_camera");
+private _inFullScreenCam = (vtx_uh60_flir_isInScriptedCamera || cameraView == "GUNNER");
+if (
+    _inFullScreenCam &&
+    (_vehicle getHitPointDamage "FlirHit") > 0.5
+  ) then {
+  vtx_uh60_flir_fnc_grain ppEffectEnable true;
+} else {
+  vtx_uh60_flir_fnc_grain ppEffectEnable false;
+};
+vtx_uh60_flir_fnc_grain ppEffectCommit 0;
 
-private _otherCrew = if (_isDriver) then [{
-	private _copilotTurretIndex = [_vehicle] call ace_common_fnc_getTurretCopilot;
-	(_vehicle turretUnit _copilotTurretIndex)
-},{
-	(driver _vehicle)
-}];
-
-vtx_uh60_flir_stabilized = (getPilotCameraTarget _vehicle) # 0;
-// track laser if not slewing yourself and you're the copilot
-if (isLaserOn _vehicle && !_isSlewing && !_isDriver && !_isInCamera) then {
-	_vehicle setPilotCameraTarget (getPosASL (laserTarget _vehicle));
+if (!vtx_uh60_flir_isPipHidden || {_inFullScreenCam}) then {
+  [_vehicle] call vtx_uh60_flir_fnc_handleKeyInputs;
+  [_vehicle] call vtx_uh60_flir_fnc_handleSlew;
 };
 
-private _target = if (vtx_uh60_flir_stabilized) then [{(getPilotCameraTarget _vehicle) # 1;}, {(getPilotCameraDirection _vehicle)}];
-if (_isInCamera &&((_isSlewing && time > vtx_uh60_flir_lastSync + vtx_uh60_flir_syncInterval) || _slewingStopped)) then {
-	vtx_uh60_flir_lastSync = time;
-	if (!isNil "_otherCrew") then {
-		[vtx_uh60_flir_stabilized, _target] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", _otherCrew];
-	};
+if (_vehicle ammoOnPylon 47 > 0) then {
+  _this call vtx_uh60_flir_fnc_laserTrack;
 };
+
+private _flirStowed = _vehicle getVariable ["vtx_uh60_flir_stowed", true];
+vtx_uh60_flir_blackColor ppEffectEnable (_flirStowed && _inFullScreenCam);
+vtx_uh60_flir_blackColor ppEffectCommit 0;
+if (_inFullScreenCam && _flirStowed) then {
+    hint "Your FLIR payload is stowed, use the MFD to enable your FLIR payload.";
+};
+
+if (_vehicle getVariable ["vtx_uh60_flir_stowed", true]) then {
+    _vehicle setPilotCameraTarget objNull;
+    _vehicle setPilotCameraRotation [
+      rad (180),
+      rad (80)
+    ];
+};
+
+private _bootTime = _vehicle getVariable ["vtx_uh60_flir_boot_time", -1];
+if (_bootTime > -1) then {
+  private _timeRemaining = (_bootTime + 25) - cba_missionTime;
+  if (_timeRemaining > 0) then {
+    private _slewProgress = _timeRemaining / 5;
+    // systemChat str ["DEPLOYING", _timeRemaining, _slewProgress];
+    _vehicle setPilotCameraTarget objNull;
+    _vehicle setPilotCameraRotation [
+      rad (_slewProgress * 180),
+      rad (0)
+    ];
+  };
+};
+
+if (vtx_uh60_flir_isPipHidden && {!vtx_uh60_flir_isInScriptedCamera}) exitWith {};
+
+[_vehicle] call vtx_uh60_flir_fnc_updateCamera;
 _this call vtx_uh60_flir_fnc_updateUIValues;
-
-// copilot scripted FLIR controls
-if (_isDriver) exitWith {
-	if (inputAction "vehLockTurretView" > 0 && !vtx_uh60_flir_stabilizing) then {
-		if (!isNil "_otherCrew") then {
-			_target = if (vtx_uh60_flir_stabilized) then [{AGLtoASL (screenToWorld [0.5, 0.5])}, {(getPilotCameraDirection _vehicle)}];
-			[vtx_uh60_flir_stabilized, _target] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", _otherCrew];
-		};
-	};
-	vtx_uh60_flir_stabilizing = (inputAction "vehLockTurretView" > 0);
-};
-
-if (inputAction "pilotCamera" > 0 && !vtx_uh60_flir_enteringOptics) then {
-	vtx_uh60_flir_enteringOptics = true;
-	if (isNil "vtx_uh60_flir_camera") then {
-		[vehicle player] call vtx_uh60_flir_fnc_startPilotCamera;
-	} else {
-		[vehicle player] call vtx_uh60_flir_fnc_stopPilotCamera;
-	};
-};
-vtx_uh60_flir_enteringOptics = (inputAction "pilotCamera" > 0);
-
-if (isNil "vtx_uh60_flir_camera") exitWith {};
-_this call vtx_uh60_flir_fnc_handleMovement;
-_this call vtx_uh60_flir_fnc_handleZoom;
-_this call vtx_uh60_flir_fnc_handleVisionMode;

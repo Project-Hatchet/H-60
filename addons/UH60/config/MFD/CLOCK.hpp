@@ -1,4 +1,4 @@
-class CLOCK
+class VTX_CLOCK
 {
 	topLeft="CLOCK_LH";
 	topRight="CLOCK_RH";

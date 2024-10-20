@@ -11,18 +11,25 @@ class textureSources {
     };
     class SOAR {
         displayName = "US Army SOAR";
-        textures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\tail_co.paa","","","","","","z\vtx\addons\UH60\data\FuelProbe\Fuel_probe_co.paa"};
+        textures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","","","","","","z\vtx\addons\UH60\data\FuelProbe\Fuel_probe_co.paa"};
     };
     class AirForce {
         displayName = "US Air Force";
-        textures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\UH60\Data\JLorion_HH60\Hull Main_co.paa","z\vtx\addons\UH60\Data\JLorion_HH60\Misc_co.paa","z\vtx\addons\UH60\Data\JLorion_HH60\Hull Tail_co.paa","","","","","","z\vtx\addons\UH60\Data\JLorion_HH60\Fuel_probe_co.paa"};
+        textures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\UH60\Data\HH60\Hull_Main_co.paa","z\vtx\addons\UH60\Data\HH60\Misc_co.paa","z\vtx\addons\UH60\Data\HH60\Hull_Tail_co.paa","","","","","","z\vtx\addons\UH60\Data\HH60\Fuel_probe_co.paa"};
+    };
+    class Firefighter {
+        displayName = "HH-60 Firefighting";
+        textures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\UH60\Data\HH60_Fire\Hull_Main_co.paa","z\vtx\addons\UH60\Data\HH60_Fire\Misc_co.paa","z\vtx\addons\UH60\Data\HH60_Fire\Hull_Tail_co.paa","","","","","","z\vtx\addons\UH60\Data\HH60\Fuel_probe_co.paa"};
     };
     class Army {
         displayName = "US Army";
-        textures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\UH60\Data\Exterior\Hull Main_co.paa","z\vtx\addons\UH60\Data\Exterior\Misc_co.paa","z\vtx\addons\UH60\Data\Exterior\Hull Tail_co.paa","z\vtx\addons\UH60\Data\Exterior\Markings\Markings_ca.paa","","","","","z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co_UH.paa"};
+        textures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\UH60\Data\Exterior\Hull Main_co.paa","z\vtx\addons\UH60\Data\Exterior\Misc_co.paa","z\vtx\addons\UH60\Data\Exterior\Hull Tail_co.paa","","","","","","z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co_UH.paa"};
     };
 };
 animationList[] = {
     "Fuelprobe_Show", 0,
-    "Cockpitdoors_Hide", 0
+    "cabindoor_L", 1,
+    "cabindoor_R", 1,
+    "Door_LF", 1,
+    "Door_RF", 1
 };

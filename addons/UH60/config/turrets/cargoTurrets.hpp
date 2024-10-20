@@ -1,11 +1,18 @@
 class CargoTurret_01: CargoTurret {
     gunnerAction = "passenger_bench_1";
+    gunnerInAction = "passenger_bench_1";
     memoryPointsGetInGunner = "pos Cargo R";
     memoryPointsGetInGunnerDir = "pos Cargo R dir";
     gunnerName = "Door Right 1 (hoist controls)";
     gunnerCompartments = Compartment2;
     proxyIndex = 12;
-    isPersonTurret = 1;        /// this turret is able to fire both when turned in and out
+    isPersonTurret = 2;        /// enables a person to get into the turret from outside
+    selectionFireAnim = "";
+    disableSoundAttenuation = 0;
+    LODTurnedIn = 1200;
+    LODTurnedOut = 1200;
+    LODOpticsIn = 1200;
+    LODOpticsOut = 1200;
     class TurnIn /// limits for gunner turned in
     {
         limitsArrayBottom[] = {[-45,-94.9656],[-45,80.9904],[-31.9033,82.8465],[-31.7935,95]};
@@ -42,6 +49,7 @@ class CargoTurret_04: CargoTurret_03 {
 #define KNEELING_SEAT(CLASS,LABEL,MEMPT,INDEX) \
     class CLASS: CargoTurret_03 { \
         gunnerAction = "passenger_inside_4"; \
+        gunnerInAction = "passenger_inside_4"; \
         gunnerName = LABEL; \
         memoryPointsGetInGunner = pos Cargo MEMPT; \
         memoryPointsGetInGunnerDir = pos Cargo MEMPT dir; \
@@ -51,7 +59,7 @@ KNEELING_SEAT(CargoTurret_05,"Cabin (left center 1)",L3,16)
 KNEELING_SEAT(CargoTurret_06,"Cabin (left center 2)",L4,17)
 //KNEELING_SEAT(CargoTurret_07,"Cabin (right back)",18)
 //KNEELING_SEAT(CargoTurret_08,"Cabin (left back)",19)
-KNEELING_SEAT(CargoTurret_10,"Cabin (center, front)",L2,20)
+//KNEELING_SEAT(CargoTurret_10,"Cabin (center, front)",L2,20)
 KNEELING_SEAT(CargoTurret_11,"Cabin (right, front)",R3,21)
 KNEELING_SEAT(CargoTurret_14,"Cabin (right center 1)",R4,22)
 KNEELING_SEAT(CargoTurret_15,"Cabin (right center 2)",R2,23)

@@ -8,10 +8,6 @@
 
 params ["_vehicle"];
 
-if (missionNamespace getVariable ["vtx_uh60m_enabled_waypts", false]) then {
-    _this call vtx_uh60_fms_fnc_updateWaypointInfo;
-};
-
 #include "..\config\fmsDefines.hpp"
 
 private _fms = if (player == driver _vehicle) then [{ FMS_R_PAGE_INDEX }, { FMS_L_PAGE_INDEX }];
@@ -20,7 +16,7 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
         private _weight = weightRTD _vehicle;
         private _state = _vehicle animationPhase "Fuelprobe_Extend";
         private _stateText = "NOT INSTALLED";
-        if (_vehicle animationSourcePhase "Fuelprobe_Show" > 0) then {
+        if (_vehicle animationSourcePhase "Fuelprobe_show" > 0) then {
             _stateText = "RETRACTED";
             if (_state > 0.05 && _state < 0.95) then {
                 _stateText = "MOVING";
@@ -43,7 +39,11 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
         private _gridArea = [worldName] call ace_common_fnc_getMGRSdata;
         private _grid = [_position] call ace_common_fnc_getMapGridFromPos;
         private _str = format ["%1    %2    %3    %4", _gridArea select 0, _gridArea select 1, _grid select 0, _grid select 1];
-        [_str, format["%1/%2", _waypointIndex + 1, count (waypoints group player)], "", "",""]
+        if (_waypointIndex < count (waypoints group player)) then {
+          [_str, format["%1/%2", _waypointIndex + 1, count (waypoints group player)], "", "",""]
+        } else {
+          [_str, format["%1/%2", 0, 0], "", "",""]
+        }
     };
     case FMS_PAGE_NAV_IMPORT: {
         private _autoCycle = _vehicle getVariable ["vtx_uh60_fms_import_autoCycle", false];
@@ -90,5 +90,5 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
 fms_locations_page_open = (((getUserMFDValue _vehicle) # _fms) == FMS_PAGE_NAV_LOCATIONS_LIST);
 
 { // forEach [20, 21, 22, 23,24];
-    _vehicle setUserMFDText [_x, _strings # _forEachIndex];
+    [_vehicle, _x, _strings # _forEachIndex] call vtx_uh60_mfd_fnc_setUserText
 } forEach [20, 21, 22, 23,24];

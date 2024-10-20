@@ -1,19 +1,30 @@
 class VehicleSystemsTemplateLeftPilot;
 class VehicleSystemsTemplateRightPilot;
 class SensorTemplatePassiveRadar;
+class SensorTemplateAntiRadiation;
+class SensorTemplateActiveRadar;
+class SensorTemplateIR;
+class SensorTemplateVisual;
+class SensorTemplateMan;
+class SensorTemplateLaser;
+class SensorTemplateNV;
 class SensorTemplateDataLink;
+
+
+#include "MFD\MFDConfig.hpp"
+
 class CfgVehicles
 {
     #include "crew.hpp"
     class Helicopter_Base_H;
     class Heli_Transport_01_base_F: Helicopter_Base_H
     {
-    	#include "cfgUVAnimations.hpp"
         class Turrets
         {
             class MainTurret;
             class CopilotTurret;
         };
+        class Attributes;
         class Eventhandlers;
         class Viewoptics;
         class ViewPilot;
@@ -22,10 +33,24 @@ class CfgVehicles
         class Components;
         class Sounds;
         class HitPoints;
+        class UserActions;
+        
     };
 
     class vtx_H60_base: Heli_Transport_01_base_F
     {
+        // scope = 2;
+        // #include "edenAttributes.hpp"
+        // side = 1;
+        // faction = "BLU_F";
+        // category = "Air";
+        // displayName = "$STR_VTX_UH60_UHMBlackhawk";
+        // model = "\z\vtx\addons\UH60\vtx_UH60.p3d";
+
+        #include "cfgUVAnimations.hpp"
+        #include "CfgUserActions.hpp"
+        #include "edenAttributes.hpp"
+        author = "Project Hatchet Studio";
         class VTX_H60_HDTS_Copilot;
         #include "cfgVxf.hpp"
         memoryPointDriverOptics = "slingcam";
@@ -33,28 +58,37 @@ class CfgVehicles
         class vtx_templateFLIR {
             #include "turrets\pilotCamera.hpp"
         };
+		driverDoor = "Door_RF";
+		cargoDoors[] = {"cabindoor_L", "cabindoor_R"};
         scope=1;
         category = "Air";
         editorSubcategory = "vtx_h60";
         side = 1;
         faction = "BLU_F";
-        //armor = 500;
+        armor = 575;
+        type = 2;
+        threat[] = {1,1,0.5};
+        // damageResistance = 0.000555;
+        epeImpulseDamageCoef = 0;
         altFullForce = 1500;	/// in what height do the engines still have full thrust
         altNoForce = 4000;		/// thrust of the engines interpolates to zero between altFullForce and altNoForce
         maxSpeed = 300;			/// what is the maximum speed of the vehicle
-        maxFordingDepth = 0.55;	/// how deep could the vehicle be in water without getting some damage
-        mainBladeRadius = 7.0;	/// describes the radius of main rotor - used for collision detection
+        maxFordingDepth = 2.0;	/// how deep could the vehicle be in water without getting some damage
+        mainBladeRadius = 8.0;	/// describes the radius of main rotor - used for collision detection
+        mainBladeCenter = "predni osa naklonu";
+        tailBladeCenter = "light_collision_tail_upper";
         fuelConsumptionRate = 0;
+        armorStructural = 5;
         //multiplier of lift force
         liftForceCoef = 1.1;
         //multiplier of body friction
         bodyFrictionCoef = 0.7;
         //multiplier of bank force
-        cyclicAsideForceCoef = 1.0;
+        cyclicAsideForceCoef = 0.5;
         //multiplier of dive force
-        cyclicForwardForceCoef = 1.0;
+        cyclicForwardForceCoef = 0.6;
         //multiplier of back rotor force
-        backRotorForceCoef = 1.0;
+        backRotorForceCoef = 0.8;
         simulation = "helicopterRTD";
         #include "cfgVehiclesParts\RotorLibHelicopterProperties.hpp"
         #include "cfgVehiclesParts\sounds.hpp"
@@ -65,6 +99,12 @@ class CfgVehicles
         #include "cfgVehiclesParts\fries.hpp"
         #include "cfgVehiclesParts\hitPoints.hpp"
         //#include "cfgVehiclesParts\vehicleCustomization.hpp"
+
+        incomingMissileDetectionSystem = 16;
+        lockDetectionSystem = 1+2+4+8+16;
+        reportOwnPosition = 1;
+        reportRemoteTargets = 1;
+        receiveRemoteTargets = 1;
 
         irTargetSize = 1.2;
         radarTargetSize = 1.2;
@@ -94,7 +134,13 @@ class CfgVehicles
             "left_num_2",
             "right_num_1",
             "right_num_2",
-            "Fuel_Probe"
+            "Fuel_Probe",
+            "Mlass",
+			"emmisive_goarnd",
+			"emmisive_hvr",
+			"emmisive_fms",
+			"emmisive_cpld",
+			"emmisive_vs"
         };
         hiddenSelectionsTextures[] = {
             "",
@@ -116,12 +162,13 @@ class CfgVehicles
             "z\vtx\addons\UH60\Data\Exterior\Hull Main_co.paa",
             "z\vtx\addons\UH60\Data\Exterior\Misc_co.paa",
             "z\vtx\addons\UH60\Data\Exterior\Hull Tail_co.paa",
-            "z\vtx\addons\UH60\Data\Exterior\Markings\Markings_ca.paa",
+            "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa",
             "", // "left_num_1",
             "", // "left_num_2",
             "", // "right_num_1",
             "", // "right_num_2",
-            "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
+            "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa",
+            "z\vtx\addons\UH60\Data\Exterior\Hull Main_co.paa"
         };
         hiddenSelectionsMaterials[] = {
             "",
@@ -143,7 +190,7 @@ class CfgVehicles
             "z\vtx\addons\UH60\data\exterior\hull main.rvmat",
             "z\vtx\addons\UH60\data\exterior\misc.rvmat",
             "z\vtx\addons\UH60\data\exterior\hull tail.rvmat",
-            ""
+            "z\vtx\addons\UH60\data\exterior\hull tail.rvmat"
         };
         A3TI_ThermalSelections[] = {16, 17, 18};
         accuracy = 0.5;
@@ -155,6 +202,9 @@ class CfgVehicles
         icon = "z\vtx\addons\UH60\Data\UI\Map_vtx_UH60_CA.paa";	/// icon in map/editor
         picture = "z\vtx\addons\UH60\Data\UI\vtx_UH60_CA.paa";	/// small picture in command menu
 
+        hideProxyInCombat = 1;
+        viewDriverInExternal = 1;
+        canHideDriver = 0;
         driverInAction = UH60_Pilot;
         driverAction = UH60_Pilot;
         driverRightHandAnimName="Cyclic_right";
@@ -162,7 +212,7 @@ class CfgVehicles
     	driverLeftLegAnimName="Pedal_Left_P";
     	driverRightLegAnimName="Pedal_Right_P";
         precisegetinout = 0;
-        transportSoldier = 11;
+        transportSoldier = 10;
 
         crew = vtx_uh60_pilot;
         typicalCargo[]={vtx_uh60_doorgunner,vtx_uh60_doorgunner,vtx_uh60_doorgunner};
@@ -177,11 +227,36 @@ class CfgVehicles
 
 		memoryPointsGetInGunner[] = {"pos Cargo L","pos Cargo R"};
 		memoryPointsGetInGunnerDir[] = {"pos Cargo L dir","pos Cargo R dir"};
-		memoryPointsGetInCargo[] = {"pos Cargo L","pos Cargo R"};
-		memoryPointsGetInCargoDir[] = {"pos Cargo L dir","pos Cargo R dir"};
+		memoryPointsGetInCargo[] = {
+      "pos Cargo L5",
+      "pos Cargo L5",
+      "pos Cargo R5",
+      "pos Cargo R5",
+      "pos Cargo R3",
+      "pos Cargo R3",
+      "pos Cargo L3",
+      "pos Cargo L3",
+      "pos Cargo L",
+      "pos Cargo R",
+      "pos Cargo R"
+    };
+		memoryPointsGetInCargoDir[] = {
+      "pos Cargo L5 dir",
+      "pos Cargo L5 dir",
+      "pos Cargo R5 dir",
+      "pos Cargo R5 dir",
+      "pos Cargo R3 dir",
+      "pos Cargo R3 dir",
+      "pos Cargo L3 dir",
+      "pos Cargo L3 dir",
+      "pos Cargo L dir",
+      "pos Cargo R dir",
+      "pos Cargo R dir"
+    };
         hideWeaponsCargo = 1;
         cargoCanEject = 1;
         driverCanEject = 0;
+        selectionFireAnim = "";
         selectionHRotorStill	="rotorBlades";
 		selectionHRotorMove		="rotorBlurred";
         selectionVRotorStill	="VrotorBlades";
@@ -189,7 +264,6 @@ class CfgVehicles
         mainRotorSpeed = 1.0;
 	    backRotorSpeed = 1.5;
 
-        #include "MFD\MFDConfig.hpp"
         class MarkerLights{
             class CollisionRedTailLower{
                 activeLight = 0;
@@ -272,8 +346,6 @@ class CfgVehicles
 
         weapons[]={CMFlareLauncher};
         magazines[]={60Rnd_CMFlareMagazine};
-        lockDetectionSystem = CM_Lock_Radar + CM_Lock_Laser;
-        incommingMisslieDetectionSystem = CM_none; // or CM_Missile;
 
         class Damage
         {
@@ -308,7 +380,7 @@ class CfgVehicles
         class Turrets: Turrets
         {
             #include "turrets\copilot.hpp"
-            #include "turrets\doorguns.hpp"
+            #include "turrets\doorgunsTurnOut.hpp"
         };
         class Exhausts
         {
@@ -328,7 +400,8 @@ class CfgVehicles
         #include "cfgAnimationSources.hpp"
         gearRetracting		= 0;
         gearMinAlt			= 999999;
-        turnCoef			= 1.6;
+
+        turnCoef			= 4; // Rolling Friction, higher stops more quickly
         terrainCoef 		= 1;
         damperSize 			= 1;
         damperForce 		= 10;
@@ -361,15 +434,15 @@ class CfgVehicles
                 dampingRateDestroyed		= 1000.0;
                 suspTravelDirection[]		= {0, -1, 0};
 
-                maxBrakeTorque				= 2500;
-                maxHandBrakeTorque			= 4000;
+                maxBrakeTorque				= 8000;
+                maxHandBrakeTorque			= 8000;
 
-                maxCompression				= 0.2;
-                maxDroop					= 0.05;
+                maxCompression				= 0.3;
+                maxDroop					= 0.1337;
 
-                sprungMass					= 6000;
-                springStrength				= 90000;
-                springDamperRate			= 4000;
+                sprungMass					= 3000;
+                springStrength				= 200000;
+                springDamperRate			= 50000;
 
                 longitudinalStiffnessPerUnitGravity	= 10000;
                 latStiffX					= 2.5;
@@ -388,7 +461,6 @@ class CfgVehicles
                 tireForceAppPointOffset		= "wheel_1_2_center";
                 center						= "wheel_1_2_center";
                 boundary					= "wheel_1_2_rim";
-                sprungMass					= 8500;
             };
             class Wheel_3: Wheel_2
             {
@@ -403,76 +475,77 @@ class CfgVehicles
                 width						= 0.12;
                 maxCompression				= 0.2;
                 maxDroop					= 0.05;
-                maxBrakeTorque				= 1000;
+                maxBrakeTorque				= 8000;
                 suspTravelDirection[]		= {0, -1.0, 0.0};
 
-                sprungMass					= 500;
-                springStrength				= 2000;
-                springDamperRate			= 2000;
+                sprungMass					= 200;
+                springStrength				= 5000;
+                springDamperRate			= 1000;
             };
-        };
+        }; // Wheels
+    }; // vtx_H60_base
 
-    };
-    class vtx_UH60M : vtx_H60_base
-    {
+    class vtx_UH60M : vtx_H60_base {
         scope = 2;
         editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_UH60M.jpg";
-    };
-    class vtx_UH60M_Probe : vtx_UH60M
-    {
-        scope = 1;
-        displayName = "$STR_VTX_UH60_UHMBlackhawkProbe";
-        class AnimationSources: AnimationSources
-        {
-            class Fuelprobe_Show {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
+        hiddenSelectionsTextures[] = {
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "z\vtx\addons\UH60\Data\Exterior\Hull Main_co.paa",
+            "z\vtx\addons\UH60\Data\Exterior\Misc_co.paa",
+            "z\vtx\addons\UH60\Data\Exterior\Hull Tail_co.paa",
+            "z\vtx\addons\UH60\Data\Exterior\Markings\Markings_ca.paa",
+            "", // "left_num_1",
+            "", // "left_num_2",
+            "", // "right_num_1",
+            "", // "right_num_2",
+            "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
         };
     };
-    class vtx_HH60 : vtx_UH60M
-    {
+
+    class vtx_HH60 : vtx_H60_base {
         scope = 2;
         editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_HH60.jpg";
         displayName = "$STR_VTX_UH60_HHGMPavehawk";
         memoryPointDriverOptics = "pilotcamera_flir_pos";
 
         hiddenSelectionsTextures[] = {
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "z\vtx\addons\UH60\Data\JLorion_HH60\Hull Main_co.paa",
-                "z\vtx\addons\UH60\Data\JLorion_HH60\Misc_co.paa",
-                "z\vtx\addons\UH60\Data\JLorion_HH60\Hull Tail_co.paa",
-                "", // "markings",
-                "", // "left_num_1",
-                "", // "left_num_2",
-                "", // "right_num_1",
-                "", // "right_num_2",
-                "z\vtx\addons\UH60\Data\JLorion_HH60\Fuel_probe_co.paa"
+          "","","","","","","","","","","","","","","","",
+          "z\vtx\addons\UH60\Data\HH60\Hull_Main_co.paa",
+          "z\vtx\addons\UH60\Data\HH60\Misc_co.paa",
+          "z\vtx\addons\UH60\Data\HH60\Hull_Tail_co.paa",
+          "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa", // "markings",
+          "", // "left_num_1",
+          "", // "left_num_2",
+          "", // "right_num_1",
+          "", // "right_num_2",
+          "z\vtx\addons\UH60\Data\HH60\Fuel_probe_co.paa"
         };
+        memoryPointCM[] = {"flare_launcher1","flare_launcher2","flare_launcher_3","flare_launcher_4"};
+        memoryPointCMDir[] = {"flare_launcher1_dir","flare_launcher2_dir","flare_launcher_3_dir","flare_launcher_4_dir"};
         class pilotCamera: vtx_templateFLIR {};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         class Turrets: Turrets
         {
-            #include "turrets\copilot.hpp"
-            #include "turrets\doorguns.hpp"
+            class CopilotTurret: CopilotTurret {};
+            class MainTurret: MainTurret {};
+            class RightDoorGun: RightDoorGun {};
             #include "turrets\cargoTurrets.hpp"
         };
 
@@ -481,38 +554,17 @@ class CfgVehicles
         cargoAction[] = {};
         class AnimationSources: AnimationSources
         {
-            class Fuelprobe_Show {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class CabinSeats_Hide {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class HH60Flares_Show {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class MAWS_Tubes_Show {
-                source="user";
-                animPeriod=1;
-                initPhase=1;
-            };
-            class ERFS_Show: MAWS_Tubes_Show {
-                initPhase=1;
-            };
-            class FLIR_HIDE: MAWS_Tubes_Show {
-                initPhase=0;
-            };
-            class FLIR_BACK: MAWS_Tubes_Show {
-                initPhase=1;
-            };
+            ANIM_INIT(FuelProbe_show,1);
+            ANIM_INIT(CabinSeats_Hide,1);
+            ANIM_INIT(HH60Flares_show,1);
+            ANIM_INIT(HH60GRadar_show,1);
+            ANIM_INIT(HH60GFlir_show,1);
+            ANIM_INIT(MAWS_Tubes_Show,1);
+            ANIM_INIT(ERFS_show,1);
         };
         #include "vehicleTransport.hpp"
-    };
+    }; // vtx_HH60
+
     class vtx_UH60M_SLICK : vtx_H60_base {
       scope = 2;
       displayName = "UH-60M Slick";
@@ -522,20 +574,18 @@ class CfgVehicles
       typicalCargo[] = {"vtx_uh60_doorgunner"};
 
       class AnimationSources: AnimationSources {
-        //#define ANIMSRC(name,src,per,init)
-        ANIMSRC(CabinSeats_Hide,user,1,1);
-        ANIMSRC(GunnerSeats_Hide,user,1,1);
-        ANIMSRC(Minigun_Mount_L_hide,user,1,1);
-        ANIMSRC(Minigun_Mount_R_hide,user,1,1);
-        ANIMSRC(Minigun_L_hide,user,1,1);
-        ANIMSRC(Minigun_R_hide,user,1,1);
+        ANIM_INIT(CabinSeats_Hide,1);
+        ANIM_INIT(Hoist_hide,1);
       };
       class Turrets: Turrets {
         class CopilotTurret: CopilotTurret {};
+        class MainTurret: MainTurret {};
+        class RightDoorGun: RightDoorGun {};
         #include "turrets\cargoTurretsDoor.hpp"
       };
-      #include "vehicleTransportSlick.hpp"
-    };
+      //#include "vehicleTransportSlick.hpp" // model missing mempoints
+      #include "vehicleTransport.hpp"
+    }; // vtx_UH60M_SLICK
 };
 
 class cfgNonAIVehicles{

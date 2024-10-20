@@ -27,20 +27,6 @@ class reply_wrapper {
 };
 TEXT_LEFT_MID_USERTEXT(JVMF_REPLY,JVMF_LEFT_ALIGN + JVMF_LEFT_PADDING,JVMF_TOP_MARGIN + (JVMF_LINE_HEIGHT * 11),41)
 
-TEXT_LEFT_MID_USERTEXT(JVMF_MESSAGE_INBOX,0.35,JVMF_TOP_MARGIN + (JVMF_LINE_HEIGHT * 12.5),42)
-
-#define JVMF_BORDER_MARGIN 0.02
-#define JVMF_BOTTOM_MARGIN 0.14
-#define JVMF_LINE(CLASS,X1,Y1,X2,Y2) \
-    class CLASS { \
-        type="line"; \
-        width = 3; \
-        points[] = { \
-            {{X1, Y1}, 1}, \
-            {{X2, Y2}, 1} \
-        }; \
-    };
-
 class jvmf_border {
     color[] = common_blue;
     class title_box {

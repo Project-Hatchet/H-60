@@ -10,15 +10,30 @@ params ["_vehicle", "_action", "_value"];
 
 switch (_action) do {
     case "zoom": {
-        private _curZoom = _vehicle getVariable ["MAP_Zoom", 0];
-        private _zoomStages = [0, 0.2, 0.4, 0.6, 0.8, 1];
-        private _scales = [1, 1.2, 1.5, 1.95, 2.8, 5];
-        private _curIndex = _zoomStages find _curZoom;
-        private _newIndex = _curIndex + _value;
-        if (_newIndex < 0) exitWith {};
-        if (_newIndex >= count _zoomStages) exitWith {};
-        _vehicle setVariable ["MAP_Zoom", _zoomStages # _newIndex, true];
-        _vehicle setVariable ["MAP_ZoomMult", _scales # _newIndex, true];
-        _vehicle animateSource ["MAP1_Scale", _zoomStages # _newIndex, 1];
+        private _curZoom = _vehicle getVariable ["MAP_Zoom", 1];
+        private _newZoom = (_curZoom + _value) max 1 min 30;
+        _vehicle setVariable ["MAP_Zoom", _newZoom, true];
+        _vehicle setVariable ["MAP_ZoomMult", _newZoom, true];
+        _vehicle animateSource ["MAP1_Scale", 1/_newZoom, 1];
+        _vehicle setUserMFDValue [40, worldSize / _newZoom / 2];
+        [_vehicle, 6, _newZoom] call vtx_uh60_mfd_fnc_setPylonValue;
+    };
+    case "waypt": {
+        private _cursorPos = [] call vtx_uh60_mfd_fnc_tac_cursorToWorld;
+        [
+            format ["%1/%2", name player, vtx_uh60_mfd_marks],
+            _cursorPos,
+            ""
+        ] call vtx_uh60_fms_fnc_addWaypoint;
+        vtx_uh60_mfd_marks = vtx_uh60_mfd_marks + 1;
+    };
+    case "flir": {
+        private _cursorPos = [] call vtx_uh60_mfd_fnc_tac_cursorToWorld;
+        _vehicle setPilotCameraTarget _cursorPos;
+		// [true, _cursorPos] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", crew _vehicle];
+        [getPilotCameraDirection _vehicle, _cursorPos] call vtx_uh60_flir_fnc_syncPilotCamera;
+    };
+    case "centerMode": {
+        [_vehicle,4] call vtx_uh60_mfd_fnc_cyclePylonValue;
     };
 };

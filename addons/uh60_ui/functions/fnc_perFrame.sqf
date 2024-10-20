@@ -6,10 +6,15 @@
  * params (array)[(object) vehicle, (SCALAR) frameTime]
  */
 
-if !(vtx_uh60_ui_isViewInternal) exitWith {};
 params ["_vehicle", "_frameTime"];
 
 #include "uiDefines.hpp"
+
+if !(vtx_uh60_ui_isViewInternal) exitWith {
+    CTRL(4001123) ctrlSetText "";
+    CTRL(4001123) ctrlCommit 0;
+};
+
 #define HELP_LABEL(MEMPOINT,LABEL) drawIcon3D ["\a3\ui_f\data\IGUI\Cfg\Cursors\selected_ca.paa",[0,1,0,1],_vehicle modelToWorldVisual (_vehicle selectionPosition MEMPOINT),1,1,0,LABEL,2,0.045,"RobotoCondensed","center",true];
 #define HELP_LABEL_COND(MEMPOINT,LABEL,COND) drawIcon3D ["\a3\ui_f\data\IGUI\Cfg\Cursors\selected_ca.paa",(if(COND)then{[0,1,0,1]}else{[1,0,0,1]}),_vehicle modelToWorldVisual (_vehicle selectionPosition MEMPOINT),1,1,0,LABEL,2,0.045,"RobotoCondensed","center",true];
 
@@ -58,3 +63,16 @@ CTRL(4001120) ctrlSetPosition [
     (vxf_interaction_cursorPos # 1) - 0.02
 ];
 CTRL(4001120) ctrlCommit 0;
+
+if !(getUserMFDValue _vehicle # 15 > -1) exitWith {
+    CTRL(4001123) ctrlSetText "";
+    CTRL(4001123) ctrlCommit 0;
+};
+if !(player == driver _vehicle || player == _vehicle turretUnit [0]) exitWith {};
+
+if (currentVisionMode player == 0 && !(vtx_uh60_flir_isInScriptedCamera || cameraView == "GUNNER")) then {
+    CTRL(4001123) ctrlSetText "\z\vtx\addons\uh60_ui\data\hudOverlay.paa";
+} else {
+    CTRL(4001123) ctrlSetText "";
+};
+CTRL(4001123) ctrlCommit 0;

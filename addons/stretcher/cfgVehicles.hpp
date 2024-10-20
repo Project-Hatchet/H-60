@@ -46,7 +46,7 @@ class CfgVehicles {
     ace_cargo_hasCargo = 0;
     ace_cookoff_probability = 0;
     armor = 1000000;
-    author = "Ampersand";
+    author = "Project Hatchet Studio";
     cargoGetInAction[] = {"GetInLow"};
     cargoGetOutAction[] = {"GetOutLow"};
     cargoAction[] = {"passenger_injured_medevac_truck01"}; //"passenger_injured_medevac_truck01","passenger_injured_medevac_truck02","passenger_injured_medevac_truck03"

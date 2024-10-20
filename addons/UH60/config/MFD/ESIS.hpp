@@ -1,4 +1,4 @@
-class ESIS_Horizon
+class VTX_ESIS_Horizon
 {
     topLeft="ESIS_LH";
     topRight="ESIS_RH";
@@ -19,7 +19,8 @@ class ESIS_Horizon
     {
         PITCH_BONES(0.5,0.6,0.3,0.4)
     };
-    class Draw {
+    class Draw { 
+        condition = "user49 < 0.1";
         class clip1{
             clipTL[] = {0.25, 0.02};
             clipBR[] = {0.75, 0.55};
@@ -44,7 +45,7 @@ class ESIS_Horizon
 
 
 
-class ESIS_Misc
+class VTX_ESIS_Misc
 {
     topLeft="ESIS_LH";
     topRight="ESIS_RH";
@@ -82,12 +83,13 @@ class ESIS_Misc
             center[]={0.5,0.5};
             min=-1.0472;
             max=1.0472;
-            minAngle=50;
-            maxAngle=-50;
+            minAngle=-50;
+            maxAngle=50;
             aspectRatio=1;
         };
     };//bones
-    class Draw {
+    class Draw { 
+        condition = "user49 < 0.1";
         class BlackBars{
             color[]    = {0.1, 0.1, 0.1, 1};
             class PolygonLeft {

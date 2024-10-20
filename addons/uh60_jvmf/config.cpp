@@ -1,7 +1,9 @@
 #include "script_component.hpp"
 
-class CfgPatches {
-    class ADDON {
+class CfgPatches
+{
+    class ADDON
+    {
         name = COMPONENT_NAME;
         units[] = {};
         weapons[] = {};
@@ -17,3 +19,8 @@ class CfgPatches {
 
 #include "uiConfig\baseClasses.hpp"
 #include "uiConfig\writeDialog.hpp"
+#include "uiConfig\positionDialog.hpp"
+#include "uiConfig\inboxDialog.hpp"
+
+#include "config\cfgVehicles.hpp"
+#include "config\cfgWeapons.hpp"

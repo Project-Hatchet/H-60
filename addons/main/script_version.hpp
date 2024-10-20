@@ -1,4 +1,7 @@
 #define MAJOR 0
-#define MINOR 3
+#define MINOR 7
 #define PATCHLVL 0
-#define BUILD 0
+#define BUILD 1
+#define RELEASENAME HATCHET-SOUND-OCT24
+#define BRANCH MAIN
+#define BUILDHASH ea0e3438

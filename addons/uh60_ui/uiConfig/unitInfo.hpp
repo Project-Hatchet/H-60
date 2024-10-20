@@ -6,14 +6,15 @@ class RscInGameUI
     {
         onLoad="[(vehicle player), ""ui"", _this # 0] call vxf_core_fnc_start;";
         controls[] = {
-            "CA_BackgroundVehicle",
-            "CA_BackgroundVehicleTitle",
-            "CA_Vehicle",
+            //"CA_BackgroundVehicle",
+            //"CA_BackgroundVehicleTitle",
+            //"CA_Vehicle",
             "CA_VehicleRole",
             "HelpText",
             "Interaction",
             "HelpOverlay",
-            "HelpOverlayGunner"
+            "HelpOverlayGunner",
+            "HMDOverlay"
         };
 		class HelpText: RscIGText
 		{
@@ -32,6 +33,16 @@ class RscInGameUI
 			w = 0.04;
             h = 0.04;
 			text = "\A3\ui_f\data\igui\cfg\cursors\iconComplex_ca.paa";
+        };
+        class HMDOverlay: RscPicture
+        {
+			idc = 4001123;
+			x = safezoneX + safezoneW / 2 - (safezoneH*0.75) / 2;
+			y = safezoneY + safezoneH / 2 - safezoneH / 2;
+			w = (safezoneH*0.75);
+            h = safezoneH;
+			text = "";
+            colorText[] = {1,1,1,0.7};
         };
         class HelpOverlay: RscControlsGroup {
 			idc = 4001121;
@@ -76,7 +87,7 @@ class RscInGameUI
                     h = 0.08;
                     size = 0.15;
                     colorText[] = {1,0,0,1};
-        			text = "Please enable Advanced Flight Model(AFM) for full functionality";
+        			text = "";
         		};
         		class RTDSimple2: RTDWarning
         		{

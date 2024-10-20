@@ -2,24 +2,33 @@ borderBottom = 0;
 borderLeft = 0;
 borderRight = 0;
 borderTop = 0;
-color[] = {0.082,0.608,0.039,1};
+//color[] = {0.082,0.608,0.039,1};
 enableParallax = 0;
-helmetDown[] = {0,-0.065,0};
+#ifdef HMD_SIZE
+	#undef HMD_SIZE
+	#undef POS10X
+	#undef POS10Y
+	#undef HSI_HVR_10KTS
+#endif
+#define HMD_SIZE 0.06
+helmetDown[] = {0,-HMD_SIZE,0};
 helmetMountedDisplay = 1;
-helmetPosition[] = {-0.0325,0.0325,0.1};
-helmetRight[] = {0.065,0,0};
+helmetPosition[] = {-(HMD_SIZE/2),(HMD_SIZE/2),0.1};
+helmetRight[] = {HMD_SIZE,0,0};
 topLeft = ""; // not used because HMD, but still needed
 topRight = ""; // not used because HMD, but still needed
 bottomLeft = ""; // not used because HMD, but still needed
 font="RobotoCondensedLight";
+/*
 class material {
 	ambient[] = {1, 1, 1, 1};
 	diffuse[] = {0.5, 0.5, 0.5, 1};
 	emissive[] = {100, 100, 100, 50};
 };
+*/
 class Bones {
-	#define POS10X 0.765
-	#define POS10Y 0.76
+	#define POS10X 0.80
+	#define POS10Y 0.80
 	class WPPoint
 	{
 		type = "vector";
@@ -55,7 +64,7 @@ class Bones {
 	{
 		type = "vector";
 		source = "forward";
-		pos0[] = {0, 0};
+		pos0[] = {0.5, 0.5};
 		pos10[] = {POS10X, POS10Y};
 	}; // ForwardVector
 	class Airport1
@@ -106,15 +115,15 @@ class Bones {
 		sourceScale=1.9685;
 		min=-20.32;
 		max=20.32;
-		minPos[]={0.9,0.2};
-		maxPos[]={0.9,0.4};
+		minPos[]={0.85,0.55};
+		maxPos[]={0.85,0.75};
 	};
 	class AltitudeEdge
 	{
 		type="linear";
 	    source="altitudeAGL";
 		min=0;
-		max=305;
+		max=50;
 		sourceScale=1;
 		minPos[]={0.95,0.5};
 		maxPos[]={0.95,0.8};
@@ -125,8 +134,8 @@ class Bones {
 	    source="user";
 		sourceIndex=12;
 		min=0;
-		max=1000;
-		sourceScale=1;
+		max=50;
+		sourceScale=1/3.28;
 		minPos[]={0.95,0.5};
 		maxPos[]={0.95,0.8};
 	};
@@ -182,7 +191,7 @@ class Bones {
 		max=0.15;
 		min=-0.15;
 		minPos[]={"0.5+0.1","0.9-0.04-0.02"};
-		maxPos[]={"0.5-0.1","0.9-0.04-0.02"};						
+		maxPos[]={"0.5-0.1","0.9-0.04-0.02"};
 	};
 	class DVE_WP_VEH_DIR {
 		type="rotational";
@@ -234,7 +243,7 @@ class Bones {
 	}; // WPPoint
 }; // Bones
 class Draw {
-	condition="(user15>-1)*on";
+	condition="(user15>-1) * (user15<5)";
 	class Outline {
 		type="line";
 		width = 0;

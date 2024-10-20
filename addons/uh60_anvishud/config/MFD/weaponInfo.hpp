@@ -3,7 +3,12 @@ TEXT_HMD_L(WEAPON_NAME,0.015,0.81+(SMALL_LINEHEIGHT*2))
     source = "weapon";
     sourceScale = 1;
     text = "";
-}; // MARGIN_L
+};
+
+TEXT_HMD_L(WEAPON_MODE,0.015,0.81+(SMALL_LINEHEIGHT*3))
+    source="ammo";
+    sourceScale=1;
+};// MARGIN_L
 // class weapons_selected {
 //     condition = "mgun+rocket+bomb+missile";
 //     class STA1_SEL {

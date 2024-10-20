@@ -1,32 +1,45 @@
 class torqueWrapper {
 	condition = "1";
-	color[] = {0.082,0.608,0.039,1};
+	//color[] = {0.082,0.608,0.039,1};
 	#define COLLECTIVE_X 0.95
 	#define COLLECTIVE_OFFSET 0.05
+	class TORQUE {
+			TEXT_HMD_L(TORQUE1_LBL,0.015,0.81-SMALL_LINEHEIGHT)
+				source = "static";
+				sourceIndex = 1;
+				sourceScale = 1;
+				text = "Q1";
+			}; // TORQUE_LBL
+			TEXT_HMD_L(TORQUE1_VAL,0.065,0.81-SMALL_LINEHEIGHT)
+				source = "user";
+				sourceIndex = 22;
+				sourceScale = 1;
+				text = "";
+			}; // TORQUE_VAL
+			TEXT_HMD_L(TORQUE2_LBL,0.015,0.81)
+				source = "static";
+				sourceIndex = 1;
+				sourceScale = 1;
+				text = "Q2";
+			}; // TORQUE_LBL
+			TEXT_HMD_L(TORQUE2_VAL,0.065,0.81)
+				source = "user";
+				sourceIndex = 48;
+				sourceScale = 1;
+				text = "";
+			}; // TORQUE_VAL
+	};
 	class DCLT_HIDE {
 		condition=COND_FULL_ONLY;
 		class IS_RTD {
 			condition="simulRTD";
-			TEXT_HMD_L(TORQUE_LBL,0.015,0.81)
-				source = "static";
-				sourceIndex = 1;
-				sourceScale = 1;
-				text = "Q";
-			}; // TORQUE_LBL
-			TEXT_HMD_L(TORQUE_VAL,0.065,0.81)
-				source = "rtdRotorTorque";
-				sourceIndex = 1;
-				sourceScale = 2270;
-				text = "";
-			}; // TORQUE_VAL
-
-			TEXT_HMD_L(C_LBL,0.015,0.81+SMALL_LINEHEIGHT)
+			TEXT_HMD_L(C_LBL,0.015,0.81+(SMALL_LINEHEIGHT*1))
 				source = "static";
 				sourceIndex = 1;
 				sourceScale = 1;
 				text = "C";
 			}; // TORQUE_LBL
-			TEXT_HMD_L(C_VAL,0.065,0.81+SMALL_LINEHEIGHT)
+			TEXT_HMD_L(C_VAL,0.065,0.81+(SMALL_LINEHEIGHT*1))
 				source = "rtdCollective";
 				sourceIndex = 1;
 				sourceScale = 100;
@@ -35,7 +48,7 @@ class torqueWrapper {
 		};
 		class ACOL_ON {
 			condition="collisionlights";
-			TEXT_HMD_L(TEXT,0.015,0.81-SMALL_LINEHEIGHT)
+			TEXT_HMD_L(TEXT,0.015,0.81-SMALL_LINEHEIGHT*2)
 				source = "static";
 				sourceIndex = 1;
 				sourceScale = 1;
@@ -44,7 +57,7 @@ class torqueWrapper {
 		};
 		class LIGHTS_ON {
 			condition="lights";
-			TEXT_HMD_L(TEXT,0.015,0.81-(SMALL_LINEHEIGHT*2))
+			TEXT_HMD_L(TEXT,0.015,0.81-(SMALL_LINEHEIGHT*3))
 				source = "static";
 				sourceIndex = 1;
 				sourceScale = 1;
@@ -54,7 +67,7 @@ class torqueWrapper {
 		class AUTOHOVER_ON {
 			condition="autohover";
 			blinkingPattern[] = {0.5,0.5};
-			TEXT_HMD_L(TEXT,0.015,0.81-(SMALL_LINEHEIGHT*3))
+			TEXT_HMD_L(TEXT,0.015,0.81-(SMALL_LINEHEIGHT*4))
 				source = "static";
 				sourceIndex = 1;
 				sourceScale = 1;
@@ -64,7 +77,7 @@ class torqueWrapper {
 	};
 
 
-	
+
 	class VSI_POLY
 	{
 		type="polygon";
@@ -77,19 +90,21 @@ class torqueWrapper {
 			}
 		};
 	};
-	class VSI_Bracket
-	{
-		type="line";
-		width=4;
-		points[]=
-		{
-			{{0.9 ,0.2},1},
-			{{0.92,0.2},1},
-			{{0.92,0.4},1},
-			{{0.9 ,0.4},1},{},
-			{{0.9 ,0.3},1},{{0.92 ,0.3},1}
-		};
-	};
+  class VSI_Bracket
+  {
+    type="line";
+    width=4;
+    points[]=
+    {
+      {{0.85,0.55},1},
+      {{0.87,0.55},1},
+      {{0.87,0.75},1},
+      {{0.85,0.75},1},
+      {},
+      {{0.85,0.65},1},
+      {{0.87,0.65},1}
+    };
+  };
 
 	class METRIC {
 		condition = COND_METRIC;
@@ -105,7 +120,7 @@ class torqueWrapper {
 			sourceScale = 1;
 			text = "KMH";
 		}; // TORQUE_LBL
-		
+
 		TEXT_HMD_R(MSL_ALT_VAL,0.94,0.41)
 			source = "altitudeASL";
 			sourceIndex = 1;
@@ -133,7 +148,7 @@ class torqueWrapper {
 			sourceScale = 1;
 			text = "KTS";
 		}; // TORQUE_LBL
-		
+
 		TEXT_HMD_R(MSL_ALT_VAL,0.94,0.41)
 			source = "altitudeASL";
 			sourceIndex = 1;

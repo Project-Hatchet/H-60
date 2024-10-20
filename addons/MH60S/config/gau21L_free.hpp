@@ -19,6 +19,11 @@ class GAU21_Left: MainTurret
     gunAxis="axis_gau21_elev_L";
     gunnerName="Left GAU21 Gunner";
     commanding=-3;
+    canHideGunner = 0;
+    gunnerOutOpticsModel = "\A3\Weapons_F\empty.p3d";
+    memoryPointGunnerOutOptics = "gunnerview_3";
+    LODTurnedIn = 1;
+    LODTurnedOut = 1;
     gunnerAction=GAU21Gunner;
     gunnerInAction=GAU21Gunner;
     minElev=-80; maxElev=25; initElev=-50 ;
@@ -32,6 +37,7 @@ class GAU21_Left: MainTurret
           {-69.9961,155.202}
         };
     };
+    class TurnOut: TurnIn {};
     gunBeg="GAU21L_End"; //gunBeg=endpoint of the gun
     gunEnd="GAU21L_Beg"; //gunEnd=chamber of the gun
     gunnerLeftHandAnimName="GAU21_ELEV_L";

@@ -1,0 +1,52 @@
+
+name: CI/Validate
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - Main
+  pull_request:
+
+jobs:
+  # validate:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: Checkout the source code
+  #     uses: actions/checkout@v2
+  #   - name: Validate SQF
+  #     run: python3 tools/sqf_validator.py
+  #   - name: Validate Config
+  #     run: python3 tools/config_style_checker.py
+  #   - name: Validate Stringtables
+  #     run: python3 tools/stringtable_validator.py
+  #   - name: Validate Return Types
+  #     run: python3 tools/return_checker.py
+  #   - name: Check for BOM
+  #     uses: arma-actions/bom-check@master
+  build:
+    runs-on: windows-2022
+    steps:
+      - name: Checkout the source code
+        uses: actions/checkout@v4.2.0
+        with:
+          fetch-depth: 1
+      - name: Set up A3Tools
+        uses: arma-actions/arma3-tools@master
+        with:
+          toolsUrl: ${{ secrets.A3TOOLS_S3_URL }}
+      - name: Set up scons
+        run: python -m pip install scons
+      - name: Build with Scons
+        run: scons
+      - name: Archive Release
+        uses: thedoctor0/zip-release@0.7.1
+        with:
+          type: 'zip'
+          path: 'release'
+          filename: 'hatchet_h60.zip'
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4.4.0
+        with:
+          name: hatchet-${{ github.sha }}-nobin
+          path: hatchet_h60.zip

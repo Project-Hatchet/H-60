@@ -1,9 +1,9 @@
 ambient[]={1,1,1,1};
 diffuse[]={1,1,1,1};
 forcedDiffuse[]={0,0,0,0};
-emmisive[]={8.4646047e-007,8.4646047e-007,8.4646047e-007,0};
-specular[]={0.47799945,0.47799945,0.47799939,1};
-specularPower=20;
+emmisive[] = {0,0,0,1};
+specular[] = {0.25,0.25,0.25,0.25};
+specularPower=12;
 PixelShaderID="Super";
 VertexShaderID="Super";
 class Stage1

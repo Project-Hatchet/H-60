@@ -13,7 +13,16 @@ if (!vtx_uh60m_enabled_cas) exitWith {false};
 SET_GLOBAL_DEFAULT("vtx_cas_list",[])
 SET_DEFAULT("vtx_cas_queue", 0)
 
+vtx_uh60_cas_hitEH = _vehicle addEventHandler ["hit", vtx_uh60_cas_fnc_updateCautions];
+vtx_uh60_cas_cautionsLog = [];
+vtx_uh60_cas_cautionsUnacked = 0;
+vtx_uh60_cas_firstAdvisory = 0;
+
 [_vehicle] call vtx_uh60_cas_fnc_updateCautionsList;
 SET_DEFAULT("vtx_cas_rotorIgnored", false);
+
+for [{ _i = 3 }, { _i < 40 }, { _i = _i + 1 }] do {
+  [_vehicle, _i, 0] call vtx_uh60_mfd_fnc_setPylonValue;
+};
 
 true

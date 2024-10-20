@@ -15,7 +15,8 @@
 
 params ["_hook", "_unit"];
 
-isNull (_unit getVariable ["vtx_attachedHook", objNull])
+vtx_uh60_hoist_setting_useAttachScript
+&& {isNull (_unit getVariable ["vtx_attachedHook", objNull])}
 && {isNull (_hook getVariable ["vtx_attachedUnit", objNull])}
 && {vehicle _unit == _unit}
 && {_hook emptyPositions "cargo" > 0}

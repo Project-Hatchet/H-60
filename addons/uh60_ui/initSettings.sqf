@@ -7,7 +7,7 @@
     "UH-60M",
     [false],
     nil,
-    {}
+    {if !vtx_uh60m_trackIR_interaction_cursor then {vxf_interaction_cursorPos = [0.5,0.5];};}
 ] call CBA_Settings_fnc_init;
 
 [
@@ -16,6 +16,16 @@
     [LSTRING(DetachedCursorSensitivity), LSTRING(Cursor_Description)],
     "UH-60M",
     [1,10,2.5,1],
+    nil,
+    {}
+] call CBA_Settings_fnc_init;
+
+[
+    "vtx_uh60_ui_showDebugMessages",
+    "CHECKBOX",
+    [LSTRING(Enable_debugMessages), LSTRING(Enable_debugMessages)],
+    ["UH-60M","Debug"],
+    [false],
     nil,
     {}
 ] call CBA_Settings_fnc_init;

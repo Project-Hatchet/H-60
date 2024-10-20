@@ -10,4 +10,8 @@ texHeaders.bin
 *.swp
 *.swo
 *.biprivatekey
+build/
 Thumbs.db
+.sconsign.dblite
+*.wav
+*.pkf
