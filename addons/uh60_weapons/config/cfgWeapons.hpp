@@ -1,7 +1,9 @@
 class cfgWeapons {
+  	class MissileLauncher;
     class ace_hellfire_launcher;
     class ace_hellfire_launcher_L;
     class ace_hellfire_launcher_N;
+    class weapon_HARMLauncher;
     class vtx_hellfire_launcher: ace_hellfire_launcher {
       ace_laser_showHud = 0;
       magazines[] = {"VTX_4Rnd_ACE_Hellfire_AGM114K"};
@@ -103,5 +105,20 @@ class cfgWeapons {
     };
     class Far_AI: Far_AI {displayName = "APKWS";};
     class Medium_AI: Medium_AI {displayName = "APKWS";};
+  };
+  class vtx_weapon_HARMLauncher_HL : weapon_HARMLauncher {
+    displayName = "AGM-88HL";
+    displayNameShort = "AGM-88HL";
+    magazines[] = {"VTX_PylonMissile_Missile_HARM_x1_HL"};
+    lockAcquire = 0;
+    weaponLockDelay = 0;
+    soundFly[] = {"\z\vtx\addons\uh60_weapons\Data\Audio\AGM_88_HL_Running.ogg", db-10, 1, 2000};
+    soundLoop[] = {"\z\vtx\addons\uh60_weapons\Data\Audio\AGM_88_HL_Running.ogg", db-10, 1, 2000};
+    soundBegin[] = {"\z\vtx\addons\uh60_weapons\Data\Audio\AGM_88_HL_Launch.ogg", db-10, 1, 2000};
+    class Eventhandlers {
+      class vtx_harm {
+        fired = "_this call vtx_uh60_weapons_fnc_fired";
+      };
+    };
   };
 };

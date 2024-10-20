@@ -50,3 +50,14 @@ class vtx_agm114_explosion
 		lifeTime = 0.5;
 	};
 };
+
+class vtx_uh60_cardboardExplosion {
+	class vtx_uh60_confetti {
+		simulation = "particles";
+		type = "vtx_uh60_confetti";
+		position[] = {0,0.5,0};
+		intensity = 1;
+		interval = 1;
+		lifeTime = 2;
+	};
+};

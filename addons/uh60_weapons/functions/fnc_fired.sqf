@@ -18,3 +18,17 @@ if (_ammo == "VTX_Hellfire_AGM114K" || _ammo == "VTX_Hellfire_AGM114N") then {
 if (player == _gunner && local _gunner) then {
 	[_vehicle] call vtx_uh60_weapons_fnc_updateMFDValues;
 };
+
+//spaggetti code:  Mix of Yax's ITC Air APKs and HARM Guidance by Donov
+if (_ammo == "vtx_ammo_Missile_HARM_HL" && vehicle _gunner == _vehicle) then {
+	_index = 0;	//reset index to enter while loop
+	while {_index < 4} do {
+		if ((getPylonMagazines _vehicle # _index) == "PylonMissile_Missile_HARM_x1_HL") then {
+			if (_vehicle ammoOnPylon (_index + 1) == 0) then { _vehicle setPylonLoadout [(_index + 1), "", true]; /*systemChat "Reset Pylon"*/};
+			//This loop checks for which HARM was fired, and replaces the pylon with nothing.  It removes the missile
+		};
+		_index = _index + 1;  //python be like
+	};
+	[_projectile, _ammo] call vtx_uh60_weapons_fnc_HARMGuidance; 
+
+};

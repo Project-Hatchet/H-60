@@ -1,5 +1,7 @@
 class cfgMagazines {
   class VehicleMagazine;
+  class PylonMissile_Missile_HARM_x1;
+  class PylonRack_Missile_HARM_x1;
   class PylonRack_4Rnd_ACE_Hellfire_AGM114K;
   class PylonRack_4Rnd_ACE_Hellfire_AGM114N;
   class VTX_4Rnd_ACE_Hellfire_AGM114K: PylonRack_4Rnd_ACE_Hellfire_AGM114K { // 4x Launcher Support Rack
@@ -119,5 +121,18 @@ class cfgMagazines {
         #include "rocketMFD.hpp"
       };
     };
+  };
+  class VTX_PylonMissile_Missile_HARM_x1_HL: PylonMissile_Missile_HARM_x1 {
+    hardpoints[] = {"VTX_ST_L","VTX_ST_R","VTX_ST_OUTBOARD","B_HARM_RAIL","I_HARM_RAIL","B_HARM","I_HARM"};
+    ammo = "vtx_ammo_Missile_HARM_HL";
+    count = 1;
+    mass = 10;
+    author = "Yax (at him on discord)";
+    displayName = "1x AGM-88 Hobby Lobby [H60]";
+    displayNameShort = "AGM-88HL";
+    model = QPATHTOF(hl_88.p3d);
+    pylonWeapon = "vtx_weapon_HARMLauncher_HL";
+    descriptionShort="Held together with duct tape and powered by a hobby lobby motor.  Explodes into glitter";
+    description = "Improvised anti radiation munitions, designed by highschoolers.  Held together with duct tape and powered by a hobby lobby motor.  Carries a payload of confetti and glitter.  Guided by a raspberryPI running the 'The Missile knows where it is' meme.  It's really just an advanced way to mark a target.";
   };
 };
