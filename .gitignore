@@ -13,3 +13,5 @@ texHeaders.bin
 build/
 Thumbs.db
 .sconsign.dblite
+*.wav
+*.pkf

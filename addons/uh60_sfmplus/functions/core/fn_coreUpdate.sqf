@@ -82,7 +82,7 @@ private _eng1FF = _heli getVariable "vtx_uh60_sfmplus_engFF" select 0;
 private _eng2FF = _heli getVariable "vtx_uh60_sfmplus_engFF" select 1;
 private _curFuelFlow = 0;
 
-if (_heli getVariable "APU_POWER" == true) then {
+if (_heli getVariable "vtx_uh60_acft_apuState" == "ON") then {
 	_apuFF = 0.0151;	//120pph
 };
 _curFuelFlow    = (_apuFF + _eng1FF + _eng2FF) * _deltaTime;
@@ -167,3 +167,6 @@ hintsilent format ["v0.11
 					_heli getVariable "vtx_uh60_sfmplus_engBaseNG"];         //13
 */
 #endif
+
+//Standby Inst 
+[_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_standbyInst;

@@ -14,7 +14,7 @@
 
 params ["_show"];
 
-systemChat "OPENING SCRIPTED CAMERA";
+if (vtx_uh60_ui_showDebugMessages) then {systemChat "OPENING SCRIPTED CAMERA";};
 
 if (_show) then {
   if (isNil "vtx_uh60_flir_camera") then {

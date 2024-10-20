@@ -74,7 +74,7 @@ switch (_type) do {
 
 if (count _replies > 0) then {
     private _lastReply = _replies # ((count _replies) - 1);
-    [_vehicle, 41, format["%1 %2 %3", _lastReply # 0, _lastReply # 1, _lastReply # 2]] call vtx_uh60_mfd_fnc_setUserText;
+    [_vehicle, 41, [_lastReply # 0, _lastReply # 1, _lastReply # 2] joinString " "] call vtx_uh60_mfd_fnc_setUserText;
 };
 
 private _messageCount = count VTX_JVMF_MESSAGES;

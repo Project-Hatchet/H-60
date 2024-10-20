@@ -8,3 +8,4 @@ PREP(perSecond);
 PREP(addWaypoint);
 PREP(selectWaypoint);
 PREP(hasWaypoint);
+PREP(deleteWaypoint);

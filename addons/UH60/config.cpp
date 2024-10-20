@@ -6,7 +6,9 @@ class CfgPatches {
         units[] = {
       		"vtx_UH60M",
       		"vtx_HH60",
-          "vtx_UH60M_MEDEVAC"
+          "vtx_UH60M_Slick",
+          "vtx_uh60_doorgunner",
+          "vtx_uh60_pilot"
         };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;

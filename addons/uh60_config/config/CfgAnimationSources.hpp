@@ -265,7 +265,7 @@ class AnimationSources: AnimationSources {
     mass = MASS_PROBE;
   };
   class Cockpitdoors_Hide {
-    displayName = "Hide Cockpit doors";
+    displayName = "Hide Cockpit Doors";
     source="user";
     animPeriod=1;
     initPhase=0;

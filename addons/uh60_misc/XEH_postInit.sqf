@@ -19,8 +19,12 @@ private _doorOpenLeft = [
  "Open/Close cabin door",  // * 1: Name of the action shown in the menu <STRING>
  "", // * 2: Icon <STRING>
  {
-   _target animateSource ["cabinDoor_L", (if ((_target animationPhase "cabinDoor_L") > 0) then {0} else {1})];
+   private _anim = _target animationPhase "cabinDoor_L";
+   _target animateSource ["cabinDoor_L", 1 - _anim];
    playSound3D ["z\vtx\addons\H60_SFX\Sounds\Share\Door.wss", _target, false, getPosASLVisual _target, 3];
+
+   // * Set Internal Wind-washing sound
+   [[_target, "CustomSoundController9", (_anim + (1 - (_target animationPhase 'cabindoor_R'))) / 2]] remoteExecCall ["setCustomSoundController", crew _target];
  }, // * 3: Statement <CODE>
  {true}, // * 4: Condition <CODE>
  nil, // * 5: Insert children code <CODE> (Optional)
@@ -30,7 +34,26 @@ private _doorOpenLeft = [
  [false,false,false,false,false], // * 9: Other parameters [showDisabled,enableInside,canCollapse,runOnHover,doNotCheckLOS] <ARRAY> (Optional)
  {} // * 10: Modifier function <CODE> (Optional)
 ];
-private _doorOpenRight = ["vtx_uh60_cabinDoorRight", "Open/Close cabin door", "", {_target animateSource ["cabinDoor_R", [1,0] select ((_target animationPhase "cabinDoor_R") > 0)]; playSound3D ["z\vtx\addons\H60_SFX\Sounds\Share\Door.wss", _target, false, getPosASLVisual _target, 3];}, {true}, nil, [], {_target selectionPosition "cabindoor_R_handle"}, 2, [false,false,false,false,false], {} ];
+private _doorOpenRight = [
+  "vtx_uh60_cabinDoorRight",
+  "Open/Close cabin door",
+  "",
+  {
+    private _anim = _target animationPhase "cabinDoor_R";
+    _target animateSource ["cabinDoor_R", 1 - _anim];
+    playSound3D ["z\vtx\addons\H60_SFX\Sounds\Share\Door.wss", _target, false, getPosASLVisual _target, 3];
+
+    // * Set Internal Wind-washing sound
+    [[_target, "CustomSoundController9", ((1 - (_target animationPhase 'cabindoor_L')) + _anim) / 2]] remoteExecCall ["setCustomSoundController", crew _target];
+  },
+  {true},
+  nil,
+  [],
+  {_target selectionPosition "cabindoor_R_handle"},
+  2,
+  [false,false,false,false,false],
+  {}
+];
 
 private _doorOpenRightCpt = ["vtx_uh60_cptDoorRight", "Open/Close cockpit door", "", {
   private _condition = (_target doorPhase "Door_RF") > 0;
@@ -42,6 +65,9 @@ private _doorOpenRightCpt = ["vtx_uh60_cptDoorRight", "Open/Close cockpit door",
     _target modelToWorldVisualWorld (_target selectionPosition "cockpitdoor_right"),
     3
   ];
+  // * Set Internal Wind-washing sound
+  [[_target, "CustomSoundController8", ((1 - (_target animationSourcePhase 'Door_RF')) + (_target animationSourcePhase 'Door_LF')) / 2]] remoteExecCall ["setCustomSoundController", crew _target];
+
 }, {true}, nil, [], {_target selectionPosition "cockpitdoor_right"}, 2, [false,false,false,false,false], {} ];
 private _doorOpenLefttCpt = ["vtx_uh60_cptDoorRight", "Open/Close cockpit door", "", {
   private _condition = (_target doorPhase "Door_LF") > 0;
@@ -53,6 +79,9 @@ private _doorOpenLefttCpt = ["vtx_uh60_cptDoorRight", "Open/Close cockpit door",
     _target modelToWorldVisualWorld (_target selectionPosition "cockpitdoor_left"),
     3
   ];
+  // * Set Internal Wind-washing sound
+  [[_target, "CustomSoundController8", ((_target animationSourcePhase 'Door_RF') + (1 - (_target animationSourcePhase 'Door_LF'))) / 2]] remoteExecCall ["setCustomSoundController", crew _target];
+
 }, {true}, nil, [], {_target selectionPosition "cockpitdoor_left"}, 2, [false,false,false,false,false], {} ];
 
 {
@@ -138,3 +167,22 @@ private _customizationOptions = [
 	["vtx_h60_base",0,[],(_addOption call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
 	["vtx_h60_base",0,[],(_removeOption call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
 } forEach _customizationOptions;
+
+params ["_heli"];
+private _displayName = "Skis";
+private _condition = {true};
+private _statement = {};
+private _action = ["vtx_skis",_displayName, "", _statement, _condition] call ace_interact_menu_fnc_createAction;
+["vtx_H60_base", 0, ["ACE_MainActions"], _action, true] call ace_interact_menu_fnc_addActionToClass;
+
+_displayName = "Install Skis";
+_condition = {((_this select 0) animationPhase "skis") == 0};
+_statement = {(_this select 0) animate ["skis", 1];};
+_action = ["vtx_skis",_displayName, "", _statement, _condition] call ace_interact_menu_fnc_createAction;
+["vtx_H60_base", 0, ["ACE_MainActions","vtx_skis"], _action, true] call ace_interact_menu_fnc_addActionToClass;
+
+_displayName = "Uninstall Skis";
+_condition = {((_this select 0) animationPhase "skis") == 1};
+_statement = {(_this select 0) animate ["skis", 0];};
+_action = ["vtx_skis",_displayName, "", _statement, _condition] call ace_interact_menu_fnc_createAction;
+["vtx_H60_base", 0, ["ACE_MainActions","vtx_skis"], _action, true] call ace_interact_menu_fnc_addActionToClass;

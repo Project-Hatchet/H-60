@@ -13,11 +13,11 @@ class vtx_Empty_SoundShader
 	};
 	frequency=1;
 	volume="engineOn*camPos";
-	range=10000;
+	range=3000;
 	rangeCurve[]=
 	{
 		{0,1},
-		{10000,1}
+		{3000,1}
 	};
 };
 
@@ -175,10 +175,11 @@ class vtx_Rotor_Stress_Ext_SoundShader_Base
 	};
 	range=1200;
 	frequency="rotorSpeed";
-	volume="engineOn*camPos*((gmeterZ factor[1.5, 2.5]) + (gmeterZ factor[0.5, -0.5]))*(CustomSoundController14+1)";
+	volume="(CustomSoundController14+1)*engineOn*camPos*((gmeterZ factor[1.5, 2.5]) + (gmeterZ factor[0.5, -0.5]))";
 	rangecurve[]=
 	{
 		{0,1},
+		{300,0.8},
 		{1200,0}
 	};
 };
@@ -198,8 +199,8 @@ class vtx_Alarm_Damage_Int_SoundShader_Base
 		}
 	};
 	frequency=1;
-	//volume="CustomSoundController7*engineOn*(1-camPos)*( 1 - ((motorDamage factor [0.61, 0.60])*(rotorDamage factor [0.51, 0.50])))*(rotorSpeed factor [0.0, 0.001])";
-	volume="CustomSoundController7*(1-camPos)*(CustomSoundController16+1)";
+	//volume="CustomSoundController7*engineOn*camInt*( 1 - ((motorDamage factor [0.61, 0.60])*(rotorDamage factor [0.51, 0.50])))*(rotorSpeed factor [0.0, 0.001])";
+	volume="CustomSoundController7*camInt*(CustomSoundController16+1)";
 };
 class vtx_Alarm_RotorLow_Int_SoundShader_Base: vtx_Alarm_Damage_Int_SoundShader_Base
 {
@@ -212,8 +213,8 @@ class vtx_Alarm_RotorLow_Int_SoundShader_Base: vtx_Alarm_Damage_Int_SoundShader_
 			1
 		}
 	};
-	//volume="CustomSoundController6*engineOn*(1-camPos)*(rotorSpeed factor [0.9, 0.8999])*(rotorSpeed factor [-0.5, 1])*(speed factor [3, 3.01])";
-	volume="CustomSoundController6*(1-camPos)*(CustomSoundController16+1)";
+	//volume="CustomSoundController6*engineOn*camInt*(rotorSpeed factor [0.9, 0.8999])*(rotorSpeed factor [-0.5, 1])*(speed factor [3, 3.01])";
+	volume="CustomSoundController6*camInt*(CustomSoundController16+1)";
 };
 
 // -Scrub Sound
@@ -227,11 +228,11 @@ class vtx_ScrubLand_Int_SoundShader_Base: vtx_Alarm_Damage_Int_SoundShader_Base
 			1
 		}
 	};
-	volume="2*(1-camPos)*(scrubLand factor[0.02, 0.05])*(1 - (lateralMovement factor [0.7,1]))*(CustomSoundController16+1)";
+	volume="2*camInt*(scrubLand factor[0.02, 0.05])*(1 - (lateralMovement factor [0.7,1]))*(CustomSoundController16+1)";
 };
 class vtx_ScrubBuilding_Int_SoundShader_Base: vtx_ScrubLand_Int_SoundShader_Base
 {
-	volume="(1-camPos)*(scrubBuilding factor[0.02, 0.05])*(1 - (lateralMovement factor [0.7,1]))*(CustomSoundController16+1)";
+	volume="camInt*(scrubBuilding factor[0.02, 0.05])*(1 - (lateralMovement factor [0.7,1]))*(CustomSoundController16+1)";
 };
 class vtx_ScrubTree_Int_SoundShader_Base: vtx_ScrubLand_Int_SoundShader_Base
 {
@@ -243,7 +244,7 @@ class vtx_ScrubTree_Int_SoundShader_Base: vtx_ScrubLand_Int_SoundShader_Base
 			1
 		}
 	};
-	volume="(1-camPos)*((scrubTree) factor [0, 0.01])*(CustomSoundController16+1)";
+	volume="camInt*((scrubTree) factor [0, 0.01])*(CustomSoundController16+1)";
 };
 
 // -Damage
@@ -257,11 +258,11 @@ class vtx_TransmissionDamage_Int_phase1_SoundShader_Base
 			1
 		}
 	};
-	frequency = "0.66 + CustomSoundController3 / 3";
-	volume = "(1-camPos)*rotorSpeed*CustomSoundController4*(CustomSoundController16+1)";
+	frequency="0.66 + CustomSoundController3 / 3";
+	volume="camInt*rotorSpeed*CustomSoundController4*(CustomSoundController16+1)";
 	range=100;
 	//frequency="0.66 + rotorspeed / 3";
-	//volume="(1-camPos)*(transmissiondamage factor [0.3, 0.35])*(transmissiondamage factor [0.5, 0.45])*(rotorspeed factor [0.2, 0.5])";
+	//volume="camInt*(transmissiondamage factor [0.3, 0.35])*(transmissiondamage factor [0.5, 0.45])*(rotorspeed factor [0.2, 0.5])";
 };
 class vtx_TransmissionDamage_Int_phase2_SoundShader_Base
 {
@@ -273,11 +274,11 @@ class vtx_TransmissionDamage_Int_phase2_SoundShader_Base
 			1
 		}
 	};
-	frequency = "CustomSoundController3";
-	volume = "(1-camPos)*rotorSpeed*CustomSoundController4*(CustomSoundController16+1)";
+	frequency="CustomSoundController3";
+	volume="camInt*rotorSpeed*CustomSoundController4*(CustomSoundController16+1)";
 	range=100;
 	//frequency="0.66 + rotorspeed / 3";
-	//volume="(1-camPos)*(transmissiondamage factor [0.45, 0.5])*(rotorspeed factor [0.2, 0.5])";
+	//volume="camInt*(transmissiondamage factor [0.45, 0.5])*(rotorspeed factor [0.2, 0.5])";
 };
 class vtx_TransmissionDamage_Int_phase3_SoundShader_Base
 {
@@ -289,8 +290,8 @@ class vtx_TransmissionDamage_Int_phase3_SoundShader_Base
 			1
 		}
 	};
-	frequency = "CustomSoundController3";
-	volume = "(1-camPos)*rotorSpeed*CustomSoundController4*(CustomSoundController16+1)";
+	frequency="CustomSoundController3";
+	volume="camInt*rotorSpeed*CustomSoundController4*(CustomSoundController16+1)";
 	range=50;
 };
 
@@ -306,7 +307,7 @@ class vtx_SlingLoadDown_Int_SoundShader_Base
 		}
 	};
 	frequency=1;
-	volume="(1-camPos)*(slingLoadActive factor [0,-1])*(CustomSoundController16+1)";
+	volume="camInt*(slingLoadActive factor [0,-1])*(CustomSoundController16+1)";
 	range=500;
 };
 class vtx_SlingLoadUp_Int_SoundShader_Base: vtx_SlingLoadDown_Int_SoundShader_Base
@@ -320,7 +321,7 @@ class vtx_SlingLoadUp_Int_SoundShader_Base: vtx_SlingLoadDown_Int_SoundShader_Ba
 		}
 	};
 	frequency=1;
-	volume="(1-camPos)*(slingLoadActive factor [0,1])*(CustomSoundController16+1)";
+	volume="camInt*(slingLoadActive factor [0,1])*(CustomSoundController16+1)";
 };
 
 //-Noise
@@ -334,7 +335,7 @@ class vtx_Rain_Int_SoundShader_Base: vtx_Rain_Ext_SoundShader_Base
 			1
 		}
 	};
-	volume="(1-camPos)*(rain - rotorSpeed/2)*2*(CustomSoundController16+1)";
+	volume="camInt*(rain - rotorSpeed/2)*2*(CustomSoundController16+1)";
 };
 
 class vtx_Wind_Int_SoundShader_Base
@@ -349,7 +350,7 @@ class vtx_Wind_Int_SoundShader_Base
 	};
 	range=50;
 	frequency=1;
-	volume="(1-camPos)*(speed factor[5, 60])*(speed factor[5, 60])*(CustomSoundController16+1)";
+	volume="camInt*(speed factor[5, 60])*(speed factor[5, 60])*(CustomSoundController16+1)";
 };
 class vtx_WindWash_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
 {
@@ -361,11 +362,11 @@ class vtx_WindWash_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
 			1
 		}
 	};
-	volume="(1-camPos)*CustomSoundController8*(-playerPos + 1)*(CustomSoundController16+1)*((rotorSpeed factor [0.3, 0.5])+((lateralMovement*((speed factor [5,40])+(speed factor [-5,-40]))) min 1))";
+	volume="engineOn*camInt*CustomSoundController8*(-playerPos + 1)*(CustomSoundController16+1)*((rotorSpeed factor [0.3, 0.5])+((lateralMovement*((speed factor [5,40])+(speed factor [-5,-40])) max 0) min 1.5))";
 };
 class vtx_WindWash_Int_Transport_SoundShader_Base: vtx_WindWash_Int_SoundShader_Base
 {
-	volume="(1-camPos)*CustomSoundController9*(playerPos envelope [0,1,1.5,3])*(CustomSoundController16+1)*((rotorSpeed factor [0.3, 0.5])+((lateralMovement*((speed factor [5,40])+(speed factor [-5,-40]))) min 1))";
+	volume="camInt*CustomSoundController9*(playerPos envelope [0,1,1.5,3])*(CustomSoundController16+1)*((rotorSpeed factor [0.3, 0.5])+((lateralMovement*((speed factor [5,40])+(speed factor [-5,-40])) max 0) min 1.5))";
 };
 class vtx_FrameStress_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
 {
@@ -376,7 +377,7 @@ class vtx_FrameStress_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
 			1
 		}
 	};
-	volume="engineOn*(1-camPos)*(gmeterZ factor[1.0, 2.5])*(CustomSoundController16+1)";
+	volume="engineOn*camInt*(gmeterZ factor[1.0, 2.5])*(CustomSoundController16+1)";
 };
 class vtx_GStress_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
 {
@@ -389,7 +390,7 @@ class vtx_GStress_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
 		}
 	};
 	frequency="rotorSpeed*2";
-	volume="engineOn*(1-camPos)*((gmeterZ factor[1.5, 2.5]) + (gmeterZ factor[0.5, -0.5]))*(CustomSoundController16+1)";
+	volume="engineOn*camInt*((gmeterZ factor[1.5, 2.5]) + (gmeterZ factor[0.5, -0.5]))*(CustomSoundController16+1)";
 };
 class vtx_SpeedStress_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
 {
@@ -401,6 +402,6 @@ class vtx_SpeedStress_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
 			1
 		}
 	};
-	volume="(1-camPos)*(speed factor[40,80])*(CustomSoundController16+1)";
+	volume="camInt*(speed factor[40,80])*(CustomSoundController16+1)";
 };
 #include "Engine_SoundShaders.hpp"

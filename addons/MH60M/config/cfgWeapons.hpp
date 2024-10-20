@@ -9,8 +9,8 @@ class cfgWeapons {
         displayName = "2x M134";
         displayNameShort = "2x M134";
         class LowROF: LowROF {
-            displayName = "2x M134";
-            displayNameShort = "2x M134";
+            displayName = "M134 LO";
+            displayNameShort = "M134 LO";
             sounds[]=
             {
                 "StandardSound"
@@ -79,6 +79,7 @@ class cfgWeapons {
         class HighROF : HighROF {
             displayName = "2x M134";
             displayNameShort = "2x M134";
+
             sounds[]=
             {
                 "StandardSound"

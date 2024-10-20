@@ -22,7 +22,6 @@ SET_GLOBAL_DEFAULT("BATT2_ENABLED", false)
 SET_GLOBAL_DEFAULT("BATT1_POWER", 100)
 SET_GLOBAL_DEFAULT("BATT2_POWER", 100)
 SET_GLOBAL_DEFAULT("POWER_DRAIN_RATE", 0.11)
-SET_GLOBAL_DEFAULT("APU_POWER", false)
 SET_GLOBAL_DEFAULT("ESIS_COUNTER", 70)
 _vehicle setUserMFDValue [49, _vehicle getVariable ["ESIS_COUNTER", 70]];
 
@@ -48,6 +47,7 @@ player addEventHandler ["SelectedRotorLibActionPerformed", {
 SET_GLOBAL_DEFAULT("vtx_uh60_acft_mikSwitchState",      "OFF");
 //--Standby instrument switch
 SET_GLOBAL_DEFAULT("vtx_uh60_acft_stbyInstSwitchState", "OFF");
+SET_GLOBAL_DEFAULT("vtx_uh60_acft_stbyInstBatt", 1800);
 //--Battery
 SET_GLOBAL_DEFAULT("vtx_uh60_acft_batt1SwitchState",    "OFF");
 SET_GLOBAL_DEFAULT("vtx_uh60_acft_batt2SwitchState",    "OFF");
