@@ -17,7 +17,7 @@
 
 #include "\z\vtx\addons\main\script_macros.hpp"
 
-#define MAX_ROPE_LENGTH 76.2 // 250 feet
+#define MAX_ROPE_LENGTH 88.3 // 290 feet
 #define MAX_HOIST_SPEED 1.778 // 350 feet per minute
 #define NEAR_END_THRESHOLD 3.048 // 10 feet
 #define NEAR_END_SPEED 0.254 // 50 feet per minute

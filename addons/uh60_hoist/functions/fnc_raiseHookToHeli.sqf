@@ -20,7 +20,7 @@ if (_hoist_vars isEqualTo []) exitWith{false};
 _hoist_vars params ["_rope", "_dummy", "_hook"];
 
 _hoistPos = [1.405, 2.03, 0.45];
-ropeUnwind [_rope, 1.5, 0.5];
+ropeUnwind [_rope, 1.7, 0.5];
 /*
 [{
 	params ["_heli", "_hoistPos", "_dummy", "_rope"];
