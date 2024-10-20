@@ -1,4 +1,4 @@
-class FDLeft:FDRight
+class VTX_FDLeft:VTX_FDRight
 {
 	topLeft="FDLeft_LT";
 	topRight="FDLeft_RT";

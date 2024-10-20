@@ -15,7 +15,7 @@ TEXT_FMS_L(L2,FMS_MARGIN_L,FMS_Y2)
 
 TEXT_FMS_L(L3,FMS_MARGIN_L,FMS_Y3)
 	source = "static";
-	text = "< HMD";
+	text = "< HUD";
 }; // L3
 
 TEXT_FMS_R(R1,FMS_MARGIN_R,FMS_Y1)

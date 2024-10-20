@@ -12,6 +12,8 @@ params ["_vehicle", "_frameTime"];
 #define HELP_LABEL(MEMPOINT,LABEL) drawIcon3D ["\a3\ui_f\data\IGUI\Cfg\Cursors\selected_ca.paa",[0,1,0,1],_vehicle modelToWorldVisual (_vehicle selectionPosition MEMPOINT),1,1,0,LABEL,2,0.045];
 #define HELP_LABEL_COND(MEMPOINT,LABEL,COND) drawIcon3D ["\a3\ui_f\data\IGUI\Cfg\Cursors\selected_ca.paa",(if(COND)then{[0,1,0,1]}else{[1,0,0,1]}),_vehicle modelToWorldVisual (_vehicle selectionPosition MEMPOINT),1,1,0,LABEL,2,0.045,"RobotoCondensed","center",true];
 
+_this call vtx_uh60_fms_fnc_updateWaypointInfo;
+
 private _fms = if (player == driver _vehicle) then [{ FMS_R_PAGE_INDEX }, { FMS_L_PAGE_INDEX }];
 private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
     case FMS_LISTS_STARTUP_1: {
@@ -21,8 +23,8 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
         HELP_LABEL_COND("b_batt2","2",(_vehicle animationPhase "Switch_batt2" < 0.1))
 
         HELP_LABEL_COND("b_fuelpump","3",(_vehicle animationPhase "Switch_fuelpump" < 0.1))
-        HELP_LABEL_COND("b_apucont","4",(_vehicle animationPhase "Switch_apucont" < 0.1))
-        HELP_LABEL_COND("b_apugen","5",(_vehicle getVariable "APU_POWER"))
+        HELP_LABEL_COND("b_apucont","4",(_vehicle getVariable "vtx_uh60_acft_apuState" == "ON"))
+        HELP_LABEL_COND("b_apugen","5",(_vehicle getVariable "vtx_uh60_acft_apuGenState" == "ON"))
         HELP_LABEL_COND("b_stbyinst","6",(_vehicle animationPhase "Switch_stbyinst" < 0.1))
     };
     case FMS_LISTS_STARTUP_2: {

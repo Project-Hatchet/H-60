@@ -6,4 +6,7 @@ PREP(receiveMessage);
 PREP(receiveReply);
 PREP(reply);
 PREP(setup);
-PREP(submitFreetext);
+PREP(submitMessage);
+PREP(openMessage);
+PREP(prepareInboxDialog);
+PREP(ctabToJvmf);

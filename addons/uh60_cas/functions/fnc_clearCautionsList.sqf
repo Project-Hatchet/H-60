@@ -6,7 +6,7 @@
  * params (array)[(object) vehicle]
  */
 
-params ["_vehicle", "_autoClearOnly"];
+params ["_vehicle", ["_autoClearOnly", false]];
 
 private _casList = (_vehicle getVariable ["vtx_cas_list",[]]);
 
@@ -18,4 +18,6 @@ private ["_condition"];
         [_vehicle, _x # 0] call vtx_uh60_cas_fnc_removeCautionAdvisory;
     };
 } forEach _casList;
-if(!_autoClearOnly) then { _vehicle animate ["CautionMasterCaution", 0] };
+if(!_autoClearOnly) then {
+    [_vehicle, false] call vtx_uh60_cas_fnc_setMasterCaution;
+};

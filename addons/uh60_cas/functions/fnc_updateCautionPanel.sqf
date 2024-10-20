@@ -8,14 +8,24 @@
 
 params ["_vehicle"];
 
-if (!difficultyEnabledRTD || !(local _vehicle) || _vehicle != vehicle player) exitWith {};
+if (!(local _vehicle) || _vehicle != vehicle player) exitWith {};
 
-private _eng1Powered = if (((enginesRpmRTD _vehicle) # 0) > 3000) then [{0},{1}];
-private _eng2Powered = if (((enginesRpmRTD _vehicle) # 1) > 3000) then [{0},{1}];
+(_vehicle getVariable ["vtx_uh60_sfmplus_engPctNP", [0,0]]) params ["_np1", "_np2"];
 
-_vehicle animate ["CautionEng1Out", _eng1Powered];
+private _master = _vehicle animationPhase "CautionMasterCaution";
+private _eng1Powered = if (_np1 > 0.6) then [{0},{1}];
+private _eng2Powered = if (_np2 > 0.6) then [{0},{1}];
+
+_vehicle animate ["CautionEng1Out", _eng1Powered]; 
 _vehicle animate ["CautionEng2Out", _eng2Powered];
 
-private _rotor = if (((rotorsRpmRTD vehicle player) # 1) < 1000) then [{0},{1}];
+private _battPower = ((_vehicle getVariable ["vtx_uh60_acft_battBusState", "OFF"]) == "ON");
+private _battPowerSoundMod = if (_battPower) then { 1 } else { 0 };
+private _WOWSoundMod = if (isTouchingGround _vehicle) then { 0 } else { 1 };
 
-_vehicle animate ["Caution_lowrpm", _rotor];
+setCustomSoundController [_vehicle, "CustomSoundController7", _battPowerSoundMod * _WOWSoundMod * (_eng1Powered + _eng2Powered)];
+
+private _realRotorRPM = (_vehicle animationPhase "rotortilt") * 1.025 / 10;
+private _rpmWarn = if (_realRotorRPM < 0.9) then [{1}, {0}];
+_vehicle animate ["CautionLowRpm", _rpmWarn];
+setCustomSoundController [_vehicle, "CustomSoundController6", _battPowerSoundMod * _WOWSoundMod* _rpmWarn];

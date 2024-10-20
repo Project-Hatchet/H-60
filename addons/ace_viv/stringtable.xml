@@ -3,9 +3,11 @@
     <Package name="ACE_VIV">
         <Key ID="STR_VTX_ACE_VIV_VehicleCargo">
             <English>Vehicle Cargo</English>
+            <Chinesesimp>载具货舱</Chinesesimp>
         </Key>
         <Key ID="STR_VTX_ACE_VIV_LoadCargo">
             <English>Load Cargo</English>
+            <Chinesesimp>装载货物</Chinesesimp>
         </Key>
     </Package>
 </Project>

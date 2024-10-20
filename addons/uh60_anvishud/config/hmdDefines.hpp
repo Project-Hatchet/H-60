@@ -75,6 +75,9 @@
      3 - metric
      4 - metric dclt
 
+     5 - nvghud imperial
+     6 - nvghud metric
+
 */
 
 #define COND_METRIC_FULL_ONLY COND_ISNUMBER(15,3)
@@ -82,6 +85,8 @@
 #define COND_METRIC ((user15>2)*(user15<5))
 #define COND_IMPERIAL ((user15>0)*(user15<3))
 #define COND_FULL_ONLY (COND_ISNUMBER(15,1)+COND_ISNUMBER(15,3))
+#define hud_is_imperial COND_ISNUMBER(15,5)
+#define hud_is_metric COND_ISNUMBER(15,6)
 
 #define BAR(CLASS,BONE,X,Y,W) \
     class CLASS { \

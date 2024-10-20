@@ -1,4 +1,4 @@
-class FDRight
+class VTX_FDRight
 {
 	topLeft="FDRight_LT";
 	topRight="FDRight_RT";
@@ -34,7 +34,7 @@ class FDRight
 //static
 		TEXT_FD(LOC_Text,0.065,0.14)
 			source = "static";
-			text = "LOC";
+			text = "FMS";
 		};
 		TEXT_FD(GS_Text,0.166,0.14)
 			source = "static";
@@ -119,21 +119,21 @@ class FDRight
 
 		TEXT_FD(IAS_Value,0.582,0.20)
 			source = "user";
-			sourceIndex=15;
+			sourceIndex=41;
 			sourceScale=1;
 		};
 
 		TEXT_FD(HDG_Value,0.687,0.20)
 			source = "user";
-			sourceIndex=16;
+			sourceIndex=42;
 			sourceScale=1;
 		};
 
-		TEXT_FD(VS_Value,0.79,0.20)
-			source = "user";
-			sourceIndex=17;
-			sourceScale=1;
-		};
+		// TEXT_FD(VS_Value,0.79,0.20)
+		// 	source = "user";
+		// 	sourceIndex=17;
+		// 	sourceScale=1;
+		// };
 
 	};	//Draw
 };

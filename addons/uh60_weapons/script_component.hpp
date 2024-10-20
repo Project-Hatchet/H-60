@@ -16,3 +16,6 @@
 #endif
 
 #include "\z\vtx\addons\main\script_macros.hpp"
+
+#define PYLON_POS_MAX 2
+#define PYLON_POS_MIN -1
