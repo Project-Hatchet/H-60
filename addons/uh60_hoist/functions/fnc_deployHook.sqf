@@ -32,6 +32,8 @@ detach _dummy;
 _dummy setVelocity velocity _heli;
 _rope = ropeCreate [_heli, _hoistPos, _dummy, [0,0,0], 0.5];
 
+_heli vehicleChat "Triple Lights. Triple 8's. Talking on the pendant. Lowering hook to the cabin.";
+
 _heli setVariable ["vtx_uh60_hoist_vars", [_rope, _dummy, _hook], true];
 _hook setVariable ["vtx_uh60_hoist_heli", _heli, true];
 
