@@ -10,5 +10,5 @@
         , "uh60_misc"
         , "uh60_weapons"
         ],
-    "outputFolder": "release/addons"
+    "outputFolder": "release/@H-60/addons"
 }
