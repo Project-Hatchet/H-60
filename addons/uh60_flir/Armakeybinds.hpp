@@ -19,8 +19,8 @@ class CfgUserActions
 	class Vtx_Flir_Aim {
 		displayName = "FLIR Slew Aim";
 		tooltip = "Hold this key and use mouse or 'Aim <Up|Down|Left|Right>";
-		onActivate = "_isCopilot = (vehicle player unitTurret player) isEqualTo [0]; if (!_isCopilot || {!vtx_uh60_flir_controllable} || {vtx_uh60_flir_isVisibleMap} || {vtx_uh60_flir_featureCamera != ""} || {!isNull curatorCamera}) exitWith {false}; vtx_uh60_flir_isInScriptedCamera = !vtx_uh60_flir_isInScriptedCamera; [vtx_uh60_flir_isInScriptedCamera] call vtx_uh60_flir_fnc_scriptedCamera;";		// _this is always true.
-		onDeactivate = "if (vtx_uh60_flir_isPipHidden) exitWith {false}; vtx_uh60_flir_up = 0;";		// _this is always false.
+		onActivate = "if (vtx_uh60_flir_isPipHidden || {vtx_uh60_flir_isInScriptedCamera}) exitWith {false}; vtx_uh60_flir_slewAim = true; if (vtx_uh60_flir_setting_AimSlewBlockMouse && {!ace_interact_menu_keyDown}) then {(findDisplay 46) createDisplay 'vtx_uh60_flir_mouseBlocker'; (finddisplay 86005) displayAddEventHandler ['KeyUp', {[_this,'keyup'] call CBA_events_fnc_keyHandler}];};";		// _this is always true.
+		onDeactivate = "if (uiNamespace getVariable ['vtx_uh60_flir_mouseBlocker', false]) then {(findDisplay 86005) closeDisplay 0;}; vtx_uh60_flir_slewAim = false;";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
 	};
@@ -93,6 +93,11 @@ class CfgDefaultKeysPresets
 				"", // 256 is the bitflag for "doubletap", 0x25 is the DIK code for K.
 				"" // 0x00010000 is the bitflag for "mouse button".
 			};
+			Vtx_Flir_Aim[] = {
+				, // DIK_K
+				"", // 256 is the bitflag for "doubletap", 0x25 is the DIK code for K.
+				"" // 0x00010000 is the bitflag for "mouse button".
+			};
 		};
 	};
 }
@@ -104,6 +109,7 @@ class UserActionGroups
 		group[] = {
 		"Vtx_Flir_ZoomIn",
 		"Vtx_Flir_ZoomOut",
+		"Vtx_Flir_Aim",
 		"Vtx_Flir_SlewUp",
 		"Vtx_Flir_SlewDown",
 		"Vtx_Flir_SlewLeft",
