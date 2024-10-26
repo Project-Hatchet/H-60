@@ -28,6 +28,7 @@ PREP(updateCamera);
 PREP(syncPilots);
 PREP(updateUIValues);
 PREP(interaction);
+PREP(FlirAimToggle);
 
 PREP(intersectAtPolar);
 PREP(autoScanPattern);

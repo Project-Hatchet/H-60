@@ -19,8 +19,8 @@ class CfgUserActions
 	class Vtx_Flir_Aim {
 		displayName = "FLIR Slew Aim";
 		tooltip = "Hold this key and use mouse or 'Aim <Up|Down|Left|Right>";
-		onActivate = "if (vtx_uh60_flir_isPipHidden || {vtx_uh60_flir_isInScriptedCamera}) exitWith {false}; vtx_uh60_flir_slewAim = true; if (vtx_uh60_flir_setting_AimSlewBlockMouse && {!ace_interact_menu_keyDown}) then {(findDisplay 46) createDisplay 'vtx_uh60_flir_mouseBlocker'; (finddisplay 86005) displayAddEventHandler ['KeyUp', {[_this,'keyup'] call CBA_events_fnc_keyHandler}];};";		// _this is always true.
-		onDeactivate = "if (uiNamespace getVariable ['vtx_uh60_flir_mouseBlocker', false]) then {(findDisplay 86005) closeDisplay 0;}; vtx_uh60_flir_slewAim = false;";		// _this is always false.
+		onActivate = "call vtx_uh60_flir_fnc_FlirAimToggle";		// _this is always true.
+		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
 	};
