@@ -18,7 +18,7 @@ class CfgPatches {
         VERSION_CONFIG;
     };
 };
-
+#include "cfgSetting.hpp"
 #include "CfgEventHandlers.hpp"
 #include "CfgMoves.hpp"
 
