@@ -103,19 +103,19 @@ class interaction {
         }; // b_airsce
         class b_batt1 : apucont {
             position="b_batt1";
-            label="BATT 1";
+            label="NO.1 BATT";
             animation="Switch_batt1";
             animEnd="_this call vtx_uh60_engine_fnc_batteryState";
             clickSound="vxf_Switch_Sound_3";
         }; // b_batt1
         class b_batt2 : b_batt1 {
             position="b_batt2";
-            label="BATT 2";
+            label="NO.2 BATT";
             animation="Switch_batt2";
         }; // b_batt2
-        SIMPLE_SWITCH(b_egi1,"button_egi1","EGI 1","Switch_Egi1",1,0,"")
-        SIMPLE_SWITCH(b_egi2,"button_egi2","EGI 2","Switch_Egi2",1,0,"")
-        SIMPLE_SWITCH(b_ralt_enable,"button_ralt_enable","RAD ALT","Switch_Ralt_enable",1,0,"")
+        SIMPLE_SWITCH(b_egi1,"button_egi1","NO.1 EGI","Switch_Egi1",1,0,"")
+        SIMPLE_SWITCH(b_egi2,"button_egi2","NO.2 EGI","Switch_Egi2",1,0,"")
+        SIMPLE_SWITCH(b_ralt_enable,"button_ralt_enable","RADAR ALTIMETER","Switch_Ralt_enable",1,0,"")
         class b_stbyinst : b_batt1 {
             position="b_stbyinst";
             label="STBY INST";
@@ -125,23 +125,23 @@ class interaction {
         }; // b_stbyinst
         class b_fuelboostpump1 : b_batt1 {
             position="b_fuelboostpump1";
-            label="FUEL PUMP BOOST 1";
+            label="NO.1 FUEL BOOST PUMP";
             animation="Switch_fuelboostpump1";
         }; // b_fuelboostpump1
         class b_fuelboostpump2 : b_batt1 {
             position="b_fuelboostpump2";
-            label="FUEL PUMP BOOST 2";
+            label="NO.2 FUEL BOOST PUMP";
             animation="Switch_fuelboostpump2";
         }; // b_fuelboostpump2
         class b_gen1 : b_batt1 {
             position="b_gen1";
-            label="GEN 1";
+            label="NO.1 GEN";
             animation="Switch_gen1";
             animEnd="_this call vtx_uh60_engine_fnc_batteryState";
         }; // b_gen1
         class b_gen2 : b_batt1 {
             position="b_gen2";
-            label="GEN 2";
+            label="NO.2 GEN";
             animation="Switch_gen2";
             animEnd="_this call vtx_uh60_engine_fnc_batteryState";
         }; // b_gen2
@@ -154,7 +154,7 @@ class interaction {
         class b_fuelsys1 {
             positionType="anim";
             position="b_fuelsys1";
-            label="FUEL SYS 1";
+            label="NO.1 FUEL SYS";
             radius=0.035;
             animSpeed=1;
             animation="Lever_fuelsys1";
@@ -164,7 +164,7 @@ class interaction {
         }; // b_fuelsys1
         class b_fuelsys2: b_fuelsys1 {
             position="b_fuelsys2";
-            label="FUEL SYS 2";
+            label="NO.2 FUEL SYS";
             animation="Lever_fuelsys2";
         }; // b_fuelsys2
         class b_ignition {
@@ -182,7 +182,7 @@ class interaction {
         class b_starter1 {
             positionType="anim";
             position="b_starter1";
-            label="Engine Start 1";
+            label="NO.1 Engine Starter";
             radius=0.025;
             buttonUp="[_this # 0, ""STARTER1"", ""ON""] call vtx_uh60_engine_fnc_starterState";
             clickSound="vxf_Switch_Sound";
@@ -190,7 +190,7 @@ class interaction {
         class b_starter2 {
             positionType="anim";
             position="b_starter2";
-            label="Engine Start 2";
+            label="NO.2 Engine Starter";
             radius=0.025;
             buttonUp="[_this # 0, ""STARTER2"", ""ON""] call vtx_uh60_engine_fnc_starterState";
             clickSound="vxf_Switch_Sound";
@@ -201,7 +201,7 @@ class interaction {
                 interactionCondition = "_this call vtx_uh60_engine_fnc_rotorBrakeInterlock";
                 positionType="anim";
                 position="b_engpowercont1";
-                label="ENG POWER CONT 1";
+                label="NO.1 ENG PCL";
                 radius=0.035;
                 animation="Lever_engpower1";
                 animSpeed=0.5;
@@ -211,7 +211,7 @@ class interaction {
             }; // b_engpowercont1
             class b_engpowercont2: b_engpowercont1 {
                 position="b_engpowercont2";
-                label="ENG POWER CONT 2";
+                label="NO.2 ENG PCL";
                 animation="Lever_engpower2";
             }; // b_engpowercont2
         }; // powerContRFM
@@ -221,7 +221,7 @@ class interaction {
                 interactionCondition = "_this call vtx_uh60_engine_fnc_rotorBrakeInterlock";
                 positionType="anim";
                 position="b_engpowercont1";
-                label="ENG POWER CONT 1";
+                label="NO.1 ENG PCL";
                 radius=0.035;
                 animation="Lever_engpower1";
                 animSpeed=0.5;
@@ -231,7 +231,7 @@ class interaction {
             }; // b_engpowercont1
             class b_engpowercont2: b_engpowercont1 {
                 position="b_engpowercont2";
-                label="ENG POWER CONT 2";
+                label="NO.2 ENG PCL";
                 animation="Lever_engpower2";
             }; // b_engpowercont2
         }; // powerContRTD

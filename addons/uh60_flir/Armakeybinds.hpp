@@ -103,8 +103,8 @@ class CfgDefaultKeysPresets
 }
 class UserActionGroups
 {
-	class Vtx_KeyBinds {
-		name = "H-60 Keybinds"; // Display name of your category.
+	class Vtx_KeyBinds_FLIR {
+		name = "H-60 FLIR"; // Display name of your category.
 		isAddon = 1;
 		group[] = {
 		"Vtx_Flir_ZoomIn",
