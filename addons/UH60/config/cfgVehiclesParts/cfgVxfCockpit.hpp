@@ -264,7 +264,7 @@ class interaction {
             class b_ap_ralt_L {
                     positionType="static";
                     position="ap_fdL_1";
-                    label="Radar Altitude AP";
+                    label="RALT Hold";
                     radius=BTN_RADIUS_SWITCH;
                     clickSound="vxf_Switch_Sound";
                     buttonUp="[(_this # 0), ""RALT""] call vtx_uh60_fd_fnc_modeSet;";
@@ -274,7 +274,7 @@ class interaction {
                 }; // ralt
         class b_ap_altp_L : b_ap_ralt_L {
                      position="ap_fdL_2";
-                     label="Barometric Altitude Pre-select AP";
+                     label="ALTP Mode";
                      buttonUp="[(_this # 0), ""ALTP""] call vtx_uh60_fd_fnc_modeSet;";
                  }; // altp
         class b_ap_altp_R : b_ap_altp_L {
@@ -282,7 +282,7 @@ class interaction {
         }; // altp
         class b_ap_alt_L : b_ap_ralt_L {
                     position="ap_fdL_3";
-                    label="Barometric Altitude AP";
+                    label="ALT Hold";
                     buttonUp="[(_this # 0), ""ALT""] call vtx_uh60_fd_fnc_modeSet;";
          }; // alt
         class b_ap_alt_R : b_ap_alt_L {
@@ -290,7 +290,7 @@ class interaction {
          }; // alt
         class b_ap_ias_L : b_ap_ralt_L {
                     position="ap_fdL_4";
-                    label="Air Speed AP";
+                    label="IAS Hold";
                     buttonUp="[(_this # 0), ""IAS""] call vtx_uh60_fd_fnc_modeSet;";
          }; // IAS
         class b_ap_ias_R : b_ap_ias_L {
@@ -298,7 +298,7 @@ class interaction {
         }; // IAS
         class b_ap_hdg_L : b_ap_ralt_L {
                     position="ap_fdL_5";
-                    label="Heading AP";
+                    label="HDG Hold";
                     buttonUp="[(_this # 0), ""HDG""] call vtx_uh60_fd_fnc_modeSet;";
         }; // HDG
         class b_ap_hdg_R : b_ap_hdg_L {
@@ -306,7 +306,7 @@ class interaction {
         }; // HDG
         class b_ap_fms_L : b_ap_ralt_L {
                     position="ap_fdL_fms";
-                    label="Couple FMS System";
+                    label="FMS Couple";
                     buttonUp="[(_this # 0), ""FMS""] call vtx_uh60_fd_fnc_modeSet;";
         }; // HDG
         class b_ap_fms_R : b_ap_fms_L {
@@ -314,7 +314,7 @@ class interaction {
         }; // HDG
         class b_ap_hvr_L : b_ap_ralt_L {
                     position="ap_fdL_hvr";
-                    label="Hover AP";
+                    label="Hover Hold";
                     buttonUp="[(_this # 0), ""HVR""] call vtx_uh60_fd_fnc_modeSet;";
         }; // HDG
         class b_ap_hvr_R : b_ap_hvr_L {
