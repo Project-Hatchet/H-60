@@ -57,50 +57,7 @@ class CfgUserActions
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
 	};
 };
-class CfgDefaultKeysPresets
-{
-	class Arma2 // Arma2 is inherited by all other presets.
-	{
-		class Mappings
-		{
-			Vtx_Flir_ZoomIn[] = {
-				13, // DIK_K
-				"", // 256 is the bitflag for "doubletap", 0x25 is the DIK code for K.
-				"" // 0x00010000 is the bitflag for "mouse button".
-			};
-			Vtx_Flir_ZoomOut[] = {
-				12, // DIK_K
-				"", // 256 is the bitflag for "doubletap", 0x25 is the DIK code for K.
-				"" // 0x00010000 is the bitflag for "mouse button".
-			};
-			Vtx_Flir_SlewUp[] = {
-				17, // DIK_K
-				"", // 256 is the bitflag for "doubletap", 0x25 is the DIK code for K.
-				"" // 0x00010000 is the bitflag for "mouse button".
-			};
-			Vtx_Flir_SlewDown[] = {
-				31, // DIK_K
-				"", // 256 is the bitflag for "doubletap", 0x25 is the DIK code for K.
-				"" // 0x00010000 is the bitflag for "mouse button".
-			};
-			Vtx_Flir_SlewLeft[] = {
-				30, // DIK_K
-				"", // 256 is the bitflag for "doubletap", 0x25 is the DIK code for K.
-				"" // 0x00010000 is the bitflag for "mouse button".
-			};
-			Vtx_Flir_SlewRight[] = {
-				32, // DIK_K
-				"", // 256 is the bitflag for "doubletap", 0x25 is the DIK code for K.
-				"" // 0x00010000 is the bitflag for "mouse button".
-			};
-			Vtx_Flir_Aim[] = {
-				, // DIK_K
-				"", // 256 is the bitflag for "doubletap", 0x25 is the DIK code for K.
-				"" // 0x00010000 is the bitflag for "mouse button".
-			};
-		};
-	};
-}
+class CfgDefaultKeysPresets {};
 class UserActionGroups
 {
 	class Vtx_KeyBinds_FLIR {
