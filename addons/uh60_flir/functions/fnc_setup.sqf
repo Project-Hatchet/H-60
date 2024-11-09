@@ -17,7 +17,6 @@ if (!hasPilotCamera _vehicle) exitWith {false};
 private _isNotInCockpit = [_vehicle] call vtx_uh60_flir_fnc_syncPilots;
 if (_isNotInCockpit) exitWith {false};
 
-
 vtx_uh60_flir_blackColor = ppEffectCreate ["colorCorrections",2001];
 vtx_uh60_flir_blackColor ppEffectAdjust [0, 1.0, 0.0, [0, 0, 0, 0.75], [1, 1.0, 1.0, 1.0], [0, 0, 0, 0.0]];
 vtx_uh60_flir_blackColor ppEffectCommit 0;
@@ -155,5 +154,9 @@ _id = ["visibleMap", {
   call vtx_uh60_flir_fnc_setIsPipHidden;
 }] call CBA_fnc_addPlayerEventHandler;
 vtx_uh60_flir_playerCBAEHs pushBack ["visibleMap", _id];
+
+//remove ace LST
+[_vehicle,1,["ACE_SelfActions","LSTOn"]] call ace_interact_menu_fnc_removeActionFromObject; 
+[_vehicle,1,["ACE_SelfActions","LSTOff"]] call ace_interact_menu_fnc_removeActionFromObject;
 
 true
