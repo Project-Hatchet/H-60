@@ -40,13 +40,8 @@ class AcreIntercoms {
         displayName = "Intercommunications system";                         // Name of the intercom network displayed to the players
         shortName = "ICS";
         // "all" is a wildcard that selects, in this case, all turrets (not including ffv)
-        allowedPositions[] = {"crew", {"turret", {0}}};
+        allowedPositions[] = {"crew", {"turret", "all"}, {"ffv", "all"}, {"cargo", "all"}};
         // Commander FFV turret and turret positions [1] and [2] do not have access to crew intercom
-        disabledPositions[] = {};
-        // Noone else can have access to this intercom network
-        limitedPositions[] = {{"cargo", "all"}};
-        // This is the number of simultaneous connections that units defined in the previous array can have (default: 0)
-        numLimitedPositions = 2;
         // Seats with master stations have the possibility of broadcasting a message in that network (default: {})
         masterPositions[] = {"driver", {"turret", {0}}};
         connectedByDefault = 1;
