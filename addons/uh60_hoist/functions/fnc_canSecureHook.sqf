@@ -18,6 +18,9 @@ private _hoist_vars = _heli getVariable ["vtx_uh60_hoist_vars", []];
 if (_hoist_vars isEqualTo []) exitWith{false};
 _hoist_vars params ["_rope", "_dummy", "_hook"];
 
+private _ropeLength = ropeLength _rope;
+if (_ropeLength > 1.5) exitWith {false};
+
 private _hoistPos = [1.405, 2.03, 0.45];
 if ((_hook distance (_heli modelToWorld _hoistPos)) > 1.5) exitWith {false};
 if !(crew _hook isEqualTo []) exitWith {false};
