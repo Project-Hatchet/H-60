@@ -6,7 +6,7 @@ params ["_vehicle"];
 private _fallbackMap = getText (configFile >> "CfgWorlds" >> worldName >> "pictureMap");
 private _texture = switch (vtx_uh60_mfd_mapTextureMode) do {
 	case "topo": {
-        private _mapName = format ["z\vtx\addons\uh60_mfd\data\maps\%1.paa", worldName];
+        private _mapName = format ["z\vtx\addons\uh60_mfd\data\maps\%1_co.paa", worldName];
 		if (fileExists _mapName) then {_mapName} else {""};
 	};
 	case "sat": {
