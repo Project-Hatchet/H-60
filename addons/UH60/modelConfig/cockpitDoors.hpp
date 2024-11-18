@@ -25,7 +25,7 @@ class Door_RF
 class Door_LF_Hide
 {
 	type = "hide";
-	source = "Cockpitdoors_Hide";
+	source = "Door_LF_Hide";
 	selection = "cockpitdoor_left";
 	minValue = 0;
 	maxValue = 1;
@@ -34,7 +34,7 @@ class Door_LF_Hide
 class Door_RF_Hide
 {
 	type = "hide";
-	source = "Cockpitdoors_Hide";
+	source = "Door_RF_Hide";
 	selection = "cockpitdoor_right";
 	minValue = 0;
 	maxValue = 1;

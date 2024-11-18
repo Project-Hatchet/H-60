@@ -69,6 +69,18 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0;
   };
+    class Door_LF_Hide {
+    displayName = "Hide Left Cockpit Door";
+    source = "user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Door_RF_Hide {
+    displayName = "Hide Right Cockpit Door";
+    source = "user";
+    animPeriod=1;
+    initPhase=0;
+  };
   class Cockpitdoors_Hide {
     displayName = "Hide Cockpit Doors";
     source="user";

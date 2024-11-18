@@ -22,6 +22,8 @@ class AnimationSources: AnimationSources {
   class FLIR_DIRECTION;
   class FLIR_ELEVATION;
   class Fuelprobe_show;
+  class Door_LF_Hide;
+  class Door_RF_Hide;
   class Cockpitdoors_Hide;
   class ERFS_show;
   class MAWS_Tubes_Show;
