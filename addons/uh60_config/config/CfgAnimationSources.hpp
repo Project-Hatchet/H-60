@@ -277,7 +277,6 @@ class AnimationSources: AnimationSources {
     initPhase=0;
   };
   class Cockpitdoors_Hide {
-    displayName = "Hide Cockpit Doors";
     source="user";
     animPeriod=1;
     initPhase=0;
