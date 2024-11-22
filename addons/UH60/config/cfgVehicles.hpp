@@ -269,8 +269,9 @@ class CfgVehicles
                 activeLight = 0;
                 ambient[] = {100,0,0};
                 blinking = 1;
-                blinkingPattern[] = {0.2,1.3};
-                blinkingPatternGuarantee = 0;
+                blinkingPattern[] = {0.15,2};
+                blinkingStartsOn = 1;
+                blinkingPatternGuarantee = 1;
                 color[] = {0.9,0.15,0.1};
                 dayLight = 1;
                 drawLight = 1;
@@ -284,8 +285,9 @@ class CfgVehicles
                 activeLight = 0;
                 ambient[] = {100,0,0};
                 blinking = 1;
-                blinkingPattern[] = {0.2,1.3};
-                blinkingPatternGuarantee = 0;
+                blinkingPattern[] = {1,0.15,1};
+                blinkingStartsOn = 0;
+                blinkingPatternGuarantee = 1;
                 color[] = {0.9,0.15,0.1};
                 dayLight = 1;
                 drawLight = 1;
