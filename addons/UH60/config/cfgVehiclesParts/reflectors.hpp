@@ -1,6 +1,6 @@
 class Reflectors
 {
-    class Landing //main landing light
+    class Landing //Landing Light
 	{
 		position = "L svetlo";
 		direction = "konec L svetla";
@@ -27,12 +27,12 @@ class Reflectors
 			hardLimitEnd = 200;
 		};
     };
-    class Left //main landing light
+    class Left //Left Position Light (Bright)
 	{
 		ambient[] = {100,0,0};
                 color[] = {70,0,0};
                 size = 1;
-                dayLight = 1;
+                dayLight = 0;
                 useFlare = 1;
                 intensity = 3;
                 coneFadeCoef = 2;
@@ -51,13 +51,13 @@ class Reflectors
                         hardLimitStart = 9;
                         hardLimitEnd = 10;
                 };
-	};
-	class Right //main landing light
+	}; 
+	class Right //Right Position Light (Bright)
         {
                 ambient[] = {0,100,0};
                 color[] = {0,70,0};
                 size = 1;
-                dayLight = 1;
+                dayLight = 0;
                 useFlare = 1;
                 intensity = 3;
                 coneFadeCoef = 2;

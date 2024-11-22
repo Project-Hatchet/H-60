@@ -115,7 +115,7 @@ class interaction {
         }; // b_batt2
         SIMPLE_SWITCH(b_egi1,"button_egi1","NO.1 EGI","Switch_Egi1",1,0,"")
         SIMPLE_SWITCH(b_egi2,"button_egi2","NO.2 EGI","Switch_Egi2",1,0,"")
-        SIMPLE_SWITCH(b_ralt_enable,"button_ralt_enable","RADAR ALTIMETER","Switch_Ralt_enable",1,0,"")
+        SIMPLE_SWITCH(b_ralt_enable,"button_ralt_enable","RADAR ALTIMETER","Switch_Ralt_enable",0,1,"")
         class b_stbyinst : b_batt1 {
             position="b_stbyinst";
             label="STBY INST";
