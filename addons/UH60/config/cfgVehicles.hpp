@@ -272,7 +272,7 @@ class CfgVehicles
                 blinkingPattern[] = {0.2,1.3};
                 blinkingPatternGuarantee = 0;
                 color[] = {0.9,0.15,0.1};
-                dayLight = 0;
+                dayLight = 1;
                 drawLight = 1;
                 drawLightCenterSize = 0.08;
                 drawLightSize = 0.5;
@@ -287,7 +287,7 @@ class CfgVehicles
                 blinkingPattern[] = {0.2,1.3};
                 blinkingPatternGuarantee = 0;
                 color[] = {0.9,0.15,0.1};
-                dayLight = 0;
+                dayLight = 1;
                 drawLight = 1;
                 drawLightCenterSize = 0.08;
                 drawLightSize = 0.5;
