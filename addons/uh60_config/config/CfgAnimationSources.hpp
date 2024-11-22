@@ -100,14 +100,14 @@ class AnimationSources: AnimationSources {
     initPhase=0;
   };
   class RADAR_HIDE {
-    displayName = "Hide Radar";
+    //displayName = "Hide Radar";
     source="user";
     animPeriod=1;
     initPhase=1;
     mass = -MASS_RADAR;
   };
   class FLIR_HIDE {
-    displayName = "Hide FLIR";
+    //displayName = "Hide FLIR";
     source="user";
     animPeriod=1;
     initPhase=1;
@@ -134,7 +134,7 @@ class AnimationSources: AnimationSources {
     initPhase=0;
   };
   class ERFS_show {
-    displayName = "Show ERFS";
+    //displayName = "Show ERFS";
     source="user";
     animPeriod=1;
     initPhase=0;
@@ -147,7 +147,7 @@ class AnimationSources: AnimationSources {
     };
   };
   class MAWS_Tubes_Show {
-    displayName = "Show MAWS";
+    //displayName = "Show MAWS";
     source="user";
     animPeriod=1;
     initPhase=0;
@@ -232,33 +232,33 @@ class AnimationSources: AnimationSources {
     mass = MASS_SKIS;
   };
   class HH60Flares_show {
-    displayName = "Show HH-60 Flares";
+    //displayName = "Show HH-60 Flares";
     source="user";
     animPeriod=1;
     initPhase=0;
     mass = MASS_HH60FLARES;
   };
   class HH60GRadar_show {
-    displayName = "Show HH-60 Weather Radar";
+    //displayName = "Show HH-60 Weather Radar";
     source="user";
     animPeriod=1;
     initPhase=0;
   };
   class HH60GFlir_show {
-    displayName = "Show HH-60 Flir";
+    //displayName = "Show HH-60 Flir";
     source="user";
     animPeriod=1;
     initPhase=0;
   };
   class MH60MMisc_show {
-    displayName = "Show MH-60M Exterior parts";
+    //displayName = "Show MH-60M Exterior parts";
     source="user";
     animPeriod=1;
     initPhase=0;
     mass = MASS_MH60M_MISC;
   };
   class Fuelprobe_show {
-    displayName = "Show Fuel Probe";
+    //displayName = "Show Fuel Probe";
     source="user";
     animPeriod=1;
     initPhase=0;

@@ -46,25 +46,25 @@ class AnimationSources {
     initPhase=0;
   };
   class HH60Flares_show {
-    displayName = "Show HH-60 Flares";
+    //displayName = "Show HH-60 Flares";
     source="user";
     animPeriod=1;
     initPhase=0;
   };
   class HH60GRadar_show {
-    displayName = "Show HH-60 Weather Radar";
+    //displayName = "Show HH-60 Weather Radar";
     source="user";
     animPeriod=1;
     initPhase=0;
   };
   class HH60GFlir_show {
-    displayName = "Show HH-60 Flir";
+    //displayName = "Show HH-60 Flir";
     source="user";
     animPeriod=1;
     initPhase=0;
   };
   class Fuelprobe_show {
-    displayName = "Show Fuel Probe";
+    //displayName = "Show Fuel Probe";
     source="user";
     animPeriod=1;
     initPhase=0;
