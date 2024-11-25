@@ -519,6 +519,7 @@ class CfgVehicles
 
     class vtx_HH60 : vtx_H60_base {
         scope = 2;
+        forceInGarage = 1;
         editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_HH60.jpg";
         displayName = "$STR_VTX_UH60_HHGMPavehawk";
         memoryPointDriverOptics = "pilotcamera_flir_pos";
@@ -567,6 +568,7 @@ class CfgVehicles
 
     class vtx_UH60M_SLICK : vtx_H60_base {
       scope = 2;
+      forceInGarage = 1;
       displayName = "UH-60M Slick";
       transportSoldier=0;
       cargoProxyIndexes[] = {};

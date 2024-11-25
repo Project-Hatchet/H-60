@@ -142,6 +142,7 @@ class CfgVehicles {
 
   class vtx_UH60M_MEDEVAC: vtx_H60_base {
     scope = 2;
+    forceInGarage = 1;
     cargoAction[] = {
       "passenger_low01",
       "passenger_generic01_leanleft",
