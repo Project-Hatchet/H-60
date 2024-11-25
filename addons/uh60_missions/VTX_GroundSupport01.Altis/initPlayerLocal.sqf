@@ -1,1 +1,0 @@
-#include "initBriefing.hpp"
