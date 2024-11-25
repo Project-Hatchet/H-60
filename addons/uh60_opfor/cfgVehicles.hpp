@@ -7,6 +7,7 @@ class OO(heli): heli { \
 	faction = "OPF_F"; \
 	crew = "O_helipilot_F"; \
 	typicalCargo[] = {"O_Soldier_lite_F"}; \
+    forceInGarage = 0; \
 };
 
 class CfgVehicles {
