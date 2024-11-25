@@ -194,12 +194,14 @@ class AnimationSources {
     initPhase=0;
   };
   class cabindoor_L {
-    source="door";
+    displayName = "Close L Cabin Door"
+    source="user";
     animPeriod=1;
     initPhase=0;
   };
   class cabindoor_R {
-    source="door";
+    displayName = "Close R Cabin Door"
+    source="user";
     animPeriod=1;
     initPhase=0;
   };
