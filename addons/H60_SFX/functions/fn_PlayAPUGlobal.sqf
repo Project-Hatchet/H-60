@@ -1,7 +1,7 @@
 /*
  * vtx_uh60_Sound_fnc_PlayAPUGlobal
  *
- * engine power eventhandler
+ * APU power Sound
  *
  * params (array)[(ARRAY) _args, (CODE) _Vars]
  * - _args : ["_vehicle","_old_status","_state"]

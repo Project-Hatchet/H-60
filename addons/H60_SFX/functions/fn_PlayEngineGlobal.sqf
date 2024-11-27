@@ -1,9 +1,9 @@
 /*
  * vtx_uh60_Sound_fnc_PlayEngineGlobal
  *
- * engine power eventhandler
+ * engine power Sound
  *
- * params (array)[(object) vehicle, (bool) turnedOn]
+ * params (array)[(object) vehicle, (array) _Vars]
  */
 params ["_vehicle","_Vars"];
 
