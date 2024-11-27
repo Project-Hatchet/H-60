@@ -22,18 +22,10 @@ if(_turnedOn) then {
 private _rotorspeed = _vehicle getSoundController "RotorSpeed";
 
 //- Play Sound Globally
-[[_vehicle,[_eng1State,_eng2State]], {
-  params ["_vehicle","_Vars"];
-  //-Engine Start
-  if (({_x == "STARTING"} count _Vars > 0) && (_rotorspeed < 0.6)) then {
-    [_vehicle,"Startup",40] call vtx_uh60_Sound_fnc_EngineEH;
-  };
-
-  //-Engine Off
-  if (({_x == "OFF"} count _Vars > 0) && (_rotorspeed != 0)) then {
-    [_vehicle,"Shutdown",18] call vtx_uh60_Sound_fnc_EngineEH;
-  };
-}] remoteExecCall ['call', [0, -2] select isDedicated];
+[
+  _vehicle,
+  [_eng1State,_eng2State]
+] remoteExecCall ['vtx_uh60_Sound_fnc_PlayEngineGlobal', [0, -2] select isDedicated];
 
 /////////////////////////////////
 if (!local _vehicle) exitWith {};

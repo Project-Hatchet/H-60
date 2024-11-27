@@ -350,6 +350,8 @@ class CfgFunctions
 		{
 			file="\z\vtx\addons\H60_SFX\functions";
 			class engineEH;
+			class PlayAPUGlobal;
+			class PlayEngineGlobal;
 		};
 	};
 };
