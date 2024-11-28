@@ -4,8 +4,8 @@ class CfgSettings {
             class UH60 {
                 main_addon = "UH60";
                 class Dependencies {
-                    CBA[] = {"cba_main", {3,17,0}, "(true)"};
-                    ACE[] = {"ace_main", {3,17,0}, "(true)"};
+                    CBA[] = {"cba_main", {3,18,0}, "(true)"};
+                    ACE[] = {"ace_main", {3,18,0}, "(true)"};
                 };
             };
         };
