@@ -1,16 +1,16 @@
 #include "script_component.hpp"
 
-class CfgPatches {
-    class ADDON {
-        name = COMPONENT_NAME;
-        units[] = {"VTX_KV44"};
-        weapons[] = {};
-        requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"vtx_UH60"};
-        author = "";
-        authors[] = {""};
-        VERSION_CONFIG;
-    };
+class CfgPatches
+{
+	class USAF_Hatchet_AAR
+	{
+		requiredAddons[]=	{"USAF_Main"};
+		requiredVersion= 1.62;
+		version=1;
+		units[]={};
+		weapons[]={};
+    skipWhenMissingDependencies = 1;
+	};
 };
 
 #include "CfgEventHandlers.hpp"

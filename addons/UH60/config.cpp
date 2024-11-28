@@ -24,7 +24,7 @@ class CfgPatches {
 
 class CfgEditorSubcategories {
     class vtx_h60 {
-        displayName = "H-60 Pack";
+        displayName = "Hatchet H-60 Pack";
     };
 };
 
