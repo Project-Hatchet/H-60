@@ -1,11 +1,1 @@
-PREP(setup);
-PREP(attachToHelo);
-PREP(detachFromHelo);
-PREP(handleConnection);
-PREP(initBaskets);
-PREP(initTanker);
-PREP(isConnectedBasket);
-PREP(perFrame);
-PREP(perSecond);
-PREP(positionBaskets);
 PREP(probe);
