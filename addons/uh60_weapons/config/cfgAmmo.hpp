@@ -1,6 +1,5 @@
 class CfgAmmo {
   class M_Scalpel_AT;
-  class B_30mm_MP_Tracer_Green;
   class ACE_Hellfire_AGM114K: M_Scalpel_AT {class ace_missileguidance;};
   class ACE_Hellfire_AGM114N: M_Scalpel_AT {class ace_missileguidance;};
   class VTX_Hellfire_AGM114K: ACE_Hellfire_AGM114K {
@@ -125,37 +124,46 @@ class CfgAmmo {
   		attackProfiles[] = {"LIN"};
   	};
   };
+  class B_30mm_HE;
+  class vtx_30mm_shells_hedp : B_30mm_HE
+  {
+   //Ace Cfg
+        ACE_caliber = 30.00;
+        ACE_bulletLength = 104;
+        ACE_bulletMass = 234;
+        ACE_muzzleVelocityVariationSD = 0.37;
+        ACE_ammoTempMuzzleVelocityShifts[] = {-27.20, -26.44, -23.76, -21.00, -17.54, -13.10, -7.95, -1.62, 6.24, 15.48, 27.75};
+        ACE_ballisticCoefficients[] = {0.151};
+        ACE_velocityBoundaries[]={};
+        ACE_standardAtmosphere = "ICAO";
+        ACE_dragModel = 1;
+        ACE_muzzleVelocities[] = {805};
+        ACE_barrelLengths[] = {1676};
+        ace_vehicle_damage_incendiary = 0.7;
 
-  class vtx_30mm_shells_ap : B_30mm_MP_Tracer_Green {
-    caliber=4.4;
-    explosive = 0.1;
-    hit = 170;
-    indirectHit = 60;
-    indirectHitRange = 2;
-    explosionEffects = "ExploAmmoExplosion";
-    deflecting = 10;
-    tracerColor[] = {0.7,0.1,0.1,0.04};
-    tracerColorR[] = {0.7,0.1,0.1,0.04};
-  };
-  class vtx_30mm_shells_hedp : vtx_30mm_shells_ap {
-    explosive = 1;
-    hit = 20;
-    indirectHit = 40;
-    indirectHitRange = 2;
-    explosionEffects = "ExploAmmoExplosion";
-    deflecting = -1;
- 
-    ace_frag_metal = 220;  
-    ace_frag_charge = 20;  
-    ace_frag_gurney_c = 2377;  
-    ace_frag_gurney_k = 0.5;  
-    ace_frag_classes[] = {"ACE_frag_tiny_HD"};  
-    ace_frag_skip = 0;  
-    ace_frag_force = 1; 
-    tracerColor[] = {0.7,0.1,0.1,0.04};
-    tracerColorR[] = {0.7,0.1,0.1,0.04};
-    // https://ace3mod.com/wiki/framework/frag-framework.html
-    
-  };
-  
+        ace_frag_enabled            = 1;
+        ace_frag_skip               = 0;
+
+        hit                         = 60;
+        indirectHit                 = 20;
+        indirectHitRange            = 3.5;
+        typicalSpeed                = 800;
+        maxspeed                    = 825;
+        explosive                   = 0.8;
+
+        airFriction                 = -0.00036;
+        airlock                     = 0;
+        irlock                      = 0;
+        weaponType                  = "cannon";
+        warheadName = "AP";
+
+        //duel purpose warhead
+        submunitionAmmo             ="ammo_Penetrator_30mm";
+        submunitionDirectionType    ="SubmunitionModelDirection";
+        submunitionInitSpeed        =1000;
+        submunitionParentSpeedCoef  =0;
+        submunitionInitialOffset[]  ={0,0,-0.2};
+        triggerOnImpact             =1;
+        deleteParentWhenTriggered   =0;
+    };
 };
