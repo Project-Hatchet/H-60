@@ -144,13 +144,12 @@ class CfgAmmo {
     indirectHitRange = 2;
     explosionEffects = "ExploAmmoExplosion";
     deflecting = -1;
-
-    ace_frag_enabled = 0; 
-    ace_frag_metal = 210;  
-    ace_frag_charge = 185;  
-    ace_frag_gurney_c = 2843;  
-    ace_frag_gurney_k = 3/5;  
-    ace_frag_classes[] = {"ACE_frag_large"};  
+ 
+    ace_frag_metal = 220;  
+    ace_frag_charge = 20;  
+    ace_frag_gurney_c = 2377;  
+    ace_frag_gurney_k = 0.5;  
+    ace_frag_classes[] = {"ACE_frag_tiny_HD"};  
     ace_frag_skip = 0;  
     ace_frag_force = 1; 
     tracerColor[] = {0.7,0.1,0.1,0.04};
