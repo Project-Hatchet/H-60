@@ -59,14 +59,6 @@ class cfgWeapons {
         };
       };
     };
-    class vtx_chaingun_ap: vtx_chaingun_hedp {
-      displayName = "M230 Chaingun";
-      displayNameShort = "M230 AP";
-      magazines[] = {"VTX_M230_Chaingun_L_AP", "VTX_M230_Chaingun_R_AP"};
-      class player: player {
-        displayName = "M230 AP";
-      };
-    };
   class RocketPods;
   class missiles_DAR: RocketPods {
     class Burst;
