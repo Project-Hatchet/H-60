@@ -57,20 +57,7 @@ class cfgMagazines {
     hardpoints[] =    {"VTX_ST_R"};
     model = \z\vtx\addons\uh60_weapons\Data\M230\M230_R.p3d;
   };
-  class VTX_M230_Chaingun_L_AP: VTX_M230_Chaingun_L {
-    scope = 2;
-    ammo = "vtx_30mm_shells_ap";
-    descriptionShort = "Single-barrel chain-driven autocannon firing 30x113 mm AP rounds.";
-    displayname = "M230 AP [H60]";
-    displayNameShort = "M230 AP";
-    pylonWeapon = "vtx_chaingun_ap";
-  };
-  class VTX_M230_Chaingun_R_AP: VTX_M230_Chaingun_L_AP {
-    weight = 164.3;
-    hardpoints[] =    {"VTX_ST_R"};
-    model = \z\vtx\addons\uh60_weapons\Data\M230\M230_R.p3d;
-  };
-
+  
   class PylonRack_12Rnd_missiles;
 	class VTX_PylonRack_M261_M229: PylonRack_12Rnd_missiles {
     hardpoints[] = {"VTX_ST_L","VTX_ST_R","VTX_ST_OUTBOARD"};
