@@ -6,11 +6,11 @@ ADDON = false;
 
 ADDON = true;
 
-["vtx_uh60m_enabled_jvmf","CHECKBOX","(DEBUG) Enable JVMF","UH-60M",[true],nil,{}] call CBA_Settings_fnc_init;
-["vtx_uh60m_enabled_fms","CHECKBOX","(DEBUG) Enable FMS","UH-60M",[true],nil,{}] call CBA_Settings_fnc_init;
-["vtx_uh60m_enabled_mfd","CHECKBOX","(DEBUG) Enable MFD","UH-60M",[true],nil,{}] call CBA_Settings_fnc_init;
-["vtx_uh60m_enabled_fd","CHECKBOX","(DEBUG) Enable FD","UH-60M",[true],nil,{}] call CBA_Settings_fnc_init;
-["vtx_uh60m_enabled_cas","CHECKBOX","(DEBUG) Enable CAS","UH-60M",[true],nil,{}] call CBA_Settings_fnc_init;
-["vtx_uh60m_enabled_aar","CHECKBOX","(DEBUG) Enable AAR","UH-60M",[true],nil,{}] call CBA_Settings_fnc_init;
-["vtx_uh60m_enabled_flir","CHECKBOX","(DEBUG) Enable FLIR","UH-60M",[true],nil,{}] call CBA_Settings_fnc_init;
-["vtx_uh60m_enabled_engine","CHECKBOX","(DEBUG) Enable ENGINE","UH-60M",[true],nil,{}] call CBA_Settings_fnc_init;
+["vtx_uh60m_enabled_jvmf","CHECKBOX",["Enable JVMF", "Uncheck to disable this component for debug reasons"],["UH-60M", "Debug"],[true],nil,{}] call CBA_Settings_fnc_init;
+["vtx_uh60m_enabled_fms","CHECKBOX",["Enable FMS", "Uncheck to disable this component for debug reasons"],["UH-60M", "Debug"],[true],nil,{}] call CBA_Settings_fnc_init;
+["vtx_uh60m_enabled_mfd","CHECKBOX",["Enable MFD", "Uncheck to disable this component for debug reasons"],["UH-60M", "Debug"],[true],nil,{}] call CBA_Settings_fnc_init;
+["vtx_uh60m_enabled_fd","CHECKBOX",["Enable FD", "Uncheck to disable this component for debug reasons"],["UH-60M", "Debug"],[true],nil,{}] call CBA_Settings_fnc_init;
+["vtx_uh60m_enabled_cas","CHECKBOX",["Enable CAS", "Uncheck to disable this component for debug reasons"],["UH-60M", "Debug"],[true],nil,{}] call CBA_Settings_fnc_init;
+["vtx_uh60m_enabled_aar","CHECKBOX",["Enable AAR", "Uncheck to disable this component for debug reasons"],["UH-60M", "Debug"],[true],nil,{}] call CBA_Settings_fnc_init;
+["vtx_uh60m_enabled_flir","CHECKBOX",["Enable FLIR", "Uncheck to disable this component for debug reasons"],["UH-60M", "Debug"],[true],nil,{}] call CBA_Settings_fnc_init;
+["vtx_uh60m_enabled_engine","CHECKBOX",["Enable ENGINE", "Uncheck to disable this component for debug reasons"],["UH-60M", "Debug"],[true],nil,{}] call CBA_Settings_fnc_init;
