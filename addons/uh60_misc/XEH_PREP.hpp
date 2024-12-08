@@ -12,3 +12,5 @@ PREP(addCustomization);
 PREP(removeCustomization);
 PREP(canRemoveCustomization);
 PREP(quickstart);
+PREP(haarLightsON);
+PREP(haarLightsOFF);

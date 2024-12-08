@@ -29,6 +29,48 @@ class cfgVehicles {
 				condition = "player == driver this && vtx_uh60m_simpleStartup"; // Only show if the unit is alive and is not a player
 				statement = "[this] spawn vtx_uh60_misc_fnc_quickstart";
 			};
+            class HAARLightOn
+            {
+                displayName = "Turn HAAR Light On";
+                displayNameDefault = "Turn HAAR Light On";
+                priority= 0;
+                radius = 10;
+                position = "camera";
+                showWindow = 0;
+                hideOnUse = 1;
+                onlyForPlayer = 0;
+                shortcut = "";
+                condition = "player == driver this";
+                statement = "[this, false] spawn vtx_uh60_misc_fnc_haarLightsOn";
+            };
+            class HAARLightOn_IR
+            {
+                displayName = "Turn HAAR Light On (IR)";
+                displayNameDefault = "Turn HAAR Light On (IR)";
+                priority= 0;
+                radius = 10;
+                position = "camera";
+                showWindow = 0;
+                hideOnUse = 1;
+                onlyForPlayer = 0;
+                shortcut = "";
+                condition = "player == driver this";
+                statement = "[this, true] spawn vtx_uh60_misc_fnc_haarLightsOn";
+            };
+            class HAARLightOff
+            {
+                displayName = "Turn HAAR Light Off";
+                displayNameDefault = "Turn HAAR Light Off";
+                priority= 0;
+                radius = 10;
+                position = "camera";
+                showWindow = 0;
+                hideOnUse = 1;
+                onlyForPlayer = 0;
+                shortcut = "";
+                condition = "player == driver this";
+                statement = "[this] spawn vtx_uh60_misc_fnc_haarLightsOff";
+            };
         };
         class vxf_cargo: vxf_cargo {
             class interaction: interaction {
