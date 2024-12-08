@@ -42,8 +42,6 @@ class cfgMagazines {
     muzzlePos = "muzzlePos";
     muzzleEnd = "muzzleEnd";
     weight = 164.3;
-    tracersEvery = 1;
-    lastRoundsTracer = 1;
     count = 300;
     hardpoints[] =    {"VTX_ST_L"};
     model = \z\vtx\addons\uh60_weapons\Data\M230\M230_L.p3d;

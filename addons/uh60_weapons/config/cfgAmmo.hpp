@@ -155,9 +155,9 @@ class CfgAmmo {
         airlock                     = 0;
         irlock                      = 0;
         weaponType                  = "cannon";
-        warheadName = "AP";
+        warheadName                 = "AP";
 
-        //duel purpose warhead
+        //dual purpose warhead
         submunitionAmmo             ="ammo_Penetrator_30mm";
         submunitionDirectionType    ="SubmunitionModelDirection";
         submunitionInitSpeed        =1000;
