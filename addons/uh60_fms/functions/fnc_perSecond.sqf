@@ -19,7 +19,7 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
         if (_vehicle animationSourcePhase "Fuelprobe_show" > 0) then {
             _stateText = "RETRACTED";
             if (_state > 0.05 && _state < 0.95) then {
-                _stateText = "MOVING";
+                _stateText = "WAIT";
             } else {
                 if (_state > 0.95) then { _stateText = "EXTENDED"; };
             };
