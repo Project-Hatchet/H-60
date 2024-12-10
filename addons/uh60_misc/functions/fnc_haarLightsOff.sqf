@@ -1,5 +1,6 @@
 params ["_heli"];
 
+private _heli = vehicle player;
 private _lights = _heli getVariable ["vtx_haarLightSources", []]; 
 { 
 	deleteVehicle _x; 

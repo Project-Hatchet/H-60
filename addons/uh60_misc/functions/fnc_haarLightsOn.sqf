@@ -1,5 +1,6 @@
 params ["_heli", "_IR"];
 
+private _heli = vehicle player;
 private _haarLightRelPoint = [0.7, 5.8, -0.85];
 private _haarLightSource = "#lightreflector" createVehicle (_heli modelToWorld _haarLightRelPoint);
 _haarLightSource attachTo [_heli, _haarLightRelPoint];

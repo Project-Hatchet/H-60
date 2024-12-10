@@ -14,14 +14,14 @@ private _fms = if (player == driver _vehicle) then [{ FMS_R_PAGE_INDEX }, { FMS_
 private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
     case FMS_PAGE_PERFORMANCE: {
         private _weight = weightRTD _vehicle;
-        private _state = _vehicle animationPhase "Fuelprobe_Extend";
-        private _stateText = "NOT INSTALLED";
+        private _probeState = _vehicle animationPhase "Fuelprobe_Extend";
+        private _probeStateText = "NOT INSTALLED";
         if (_vehicle animationSourcePhase "Fuelprobe_show" > 0) then {
-            _stateText = "RETRACTED";
-            if (_state > 0.05 && _state < 0.95) then {
-                _stateText = "WAIT";
+            _probeStateText = "RETRACTED";
+            if (_probeState > 0.05 && _probeState < 0.95) then {
+                _probeStateText = "WAIT";
             } else {
-                if (_state > 0.95) then { _stateText = "EXTENDED"; };
+                if (_probeState > 0.95) then { _probeStateText = "EXTENDED"; };
             };
         };
         [
@@ -29,7 +29,7 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
             missionNamespace getVariable ["vtx_uh60_engine_fuelTime","--:--:--"],
             str floor (missionNamespace getVariable ["vtx_uh60_engine_fuelRange",0]),
             str round (((_weight # 0) + (_weight # 1) + (_weight # 3) + (_weight # 4)) * 2.20462),
-            _stateText
+            _probeStateText
         ]
     };
     case FMS_PAGE_NAV_WAYPOINT: {
