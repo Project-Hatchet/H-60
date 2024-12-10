@@ -8,7 +8,7 @@ class MainTurret: MainTurret { //Left Doorgun
     gunEnd="chamber_1";
     gunnerAction = "vehicle_turnout_1";
     gunnerInAction = "passenger_inside_1";
-    gunnerName="Left door gunner";
+    gunnerName="Left Door Gunner";
     /* need axis set up
     gunnerInAction = "Gunner_HeliTransport3_1";
     gunnerLeftHandAnimName = "gunner_1_hand_l";
@@ -74,7 +74,7 @@ class RightDoorGun: MainTurret {
     gunEnd="chamber_2"; //gunEnd=chamber of the gun
     gunnerAction = "vehicle_turnout_1";
     gunnerInAction = "passenger_inside_1";
-    gunnerName="Right door gunner";
+    gunnerName="Right Door Gunner";
     gunnerLeftHandAnimName = "";
     gunnerRightHandAnimName = "";
     gunnerLeftLegAnimName = "";
