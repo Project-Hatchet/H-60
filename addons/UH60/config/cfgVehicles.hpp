@@ -515,6 +515,18 @@ class CfgVehicles
             "", // "right_num_2",
             "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
         };
+         class AnimationSources: AnimationSources
+        {
+            ANIM_INIT(FuelProbe_show,1);
+            ANIM_INIT(CabinSeats_Hide,1);
+            ANIM_INIT(HH60Flares_show,1);
+            ANIM_INIT(HH60GRadar_show,1);
+            ANIM_INIT(HH60GFlir_show,1);
+            ANIM_INIT(MAWS_Tubes_Show,1);
+            ANIM_INIT(ERFS_show,1);
+            ANIM_INIT(Minigun_Sight_L_hide,1);
+            ANIM_INIT(Minigun_Sight_R_hide,1);
+        };
     };
 
     class vtx_HH60 : vtx_H60_base {
@@ -561,6 +573,8 @@ class CfgVehicles
             ANIM_INIT(HH60GFlir_show,1);
             ANIM_INIT(MAWS_Tubes_Show,1);
             ANIM_INIT(ERFS_show,1);
+            ANIM_INIT(Minigun_Sight_L_hide,1);
+            ANIM_INIT(Minigun_Sight_R_hide,1);
         };
         #include "vehicleTransport.hpp"
     }; // vtx_HH60
@@ -576,6 +590,8 @@ class CfgVehicles
       class AnimationSources: AnimationSources {
         ANIM_INIT(CabinSeats_Hide,1);
         ANIM_INIT(Hoist_hide,1);
+        ANIM_INIT(Minigun_Sight_L_hide,1);
+        ANIM_INIT(Minigun_Sight_R_hide,1);
       };
       class Turrets: Turrets {
         class CopilotTurret: CopilotTurret {};

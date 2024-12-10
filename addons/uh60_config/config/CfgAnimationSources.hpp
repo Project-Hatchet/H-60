@@ -88,13 +88,11 @@ class AnimationSources: AnimationSources {
     mass = -MASS_MINIGUN;
   };
   class Minigun_Sight_L_hide {
-    displayName = "Hide Minigun Sight (L)";
     source="user";
     animPeriod=1;
     initPhase=0;
   };
   class Minigun_Sight_R_hide {
-    displayName = "Hide Minigun Sight (R)";
     source="user";
     animPeriod=1;
     initPhase=0;

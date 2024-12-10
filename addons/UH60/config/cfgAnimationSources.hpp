@@ -181,6 +181,16 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0;
   };
+  class Minigun_Sight_L_hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Minigun_Sight_R_hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
   class cabindoor_L {
     source="door";
     animPeriod=1;
