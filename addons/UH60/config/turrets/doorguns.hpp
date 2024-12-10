@@ -8,7 +8,7 @@ class MainTurret: MainTurret { //Left Doorgun
     gunEnd="chamber_1";
     gunnerLeftHandAnimName="minigun_base_elev_l";
     gunnerLeftLegAnimName="M134Gunner_L_Legs";
-    gunnerName="Left door gunner";
+    gunnerName="Left Door Gunner";
     gunnerRightHandAnimName= "minigun_base_elev_l";
     gunnerRightLegAnimName= "M134Gunner_L_Legs";
     memoryPointGunnerOptics="gunnerview_1";
@@ -60,7 +60,7 @@ class RightDoorGun: MainTurret {
     gunEnd="chamber_2"; //gunEnd=chamber of the gun
     gunnerLeftHandAnimName="minigun_base_elev_r";
     gunnerLeftLegAnimName="M134Gunner_r_Legs";
-    gunnerName="Right door gunner";
+    gunnerName="Right Door Gunner";
     gunnerRightHandAnimName= "minigun_base_elev_r";
     gunnerRightLegAnimName= "M134Gunner_r_Legs";
     memoryPointGunnerOptics="gunnerview_2";
