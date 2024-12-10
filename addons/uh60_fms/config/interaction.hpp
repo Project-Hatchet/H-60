@@ -130,7 +130,18 @@ class performance {
   FMS_BTN(FMS_10,"Main Menu")
     buttonUp= [(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_MENU)], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
-  FMS_BTN(FMS_1,"Move Probe") buttonUp=[vehicle player] call vtx_uh60_aar_fnc_probe; };
+  FMS_BTN(FMS_1,"Move Probe") 
+    buttonUp=[vehicle player] call vtx_uh60_aar_fnc_probe;
+  };
+  FMS_BTN(FMS_2,"Probe Light Off")
+    buttonUp=[this] spawn vtx_uh60_misc_fnc_haarLightsOff;
+  };
+  FMS_BTN(FMS_3,"Probe Light On")
+    buttonUp=[this, false] spawn vtx_uh60_misc_fnc_haarLightsOn;
+  };
+  FMS_BTN(FMS_4,"IR Probe Light")
+    buttonUp=[this, true] call vtx_uh60_misc_fnc_haarLightsOn;
+  };
 };
 
 class MSN {
