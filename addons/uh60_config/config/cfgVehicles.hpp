@@ -54,6 +54,8 @@ class CfgVehicles {
   class vtx_UH60M: vtx_H60_base {
     class AnimationSources: AnimationSources {
       ANIM_INIT(Hoist_hide,1);
+      ANIM_INIT(cabindoor_L,1);
+      ANIM_INIT(cabindoor_R,1);
       class CabinSeats_1_Hide {
         displayName = "Hide Cabin Seats (Front)";
         source="user";
@@ -170,9 +172,11 @@ class CfgVehicles {
       ANIM_INIT(Minigun_R_hide,1);
       // Door seats
       class cabindoor_L: cabindoor_L {
+        initPhase = 1;
         onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[5], [6]] ;";
       };
       class cabindoor_R: cabindoor_R {
+        initPhase = 1;
         onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[3], [4]] ;";
       };
     }; // AnimationSources
@@ -219,6 +223,7 @@ class CfgVehicles {
 
   class vtx_UH60M_SLICK: vtx_H60_base {
     class AnimationSources: AnimationSources {
+      // Seats
       ANIM_INIT(CabinSeats_1_Hide,1);
       ANIM_INIT(CabinSeats_2_Hide,1);
       ANIM_INIT(CabinSeats_3_Hide,1);
@@ -233,9 +238,11 @@ class CfgVehicles {
       };
       // Door seats
       class cabindoor_L: cabindoor_L {
+        initPhase = 1;
         onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[3], [4]] ;";
       };
       class cabindoor_R: cabindoor_R {
+        initPhase = 1;
         onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[1], [2]] ;";
       };
     }; // AnimationSources
