@@ -117,7 +117,7 @@ class AnimationSources {
     initPhase="rad 80";
   };
   class ERFS_show {
-    //displayName = "Show ERFS";
+    displayName = "Show ERFS";
     source="user";
     animPeriod=1;
     initPhase=0;
