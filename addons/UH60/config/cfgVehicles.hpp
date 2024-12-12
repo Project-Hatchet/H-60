@@ -517,13 +517,6 @@ class CfgVehicles
         };
          class AnimationSources: AnimationSources
         {
-            ANIM_INIT(FuelProbe_show,1);
-            ANIM_INIT(CabinSeats_Hide,1);
-            ANIM_INIT(HH60Flares_show,1);
-            ANIM_INIT(HH60GRadar_show,1);
-            ANIM_INIT(HH60GFlir_show,1);
-            ANIM_INIT(MAWS_Tubes_Show,1);
-            ANIM_INIT(ERFS_show,1);
             ANIM_INIT(Minigun_Sight_L_hide,1);
             ANIM_INIT(Minigun_Sight_R_hide,1);
         };
