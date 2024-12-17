@@ -22,7 +22,7 @@ assignees: ''
 - **Arma 3:** `x.xx` [e.g. 1.00 stable, rc,  dev, Prof ]
 - **CBA:** `3.x.x` [e.g. 3.0.0 stable]
 - **ACE3:** `3.x.x` [eg. 3.0.0 stable]
--  **Hatchet H-60 pack - Stable Development Version:** `YYYYMMDD` [eg. 20200427 stable]
+-  **Hatchet H-60 pack - Stable Version:** `YYYYMMDD` [eg. 20200427 stable]
 -  **Hatchet Framework - Stable Version:** `YYYYMMDD` [eg. 20200427 Prof]
 
 <!-- We know you use more mods, please list all and include a link make more or less as needed   -->
