@@ -44,7 +44,7 @@ class CfgVehicles {
         class AcreRacks {};
         class AcreIntercoms {};
         armor = 1000000;
-        author = "Project Hatchet Studio";
+        author = "Project Hatchet Studios";
         cargoAction[] = {"ChopperLight_CB_static_H"};
         memoryPointsGetInCargo = "pos cargo";
         memoryPointsGetInCargoDir = "pos cargo dir";

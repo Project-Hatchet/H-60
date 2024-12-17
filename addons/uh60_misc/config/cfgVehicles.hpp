@@ -75,7 +75,7 @@ class cfgVehicles {
 
     class Land_MobileScafolding_01_F;
     class vtx_serviceplatform: Land_MobileScafolding_01_F {
-        author = "Project Hatchet";
+        author = "Project Hatchet Studios";
         displayName = "Blackhawk Service Platform";
         model = "\z\vtx\addons\uh60_misc\data\serviceplatform\Yax_service_test.p3d";
     };

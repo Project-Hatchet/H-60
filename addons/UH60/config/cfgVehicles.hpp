@@ -50,7 +50,7 @@ class CfgVehicles
         #include "cfgUVAnimations.hpp"
         #include "CfgUserActions.hpp"
         #include "edenAttributes.hpp"
-        author = "Project Hatchet Studio";
+        author = "Project Hatchet Studios";
         class VTX_H60_HDTS_Copilot;
         #include "cfgVxf.hpp"
         memoryPointDriverOptics = "slingcam";
