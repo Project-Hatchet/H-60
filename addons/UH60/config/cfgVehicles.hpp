@@ -67,8 +67,8 @@ class CfgVehicles
         faction = "BLU_F";
         armor = 575;
         type = 2;
-        threat[] = {1,1,0.5};
         // damageResistance = 0.000555;
+        threat[] = {0.8,0.2,0.5};
         epeImpulseDamageCoef = 0;
         altFullForce = 1500;	/// in what height do the engines still have full thrust
         altNoForce = 4000;		/// thrust of the engines interpolates to zero between altFullForce and altNoForce
