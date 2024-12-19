@@ -197,13 +197,15 @@ class CfgVehicles
         model = "\z\vtx\addons\UH60\vtx_UH60.p3d";
         displayName = "$STR_VTX_UH60_UHMBlackhawk";
 
+        crewVulnerable = 1;
 
 
         icon = "z\vtx\addons\UH60\Data\UI\Map_vtx_UH60_CA.paa";	/// icon in map/editor
         picture = "z\vtx\addons\UH60\Data\UI\vtx_UH60_CA.paa";	/// small picture in command menu
 
-        hideProxyInCombat = 1;
+        hideProxyInCombat = 0;
         viewDriverInExternal = 1;
+        viewGunnerInExternal = 1;
         canHideDriver = 0;
         driverInAction = UH60_Pilot;
         driverAction = UH60_Pilot;
