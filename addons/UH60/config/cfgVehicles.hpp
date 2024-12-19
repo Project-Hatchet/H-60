@@ -65,7 +65,7 @@ class CfgVehicles
         editorSubcategory = "vtx_h60";
         side = 1;
         faction = "BLU_F";
-        armor = 575;
+        armor = 600;
         armorStructural = 4;
         type = VAir;
         threat[] = {0.8,0.2,0.5};
