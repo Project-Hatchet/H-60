@@ -68,6 +68,7 @@ class CfgVehicles
         armor = 575;
         type = 2;
         // damageResistance = 0.000555;
+        armorStructural = 4;
         threat[] = {0.8,0.2,0.5};
         epeImpulseDamageCoef = 0;
         altFullForce = 1500;	/// in what height do the engines still have full thrust
@@ -78,7 +79,7 @@ class CfgVehicles
         mainBladeCenter = "predni osa naklonu";
         tailBladeCenter = "light_collision_tail_upper";
         fuelConsumptionRate = 0;
-        armorStructural = 5;
+        
         //multiplier of lift force
         liftForceCoef = 1.1;
         //multiplier of body friction
