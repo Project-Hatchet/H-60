@@ -66,10 +66,14 @@ class CfgVehicles
         side = 1;
         faction = "BLU_F";
         armor = 575;
-        type = 2;
-        // damageResistance = 0.000555;
         armorStructural = 4;
+        type = VAir;
         threat[] = {0.8,0.2,0.5};
+        crewVulnerable = 1;
+        crewCrashProtection = 0.25;
+        visualTarget = 1;
+        visualTargetSize = 1.0;
+        ///damageResistance = 0.002;
         epeImpulseDamageCoef = 0;
         altFullForce = 1500;	/// in what height do the engines still have full thrust
         altNoForce = 4000;		/// thrust of the engines interpolates to zero between altFullForce and altNoForce
@@ -194,7 +198,7 @@ class CfgVehicles
             "z\vtx\addons\UH60\data\exterior\hull tail.rvmat"
         };
         A3TI_ThermalSelections[] = {16, 17, 18};
-        accuracy = 0.5;
+        accuracy = 5;
         model = "\z\vtx\addons\UH60\vtx_UH60.p3d";
         displayName = "$STR_VTX_UH60_UHMBlackhawk";
 
@@ -203,8 +207,9 @@ class CfgVehicles
         icon = "z\vtx\addons\UH60\Data\UI\Map_vtx_UH60_CA.paa";	/// icon in map/editor
         picture = "z\vtx\addons\UH60\Data\UI\vtx_UH60_CA.paa";	/// small picture in command menu
 
-        hideProxyInCombat = 1;
+        hideProxyInCombat = 0;
         viewDriverInExternal = 1;
+        viewGunnerInExternal = 1;
         canHideDriver = 0;
         driverInAction = UH60_Pilot;
         driverAction = UH60_Pilot;
