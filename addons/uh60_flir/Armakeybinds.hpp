@@ -56,6 +56,12 @@ class CfgUserActions
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
 	};
+
+	class vtx_FLIR_openCamera {
+		displayName = "FLIR Full Screen";
+		tooltip = "Open FLIR Fullscreen";
+		onActivate = "vtx_uh60_flir_isInScriptedCamera = !vtx_uh60_flir_isInScriptedCamera; [vtx_uh60_flir_isInScriptedCamera] call vtx_uh60_flir_fnc_scriptedCamera;";		// _this is always true.
+	};
 };
 class CfgDefaultKeysPresets {};
 class UserActionGroups
@@ -71,6 +77,7 @@ class UserActionGroups
 		"Vtx_Flir_SlewDown",
 		"Vtx_Flir_SlewLeft",
 		"Vtx_Flir_SlewRight",
+		"vtx_FLIR_openCamera"
 		}; // List of all actions inside this category.
 	};
 };
