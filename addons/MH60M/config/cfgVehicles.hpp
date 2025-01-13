@@ -114,7 +114,7 @@ class CfgVehicles {
         }; //TC Seat
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa"};
         #include "\z\vtx\addons\UH60\config\vehicleTransport.hpp"
-        class MFD: MFD {
+        /*class MFD: MFD {
             class VTX_MFD_1 :           VTX_MFD_1 {};
             class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};
             class VTX_MFD_1_Monospace : VTX_MFD_1_Monospace {};
@@ -140,7 +140,7 @@ class CfgVehicles {
             class VTX_FMS_L: VTX_FMS_L {};
             class VTX_FMS_R: VTX_FMS_R {};
             class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
-        };
+        };*/
     }; // vtx_MH60M
     class vtx_MH60M_DAP : vtx_H60_base {
         class pilotCamera: vtx_templateFLIR {};
