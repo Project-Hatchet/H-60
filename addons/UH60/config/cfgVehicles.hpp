@@ -559,6 +559,7 @@ class CfgVehicles
             class MainTurret: MainTurret {};
             class RightDoorGun: RightDoorGun {};
             #include "turrets\cargoTurrets.hpp"
+            #include "\z\vtx\addons\MH60M\config\turrets\troopCommander.hpp"
         };
 
         transportSoldier=0;
