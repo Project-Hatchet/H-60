@@ -123,7 +123,7 @@ if (_trot > 2) then {
 [22, (damage _vehicle) > 0.5] call _setPylonFn;
 
 // STARTER 1 STARTER 2
-(_vehicle getVariable ["vtx_uh60_sfmplus_engState", ["OFF", "OFF"]]) params ["_eng1", "_eng2"];
+(_vehicle getVariable ["bmkhs_engState", ["OFF", "OFF"]]) params ["_eng1", "_eng2"];
 [24, _eng1 == "STARTING"] call _setPylonFn;
 [33, _eng2 == "STARTING"] call _setPylonFn;
 

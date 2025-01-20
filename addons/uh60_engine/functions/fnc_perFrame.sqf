@@ -64,12 +64,12 @@ _vehicle setUserMFDvalue [47, (_engTGT # 1)];
 //         _engTq = [0,0];
 //     };
 
-//     private _eng1State = _vehicle getVariable "vtx_uh60_sfmplus_engState" select 0;
+//     private _eng1State = _vehicle getVariable "bmkhs_engState" select 0;
 //     if (_eng1State in ["STARTING", "ON"]) then {
 //         _vehicle setUserMFDvalue [22, (_engTq # 0) / _tqScalar];
 //     } else { _vehicle setUserMFDvalue [22, 0]; };
 
-//     private _eng2State = _vehicle getVariable "vtx_uh60_sfmplus_engState" select 1;
+//     private _eng2State = _vehicle getVariable "bmkhs_engState" select 1;
 //     if (_eng2State in ["STARTING", "ON"]) then {
 //         _vehicle setUserMFDvalue [48, (_engTq # 1) / _tqScalar];
 //     } else { _vehicle setUserMFDvalue [48, 0]; };

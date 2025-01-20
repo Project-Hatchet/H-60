@@ -14,8 +14,8 @@ vtx_uh60_fmplus_fnc_getEngineConfig = {
 vtx_uh60_fmplus_fnc_getEngineState = {
 	params ["_vehicle", "_engine"];
 	private _output = [
-		"vtx_uh60_sfmplus_engState",
-		"vtx_uh60_sfmplus_engPowerLeverState",
+		"bmkhs_engState",
+		"bmkhs_engPwrLvrState",
 		"vtx_uh60_sfmplus_engPctNG",
 		"vtx_uh60_sfmplus_engPctNP",
 		"vtx_uh60_sfmplus_engPctTQ",

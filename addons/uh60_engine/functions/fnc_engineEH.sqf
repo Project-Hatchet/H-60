@@ -17,7 +17,7 @@ if(_turnedOn) then {
 };
 
 //-Sound Handler
-(_vehicle getVariable ["vtx_uh60_sfmplus_engState", ["OFF", "OFF"]]) params ["_eng1State", "_eng2State"];
+(_vehicle getVariable ["bmkhs_engState", ["OFF", "OFF"]]) params ["_eng1State", "_eng2State"];
 
 private _rotorspeed = _vehicle getSoundController "RotorSpeed";
 

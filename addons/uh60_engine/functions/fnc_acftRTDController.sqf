@@ -6,7 +6,7 @@ private _rtdDesiredRPM = _vehicle getVariable "vtx_uh60_acft_rtdDesiredRPM";
 
 //Engine 1
 private _eng1PwrCtrlLeverPos   = 0.0;
-private _eng1PwrCtrlLeverState = _vehicle getVariable "vtx_uh60_acft_eng1PwrCtrlLeverState";
+private _eng1PwrCtrlLeverState = _vehicle getVariable "bmkhs_engPwrLvrState" select 0;
 switch (_eng1PwrCtrlLeverState) do {
     case "OFF": {
         _eng1PwrCtrlLeverPos = 0.0;
@@ -21,7 +21,7 @@ switch (_eng1PwrCtrlLeverState) do {
 
 //Engine 2
 private _eng2PwrCtrlLeverPos   = 0.0;
-private _eng2PwrCtrlLeverState = _vehicle getVariable "vtx_uh60_acft_eng1PwrCtrlLeverState";
+private _eng2PwrCtrlLeverState = _vehicle getVariable "bmkhs_engPwrLvrState" select 1;
 switch (_eng2PwrCtrlLeverState) do {
     case "OFF": {
         _eng2PwrCtrlLeverPos = 0.0;

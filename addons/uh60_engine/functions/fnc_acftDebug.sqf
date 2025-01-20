@@ -27,8 +27,8 @@ _dcBusState        = _vehicle getVariable "vtx_uh60_acft_DCBusState";
 //--Engine levers
 _eng1FuelSysLeverState = _vehicle getVariable "vtx_uh60_acft_eng1FuelSysLeverState";
 _eng2FuelSysLeverState = _vehicle getVariable "vtx_uh60_acft_eng2FuelSysLeverState";
-_eng1PwrCtrlLeverState = _vehicle getVariable "vtx_uh60_acft_eng1PwrCtrlLeverState";
-_eng2PwrCtrlLeverState = _vehicle getVariable "vtx_uh60_acft_eng2PwrCtrlLeverState";
+_eng1PwrCtrlLeverState = _vehicle getVariable "bmkhs_engPwrLvrState" select 0;
+_eng2PwrCtrlLeverState = _vehicle getVariable "bmkhs_engPwrLvrState" select 1;
 //--RTD
 _forcesRTD             = rotorsForcesRTD _vehicle;
 enginesRpmRTD _vehicle params ["_RPMEngine1", "_RPMEngine2"];
