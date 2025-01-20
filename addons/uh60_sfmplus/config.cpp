@@ -4,7 +4,7 @@ class CfgPatches
 {
 	class vtx_uh60_sfmplus
 	{
-        units[] = {};
+    units[] = {};
 		author = "BradMick, MattySmith22";
 		weapons[] = {};
 		requiredVersion = 1.0;
