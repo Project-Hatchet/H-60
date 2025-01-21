@@ -18,12 +18,12 @@ private _eng2PwrCtrlLeverState = _vehicle getVariable "bmkhs_engPwrLvrState" sel
 
 if (_animName == "STARTER1") then {
     if (_mikSwitchState == "ON" && _dcBusState == "ON" && _eng1PwrCtrlLeverState == "OFF") then {
-        [_vehicle, 0] call bmkhs_fnc_interactStartSwitch;
+        [_vehicle, 0] call bmkhs_interact_fnc_startSwitch;
     };
 };
 
 if (_animName == "STARTER2") then {
     if (_mikSwitchState == "ON" && _dcBusState == "ON" && _eng2PwrCtrlLeverState == "OFF") then {
-        [_vehicle, 1] call bmkhs_fnc_interactStartSwitch;
+        [_vehicle, 1] call bmkhs_interact_fnc_startSwitch;
     };
 };

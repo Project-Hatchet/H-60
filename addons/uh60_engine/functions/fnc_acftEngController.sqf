@@ -15,13 +15,13 @@ if (_eng1State == "STARTING") then {
         //Do we have an airsource?
         if (_airsrceSwitchState in ["APU", "ENG"]) then {
             if (_eng1PwrCtrlLeverState == "OFF") then {
-                [_vehicle, 0, "OFF"] call bmkhs_fnc_interactPowerLever;
+                [_vehicle, 0, "OFF"] call bmkhs_interact_fnc_powerLever;
             };
             if (_eng1PwrCtrlLeverState == "IDLE") then {
-                [_vehicle, 0, "IDLE"] call bmkhs_fnc_interactPowerLever;
+                [_vehicle, 0, "IDLE"] call bmkhs_interact_fnc_powerLever;
             };
             if (_eng1PwrCtrlLeverState == "FLY") then {
-                [_vehicle, 0, "FLY"] call bmkhs_fnc_interactPowerLever;
+                [_vehicle, 0, "FLY"] call bmkhs_interact_fnc_powerLever;
             };
         };//Airsource
     };//Fuel system lever
@@ -29,13 +29,13 @@ if (_eng1State == "STARTING") then {
 
 if (_eng1State == "ON") then {
     if (_eng1PwrCtrlLeverState == "OFF") then {
-        [_vehicle, 0, "OFF"] call bmkhs_fnc_interactPowerLever;
+        [_vehicle, 0, "OFF"] call bmkhs_interact_fnc_powerLever;
     };
     if (_eng1PwrCtrlLeverState == "IDLE") then {
-        [_vehicle, 0, "IDLE"] call bmkhs_fnc_interactPowerLever;
+        [_vehicle, 0, "IDLE"] call bmkhs_interact_fnc_powerLever;
     };
     if (_eng1PwrCtrlLeverState == "FLY") then {
-        [_vehicle, 0, "FLY"] call bmkhs_fnc_interactPowerLever;
+        [_vehicle, 0, "FLY"] call bmkhs_interact_fnc_powerLever;
     };
 };
 
@@ -52,13 +52,13 @@ if (_eng2State == "STARTING") then {
         //Do we have an airsource?
         if (_airsrceSwitchState in ["APU", "ENG"]) then {
             if (_eng2PwrCtrlLeverState == "OFF") then {
-                [_vehicle, 1, "OFF"] call bmkhs_fnc_interactPowerLever;
+                [_vehicle, 1, "OFF"] call bmkhs_interact_fnc_powerLever;
             };
             if (_eng2PwrCtrlLeverState == "IDLE") then {
-                [_vehicle, 1, "IDLE"] call bmkhs_fnc_interactPowerLever;
+                [_vehicle, 1, "IDLE"] call bmkhs_interact_fnc_powerLever;
             };
             if (_eng2PwrCtrlLeverState == "FLY") then {
-                [_vehicle, 1, "FLY"] call bmkhs_fnc_interactPowerLever;
+                [_vehicle, 1, "FLY"] call bmkhs_interact_fnc_powerLever;
             };
         };//Airsource
     };//Fuel system lever
@@ -66,12 +66,12 @@ if (_eng2State == "STARTING") then {
 
 if (_eng2State == "ON") then {
     if (_eng2PwrCtrlLeverState == "OFF") then {
-        [_vehicle, 1, "OFF"] call bmkhs_fnc_interactPowerLever;
+        [_vehicle, 1, "OFF"] call bmkhs_interact_fnc_powerLever;
     };
     if (_eng2PwrCtrlLeverState == "IDLE") then {
-        [_vehicle, 1, "IDLE"] call bmkhs_fnc_interactPowerLever;
+        [_vehicle, 1, "IDLE"] call bmkhs_interact_fnc_powerLever;
     };
     if (_eng2PwrCtrlLeverState == "FLY") then {
-        [_vehicle, 1, "FLY"] call bmkhs_fnc_interactPowerLever;
+        [_vehicle, 1, "FLY"] call bmkhs_interact_fnc_powerLever;
     };
 };
