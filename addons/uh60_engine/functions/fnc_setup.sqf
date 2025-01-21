@@ -80,8 +80,8 @@ SET_GLOBAL_DEFAULT("vtx_uh60_acft_airsrceSwitchState",  "OFF");   //ENG, OFF, AP
 SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng1FuelSysLeverState", "OFF");
 SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng2FuelSysLeverState", "OFF");
 //--Power control levers
-SET_GLOBAL_DEFAULT("bmkhs_engPwrLvrState" select 0, "OFF");
-SET_GLOBAL_DEFAULT("bmkhs_engPwrLvrState" select 1, "OFF");
+//SET_GLOBAL_DEFAULT("bmkhs_engPwrLvrState" select 0,     "OFF");
+//SET_GLOBAL_DEFAULT("bmkhs_engPwrLvrState" select 1,     "OFF");
 //--RotorLib
 SET_GLOBAL_DEFAULT("vtx_uh60_acft_rtdDesiredRPM",          20900);
 SET_GLOBAL_DEFAULT("vtx_uh60_acft_rtd100PctTqVal",           481); //Nm (355ft-lbs)

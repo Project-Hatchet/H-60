@@ -29,6 +29,10 @@ _eng1FuelSysLeverState = _vehicle getVariable "vtx_uh60_acft_eng1FuelSysLeverSta
 _eng2FuelSysLeverState = _vehicle getVariable "vtx_uh60_acft_eng2FuelSysLeverState";
 _eng1PwrCtrlLeverState = _vehicle getVariable "bmkhs_engPwrLvrState" select 0;
 _eng2PwrCtrlLeverState = _vehicle getVariable "bmkhs_engPwrLvrState" select 1;
+//--Engine states
+_eng1State = _vehicle getVariable "bmkhs_engState" select 0;
+_eng2State = _vehicle getVariable "bmkhs_engState" select 1;
+
 //--RTD
 _forcesRTD             = rotorsForcesRTD _vehicle;
 enginesRpmRTD _vehicle params ["_RPMEngine1", "_RPMEngine2"];
@@ -59,9 +63,11 @@ HintSilent format ["Aircraft Module Debug Output
                     \n---------------------------
                     \nAPU State = %15
                     \n---------------------------
+                    \nEng 1 State = %27
                     \nEng 1 Fuel Lever State = %17
                     \nEng 1 Pwr Lever State = %18
                     \n---------------------------
+                    \nEng 2 State = %28
                     \nEng 2 Fuel Lever State = %19
                     \nEng 2 Pwr Lever State = %20
                     \n---------------------------
@@ -94,4 +100,6 @@ HintSilent format ["Aircraft Module Debug Output
                     enginesPowerRTD _vehicle,   //23
                     enginesTorqueRTD _vehicle,  //24
                     _RPMEngine1,                //25
-                    _RPMEngine2];               //26
+                    _RPMEngine2,                //26
+                    _eng1State,                 //27
+                    _eng2State];                //28

@@ -26,7 +26,7 @@ if (_eng1PwrCtrlLeverPos == 0.23) then {
 if (_eng1PwrCtrlLeverPos >= 0.80) then {
     _eng1PwrCtrlLeverState = "FLY";
 };
-[_vehicle "bmkhs_engPwrLvrState", 0, _eng1PwrCtrlLeverState] call bmkhs_fnc_setArrayVariable;
+[_vehicle, "bmkhs_engPwrLvrState", 0, _eng1PwrCtrlLeverState] call bmkhs_fnc_setArrayVariable;
 
 //systemChat format ["Eng 1 Fuel Sys Lvr Pos %1 / Pwr Ctrl Lvr Pos %2", _eng1FuelSysLeverPos, _eng1PwrCtrlLeverPos];
 
@@ -46,7 +46,7 @@ if (_eng2FuelSysLeverPos >= 0.90) then {
 _vehicle setVariable ["vtx_uh60_acft_eng2FuelSysLeverState", _eng2FuelSysLeverState];
 //--Power control lever
 private _eng2PwrCtrlLeverPos   = _vehicle animationPhase "Lever_engpower2"; //0.0 = OFF, 0.23 = IDLE, 0.85 = FLY
-private _eng2PwrCtrlLeverState = _vehicle getVariable "vtx_uh60_acft_eng2PwrCtrlLeverState";
+private _eng2PwrCtrlLeverState = _vehicle getVariable "bmkhs_engPwrLvrState" select 1;
 if (_eng2PwrCtrlLeverPos <= 0.10) then {
     _eng2PwrCtrlLeverState = "OFF";
 };
@@ -56,7 +56,7 @@ if (_eng2PwrCtrlLeverPos == 0.23) then {
 if (_eng2PwrCtrlLeverPos >= 0.80) then {
     _eng2PwrCtrlLeverState = "FLY";
 };
-[_vehicle "bmkhs_engPwrLvrState", 1, _eng2PwrCtrlLeverState] call bmkhs_fnc_setArrayVariable;
+[_vehicle, "bmkhs_engPwrLvrState", 1, _eng2PwrCtrlLeverState] call bmkhs_fnc_setArrayVariable;
 
 //systemChat format ["Eng 2 Fuel Sys Lvr Pos %1 / Pwr Ctrl Lvr Pos %2", _eng2FuelSysLeverPos, _eng2PwrCtrlLeverPos];
 
