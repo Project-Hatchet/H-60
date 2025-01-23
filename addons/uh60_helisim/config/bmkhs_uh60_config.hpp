@@ -19,17 +19,22 @@ class bmkhs_config {
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Electrical System    /////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
-    useElectricalSystem        = true;
-    //Batteries - Maximum of 2
-    electricalNumBatteries     = 1;
-    electricalBatteryLifeInMin = 12.0; //minutes
-    //Generators - Maximum of 2
-    electricalNumGenerators    = 2;
-    //Rectifiers - Converts AC to DC, Maximum of 2, typically one per Generator
-    electricalNumRectifiers    = 2;
-    //Inverters - Converts DC to AC, Maximum of 2, typically one per Generator
-    electricalNumInverters     = 0;
-
+    useElectricalSystem             = true;
+    //Main or Aircraft Battery
+    electricalMainBatteryLifeInMin  = 12.0;
+    //Emergency or IFR Battery
+    electricalHasEmerBattery        = false;
+    electricalEmerBatteryLifeInMin  = 30.0;
+    //Provides AC power to the electrical system
+    electricalHasAPUGenerator       = true;
+    //AC generators - Max of 2
+    electricalNumACGenerators       = 2;
+    //Rectifiers - Converts AC to DC, Maximum of 2, one per AC generator
+    electricalNumRectifiers         = 2;    
+    //DC Generators - Max of 2
+    electricalNumDCGenerators       = 0;
+    //Inverters - Converts DC to AC, Maximum of 2, one per DC generator
+    electricalNumInverters          = 0;
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Fuel Data            /////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////

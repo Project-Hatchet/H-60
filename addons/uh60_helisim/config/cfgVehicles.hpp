@@ -19,7 +19,7 @@ class CfgVehicles {
 	class vtx_H60_base: Heli_Transport_01_base_F {
     class vxf_driver: vxf_driver {
 			class modules: modules {
-				class bmkhs_core {
+				class helisim {
 					startOnEnter = 1;
 					//setup     = "bmkhs_fnc_setup";
 					//perFrame  = "bmkhs_fnc_perFrame";
@@ -30,7 +30,7 @@ class CfgVehicles {
 		}; // vxf_driver
 		class vxf_copilot: vxf_copilot {
 			class modules: modules {
-				class bmkhs_core {
+				class helisim {
 					startOnEnter = 1;
 					//setup     = "bmkhs_fnc_setup";
 					//perFrame  = "bmkhs_fnc_perFrame";

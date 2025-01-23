@@ -1,3 +1,5 @@
-#include "defines.hpp"
+//#include defines.hpp
 
 params ["_vehicle"];
+
+//true

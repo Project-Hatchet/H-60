@@ -5,8 +5,8 @@ _mikSwitchState      = _vehicle getVariable "vtx_uh60_acft_mikSwitchState";
 //--Stby instrument switch
 _stbyInstSwitchState = _vehicle getVariable "vtx_uh60_acft_stbyInstSwitchState";
 //--Battery
-_batt1SwitchState   = _vehicle getVariable "bmkhs_batterySwitchOn" select 0;//_vehicle getVariable "vtx_uh60_acft_batt1SwitchState";
-_batt2SwitchState   = _vehicle getVariable "bmkhs_batterySwitchOn" select 1;//_vehicle getVariable "vtx_uh60_acft_batt2SwitchState";
+_batt1SwitchState   = _vehicle getVariable "bmkhs_battery1SwitchOn";//_vehicle getVariable "vtx_uh60_acft_batt1SwitchState";
+_batt2SwitchState   = _vehicle getVariable "bmkhs_battery2SwitchOn";//_vehicle getVariable "vtx_uh60_acft_batt2SwitchState";
 //--APU
 _apuPwrSwitchState  = _vehicle getVariable "vtx_uh60_acft_apuPwrSwitchState";
 _apuFuelSwitchState = _vehicle getVariable "vtx_uh60_acft_apuFuelSwitchState";
@@ -14,9 +14,9 @@ _apuState           = _vehicle getVariable "vtx_uh60_acft_apuState";
 //--Generators
 _apuGenSwitchState  = _vehicle getVariable "vtx_uh60_acft_apuGenSwitchState";
 _apuGenState        = _vehicle getVariable "vtx_uh60_acft_apuGenState";
-_eng1GenSwitchState = _vehicle getVariable "bmkhs_generatorSwitchOn" select 0;//_vehicle getVariable "vtx_uh60_acft_eng1GenSwitchState";
+_eng1GenSwitchState = _vehicle getVariable "bmkhs_generator1SwitchOn";//_vehicle getVariable "vtx_uh60_acft_eng1GenSwitchState";
 _eng1GenState       = _vehicle getVariable "vtx_uh60_acft_eng1GenState";
-_eng2GenSwitchState = _vehicle getVariable "bmkhs_generatorSwitchOn" select 1;//_vehicle getVariable "vtx_uh60_acft_eng2GenSwitchState";
+_eng2GenSwitchState = _vehicle getVariable "bmkhs_generator2SwitchOn";//_vehicle getVariable "vtx_uh60_acft_eng2GenSwitchState";
 _eng2GenState       = _vehicle getVariable "vtx_uh60_acft_eng2GenState";
 //--Air source
 _airsrceSwitchState = _vehicle getVariable "vtx_uh60_acft_airsrceSwitchState";
