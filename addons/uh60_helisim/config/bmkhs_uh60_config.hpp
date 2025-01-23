@@ -29,12 +29,8 @@ class bmkhs_config {
     electricalHasAPUGenerator       = true;
     //AC generators - Max of 2
     electricalNumACGenerators       = 2;
-    //Rectifiers - Converts AC to DC, Maximum of 2, one per AC generator
-    electricalNumRectifiers         = 2;    
     //DC Generators - Max of 2
     electricalNumDCGenerators       = 0;
-    //Inverters - Converts DC to AC, Maximum of 2, one per DC generator
-    electricalNumInverters          = 0;
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Fuel Data            /////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
