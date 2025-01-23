@@ -52,7 +52,7 @@ def getPboInfo(settings):
         with open(os.path.join(pboInfo.folder,"$PBOPREFIX$"), "r") as file:
             pboInfo.pboPrefix = file.readline().strip()
         try:
-            pboInfo.a3symlink = os.path.join("P:",pboInfo.pboPrefix)
+            pboInfo.a3symlink = os.path.join(arma3Path(),pboInfo.pboPrefix)
         except:
             pboInfo.a3symlink = None
 
@@ -74,6 +74,7 @@ def removeSymlink(pathTo):
     return commands
 
 def buildSymlink(pathFrom, pathTo):
+#    print (pathFrom)
     if pathTo is None:
         return []
     commands = removeSymlink(pathTo)
@@ -97,7 +98,7 @@ def downloadNaturaldocs(target, source, env):
     with zipfile.ZipFile(zipFilePath, 'r') as zip_ref:
         zip_ref.extractall(r"buildTools")
 
-print(addonBuilderPath())
+#print(addonBuilderPath())
 settings = getSettings()
 pbos = getPboInfo(settings)
 

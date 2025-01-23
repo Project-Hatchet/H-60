@@ -89,7 +89,7 @@ class interaction {
             animSpeed=0;
             animStates[] = {0.5, 0};
             animLabels[] = {"OFF", "ON"};
-            animEnd="_this call vtx_uh60_engine_fnc_apuState; (_this # 0) call vtx_uh60_cas_fnc_updateCautionPanel;";
+            animEnd="[_this] call vtx_uh60_engine_fnc_apuState; (_this # 0) call vtx_uh60_cas_fnc_updateCautionPanel;";
             clickSound="vxf_Switch_Sound_3";
         }; // apucont
         class b_airsce : apucont {
@@ -105,13 +105,14 @@ class interaction {
             position="b_batt1";
             label="NO.1 BATT";
             animation="Switch_batt1";
-            animEnd="_this call vtx_uh60_engine_fnc_batteryState";
+            animEnd="_this call bmkhs_interact_fnc_batterySwitch_1";//"_this call vtx_uh60_engine_fnc_batteryState";
             clickSound="vxf_Switch_Sound_3";
         }; // b_batt1
         class b_batt2 : b_batt1 {
             position="b_batt2";
             label="NO.2 BATT";
             animation="Switch_batt2";
+            animEnd="_this call bmkhs_interact_fnc_batterySwitch_2";
         }; // b_batt2
         SIMPLE_SWITCH(b_egi1,"button_egi1","NO.1 EGI","Switch_Egi1",1,0,"")
         SIMPLE_SWITCH(b_egi2,"button_egi2","NO.2 EGI","Switch_Egi2",1,0,"")
@@ -137,13 +138,13 @@ class interaction {
             position="b_gen1";
             label="NO.1 GEN";
             animation="Switch_gen1";
-            animEnd="_this call vtx_uh60_engine_fnc_batteryState";
+            animEnd="_this call bmkhs_interact_fnc_generatorSwitch_1";//"_this call vtx_uh60_engine_fnc_batteryState";
         }; // b_gen1
         class b_gen2 : b_batt1 {
             position="b_gen2";
             label="NO.2 GEN";
             animation="Switch_gen2";
-            animEnd="_this call vtx_uh60_engine_fnc_batteryState";
+            animEnd="_this call bmkhs_interact_fnc_generatorSwitch_2";//"_this call vtx_uh60_engine_fnc_batteryState";
         }; // b_gen2
         class b_apugen : b_batt1 {
             position="b_apugen";

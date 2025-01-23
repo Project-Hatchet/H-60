@@ -21,10 +21,10 @@ class CfgVehicles {
 			class modules: modules {
 				class bmkhs_core {
 					startOnEnter = 1;
-					setup     = "bmkhs_fnc_setup";
-					perFrame  = "bmkhs_fnc_perFrame";
-					perSecond = "bmkhs_fnc_perSecond";
-					shutDown  = "bmkhs_fnc_shutDown";          
+					//setup     = "bmkhs_fnc_setup";
+					//perFrame  = "bmkhs_fnc_perFrame";
+					//perSecond = "bmkhs_fnc_perSecond";
+					//shutDown  = "bmkhs_fnc_shutDown";          
 				}; // fms
 			}; // modules
 		}; // vxf_driver
@@ -32,10 +32,10 @@ class CfgVehicles {
 			class modules: modules {
 				class bmkhs_core {
 					startOnEnter = 1;
-					setup     = "bmkhs_fnc_setup";
-					perFrame  = "bmkhs_fnc_perFrame";
-					perSecond = "bmkhs_fnc_perSecond";
-					shutDown  = "bmkhs_fnc_shutDown";				
+					//setup     = "bmkhs_fnc_setup";
+					//perFrame  = "bmkhs_fnc_perFrame";
+					//perSecond = "bmkhs_fnc_perSecond";
+					//shutDown  = "bmkhs_fnc_shutDown";				
         }; // fms
 			}; // modules
 		}; // vxf_copilot
