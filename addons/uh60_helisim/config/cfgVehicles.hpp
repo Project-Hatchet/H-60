@@ -20,22 +20,14 @@ class CfgVehicles {
     class vxf_driver: vxf_driver {
 			class modules: modules {
 				class helisim {
-					startOnEnter = 1;
-					//setup     = "bmkhs_fnc_setup";
-					//perFrame  = "bmkhs_fnc_perFrame";
-					//perSecond = "bmkhs_fnc_perSecond";
-					//shutDown  = "bmkhs_fnc_shutDown";          
+					startOnEnter = 1;   
 				}; // fms
 			}; // modules
 		}; // vxf_driver
 		class vxf_copilot: vxf_copilot {
 			class modules: modules {
 				class helisim {
-					startOnEnter = 1;
-					//setup     = "bmkhs_fnc_setup";
-					//perFrame  = "bmkhs_fnc_perFrame";
-					//perSecond = "bmkhs_fnc_perSecond";
-					//shutDown  = "bmkhs_fnc_shutDown";				
+					startOnEnter = 1;		
         }; // fms
 			}; // modules
 		}; // vxf_copilot

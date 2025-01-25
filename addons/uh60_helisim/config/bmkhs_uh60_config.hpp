@@ -19,18 +19,24 @@ class bmkhs_config {
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Electrical System    /////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
-    useElectricalSystem             = true;
+    useElectricalSystem              = true;
     //Main or Aircraft Battery
-    electricalMainBatteryLifeInMin  = 12.0;
+    electricalNumMainBatteries       = 2;
+    electricalMainBatteryLifeInMin[] = 15.0;
+    electricalMainBatteryHitPoint[]  = {"Battery1","Battery2"};
     //Emergency or IFR Battery
-    electricalHasEmerBattery        = false;
-    electricalEmerBatteryLifeInMin  = 30.0;
+    electricalHasEmerBattery         = true;
+    electricalEmerBatteryLifeInMin   = 30.0;
+    electricalEmerBatteryHitPoint    = "";
     //Provides AC power to the electrical system
-    electricalHasAPUGenerator       = true;
+    electricalHasAPUGenerator        = true;
+    electricalAPUGeneratorHitPoint   = "";
     //AC generators - Max of 2
-    electricalNumACGenerators       = 2;
+    electricalNumACGenerators        = 2;
+    electricalACGeneratorHitPoint[]  = {"", ""};
     //DC Generators - Max of 2
-    electricalNumDCGenerators       = 0;
+    electricalNumDCGenerators        = 0;
+    electricalDCGeneratorHitPoint[]  = {"",""};
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Fuel Data            /////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
