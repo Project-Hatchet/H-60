@@ -22,7 +22,7 @@ class bmkhs_config {
     useElectricalSystem              = true;
     //Main or Aircraft Battery
     electricalNumMainBatteries       = 2;
-    electricalMainBatteryLifeInMin[] = 15.0;
+    electricalMainBatteryLifeInMin = 15.0;
     electricalMainBatteryHitPoint[]  = {"Battery1","Battery2"};
     //Emergency or IFR Battery
     electricalHasEmerBattery         = true;
