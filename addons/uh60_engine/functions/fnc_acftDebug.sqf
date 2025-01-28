@@ -13,10 +13,10 @@ _apuFuelSwitchState = _vehicle getVariable "vtx_uh60_acft_apuFuelSwitchState";
 _apuState           = _vehicle getVariable "vtx_uh60_acft_apuState";
 //--Generators
 _apuGenSwitchState  = bmkhs_apuGeneratorSwitchOn;
-_apuGenState        = _vehicle getVariable "vtx_uh60_acft_apuGenState";
-_eng1GenSwitchState = bmkhs_generator1SwitchOn;//_vehicle getVariable "vtx_uh60_acft_eng1GenSwitchState";
+_apuGenState        = bmkhs_apuGeneratorOn;//_vehicle getVariable "vtx_uh60_acft_apuGenState";
+_eng1GenSwitchState = bmkhs_acGenerator1SwitchOn;//_vehicle getVariable "vtx_uh60_acft_eng1GenSwitchState";
 _eng1GenIsOn        = bmkhs_acGeneratorOn select 0;//_vehicle getVariable "vtx_uh60_acft_eng1GenIsOn";
-_eng2GenSwitchState = bmkhs_generator2SwitchOn;//_vehicle getVariable "vtx_uh60_acft_eng2GenSwitchState";
+_eng2GenSwitchState = bmkhs_acGenerator2SwitchOn;//_vehicle getVariable "vtx_uh60_acft_eng2GenSwitchState";
 _eng2GenIsOn        = bmkhs_acGeneratorOn select 1;//_vehicle getVariable "vtx_uh60_acft_eng2GenIsOn";
 //--Air source
 _airsrceSwitchState = _vehicle getVariable "vtx_uh60_acft_airsrceSwitchState";

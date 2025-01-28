@@ -138,13 +138,13 @@ class interaction {
             position="b_gen1";
             label="NO.1 GEN";
             animation="Switch_gen1";
-            animEnd="call bmkhs_interact_fnc_generator1Switch";//"_this call vtx_uh60_engine_fnc_batteryState";
+            animEnd="call bmkhs_interact_fnc_acGenerator1Switch";//"_this call vtx_uh60_engine_fnc_batteryState";
         }; // b_gen1
         class b_gen2 : b_batt1 {
             position="b_gen2";
             label="NO.2 GEN";
             animation="Switch_gen2";
-            animEnd="call bmkhs_interact_fnc_generator2Switch";//"_this call vtx_uh60_engine_fnc_batteryState";
+            animEnd="call bmkhs_interact_fnc_acGenerator2Switch";//"_this call vtx_uh60_engine_fnc_batteryState";
         }; // b_gen2
         class b_apugen : b_batt1 {
             position="b_apugen";

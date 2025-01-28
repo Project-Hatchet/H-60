@@ -34,9 +34,11 @@ class bmkhs_config {
     //AC generators - Max of 2
     electricalNumACGenerators       = 2;
     electricalACGeneratorHitPoint[] = {"",""};
+    electricalRectifierHitPoint[]   = {"",""};
     //DC Generators - Max of 2
     electricalNumDCGenerators       = 0;
     electricalDCGeneratorHitPoint[] = {"",""};
+    electricalInverterHitPoint[]    = {"",""};
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Fuel Data            /////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
