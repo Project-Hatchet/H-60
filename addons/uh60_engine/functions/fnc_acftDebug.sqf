@@ -5,19 +5,19 @@ _mikSwitchState      = _vehicle getVariable "vtx_uh60_acft_mikSwitchState";
 //--Stby instrument switch
 _stbyInstSwitchState = _vehicle getVariable "vtx_uh60_acft_stbyInstSwitchState";
 //--Battery
-_batt1SwitchState   = _vehicle getVariable "bmkhs_battery1SwitchOn";//_vehicle getVariable "vtx_uh60_acft_batt1SwitchState";
-_batt2SwitchState   = _vehicle getVariable "bmkhs_battery2SwitchOn";//_vehicle getVariable "vtx_uh60_acft_batt2SwitchState";
+_batt1SwitchState   = bmkhs_battery1SwitchOn;//_vehicle getVariable "vtx_uh60_acft_batt1SwitchState";
+_batt2SwitchState   = bmkhs_battery2SwitchOn;//_vehicle getVariable "vtx_uh60_acft_batt2SwitchState";
 //--APU
-_apuPwrSwitchState  = _vehicle getVariable "vtx_uh60_acft_apuPwrSwitchState";
+_apuPwrSwitchState  = bmkhs_apuSwitchOn;//_vehicle getVariable "vtx_uh60_acft_apuPwrSwitchState";
 _apuFuelSwitchState = _vehicle getVariable "vtx_uh60_acft_apuFuelSwitchState";
 _apuState           = _vehicle getVariable "vtx_uh60_acft_apuState";
 //--Generators
-_apuGenSwitchState  = _vehicle getVariable "vtx_uh60_acft_apuGenSwitchState";
+_apuGenSwitchState  = bmkhs_apuGeneratorSwitchOn;
 _apuGenState        = _vehicle getVariable "vtx_uh60_acft_apuGenState";
-_eng1GenSwitchState = _vehicle getVariable "bmkhs_generator1SwitchOn";//_vehicle getVariable "vtx_uh60_acft_eng1GenSwitchState";
-_eng1GenState       = _vehicle getVariable "vtx_uh60_acft_eng1GenState";
-_eng2GenSwitchState = _vehicle getVariable "bmkhs_generator2SwitchOn";//_vehicle getVariable "vtx_uh60_acft_eng2GenSwitchState";
-_eng2GenState       = _vehicle getVariable "vtx_uh60_acft_eng2GenState";
+_eng1GenSwitchState = bmkhs_generator1SwitchOn;//_vehicle getVariable "vtx_uh60_acft_eng1GenSwitchState";
+_eng1GenIsOn        = bmkhs_acGeneratorOn select 0;//_vehicle getVariable "vtx_uh60_acft_eng1GenIsOn";
+_eng2GenSwitchState = bmkhs_generator2SwitchOn;//_vehicle getVariable "vtx_uh60_acft_eng2GenSwitchState";
+_eng2GenIsOn        = bmkhs_acGeneratorOn select 1;//_vehicle getVariable "vtx_uh60_acft_eng2GenIsOn";
 //--Air source
 _airsrceSwitchState = _vehicle getVariable "vtx_uh60_acft_airsrceSwitchState";
 //--Electical buses
@@ -44,18 +44,18 @@ HintSilent format ["Aircraft Module Debug Output
                     \nMIK Switch State = %16
                     \nStby Inst Switch State = %21
                     \n---------------------------
-                    \nBatt 1 Switch State = %1
-                    \nBatt 2 Switch State = %2
-                    \nApu Pwr Switch State = %3
+                    \nBatt 1 Switch Is On = %1
+                    \nBatt 2 Switch Is On = %2
+                    \nApu Pwr Switch Is On = %3
                     \nApu Fuel Switch State = %4
-                    \nApu Gen Switch State = %5
-                    \nEng 1 Gen Switch State = %6
-                    \nEng 2 Gen Switch State = %7
+                    \nApu Gen Switch Is On = %5
+                    \nEng 1 Gen Switch is On = %6
+                    \nEng 2 Gen Switch is On = %7
                     \nAir Source Switch State = %8
                     \n---------------------------
-                    \nApu Gen State = %9
-                    \nEng 1 Gen State = %10
-                    \nEng 2 Gen State = %11
+                    \nApu Gen Is On = %9
+                    \nEng 1 Gen Is On = %10
+                    \nEng 2 Gen Is On = %11
                     \n---------------------------
                     \nBatt Bus has power? = %12
                     \nAC Bus has power? =%13
@@ -84,8 +84,8 @@ HintSilent format ["Aircraft Module Debug Output
                     _eng2GenSwitchState,    //7
                     _airsrceSwitchState,    //8
                     _apuGenState,           //9
-                    _eng1GenState,          //10
-                    _eng2GenState,          //11
+                    _eng1GenIsOn,          //10
+                    _eng2GenIsOn,          //11
                     _battBusState,          //12
                     _acBusState,            //13
                     _dcBusState,            //14
