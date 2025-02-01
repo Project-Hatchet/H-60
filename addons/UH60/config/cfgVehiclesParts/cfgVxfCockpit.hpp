@@ -122,7 +122,7 @@ class interaction {
             label="STBY INST";
             animation="Switch_stbyinst";
             animLabels[] = {"OFF", "ARM"};
-            animEnd="_this call vtx_uh60_engine_fnc_batteryState";
+            animEnd="call bmkhs_interact_fnc_emerBatterySwitch";//"_this call vtx_uh60_engine_fnc_batteryState";
         }; // b_stbyinst
         class b_fuelboostpump1 : b_batt1 {
             position="b_fuelboostpump1";

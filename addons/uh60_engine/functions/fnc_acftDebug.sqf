@@ -3,7 +3,7 @@ params ["_vehicle"];
 //--Master ignition key
 _mikSwitchState      = _vehicle getVariable "vtx_uh60_acft_mikSwitchState";
 //--Stby instrument switch
-_stbyInstSwitchState = _vehicle getVariable "vtx_uh60_acft_stbyInstSwitchState";
+_stbyInstSwitchState = bmkhs_emerBatterySwitchOn;//_vehicle getVariable "vtx_uh60_acft_stbyInstSwitchState";
 //--Battery
 _batt1SwitchState   = bmkhs_battery1SwitchOn;//_vehicle getVariable "vtx_uh60_acft_batt1SwitchState";
 _batt2SwitchState   = bmkhs_battery2SwitchOn;//_vehicle getVariable "vtx_uh60_acft_batt2SwitchState";
