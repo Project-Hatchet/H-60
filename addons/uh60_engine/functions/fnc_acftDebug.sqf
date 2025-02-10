@@ -3,27 +3,32 @@ params ["_vehicle"];
 //--Master ignition key
 _mikSwitchState      = _vehicle getVariable "vtx_uh60_acft_mikSwitchState";
 //--Stby instrument switch
-_stbyInstSwitchState = bmkhs_emerBatterySwitchOn;//_vehicle getVariable "vtx_uh60_acft_stbyInstSwitchState";
+_stbyInstSwitchState = _vehicle getVariable "bmkhs_emerBatterySwitchOn";//_vehicle getVariable "vtx_uh60_acft_stbyInstSwitchState";
+_emerBattOn          = _vehicle getVariable "bmkhs_emerBatteryOn";
 //--Battery
-_batt1SwitchState   = bmkhs_battery1SwitchOn;//_vehicle getVariable "vtx_uh60_acft_batt1SwitchState";
-_batt2SwitchState   = bmkhs_battery2SwitchOn;//_vehicle getVariable "vtx_uh60_acft_batt2SwitchState";
+_batt1SwitchState   = _vehicle getVariable "bmkhs_battery1SwitchOn";//_vehicle getVariable "vtx_uh60_acft_batt1SwitchState";
+_batt2SwitchState   = _vehicle getVariable "bmkhs_battery2SwitchOn";//_vehicle getVariable "vtx_uh60_acft_batt2SwitchState";
+
+_mainBatt1On        = _vehicle getVariable "bmkhs_mainBatteryOn" select 0;
+_mainBatt2On        = _vehicle getVariable "bmkhs_mainBatteryOn" select 1;
 //--APU
-_apuPwrSwitchState  = bmkhs_apuSwitchOn;//_vehicle getVariable "vtx_uh60_acft_apuPwrSwitchState";
+_apuPwrSwitchState  = _vehicle getVariable "bmkhs_apuSwitchOn";//_vehicle getVariable "vtx_uh60_acft_apuPwrSwitchState";
 _apuFuelSwitchState = _vehicle getVariable "vtx_uh60_acft_apuFuelSwitchState";
-_apuState           = _vehicle getVariable "vtx_uh60_acft_apuState";
+_apuState           = _vehicle getVariable "bmkhs_apuOn";//_vehicle getVariable "vtx_uh60_acft_apuState";
 //--Generators
-_apuGenSwitchState  = bmkhs_apuGeneratorSwitchOn;
-_apuGenState        = bmkhs_apuGeneratorOn;//_vehicle getVariable "vtx_uh60_acft_apuGenState";
-_eng1GenSwitchState = bmkhs_acGenerator1SwitchOn;//_vehicle getVariable "vtx_uh60_acft_eng1GenSwitchState";
-_eng1GenIsOn        = bmkhs_acGeneratorOn select 0;//_vehicle getVariable "vtx_uh60_acft_eng1GenIsOn";
-_eng2GenSwitchState = bmkhs_acGenerator2SwitchOn;//_vehicle getVariable "vtx_uh60_acft_eng2GenSwitchState";
-_eng2GenIsOn        = bmkhs_acGeneratorOn select 1;//_vehicle getVariable "vtx_uh60_acft_eng2GenIsOn";
+_apuGenSwitchState  = _vehicle getVariable "bmkhs_apuGeneratorSwitchOn";
+_apuGenState        = _vehicle getVariable "bmkhs_apuGeneratorOn";//_vehicle getVariable "vtx_uh60_acft_apuGenState";
+_eng1GenSwitchState = _vehicle getVariable "bmkhs_acGenerator1SwitchOn";//_vehicle getVariable "vtx_uh60_acft_eng1GenSwitchState";
+_eng1GenIsOn        = _vehicle getVariable "bmkhs_acGeneratorOn" select 0;//_vehicle getVariable "vtx_uh60_acft_eng1GenIsOn";
+_eng2GenSwitchState = _vehicle getVariable "bmkhs_acGenerator2SwitchOn";//_vehicle getVariable "vtx_uh60_acft_eng2GenSwitchState";
+_eng2GenIsOn        = _vehicle getVariable "bmkhs_acGeneratorOn" select 1;//_vehicle getVariable "vtx_uh60_acft_eng2GenIsOn";
 //--Air source
 _airsrceSwitchState = _vehicle getVariable "vtx_uh60_acft_airsrceSwitchState";
 //--Electical buses
-_battBusState      = _vehicle getVariable "vtx_uh60_acft_battBusState";
-_acBusState        = _vehicle getVariable "vtx_uh60_acft_ACBusState";
-_dcBusState        = _vehicle getVariable "vtx_uh60_acft_DCBusState";
+_battBusState      = _vehicle getVariable "bmkhs_batteryBusOn";//_vehicle getVariable "vtx_uh60_acft_battBusState";
+_acBusState        = _vehicle getVariable "bmkhs_acBusOn";//_vehicle getVariable "vtx_uh60_acft_ACBusState";
+_dcBusState        = _vehicle getVariable "bmkhs_dcBusOn";//_vehicle getVariable "vtx_uh60_acft_DCBusState";
+_emerBusState      = _vehicle getVariable "bmkhs_emergencyBusOn";
 //--Engine levers
 _eng1FuelSysLeverState = _vehicle getVariable "vtx_uh60_acft_eng1FuelSysLeverState";
 _eng2FuelSysLeverState = _vehicle getVariable "vtx_uh60_acft_eng2FuelSysLeverState";
@@ -42,10 +47,16 @@ HintSilent format ["Aircraft Module Debug Output
                     \n(DEBUG) Enable Systemchat Messages
                     \nIn the UH-60M Addon Options
                     \nMIK Switch State = %16
+                    \n
                     \nStby Inst Switch State = %21
+                    \nEmer Batt is On = %32
                     \n---------------------------
                     \nBatt 1 Switch Is On = %1
+                    \nMain Batt 1 Is On = %30
+                    \n
                     \nBatt 2 Switch Is On = %2
+                    \nMain Batt 2 Is On = %31 
+                    \n---------------------------
                     \nApu Pwr Switch Is On = %3
                     \nApu Fuel Switch State = %4
                     \nApu Gen Switch Is On = %5
@@ -60,6 +71,7 @@ HintSilent format ["Aircraft Module Debug Output
                     \nBatt Bus has power? = %12
                     \nAC Bus has power? =%13
                     \nDC Bus has power? = %14
+                    \nEmer Bus has power? = %29
                     \n---------------------------
                     \nAPU State = %15
                     \n---------------------------
@@ -102,4 +114,8 @@ HintSilent format ["Aircraft Module Debug Output
                     _RPMEngine1,                //25
                     _RPMEngine2,                //26
                     _eng1State,                 //27
-                    _eng2State];                //28
+                    _eng2State,                 //28
+                    _emerBusState,              //29
+                    _mainBatt1On,               //30
+                    _mainBatt2On,               //31
+                    _emerBattOn];               //32
