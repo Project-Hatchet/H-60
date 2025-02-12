@@ -7,6 +7,8 @@
 params ["_index", "_marker"];
 _marker params ["_position", "_iconIndex", "_size", "_direction", "_time", "_sender"];
 
+if !(_iconIndex isEqualType 0) exitWith {};
+
 #if __has_include("\z\ctab\addons\core\config.bin")
 	#include "cTab\1erGTD.sqf"
 #else
