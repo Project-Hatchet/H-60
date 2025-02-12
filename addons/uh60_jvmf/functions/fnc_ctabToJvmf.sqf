@@ -5,6 +5,7 @@
  *
  */
 params ["_index", "_marker"];
+if (isNil "_marker") exitWith {};
 _marker params ["_position", "_iconIndex", "_size", "_direction", "_time", "_sender"];
 
 if !(_iconIndex isEqualType 0) exitWith {};
