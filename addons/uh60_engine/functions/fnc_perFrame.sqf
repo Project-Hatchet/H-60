@@ -96,7 +96,7 @@ if (!local _vehicle) exitWith {};
 [_vehicle] call vtx_uh60_engine_fnc_acftAPU;
 [_vehicle] call vtx_uh60_engine_fnc_acftGenController;
 [_vehicle] call vtx_uh60_engine_fnc_acftEngController;
-//[_vehicle] call vtx_uh60_engine_fnc_acftSoundController;
+[_vehicle] call vtx_uh60_engine_fnc_acftSoundController;
 if (missionNamespace getVariable ["vtx_uh60_ui_showDebugMessages", false]) then {
     [_vehicle] call vtx_uh60_engine_fnc_acftDebug;
 };

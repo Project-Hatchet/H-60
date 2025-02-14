@@ -44,37 +44,37 @@ player addEventHandler ["SelectedRotorLibActionPerformed", {
 
 //New aircraft module
 //--Master ignition key (mik)
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_mikSwitchState",      "OFF");
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_mikSwitchState",      "OFF");
 //--Standby instrument switch
 //SET_GLOBAL_DEFAULT("vtx_uh60_acft_stbyInstSwitchState", "OFF");
 //SET_GLOBAL_DEFAULT("vtx_uh60_acft_stbyInstBatt", 1800);
 //--Battery
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_batt1SwitchState",    "OFF");
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_batt2SwitchState",    "OFF");
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_batt1SwitchState",    "OFF");
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_batt2SwitchState",    "OFF");
 //--APU
 SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuStartDelay_sec",   5.0  );
 SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuRPM_pct",          0.0  );
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuPwrSwitchState",   "OFF");
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuFuelSwitchState",  "OFF");
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuState",            "OFF");
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuPwrSwitchState",   "OFF");
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuFuelSwitchState",  "OFF");
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuState",            "OFF");
 //--Generators
 //----APU
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuGenSwitchState",   "OFF");
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuGenState",         "OFF");
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuGenSwitchState",   "OFF");
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuGenState",         "OFF");
 //----Eng 1
 SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng1StarterState",    "OFF");
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng1GenSwitchState",  "OFF");
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng1GenState",        "OFF");
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng1GenSwitchState",  "OFF");
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng1GenState",        "OFF");
 //----Eng 2
 SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng2StarterState",    "OFF");
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng2GenSwitchState",  "OFF");
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng2GenState",        "OFF");
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng2GenSwitchState",  "OFF");
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng2GenState",        "OFF");
 //--Electical Bus
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_battBusState",        "OFF");
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_ACBusState",          "OFF");
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_DCBusState",          "OFF");
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_battBusState",        "OFF");
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_ACBusState",          "OFF");
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_DCBusState",          "OFF");
 //--Air source switch
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_airsrceSwitchState",  "OFF");   //ENG, OFF, APU
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_airsrceSwitchState",  "OFF");   //ENG, OFF, APU
 //Engines
 //--Fuel system levers
 SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng1FuelSysLeverState", "OFF");

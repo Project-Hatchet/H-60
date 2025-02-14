@@ -1,7 +1,7 @@
 params ["_vehicle"];
 
 //--Master ignition key
-_mikSwitchState      = _vehicle getVariable "vtx_uh60_acft_mikSwitchState";
+_mikSwitchState      = _vehicle getVariable "bmkhs_masterIgnSwitchOn";//_vehicle getVariable "vtx_uh60_acft_mikSwitchState";
 //--Stby instrument switch
 _stbyInstSwitchState = _vehicle getVariable "bmkhs_emerBatterySwitchOn";//_vehicle getVariable "vtx_uh60_acft_stbyInstSwitchState";
 _emerBattOn          = _vehicle getVariable "bmkhs_emerBatteryOn";
@@ -23,7 +23,7 @@ _eng1GenIsOn        = _vehicle getVariable "bmkhs_acGeneratorOn" select 0;//_veh
 _eng2GenSwitchState = _vehicle getVariable "bmkhs_acGenerator2SwitchOn";//_vehicle getVariable "vtx_uh60_acft_eng2GenSwitchState";
 _eng2GenIsOn        = _vehicle getVariable "bmkhs_acGeneratorOn" select 1;//_vehicle getVariable "vtx_uh60_acft_eng2GenIsOn";
 //--Air source
-_airsrceSwitchState = _vehicle getVariable "bmkhs_airSourceSwitchState";//_vehicle getVariable "vtx_uh60_acft_airsrceSwitchState";
+_airSrceSwitchState = _vehicle getVariable "bmkhs_airSourceSwitchState";//_vehicle getVariable "vtx_uh60_acft_airsrceSwitchState";
 _pneumaticPSI       = _vehicle getVariable "bmkhs_pneumaticPSI";
 //--Electical buses
 _battBusState      = _vehicle getVariable "bmkhs_batteryBusOn";//_vehicle getVariable "vtx_uh60_acft_battBusState";
@@ -98,7 +98,7 @@ HintSilent format ["Aircraft Module Debug Output
                     _apuGenSwitchState,     //5
                     _eng1GenSwitchState,    //6
                     _eng2GenSwitchState,    //7
-                    _airsrceSwitchState,    //8
+                    _airSrceSwitchState,    //8
                     _apuGenState,           //9
                     _eng1GenIsOn,          //10
                     _eng2GenIsOn,          //11

@@ -99,7 +99,7 @@ class interaction {
             animStates[] = {1, 0.5, 0};
             animLabels[] = {"ENG" ,"OFF", "APU"};
             clickSound="vxf_Switch_Sound_3";
-            animEnd="";
+            animEnd="[(_this # 0), (_this # 2)] call bmkhs_interact_fnc_airSourceSwitch";
         }; // b_airsce
         class b_batt1 : apucont {
             position="b_batt1";
@@ -177,7 +177,7 @@ class interaction {
             animation="Switch_ignition";
             animStates[] = {0, 1};
             animLabels[] = {"OFF", "ON"};
-            animEnd="_this call vtx_uh60_engine_fnc_starterState";
+            animEnd= "_this call bmkhs_interact_fnc_masterIgnitionSwitch";//"_this call vtx_uh60_engine_fnc_starterState";
             clickSound = "vxf_Key_Sound";
         }; // b_ignition
         class b_starter1 {

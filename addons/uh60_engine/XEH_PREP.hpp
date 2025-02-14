@@ -19,7 +19,7 @@ PREP(acftEngController);
 PREP(acftEngLeverStates);
 PREP(acftGenController);
 PREP(acftRTDController);
-//PREP(acftSoundController);
+PREP(acftSoundController);
 PREP(acftSwitchStates);
 
 PREP(UpdateAPU_State);

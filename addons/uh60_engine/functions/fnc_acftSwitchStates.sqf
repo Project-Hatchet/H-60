@@ -1,14 +1,14 @@
 params ["_vehicle"];
 
 //Master igntion key (mik) switch
-private _mikSwitchPos   = _vehicle animationPhase "Switch_ignition";         //0.0 = OFF, 1.0 = ON
-private _mikSwitchState = _vehicle getVariable "vtx_uh60_acft_mikSwitchState";
-if (_mikSwitchPos >= 0.90) then {
-    _mikSwitchState = "ON";
-} else {
-    _mikSwitchState = "OFF";
-};
-_vehicle setVariable ["vtx_uh60_acft_mikSwitchState", _mikSwitchState];
+//private _mikSwitchPos   = _vehicle animationPhase "Switch_ignition";         //0.0 = OFF, 1.0 = ON
+//private _mikSwitchState = _vehicle getVariable "vtx_uh60_acft_mikSwitchState";
+//if (_mikSwitchPos >= 0.90) then {
+//    _mikSwitchState = "ON";
+//} else {
+//    _mikSwitchState = "OFF";
+//};
+//_vehicle setVariable ["vtx_uh60_acft_mikSwitchState", _mikSwitchState];
 
 //APU generator switch
 //private _apuGenSwitchPos   = _vehicle animationPhase "Switch_apugen";    //0.5 = OFF, 0.0 = ON
@@ -41,8 +41,8 @@ _vehicle setVariable ["vtx_uh60_acft_mikSwitchState", _mikSwitchState];
 //_vehicle setVariable ["vtx_uh60_acft_eng2GenSwitchState", _eng2GenSwitchState];
 
 //Air source switch
-private _airSourceSwitchPos = _vehicle animationPhase "Switch_airsce";    //1.0 = ENG, 0.5 = OFF,  0.0 = APU
-[_vehicle, _airSourceSwitchPos] call bmkhs_interact_fnc_airSourceSwitch;
+//private _airSourceSwitchPos = _vehicle animationPhase "Switch_airsce";    //1.0 = ENG, 0.5 = OFF,  0.0 = APU
+//[_vehicle, _airSourceSwitchPos] call bmkhs_interact_fnc_airSourceSwitch;
 //private _airsrceSwitchState = _vehicle getVariable "vtx_uh60_acft_airsrceSwitchState";
 //if (_airsrceSwitchPos <= 0.1) then {
 //    _airsrceSwitchState = "APU";

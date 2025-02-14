@@ -1,32 +1,55 @@
 #include "defines.hpp"
 params ["_vehicle"];
 
-private _apuPwrSwitchState  = _vehicle getVariable "vtx_uh60_acft_apuPwrSwitchState";
-private _apuFuelSwitchState = _vehicle getVariable "vtx_uh60_acft_apuFuelSwitchState";
-private _apuState           = _vehicle getVariable "vtx_uh60_acft_apuState";
+//private _apuPwrSwitchState  = _vehicle getVariable "vtx_uh60_acft_apuPwrSwitchState";
+//private _apuFuelSwitchState = _vehicle getVariable "vtx_uh60_acft_apuFuelSwitchState";
+//private _apuState           = _vehicle getVariable "vtx_uh60_acft_apuState";
+
+private _apuOn           = _vehicle getVariable "bmkhs_apuOn";
+private _apuSwitchOn     = _vehicle getVariable "bmkhs_apuSwitchOn";
+private _apuFuelSwitchOn = _vehicle getVariable "bmkhs_apuFuelSwitchOn";
+
+if (_apuOn) then {
+  if (!_apuSwitchOn || !_apuFuelSwitchOn) then {
+      vtx_uh60_apuSound_dummy = "#dynamicsound" createVehicleLocal ASLToAGL getPosWorld vehicle player;
+      vtx_uh60_apuSound_dummy attachTo [_vehicle, [0,-1,1]];
+      vtx_uh60_apuSound_dummy say3d    ["VTX_UH60_Stop_APU", 50, 1];
+  } else {
+      if (!isNil "vtx_uh60_apuSound_dummy") then {deleteVehicle vtx_uh60_apuSound_dummy};
+  };
+} else {
+  if (_apuSwitchOn && _apuFuelSwitchOn) then {
+      if (vtx_uh60_ui_showDebugMessages) then {systemChat format ["Sound should play!"];};
+      vtx_uh60_apuSound_dummy = "#dynamicsound" createVehicleLocal ASLToAGL getPosWorld vehicle player;
+      vtx_uh60_apuSound_dummy attachTo [_vehicle, [0,-1,1]];
+      vtx_uh60_apuSound_dummy say3d    ["VTX_UH60_Start_APU", 50, 1];
+  } else {
+      if (!isNil "vtx_uh60_apuSound_dummy") then {deleteVehicle vtx_uh60_apuSound_dummy};
+  };
+};
 
 //APU sound controller
-switch (_apuState) do {
-    case "OFF": {
-        if (_apuPwrSwitchState == "ON" && _apuFuelSwitchState == "ON") then {
-            if (vtx_uh60_ui_showDebugMessages) then {systemChat format ["Sound should play!"];};
-            vtx_uh60_apuSound_dummy = "#dynamicsound" createVehicleLocal ASLToAGL getPosWorld vehicle player;
-            vtx_uh60_apuSound_dummy attachTo [_vehicle, [0,-1,1]];
-            vtx_uh60_apuSound_dummy say3d    ["VTX_UH60_Start_APU", 50, 1];
-        } else {
-            if (!isNil "vtx_uh60_apuSound_dummy") then {deleteVehicle vtx_uh60_apuSound_dummy};
-        };
-    };
-    case "ON": {
-        if (_apuPwrSwitchState == "OFF" || _apuFuelSwitchState == "OFF") then {
-            vtx_uh60_apuSound_dummy = "#dynamicsound" createVehicleLocal ASLToAGL getPosWorld vehicle player;
-            vtx_uh60_apuSound_dummy attachTo [_vehicle, [0,-1,1]];
-            vtx_uh60_apuSound_dummy say3d    ["VTX_UH60_Stop_APU", 50, 1];
-        } else {
-            if (!isNil "vtx_uh60_apuSound_dummy") then {deleteVehicle vtx_uh60_apuSound_dummy};
-        };
-    };
-};
+//switch (_apuState) do {
+//    case "OFF": {
+//        if (_apuPwrSwitchState == "ON" && _apuFuelSwitchState == "ON") then {
+//            if (vtx_uh60_ui_showDebugMessages) then {systemChat format ["Sound should play!"];};
+//            vtx_uh60_apuSound_dummy = "#dynamicsound" createVehicleLocal ASLToAGL getPosWorld vehicle player;
+//            vtx_uh60_apuSound_dummy attachTo [_vehicle, [0,-1,1]];
+//            vtx_uh60_apuSound_dummy say3d    ["VTX_UH60_Start_APU", 50, 1];
+//        } else {
+//            if (!isNil "vtx_uh60_apuSound_dummy") then {deleteVehicle vtx_uh60_apuSound_dummy};
+//        };
+//    };
+//    case "ON": {
+//        if (_apuPwrSwitchState == "OFF" || _apuFuelSwitchState == "OFF") then {
+//            vtx_uh60_apuSound_dummy = "#dynamicsound" createVehicleLocal ASLToAGL getPosWorld vehicle player;
+//            vtx_uh60_apuSound_dummy attachTo [_vehicle, [0,-1,1]];
+//            vtx_uh60_apuSound_dummy say3d    ["VTX_UH60_Stop_APU", 50, 1];
+//        } else {
+//            if (!isNil "vtx_uh60_apuSound_dummy") then {deleteVehicle vtx_uh60_apuSound_dummy};
+//        };
+//    };
+//};
 
 //Engine sound controller
 //--Engine 1
