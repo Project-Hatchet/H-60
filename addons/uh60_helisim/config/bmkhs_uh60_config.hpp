@@ -10,7 +10,7 @@ class bmkhs_config {
     frontSideBottomArea[]   = {2.637, 23.575, 27.802};     //m2
     fuselageDragCoefXZ[]    = { 0.20, 0.20};
     fuselageDragCoefY[]     = {//  PA   -40   -20     0    20    40
-                               {    0, 1.00, 1.00, 1.00, 0.020, 1.00}
+                               {    0, 1.00, 1.00, 1.00, 0.02, 1.00}
                               ,{ 2000, 1.00, 1.00, 1.00, 1.00, 1.00}
                               ,{ 4000, 1.00, 1.00, 1.00, 1.00, 1.00}
                               ,{ 6000, 1.00, 1.00, 1.00, 1.00, 1.00}
@@ -20,6 +20,7 @@ class bmkhs_config {
 // Auxilliary Power Unit (APU)    ///////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
     useAPU                          = true;
+    useAPUFuelSwitch                = true;
     apuStartDelay                   = 5.0;
     apuFuelFlowInLbsPerHour         = 175.0;
     apuHitPoint                     = "ApuHit";

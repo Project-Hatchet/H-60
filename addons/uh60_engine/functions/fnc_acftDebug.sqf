@@ -13,7 +13,7 @@ _mainBatt1On        = _vehicle getVariable "bmkhs_mainBatteryOn" select 0;
 _mainBatt2On        = _vehicle getVariable "bmkhs_mainBatteryOn" select 1;
 //--APU
 _apuPwrSwitchState  = _vehicle getVariable "bmkhs_apuSwitchOn";//_vehicle getVariable "vtx_uh60_acft_apuPwrSwitchState";
-_apuFuelSwitchState = _vehicle getVariable "vtx_uh60_acft_apuFuelSwitchState";
+_apuFuelSwitchState = _vehicle getVariable "bmkhs_apuFuelSwitchOn";//_vehicle getVariable "vtx_uh60_acft_apuFuelSwitchState";
 _apuState           = _vehicle getVariable "bmkhs_apuOn";//_vehicle getVariable "vtx_uh60_acft_apuState";
 //--Generators
 _apuGenSwitchState  = _vehicle getVariable "bmkhs_apuGeneratorSwitchOn";
@@ -23,7 +23,8 @@ _eng1GenIsOn        = _vehicle getVariable "bmkhs_acGeneratorOn" select 0;//_veh
 _eng2GenSwitchState = _vehicle getVariable "bmkhs_acGenerator2SwitchOn";//_vehicle getVariable "vtx_uh60_acft_eng2GenSwitchState";
 _eng2GenIsOn        = _vehicle getVariable "bmkhs_acGeneratorOn" select 1;//_vehicle getVariable "vtx_uh60_acft_eng2GenIsOn";
 //--Air source
-_airsrceSwitchState = _vehicle getVariable "vtx_uh60_acft_airsrceSwitchState";
+_airsrceSwitchState = _vehicle getVariable "bmkhs_airSourceSwitchState";//_vehicle getVariable "vtx_uh60_acft_airsrceSwitchState";
+_pneumaticPSI       = _vehicle getVariable "bmkhs_pneumaticPSI";
 //--Electical buses
 _battBusState      = _vehicle getVariable "bmkhs_batteryBusOn";//_vehicle getVariable "vtx_uh60_acft_battBusState";
 _acBusState        = _vehicle getVariable "bmkhs_acBusOn";//_vehicle getVariable "vtx_uh60_acft_ACBusState";
@@ -55,17 +56,17 @@ HintSilent format ["Aircraft Module Debug Output
                     \nMain Batt 1 Is On = %30
                     \n
                     \nBatt 2 Switch Is On = %2
-                    \nMain Batt 2 Is On = %31 
+                    \nMain Batt 2 Is On = %31
                     \n---------------------------
-                    \nApu Pwr Switch Is On = %3
                     \nApu Fuel Switch State = %4
-                    \nApu Gen Switch Is On = %5
-                    \nEng 1 Gen Switch is On = %6
-                    \nEng 2 Gen Switch is On = %7
-                    \nAir Source Switch State = %8
                     \n---------------------------
-                    \nApu Gen Is On = %9
+                    \nAir Source Switch State = %8
+                    \nAir PSI = %33
+                    \n---------------------------
+                    \nEng 1 Gen Switch is On = %6
                     \nEng 1 Gen Is On = %10
+                    \n
+                    \nEng 2 Gen Switch is On = %7    
                     \nEng 2 Gen Is On = %11
                     \n---------------------------
                     \nBatt Bus has power? = %12
@@ -73,7 +74,10 @@ HintSilent format ["Aircraft Module Debug Output
                     \nDC Bus has power? = %14
                     \nEmer Bus has power? = %29
                     \n---------------------------
-                    \nAPU State = %15
+                    \nApu Pwr Switch Is On = %3
+                    \nAPU Is On = %15
+                    \nApu Gen Switch Is On = %5
+                    \nApu Gen Is On = %9
                     \n---------------------------
                     \nEng 1 State = %27
                     \nEng 1 Fuel Lever State = %17
@@ -118,4 +122,5 @@ HintSilent format ["Aircraft Module Debug Output
                     _emerBusState,              //29
                     _mainBatt1On,               //30
                     _mainBatt2On,               //31
-                    _emerBattOn];               //32
+                    _emerBattOn,                //32
+                    _pneumaticPSI];             //33

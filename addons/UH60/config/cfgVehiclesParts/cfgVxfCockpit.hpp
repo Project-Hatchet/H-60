@@ -77,7 +77,7 @@ class interaction {
             animSpeed=0;
             animStates[] = {0.5, 0};
             animLabels[] = {"OFF", "APU BOOST"};
-            animEnd="_this call vtx_uh60_engine_fnc_apuState";
+            animEnd="_this call bmkhs_interact_fnc_apuFuelSwitch";//"_this call vtx_uh60_engine_fnc_apuState";
             clickSound="vxf_Switch_Sound";
         }; // fuelPump
         class apucont {
