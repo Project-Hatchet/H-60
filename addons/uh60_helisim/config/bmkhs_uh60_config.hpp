@@ -21,6 +21,7 @@ class bmkhs_config {
 /////////////////////////////////////////////////////////////////////////////////////////////
     useAPU                          = true;
     useAPUFuelSwitch                = true;
+    apuDrivesXmsnAccessoryModule    = false;
     apuStartDelay                   = 5.0;
     apuFuelFlowInLbsPerHour         = 175.0;
     apuHitPoint                     = "ApuHit";

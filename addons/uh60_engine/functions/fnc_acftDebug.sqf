@@ -47,45 +47,45 @@ HintSilent format ["Aircraft Module Debug Output
                     \nTo hide this debug text, disable
                     \n(DEBUG) Enable Systemchat Messages
                     \nIn the UH-60M Addon Options
-                    \nMIK Switch State = %16
+                    \nMIK Switch State        = %16
                     \n
-                    \nStby Inst Switch State = %21
-                    \nEmer Batt is On = %32
+                    \nStby Inst Switch State  = %21
+                    \nEmer Batt is On         = %32
                     \n---------------------------
-                    \nBatt 1 Switch Is On = %1
-                    \nMain Batt 1 Is On = %30
+                    \nBatt 1 Switch Is On     = %1
+                    \nMain Batt 1 Is On       = %30
                     \n
-                    \nBatt 2 Switch Is On = %2
-                    \nMain Batt 2 Is On = %31
+                    \nBatt 2 Switch Is On     = %2
+                    \nMain Batt 2 Is On       = %31
                     \n---------------------------
-                    \nApu Fuel Switch State = %4
+                    \nApu Fuel Switch State   = %4
                     \n---------------------------
                     \nAir Source Switch State = %8
-                    \nAir PSI = %33
+                    \nAir PSI                 = %33
                     \n---------------------------
-                    \nEng 1 Gen Switch is On = %6
-                    \nEng 1 Gen Is On = %10
+                    \nEng 1 Gen Switch is On  = %6
+                    \nEng 1 Gen Is On         = %10
                     \n
-                    \nEng 2 Gen Switch is On = %7    
-                    \nEng 2 Gen Is On = %11
+                    \nEng 2 Gen Switch is On  = %7    
+                    \nEng 2 Gen Is On         = %11
                     \n---------------------------
-                    \nBatt Bus has power? = %12
-                    \nAC Bus has power? =%13
-                    \nDC Bus has power? = %14
-                    \nEmer Bus has power? = %29
+                    \nBatt Bus has power?     = %12
+                    \nAC Bus has power?       =%13
+                    \nDC Bus has power?       = %14
+                    \nEmer Bus has power?     = %29
                     \n---------------------------
-                    \nApu Pwr Switch Is On = %3
-                    \nAPU Is On = %15
-                    \nApu Gen Switch Is On = %5
-                    \nApu Gen Is On = %9
+                    \nApu Pwr Switch Is On    = %3
+                    \nAPU Is On               = %15
+                    \nApu Gen Switch Is On    = %5
+                    \nApu Gen Is On           = %9
                     \n---------------------------
-                    \nEng 1 State = %27
-                    \nEng 1 Fuel Lever State = %17
-                    \nEng 1 Pwr Lever State = %18
+                    \nEng 1 State             = %27
+                    \nEng 1 Fuel Lever State  = %17
+                    \nEng 1 Pwr Lever State   = %18
                     \n---------------------------
-                    \nEng 2 State = %28
-                    \nEng 2 Fuel Lever State = %19
-                    \nEng 2 Pwr Lever State = %20
+                    \nEng 2 State             = %28
+                    \nEng 2 Fuel Lever State  = %19
+                    \nEng 2 Pwr Lever State   = %20
                     \n---------------------------
                     \nForces RTD = %22
                     \nEngine Power = %23
