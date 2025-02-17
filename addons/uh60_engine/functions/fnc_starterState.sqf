@@ -8,7 +8,7 @@
 
 params ["_vehicle", "_animName", "_animEndState"];
 
-[_vehicle] call vtx_uh60_cas_fnc_updateCautions;
+//[_vehicle] call vtx_uh60_cas_fnc_updateCautions;
 
 //SFM+
 //private _mikSwitchState = _vehicle getVariable "vtx_uh60_acft_mikSwitchState";

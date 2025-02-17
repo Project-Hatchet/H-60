@@ -11,5 +11,6 @@ if !(
 ) exitwith { systemChat format ["Exiting!"];};
 
 [_vehicle] call bmkhs_fnc_fixedUpdate;
+[_vehicle] call vtx_uh60_helisim_fnc_systemsUpdate;
 
 true

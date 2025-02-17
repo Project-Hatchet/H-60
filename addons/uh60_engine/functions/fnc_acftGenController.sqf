@@ -1,5 +1,13 @@
 params ["_vehicle"];
 
+//private _acBusOn = _vehicle getVariable "bmkhs_acBusOn";
+//
+//if (_acBusOn) then {
+//  _vehicle animate ["GeneratorsOnOff", 1];
+//} else {
+//  _vehicle animate ["GeneratorsOnOff", 0];
+//};
+/*
 //APU
 private _apuState           = _vehicle getVariable "vtx_uh60_acft_apuState";
 private _apuGenSwitchState  = _vehicle getVariable "vtx_uh60_acft_apuGenSwitchState";
@@ -68,4 +76,4 @@ if (_ACBusState == "ON") then {
     _vehicle animate ["GeneratorsOnOff", 1];
 } else {
     _vehicle animate ["GeneratorsOnOff", 0];
-};
+};*/

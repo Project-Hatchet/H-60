@@ -52,8 +52,8 @@ player addEventHandler ["SelectedRotorLibActionPerformed", {
 //SET_GLOBAL_DEFAULT("vtx_uh60_acft_batt1SwitchState",    "OFF");
 //SET_GLOBAL_DEFAULT("vtx_uh60_acft_batt2SwitchState",    "OFF");
 //--APU
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuStartDelay_sec",   5.0  );
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuRPM_pct",          0.0  );
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuStartDelay_sec",   5.0  );
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuRPM_pct",          0.0  );
 //SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuPwrSwitchState",   "OFF");
 //SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuFuelSwitchState",  "OFF");
 //SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuState",            "OFF");

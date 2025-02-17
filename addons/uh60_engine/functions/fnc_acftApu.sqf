@@ -1,7 +1,14 @@
 params ["_vehicle"];
 
-private _apuOn = _vehicle getVariable "bmkhs_apuOn";
-_vehicle animateSource ["APUOn", ([0,1] select (_apuOn == true))];
+//private _apuOn = _vehicle getVariable "bmkhs_apuOn";
+//
+//if (_apuOn) then {
+//  _vehicle animateSource ["APUOn", 1];
+//} else { 
+//  _vehicle animateSource ["APUOn", 0];
+//};
+
+//_vehicle animateSource ["APUOn", ([0,1] select (_apuOn == false))];
 
 //private _apuState = _vehicle getVariable "vtx_uh60_acft_apuState";
 /* _battBusState = _vehicle getVariable "vtx_uh60_acft_battBusState";
