@@ -4,10 +4,11 @@
  * Receive a message and store it
  */
 
-VTX_JVMF_MESSAGES pushBack _this;
-
 params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
 if (isNil _ID) exitWith {};
+
+
+VTX_JVMF_MESSAGES pushBack _this;
 
 if(vtx_uh60_ui_showDebugMessages) then {systemChat "RECEIVED JVMF";};
 
