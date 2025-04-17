@@ -204,13 +204,13 @@ class AnimationSources {
     initPhase=0;
   };
   class cabindoor_L {
-    displayName = "Close L Cabin Door"
+    displayName = "Close L Cabin Door";
     source="user";
     animPeriod=1;
     initPhase=0;
   };
   class cabindoor_R {
-    displayName = "Close R Cabin Door"
+    displayName = "Close R Cabin Door";
     source="user";
     animPeriod=1;
     initPhase=0;
