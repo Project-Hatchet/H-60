@@ -69,7 +69,8 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0;
   };
-    class Door_LF_Hide {
+  class MITAS_show: Fuelprobe_show {};
+  class Door_LF_Hide {
     displayName = "Hide Left Cockpit Door";
     source = "user";
     animPeriod=1;
@@ -384,7 +385,7 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0.5;
   };
-  
+
   class Switch_Egi1: Switch_batt1 {initPhase=1;};
   class Switch_Egi2: Switch_batt1 {initPhase=1;};
   class Switch_Ralt_Enable: Switch_batt1 {initPhase=1;};
