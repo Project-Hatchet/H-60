@@ -25,8 +25,8 @@ class Door_RF
 class Door_LF_Hide
 {
 	type = "hide";
-	source = "Door_LF_Hide";
-	selection = "cockpitdoor_left";
+	source = "Cockpitdoors_Hide";
+	selection = "cockpitdoorhinge_left";
 	minValue = 0;
 	maxValue = 1;
 	hideValue = 0.001;
@@ -34,17 +34,8 @@ class Door_LF_Hide
 class Door_RF_Hide
 {
 	type = "hide";
-	source = "Door_RF_Hide";
-	selection = "cockpitdoor_right";
-	minValue = 0;
-	maxValue = 1;
-	hideValue = 0.001;
-};
-class Cockpitdoors_Hinges_Hide
-{
-	type = "hide";
 	source = "Cockpitdoors_Hide";
-	selection = "cockpitdoors_hinges";
+	selection = "cockpitdoorhinge_right";
 	minValue = 0;
 	maxValue = 1;
 	hideValue = 0.001;
