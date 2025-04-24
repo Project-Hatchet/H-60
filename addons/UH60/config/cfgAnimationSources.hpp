@@ -11,6 +11,18 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0;
   };
+  // Fold rotor blades
+  class Fold_source {
+      animPeriod = 10;
+      initPhase = 0;
+      source = "user";
+  };
+  // Rotate rotor hub to folding alignment
+  class RotorHFold {
+      animPeriod = 1;
+      initPhase = -0.125;
+      source = "user";
+  };
   class gunner_ffv_l {
     source="user";
     animPeriod=0.1;
