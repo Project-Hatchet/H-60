@@ -11,6 +11,8 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0;
   };
+  ANIMSRC(rotorHide_User,user,1,0);
+  ANIMSRC(tailRotorHide_User,user,1,0);
   // Fold rotor blades
   class Fold_source {
       animPeriod = 10;
