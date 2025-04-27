@@ -25,6 +25,9 @@ class AnimationSources {
       initPhase = -0.125;
       source = "user";
   };
+  class RotorVFold: RotorHFold {
+      initPhase = 0;
+  };
   class gunner_ffv_l {
     source="user";
     animPeriod=0.1;
