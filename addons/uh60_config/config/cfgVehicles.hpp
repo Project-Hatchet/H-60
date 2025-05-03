@@ -52,6 +52,7 @@ class CfgVehicles {
   }; // vtx_H60_base
 
   class vtx_UH60M: vtx_H60_base {
+    ace_medical_treatment_patientSeats[] = {0, 1, 2, 3};
     class AnimationSources: AnimationSources {
       ANIM_INIT(Hoist_hide,1);
       ANIM_INIT(cabindoor_L,1);
@@ -152,6 +153,7 @@ class CfgVehicles {
       "passenger_generic01_leanright"
     };
     cargoProxyIndexes[] = {1, 2, 3, 4, 24, 25, 6, 7, 12, 13, 14, 15, 16, 17, 20, 21, 22, 23};
+    ace_medical_treatment_patientSeats[] = {11, 12, 13, 14};
     displayName = "HH-60M MEDEVAC";
     hiddenSelectionsTextures[] = {
       "","","","","","","","","","","","","","","","",
