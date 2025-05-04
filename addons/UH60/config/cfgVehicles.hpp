@@ -523,6 +523,7 @@ class CfgVehicles
         };
          class AnimationSources: AnimationSources
         {
+            ANIM_INIT(FuelProbe_show,0);
             ANIM_INIT(Minigun_Sight_L_hide,1);
             ANIM_INIT(Minigun_Sight_R_hide,1);
         };
@@ -559,6 +560,7 @@ class CfgVehicles
             class MainTurret: MainTurret {};
             class RightDoorGun: RightDoorGun {};
             #include "turrets\cargoTurrets.hpp"
+            #include "\z\vtx\addons\MH60M\config\turrets\troopCommander.hpp"
         };
 
         transportSoldier=0;
