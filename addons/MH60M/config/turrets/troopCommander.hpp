@@ -14,4 +14,4 @@ class troop_commander: CargoTurret {
   LODTurnedOut = 1200;
   LODOpticsIn = 1200;
   LODOpticsOut = 1200;
-}
+};
