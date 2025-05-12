@@ -87,6 +87,7 @@ class CfgVehicles {
             ANIM_INIT(RADAR_HIDE,0);
             ANIM_INIT(FLIR_HIDE,0);
             ANIM_INIT(FuelProbe_show,1);
+            ANIM_INIT(MITAS_show,1);
             ANIM_INIT(MAWS_Tubes_Show,1);
             ANIM_INIT(ERFS_show,1);
             ANIM_INIT(MH60MMisc_show,1);
@@ -193,6 +194,7 @@ class CfgVehicles {
             ANIM_INIT(CabinSeats_3_Hide,1);
             ANIM_INIT(Cockpitdoors_Hide,1);
             ANIM_INIT(FuelProbe_show,1);
+            ANIM_INIT(MITAS_show,1);
             ANIM_INIT(RADAR_HIDE,0);
             ANIM_INIT(FLIR_HIDE,0);
             ANIM_INIT(MAWS_Tubes_Show,1);
@@ -288,12 +290,13 @@ class CfgVehicles {
             ANIM_INIT(Minigun_Sight_L_hide,1);
             ANIM_INIT(Minigun_Sight_R_hide,1);
             ANIM_INIT(MH60MMisc_show,1);
-            
+
             ANIM_INIT(CabinSeats_1_Hide,1);
             ANIM_INIT(CabinSeats_2_Hide,1);
             ANIM_INIT(CabinSeats_3_Hide,1);
             ANIM_INIT(Cockpitdoors_Hide,1);
             ANIM_INIT(FuelProbe_show,1);
+            ANIM_INIT(MITAS_show,1);
             ANIM_INIT(RADAR_HIDE,0);
             ANIM_INIT(FLIR_HIDE,0);
             ANIM_INIT(MAWS_Tubes_Show,1);

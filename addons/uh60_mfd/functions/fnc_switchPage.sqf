@@ -30,9 +30,15 @@ switch (true) do {
         _vehicle setObjectTextureGlobal [MFD_OVERLAY(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Overlay_ca.paa"];
     };
     case (_pageIndex > MFD_PAGE_FLIR - 0.99 && _pageIndex < MFD_PAGE_FLIR + 0.99): {
+      if ((_vehicle animationsourcephase "FLIR_HIDE") == 1) exitWith {
+        _slingCam = true;
+        _vehicle setObjectTextureGlobal [MFD_OVERLAY(_mfdIndex), "#(argb,512,512,1)r2t(vtx_uh60_flir_feed,1.0)"];
+        _vehicle setObjectMaterialGlobal [MFD_OVERLAY(_mfdIndex), "\A3\Structures_F\Items\Electronics\Data\electronics_screens.rvmat"];
+      };
       if (_vehicle getVariable ["vtx_uh60_flir_stowed", true]) then {
         _vehicle setUserMFDValue [_mfdIndex, FLIR_MODE_STOWED];
       } else {
+        // Never gets to here currently
         _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), "#(argb,512,512,1)r2t(vtx_uh60_flir_feed,1.0)"];
         _vehicle setObjectMaterial [MFD_OVERLAY(_mfdIndex), "\A3\Structures_F\Items\Electronics\Data\electronics_screens.rvmat"];
         if (isNil "vtx_uh60_flir_controllable" || {!vtx_uh60_flir_controllable}) then {

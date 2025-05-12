@@ -82,4 +82,14 @@ class Attributes: Attributes {
       // };
     }; // Values
   }; // vtx_uh60_Markings
+  class vtx_uh60_FoldRotorBlades {
+    condition = "objectVehicle";
+    control = "Checkbox";
+    defaultValue = "(false)";
+    displayName = "Fold Rotor Blades";
+    expression = "_this animateSource ['Fold_source', parseNumber _value, true];";
+    property = "vtx_uh60_FoldRotorBlades";
+    tooltip = "Fold the rotor blades to reduce footprint.";
+    typeName = "BOOL";
+  };
 }; // Attributes

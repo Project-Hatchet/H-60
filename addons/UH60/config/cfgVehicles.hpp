@@ -593,6 +593,11 @@ class CfgVehicles
       class AnimationSources: AnimationSources {
         ANIM_INIT(CabinSeats_Hide,1);
         ANIM_INIT(Hoist_hide,1);
+        ANIM_INIT(GunnerSeats_Hide,1);
+        ANIM_INIT(Minigun_L_hide,1);
+        ANIM_INIT(Minigun_R_hide,1);
+        ANIM_INIT(Minigun_Mount_L_hide,1);
+        ANIM_INIT(Minigun_Mount_R_hide,1);
         ANIM_INIT(Minigun_Sight_L_hide,1);
         ANIM_INIT(Minigun_Sight_R_hide,1);
       };
@@ -602,8 +607,7 @@ class CfgVehicles
         class RightDoorGun: RightDoorGun {};
         #include "turrets\cargoTurretsDoor.hpp"
       };
-      //#include "vehicleTransportSlick.hpp" // model missing mempoints
-      #include "vehicleTransport.hpp"
+      #include "vehicleTransportSlick.hpp"
     }; // vtx_UH60M_SLICK
 };
 
