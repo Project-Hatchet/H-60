@@ -9,7 +9,7 @@
 params ["_vehicle", "_mfdIndex", "_pageIndex", "_propagate"];
 #include "..\config\mfdDefines.hpp"
 
-if ((_mfdIndex == MFD_1_PAGE_INDEX || _mfdIndex == MFD_1_PAGE_INDEX) && _pageIndex == MFD_PAGE_CCFS_MENU) exitWith {
+if ((_mfdIndex == MFD_1_PAGE_INDEX || _mfdIndex == MFD_4_PAGE_INDEX) && _pageIndex == MFD_PAGE_CCFS_MENU) exitWith {
   ["Warning\nThe CCFS can only be opened on MFD 2 and 3"] call vtx_uh60_misc_fnc_hint;
 };
 
@@ -24,7 +24,7 @@ _vehicle setUserMFDValue [_mfdIndex, _pageIndex];
 private _slingCam = false;
 switch (true) do {
     case (_pageIndex > MFD_PAGE_TAC - 0.01 && _pageIndex < MFD_PAGE_TAC + 0.99): {
-        private _texture = [_vehicle] call vtx_uh60_mfd_fnc_tac_getMapTexture;
+        private _texture = [_vehicle, _mfdIndex] call vtx_uh60_mfd_fnc_tac_getMapTexture;
         _vehicle setObjectTextureGlobal [MAP_SELECTION(_mfdIndex), _texture];
         _vehicle setObjectMaterialGlobal [MAP_SELECTION(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Emmisive\Emmisive_2.rvmat"];
         _vehicle setObjectTextureGlobal [MFD_OVERLAY(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Overlay_ca.paa"];

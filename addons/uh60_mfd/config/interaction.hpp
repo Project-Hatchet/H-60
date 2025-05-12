@@ -89,17 +89,17 @@ class tac {
     
     class SUBPAGE_MAPCONF {
         condition = USERVAL(MFD_PAGE_INDEX,TAC_MODE_MAPCONF);
-        MFD_BTN(MFD_8,QUOTE(Topo)) 
-            buttonUp="[vehicle player, 'topo'] call vtx_uh60_mfd_fnc_tac_setMapTexture";
+        MFD_BTN(MFD_8,QUOTE(Topo))
+            buttonUp = QUOTE([ARR_3((_this select 0),'topo',MFD_PAGE_INDEX)] call vtx_uh60_mfd_fnc_tac_setMapTexture);
         };
-        MFD_BTN(MFD_9,QUOTE(Sat)) 
-            buttonUp="[vehicle player, 'sat'] call vtx_uh60_mfd_fnc_tac_setMapTexture";
+        MFD_BTN(MFD_9,QUOTE(Sat))
+            buttonUp = QUOTE([ARR_3((_this select 0),'sat',MFD_PAGE_INDEX)] call vtx_uh60_mfd_fnc_tac_setMapTexture);
         };
-        MFD_BTN(MFD_10,QUOTE(Custom)) 
-            buttonUp="[vehicle player, 'cust'] call vtx_uh60_mfd_fnc_tac_setMapTexture";
+        MFD_BTN(MFD_10,QUOTE(Custom))
+            buttonUp = QUOTE([ARR_3((_this select 0),'cust',MFD_PAGE_INDEX)] call vtx_uh60_mfd_fnc_tac_setMapTexture);
         };
-        MFD_BTN(MFD_11,QUOTE(Off)) 
-            buttonUp="[vehicle player, 'off'] call vtx_uh60_mfd_fnc_tac_setMapTexture";
+        MFD_BTN(MFD_11,QUOTE(Off))
+            buttonUp = QUOTE([ARR_3((_this select 0),'off',MFD_PAGE_INDEX)] call vtx_uh60_mfd_fnc_tac_setMapTexture);
         };
         MFD_BTN(MFD_12,QUOTE(Return)) 
             buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_TAC, true)] call vtx_uh60_mfd_fnc_switchPage);
