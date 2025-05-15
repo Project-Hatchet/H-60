@@ -24,8 +24,14 @@ vtx_uh60_weapons_isKeyUp = !_isKeyDown;
 if (vtx_uh60_weapons_isKeyUp) exitWith {};
 
 private _currentWeapon = currentWeapon _vehicle;
-private _reloadTime = getNumber (configFile >> "CfgWeapons" >> _currentWeapon >> "_reloadTime");
+if !(
+  _currentWeapon isKindOf ["MGunCore", configFile >> "CfgWeapons"] ||
+  _currentWeapon isKindOf ["CannonCore", configFile >> "CfgWeapons"]
+) exitWith {
+  _vehicle fireAtTarget [objNull];
+};
 
+private _reloadTime = getNumber (configFile >> "CfgWeapons" >> _currentWeapon >> "_reloadTime");
 [{
     params ["_args", "_pfhID"];
     _args params ["_vehicle", "_currentWeapon", "_endTime"];
