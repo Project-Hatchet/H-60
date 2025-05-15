@@ -516,4 +516,15 @@ class AnimationSources {
     source="ammoRandom";
     weapon="vtx_wpn_m134_2nd";
   };
+
+  class searchlight_turn {
+    source="FLIR_DIRECTION";
+    animPeriod=1;
+    initPhase=0.5;
+  };
+  class searchlight_elev {
+    source="FLIR_ELEVATION";
+    animPeriod=1;
+    initPhase=0.5;
+  };
 };

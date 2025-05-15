@@ -44,4 +44,34 @@ class CopilotTurret: CopilotTurret {
 		class VehicleSystemsDisplayManagerComponentRight {};
 
 	};
+  class Reflectors
+  {
+    class Right
+    {
+      color[] = {7000, 7500, 10000};
+      ambient[] = {70, 75, 100};
+      intensity = 50;
+      size = 1;
+      innerAngle = 5;
+      outerAngle = 65;
+      coneFadeCoef = 10;
+      position = "searchlight_pos";
+      direction = "searchlight_dir";
+      hitpoint = "searchlight";
+      selection = "searchlight";
+      useFlare = 1;
+      dayLight = 0;
+      FlareSize = 4;
+      class Attenuation
+      {
+        start = 0;
+        constant = 0;
+        linear = 0;
+        quadratic = 0.05;
+        hardLimitStart = 400;
+        hardLimitEnd = 450;
+      };
+    };
+  };
+
 };
