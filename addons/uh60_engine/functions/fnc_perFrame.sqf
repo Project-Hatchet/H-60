@@ -9,8 +9,8 @@
 #include "defines.hpp"
 params ["_vehicle", "_frameTime"];
 
-private _engNp  = [0.0, 0.0]; 
-private _engNg  = [0.0, 0.0]; 
+private _engNp  = [0.0, 0.0];
+private _engNg  = [0.0, 0.0];
 private _engTGT = [0.0, 0.0];
 private _engTq  = [0.0, 0.0];
 private _rtrRPM = [0.0, 0.0];
@@ -30,14 +30,14 @@ _vehicle setUserMFDvalue [47, (_engTGT # 1)];
     _engNp = _vehicle getVariable "vtx_uh60_sfmplus_engPctNP";
     _vehicle setUserMFDvalue [20, (_engNp # 0) * 100];
     _vehicle setUserMFDvalue [46, (_engNp # 1) * 100];
-    
+
     //Torque
     _engTq = _vehicle getVariable "vtx_uh60_sfmplus_engPctTQ";
     _vehicle setUserMFDvalue [22, (_engTq # 0) * 100];
     _vehicle setUserMFDvalue [48, (_engTq # 1) * 100];
 
     //Rotor RPM
-    _rtrRPM = (_vehicle animationPhase "rotortilt") * 1.025 / 10;
+    _rtrRPM = (_vehicle animationPhase "rotorCollectiveBlade1") * 1.025 / 10;
     _vehicle setUserMFDvalue [17, _rtrRPM * 100];
     /*
     HintSilent format ["SFM+

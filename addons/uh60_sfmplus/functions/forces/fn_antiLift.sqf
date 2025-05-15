@@ -26,7 +26,7 @@ private _rtrRPM    = _eng1Np max _eng2Np;
 // _rtrRPM = 0.69;
 if (_rtrRPM > 0 && _rtrRPM < 0.7) then {
     private _adjustedAnimRPM = vtx_uh60_rotorRPM * 20;
-    private _realRPM = _heli animationPhase "rotortilt";
+    private _realRPM = _heli animationPhase "rotorCollectiveBlade1";
     // systemChat str [_realRPM / 10, _rtrRPM];
     if ((_realRPM / 10) > _rtrRPM) then {
         if (vtx_uh60_ui_showDebugMessages) then {systemchat "BREAKING";};
