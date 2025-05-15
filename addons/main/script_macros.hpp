@@ -14,7 +14,15 @@ class name { \
 #define ANIM_INIT(name,init) class name : name {initPhase = init;}
 
 #define POS_MOVE_CABIN_COCKPIT {0.023875,4.2461,-0.577079}
-#define ZEUS_EXIT if !(isNull curatorCamera) exitWith {};
+#define IS_NOT_ZEUS if !(isNull curatorCamera) exitWith {}
+#define IS_IN_H60 IS_NOT_ZEUS; \
+  private _unit = call CBA_fnc_currentUnit; \
+  private _vehicle = vehicle _unit; \
+  if !(_vehicle isKindOf "vtx_H60_base") exitWith {}
+
+#define IS_EITHER_PILOT IS_IN_H60; \
+if (_unit isNotEqualTo (driver _vehicle) && {(_vehicle unitTurret _unit) isNotEqualTo [0]}) exitWith {}
+
 
 #define HIDDEN_SELECTION_MAIN 16
 #define HIDDEN_SELECTION_MISC 17
