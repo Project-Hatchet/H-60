@@ -14,3 +14,7 @@ PREP(hellfireGuidanceInit);
 PREP(updatePylonAssignment);
 PREP(jettisonAll);
 PREP(commandFireMissile);
+PREP(ehFireSelected);
+PREP(ehNextWeapon);
+PREP(keyFireSelected);
+PREP(keyNextWeapon);
