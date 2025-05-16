@@ -1,21 +1,21 @@
 class ANVISHUD {
     #include "MFD\HMD.hpp"
-    color[]={pylonAmmoRelative12, pylonAmmoRelative13, pylonAmmoRelative14, pylonAmmoRelative15};
+    color[]={USERMFDV_LHMD_R, USERMFDV_LHMD_G, USERMFDV_LHMD_B, USERMFDV_LHMD_A};
 };
 class NVGHUD {
     #include "NVGHUD\defines.hpp"
     #include "NVGHUD\MFD.hpp"
-    color[]={pylonAmmoRelative12, pylonAmmoRelative13, pylonAmmoRelative14, pylonAmmoRelative15};
+    color[]={USERMFDV_LHMD_R, USERMFDV_LHMD_G, USERMFDV_LHMD_B, USERMFDV_LHMD_A};
 };
 
 class ANVISHUD_COPILOT {
     #include "MFD\HMD.hpp"
-    color[]={pylonAmmoRelative8, pylonAmmoRelative9, pylonAmmoRelative10, pylonAmmoRelative11};
+    color[]={USERMFDV_LHMD_R, USERMFDV_LHMD_G, USERMFDV_LHMD_B, USERMFDV_LHMD_A};
 };
 class NVGHUD_COPILOT {
     #include "NVGHUD\defines.hpp"
     #include "NVGHUD\MFD.hpp"
-    color[]={pylonAmmoRelative8, pylonAmmoRelative9, pylonAmmoRelative10, pylonAmmoRelative11};
+    color[]={USERMFDV_LHMD_R, USERMFDV_LHMD_G, USERMFDV_LHMD_B, USERMFDV_LHMD_A};
 };
 
 class CfgVehicles {
@@ -36,6 +36,7 @@ class CfgVehicles {
         class MFD;
     }; // Heli_Transport_01_base_F
     class vtx_H60_base: Heli_Transport_01_base_F {
+        mfdMaxUserValues = 100;
         // class VTX_H60_HDTS_Copilot {
         // 		#include "MFD\HMD.hpp"
         //         turret[] = {0};

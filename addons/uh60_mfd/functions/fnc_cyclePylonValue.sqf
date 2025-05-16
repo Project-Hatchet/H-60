@@ -4,7 +4,9 @@
 
 params ["_vehicle", "_index"];
 
-private _cur = _vehicle ammoOnPylon _index;
+//private _cur = _vehicle ammoOnPylon _index; // later
+private _cur = getuserMFDValue _vehicle select _index; // later
+
 private _target = 0;
 if (_cur == 0) then {
 	_target = 1;

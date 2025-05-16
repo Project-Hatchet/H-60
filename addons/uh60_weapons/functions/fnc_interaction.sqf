@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 params ["_vehicle", "_button", "_var"];
 
 private _cycleWeapon = {
@@ -17,14 +18,17 @@ private _cycleWeapon = {
 
 private _cycleLaserCodes = {
 	params ["_vehicle", "_code", "_alt"];
-	private _laserCodeIndex = _vehicle ammoOnPylon _code;
+	//private _laserCodeIndex = _vehicle ammoOnPylon _code;
+  private _laserCodeIndex = getuserMFDValue _vehicle select _code;
 	if (_laserCodeIndex == -1) then {_laserCodeIndex = 0};
 	private _oldIndex = _laserCodeIndex;
-	if (_laserCodeIndex < 5) then {_laserCodeIndex = _laserCodeIndex + 1} else {_laserCodeIndex = 0};
-	if (_vehicle ammoOnPylon _alt == _laserCodeIndex) then {
-		[_vehicle, _alt, _oldIndex] call vtx_uh60_mfd_fnc_setPylonValue;
-	};
-	[_vehicle, _code, _laserCodeIndex] call vtx_uh60_mfd_fnc_setPylonValue;
+  if (_laserCodeIndex < 5) then {_laserCodeIndex = _laserCodeIndex + 1} else {_laserCodeIndex = 0};
+
+	//if (_vehicle ammoOnPylon _alt == _laserCodeIndex) then {[_vehicle, _alt, _oldIndex] call vtx_uh60_mfd_fnc_setPylonValue;	};
+  if (getuserMFDValue _vehicle select _alt == _laserCodeIndex) then {_vehicle setUserMFDValue [_alt, _oldIndex]};
+
+	//[_vehicle, _code, _laserCodeIndex] call vtx_uh60_mfd_fnc_setPylonValue;
+  _vehicle setUserMFDValue [_code, _laserCodeIndex];
 };
 
 private _stationAssign = {
@@ -52,6 +56,7 @@ private _stationAssign = {
 		_vehicle turretUnit [0]
 	];
 	[_vehicle, _pylon, _magazine, _vehicle ammoOnPylon _pylon, _turret] remoteExecCall ["vtx_uh60_weapons_fnc_updatePylonAssignment", _targets, false];
+
 };
 
 switch (_button) do {
@@ -59,10 +64,10 @@ switch (_button) do {
 		[_vehicle, "Laserdesignator_pilotCamera", "Laserdesignator_pilotCamera"] call vtx_uh60_weapons_fnc_fireAndResetWeapon;
 	};
 	case "PRI_CHAN": {
-		[_vehicle, 42, 43] call _cycleLaserCodes;
+		[_vehicle, USERMFDV_PRI_CH, USERMFDV_ALT_CH] call _cycleLaserCodes;
 	};
 	case "ALT_CHAN": {
-		[_vehicle, 43, 42] call _cycleLaserCodes;
+		[_vehicle, USERMFDV_ALT_CH, USERMFDV_PRI_CH] call _cycleLaserCodes;
 	};
 	case "HF_TRAJ": {
 		private _launchMode = _vehicle getvariable ["ace_missileguidance_attackProfile", "hellfire"];

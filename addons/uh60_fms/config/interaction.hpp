@@ -7,6 +7,9 @@
     clickSound="vxf_Switch_Sound_2";
 
 #define USERVAL(INDEX,VAL) QUOTE(((getUserMFDValue _this) select INDEX) == VAL)
+#define USERVALGT(INDEX,VAL) QUOTE(((getUserMFDValue _this) select INDEX) > VAL)
+#define USERVALLT(INDEX,VAL) QUOTE(((getUserMFDValue _this) select INDEX) < VAL)
+#define USERVALBT(INDEX,VAL1,VAL2) QUOTE((((getUserMFDValue _this) select INDEX) < VAL1) * (((getUserMFDValue _this) select INDEX) < VAL2))
 
 class menu {
   condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_MENU);
@@ -222,8 +225,8 @@ class hud {
 
 class menu_comm_acre {
   condition = QUOTE((((getUserMFDValue _this) select FMS_PAGE_INDEX) == FMS_PAGE_MENU) && (isClass (configFile >> ""cfgPatches"" >> ""acre_main"")));
-  FMS_BTN(FMS_6,"Radio Page") 
-    buttonUp=[(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_COMM_ACRE)], true] call vtx_uh60_fms_fnc_interaction_pageChange; 
+  FMS_BTN(FMS_6,"Radio Page")
+    buttonUp=[(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_COMM_ACRE)], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
 };
 

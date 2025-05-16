@@ -1,12 +1,18 @@
+#include "script_component.hpp"
 /*
  * vtx_uh60_mfd_fnc_tac_worldToCursor
  */
 params ["_position"];
 private _vehicle = vehicle player;
-private _centered = _vehicle ammoOnPylon 4 == 0;
-private _fixed = _vehicle ammoOnPylon 7 == 0;
-private _selfAligned = _vehicle ammoOnPylon 5 == 0;
-private _staticMap = _vehicle ammoOnPylon 7 > 0;
+//private _centered = _vehicle ammoOnPylon 4 == 0;
+private _centered = getuserMFDValue _vehicle select USERMFDV_TAC_CENTER == 0;
+//private _fixed = _vehicle ammoOnPylon 7 == 0;
+private _fixed = getuserMFDValue _vehicle select USERMFDV_TAC_FIXED == 0;
+//private _selfAligned = _vehicle ammoOnPylon 5 == 0;
+private _selfAligned = getuserMFDValue _vehicle select USERMFDV_TAC_ALIGN == 0;
+//private _staticMap = _vehicle ammoOnPylon 7 > 0;
+private _staticMap = getuserMFDValue _vehicle select USERMFDV_TAC_MOVE > 0;
+
 
 private _center = [_vehicle] call vtx_uh60_mfd_fnc_tac_getMapCenter;
 private _rotation = if (_selfAligned) then {getDir _vehicle} else {0};

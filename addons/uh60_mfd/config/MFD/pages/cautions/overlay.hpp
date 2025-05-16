@@ -1,6 +1,6 @@
 class cautions_overlay {
 	color[] = common_black;
-	condition = "pylonAmmo3 > 0";
+	condition = USERVALGT(USERMFDV_CAS,0);
 	class polygon {
 		type        = "polygon";
 		points[] ={

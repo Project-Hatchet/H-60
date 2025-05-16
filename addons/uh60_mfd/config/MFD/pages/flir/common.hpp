@@ -62,7 +62,7 @@ class PntTrk {
 }; // GndStab
 
 class LSTOnTape {
-	condition = "pylonAmmo47 > 0";
+	condition = USERVALGT(USERMFDV_LST_MODE,0);
 	BOXEDTEXT(TEXT_TAPE,0.5,0.17,0.5,0.04,"LST SEARCH ON")
 }; // GndStab
 

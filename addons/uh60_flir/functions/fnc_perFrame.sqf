@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 // pilotCamera
 // zoomIn, zoomOut
 // cameraVisionMode
@@ -22,7 +23,7 @@ if (!vtx_uh60_flir_isPipHidden || {_inFullScreenCam}) then {
   [_vehicle] call vtx_uh60_flir_fnc_handleSlew;
 };
 
-if (_vehicle ammoOnPylon 47 > 0) then {
+if (getuserMFDValue _vehicle select USERMFDV_LST_MODE > 0) then {
   _this call vtx_uh60_flir_fnc_laserTrack;
 };
 

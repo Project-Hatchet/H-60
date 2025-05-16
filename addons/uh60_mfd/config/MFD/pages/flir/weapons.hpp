@@ -67,14 +67,14 @@ class pylonsBackground {
 
 		TEXT_MID_SCALED(GUNS,0.5,0.69+0.07,"GUNS",0.05)
 		TEXT_MID_SCALED_SOURCE(GUNSAMMO,0.5,0.73+0.07,0.05,"ammo",2,1,0)
-		
+
 		TEXT_MID_SCALED(CM,0.5,0.79+0.07,"CM",0.05)
 		TEXT_MID_SCALED_SOURCE(CMAMMO,0.5,0.83+0.07,0.05,"ammo",0,1,0)
 	};
 	class red {
 		color[] = common_red;
 		class gun {
-			condition = "(1 -(pylonSelected1 - pylonSelected2 - pylonSelected48 - pylonSelected49)) * mgun";
+			condition = "(1 -(pylonSelected1 - pylonSelected2 - pylonSelected3 - pylonSelected4)) * mgun";
 			class poly {
 				type = "polygon";
 				points[] = {
@@ -87,7 +87,7 @@ class pylonsBackground {
 			};
 		};
 		class laser {
-			condition = "1 - pylonSelected1 - pylonSelected2 - pylonSelected48 - pylonSelected49 - mgun";
+			condition = "1 - pylonSelected1 - pylonSelected2 - pylonSelected3 - pylonSelected4 - mgun";
 			class poly {
 				type = "polygon";
 				points[] = {
@@ -126,7 +126,7 @@ class pylonsBackground {
 			};
 		}; // sta2
 		class sta3L {
-			condition = "pylonSelected48";
+			condition = "pylonSelected3";
 			class poly {
 				type = "polygon";
 				points[] = {
@@ -139,7 +139,7 @@ class pylonsBackground {
 			};
 		}; // sta3L
 		class sta4R {
-			condition = "pylonSelected49";
+			condition = "pylonSelected4";
 			class poly {
 				type = "polygon";
 				points[] = {
@@ -157,7 +157,7 @@ class pylonsBackground {
 class red {
 	color[] = {1,0,0,1};
 	class hang1 {
-		condition = "pylonAmmo23 > 0";
+	  condition = USERVALGT(USERMFDV_L14,0);
 		class cross {
 			type="line";
 			width = 7;
@@ -170,7 +170,7 @@ class red {
 		}; // Cross
 	}; // hang1
 	class hang2 {
-		condition = "pylonAmmo32 > 0";
+	  condition = USERVALGT(USERMFDV_R14,0);
 		class cross {
 			type="line";
 			width = 7;

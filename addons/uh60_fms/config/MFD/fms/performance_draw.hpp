@@ -9,7 +9,7 @@ TEXT_FMS_L(FUEL_QTY_LABEL,FMS_MARGIN_L,FMS_Y1)
 }; // FUEL_QTY_LABEL
 
 class noAuxTanks {
-	condition = "pylonAmmo50 < 1";
+	condition = USERVALLT(USERMFDV_FUELTANK,1);
 	TEXT_FMS_L(FUEL_QTY,FMS_MARGIN_L,FMS_Y12)
 		source="fuel";
 		sourceScale = 2412;
@@ -17,7 +17,7 @@ class noAuxTanks {
 	};
 }; //FUEL_QTY
 class hasInternalAux {
-	condition = "pylonAmmo50 > 0";
+	condition = USERVALGT(USERMFDV_FUELTANK,0);
 	TEXT_FMS_L(FUEL_QTY,FMS_MARGIN_L,FMS_Y12)
 		source="fuel";
 		sourceScale = 3506;

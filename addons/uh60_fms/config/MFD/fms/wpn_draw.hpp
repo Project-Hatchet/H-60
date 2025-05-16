@@ -63,7 +63,7 @@ class Sta2_sel {
   }; // STA2_AMMO
 };
 
-#define SOURCEINDEX 48
+#define SOURCEINDEX 3
 TEXT_FMS_L(STA3_LBL,FMS_MARGIN_L,FMS_Y2)
 	source = "pylonMagazineNameShort";
   sourceIndex = SOURCEINDEX;
@@ -75,7 +75,7 @@ TEXT_FMS_L(STA3_AMMO,FMS_MARGIN_L,FMS_Y22)
   sourceScale = 1;
 }; // STA3_AMMO
 class Sta3_sel {
-  condition = "pylonSelected51>0";
+  condition = "pylonSelected3>0";
   GROUP_STATION_SELECTED_BLINK;
   TEXT_FMS_L(STA3_LBL,FMS_MARGIN_L,FMS_Y2)
     source = "pylonMagazineNameShort";
@@ -89,7 +89,7 @@ class Sta3_sel {
   }; // STA3_AMMO
 };
 
-#define SOURCEINDEX 49
+#define SOURCEINDEX 4
 TEXT_FMS_R(STA4_LBL,FMS_MARGIN_R,FMS_Y2)
 	source = "pylonMagazineNameShort";
   sourceIndex = SOURCEINDEX;
@@ -101,7 +101,7 @@ TEXT_FMS_R(STA4_AMMO,FMS_MARGIN_R,FMS_Y22)
   sourceScale = 1;
 }; // STA4_AMMO
 class Sta4_sel {
-  condition = "pylonSelected50>0";
+  condition = "pylonSelected4>0";
   GROUP_STATION_SELECTED_BLINK;
   TEXT_FMS_R(STA4_LBL,FMS_MARGIN_R,FMS_Y2)
     source = "pylonMagazineNameShort";

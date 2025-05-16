@@ -375,7 +375,7 @@ class fuelBarsWrapper {
 }; // fuelBarsWrapper
 
 class noAuxTanks {
-	condition = "pylonAmmo50 < 1";
+	condition = USERVALLT(USERMFDV_FUELTANK,1);
 	TEXT_MID_MID_SRC(FUEL_VAL,0.2864,0.8)
 		source="fuel";
 		sourceScale = 2412;
@@ -383,7 +383,7 @@ class noAuxTanks {
 	};
 }; //FUEL_QTY
 class hasInternalAux {
-	condition = "pylonAmmo50 > 0";
+	condition = USERVALGT(USERMFDV_FUELTANK,0);
 	TEXT_MID_MID_SRC(FUEL_VAL,0.2864,0.8)
 		source="fuel";
 		sourceScale = 3506;
@@ -470,7 +470,7 @@ class pitchLadderWrapper {
 					{P35_pos, {0.03, 0}, 1}, {P35_pos, {-0.03, 0}, 1},{},
 					{P37D5_pos, {0.01, 0}, 1}, {P37D5_pos, {-0.01, 0}, 1},{},
 					{P50_pos, {0.08, 0}, 1}, {P50_pos, {-0.08, 0}, 1},{},
-					
+
 					{P55_neg, {0.08, 0}, 1}, {P55_neg, {-0.08, 0}, 1},{},
 
 					POINTS_LEVEL_W(P70),
@@ -502,11 +502,11 @@ class pitchLadderWrapper {
 						{"P55_neg", {-0.04,-0.01}, 1},
 						{"P40_neg", {0, 0.01}, 1},
 						{"P55_neg", {0.04, -0.01}, 1},{},
-						
+
 						{"P70_neg", {-0.06,-0.01}, 1},
 						{"P55_neg", {0, 0.01}, 1},
 						{"P70_neg", {0.06, -0.01}, 1},{},
-						
+
 						{"P90_neg", {-0.06,-0.01}, 1},
 						{"P90_neg", {-0.08,-0.01}, 1},
 						{"P70_neg", {0, 0.01}, 1},
@@ -580,7 +580,7 @@ class ADICenterBlack {
 				{"PFD_LEVEL_MIDDLE", ANGLE(150,ROLL_INDICATOR_START+0.00), 1},
 				{"PFD_LEVEL_MIDDLE", ANGLE(150,ROLL_INDICATOR_START+0.03), 1},{},
 
-				
+
 				{"PFD_LEVEL_MIDDLE", ANGLE(132,ROLL_INDICATOR_START+0.02), 1},
 				{"PFD_LEVEL_MIDDLE", ANGLE(135,ROLL_INDICATOR_START+0.00), 1},
 				{"PFD_LEVEL_MIDDLE", ANGLE(138,ROLL_INDICATOR_START+0.02), 1},
@@ -588,7 +588,7 @@ class ADICenterBlack {
 
 				{"PFD_LEVEL_MIDDLE", ANGLE(120,ROLL_INDICATOR_START+0.00), 1},
 				{"PFD_LEVEL_MIDDLE", ANGLE(120,ROLL_INDICATOR_START+0.02), 1},{},
-			
+
 				// LEFT SIDE
 				{"PFD_LEVEL_MIDDLE", ANGLE(190,ROLL_INDICATOR_START+0.00), 1},
 				{"PFD_LEVEL_MIDDLE", ANGLE(190,ROLL_INDICATOR_START+0.02), 1},{},
@@ -601,7 +601,7 @@ class ADICenterBlack {
 				{"PFD_LEVEL_MIDDLE", ANGLE(225,ROLL_INDICATOR_START+0.00), 1},
 				{"PFD_LEVEL_MIDDLE", ANGLE(228,ROLL_INDICATOR_START+0.02), 1},
 				{"PFD_LEVEL_MIDDLE", ANGLE(222,ROLL_INDICATOR_START+0.02), 1},{},
-				
+
 				{"PFD_LEVEL_MIDDLE", ANGLE(240,ROLL_INDICATOR_START+0.00), 1},
 				{"PFD_LEVEL_MIDDLE", ANGLE(240,ROLL_INDICATOR_START+0.02), 1},{}
 			};
@@ -869,7 +869,7 @@ class ARCPage {
 			{"PFD_ARC_CENTER", {0.01,  -0.00+0.03}, 1},
 		};
 	};
-	
+
 	class AIRCRAFT_CENTERED {
 		condition = ((user18 > -1) * (user18 < 1));
 		class WhiteLine {

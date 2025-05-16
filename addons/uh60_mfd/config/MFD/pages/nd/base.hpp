@@ -366,7 +366,7 @@ class AIRCRAFT_CENTERED {
 			};
 		}; // JVMF_STABILIZED
 	};
-	
+
 	class HVR_COND {
 		condition= HVR_CONDITION_PAGES;
 		color[] = common_blue;
@@ -381,7 +381,7 @@ class AIRCRAFT_CENTERED {
 				{"ND_CENTER",1,"ND_HOVER_VEL_Y",1,"ND_HOVER_VEL_X",1}
 			};
 		}; // HVR_VEL_LINE_DRAW
-		
+
 		class HVR_VEL_END_DRAW {
 			type="line";
 			width=4;
@@ -422,7 +422,7 @@ class AIRCRAFT_CENTERED {
 					{"ND_WP_DIST",1,"ND_WP_VEH_DIR",1,"ND_WP_DIR", 1,    {0-HVR_WP_SPACING, 0.02+HVR_WP_SPACING}, 1}
 				};
 			};
-			
+
 			class HVR_WP_DIST_TEXT {
 				type = "text";
 				align = "center";
@@ -466,7 +466,7 @@ class SUBPAGE_HOVER {
 
 #define VERT_TEXT_SPACING 0.035
 class caution {
-	condition = "pylonAmmo3 > 0";
+	condition = USERVALGT(USERMFDV_CAS,0);
 	color[] = common_black;
 	COLORED_POLYGON(CNCL,(0.985-0.02),(BEZEL_Y3-0.07),0.02,(VERT_TEXT_SPACING*4),common_black)
 	COLORED_POLYGON(PAGE,(0.985-0.02),(BEZEL_Y5+0.02),0.02,(VERT_TEXT_SPACING*4),common_black)
@@ -476,7 +476,7 @@ class caution {
 		TEXT_LEFT_SCALED(L2,(0.985-0.02+0.005),(BEZEL_Y3-0.07+VERT_TEXT_SPACING*1),"N",TAC_LINE_HEIGHT)
 		TEXT_LEFT_SCALED(L3,(0.985-0.02+0.005),(BEZEL_Y3-0.07+VERT_TEXT_SPACING*2),"C",TAC_LINE_HEIGHT)
 		TEXT_LEFT_SCALED(L4,(0.985-0.02+0.005),(BEZEL_Y3-0.07+VERT_TEXT_SPACING*3),"L",TAC_LINE_HEIGHT)
-		
+
 		TEXT_LEFT_SCALED(L5,(0.985-0.02+0.005),(BEZEL_Y5+0.02),"P",TAC_LINE_HEIGHT)
 		TEXT_LEFT_SCALED(L6,(0.985-0.02+0.005),(BEZEL_Y5+0.02+VERT_TEXT_SPACING*1),"A",TAC_LINE_HEIGHT)
 		TEXT_LEFT_SCALED(L7,(0.985-0.02+0.005),(BEZEL_Y5+0.02+VERT_TEXT_SPACING*2),"G",TAC_LINE_HEIGHT)
@@ -490,7 +490,7 @@ class caution {
                 {{(0.985-0.00),(BEZEL_Y3-0.07+(VERT_TEXT_SPACING*4))},1},
                 {{(0.985-0.02),(BEZEL_Y3-0.07+(VERT_TEXT_SPACING*4))},1},
                 {{(0.985-0.02),(BEZEL_Y3-0.07)},1}, {},
-				
+
                 {{(0.985-0.02),(BEZEL_Y5+0.02)},1},
                 {{(0.985-0.00),(BEZEL_Y5+0.02)},1},
                 {{(0.985-0.00),(BEZEL_Y5+0.02+(VERT_TEXT_SPACING*4))},1},
