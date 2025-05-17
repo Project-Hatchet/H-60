@@ -6,10 +6,5 @@ class CfgMagazines {
     count = 1000;
     displayName = "MFD Fluid";
     pylonWeapon = "vtx_pylon_mfd";
-  // class mfdElements {
-  //         class VTX_H60 {
-  //                 #include "MFD/dummyPylon.hpp"
-  //         };
-  // };
   };
 };

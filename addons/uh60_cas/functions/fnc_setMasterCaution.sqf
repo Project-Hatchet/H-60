@@ -23,9 +23,7 @@ if (_reset) exitWith {
 	};
 };
 for "_i" from USERMFDV_L00 to USERMFDV_R25 do {
-	//private _ammo = _vehicle ammoOnPylon _i;
-  private _value = getuserMFDValue _vehicle select _i;
-	//if (_ammo == 2) then {
+  private _value = getUserMFDValue _vehicle select _i;
   if (_value == 2) then {
     _vehicle setUserMFDValue [_i, 1];
 	};

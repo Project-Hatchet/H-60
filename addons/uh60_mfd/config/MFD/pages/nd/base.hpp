@@ -466,7 +466,7 @@ class SUBPAGE_HOVER {
 
 #define VERT_TEXT_SPACING 0.035
 class caution {
-	condition = USERVALGT(USERMFDV_CAS,0);
+	condition = USER_GT(USERMFDV_CAS,0);
 	color[] = common_black;
 	COLORED_POLYGON(CNCL,(0.985-0.02),(BEZEL_Y3-0.07),0.02,(VERT_TEXT_SPACING*4),common_black)
 	COLORED_POLYGON(PAGE,(0.985-0.02),(BEZEL_Y5+0.02),0.02,(VERT_TEXT_SPACING*4),common_black)

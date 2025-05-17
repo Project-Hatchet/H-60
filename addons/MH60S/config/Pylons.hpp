@@ -25,27 +25,27 @@ class TransportPylonsComponent {
         };
         class Default {
             displayName = "Default";
-            attachment[] = {"VTX_PylonRack_M261_APKWS", "VTX_4Rnd_ACE_Hellfire_AGM114K"};
+            attachment[] = {"VTX_PylonRack_M261_APKWS", "VTX_4Rnd_ACE_Hellfire_AGM114K", ""};
         };
         class Interdiction {
             displayName = "20mm + DAGR";
-            attachment[] = {"PylonWeapon_300Rnd_20mm_shells", "VTX_PylonRack_M261_APKWS"};
+            attachment[] = {"PylonWeapon_300Rnd_20mm_shells", "VTX_PylonRack_M261_APKWS", ""};
         };
         class Rocket {
             displayName = "Rocket";
-            attachment[] = {"VTX_PylonRack_M261_M229", "VTX_PylonRack_M261_M229"};
+            attachment[] = {"VTX_PylonRack_M261_M229", "VTX_PylonRack_M261_M229", ""};
         };
         class APKWS {
             displayName = "APKWS";
-            attachment[] = {"VTX_PylonRack_M261_APKWS", "VTX_PylonRack_M261_APKWS"};
+            attachment[] = {"VTX_PylonRack_M261_APKWS", "VTX_PylonRack_M261_APKWS", ""};
         };
         class Hellfire {
             displayName = "Hellfire";
-            attachment[] = {"VTX_4Rnd_ACE_Hellfire_AGM114K", "VTX_4Rnd_ACE_Hellfire_AGM114K"};
+            attachment[] = {"VTX_4Rnd_ACE_Hellfire_AGM114K", "VTX_4Rnd_ACE_Hellfire_AGM114K", ""};
         };
         class Unguided {
             displayName = "20mm + Rocket";
-            attachment[] = {"PylonWeapon_300Rnd_20mm_shells", "VTX_PylonRack_M261_M229"};
+            attachment[] = {"PylonWeapon_300Rnd_20mm_shells", "VTX_PylonRack_M261_M229", ""};
         };
     };
 }; // TransportPylonsComponent

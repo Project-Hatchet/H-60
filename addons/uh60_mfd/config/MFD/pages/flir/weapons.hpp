@@ -157,7 +157,7 @@ class pylonsBackground {
 class red {
 	color[] = {1,0,0,1};
 	class hang1 {
-	  condition = USERVALGT(USERMFDV_L14,0);
+	  condition = USER_GT(USERMFDV_L14,0);
 		class cross {
 			type="line";
 			width = 7;
@@ -170,7 +170,7 @@ class red {
 		}; // Cross
 	}; // hang1
 	class hang2 {
-	  condition = USERVALGT(USERMFDV_R14,0);
+	  condition = USER_GT(USERMFDV_R14,0);
 		class cross {
 			type="line";
 			width = 7;

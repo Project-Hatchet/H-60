@@ -109,7 +109,7 @@ class top {
 class noSubPage {
 	condition = COND_SUBPAGE(MFD_PAGE_INDEX,MFD_PAGE_TAC);
 	class right {
-		condition = USERVALLT(USERMFDV_CAS,1);
+		condition = USER_LT(USERMFDV_CAS,1);
 		color[] = common_black;
 		COLORED_POLYGON(CHART,0.985-0.09,(BEZEL_Y1-0.01),0.09,0.04,common_black)
 		COLORED_POLYGON(OVERL,0.985-0.10,(BEZEL_Y2-0.01),0.10,0.04,common_black)
@@ -132,7 +132,7 @@ class noSubPage {
 				TEXT_RIGHT_SCALED(MAPDY,0.97,(BEZEL_Y5-0.03+0.04),"DYNAMIC",TAC_LINE_HEIGHT)
 			};
 			class condition_static {
-        condition = USERVALGT(USERMFDV_TAC_MOVE,0);
+        condition = USER_GT(USERMFDV_TAC_MOVE,0);
 				TEXT_RIGHT_SCALED(MAPDY,0.97,(BEZEL_Y5-0.03+0.04),"STATIC",TAC_LINE_HEIGHT)
 			};
 			TEXT_RIGHT_SCALED(LEGND,0.97,(BEZEL_Y6-0.01),"LEGEND",TAC_LINE_HEIGHT)
@@ -141,7 +141,7 @@ class noSubPage {
 
 	#define VERT_TEXT_SPACING 0.035
 	class caution {
-		condition = USERVALGT(USERMFDV_CAS,0);
+		condition = USER_GT(USERMFDV_CAS,0);
 		color[] = common_black;
 		COLORED_POLYGON(CNCL,(0.985-0.02),(BEZEL_Y3-0.07),0.02,(VERT_TEXT_SPACING*4),common_black)
 		COLORED_POLYGON(PAGE,(0.985-0.02),(BEZEL_Y5+0.02),0.02,(VERT_TEXT_SPACING*4),common_black)

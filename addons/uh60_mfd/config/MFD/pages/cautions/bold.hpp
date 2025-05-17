@@ -1,7 +1,7 @@
 #define EICAS_LINE_USERTEXT(CNAME,X,Y,INDEX,SHOWNUM) \
 	class CNAME { \
 		class inverted { \
-			condition = USERVALGT(USERMFDV_CAS,SHOWNUM); \
+			condition = USER_GT(USERMFDV_CAS,SHOWNUM); \
 			class yellow { \
 				color[] = common_yellow; \
 				EICAS_LINE_TAPE(TAPE,X,Y) \
@@ -15,7 +15,7 @@
 
 class cautions_overlay {
 	color[] = common_yellow;
-  condition = USERVALGT(USERMFDV_CAS,0);
+  condition = USER_GT(USERMFDV_CAS,0);
 	EICAS_LINE_USERTEXT(Right_2_0,0.69,0.70+(EICAS_LINE_SPACING*0),14,1)
 	EICAS_LINE_USERTEXT(Right_2_1,0.69,0.70+(EICAS_LINE_SPACING*1),15,2)
 	EICAS_LINE_USERTEXT(Right_2_2,0.69,0.70+(EICAS_LINE_SPACING*2),16,3)

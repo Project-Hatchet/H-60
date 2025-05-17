@@ -16,7 +16,7 @@ _getObjectPosition = {
 
 params ["_vehicle"];
 
-if (getuserMFDValue _vehicle select USERMFDV_TAC_MOVE == 0) exitWith {};
+if (getUserMFDValue _vehicle select USERMFDV_TAC_MOVE == 0) exitWith {};
 
 if (isNil "vtx_uh60_tac_hookedObject") then {
 	private _group = group player;

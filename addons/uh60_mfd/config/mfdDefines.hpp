@@ -95,10 +95,10 @@
 #define RALT_ENABLED "altitudeAGL < 304"
 #define RALT_DISABLED "altitudeAGL > 304"
 #define EGI_DISABLED "1"
-#define ASE_DISABLED_NONE USERVALLT(USERMFDV_R22,1) // "INDEXAmmo36 < 1"
-#define ASE_DISABLED USERVALGT(USERMFDV_R22,0) // "INDEXAmmo36 > 0"
-#define FLIR_FUNCTIONAL USERVALGT(USERMFDV_R23,0) // "INDEXAmmo37 > 0"
-#define FLIR_DISABLED USERVALGT(USERMFDV_R23,0) // "INDEXAmmo37 > 0"
+#define ASE_DISABLED_NONE USER_LT(USERMFDV_R22,1)
+#define ASE_DISABLED USER_GT(USERMFDV_R22,0)
+#define FLIR_FUNCTIONAL USER_GT(USERMFDV_R23,0)
+#define FLIR_DISABLED USER_GT(USERMFDV_R23,0)
 
 #define C_WP1_EXISTS "user2 > -1"
 #define C_WP2_EXISTS "user4 > -1"
@@ -684,19 +684,17 @@
 #define EICAS_LINE_HEIGHT 0.04
 #define EICAS_LINE_TEXT(CNAME,X,Y,INDEX,TEXT) \
     class CNAME { \
-        condition = 0; \
+        condition = USER_BT(INDEX,0,2); \
         color[] = common_yellow; \
         TEXT_LEFT_SCALED(Left_0_0,X,Y,TEXT,0.04) \
     };
-//        condition = USERVALBT(INDEX,0,2); \
 
 #define EICAS_LINE_TEXT_BOLD(CNAME,X,Y,INDEX,TEXT) \
     class CNAME { \
-        condition = 0; \
+				condition = USER_GT(INDEX,1); \
         color[] = common_yellow; \
         TEXT_LEFT_SCALED(Left_0_0,X,Y,TEXT,0.032) \
     };
-//				condition = USERVALGT(INDEX,1); \
 
 #define EICAS_LINE_TEXT_USERTEXT(CNAME,X,Y,INDEX) \
     TEXT_LEFT_SCALED_USERTEXT(CNAME,X,Y,INDEX,EICAS_LINE_HEIGHT)

@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 params ["_vehicle"];
-if (getuserMFDValue _vehicle select USERMFDV_LST_MODE == 2) then {
+if (getUserMFDValue _vehicle select USERMFDV_LST_MODE == 2) then {
 	_this call vtx_uh60_flir_fnc_autoScanPattern;
 };
 

@@ -7,7 +7,7 @@ private _pylon = switch (_type) do {
 	case "LRFD": {USERMFDV_LRFD};
 	case "LST": {USERMFDV_LST};
 };
-private _index = getuserMFDValue _vehicle select _pylon;
+private _index = getUserMFDValue _vehicle select _pylon;
 if (_index == -1) exitWith {1111};
 
 vtx_uh60_weapons_laserCodes # _index;

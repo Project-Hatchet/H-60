@@ -39,7 +39,7 @@ class Draw {
 	#define EICAS_LINE(CNAME,X,Y,INDEX,TEXT) \
 		class CNAME { \
 			class inverted { \
-				condition = USERVALGT(INDEX,1); \
+				condition = USER_GT(INDEX,1); \
 				class yellow { \
 					color[] = common_yellow; \
 					EICAS_LINE_TAPE(TAPE,X,Y) \

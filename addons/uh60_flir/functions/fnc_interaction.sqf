@@ -25,7 +25,7 @@ switch (_button) do {
 	};
 	case "LST_CHAN": {
 		//private _laserCodeIndex = _vehicle ammoOnPylon 44;
-    private _laserCodeIndex = getuserMFDValue _vehicle select USERMFDV_LST;
+    private _laserCodeIndex = getUserMFDValue _vehicle select USERMFDV_LST;
 		if (_laserCodeIndex == -1) then {_laserCodeIndex = 0};
 		if (_laserCodeIndex < 5) then {_laserCodeIndex = _laserCodeIndex + 1} else {_laserCodeIndex = 0};
 		//[_vehicle, 44, _laserCodeIndex] call vtx_uh60_mfd_fnc_setPylonValue;
@@ -33,7 +33,7 @@ switch (_button) do {
 	};
 	case "LST_MODE": {
 		//private _laserCodeIndex = _vehicle ammoOnPylon 47;
-    private _laserCodeIndex = getuserMFDValue _vehicle select USERMFDV_LST_MODE;
+    private _laserCodeIndex = getUserMFDValue _vehicle select USERMFDV_LST_MODE;
 		if (_laserCodeIndex == -1) then {_laserCodeIndex = 0};
 		if (_laserCodeIndex < 2) then {_laserCodeIndex = _laserCodeIndex + 1} else {_laserCodeIndex = 0};
 		//[_vehicle, 47, _laserCodeIndex] call vtx_uh60_mfd_fnc_setPylonValue;
@@ -44,7 +44,7 @@ switch (_button) do {
 	};
 	case "LRFD_CHAN": {
 		//private _laserCodeIndex = _vehicle ammoOnPylon 45;
-    private _laserCodeIndex = getuserMFDValue _vehicle select USERMFDV_LRFD;
+    private _laserCodeIndex = getUserMFDValue _vehicle select USERMFDV_LRFD;
 		if (_laserCodeIndex == -1) then {_laserCodeIndex = 0};
 		if (_laserCodeIndex < 5) then {_laserCodeIndex = _laserCodeIndex + 1} else {_laserCodeIndex = 0};
 		//[_vehicle, 45, _laserCodeIndex] call vtx_uh60_mfd_fnc_setPylonValue;

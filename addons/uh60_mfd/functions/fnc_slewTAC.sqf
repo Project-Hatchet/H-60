@@ -12,11 +12,11 @@ private _worldSize = [] call BIS_fnc_mapSize;
 private _zoomLevel = _vehicle getVariable ["MAP_ZoomMult", 1];
 
 //private _centered = _vehicle ammoOnPylon 4 == 0;
-private _centered = getuserMFDValue _vehicle select USERMFDV_TAC_CENTER == 0;
+private _centered = getUserMFDValue _vehicle select USERMFDV_TAC_CENTER == 0;
 //private _fixed = _vehicle ammoOnPylon 7 == 0;
-private _fixed = getuserMFDValue _vehicle select USERMFDV_TAC_FIXED == 0;
+private _fixed = getUserMFDValue _vehicle select USERMFDV_TAC_MOVE == 0;
 //private _selfAligned = _vehicle ammoOnPylon 5 == 0;
-private _selfAligned = getuserMFDValue _vehicle select USERMFDV_TAC_ALIGN == 0;
+private _selfAligned = getUserMFDValue _vehicle select USERMFDV_TAC_ALIGN == 0;
 
 private _rotation = if (_selfAligned) then {getDirVisual _vehicle} else {0};
 
@@ -29,7 +29,7 @@ private _center = if (_centered) then {
 
 private _movingCursor = (vtx_uh60_mfd_slewX != 0) || (vtx_uh60_mfd_slewY != 0);
 //private _staticMap = _vehicle ammoOnPylon 7 > 0;
-private _staticMap = getuserMFDValue _vehicle select USERMFDV_TAC_MOVE > 0;
+private _staticMap = getUserMFDValue _vehicle select USERMFDV_TAC_MOVE > 0;
 private _cursorLimits = [0.1,0.9];
 
 

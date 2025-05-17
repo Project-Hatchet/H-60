@@ -19,13 +19,13 @@ private _cycleWeapon = {
 private _cycleLaserCodes = {
 	params ["_vehicle", "_code", "_alt"];
 	//private _laserCodeIndex = _vehicle ammoOnPylon _code;
-  private _laserCodeIndex = getuserMFDValue _vehicle select _code;
+  private _laserCodeIndex = getUserMFDValue _vehicle select _code;
 	if (_laserCodeIndex == -1) then {_laserCodeIndex = 0};
 	private _oldIndex = _laserCodeIndex;
   if (_laserCodeIndex < 5) then {_laserCodeIndex = _laserCodeIndex + 1} else {_laserCodeIndex = 0};
 
 	//if (_vehicle ammoOnPylon _alt == _laserCodeIndex) then {[_vehicle, _alt, _oldIndex] call vtx_uh60_mfd_fnc_setPylonValue;	};
-  if (getuserMFDValue _vehicle select _alt == _laserCodeIndex) then {_vehicle setUserMFDValue [_alt, _oldIndex]};
+  if (getUserMFDValue _vehicle select _alt == _laserCodeIndex) then {_vehicle setUserMFDValue [_alt, _oldIndex]};
 
 	//[_vehicle, _code, _laserCodeIndex] call vtx_uh60_mfd_fnc_setPylonValue;
   _vehicle setUserMFDValue [_code, _laserCodeIndex];

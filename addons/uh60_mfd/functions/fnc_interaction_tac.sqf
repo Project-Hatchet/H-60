@@ -36,6 +36,6 @@ switch (_action) do {
         [getPilotCameraDirection _vehicle, _cursorPos] call vtx_uh60_flir_fnc_syncPilotCamera;
     };
     case "centerMode": {
-        [_vehicle,4] call vtx_uh60_mfd_fnc_cyclePylonValue;
+        [_vehicle,USERMFDV_TAC_CENTER] call vtx_uh60_mfd_fnc_cycleUserMFDValue;
     };
 };

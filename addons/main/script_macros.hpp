@@ -64,12 +64,22 @@ if (_unit isNotEqualTo (driver _vehicle) && {(_vehicle unitTurret _unit) isNotEq
 #define USERMFDV_R25 89 // Overlay
 #define USERMFDV_HELLFIRE_BOX 90 // HF engagement box
 #define USERMFDV_HELLFIRE_TRA 91 // HF Trajectory
-#define USERMFDV_PRI_CH 42 // PRI CHAN
-#define USERMFDV_ALT_CH 43 // ALT CHAN
-#define USERMFDV_LST 44 // LST
-#define USERMFDV_LRFD 45 // LRFD
-#define USERMFDV_ADVISORIES 46 // ADVISORIES
-#define USERMFDV_LST_MODE 47 // LST MODE
+#define USERMFDV_PRI_CH 92 // PRI CHAN
+#define USERMFDV_ALT_CH 93 // ALT CHAN
+#define USERMFDV_LST 94 // LST
+#define USERMFDV_LRFD 95 // LRFD
+#define USERMFDV_ADVISORIES 96 // ADVISORIES
+#define USERMFDV_LST_MODE 97 // LST MODE
+
+#define USERNNN(index) user##index
+#define USER_EQ(index,val) QUOTE(USERNNN(index) == val)
+#define USER_LT(index,val) QUOTE(USERNNN(index) < val)
+#define USER_GT(index,val) QUOTE(USERNNN(index) > val)
+#define USER_BT(index,val1,val2) QUOTE((USERNNN(index) > val1) * (USERNNN(index) < val2))
+#define USERVAL_EQ(index,val) QUOTE(((getUserMFDValue _this) select index) == val)
+#define USERVAL_GT(index,val) QUOTE(((getUserMFDValue _this) select index) > val)
+#define USERVAL_LT(index,val) QUOTE(((getUserMFDValue _this) select index) < val)
+#define USERVAL_BT(index,val1,val2) QUOTE((((getUserMFDValue _this) select index) > val1) * (((getUserMFDValue _this) select INDEX) < val2))
 
 // hiddenSelections[] = {
 #define HIDDENSELECTION_EM_OVERHEAD 1 // emmisive_overhead,

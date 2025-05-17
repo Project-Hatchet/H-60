@@ -23,7 +23,7 @@ if (!vtx_uh60_flir_isPipHidden || {_inFullScreenCam}) then {
   [_vehicle] call vtx_uh60_flir_fnc_handleSlew;
 };
 
-if (getuserMFDValue _vehicle select USERMFDV_LST_MODE > 0) then {
+if (getUserMFDValue _vehicle select USERMFDV_LST_MODE > 0) then {
   _this call vtx_uh60_flir_fnc_laserTrack;
 };
 
