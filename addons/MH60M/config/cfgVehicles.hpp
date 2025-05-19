@@ -346,7 +346,7 @@ class CfgVehicles {
             class VTX_FMS_R: VTX_FMS_R {};
             class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
         };
-    };
+    }; // vtx_MH60M_DAP_MLASS
 }; // CfgVehicles
 
 class cfgNonAIVehicles{
