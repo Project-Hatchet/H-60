@@ -32,7 +32,10 @@ vtx_uh60_mfd_slewY = 0;
 vtx_uh60_mfd_allowText = true;
 vtx_uh60_tac_hookedObject = nil;
 
-vtx_uh60_mfd_mapTextureMode = "topo";
+_vehicle setVariable ["vtx_uh60_mfd_23_mapTextureMode", "topo", true];
+_vehicle setVariable ["vtx_uh60_mfd_24_mapTextureMode", "topo", true];
+_vehicle setVariable ["vtx_uh60_mfd_25_mapTextureMode", "topo", true];
+_vehicle setVariable ["vtx_uh60_mfd_26_mapTextureMode", "topo", true];
 
 vtx_uh60_mfd_mfsc_focussedMFD = 25;
 if (player != driver _vehicle) then {
