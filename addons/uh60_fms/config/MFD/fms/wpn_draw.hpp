@@ -142,7 +142,7 @@ TEXT_FMS_L(CM_2_AMMO,FMS_X_AMMO,FMS_Y4)
   text = "";
 }; // CMW2_AMMO
 class CMW2_sel {
-  condition = "1 - pylonSelected1 - pylonSelected2 - pylonSelected48 - pylonSelected49 - mgun";
+  condition = "1 - pylonSelected1 - pylonSelected2 - pylonSelected3 - pylonSelected4 - mgun";
   GROUP_STATION_SELECTED_BLINK;
   TEXT_FMS_R(CM_2_LBL,0.5,FMS_Y4)
     source = "cmWeapon";
@@ -171,7 +171,7 @@ TEXT_FMS_L(CM_3_AMMO,FMS_X_AMMO,FMS_Y42)
   text = "";
 }; // CMW3_AMMO
 class CMW3_sel {
-  condition = "(1 -(pylonSelected1 - pylonSelected2 - pylonSelected48 - pylonSelected49)) * mgun";
+  condition = "(1 -(pylonSelected1 - pylonSelected2 - pylonSelected3 - pylonSelected4)) * mgun";
   GROUP_STATION_SELECTED_BLINK;
   TEXT_FMS_R(CM_3_LBL,0.5,FMS_Y42)
     source = "cmWeapon";
