@@ -19,3 +19,5 @@
 
 #define PYLON_POS_MAX 2
 #define PYLON_POS_MIN -1
+
+#define IS_MASTER_ARM if (vxf_vehicle getVariable ["vtx_uh60_weapons_masterArm_isSafe", true]) exitWith {}

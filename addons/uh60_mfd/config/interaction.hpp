@@ -76,7 +76,7 @@ class tac {
         condition = USERVAL(MFD_PAGE_INDEX,MFD_PAGE_TAC);
         class RegularRightPanel {
             condition = "(_this ammoOnPylon 3) == 0";
-            MFD_BTN(MFD_7,QUOTE(Map Mode)) 
+            MFD_BTN(MFD_7,QUOTE(Map Mode))
                 buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, TAC_MODE_MAPCONF, true)] call vtx_uh60_mfd_fnc_switchPage);
             };
             MFD_BTN(MFD_11,QUOTE(Map movement)) buttonUp="[vehicle player,7] call vtx_uh60_mfd_fnc_cyclePylonValue;"; };
@@ -86,7 +86,7 @@ class tac {
             MFD_BTN(MFD_9,QUOTE(Hide CAS Display)) buttonUp="[vehicle player,'false', true] call vtx_uh60_cas_fnc_updateOverlayList;"; };
         };
     };
-    
+
     class SUBPAGE_MAPCONF {
         condition = USERVAL(MFD_PAGE_INDEX,TAC_MODE_MAPCONF);
         MFD_BTN(MFD_8,QUOTE(Topo))
@@ -101,7 +101,7 @@ class tac {
         MFD_BTN(MFD_11,QUOTE(Off))
             buttonUp = QUOTE([ARR_3((_this select 0),'off',MFD_PAGE_INDEX)] call vtx_uh60_mfd_fnc_tac_setMapTexture);
         };
-        MFD_BTN(MFD_12,QUOTE(Return)) 
+        MFD_BTN(MFD_12,QUOTE(Return))
             buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_TAC, true)] call vtx_uh60_mfd_fnc_switchPage);
         };
     };
@@ -164,7 +164,8 @@ class flir {
         MFD_BTN(MFD_8,QUOTE(Copilot)) buttonUp="[vxf_vehicle,'RIB','COPILOT'] call vtx_uh60_weapons_fnc_interaction"; };
         MFD_BTN(MFD_9,QUOTE(Pilot)) buttonUp="[vxf_vehicle,'ROB','PILOT'] call vtx_uh60_weapons_fnc_interaction"; };
         MFD_BTN(MFD_10,QUOTE(Copilot)) buttonUp="[vxf_vehicle,'ROB','COPILOT'] call vtx_uh60_weapons_fnc_interaction"; };
-        
+        MFD_BTN(MFD_11,QUOTE(MASTER_ARM)) buttonUp= "call vtx_uh60_weapons_fnc_keyMasterArm;"; };
+
         MFD_BTN(MFD_24,QUOTE(Pilot)) buttonUp="[vxf_vehicle,'LIB','PILOT'] call vtx_uh60_weapons_fnc_interaction"; };
         MFD_BTN(MFD_23,QUOTE(Copilot)) buttonUp="[vxf_vehicle,'LIB','COPILOT'] call vtx_uh60_weapons_fnc_interaction"; };
         MFD_BTN(MFD_22,QUOTE(Pilot)) buttonUp="[vxf_vehicle,'LOB','PILOT'] call vtx_uh60_weapons_fnc_interaction"; };
@@ -189,7 +190,7 @@ class flir {
     // // MFD_BTN(MFD_5,QUOTE(NAV)) buttonUp="[vxf_vehicle] call vtx_uh60_flir_fnc_mfdNav"; };
     // // MFD_BTN(MFD_6,QUOTE(SLG)) buttonUp="[vxf_vehicle] call vtx_uh60_mfd_fnc_slingCam"; };
     // MFD_BTN(MFD_15,QUOTE(IVHMS)) buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage); };
-    
+
     // MFD_BTN(MFD_20,QUOTE(MSL)) buttonUp="[vxf_vehicle,'SEL_MSL'] call vtx_uh60_weapons_fnc_interaction"; };
     // MFD_BTN(MFD_23,QUOTE(RKT)) buttonUp="[vxf_vehicle,'SEL_RKT'] call vtx_uh60_weapons_fnc_interaction"; };
     // MFD_BTN(MFD_24,QUOTE(GUN)) buttonUp="[vxf_vehicle,'SEL_GUN'] call vtx_uh60_weapons_fnc_interaction"; };
@@ -221,7 +222,7 @@ class nd {
             buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, ND_MODE_ALL, true)] call vtx_uh60_mfd_fnc_switchPage);
         };
     };
-    
+
     class RegularRightPanel {
         condition = "(_this ammoOnPylon 3) == 0";
         MFD_BTN(MFD_9,QUOTE(Next Waypoint)) buttonUp="[vehicle player,""cycle"", 1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
@@ -248,8 +249,8 @@ class ccfs_menu {
     MFD_BTN(MFD_23,QUOTE(Host game))
         buttonUp= QUOTE([ARR_3((_this select 0), 4, MFD_PAGE_INDEX)] call vtx_uh60_mfd_fnc_ccfs_interaction_ccfs);
     };
-    MFD_BTN(MFD_15,QUOTE(IVHMS)) 
-        buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage); 
+    MFD_BTN(MFD_15,QUOTE(IVHMS))
+        buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage);
     };
 };
 
@@ -261,8 +262,8 @@ class ccfs_game {
     MFD_BTN(MFD_6,QUOTE(Pause/Play))
         buttonUp= QUOTE([ARR_3((_this select 0), 6, MFD_PAGE_INDEX)] call vtx_uh60_mfd_fnc_ccfs_interaction_ccfs);
     };
-    MFD_BTN(MFD_15,QUOTE(IVHMS)) 
-        buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage); 
+    MFD_BTN(MFD_15,QUOTE(IVHMS))
+        buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage);
     };
 };
 
@@ -270,6 +271,6 @@ class ccfs_game {
 class ivhms {
     condition= USERVAL(MFD_PAGE_INDEX,MFD_PAGE_IVHMS);
     MFD_BTN(MFD_4,QUOTE(Exit))
-        buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS_NUMS, true)] call vtx_uh60_mfd_fnc_switchPage); 
+        buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS_NUMS, true)] call vtx_uh60_mfd_fnc_switchPage);
     };
 };

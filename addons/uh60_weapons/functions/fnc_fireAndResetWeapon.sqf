@@ -1,10 +1,12 @@
+#include "script_component.hpp"
 /**
  * Used to fire a weapon that is currently not selected, and then reset the selected weapon
  */
 
-params ["_vehicle","_weapon","_fireMode"];
+IS_EITHER_PILOT;
+IS_MASTER_ARM;
 
-if !(typeOf _vehicle isKindOf "vtx_H60_base") exitWith {false};
+params ["_vehicle","_weapon","_fireMode"];
 
 private _currentWeapon = currentWeapon _vehicle;
 if (_weapon == "MISSILE") then {
