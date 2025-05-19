@@ -164,6 +164,7 @@ class flir {
         MFD_BTN(MFD_8,QUOTE(Copilot)) buttonUp="[vxf_vehicle,'RIB','COPILOT'] call vtx_uh60_weapons_fnc_interaction"; };
         MFD_BTN(MFD_9,QUOTE(Pilot)) buttonUp="[vxf_vehicle,'ROB','PILOT'] call vtx_uh60_weapons_fnc_interaction"; };
         MFD_BTN(MFD_10,QUOTE(Copilot)) buttonUp="[vxf_vehicle,'ROB','COPILOT'] call vtx_uh60_weapons_fnc_interaction"; };
+        MFD_BTN(MFD_11,QUOTE(MASTER_ARM)) buttonUp= "call vtx_uh60_weapons_fnc_keyMasterArm;"; };
 
         MFD_BTN(MFD_24,QUOTE(Pilot)) buttonUp="[vxf_vehicle,'LIB','PILOT'] call vtx_uh60_weapons_fnc_interaction"; };
         MFD_BTN(MFD_23,QUOTE(Copilot)) buttonUp="[vxf_vehicle,'LIB','COPILOT'] call vtx_uh60_weapons_fnc_interaction"; };

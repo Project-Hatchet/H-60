@@ -18,3 +18,4 @@ PREP(ehFireSelected);
 PREP(ehNextWeapon);
 PREP(keyFireSelected);
 PREP(keyNextWeapon);
+PREP(keyMasterArm);

@@ -8,7 +8,12 @@ class CfgUserActions
     onAnalog = "";	// _this is the scalar analog value.
     analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
   };
-  class vtx_weapons_nextWeapon: vtx_weapons_fireLaser  {
+  class vtx_weapons_masterArm: vtx_weapons_fireLaser {
+    displayName = "Master Arm";
+    tooltip = "Toggle between Safe and Arm";
+    onActivate = "call vtx_uh60_weapons_fnc_keyMasterArm;";		// _this is always true.
+  };
+  class vtx_weapons_nextWeapon: vtx_weapons_fireLaser {
     displayName = "Next Weapon";
     tooltip = "Change the weapon selected by the pilot.";
     onActivate = "call vtx_uh60_weapons_fnc_keyNextWeapon;";		// _this is always true.
@@ -44,6 +49,7 @@ class UserActionGroups
     name = "H-60 Weapons"; // Display name of your category.
     isAddon = 1;
     group[] = {
+      "vtx_weapons_masterArm",
       "vtx_weapons_nextWeapon",
       "vtx_weapons_fireSelected",
       "vtx_weapons_fireAPKWS",
