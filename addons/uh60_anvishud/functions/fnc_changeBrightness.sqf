@@ -10,21 +10,11 @@
 
 params ["_vehicle", "_polarity"];
 
-private _isDriver = (driver vehicle player) isEqualTo player;
-
-//Determine correct pylon index based on L or R seat
-private _index = if(_isDriver) then [{USERMFDV_RHMD_A}, {USERMFDV_LHMD_A}];
-
-private _brightness = getUserMFDValue _vehicle select _index;
+private _brightness = getUserMFDValue _vehicle select USERMFDV_HMD_A;
 
 //Adjust change amount based on current brightness and polarity passed to the function
 private _change = (if(_brightness >= 0.3) then [{0.1}, {0.05}]) * _polarity;
-
 private _value = (_brightness + _change) max 0 min 1;
 
 //Adjust ammo at pylon index to manipulate HMD brightness (alpha)
-_vehicle setUserMFDValue [_index, _value];
-
-if(vtx_uh60_ui_showDebugMessages) then {systemChat Format["HMD Brightness: %1%2", (getUserMFDValue _vehicle select _index)*100, "%"]};
-
-
+_vehicle setUserMFDValue [USERMFDV_HMD_A, _value];

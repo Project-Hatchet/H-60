@@ -30,14 +30,14 @@ if (_unit isNotEqualTo (driver _vehicle) && {(_vehicle unitTurret _unit) isNotEq
 #define USERMFDV_TAC_ALIGN 55
 #define USERMFDV_TAC_ZOOM 56
 #define USERMFDV_TAC_MOVE 57
-#define USERMFDV_LHMD_R 58 //8)   //Left HMD Color R
-#define USERMFDV_LHMD_G 59 //9)   //Left HMD Color G
-#define USERMFDV_LHMD_B 60 //10)  //Left HMD Color B
-#define USERMFDV_LHMD_A 61 //11)  //Left HMD Brighhtness
-#define USERMFDV_RHMD_R 62 //12)  //Right HMD Color R
-#define USERMFDV_RHMD_G 63 //13)  //Right HMD Color G
-#define USERMFDV_RHMD_B 64 //14)  //Right HMD Color B
-#define USERMFDV_RHMD_A 65 //15)  //Right HMD Brightness
+#define USERMFDV_HMD_R 58 //8)   //HMD Color R
+#define USERMFDV_HMD_G 59 //9)   //HMD Color G
+#define USERMFDV_HMD_B 60 //10)  //HMD Color B
+#define USERMFDV_HMD_A 61 //11)  //HMD Brighhtness
+#define USERMFDV_62 62 //12
+#define USERMFDV_63 63 //13
+#define USERMFDV_64 64 //14
+#define USERMFDV_65 65 //15
 #define USERMFDV_L00 66 // Overlay	 GEN 1 FAIL
 #define USERMFDV_L01 67 // Overlay	 HYD PUMP 1 FAIL
 #define USERMFDV_L02 68 // Overlay

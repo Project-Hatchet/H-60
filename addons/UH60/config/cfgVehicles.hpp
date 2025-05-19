@@ -34,7 +34,7 @@ class CfgVehicles
         class Sounds;
         class HitPoints;
         class UserActions;
-        
+
     };
 
     class vtx_H60_base: Heli_Transport_01_base_F
@@ -51,7 +51,6 @@ class CfgVehicles
         #include "CfgUserActions.hpp"
         #include "edenAttributes.hpp"
         author = "Project Hatchet Studios";
-        class VTX_H60_HDTS_Copilot;
         #include "cfgVxf.hpp"
         memoryPointDriverOptics = "slingcam";
         // driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
@@ -83,7 +82,7 @@ class CfgVehicles
         mainBladeCenter = "predni osa naklonu";
         tailBladeCenter = "light_collision_tail_upper";
         fuelConsumptionRate = 0;
-        
+
         //multiplier of lift force
         liftForceCoef = 1.1;
         //multiplier of body friction
