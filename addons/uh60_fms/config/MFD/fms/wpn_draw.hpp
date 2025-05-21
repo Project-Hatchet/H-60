@@ -63,6 +63,9 @@ class Sta2_sel {
   }; // STA2_AMMO
 };
 
+#ifdef SOURCEINDEX
+  #undef SOURCEINDEX
+#endif
 #define SOURCEINDEX 3
 TEXT_FMS_L(STA3_LBL,FMS_MARGIN_L,FMS_Y2)
 	source = "pylonMagazineNameShort";
@@ -89,6 +92,9 @@ class Sta3_sel {
   }; // STA3_AMMO
 };
 
+#ifdef SOURCEINDEX
+  #undef SOURCEINDEX
+#endif
 #define SOURCEINDEX 4
 TEXT_FMS_R(STA4_LBL,FMS_MARGIN_R,FMS_Y2)
 	source = "pylonMagazineNameShort";
