@@ -5,7 +5,7 @@
  */
 
 params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
-if (isNil "_ID") exitWith {};
+if (isNil _ID) exitWith {};
 
 
 VTX_JVMF_MESSAGES pushBack _this;
