@@ -13,6 +13,6 @@ private _newWP = [_label, _location, _name];
 _microDagrWaypoints pushBack _newWP;
 ACE_player setVariable ["ace_microdagr_waypoints", _microDagrWaypoints];
 
-private _wp = group player addWaypoint [_newWP # 1, -1, (count waypoints group player), _name];
+private _wp = group player addWaypoint [_newWP # 1, -1, -1, _name];
 _wp setWaypointDescription _label;
 _wp setWaypointStatements ["false", ""];
