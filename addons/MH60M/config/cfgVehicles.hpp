@@ -70,6 +70,7 @@ class CfgVehicles {
 
         transportSoldier=0;
         cargoProxyIndexes[] = {12, 13, 14, 15, 16, 17, 20, 21, 22, 23};
+        ace_medical_treatment_patientSeats[] = {4, 5, 7, 8};
         cargoAction[] = {};
 
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
