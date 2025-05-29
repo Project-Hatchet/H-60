@@ -82,20 +82,20 @@ if (_eng1State == "OFF" && _eng2State == "OFF" && local _heli) then {
 private _eng1Np    = _heli getVariable "vtx_uh60_sfmplus_engPctNP" select 0;
 private _eng2Np    = _heli getVariable "vtx_uh60_sfmplus_engPctNP" select 1;
 private _rtrRPM    = _eng1Np max _eng2Np;
-private _realRPM = _heli animationPhase "rotortilt";
+private _realRPM = _heli animationPhase "rotorCollectiveBlade1";
 private _lastUpdate = _heli getVariable ["vtx_uh60_sfmplus_lastUpdate", 0];
 if (cba_missionTime > _lastUpdate + 0.3 && _rtrRPM > 0.05) exitWith {
 	private _rotorBrakeSound = (
 		(_heli animationPhase "Lever_RotorBrake") +
 		(_heli getHitPointDamage "MainRotorGearBox") +
 		(_heli getHitPointDamage "MainRotorHub")
-	) * ((_heli animationPhase "rotortilt") / 10) * 8;
+	) * ((_heli animationPhase "rotorCollectiveBlade1") / 10) * 8;
 
 	setCustomSoundController [_heli, "CustomSoundController3", _rotorBrakeSound];
 	setCustomSoundController [_heli, "CustomSoundController4", _rotorBrakeSound / 4];
 	private _rotorBrakeDown = (_heli animationPhase "Lever_RotorBrake") > 0.1;
 	if (_rotorBrakeDown) exitWith {
-		private _realRotorRPM = (_heli animationPhase "rotortilt") * 1.025 / 10;
+		private _realRotorRPM = (_heli animationPhase "rotorCollectiveBlade1") * 1.025 / 10;
 		// systemChat str ["ROTOR BRAKE ON", _realRotorRPM, (_heli getHitPointDamage "MainRotorGearBox")];
 		if (_realRotorRPM > 0.65) then {
 			_heli setHitPointDamage ["MainRotorGearBox", (_heli getHitPointDamage "MainRotorGearBox") + 0.04];
@@ -113,7 +113,7 @@ if (cba_missionTime > _lastUpdate + 0.3 && _rtrRPM > 0.05) exitWith {
 	};
 	if (_heli getHitPointDamage "HitHRotor" == 1) exitWith {};
 	// systemChat str [_realRPM / 11, _rtrRPM];
-	_rtrRPM = _rtrRPM - (vtx_uh60_sfmplus_liftLossTimer * 0.45); 
+	_rtrRPM = _rtrRPM - (vtx_uh60_sfmplus_liftLossTimer * 0.45);
 	// systemChat str ["ADJUSTED RPM", _rtrRPM];
 	if ((_realRPM / 11) > _rtrRPM) then {
 		// systemchat "BREAKING ROTOR";

@@ -7,4 +7,5 @@ private _pylon = switch (_type) do {
 };
 private _index = _vehicle ammoOnPylon _pylon;
 if (_index == -1) exitWith {1111};
+
 vtx_uh60_weapons_laserCodes # _index;

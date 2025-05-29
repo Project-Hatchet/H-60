@@ -151,6 +151,9 @@ class MSN {
 
 class wpn {
   condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_WPN);
+  FMS_BTN(FMS_5,"Master Arm")
+    buttonUp= "call vtx_uh60_weapons_fnc_keyMasterArm;";
+  };
   FMS_BTN(FMS_10,"Mission Systems")
     buttonUp= [(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_MSN)], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
@@ -222,8 +225,8 @@ class hud {
 
 class menu_comm_acre {
   condition = QUOTE((((getUserMFDValue _this) select FMS_PAGE_INDEX) == FMS_PAGE_MENU) && (isClass (configFile >> ""cfgPatches"" >> ""acre_main"")));
-  FMS_BTN(FMS_6,"Radio Page") 
-    buttonUp=[(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_COMM_ACRE)], true] call vtx_uh60_fms_fnc_interaction_pageChange; 
+  FMS_BTN(FMS_6,"Radio Page")
+    buttonUp=[(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_COMM_ACRE)], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
 };
 
