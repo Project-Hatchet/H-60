@@ -43,27 +43,6 @@ if (vtx_uh60_ui_helpEnabled) then {
     };
 };
 
-if (vtx_uh60m_trackIR_interaction_cursor) then {
-    private _y = (inputAction "aimDown") - (inputAction "aimUp");
-    private _x = (inputAction "aimRight") - (inputAction "aimLeft");
-
-    vxf_interaction_cursorPos params ["_curX", "_curY"];
-    if (abs _x < 0.02) then { _x = 0; };
-    if (abs _y < 0.02) then { _y = 0; };
-    vxf_interaction_cursorPos = [
-        (_curX + (_x * vtx_uh60m_trackIR_interaction_cursorSensitivity * (_frameTime / 4))) max safeZoneX min (safeZoneX + safeZoneW),
-        (_curY + (_y * vtx_uh60m_trackIR_interaction_cursorSensitivity * (_frameTime / 4))) max safeZoneY min (safeZoneY + safeZoneH)
-    ];
-    CTRL(4001120) ctrlSetText "\A3\ui_f\data\igui\cfg\cursors\iconCursorSupport_ca.paa";
-} else {
-    CTRL(4001120) ctrlSetText "\A3\ui_f\data\igui\cfg\cursors\iconComplex_ca.paa";
-};
-CTRL(4001120) ctrlSetPosition [
-    (vxf_interaction_cursorPos # 0) - 0.02,
-    (vxf_interaction_cursorPos # 1) - 0.02
-];
-CTRL(4001120) ctrlCommit 0;
-
 if !(getUserMFDValue _vehicle # 15 > -1) exitWith {
     CTRL(4001123) ctrlSetText "";
     CTRL(4001123) ctrlCommit 0;
