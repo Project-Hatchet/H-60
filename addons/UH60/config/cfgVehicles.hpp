@@ -439,12 +439,13 @@ class CfgVehicles {
                 maxBrakeTorque				= 8000;
                 maxHandBrakeTorque			= 8000;
 
-                maxCompression				= 0.3;
-                maxDroop					= 0.1337;
+                maxCompression				= 0.15;
+                maxDroop					= 0.2;
 
-                sprungMass					= 3000;
-                springStrength				= 200000;
-                springDamperRate			= 50000;
+                #define SUSPENSION_SPRUNG_MASS 4300
+                sprungMass					= SUSPENSION_SPRUNG_MASS;
+                springStrength				= SUSPENSION_SPRUNG_MASS * 25;
+                springDamperRate			= SUSPENSION_SPRUNG_MASS * 4;
 
                 longitudinalStiffnessPerUnitGravity	= 10000;
                 latStiffX					= 2.5;
@@ -480,9 +481,11 @@ class CfgVehicles {
                 maxBrakeTorque				= 8000;
                 suspTravelDirection[]		= {0, -1.0, 0.0};
 
-                sprungMass					= 200;
-                springStrength				= 5000;
-                springDamperRate			= 1000;
+                #undef SUSPENSION_SPRUNG_MASS
+                #define SUSPENSION_SPRUNG_MASS 400
+                sprungMass					= SUSPENSION_SPRUNG_MASS;
+                springStrength				= SUSPENSION_SPRUNG_MASS * 25;
+                springDamperRate			= SUSPENSION_SPRUNG_MASS * 4;
             };
         }; // Wheels
     }; // vtx_H60_base
