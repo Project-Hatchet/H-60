@@ -11,7 +11,6 @@ class RscInGameUI
             //"CA_Vehicle",
             "CA_VehicleRole",
             "HelpText",
-            "Interaction",
             "HelpOverlay",
             "HelpOverlayGunner",
             "HMDOverlay"
