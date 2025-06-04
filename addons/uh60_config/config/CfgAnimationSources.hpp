@@ -280,28 +280,18 @@ class AnimationSources: AnimationSources {
     initPhase=0;
     mass = -MASS_COCKPITDOORS;
   };
-  class cabindoor_L {
-    displayName = "Close L Cabin Door"
-    source="user";
-    animPeriod=1;
-    initPhase=0;
-  };
-  class cabindoor_R {
-    displayName = "Close R Cabin Door"
-    source="user";
-    animPeriod=1;
-    initPhase=0;
-  };
-  class Stabilator_rotate_user {
-    source="user";
-    animPeriod=1;
-    initPhase=0;
-  };
   class LandingLight_Show {
     source="user";
     animPeriod=1;
     initPhase=0;
   };
+  class Stabilator_rotate_user: LandingLight_Show {};
+  class cabindoor_L: LandingLight_Show {displayName = "Close L Cabin Door"};
+  class cabindoor_R: LandingLight_Show {displayName = "Close R Cabin Door"};
+  class window_l_1: LandingLight_Show {displayName = "Close L 1 Window";};
+  class window_l_2: LandingLight_Show {displayName = "Close L 2 Window";};
+  class window_r_1: LandingLight_Show {displayName = "Close R 1 Window";};
+  class window_r_2: LandingLight_Show {displayName = "Close R 2 Window";};
   ANIMSRC(hoist_hide,user,1,0);
   ANIMSRC(hoist_hook_hide,user,1,0);
   //interriorparts
