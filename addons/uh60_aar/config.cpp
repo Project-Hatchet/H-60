@@ -4,7 +4,7 @@ class CfgPatches
 {
 	class USAF_Hatchet_AAR
 	{
-		requiredAddons[]=	{"USAF_Main"};
+		requiredAddons[]=	{"vtx_uh60_config"};
 		requiredVersion= 1.62;
 		version=1;
 		units[]={};
