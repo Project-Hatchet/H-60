@@ -15,5 +15,5 @@
 
 IS_EITHER_PILOT; // Sets _unit and _vehicle
 
-private _isSafe = vxf_vehicle getVariable ["vtx_uh60_weapons_masterArm_isSafe", true];
-vxf_vehicle setVariable ["vtx_uh60_weapons_masterArm_isSafe", !_isSafe, true];
+private _isSafe = hct_vehicle getVariable ["vtx_uh60_weapons_masterArm_isSafe", true];
+hct_vehicle setVariable ["vtx_uh60_weapons_masterArm_isSafe", !_isSafe, true];

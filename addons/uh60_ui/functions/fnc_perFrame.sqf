@@ -19,7 +19,7 @@ if !(vtx_uh60_ui_isViewInternal) exitWith {
 #define HELP_LABEL_COND(MEMPOINT,LABEL,COND) drawIcon3D ["\a3\ui_f\data\IGUI\Cfg\Cursors\selected_ca.paa",(if(COND)then{[0,1,0,1]}else{[1,0,0,1]}),_vehicle modelToWorldVisual (_vehicle selectionPosition MEMPOINT),1,1,0,LABEL,2,0.045,"RobotoCondensed","center",true];
 
 if (vtx_uh60_ui_helpEnabled) then {
-    private _hasDoorgun = [_vehicle, "doorguns"] call vxf_core_fnc_hasModule;
+    private _hasDoorgun = [_vehicle, "doorguns"] call hct_core_fnc_hasModule;
     if (!_hasDoorgun) then {
         drawIcon3D [
             "\z\ace\addons\interaction\ui\dot_ca.paa",
