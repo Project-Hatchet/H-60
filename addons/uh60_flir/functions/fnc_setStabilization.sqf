@@ -25,21 +25,21 @@ params [
 vtx_uh60_flir_pilotCameraTarget params ["_isTracking", "", "_trackObj"];
 
 
-private _originPos = vxf_vehicle modelToWorldVisualWorld (getPilotCameraPosition vxf_vehicle);
-private _cameraVectorWorld = vxf_vehicle vectorModelToWorld (getPilotCameraDirection vxf_vehicle);
+private _originPos = hct_vehicle modelToWorldVisualWorld (getPilotCameraPosition hct_vehicle);
+private _cameraVectorWorld = hct_vehicle vectorModelToWorld (getPilotCameraDirection hct_vehicle);
 private _slewOrigin = (_cameraVectorWorld) call CBA_fnc_vect2Polar;
 private _intersect = [_originPos, _slewOrigin # 1, _slewOrigin # 2] call vtx_uh60_flir_fnc_intersectAtPolar;
 if (!isNil "_intersect") then {
   private _nearObjects = nearestobjects [ASLtoAGL _intersect, ["Land", "Air", "Ship"], 5];
   if (count _nearObjects > 0) then {
-    vxf_vehicle setPilotCameraTarget (_nearObjects # 0);
+    hct_vehicle setPilotCameraTarget (_nearObjects # 0);
     [[], _intersect, (_nearObjects # 0)] call vtx_uh60_flir_fnc_syncPilotCamera;
   } else {
-    if ((getPilotCameraTarget vxf_vehicle) # 0) then {
-      vxf_vehicle setPilotCameraTarget objNull;
+    if ((getPilotCameraTarget hct_vehicle) # 0) then {
+      hct_vehicle setPilotCameraTarget objNull;
       [[], objNull] call vtx_uh60_flir_fnc_syncPilotCamera;
     } else {
-      vxf_vehicle setPilotCameraTarget _intersect;
+      hct_vehicle setPilotCameraTarget _intersect;
       [[], _intersect] call vtx_uh60_flir_fnc_syncPilotCamera;
     };
   };
