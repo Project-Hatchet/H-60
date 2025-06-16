@@ -4,7 +4,7 @@
     position= BTN_VAL; \
     label=LABEL; \
     radius=0.025; \
-    clickSound="vxf_Switch_Sound_2";
+    clickSound="hct_Switch_Sound_2";
 
 class menu {
   condition= USERVAL_EQ(FMS_PAGE_INDEX,FMS_PAGE_MENU);

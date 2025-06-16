@@ -205,7 +205,7 @@ class CfgVehicles
 		vtx_soundEngineOffInt[] = {"vtx_H60_Engine_Off_Int"};
 		vtx_soundEngineOnExt[] = {"vtx_H60_Engine_On_Ext",1,600};
 		vtx_soundEngineOffExt[] = {"vtx_H60_Engine_Off_Ext",1,600};
-		
+
 		vtx_soundAPUInt[] = {"vtx_H60_APU_On_Int"};
 		vtx_soundAPUExt[] = {"vtx_H60_APU_On_Ext",1,600};*/
 
@@ -289,7 +289,7 @@ class CfgVehicles
 					"vtx_Alarm_Damage_Int_SoundSet_Base",
 					//"vtx_Alarm_RotorLow_Ext_SoundSet_Base",
 					"vtx_Alarm_RotorLow_Int_SoundSet_Base",
-	
+
 					"vtx_Rotor_Distance_SoundSet",
 					"vtx_Engine_Distance_SoundSet",
 					"vtx_Turbine_Ext_SoundSet",
@@ -323,21 +323,21 @@ class CfgVehicles
 class CfgSounds
 {
 
-	class vxf_Key_Sound
+	class hct_Key_Sound
 	{
-		name = "vxf_Key_Sound";
+		name = "hct_Key_Sound";
 		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Key",1,1};
 		titles[] = {};
 	};
-	class vxf_CabinDoor_Sound
+	class hct_CabinDoor_Sound
 	{
-		name = "vxf_CabinDoor_Sound";
+		name = "hct_CabinDoor_Sound";
 		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Door",3,1};
 		titles[] = {};
 	};
-	class vxf_RotorBrake_Sound
+	class hct_RotorBrake_Sound
 	{
-		name = "vxf_RotorBrake_Sound";
+		name = "hct_RotorBrake_Sound";
 		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\RotorBrake",3,1};
 		titles[] = {};
 	};

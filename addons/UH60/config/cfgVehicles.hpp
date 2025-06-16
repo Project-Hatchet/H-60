@@ -48,7 +48,8 @@ class CfgVehicles {
         #include "CfgUserActions.hpp"
         #include "edenAttributes.hpp"
         author = "Project Hatchet Studios";
-        #include "cfgVxf.hpp"
+        class VTX_H60_HDTS_Copilot;
+        #include "cfghct.hpp"
         memoryPointDriverOptics = "slingcam";
         // driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         class vtx_templateFLIR {
