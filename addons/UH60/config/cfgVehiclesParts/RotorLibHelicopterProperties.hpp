@@ -1,6 +1,6 @@
 class RotorLibHelicopterProperties
 {
-    RTDconfig = "z\vtx\addons\uh60_fd\config\RTD_UH60M_Keplager.xml";
+    RTDconfig = "z\vtx\addons\uh60_fd\config\RTD_UH60.xml";
     autoHoverCorrection[] = {3, 2.8, 0};
     defaultCollective = 0.49;
     maxHorizontalStabilizerLeftStress = 8000;

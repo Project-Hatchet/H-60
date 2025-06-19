@@ -285,6 +285,7 @@ class VTX_MFD_1
     bottomLeft="MFD1_LD";
     #include "MFD\MFD.hpp"
 }; // MFD_1
+//ok1
 class VTX_MFD_1_NOFLIR: VTX_MFD_1
 {
     #include "MFD\MFD_NOFLIR.hpp"

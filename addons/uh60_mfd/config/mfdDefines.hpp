@@ -32,7 +32,6 @@
 #define WARN_INDEX 1
 
 #define COND_ISNUMBER(INDEX,VALUE) (user##INDEX>(VALUE-0.01))*(user##INDEX<(VALUE+0.99))
-#define COND_ISNUMPYLON(INDEX,VALUE) (pylonAmmo##INDEX>(VALUE-0.01))*(pylonAmmo##INDEX<(VALUE+0.99))
 #define MFD_PAGE_EICAS 0
 #define MFD_PAGE_PFD 1
 #define MFD_PAGE_TAC 2
@@ -96,10 +95,10 @@
 #define RALT_ENABLED "altitudeAGL < 304"
 #define RALT_DISABLED "altitudeAGL > 304"
 #define EGI_DISABLED "1"
-#define ASE_DISABLED_NONE "pylonAmmo36 < 1"
-#define ASE_DISABLED "pylonAmmo36 > 0"
-#define FLIR_FUNCTIONAL "pylonAmmo37 > 0"
-#define FLIR_DISABLED "pylonAmmo37 > 0"
+#define ASE_DISABLED_NONE USER_LT(USERMFDV_R22,1)
+#define ASE_DISABLED USER_GT(USERMFDV_R22,0)
+#define FLIR_FUNCTIONAL USER_GT(USERMFDV_R23,0)
+#define FLIR_DISABLED USER_GT(USERMFDV_R23,0)
 
 #define C_WP1_EXISTS "user2 > -1"
 #define C_WP2_EXISTS "user4 > -1"
@@ -110,10 +109,6 @@
 
 #define DTS_LOAD_FAIL "0"
 #define RAD_ALT_FAIL "0"
-#define TAC_CENTERED "pylonAmmo4 < 1"
-#define TAC_SELF_ORIENT "pylonAmmo5 < 1"
-#define TAC_STATIC "pylonAmmo6 > 0"
-#define TAC_DYNAMIC "pylonAmmo6 < 1"
 
 #define SOI_IDX 39
 
@@ -680,23 +675,23 @@
 #define MID_LINE_HEIGHT 0.06
 #define SMALL_LINE_HEIGHT 0.03
 
-#define NM_SCALE(SCALE) (1*0.75*0.000539957*SCALE) 
+#define NM_SCALE(SCALE) (1*0.75*0.000539957*SCALE)
 
 #define PT34(X,Y) X*0.75,Y
 
 
 #define EICAS_LINE_SPACING 0.035
 #define EICAS_LINE_HEIGHT 0.04
-#define EICAS_LINE_TEXT(CNAME,X,Y,PYLON,TEXT) \
+#define EICAS_LINE_TEXT(CNAME,X,Y,INDEX,TEXT) \
     class CNAME { \
-        condition = QUOTE((PYLON > 0) * (PYLON < 2)); \
+        condition = USER_BT(INDEX,0,2); \
         color[] = common_yellow; \
         TEXT_LEFT_SCALED(Left_0_0,X,Y,TEXT,0.04) \
     };
 
-#define EICAS_LINE_TEXT_BOLD(CNAME,X,Y,PYLON,TEXT) \
+#define EICAS_LINE_TEXT_BOLD(CNAME,X,Y,INDEX,TEXT) \
     class CNAME { \
-        condition = QUOTE(PYLON > 1); \
+				condition = USER_GT(INDEX,1); \
         color[] = common_yellow; \
         TEXT_LEFT_SCALED(Left_0_0,X,Y,TEXT,0.032) \
     };

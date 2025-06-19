@@ -285,9 +285,10 @@ class AnimationSources: AnimationSources {
     animPeriod=1;
     initPhase=0;
   };
+  class SearchLight_Show: LandingLight_Show {};
   class Stabilator_rotate_user: LandingLight_Show {};
-  class cabindoor_L: LandingLight_Show {displayName = "Close L Cabin Door"};
-  class cabindoor_R: LandingLight_Show {displayName = "Close R Cabin Door"};
+  class cabindoor_L: LandingLight_Show {displayName = "Close L Cabin Door";};
+  class cabindoor_R: LandingLight_Show {displayName = "Close R Cabin Door";};
   class window_l_1: LandingLight_Show {displayName = "Close L 1 Window";};
   class window_l_2: LandingLight_Show {displayName = "Close L 2 Window";};
   class window_r_1: LandingLight_Show {displayName = "Close R 1 Window";};

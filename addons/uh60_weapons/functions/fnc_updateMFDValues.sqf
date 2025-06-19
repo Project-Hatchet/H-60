@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 params ["_vehicle"];
 
 if (!([] call vtx_uh60_mfd_fnc_isAnyFlirOpened)) exitWith {};
@@ -55,7 +56,8 @@ if (cba_missionTime < vtx_uh60_hellfire_lastLaunchTime + 1.5) then {
 	_constraintsBoxType = 6;
 };
 
-[_vehicle, 40, _constraintsBoxType] call vtx_uh60_mfd_fnc_setPylonValue;
+//[_vehicle, 40, _constraintsBoxType] call vtx_uh60_mfd_fnc_setPylonValue;
+_vehicle setUserMFDValue [USERMFDV_HELLFIRE_BOX, _constraintsBoxType];
 
 private _launchMode = _vehicle getvariable ["ace_missileguidance_attackProfile", "hellfire"];
 private _launchNum = switch (_launchMode) do {
@@ -64,6 +66,5 @@ private _launchNum = switch (_launchMode) do {
 	case "hellfire_hi": {2};
 };
 
-[_vehicle, 41, _launchNum] call vtx_uh60_mfd_fnc_setPylonValue;
-
-// [_vehicle, 42, _vehicle getVariable ["vtx_uh60_hellfire_laserCodeIndex", 0]] call vtx_uh60_mfd_fnc_setPylonValue;
+//[_vehicle, 41, _launchNum] call vtx_uh60_mfd_fnc_setPylonValue;
+_vehicle setUserMFDValue [USERMFDV_HELLFIRE_TRA, _launchNum];

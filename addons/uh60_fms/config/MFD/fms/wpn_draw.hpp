@@ -63,7 +63,10 @@ class Sta2_sel {
   }; // STA2_AMMO
 };
 
-#define SOURCEINDEX 48
+#ifdef SOURCEINDEX
+  #undef SOURCEINDEX
+#endif
+#define SOURCEINDEX 3
 TEXT_FMS_L(STA3_LBL,FMS_MARGIN_L,FMS_Y2)
 	source = "pylonMagazineNameShort";
   sourceIndex = SOURCEINDEX;
@@ -75,7 +78,7 @@ TEXT_FMS_L(STA3_AMMO,FMS_MARGIN_L,FMS_Y22)
   sourceScale = 1;
 }; // STA3_AMMO
 class Sta3_sel {
-  condition = "pylonSelected48";
+  condition = "pylonSelected3";
   GROUP_STATION_SELECTED_BLINK;
   TEXT_FMS_L(STA3_LBL,FMS_MARGIN_L,FMS_Y2)
     source = "pylonMagazineNameShort";
@@ -89,7 +92,10 @@ class Sta3_sel {
   }; // STA3_AMMO
 };
 
-#define SOURCEINDEX 49
+#ifdef SOURCEINDEX
+  #undef SOURCEINDEX
+#endif
+#define SOURCEINDEX 4
 TEXT_FMS_R(STA4_LBL,FMS_MARGIN_R,FMS_Y2)
 	source = "pylonMagazineNameShort";
   sourceIndex = SOURCEINDEX;
@@ -101,7 +107,7 @@ TEXT_FMS_R(STA4_AMMO,FMS_MARGIN_R,FMS_Y22)
   sourceScale = 1;
 }; // STA4_AMMO
 class Sta4_sel {
-  condition = "pylonSelected49";
+  condition = "pylonSelected4";
   GROUP_STATION_SELECTED_BLINK;
   TEXT_FMS_R(STA4_LBL,FMS_MARGIN_R,FMS_Y2)
     source = "pylonMagazineNameShort";
@@ -142,7 +148,7 @@ TEXT_FMS_L(CM_2_AMMO,FMS_X_AMMO,FMS_Y4)
   text = "";
 }; // CMW2_AMMO
 class CMW2_sel {
-  condition = "1 - pylonSelected1 - pylonSelected2 - pylonSelected48 - pylonSelected49 - mgun";
+  condition = "1 - pylonSelected1 - pylonSelected2 - pylonSelected3 - pylonSelected4 - mgun";
   GROUP_STATION_SELECTED_BLINK;
   TEXT_FMS_R(CM_2_LBL,0.5,FMS_Y4)
     source = "cmWeapon";
@@ -171,7 +177,7 @@ TEXT_FMS_L(CM_3_AMMO,FMS_X_AMMO,FMS_Y42)
   text = "";
 }; // CMW3_AMMO
 class CMW3_sel {
-  condition = "(1 -(pylonSelected1 - pylonSelected2 - pylonSelected48 - pylonSelected49)) * mgun";
+  condition = "(1 -(pylonSelected1 - pylonSelected2 - pylonSelected3 - pylonSelected4)) * mgun";
   GROUP_STATION_SELECTED_BLINK;
   TEXT_FMS_R(CM_3_LBL,0.5,FMS_Y42)
     source = "cmWeapon";

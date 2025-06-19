@@ -8,7 +8,17 @@
 
 params ["_vehicle"];
 
-if (!(typeOf _vehicle in ["vtx_MH60S_Pylons_GAU21L","vtx_MH60S_GAU21L","vtx_MH60S_Pylons","vtx_MH60S","vtx_MH60M_DAP","vtx_MH60M"])) exitWith { false };
+_hasHUD = false;
+{
+  if (_vehicle isKindOf _x) exitWith { _hasHUD = true };
+} forEach [
+  "vtx_MH60S_Pylons_GAU21L",
+  "vtx_MH60S_GAU21L",
+  "vtx_MH60S_Pylons",
+  "vtx_MH60S",
+  "vtx_MH60M_DAP",
+  "vtx_MH60M"
+];
 
 _vehicle setUserMFDValue [15, vtx_uh60_anvishud_defaultMode];
 

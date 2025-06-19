@@ -1,3 +1,7 @@
+// testing, update fncs on the fly
+//#undef PREP
+//#define PREP(var1) TRIPLES(ADDON,fnc,var1) = { call compile preProcessFileLineNumbers '\MAINPREFIX\PREFIX\SUBPREFIX\COMPONENT_F\functions\DOUBLES(fnc,var1).sqf' }
+
 PREP(interaction_tac);
 PREP(interaction_slew);
 PREP(isAnyFlirOpened);
@@ -8,14 +12,12 @@ PREP(shutDown);
 PREP(slingCam);
 PREP(switchPage);
 PREP(tac_cursorToWorld);
-PREP(storePylons);
-PREP(restorePylons);
 PREP(setUserText);
 PREP(ivhms);
 PREP(setPylonValue);
 PREP(slewTAC);
 PREP(renderBFTUnits);
-PREP(cyclePylonValue);
+PREP(cycleUserMFDValue);
 PREP(handleDamage);
 
 PREP(tac_getMapCenter);
