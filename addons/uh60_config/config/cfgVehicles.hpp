@@ -49,6 +49,15 @@ class CfgVehicles {
       class RightDoorGun;
     };
     class MFD;
+    #include "hct_minigun.hpp"
+    class hct_turret_3 {
+    projectPrefix = "vtx_uh60";
+      class modules {
+          class ui {
+              startOnEnter = 0;
+          };
+      }; // modules
+    }; //TC Seat
   }; // vtx_H60_base
 
   class vtx_UH60M: vtx_H60_base {
@@ -133,14 +142,6 @@ class CfgVehicles {
       class RightDoorGun: RightDoorGun {};
       #include "\z\vtx\addons\UH60\config\turrets\troopCommander.hpp"
     };
-    class hct_turret_3 {
-    projectPrefix = "vtx_uh60";
-      class modules {
-          class ui {
-              startOnEnter = 0;
-          };
-      }; // modules
-    }; //TC Seat
   }; // vtx_UH60M
 
   class vtx_UH60M_MEDEVAC: vtx_H60_base {
@@ -192,8 +193,16 @@ class CfgVehicles {
       #include "..\..\UH60\config\turrets\cargoTurrets.hpp"
     };
     #include "..\..\UH60\config\vehicleTransport.hpp"
-    class hct_turret_1 {};
-    class hct_turret_2 {};
+    class hct_turret_1 {
+      class interaction {
+        #include "hct_window_l.hpp"
+      };
+    };
+    class hct_turret_2 {
+      class interaction {
+        #include "hct_window_r.hpp"
+      };
+    };
     class MFD: MFD {
       class VTX_MFD_1_NOFLIR :           VTX_MFD_1_NOFLIR {};
       class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};

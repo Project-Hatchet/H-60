@@ -518,13 +518,18 @@ class AnimationSources {
   };
 
   class searchlight_turn {
-    source="FLIR_DIRECTION";
+    source="user";
     animPeriod=1;
-    initPhase=0.5;
+    initPhase=0;
   };
   class searchlight_elev {
-    source="FLIR_ELEVATION";
+    source="user";
     animPeriod=1;
-    initPhase=0.5;
+    initPhase=0;
+  };
+  class landinglight_elev {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
   };
 };
