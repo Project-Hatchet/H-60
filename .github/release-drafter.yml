@@ -24,7 +24,7 @@ categories:
       - 'Release notes: Refactor'
 
 exclude-labels:
-  - 'ignore-changelog'
+  - 'Release Notes: Ignore'
 
 change-template: '- $TITLE (#$NUMBER)'
 template: |
