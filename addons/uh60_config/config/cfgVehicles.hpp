@@ -232,7 +232,7 @@ class CfgVehicles {
     };
   };
 
-  class vtx_S70i: vtx_H60_base {
+  class vtx_S70M: vtx_H60_base {
     displayName = "S-70i";
     crew = "C_man_pilot_F";
 		side = 3;
