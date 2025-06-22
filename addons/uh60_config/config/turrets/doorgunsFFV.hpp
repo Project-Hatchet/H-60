@@ -2,14 +2,13 @@ class LeftWindow: CargoTurret { //Left Doorgun
   animationSourceHatch = "gunner_ffv_l";
   canHideGunner = 1;
   forceHideGunner = 0;
-  enabledByAnimationSource = "";
   gunnerCompartments = "Compartment2";
   gunnerAction=vehicle_turnout_2;
   gunnerInAction=passenger_inside_1;
   gunnerName="Left Window";
   gunnerType = "vtx_uh60_doorgunner";
   hideWeaponsGunner = 0;
-  isPersonTurret = 2;
+  isPersonTurret = 1;
   LODTurnedIn = 1200;
   LODTurnedOut = 1200;
   LODOpticsIn = 1200;
@@ -21,6 +20,7 @@ class LeftWindow: CargoTurret { //Left Doorgun
   minOutElev = -80; maxOutElev = 40; initOutElev = 0;
   minOutTurn = -160; maxOutTurn = 160; initOutTurn = 0;
   proxyIndex=24;
+  enabledByAnimationSource = "window_l";
   class TurnIn {
     limitsArrayTop[] = {{40, 55}, {45, 0}, {40, -95}};
     limitsArrayBottom[] = {{-20, 35}, {-25, 0}, {-20, -20}, {0, -30}};
@@ -36,6 +36,7 @@ class RightWindow: LeftWindow {
   memoryPointsGetInGunner = "pos gunner R";
   memoryPointsGetInGunnerDir = "pos gunner R dir";
   proxyIndex=25;
+  enabledByAnimationSource = "gunner_ffv_r";
   minElev=-80; maxElev=40; initElev=0;
   minTurn=-80; maxTurn=80; initTurn=0;
   minOutElev = -80; maxOutElev = 40; initOutElev = 0;

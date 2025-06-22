@@ -265,10 +265,8 @@ class CfgVehicles {
       ANIM_INIT(Minigun_L_hide,1);
       ANIM_INIT(Minigun_R_hide,1);
       ANIM_INIT(MAWS_Tubes_Show,0.4);
-      ANIM_INIT(window_l_1,1);
-      ANIM_INIT(window_l_2,1);
-      ANIM_INIT(window_r_1,1);
-      ANIM_INIT(window_r_2,1);
+      ANIM_INIT(window_l,0);
+      ANIM_INIT(window_r,0);
     }; // AnimationSources
     class Turrets: Turrets {
       class CopilotTurret: CopilotTurret {};

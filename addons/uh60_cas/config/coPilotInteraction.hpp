@@ -11,7 +11,7 @@ class cas_panel {
 
 class landinglight {
     class landinglight_elev {
-        positionType="static";
+        positionType="anim";
         position="b_landinglight_l";
         label="Landing Light";
         radius=0.025;
@@ -28,7 +28,7 @@ class landinglight {
 };
 class searchlight {
     class searchlight {
-        positionType="static";
+        positionType="anim";
         position="b_searchlight_l";
         label="Search Light";
         radius=0.025;

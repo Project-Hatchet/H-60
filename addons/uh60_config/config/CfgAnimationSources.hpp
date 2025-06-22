@@ -289,10 +289,6 @@ class AnimationSources: AnimationSources {
   class Stabilator_rotate_user: LandingLight_Show {};
   class cabindoor_L: LandingLight_Show {displayName = "Close L Cabin Door";};
   class cabindoor_R: LandingLight_Show {displayName = "Close R Cabin Door";};
-  class window_l_1: LandingLight_Show {displayName = "Close L 1 Window";};
-  class window_l_2: LandingLight_Show {displayName = "Close L 2 Window";};
-  class window_r_1: LandingLight_Show {displayName = "Close R 1 Window";};
-  class window_r_2: LandingLight_Show {displayName = "Close R 2 Window";};
   ANIMSRC(hoist_hide,user,1,0);
   ANIMSRC(hoist_hook_hide,user,1,0);
   //interriorparts
@@ -576,4 +572,6 @@ class AnimationSources: AnimationSources {
   class Switch_minigun_safe_cover_r: Switch_minigun_safe_cover_l {};
   class Switch_minigun_safe_l: Switch_minigun_safe_cover_l {};
   class Switch_minigun_safe_r: Switch_minigun_safe_cover_l {};
+  class window_l: ESIS_hide {displayName = "Open L Window";};
+  class window_r: ESIS_hide {displayName = "Open R Window";};
 };
