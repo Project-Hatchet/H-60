@@ -20,7 +20,7 @@ class LeftWindow: CargoTurret { //Left Doorgun
   minOutElev = -80; maxOutElev = 40; initOutElev = 0;
   minOutTurn = -160; maxOutTurn = 160; initOutTurn = 0;
   proxyIndex=24;
-  enabledByAnimationSource = "window_l";
+  enabledByAnimationSource = "window_l_ffv";
   class TurnIn {
     limitsArrayTop[] = {{40, 55}, {45, 0}, {40, -95}};
     limitsArrayBottom[] = {{-20, 35}, {-25, 0}, {-20, -20}, {0, -30}};
@@ -36,7 +36,7 @@ class RightWindow: LeftWindow {
   memoryPointsGetInGunner = "pos gunner R";
   memoryPointsGetInGunnerDir = "pos gunner R dir";
   proxyIndex=25;
-  enabledByAnimationSource = "gunner_ffv_r";
+  enabledByAnimationSource = "window_r_ffv";
   minElev=-80; maxElev=40; initElev=0;
   minTurn=-80; maxTurn=80; initTurn=0;
   minOutElev = -80; maxOutElev = 40; initOutElev = 0;

@@ -146,8 +146,6 @@ class AnimationSources: AnimationSources {
   class HitWinch_Source;
   class CollisionLightRed_source;
   class CollisionLightWhite_source;
-  class window_l_1;
-  class window_l_2;
-  class window_r_1;
-  class window_r_2;
+  class window_l;
+  class window_r;
 };

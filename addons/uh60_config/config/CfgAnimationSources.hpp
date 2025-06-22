@@ -574,4 +574,10 @@ class AnimationSources: AnimationSources {
   class Switch_minigun_safe_r: Switch_minigun_safe_cover_l {};
   class window_l: ESIS_hide {displayName = "Open L Window";};
   class window_r: ESIS_hide {displayName = "Open R Window";};
+  class window_l_ffv {
+    source = "door";
+    animPeriod = 1;
+    initPhase = 0;
+  };
+  class window_r_ffv: window_l_ffv {};
 };
