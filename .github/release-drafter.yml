@@ -1,5 +1,5 @@
 branches:
-  - main
+  - Main
   - update-gitactions  # for testing edits to this configuration
 
 name-template: 'Version $NEXT_PATCH_VERSION'
@@ -14,7 +14,7 @@ categories:
       - 'Release notes: Feature'
   - title: '**FIXED:**'
     labels:
-      - 'Release notes: bug fix'
+      - 'Release notes: Bug fix'
   - title: '**IMPROVED:**'
     labels:
       - 'Release notes: Enhancement'

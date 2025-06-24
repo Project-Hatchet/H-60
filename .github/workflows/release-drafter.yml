@@ -3,7 +3,8 @@ name: Release Drafter
 on:
   push:
     branches:
-    - main
+    - Main
+    - update-gitactions # for testing edits to this configuration
 
 jobs:
   draft:
