@@ -516,4 +516,20 @@ class AnimationSources {
     source="ammoRandom";
     weapon="vtx_wpn_m134_2nd";
   };
+
+  class searchlight_turn {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class searchlight_elev {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class landinglight_elev {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
 };

@@ -1,3 +1,4 @@
+#include "\z\vtx\addons\uh60_sfmplus\script_component.hpp"
 /* ----------------------------------------------------------------------------
 Function: vtx_uh60_sfmplus_fnc_coreConfig
 
@@ -28,18 +29,15 @@ _heli setVariable ["vtx_uh60_sfmplus_stabLength", 		getNumber (_config >> "stabL
 
 _heli setVariable ["vtx_uh60_sfmplus_forcePos", 	 	getArray (_config >> "forcePos")];
 
-_heli setVariable ["vtx_uh60_sfmplus_maxTank1FuelMass", getNumber (_config >> "maxTank1FuelMass")];	//1206lbs in kg	
+_heli setVariable ["vtx_uh60_sfmplus_maxTank1FuelMass", getNumber (_config >> "maxTank1FuelMass")];	//1206lbs in kg
 _heli setVariable ["vtx_uh60_sfmplus_maxTank2FuelMass", getNumber (_config >> "maxTank2FuelMass")]; //1206bs in kg
 _heli setVariable ["vtx_uh60_sfmplus_maxTank3FuelMass", getNumber (_config >> "maxTank3FuelMass")];	//1094lbs in kg, center robbie
 //_heli setVariable ["vtx_uh60_sfmplus_maxExtFuelMass", getNumber (_config >> "maxExtFuelMass")];     //1541lbs in kg, not yet implemented, 230gal external tank
 
 [_heli] call vtx_uh60_sfmplus_fnc_fuelSet;
 [_heli] call vtx_uh60_sfmplus_fnc_massSet;
-if ((_heli animationPhase "ERFS_show") > 0) then {
-	[_heli, 50, 1] call vtx_uh60_mfd_fnc_setPylonValue;
-} else {
-	[_heli, 50, 0] call vtx_uh60_mfd_fnc_setPylonValue;
-};
+
+_heli setUserMFDValue [USERMFDV_FUELTANK, parseNumber ((_heli animationPhase "ERFS_show") > 0)];
 
 _heli setVariable ["vtx_uh60_sfmplus_totRtrDmg",     0];
 _heli setVariable ["vtx_uh60_sfmplus_dmgTimerCont",  0];

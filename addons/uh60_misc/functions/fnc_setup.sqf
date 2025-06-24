@@ -1,8 +1,9 @@
 params ["_vehicle"];
 vtx_uh60_misc_landingLightOn = false;
+vtx_uh60_misc_searchLightOn = false;
 vtx_uh60_misc_btn_hold = false;
 
- 
+
 _vehicle enableInfoPanelComponent ["left", "MinimapDisplayComponent", false];
 _vehicle enableInfoPanelComponent ["left", "SlingLoadDisplayComponent", false];
 _vehicle enableInfoPanelComponent ["left", "SensorsDisplayComponent", false];

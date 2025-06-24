@@ -5,7 +5,7 @@
  *
  * params (array)[(object) vehicle]
  */
-params ["_vehicle", "_frameTime"]; 
+params ["_vehicle", "_frameTime"];
 if (!isNil "test_fnc_slewTAC") exitWith {_this call test_fnc_slewTAC};
 
 

@@ -92,4 +92,14 @@ class Attributes: Attributes {
     tooltip = "Fold the rotor blades to reduce footprint.";
     typeName = "BOOL";
   };
+  class vtx_uh60_RemoveFuelProbe {
+    condition = "objectVehicle";
+    control = "Checkbox";
+    defaultValue = "(false)";
+    displayName = "Remove Fuel Probe";
+    expression = "_this animateSource ['FuelProbe_show', [getNumber (configOf _this >> 'AnimationSources' >> 'FuelProbe_show' >> 'initPhase'), 0] select _value, true];";
+    property = "vtx_uh60_RemoveFuelProbe";
+    tooltip = "Remove the fuel probe.";
+    typeName = "BOOL";
+  };
 }; // Attributes

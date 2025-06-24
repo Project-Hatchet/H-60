@@ -21,15 +21,15 @@ if (_propagate) then {
 } else {
     params ["_rot_dir", "_target", "_targetObject"];
   switch (count _rot_dir) do {
-    case 2: { vxf_vehicle setPilotCameraRotation _rot_dir; };
-    case 3: { vxf_vehicle setPilotCameraDirection _rot_dir; };
+    case 2: { hct_vehicle setPilotCameraRotation _rot_dir; };
+    case 3: { hct_vehicle setPilotCameraDirection _rot_dir; };
   };
   if (!isNull _targetObject) then {
-    vxf_vehicle setPilotCameraTarget _targetObject;
+    hct_vehicle setPilotCameraTarget _targetObject;
   } else {
-    vxf_vehicle setPilotCameraTarget _target;
+    hct_vehicle setPilotCameraTarget _target;
   };
-  vtx_uh60_flir_pilotCameraTarget = getPilotCameraTarget vxf_vehicle;
+  vtx_uh60_flir_pilotCameraTarget = getPilotCameraTarget hct_vehicle;
   if (vtx_uh60_flir_pilotCameraTarget # 0) then {
     vtx_uh60_flir_pilotCameraTarget set [2, _targetObject];
   };

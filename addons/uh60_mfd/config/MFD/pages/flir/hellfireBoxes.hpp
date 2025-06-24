@@ -1,7 +1,7 @@
 #define LOBL_BOX_SIZE 0.05
 
 class LOBL_Good {
-	condition = COND_ISNUMPYLON(40,0);
+	condition = COND_ISNUMBER(USERMFDV_TAC_MOVE,0);
 	class Box {
 		type="line";
 		width = 2;
@@ -16,7 +16,7 @@ class LOBL_Good {
 }; // LOAL
 
 class LOBL_Bad {
-	condition = COND_ISNUMPYLON(40,1);
+	condition = COND_ISNUMBER(USERMFDV_TAC_MOVE,1);
 	class Box {
 		type="line";
 		width = 2;
@@ -32,7 +32,7 @@ class LOBL_Bad {
 }; // LOAL
 
 class LOBL_Limits {
-	condition = COND_ISNUMPYLON(40,2);
+	condition = COND_ISNUMBER(USERMFDV_TAC_MOVE,2);
 	class Box {
 		type="line";
 		width = 2;
@@ -49,7 +49,7 @@ class LOBL_Limits {
 }; // LOAL
 
 class LOAL_Good {
-	condition = COND_ISNUMPYLON(40,3);
+	condition = COND_ISNUMBER(USERMFDV_TAC_MOVE,3);
 	class Box {
 		type="line";
 		width = 2;
@@ -65,7 +65,7 @@ class LOAL_Good {
 }; // LOAL
 
 class LOAL_Bad {
-	condition = COND_ISNUMPYLON(40,4);
+	condition = COND_ISNUMBER(USERMFDV_TAC_MOVE,4);
 	class Box {
 		type="line";
 		width = 2;
@@ -81,7 +81,7 @@ class LOAL_Bad {
 }; // LOAL
 
 class LOAL_Limits {
-	condition = COND_ISNUMPYLON(40,5);
+	condition = COND_ISNUMBER(USERMFDV_TAC_MOVE,5);
 	class Box {
 		type="line";
 		width = 2;
@@ -99,7 +99,7 @@ class LOAL_Limits {
 
 
 class NOT_RDY {
-	condition = COND_ISNUMPYLON(40,6);
+	condition = COND_ISNUMBER(USERMFDV_TAC_MOVE,6);
 	class Box {
 		type="line";
 		width = 2;

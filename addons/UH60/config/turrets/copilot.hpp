@@ -22,9 +22,6 @@ class CopilotTurret: CopilotTurret {
 	class ViewGunner: ViewPilot {
 		#include "ViewPilot.hpp"
 	};
-	class MFD {
-        class VTX_H60_HDTS_Copilot: VTX_H60_HDTS_Copilot {};
-	};
 	class Hitpoints {};
     class Components {
 		class SensorsManagerComponent {
@@ -42,6 +39,5 @@ class CopilotTurret: CopilotTurret {
 		};
 		class VehicleSystemsDisplayManagerComponentLeft {};
 		class VehicleSystemsDisplayManagerComponentRight {};
-
 	};
 };

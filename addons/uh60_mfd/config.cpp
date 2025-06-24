@@ -17,9 +17,6 @@ class CfgPatches
 
 #include "CfgEventHandlers.hpp"
 
-#include "config\cfgAmmo.hpp"
 #include "config\mfdDefines.hpp"
 #include "config\cfgVehicles.hpp"
-#include "config\cfgMagazines.hpp"
-#include "config\cfgWeapons.hpp"
 #include "Armakeybinds.hpp"

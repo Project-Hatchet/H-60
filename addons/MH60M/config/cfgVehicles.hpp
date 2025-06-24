@@ -106,7 +106,7 @@ class CfgVehicles {
             #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
             #include "\z\vtx\addons\MH60M\config\turrets\troopCommander.hpp"
         };
-        class vxf_turret_12 {
+        class hct_turret_12 {
             projectPrefix = "vtx_uh60";
             class modules {
                 class ui {
@@ -347,7 +347,7 @@ class CfgVehicles {
             class VTX_FMS_R: VTX_FMS_R {};
             class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
         };
-    };
+    }; // vtx_MH60M_DAP_MLASS
 }; // CfgVehicles
 
 class cfgNonAIVehicles{

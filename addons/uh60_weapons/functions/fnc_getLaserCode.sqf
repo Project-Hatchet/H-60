@@ -1,11 +1,13 @@
+#include "script_component.hpp"
+
 params ["_vehicle", "_type"];
 private _pylon = switch (_type) do {
-	case "PRI CHAN": {42};
-	case "ALT CHAN": {43};
-	case "LRFD": {45};
-	case "LST": {44};
+	case "PRI CHAN": {USERMFDV_PRI_CH};
+	case "ALT CHAN": {USERMFDV_ALT_CH};
+	case "LRFD": {USERMFDV_LRFD};
+	case "LST": {USERMFDV_LST};
 };
-private _index = _vehicle ammoOnPylon _pylon;
+private _index = getUserMFDValue _vehicle select _pylon;
 if (_index == -1) exitWith {1111};
 
 vtx_uh60_weapons_laserCodes # _index;

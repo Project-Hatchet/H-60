@@ -3,7 +3,7 @@ class CfgUserActions
 	class Vtx_Batt1_ON {
 		displayName = "#1 Battery On";
 		tooltip = "Flips the BATT 1 Switch On";
-		onActivate = "[vehicle player, ['startup', 'b_batt1'], 'ON'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_batt1'], 'ON'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -11,7 +11,7 @@ class CfgUserActions
   class Vtx_Batt1_OFF {
     displayName = "#1 Battery Off";
 		tooltip = "Flips the BATT 1 Switch Off";
-		onActivate = "[vehicle player, ['startup', 'b_batt1'], 'OFF'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_batt1'], 'OFF'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -19,7 +19,7 @@ class CfgUserActions
   class Vtx_Batt2_ON {
 		displayName = "#2 Battery On";
 		tooltip = "Flips the BATT 2 Switch On";
-		onActivate = "[vehicle player, ['startup', 'b_batt2'], 'ON'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_batt2'], 'ON'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -27,7 +27,7 @@ class CfgUserActions
   class Vtx_Batt2_OFF {
     displayName = "#2 Battery Off";
 		tooltip = "Flips the BATT 2 Switch Off";
-		onActivate = "[vehicle player, ['startup', 'b_batt2'], 'OFF'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_batt2'], 'OFF'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -35,31 +35,31 @@ class CfgUserActions
  class Vtx_Gen1_ON {
     displayName = "#1 Generator On";
 		tooltip = "Flips the #1 Generator Switch On";
-		onActivate = "[vehicle player, ['startup', 'b_gen1'], 'ON'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_gen1'], 'ON'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
-		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01). 
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
  };
  class Vtx_Gen1_OFF {
     displayName = "#1 Generator Off";
 		tooltip = "Flips the #1 Generator Switch Off";
-		onActivate = "[vehicle player, ['startup', 'b_gen1'], 'OFF'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_gen1'], 'OFF'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
-		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01). 
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
  };
  class Vtx_Gen2_ON {
     displayName = "#2 Generator On";
 		tooltip = "Flips the #2 Generator Switch On";
-		onActivate = "[vehicle player, ['startup', 'b_gen2'], 'ON'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_gen2'], 'ON'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
-		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01). 
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
  };
  class Vtx_Gen2_OFF {
     displayName = "#2 Generator Off";
 		tooltip = "Flips the #2 Generator Switch Off";
-		onActivate = "[vehicle player, ['startup', 'b_gen2'], 'OFF'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_gen2'], 'OFF'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -67,15 +67,15 @@ class CfgUserActions
 class Vtx_AirSource_OFF {
     displayName = "Air SCE Off";
 		tooltip = "Turns the Air Source Off";
-		onActivate = "[vehicle player, ['startup', 'b_airsce'], 'OFF'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_airsce'], 'OFF'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
-		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01). 
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
  };
  class Vtx_AirSource_APU {
     displayName = "Air SCE APU";
 		tooltip = "Sets the Air Source to APU";
-		onActivate = "[vehicle player, ['startup', 'b_airsce'], 'APU'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_airsce'], 'APU'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -83,23 +83,23 @@ class Vtx_AirSource_OFF {
  class Vtx_AirSource_ENG {
     displayName = "Air SCE ENG";
 		tooltip = "Sets the Air Source to Engine";
-		onActivate = "[vehicle player, ['startup', 'b_airsce'], 'ENG'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_airsce'], 'ENG'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
-		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01). 
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
  };
 class Vtx_FuelPump_OFF {
     displayName = "Fuel Pump Off";
 		tooltip = "Turns the Fuel Pump Switch Off";
-		onActivate = "[vehicle player, ['startup', 'fuelPump'], 'OFF'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'fuelPump'], 'OFF'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
-		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01). 
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
  };
  class Vtx_FuelPump_APU {
     displayName = "Fuel Pump APU";
 		tooltip = "Turns the Fuel Pump Switch to APU Boost";
-		onActivate = "[vehicle player, ['startup', 'fuelPump'], 'APU BOOST'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'fuelPump'], 'APU BOOST'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -107,15 +107,15 @@ class Vtx_FuelPump_OFF {
  class Vtx_APU_ON {
     displayName = "APU On";
 		tooltip = "Toggles the APU Control Switch On";
-		onActivate = "[vehicle player, ['startup', 'apucont'], 'ON'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'apucont'], 'ON'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
-		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01). 
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
  };
  class Vtx_APU_OFF {
     displayName = "APU Off";
 		tooltip = "Toggles the APU Control Switch Off";
-		onActivate = "[vehicle player, ['startup', 'apucont'], 'OFF'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'apucont'], 'OFF'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -123,15 +123,15 @@ class Vtx_FuelPump_OFF {
  class Vtx_GenAPU_ON {
     displayName = "APU Generator On";
 		tooltip = "Toggles the APU GEN Switch On";
-		onActivate = "[vehicle player, ['startup', 'b_apugen'], 'ON'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_apugen'], 'ON'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
-		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01). 
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
  };
  class Vtx_GenAPU_OFF {
     displayName = "APU Generator Off";
 		tooltip = "Toggles the APU GEN Switch OFF";
-		onActivate = "[vehicle player, ['startup', 'b_apugen'], 'OFF'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_apugen'], 'OFF'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -139,7 +139,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_ESIS_OFF {
     displayName = "STBY INST Off";
 		tooltip = "Toggles the Standby Instrument Switch OFF";
-		onActivate = "[vehicle player, ['startup', 'b_stbyinst'], 'OFF'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_stbyinst'], 'OFF'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -147,7 +147,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_ESIS_ON {
     displayName = "STBY INST Arm";
 		tooltip = "Toggles the Standby Instrument Switch ON";
-		onActivate = "[vehicle player, ['startup', 'b_stbyinst'], 'ARM'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_stbyinst'], 'ARM'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -155,7 +155,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_FUEL1_SYS_OFF {
     displayName = "#1 FUEL SYS Off";
 		tooltip = "Moves the #1 Fuel Selector Lever to the OFF Position";
-		onActivate = "[vehicle player, ['startup', 'b_fuelsys1'], 'OFF'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_fuelsys1'], 'OFF'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -163,7 +163,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_FUEL1_SYS_DIR {
     displayName = "#1 FUEL SYS Direct";
 		tooltip = "Moves the #1 Fuel Selector Lever to the Direct Position";
-		onActivate = "[vehicle player, ['startup', 'b_fuelsys1'], 'DIR'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_fuelsys1'], 'DIR'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -171,7 +171,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_FUEL1_SYS_XFD {
     displayName = "#1 FUEL SYS XFD";
 		tooltip = "Moves the #1 Fuel Selector Lever to the Crossfeed Position";
-		onActivate = "[vehicle player, ['startup', 'b_fuelsys1'], 'XFD'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_fuelsys1'], 'XFD'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -179,7 +179,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_FUEL2_SYS_OFF {
     displayName = "#2 FUEL SYS Off";
 		tooltip = "Moves the #2 Fuel Selector Lever to the OFF Position";
-		onActivate = "[vehicle player, ['startup', 'b_fuelsys2'], 'OFF'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_fuelsys2'], 'OFF'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -187,7 +187,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_FUEL2_SYS_DIR {
     displayName = "#2 FUEL SYS Direct";
 		tooltip = "Moves the #2 Fuel Selector Lever to the Direct Position";
-		onActivate = "[vehicle player, ['startup', 'b_fuelsys2'], 'DIR'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_fuelsys2'], 'DIR'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -195,7 +195,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_FUEL2_SYS_XFD {
     displayName = "#2 FUEL SYS XFD";
 		tooltip = "Moves the #2 Fuel Selector Lever to the Crossfeed Position";
-		onActivate = "[vehicle player, ['startup', 'b_fuelsys2'], 'XFD'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_fuelsys2'], 'XFD'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -203,7 +203,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_ENG_IGN_OFF {
     displayName = "ENG Ignition Off";
 		tooltip = "Toggles the Engine Ignition Switch OFF";
-		onActivate = "[vehicle player, ['startup', 'b_ignition'], 'OFF'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_ignition'], 'OFF'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -211,7 +211,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_ENG_IGN_ON {
     displayName = "ENG Ignition On";
 		tooltip = "Toggles the Engine Ignition Switch ON";
-		onActivate = "[vehicle player, ['startup', 'b_ignition'], 'ON'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_ignition'], 'ON'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -219,7 +219,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_ENG1_Starter {
     displayName = "Toggle #1 Starter";
 		tooltip = "Engages/Disengages the #1 Engine Starter";
-		onActivate = "[vehicle player, ['startup', 'b_starter1']] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_starter1']] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -227,7 +227,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_ENG2_Starter {
     displayName = "Toggle #2 Starter";
 		tooltip = "Engages/Disengages the #2 Engine Starter";
-		onActivate = "[vehicle player, ['startup', 'b_starter2']] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'b_starter2']] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -235,7 +235,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_PCL1_OFF {
     displayName = "#1 PCL Off";
 		tooltip = "Moves the #1 PCL to the OFF Position";
-		onActivate = "[vehicle player, ['startup', 'powerContRTD', 'b_engpowercont1'], 'OFF'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'powerContRTD', 'b_engpowercont1'], 'OFF'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -243,7 +243,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_PCL1_IDLE {
     displayName = "#1 PCL Idle";
 		tooltip = "Moves the #1 PCL to the Idle Position";
-		onActivate = "[vehicle player, ['startup', 'powerContRTD', 'b_engpowercont1'], 'IDLE'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'powerContRTD', 'b_engpowercont1'], 'IDLE'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -251,7 +251,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_PCL1_FLY {
     displayName = "#1 PCL Fly";
 		tooltip = "Moves the #1 PCL to the Fly Position";
-		onActivate = "[vehicle player, ['startup', 'powerContRTD', 'b_engpowercont1'], 'FLY'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'powerContRTD', 'b_engpowercont1'], 'FLY'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -259,7 +259,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_PCL2_OFF {
     displayName = "#2 PCL Off";
 		tooltip = "Moves the #2 PCL to the OFF Position";
-		onActivate = "[vehicle player, ['startup', 'powerContRTD', 'b_engpowercont2'], 'OFF'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'powerContRTD', 'b_engpowercont2'], 'OFF'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -267,7 +267,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_PCL2_IDLE {
     displayName = "#2 PCL Idle";
 		tooltip = "Moves the #2 PCL to the Idle Position";
-		onActivate = "[vehicle player, ['startup', 'powerContRTD', 'b_engpowercont2'], 'IDLE'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'powerContRTD', 'b_engpowercont2'], 'IDLE'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -275,7 +275,55 @@ class Vtx_FuelPump_OFF {
  class Vtx_PCL2_FLY {
     displayName = "#2 PCL Fly";
 		tooltip = "Moves the #2 PCL to the Fly Position";
-		onActivate = "[vehicle player, ['startup', 'powerContRTD', 'b_engpowercont2'], 'FLY'] call vxf_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'powerContRTD', 'b_engpowercont2'], 'FLY'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onDeactivate = "";		// _this is always false.
+		onAnalog = "";	// _this is the scalar analog value.
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
+ };
+ class Vtx_LandingLight_Up {
+    displayName = "Landing Light Up";
+		tooltip = "Rotate the landing light forward.";
+		onActivate = "[hct_vehicle, 'landinglight_elev', rad 5] call vtx_uh60_misc_fnc_animateIncrement";		// _this is always true.
+		onDeactivate = "";		// _this is always false.
+		onAnalog = "";	// _this is the scalar analog value.
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
+ };
+ class Vtx_LandingLight_Down {
+    displayName = "Landing Light Down";
+		tooltip = "Rotate the landing light rearward.";
+		onActivate = "[hct_vehicle, 'landinglight_elev', rad -5] call vtx_uh60_misc_fnc_animateIncrement";		// _this is always true.
+		onDeactivate = "";		// _this is always false.
+		onAnalog = "";	// _this is the scalar analog value.
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
+ };
+ class Vtx_SearchLight_Up {
+    displayName = "Search Light Up";
+		tooltip = "Rotate the Search light forward.";
+		onActivate = "[hct_vehicle, 'Searchlight_elev', rad 5] call vtx_uh60_misc_fnc_animateIncrement";		// _this is always true.
+		onDeactivate = "";		// _this is always false.
+		onAnalog = "";	// _this is the scalar analog value.
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
+ };
+ class Vtx_SearchLight_Down {
+    displayName = "Search Light Down";
+		tooltip = "Rotate the Search light rearward.";
+		onActivate = "[hct_vehicle, 'Searchlight_elev', rad -5] call vtx_uh60_misc_fnc_animateIncrement";		// _this is always true.
+		onDeactivate = "";		// _this is always false.
+		onAnalog = "";	// _this is the scalar analog value.
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
+ };
+ class Vtx_SearchLight_Right {
+    displayName = "Search Light Right";
+		tooltip = "Rotate the Search light light.";
+		onActivate = "[hct_vehicle, 'Searchlight_turn', rad -5] call vtx_uh60_misc_fnc_animateIncrement";		// _this is always true.
+		onDeactivate = "";		// _this is always false.
+		onAnalog = "";	// _this is the scalar analog value.
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
+ };
+ class Vtx_SearchLight_Left {
+    displayName = "Search Light Left";
+		tooltip = "Rotate the Search light left.";
+		onActivate = "[hct_vehicle, 'Searchlight_turn', rad 5] call vtx_uh60_misc_fnc_animateIncrement";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -323,6 +371,12 @@ class UserActionGroups
     "Vtx_PCL2_OFF",
     "Vtx_PCL2_IDLE",
     "Vtx_PCL2_FLY",
+    "Vtx_LandingLight_Up",
+    "Vtx_LandingLight_Down",
+    "Vtx_SearchLight_Up",
+    "Vtx_SearchLight_Down",
+    "Vtx_SearchLight_Right",
+    "Vtx_SearchLight_Left"
 		}; // List of all actions inside this category.
 	};
 };
