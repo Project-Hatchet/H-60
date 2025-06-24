@@ -14,7 +14,7 @@ categories:
       - 'Release notes: Feature'
   - title: '**FIXED:**'
     labels:
-      - 'Release notes: bug fix'
+      - 'Release notes: Bug fix'
   - title: '**IMPROVED:**'
     labels:
       - 'Release notes: Enhancement'
