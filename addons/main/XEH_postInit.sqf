@@ -6,3 +6,8 @@
 	[vehicle ACE_player] call vtx_uh60_ui_fnc_setKeybindText;
 	[vehicle ACE_player, vtx_uh60_ui_helpEnabled] call vtx_uh60_ui_fnc_showHelp;
 }, true] call CBA_fnc_addPlayerEventHandler;
+
+// Framework vxf to hct check
+if (isClass (configFile >> "CfgPatches" >> "vxf_core")) then {
+  diag_log "vxf_core should not be loaded. Please remove old Hatchet Interaction Framework (vxf) and update to new version (hct)";
+};
