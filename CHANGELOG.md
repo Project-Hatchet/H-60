@@ -1,3 +1,7 @@
+**0.7.5.1**
+
+ - Fixed: MFD interactions using old framework variable
+
 **0.7.5**
 
  - Added: Slewable Landing light and Search light, controls via keybind and interaction on collective
