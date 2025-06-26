@@ -49,6 +49,9 @@ def getPboInfo(settings):
         pboInfo.name = name
         pboInfo.folder = os.path.join(settings["addonsFolder"], name)
         pboInfo.outputPath = pboInfo.folder + ".pbo"
+        pboInfo.builtpath = os.path.join(settings["outputFolder"], name + ".pbo")
+        pboInfo.filename = "hct_h60_" + name + ".pbo"
+        pboInfo.filepath = os.path.join(settings["outputFolder"], pboInfo.filename)
         with open(os.path.join(pboInfo.folder,"$PBOPREFIX$"), "r") as file:
             pboInfo.pboPrefix = file.readline().strip()
         try:
@@ -85,8 +88,10 @@ def buildSymlink(pathFrom, pathTo):
 def buildPbo(settings,env, pbo):
     optBinarize = "-binarize=C:\\Windows\\System32\\print.exe" if pbo.name in settings["noBinarize"] else ""
     cfgConvertArg = "-cfgconvert=asdfafds" # + a3toolsPath() + "\\CfgConvert\\CfgConvert.exe"
-    env.Command(pbo.outputPath, allFilesIn(pbo.folder)+["build"], 
-        f'"{addonBuilderPath()}" "{os.path.abspath(pbo.buildSymlink)}" "{os.path.abspath(settings["outputFolder"])}" "-project=build" "-prefix={pbo.pboPrefix}" -include=tools\\buildExtIncludes.txt {optBinarize}')
+    env.Command(pbo.outputPath, allFilesIn(pbo.folder)+["build"],[
+        f'"{addonBuilderPath()}" "{os.path.abspath(pbo.buildSymlink)}" "{os.path.abspath(settings["outputFolder"])}" "-project=build" "-prefix={pbo.pboPrefix}" -include=tools\\buildExtIncludes.txt {optBinarize}',
+        Move(os.path.abspath(settings["outputFolder"]) + "/" + pbo.filename, os.path.abspath(pbo.builtpath))
+        ])
     targetDefinition(pbo.name, f"Build the {pbo.name} pbo.")
     return env.Alias(pbo.name, pbo.outputPath)
 
@@ -113,7 +118,7 @@ allPbos = env.Alias("all", pboAliases)
 targetDefinition("all", "Build all pbos.")
 
 buildDocs = env.Command(r"docs\index.html",
-    [s for s in allFilesIn(settings["addonsFolder"]) if s.endswith(".sqf")] + [r"buildTools\Natural Docs"], 
+    [s for s in allFilesIn(settings["addonsFolder"]) if s.endswith(".sqf")] + [r"buildTools\Natural Docs"],
     [Mkdir("docs"), r'"buildTools\Natural Docs\NaturalDocs.exe" naturaldocs'])
 env.AlwaysBuild(buildDocs)
 
