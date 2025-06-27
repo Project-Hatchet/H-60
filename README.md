@@ -22,7 +22,7 @@ The **Hatchet H-60 Pack** is a helicopter pack that brings realistic H-60 series
 ## Development Guide
 
 ### SConstruct(SCONS) Build environment
-The H-60 is built with SConstcut, or for short, SCONS.
+The H-60 is built with SConstruct, or for short, SCONS.
 
 #### Prerequisite: python > 3
 To install scons, you require python 3.
