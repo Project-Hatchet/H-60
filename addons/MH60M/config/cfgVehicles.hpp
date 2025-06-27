@@ -38,6 +38,10 @@ class VTX_FDRight;
 class VTX_FDLeft;
 class VTX_FMS_L;
 class VTX_FMS_R;
+class VTX_FMS_L2;
+class VTX_FMS_R2;
+class VTX_FMS_L4;
+class VTX_FMS_R4;
 class VTX_ESIS_BOOT;
 
 class CfgVehicles {
@@ -241,8 +245,8 @@ class CfgVehicles {
             class VTX_ESIS_Misc: VTX_ESIS_Misc {};
             class VTX_FDRight: VTX_FDRight {};
             class VTX_FDLeft: VTX_FDLeft {};
-            class VTX_FMS_L: VTX_FMS_L {};
-            class VTX_FMS_R: VTX_FMS_R {};
+            class VTX_FMS_L2: VTX_FMS_L2 {};
+            class VTX_FMS_R2: VTX_FMS_R2 {};
             class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
         };
     }; // vtx_H60_base
@@ -343,8 +347,8 @@ class CfgVehicles {
             class VTX_ESIS_Misc: VTX_ESIS_Misc {};
             class VTX_FDRight: VTX_FDRight {};
             class VTX_FDLeft: VTX_FDLeft {};
-            class VTX_FMS_L: VTX_FMS_L {};
-            class VTX_FMS_R: VTX_FMS_R {};
+            class VTX_FMS_L4: VTX_FMS_L4 {};
+            class VTX_FMS_R4: VTX_FMS_R4 {};
             class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
         };
     }; // vtx_MH60M_DAP_MLASS
