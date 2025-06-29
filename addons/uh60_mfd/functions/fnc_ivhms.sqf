@@ -40,33 +40,33 @@ _vehicle setUserMFDText [7,_modulesText select [124,62]];
 // 8 ADVANCED FLIGHT MODEL
 _vehicle setUserMFDText [8, if (difficultyEnabledRTD) then [{"FM ADVANCED"}, {"FM STANDARD"}]];
 
-// 9 HCT_DRIVER
+// 9 hct_DRIVER
 _vehicle setUserMFDText [9, configName _config];
 
 // Product info
 productVersion params ["_name", "_nameShort", "_version", "_build", "_branch", "", "_os", "_architecture"];
 // 10 Arma3 207
-_vehicle setUserMFDText [10, format["%1 %2", _nameShort, _version]];
+_vehicle setUserMFDText [45, format["%1 %2", _nameShort, _version]];
 // 11 148579 Diag
-_vehicle setUserMFDText [11, format["%1 %2", _build, _branch]];
+_vehicle setUserMFDText [46, format["%1 %2", _build, _branch]];
 // 12 Windows x64
-_vehicle setUserMFDText [12, format["%1 %2", _os, _architecture]];
+_vehicle setUserMFDText [47, format["%1 %2", _os, _architecture]];
 
 
-// 13 tempMissionSP
-_vehicle setUserMFDText [13, missionName];
-// 14 1 players
-_vehicle setUserMFDText [14, format["%1 PLAYERS", count allPlayers]];
-// 15 VR SP
-_vehicle setUserMFDText [15, format["%1 %2", worldName, serverName]];
-// 16 58.19
-_vehicle setUserMFDText [16, str time];
+// 13 ACE
+_vehicle setUserMFDText [13, "ACE"];
+// 14 ACE Vers
+_vehicle setUserMFDText [48, getText (configFile >> "CfgPatches" >> "ACE_main" >> "versionStr")];
+// 15 CBA
+_vehicle setUserMFDText [15, "CBA"];
+// 16 CBA Vers
+_vehicle setUserMFDText [49, getText (configFile >> "CfgPatches" >> "CBA_main" >> "versionStr")];
 
 // MODS
 private _mods = getLoadedModsInfo apply {((_x # 1) regexReplace ["\W",""]) select [0,15]} joinString "|";
 // 17 MODS1
-_vehicle setUserMFDText [17, _mods select [0,62]];
+_vehicle setUserMFDText [38, _mods select [0,62]];
 // 18 MODS2
-_vehicle setUserMFDText [18, _mods select [62,62]];
+_vehicle setUserMFDText [39, _mods select [62,62]];
 // 19 MODS3
-_vehicle setUserMFDText [19, _mods select [124,62]];
+_vehicle setUserMFDText [40, _mods select [124,62]];

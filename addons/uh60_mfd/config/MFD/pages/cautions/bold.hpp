@@ -1,7 +1,7 @@
 #define EICAS_LINE_USERTEXT(CNAME,X,Y,INDEX,SHOWNUM) \
 	class CNAME { \
 		class inverted { \
-			condition = QUOTE(pylonAmmo3 > SHOWNUM); \
+			condition = USER_GT(USERMFDV_CAS,SHOWNUM); \
 			class yellow { \
 				color[] = common_yellow; \
 				EICAS_LINE_TAPE(TAPE,X,Y) \
@@ -15,14 +15,14 @@
 
 class cautions_overlay {
 	color[] = common_yellow;
-	condition = "pylonAmmo3 > 0";
+  condition = USER_GT(USERMFDV_CAS,0);
 	EICAS_LINE_USERTEXT(Right_2_0,0.69,0.70+(EICAS_LINE_SPACING*0),14,1)
 	EICAS_LINE_USERTEXT(Right_2_1,0.69,0.70+(EICAS_LINE_SPACING*1),15,2)
 	EICAS_LINE_USERTEXT(Right_2_2,0.69,0.70+(EICAS_LINE_SPACING*2),16,3)
 	EICAS_LINE_USERTEXT(Right_2_3,0.69,0.70+(EICAS_LINE_SPACING*3),17,4)
 	EICAS_LINE_USERTEXT(Right_2_4,0.69,0.70+(EICAS_LINE_SPACING*4),18,5)
 	EICAS_LINE_USERTEXT(Right_2_5,0.69,0.70+(EICAS_LINE_SPACING*5),19,6)
-	
+
 	class upArrow {
 		type        = "polygon";
 		points[] ={

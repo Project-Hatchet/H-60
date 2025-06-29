@@ -11,7 +11,6 @@ class RscInGameUI
             //"CA_Vehicle",
             "CA_VehicleRole",
             "HelpText",
-            "Interaction",
             "HelpOverlay",
             "HelpOverlayGunner",
             "HMDOverlay"
@@ -25,15 +24,6 @@ class RscInGameUI
             h = 0.15;
 			text = "Press H For Help";
 		};
-        class Interaction: RscPicture
-        {
-			idc = 4001120;
-			x = safezoneX + safezoneW / 2 - 0.02;
-			y = safezoneY + safezoneH / 2 - 0.02;
-			w = 0.04;
-            h = 0.04;
-			text = "\A3\ui_f\data\igui\cfg\cursors\iconComplex_ca.paa";
-        };
         class HMDOverlay: RscPicture
         {
 			idc = 4001123;

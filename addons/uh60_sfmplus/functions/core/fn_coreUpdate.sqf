@@ -3,7 +3,7 @@ Function: vtx_uh60_sfmplus_fnc_coreUpdate
 
 Description:
 	Updates all of the modules core functions.
-	
+
 Parameters:
 	_heli - The helicopter to get information from [Unit].
 
@@ -123,7 +123,7 @@ if (local _heli) then {
 [_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_damageApply;
 
 //Stabilator
-if(vtx_uh60_sfmPlusStabilatorEnabled == STABILTOR_MODE_ALWAYSENABLED 
+if(vtx_uh60_sfmPlusStabilatorEnabled == STABILTOR_MODE_ALWAYSENABLED
 	|| vtx_uh60_sfmPlusStabilatorEnabled == STABILTOR_MODE_JOYSTICKONLY && !vtx_uh60_sfmPlusKeyboardOnly) then {
 	if (!difficultyEnabledRTD) then {
 		[_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_aeroStabilator;
@@ -151,8 +151,8 @@ hintsilent format ["v0.11
 					\n-------------------
 					\nColl Pos = %11
 					\nEng FF = %12
-					\nEngine Base NG = %13", 		
-					_heli getVariable "vtx_uh60_sfmplus_engPctNG" select 0,	 //1 
+					\nEngine Base NG = %13",
+					_heli getVariable "vtx_uh60_sfmplus_engPctNG" select 0,	 //1
 					_heli getVariable "vtx_uh60_sfmplus_engPctTQ" select 0,  //2
 					_heli getVariable "vtx_uh60_sfmplus_engTGT" select 0,	 //3
 					_heli getVariable "vtx_uh60_sfmplus_engPctNG" select 1,  //4
@@ -168,5 +168,5 @@ hintsilent format ["v0.11
 */
 #endif
 
-//Standby Inst 
+//Standby Inst
 [_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_standbyInst;

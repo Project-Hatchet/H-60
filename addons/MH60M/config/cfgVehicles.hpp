@@ -70,6 +70,7 @@ class CfgVehicles {
 
         transportSoldier=0;
         cargoProxyIndexes[] = {12, 13, 14, 15, 16, 17, 20, 21, 22, 23};
+        ace_medical_treatment_patientSeats[] = {4, 5, 7, 8};
         cargoAction[] = {};
 
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
@@ -87,6 +88,7 @@ class CfgVehicles {
             ANIM_INIT(RADAR_HIDE,0);
             ANIM_INIT(FLIR_HIDE,0);
             ANIM_INIT(FuelProbe_show,1);
+            ANIM_INIT(MITAS_show,1);
             ANIM_INIT(MAWS_Tubes_Show,1);
             ANIM_INIT(ERFS_show,1);
             ANIM_INIT(MH60MMisc_show,1);
@@ -193,6 +195,7 @@ class CfgVehicles {
             ANIM_INIT(CabinSeats_3_Hide,1);
             ANIM_INIT(Cockpitdoors_Hide,1);
             ANIM_INIT(FuelProbe_show,1);
+            ANIM_INIT(MITAS_show,1);
             ANIM_INIT(RADAR_HIDE,0);
             ANIM_INIT(FLIR_HIDE,0);
             ANIM_INIT(MAWS_Tubes_Show,1);
@@ -294,6 +297,7 @@ class CfgVehicles {
             ANIM_INIT(CabinSeats_3_Hide,1);
             ANIM_INIT(Cockpitdoors_Hide,1);
             ANIM_INIT(FuelProbe_show,1);
+            ANIM_INIT(MITAS_show,1);
             ANIM_INIT(RADAR_HIDE,0);
             ANIM_INIT(FLIR_HIDE,0);
             ANIM_INIT(MAWS_Tubes_Show,1);
@@ -343,7 +347,7 @@ class CfgVehicles {
             class VTX_FMS_R: VTX_FMS_R {};
             class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
         };
-    };
+    }; // vtx_MH60M_DAP_MLASS
 }; // CfgVehicles
 
 class cfgNonAIVehicles{

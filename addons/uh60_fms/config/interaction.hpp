@@ -6,10 +6,8 @@
     radius=0.025; \
     clickSound="hct_Switch_Sound_2";
 
-#define USERVAL(INDEX,VAL) QUOTE(((getUserMFDValue _this) select INDEX) == VAL)
-
 class menu {
-  condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_MENU);
+  condition= USERVAL_EQ(FMS_PAGE_INDEX,FMS_PAGE_MENU);
   // THE BUTTON UP CODE CAUSES LIVELOADING THIS CONFIG TO CRASH ARMA
   FMS_BTN(FMS_1,"Checklists")
     buttonUp= QUOTE([ARR_3((_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_LISTS_MENU)], true)] call vtx_uh60_fms_fnc_interaction_pageChange);
@@ -27,7 +25,7 @@ class menu {
 };
 
 class checklists {
-  condition= USERVAL(FMS_PAGE_INDEX,FMS_LISTS_MENU);
+  condition= USERVAL_EQ(FMS_PAGE_INDEX,FMS_LISTS_MENU);
   FMS_BTN(FMS_6,"Startup Checklist")
     buttonUp= [(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_LISTS_STARTUP_1)], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
@@ -40,7 +38,7 @@ class checklists {
 };
 
 class startup_1 {
-  condition= USERVAL(FMS_PAGE_INDEX,FMS_LISTS_STARTUP_1);
+  condition= USERVAL_EQ(FMS_PAGE_INDEX,FMS_LISTS_STARTUP_1);
   FMS_BTN(FMS_5,"Engine startup")
     buttonUp= [(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_LISTS_STARTUP_2)], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
@@ -50,14 +48,14 @@ class startup_1 {
 };
 
 class startup_2 {
-  condition= USERVAL(FMS_PAGE_INDEX,FMS_LISTS_STARTUP_2);
+  condition= USERVAL_EQ(FMS_PAGE_INDEX,FMS_LISTS_STARTUP_2);
   FMS_BTN(FMS_10,"Checklists")
     buttonUp= [(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_LISTS_STARTUP_1)], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
 };
 
 class shutdown_1 {
-  condition= USERVAL(FMS_PAGE_INDEX,FMS_LISTS_SHUTDOWN_1);
+  condition= USERVAL_EQ(FMS_PAGE_INDEX,FMS_LISTS_SHUTDOWN_1);
   FMS_BTN(FMS_5,"Power down")
     buttonUp= [(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_LISTS_SHUTDOWN_2)], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
@@ -67,14 +65,14 @@ class shutdown_1 {
 };
 
 class shutdown_2 {
-  condition= USERVAL(FMS_PAGE_INDEX,FMS_LISTS_SHUTDOWN_2);
+  condition= USERVAL_EQ(FMS_PAGE_INDEX,FMS_LISTS_SHUTDOWN_2);
   FMS_BTN(FMS_10,"Checklists")
     buttonUp= [(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_LISTS_SHUTDOWN_1)], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
 };
 
 class nav {
-  condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT);
+  condition= USERVAL_EQ(FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT);
   FMS_BTN(FMS_1,"Next Waypoint") buttonUp="[vehicle player,""cycle"", 1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
   FMS_BTN(FMS_2,"Previous waypoint") buttonUp="[vehicle player,""cycle"", -1] call vtx_uh60_fms_fnc_interaction_waypoint;"; };
   FMS_BTN(FMS_3,"Delete Waypoint") buttonUp="[player] call vtx_uh60_fms_fnc_deleteWaypoint;"; };
@@ -92,7 +90,7 @@ class nav {
 };
 
 class nav_import {
-  condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_NAV_IMPORT);
+  condition= USERVAL_EQ(FMS_PAGE_INDEX,FMS_PAGE_NAV_IMPORT);
   FMS_BTN(FMS_5,"Microdagr Import")
     buttonUp= [vehicle player,"import", [ARR_2(FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT)]] call vtx_uh60_fms_fnc_interaction_waypoint;
   };
@@ -105,7 +103,7 @@ class nav_import {
 };
 
 class nav_location_stores {
-  condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_NAV_LOCATIONS_LIST);
+  condition= USERVAL_EQ(FMS_PAGE_INDEX,FMS_PAGE_NAV_LOCATIONS_LIST);
   FMS_BTN(FMS_1,"Prev Page") buttonUp="fms_locations_page_index = fms_locations_page_index - 1;[vehicle player] call vtx_uh60_fms_fnc_perSecond;"; };
   FMS_BTN(FMS_2,"Next Page") buttonUp="fms_locations_page_index = fms_locations_page_index + 1;[vehicle player] call vtx_uh60_fms_fnc_perSecond;"; };
   FMS_BTN(FMS_6,"View") buttonUp=[vehicle player,"location", 0, [ARR_2(FMS_PAGE_INDEX,FMS_PAGE_NAV_LOCATIONS_SEL)]] call vtx_uh60_fms_fnc_interaction_waypoint; };
@@ -117,7 +115,7 @@ class nav_location_stores {
   };
 };
 class nav_location_sel {
-  condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_NAV_LOCATIONS_SEL);
+  condition= USERVAL_EQ(FMS_PAGE_INDEX,FMS_PAGE_NAV_LOCATIONS_SEL);
   FMS_BTN(FMS_3,"Slew FLIR") buttonUp=[vehicle player,"slew_flir", nil, [ARR_2(FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT)]] call vtx_uh60_fms_fnc_interaction_waypoint; };
   FMS_BTN(FMS_4,"Add to waypoints") buttonUp=[vehicle player,"store_save_waypoint", nil, [ARR_2(FMS_PAGE_INDEX,FMS_PAGE_NAV_WAYPOINT)]] call vtx_uh60_fms_fnc_interaction_waypoint; };
   FMS_BTN(FMS_10,"Location Stores")
@@ -126,7 +124,7 @@ class nav_location_sel {
 };
 
 class performance {
-  condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_PERFORMANCE);
+  condition= USERVAL_EQ(FMS_PAGE_INDEX,FMS_PAGE_PERFORMANCE);
   FMS_BTN(FMS_10,"Main Menu")
     buttonUp= [(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_MENU)], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
@@ -134,7 +132,7 @@ class performance {
 };
 
 class MSN {
-  condition= USERVAL(FMS_PAGE_INDEX,FMS_PAGE_MSN);
+  condition= USERVAL_EQ(FMS_PAGE_INDEX,FMS_PAGE_MSN);
   FMS_BTN(FMS_6,"Weapons Systems")
     buttonUp= [(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_WPN)], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
@@ -150,28 +148,31 @@ class MSN {
 };
 
 class wpn {
-  condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_WPN);
+  condition=USERVAL_EQ(FMS_PAGE_INDEX,FMS_PAGE_WPN);
+  FMS_BTN(FMS_5,"Master Arm")
+    buttonUp= "call vtx_uh60_weapons_fnc_keyMasterArm;";
+  };
   FMS_BTN(FMS_10,"Mission Systems")
     buttonUp= [(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_MSN)], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
 };
 
 class radar {
-  condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_RDR);
+  condition=USERVAL_EQ(FMS_PAGE_INDEX,FMS_PAGE_RDR);
   FMS_BTN(FMS_10,"Mission Systems")
     buttonUp= [(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_MSN)], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
 };
 
 class FLIR {
-  condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_FLIR);
+  condition=USERVAL_EQ(FMS_PAGE_INDEX,FMS_PAGE_FLIR);
   FMS_BTN(FMS_10,"Mission Systems")
     buttonUp= [(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_MSN)], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
 };
 
 class hmd {
-  condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_HMD);
+  condition=USERVAL_EQ(FMS_PAGE_INDEX,FMS_PAGE_HMD);
   FMS_BTN(FMS_6,"OFF")
     buttonUp = "[-1] call vtx_uh60_anvishud_fnc_toggleHud;";
   };
@@ -199,7 +200,7 @@ class hmd {
 };
 
 class hud {
-  condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_HUD);
+  condition=USERVAL_EQ(FMS_PAGE_INDEX,FMS_PAGE_HUD);
   FMS_BTN(FMS_6,"OFF")
     buttonUp = "[-1] call vtx_uh60_anvishud_fnc_toggleHud;";
   };
@@ -228,7 +229,7 @@ class menu_comm_acre {
 };
 
 class COMM_ACRE {
-  condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_COMM_ACRE);
+  condition=USERVAL_EQ(FMS_PAGE_INDEX,FMS_PAGE_COMM_ACRE);
   FMS_BTN(FMS_10, "Main Menu")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_MENU], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
@@ -250,7 +251,7 @@ class COMM_ACRE {
 };
 
 class COMM_INFO_ACRE {
-  condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_COMM_INFO_ACRE);
+  condition=USERVAL_EQ(FMS_PAGE_INDEX,FMS_PAGE_COMM_INFO_ACRE);
   FMS_BTN(FMS_10, "Return")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_COMM_ACRE], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
@@ -275,7 +276,7 @@ class COMM_INFO_ACRE {
 };
 
 class COMM_PRESETS_ACRE {
-  condition=USERVAL(FMS_PAGE_INDEX,FMS_PAGE_COMM_PRESETS_ACRE);
+  condition=USERVAL_EQ(FMS_PAGE_INDEX,FMS_PAGE_COMM_PRESETS_ACRE);
   FMS_BTN(FMS_10, "Return")
     buttonUp= [(_this select 0),[FMS_PAGE_INDEX,FMS_PAGE_COMM_INFO_ACRE], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };

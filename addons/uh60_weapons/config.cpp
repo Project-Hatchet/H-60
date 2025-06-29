@@ -29,3 +29,4 @@ class CfgPatches {
 #include "config\cfgVehicles.hpp"
 #include "config\cfgSoundSets.hpp"
 #include "config\cfgSoundShaders.hpp"
+#include "config\armaKeybinds.hpp"

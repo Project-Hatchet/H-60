@@ -11,6 +11,23 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0;
   };
+  ANIMSRC(rotorHide_User,user,1,0);
+  ANIMSRC(tailRotorHide_User,user,1,0);
+  // Fold rotor blades
+  class Fold_source {
+      animPeriod = 10;
+      initPhase = 0;
+      source = "user";
+  };
+  // Rotate rotor hub to folding alignment
+  class RotorHFold {
+      animPeriod = 1;
+      initPhase = -0.125;
+      source = "user";
+  };
+  class RotorVFold: RotorHFold {
+      initPhase = 0;
+  };
   class gunner_ffv_l {
     source="user";
     animPeriod=0.1;
@@ -69,7 +86,8 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0;
   };
-    class Door_LF_Hide {
+  class MITAS_show: Fuelprobe_show {};
+  class Door_LF_Hide {
     displayName = "Hide Left Cockpit Door";
     source = "user";
     animPeriod=1;
@@ -204,13 +222,13 @@ class AnimationSources {
     initPhase=0;
   };
   class cabindoor_L {
-    displayName = "Close L Cabin Door"
+    displayName = "Close L Cabin Door";
     source="user";
     animPeriod=1;
     initPhase=0;
   };
   class cabindoor_R {
-    displayName = "Close R Cabin Door"
+    displayName = "Close R Cabin Door";
     source="user";
     animPeriod=1;
     initPhase=0;
@@ -384,7 +402,7 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0.5;
   };
-  
+
   class Switch_Egi1: Switch_batt1 {initPhase=1;};
   class Switch_Egi2: Switch_batt1 {initPhase=1;};
   class Switch_Ralt_Enable: Switch_batt1 {initPhase=1;};
@@ -497,5 +515,21 @@ class AnimationSources {
   class Muzzle_Flash_M134_R {
     source="ammoRandom";
     weapon="vtx_wpn_m134_2nd";
+  };
+
+  class searchlight_turn {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class searchlight_elev {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class landinglight_elev {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
   };
 };

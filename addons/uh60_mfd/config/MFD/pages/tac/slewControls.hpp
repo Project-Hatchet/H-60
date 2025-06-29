@@ -1,5 +1,5 @@
 class cursor_background {
-	condition = COND_ISNUMPYLON(7,1);
+	condition = COND_ISNUMBER(USERMFDV_TAC_MOVE,1);
 	color[] = common_black;
 	class cursor
 	{
@@ -32,7 +32,7 @@ class cursor_background {
 #define HOOKED_PT(X,Y) {"TAC_CURSOR_X", 1, "TAC_CURSOR_Y", 1, {PT34(X*HOOKED_SCALE,Y*HOOKED_SCALE)},1}
 
 class cursor_background_selected {
-	condition = COND_ISNUMPYLON(7,2);
+	condition = COND_ISNUMBER(USERMFDV_TAC_MOVE,2);
 	color[] = common_black;
 	class cursor
 	{

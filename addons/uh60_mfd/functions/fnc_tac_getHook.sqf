@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 _getHookableObjects = {
 	private _hookableObjects = getSensorTargets vehicle player;
 };
@@ -14,7 +16,7 @@ _getObjectPosition = {
 
 params ["_vehicle"];
 
-if (_vehicle ammoOnPylon 7 == 0) exitWith {};
+if (getUserMFDValue _vehicle select USERMFDV_TAC_MOVE == 0) exitWith {};
 
 if (isNil "vtx_uh60_tac_hookedObject") then {
 	private _group = group player;
@@ -47,10 +49,10 @@ if (isNil "vtx_uh60_tac_hookedObject") then {
 
 
 	if (isNil "_nearestObject") exitWith {
-		[_vehicle, 7, 1] call vtx_uh60_mfd_fnc_setPylonValue;
+    _vehicle setUserMFDValue [USERMFDV_TAC_MOVE, 1];
 	};
 	if (_cursorPos distance2D (_nearestObject call _getObjectPosition) > _hookDistance) exitWith {
-		[_vehicle, 7, 1] call vtx_uh60_mfd_fnc_setPylonValue;
+    _vehicle setUserMFDValue [USERMFDV_TAC_MOVE, 1];
 	};
 	vtx_uh60_tac_hookedObject = _nearestObject;
 };
@@ -61,5 +63,5 @@ if (!isNil "vtx_uh60_tac_hookedObject") then {
 	_vehicle setUserMFDText [46, _hookInfo # 1];
 	_vehicle setUserMFDText [47, _hookInfo # 2];
 	_vehicle setUserMFDText [48, _hookInfo # 3];
-	[_vehicle, 7, 2] call vtx_uh60_mfd_fnc_setPylonValue;
+  _vehicle setUserMFDValue [USERMFDV_TAC_MOVE, 2];
 };

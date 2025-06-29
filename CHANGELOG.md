@@ -1,3 +1,19 @@
+**0.7.5.1**
+
+ - Fixed: MFD interactions using old framework variable
+
+**0.7.5**
+
+ - Added: Slewable Landing light and Search light, controls via keybind and interaction on collective
+ - Added: Ability to open and close the gunner windows when miniguns are hidden and gunner is not turned out. Windows closed blocks FFV.
+ - Added: Add 3DEN attribute for removing fuel probe only, not adding it
+ - Added: Unarmed slick version for civilian faction: S-70M
+ - Improved: Suspension tuned for 9000 kg mass and removed physx lod wheel mesh to prevent extreme AFM jump
+ - Improved: Distance LODs
+ - Changed: MFD values using 2.20 increased values instead of pylons
+ - Changed: APKWS instead of DAGR in Loadouts
+ - Fixed: Fuel Probe not extending unless USAF mod is loaded
+
 **0.7.3 Stable Changelog**
 - MAJOR FEATURE UPDATES
   - ACRE Integration

@@ -280,28 +280,17 @@ class AnimationSources: AnimationSources {
     initPhase=0;
     mass = -MASS_COCKPITDOORS;
   };
-  class cabindoor_L {
-    displayName = "Close L Cabin Door"
-    source="user";
-    animPeriod=1;
-    initPhase=0;
-  };
-  class cabindoor_R {
-    displayName = "Close R Cabin Door"
-    source="user";
-    animPeriod=1;
-    initPhase=0;
-  };
-  class Stabilator_rotate_user {
-    source="user";
-    animPeriod=1;
-    initPhase=0;
-  };
   class LandingLight_Show {
     source="user";
     animPeriod=1;
     initPhase=0;
   };
+  class SearchLight_Show: LandingLight_Show {};
+  class window_l: LandingLight_Show {};
+  class window_r: LandingLight_Show {};
+  class Stabilator_rotate_user: LandingLight_Show {};
+  class cabindoor_L: LandingLight_Show {displayName = "Close L Cabin Door";};
+  class cabindoor_R: LandingLight_Show {displayName = "Close R Cabin Door";};
   ANIMSRC(hoist_hide,user,1,0);
   ANIMSRC(hoist_hook_hide,user,1,0);
   //interriorparts
@@ -585,4 +574,10 @@ class AnimationSources: AnimationSources {
   class Switch_minigun_safe_cover_r: Switch_minigun_safe_cover_l {};
   class Switch_minigun_safe_l: Switch_minigun_safe_cover_l {};
   class Switch_minigun_safe_r: Switch_minigun_safe_cover_l {};
+  class window_l_ffv {
+    source = "door";
+    animPeriod = 1;
+    initPhase = 0;
+  };
+  class window_r_ffv: window_l_ffv {};
 };

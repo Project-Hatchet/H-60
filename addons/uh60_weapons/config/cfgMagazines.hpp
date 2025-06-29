@@ -55,7 +55,7 @@ class cfgMagazines {
     hardpoints[] =    {"VTX_ST_R"};
     model = \z\vtx\addons\uh60_weapons\Data\M230\M230_R.p3d;
   };
-  
+
   class PylonRack_12Rnd_missiles;
 	class VTX_PylonRack_M261_M229: PylonRack_12Rnd_missiles {
     hardpoints[] = {"VTX_ST_L","VTX_ST_R","VTX_ST_OUTBOARD"};
@@ -74,7 +74,9 @@ class cfgMagazines {
 	};
   class PylonRack_12Rnd_PG_missiles;
   class VTX_PylonRack_M261_DAGR: PylonRack_12Rnd_PG_missiles {
-    hardpoints[] = {"VTX_ST_L","VTX_ST_R","VTX_ST_OUTBOARD"};
+    scope = 1;
+    //hardpoints[] = {"VTX_ST_L","VTX_ST_R","VTX_ST_OUTBOARD"};
+    hardpoints[] = {};
     ammo = "ACE_Hydra70_DAGR";
     author = "Ampersand";
     count = 19;
