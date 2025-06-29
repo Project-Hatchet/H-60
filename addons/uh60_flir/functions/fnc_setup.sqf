@@ -105,16 +105,15 @@ _id = ["cameraView", {
   params ["_unit", "_newView", "_oldView"];
   call vtx_uh60_flir_fnc_setIsPipHidden;
 
-  if (vtx_uh60_flir_playerIsPilot) then {
-    if (_newView == "GUNNER") then {
-      15 cutRsc ["vtx_uh60_flir_crossHair", "PLAIN"];
-      //"filmGrain" ppEffectAdjust [0.5, 2, 1, 1, 1];
-      //"filmGrain" ppEffectCommit 0;
-      //"filmGrain" ppEffectEnable true;
-    } else {
-      //"filmGrain" ppEffectEnable false;
-      15 cutText ["", "PLAIN"];
-    };
+  if !(vtx_uh60_flir_playerIsPilot && {vtx_uh60_flir_controllable}) exitWith {};
+  if (_newView == "GUNNER") then {
+    15 cutRsc ["vtx_uh60_flir_crossHair", "PLAIN"];
+    //"filmGrain" ppEffectAdjust [0.5, 2, 1, 1, 1];
+    //"filmGrain" ppEffectCommit 0;
+    //"filmGrain" ppEffectEnable true;
+  } else {
+    //"filmGrain" ppEffectEnable false;
+    15 cutText ["", "PLAIN"];
   };
 }] call CBA_fnc_addPlayerEventHandler;
 vtx_uh60_flir_playerCBAEHs pushBack ["cameraView", _id];
