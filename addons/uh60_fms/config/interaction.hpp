@@ -4,7 +4,7 @@
     position= BTN_VAL; \
     label=LABEL; \
     radius=0.025; \
-    clickSound="vxf_Switch_Sound_2";
+    clickSound="hct_Switch_Sound_2";
 
 #define USERVAL(INDEX,VAL) QUOTE(((getUserMFDValue _this) select INDEX) == VAL)
 
@@ -222,8 +222,8 @@ class hud {
 
 class menu_comm_acre {
   condition = QUOTE((((getUserMFDValue _this) select FMS_PAGE_INDEX) == FMS_PAGE_MENU) && (isClass (configFile >> ""cfgPatches"" >> ""acre_main"")));
-  FMS_BTN(FMS_6,"Radio Page") 
-    buttonUp=[(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_COMM_ACRE)], true] call vtx_uh60_fms_fnc_interaction_pageChange; 
+  FMS_BTN(FMS_6,"Radio Page")
+    buttonUp=[(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_COMM_ACRE)], true] call vtx_uh60_fms_fnc_interaction_pageChange;
   };
 };
 

@@ -132,7 +132,7 @@ class CfgVehicles {
       class RightDoorGun: RightDoorGun {};
       #include "\z\vtx\addons\UH60\config\turrets\troopCommander.hpp"
     };
-    class vxf_turret_3 {
+    class hct_turret_3 {
     projectPrefix = "vtx_uh60";
       class modules {
           class ui {
@@ -190,8 +190,8 @@ class CfgVehicles {
       #include "..\..\UH60\config\turrets\cargoTurrets.hpp"
     };
     #include "..\..\UH60\config\vehicleTransport.hpp"
-    class vxf_turret_1 {};
-    class vxf_turret_2 {};
+    class hct_turret_1 {};
+    class hct_turret_2 {};
     class MFD: MFD {
       class VTX_MFD_1_NOFLIR :           VTX_MFD_1_NOFLIR {};
       class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};

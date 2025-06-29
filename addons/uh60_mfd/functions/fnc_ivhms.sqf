@@ -6,11 +6,11 @@ vtx_uh60_mfd_allowText = false;
 {_vehicle setUserMFDValue [_x, 6]} forEach [23, 24, 25, 26];
 _vehicle animate ["GeneratorsOnOff",1];
 _vehicle animate ["PowerOnOff",1];
-[_vehicle, ["startup", "b_batt1"], "ON"] call vxf_interaction_fnc_scriptedInteract;
+[_vehicle, ["startup", "b_batt1"], "ON"] call hct_interaction_fnc_scriptedInteract;
 
 
 // 1 FRAMEWORK STATUS: ACTIVE
-private _config = _vehicle getVariable "vxf_config";
+private _config = _vehicle getVariable "hct_config";
 _vehicle setUserMFDText [1, if (isNil "_config") then [{"FRAMEWORK STATUS: NOT LOADED"}, {"FRAMEWORK STATUS: ACTIVE"}]];
 
 // 2 AIRCRAFT: RUNNING
@@ -27,7 +27,7 @@ private _timeStr = format["DATE %1/%2/%3 %4:%5Z", _year, _month, _day, _hour, _m
 _vehicle setUserMFDText [4, _timeStr];
 
 // MODULES
-private _modules = vehicle player getVariable "vxf_modules";
+private _modules = vehicle player getVariable "hct_modules";
 _modulesText =_modules apply {(_x # 0) + (if (_x # 1) then [{"/ACT"},{"/STB"}])} joinString " | ";
 
 // 5 MODULES1
@@ -40,7 +40,7 @@ _vehicle setUserMFDText [7,_modulesText select [124,62]];
 // 8 ADVANCED FLIGHT MODEL
 _vehicle setUserMFDText [8, if (difficultyEnabledRTD) then [{"FM ADVANCED"}, {"FM STANDARD"}]];
 
-// 9 VXF_DRIVER
+// 9 HCT_DRIVER
 _vehicle setUserMFDText [9, configName _config];
 
 // Product info

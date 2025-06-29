@@ -104,7 +104,7 @@ class CfgVehicles {
             #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
             #include "\z\vtx\addons\MH60M\config\turrets\troopCommander.hpp"
         };
-        class vxf_turret_12 {
+        class hct_turret_12 {
             projectPrefix = "vtx_uh60";
             class modules {
                 class ui {
@@ -288,7 +288,7 @@ class CfgVehicles {
             ANIM_INIT(Minigun_Sight_L_hide,1);
             ANIM_INIT(Minigun_Sight_R_hide,1);
             ANIM_INIT(MH60MMisc_show,1);
-            
+
             ANIM_INIT(CabinSeats_1_Hide,1);
             ANIM_INIT(CabinSeats_2_Hide,1);
             ANIM_INIT(CabinSeats_3_Hide,1);
