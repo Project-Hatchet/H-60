@@ -39,8 +39,6 @@ class CfgVehicles {
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         memoryPointDriverOptics = "pilotcamera_flir_pos";
-        class VTX_H60_HDTS_Copilot;
-        class VTX_H60_HDTS_Pilot;
         displayName = "MH-60S Knighthawk - Pylons, GAU-21(L)";
         transportSoldier=0;
         class CargoTurret;
@@ -88,8 +86,6 @@ class CfgVehicles {
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         memoryPointDriverOptics = "pilotcamera_flir_pos";
-        class VTX_H60_HDTS_Copilot;
-        class VTX_H60_HDTS_Pilot;
         displayName = "MH-60S Knighthawk - GAU-21(L)";
         transportSoldier=0;
         class CargoTurret;
@@ -121,8 +117,6 @@ class CfgVehicles {
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         memoryPointDriverOptics = "pilotcamera_flir_pos";
-        class VTX_H60_HDTS_Copilot;
-        class VTX_H60_HDTS_Pilot;
         displayName = "MH-60S Knighthawk - Pylons";
         editorPreview = "z\vtx\addons\MH60S\Data\Preview\vtx_MH60S_Pylons.jpg";
         transportSoldier = 0;
@@ -156,8 +150,6 @@ class CfgVehicles {
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         memoryPointDriverOptics = "pilotcamera_flir_pos";
-        class VTX_H60_HDTS_Copilot;
-        class VTX_H60_HDTS_Pilot;
         displayName = "MH-60S Knighthawk";
         editorPreview = "z\vtx\addons\MH60S\Data\Preview\vtx_MH60S.jpg";
         class Turrets: Turrets

@@ -16,17 +16,19 @@ _pos = waypointPosition [_grp, _idx];
 _pos resize 2; 
 
 _currentwp = [_desc, _pos]; 
- 
+
+//delete Waypoint from MicroDagr if the player has it
 { 
 	if (_x # 0 == _desc) then {
 		_dagrPos = _x # 1; 
 		_dagrPos resize 2;
 		if (_dagrPos isEqualTo _pos) exitWith {
-			deleteWaypoint [_grp, _idx]; //Delete WP 
-			_microDagrWaypoints deleteAt _forEachIndex; //Delete microDagr WP 
-			[_player, "", _idx - 1] call vtx_uh60_fms_fnc_selectWaypoint; //Select new WP 
+			_microDagrWaypoints deleteAt _forEachIndex; //Delete microDagr WP
 		};
 	};
 } forEach _microdagrWaypoints; 
- 
 ACE_player setVariable ["ace_microdagr_waypoints", _microDagrWaypoints];
+
+//handle group waypoints
+deleteWaypoint [_grp, _idx];
+[_player, "", _idx - 1] call vtx_uh60_fms_fnc_selectWaypoint; //Select new WP 

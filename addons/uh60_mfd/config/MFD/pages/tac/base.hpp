@@ -57,11 +57,11 @@ class left_textBlue {
 class left_textWhite {
 	color[] = common_white;
 	class cond_hdg {
-		condition = COND_ISNUMPYLON(5,0);
+		condition = COND_ISNUMBER(USERMFDV_TAC_MOVE,0);
 		TEXT_LEFT_SCALED(NORTH,0.02,(BEZEL_Y1+0.02),"HDG",TAC_LINE_HEIGHT)
 	};
 	class cond_north {
-		condition = COND_ISNUMPYLON(5,1);
+		condition = COND_ISNUMBER(USERMFDV_TAC_MOVE,1);
 		TEXT_LEFT_SCALED(NORTH,0.02,(BEZEL_Y1+0.02),"NORTH",TAC_LINE_HEIGHT)
 
 	};
@@ -97,11 +97,11 @@ class top {
 		TEXT_MID_SCALED(HAT,0.00+(BEZEL_XT2),0.015+TAC_LINE_HEIGHT,"OFF",TAC_LINE_HEIGHT)
 		TEXT_MID_SCALED(TIV,0.00+(BEZEL_XT3),0.015+TAC_LINE_HEIGHT,"BARO ALT",TAC_LINE_HEIGHT)
 		class centered {
-			condition = COND_ISNUMPYLON(4,0);
+			condition = COND_ISNUMBER(USERMFDV_TAC_MOVE,0);
 			TEXT_MID_SCALED(CTR,0.00+(BEZEL_XT4),0.015+TAC_LINE_HEIGHT,"CTR",TAC_LINE_HEIGHT)
 		};
 		class decenter {
-			condition = COND_ISNUMPYLON(4,1);
+			condition = COND_ISNUMBER(USERMFDV_TAC_MOVE,1);
 			TEXT_MID_SCALED(CTR,0.00+(BEZEL_XT4),0.015+TAC_LINE_HEIGHT,"DCTR",TAC_LINE_HEIGHT)
 		};
 	};
@@ -109,7 +109,7 @@ class top {
 class noSubPage {
 	condition = COND_SUBPAGE(MFD_PAGE_INDEX,MFD_PAGE_TAC);
 	class right {
-		condition = "pylonAmmo3 < 1";
+		condition = USER_LT(USERMFDV_CAS,1);
 		color[] = common_black;
 		COLORED_POLYGON(CHART,0.985-0.09,(BEZEL_Y1-0.01),0.09,0.04,common_black)
 		COLORED_POLYGON(OVERL,0.985-0.10,(BEZEL_Y2-0.01),0.10,0.04,common_black)
@@ -128,11 +128,11 @@ class noSubPage {
 			TEXT_RIGHT_SCALED(CONFI,0.97,(BEZEL_Y3-0.01),"CONFIG>",TAC_LINE_HEIGHT)
 			TEXT_RIGHT_SCALED(POSNN,0.97,(BEZEL_Y4-0.01),"POSN>",TAC_LINE_HEIGHT)
 			class condition_dynamic {
-				condition = COND_ISNUMPYLON(7,0);
+				condition = COND_ISNUMBER(USERMFDV_TAC_MOVE,0);
 				TEXT_RIGHT_SCALED(MAPDY,0.97,(BEZEL_Y5-0.03+0.04),"DYNAMIC",TAC_LINE_HEIGHT)
 			};
 			class condition_static {
-				condition = "pylonAmmo7 > 0";
+        condition = USER_GT(USERMFDV_TAC_MOVE,0);
 				TEXT_RIGHT_SCALED(MAPDY,0.97,(BEZEL_Y5-0.03+0.04),"STATIC",TAC_LINE_HEIGHT)
 			};
 			TEXT_RIGHT_SCALED(LEGND,0.97,(BEZEL_Y6-0.01),"LEGEND",TAC_LINE_HEIGHT)
@@ -141,7 +141,7 @@ class noSubPage {
 
 	#define VERT_TEXT_SPACING 0.035
 	class caution {
-		condition = "pylonAmmo3 > 0";
+		condition = USER_GT(USERMFDV_CAS,0);
 		color[] = common_black;
 		COLORED_POLYGON(CNCL,(0.985-0.02),(BEZEL_Y3-0.07),0.02,(VERT_TEXT_SPACING*4),common_black)
 		COLORED_POLYGON(PAGE,(0.985-0.02),(BEZEL_Y5+0.02),0.02,(VERT_TEXT_SPACING*4),common_black)
@@ -151,7 +151,7 @@ class noSubPage {
 			TEXT_LEFT_SCALED(L2,(0.985-0.02+0.005),(BEZEL_Y3-0.07+VERT_TEXT_SPACING*1),"N",TAC_LINE_HEIGHT)
 			TEXT_LEFT_SCALED(L3,(0.985-0.02+0.005),(BEZEL_Y3-0.07+VERT_TEXT_SPACING*2),"C",TAC_LINE_HEIGHT)
 			TEXT_LEFT_SCALED(L4,(0.985-0.02+0.005),(BEZEL_Y3-0.07+VERT_TEXT_SPACING*3),"L",TAC_LINE_HEIGHT)
-			
+
 			TEXT_LEFT_SCALED(L5,(0.985-0.02+0.005),(BEZEL_Y5+0.02),"P",TAC_LINE_HEIGHT)
 			TEXT_LEFT_SCALED(L6,(0.985-0.02+0.005),(BEZEL_Y5+0.02+VERT_TEXT_SPACING*1),"A",TAC_LINE_HEIGHT)
 			TEXT_LEFT_SCALED(L7,(0.985-0.02+0.005),(BEZEL_Y5+0.02+VERT_TEXT_SPACING*2),"G",TAC_LINE_HEIGHT)
@@ -165,7 +165,7 @@ class noSubPage {
 					{{(0.985-0.00),(BEZEL_Y3-0.07+(VERT_TEXT_SPACING*4))},1},
 					{{(0.985-0.02),(BEZEL_Y3-0.07+(VERT_TEXT_SPACING*4))},1},
 					{{(0.985-0.02),(BEZEL_Y3-0.07)},1}, {},
-					
+
 					{{(0.985-0.02),(BEZEL_Y5+0.02)},1},
 					{{(0.985-0.00),(BEZEL_Y5+0.02)},1},
 					{{(0.985-0.00),(BEZEL_Y5+0.02+(VERT_TEXT_SPACING*4))},1},
@@ -205,7 +205,7 @@ class mapConfig {
 #include "misc.hpp"
 #include "waypoints.hpp"
 class BFT_COND {
-	condition = COND_ISNUMPYLON(5,0);
+	condition = COND_ISNUMBER(USERMFDV_TAC_MOVE,0);
     #include "bft.hpp"
 };
 #include "slewControls.hpp"

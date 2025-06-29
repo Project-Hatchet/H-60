@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * vtx_uh60_Cas_fnc_setup
  *
@@ -21,8 +22,8 @@ vtx_uh60_cas_firstAdvisory = 0;
 [_vehicle] call vtx_uh60_cas_fnc_updateCautionsList;
 SET_DEFAULT("vtx_cas_rotorIgnored", false);
 
-for [{ _i = 3 }, { _i < 40 }, { _i = _i + 1 }] do {
-  [_vehicle, _i, 0] call vtx_uh60_mfd_fnc_setPylonValue;
+for [{ _i = USERMFDV_CAS }, { _i < USERMFDV_HELLFIRE_BOX }, { _i = _i + 1 }] do {
+  _vehicle setUserMFDValue [_i, 0];
 };
 
 true

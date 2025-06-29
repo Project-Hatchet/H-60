@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * vtx_uh60_cas_fnc_setMasterCaution
  *
@@ -17,13 +18,13 @@ vtx_uh60_cas_cautionsUnacked = 0;
 [_vehicle,false] call vtx_uh60_cas_fnc_updateOverlayList;
 if (_reset) exitWith {
 	vtx_uh60_cas_cautionsLog = [];
-	for "_i" from 16 to 39 do {
-		[_vehicle, _i, 0] call vtx_uh60_mfd_fnc_setPylonValue;
+	for "_i" from USERMFDV_L00 to USERMFDV_R25 do {
+    _vehicle setUserMFDValue [_i, 0];
 	};
 };
-for "_i" from 16 to 39 do {
-	private _ammo = _vehicle ammoOnPylon _i;
-	if (_ammo == 2) then {
-		[_vehicle, _i, 1] call vtx_uh60_mfd_fnc_setPylonValue;
+for "_i" from USERMFDV_L00 to USERMFDV_R25 do {
+  private _value = getUserMFDValue _vehicle select _i;
+  if (_value == 2) then {
+    _vehicle setUserMFDValue [_i, 1];
 	};
 };

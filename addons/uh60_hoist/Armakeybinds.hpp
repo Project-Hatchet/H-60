@@ -3,7 +3,7 @@ class CfgUserActions
 	class Vtx_HOOK_DEPLOY {
 		displayName = "Deploy Hook";
 		tooltip = "Deploys the Hoist Hook";
-		onActivate = "[vehicle player] call vtx_uh60_hoist_fnc_deployHook;";		// _this is always true.
+		onActivate = "_canDeploy = [vehicle player] call vtx_uh60_hoist_fnc_canDeployHook; if (_canDeploy) then {[vehicle player] call vtx_uh60_hoist_fnc_deployHook;}";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).

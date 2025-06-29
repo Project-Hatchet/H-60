@@ -4,14 +4,13 @@ class RscInGameUI
     class RscUnitInfoAir;
     class vtx_uh60_rscUnitInfoMinimal: RscUnitInfoAir
     {
-        onLoad="[(vehicle player), ""ui"", _this # 0] call vxf_core_fnc_start;";
+        onLoad="[(vehicle player), ""ui"", _this # 0] call hct_core_fnc_start;";
         controls[] = {
             //"CA_BackgroundVehicle",
             //"CA_BackgroundVehicleTitle",
             //"CA_Vehicle",
             "CA_VehicleRole",
             "HelpText",
-            "Interaction",
             "HelpOverlay",
             "HelpOverlayGunner",
             "HMDOverlay"
@@ -25,15 +24,6 @@ class RscInGameUI
             h = 0.15;
 			text = "Press H For Help";
 		};
-        class Interaction: RscPicture
-        {
-			idc = 4001120;
-			x = safezoneX + safezoneW / 2 - 0.02;
-			y = safezoneY + safezoneH / 2 - 0.02;
-			w = 0.04;
-            h = 0.04;
-			text = "\A3\ui_f\data\igui\cfg\cursors\iconComplex_ca.paa";
-        };
         class HMDOverlay: RscPicture
         {
 			idc = 4001123;

@@ -1,5 +1,6 @@
+#include "script_component.hpp"
 params ["_vehicle"];
-if (_vehicle ammoOnPylon 47 == 2) then {
+if (getUserMFDValue _vehicle select USERMFDV_LST_MODE == 2) then {
 	_this call vtx_uh60_flir_fnc_autoScanPattern;
 };
 
@@ -20,4 +21,5 @@ private _laserResult = [
 if (isNil "_laserResult" || {isNull (_laserResult # 1)}) exitWith {};
 _vehicle setPilotCameraTarget (_laserResult # 0);
 [[], (_laserResult # 0)] call vtx_uh60_flir_fnc_syncPilotCamera;
-[_vehicle, 47, 0] call vtx_uh60_mfd_fnc_setPylonValue;
+
+_vehicle setUserMFDValue [USERMFDV_LST_MODE, 0];

@@ -1,0 +1,40 @@
+branches:
+  - Main
+  - update-gitactions  # for testing edits to this configuration
+
+name-template: 'Version $NEXT_PATCH_VERSION'
+tag-template: 'v$NEXT_PATCH_VERSION'
+
+sort-by: title # sort alphabetically
+sort-direction: ascending
+
+categories:
+  - title: '**ADDED:**'
+    labels:
+      - 'Release notes: Feature'
+  - title: '**FIXED:**'
+    labels:
+      - 'Release notes: Bug fix'
+  - title: '**IMPROVED:**'
+    labels:
+      - 'Release notes: Enhancement'
+      - 'kind/optimization'
+  - title: '**CHANGED:**'
+    labels:
+      - 'Release notes: Refactor'
+
+exclude-labels:
+  - 'Release Notes: Ignore'
+
+change-template: '- $TITLE (#$NUMBER)'
+template: |
+  _Requires CBA version X.Y.Z or later and Arma 3 version X.Y or later._
+
+  ## Change Log Summary
+
+  $CHANGES
+
+replacers:
+  # Category titles
+  - search: '/\#\# (\*\*(ADDED|FIXED|IMPROVED|CHANGED):\*\*)/g'
+    replace: '$1'

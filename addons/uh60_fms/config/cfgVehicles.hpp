@@ -20,22 +20,22 @@ class VTX_FMS_L
 class CfgVehicles {
   class Helicopter_Base_F;
   class Helicopter_Base_H: Helicopter_Base_F {
-    class vxf_driver;
-    class vxf_copilot;
+    class hct_driver;
+    class hct_copilot;
   }; // Helicopter_Base_H
   class Heli_Transport_01_base_F: Helicopter_Base_H {
-    class vxf_driver: vxf_driver {
+    class hct_driver: hct_driver {
       class interaction;
       class modules;
-    }; // vxf_driver
-    class vxf_copilot: vxf_copilot {
+    }; // hct_driver
+    class hct_copilot: hct_copilot {
       class interaction;
       class modules;
-    }; // vxf_copilot
+    }; // hct_copilot
     class MFD;
   }; // Heli_Transport_01_base_F
   class vtx_H60_base: Heli_Transport_01_base_F {
-    class vxf_driver: vxf_driver {
+    class hct_driver: hct_driver {
       class modules: modules {
         class fms {
           startOnEnter = 1;
@@ -58,8 +58,8 @@ class CfgVehicles {
           #include "interaction.hpp"
         }; // FMS
       }; // interaction
-    }; // vxf_driver
-    class vxf_copilot: vxf_copilot {
+    }; // hct_driver
+    class hct_copilot: hct_copilot {
       class modules: modules {
         class fms {
           startOnEnter = 1;
@@ -92,6 +92,6 @@ class CfgVehicles {
           #include "interaction.hpp"
         }; // FMS
       }; // interaction
-    }; // vxf_copilot
+    }; // hct_copilot
   }; // vtx_H60_base
 }; // CfgVehicles

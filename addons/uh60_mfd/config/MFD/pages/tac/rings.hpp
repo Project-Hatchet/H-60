@@ -1,6 +1,6 @@
 class rangeRings {
 	color[]=common_black;
-	condition = COND_ISNUMPYLON(4,0);
+	condition = COND_ISNUMBER(USERMFDV_TAC_MOVE,0);
 	class Mark_Circle
 	{
 		type = "line";
@@ -61,7 +61,7 @@ class rangeRingsHalf {
 	clipTL[] = {0,0};
 	clipBR[] = {1,0.7};
 	color[]=common_black;
-	condition = COND_ISNUMPYLON(4,1);
+	condition = COND_ISNUMBER(USERMFDV_TAC_MOVE,1);
 	class Mark_Circle
 	{
 		type = "line";

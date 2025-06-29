@@ -1,6 +1,5 @@
 class RscDisplayLoadMission;
 class RscDisplayLoadProjectHatchet : RscDisplayLoadMission {
-	access = 0;
 	enableDisplay = 1;
 	enableSimulation = 1;
 	idd = 101;

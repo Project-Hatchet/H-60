@@ -3,8 +3,8 @@
 
 class TAC_CENTER {
     type="linear";
-	source="pylonammo";
-	sourceIndex=4;
+	source="user";
+	sourceIndex=USERMFDV_TAC_CENTER;
 	sourceScale=1;
 	min=0;
 	max=1;

@@ -130,7 +130,7 @@ _id = ["featureCamera", {
       call vtx_uh60_flir_fnc_pipStart;
     };
     if (!isNil "vtx_uh60_mfd_slingCam") then {
-      [vxf_vehicle, true] call vtx_uh60_mfd_fnc_slingCam;
+      [hct_vehicle, true] call vtx_uh60_mfd_fnc_slingCam;
     };
   };
   if (vtx_uh60_flir_isInScriptedCamera) then {
@@ -156,7 +156,7 @@ _id = ["visibleMap", {
 vtx_uh60_flir_playerCBAEHs pushBack ["visibleMap", _id];
 
 //remove ace LST
-[_vehicle,1,["ACE_SelfActions","LSTOn"]] call ace_interact_menu_fnc_removeActionFromObject; 
+[_vehicle,1,["ACE_SelfActions","LSTOn"]] call ace_interact_menu_fnc_removeActionFromObject;
 [_vehicle,1,["ACE_SelfActions","LSTOff"]] call ace_interact_menu_fnc_removeActionFromObject;
 
 true

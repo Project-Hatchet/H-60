@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * vtx_uh60_mfd_fnc_interaction_tac
  *
@@ -16,7 +17,8 @@ switch (_action) do {
         _vehicle setVariable ["MAP_ZoomMult", _newZoom, true];
         _vehicle animateSource ["MAP1_Scale", 1/_newZoom, 1];
         _vehicle setUserMFDValue [40, worldSize / _newZoom / 2];
-        [_vehicle, 6, _newZoom] call vtx_uh60_mfd_fnc_setPylonValue;
+        //[_vehicle, 6, _newZoom] call vtx_uh60_mfd_fnc_setPylonValue;
+        _vehicle setUserMFDValue [USERMFDV_TAC_ZOOM, _newZoom];
     };
     case "waypt": {
         private _cursorPos = [] call vtx_uh60_mfd_fnc_tac_cursorToWorld;
@@ -34,6 +36,6 @@ switch (_action) do {
         [getPilotCameraDirection _vehicle, _cursorPos] call vtx_uh60_flir_fnc_syncPilotCamera;
     };
     case "centerMode": {
-        [_vehicle,4] call vtx_uh60_mfd_fnc_cyclePylonValue;
+        [_vehicle,USERMFDV_TAC_CENTER] call vtx_uh60_mfd_fnc_cycleUserMFDValue;
     };
 };

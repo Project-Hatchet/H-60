@@ -1,2 +1,0 @@
-class Bones {};
-class Draw {};
