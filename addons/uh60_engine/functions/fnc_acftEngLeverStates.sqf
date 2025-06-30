@@ -1,5 +1,5 @@
 params ["_vehicle"];
-
+/*
 //Engine 1
 //--Fuel system lever
 private _eng1FuelSysLeverPos   = _vehicle animationPhase "Lever_fuelsys1";  //0.0 = OFF, 0.6 = DIR, 1.0 = XFD
@@ -61,3 +61,4 @@ if (_eng2PwrCtrlLeverPos >= 0.80) then {
 //systemChat format ["Eng 2 Fuel Sys Lvr Pos %1 / Pwr Ctrl Lvr Pos %2", _eng2FuelSysLeverPos, _eng2PwrCtrlLeverPos];
 
 //systemChat format ["SFM Plus Power Levers = %1", _vehicle getVariable "vtx_uh60_sfmplus_engPowerLeverState"];
+*/

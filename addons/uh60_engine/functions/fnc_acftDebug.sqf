@@ -31,17 +31,16 @@ _acBusState        = _vehicle getVariable "bmkhs_acBusOn";//_vehicle getVariable
 _dcBusState        = _vehicle getVariable "bmkhs_dcBusOn";//_vehicle getVariable "vtx_uh60_acft_DCBusState";
 _emerBusState      = _vehicle getVariable "bmkhs_emergencyBusOn";
 //--Engine levers
-_eng1FuelSysLeverState = _vehicle getVariable "vtx_uh60_acft_eng1FuelSysLeverState";
-_eng2FuelSysLeverState = _vehicle getVariable "vtx_uh60_acft_eng2FuelSysLeverState";
-_eng1PwrCtrlLeverState = _vehicle getVariable "bmkhs_engPwrLvrState" select 0;
-_eng2PwrCtrlLeverState = _vehicle getVariable "bmkhs_engPwrLvrState" select 1;
+_eng1FuelSysLeverState = _vehicle getVariable "bmkhs_eng1FuelLeverState";//_vehicle getVariable "vtx_uh60_acft_eng1FuelSysLeverState";
+_eng2FuelSysLeverState = _vehicle getVariable "bmkhs_eng2FuelLeverState";//_vehicle getVariable "vtx_uh60_acft_eng2FuelSysLeverState";
+_eng1PwrCtrlLeverState = _vehicle getVariable "bmkhs_eng1PowerLeverState";//_vehicle getVariable "bmkhs_engPwrLvrState" select 0;
+_eng2PwrCtrlLeverState = _vehicle getVariable "bmkhs_eng2PowerLeverState";//_vehicle getVariable "bmkhs_engPwrLvrState" select 1;
 //--Engine states
 _eng1State = _vehicle getVariable "bmkhs_engState" select 0;
 _eng2State = _vehicle getVariable "bmkhs_engState" select 1;
-
-//--RTD
-_forcesRTD             = rotorsForcesRTD _vehicle;
-enginesRpmRTD _vehicle params ["_RPMEngine1", "_RPMEngine2"];
+//--Engine starter switch states
+_eng1StartSwitchOn = _vehicle getVariable "bmkhs_eng1StartSwitchOn";
+_eng2StartSwitchOn = _vehicle getVariable "bmkhs_eng2StartSwitchOn";
 
 HintSilent format ["Aircraft Module Debug Output
                     \nTo hide this debug text, disable
@@ -82,15 +81,12 @@ HintSilent format ["Aircraft Module Debug Output
                     \nEng 1 State             = %27
                     \nEng 1 Fuel Lever State  = %17
                     \nEng 1 Pwr Lever State   = %18
+                    \nEng 1 Start Switch is On = %22
                     \n---------------------------
                     \nEng 2 State             = %28
                     \nEng 2 Fuel Lever State  = %19
                     \nEng 2 Pwr Lever State   = %20
-                    \n---------------------------
-                    \nForces RTD = %22
-                    \nEngine Power = %23
-                    \nEngine Torque = %24
-                    \nEngine RPM [%25, %26]",
+                    \nEng 2 Start Switch is On = %23",
                     _batt1SwitchState,      //1
                     _batt2SwitchState,      //2
                     _apuPwrSwitchState,     //3
@@ -112,11 +108,11 @@ HintSilent format ["Aircraft Module Debug Output
                     _eng2FuelSysLeverState, //19
                     _eng2PwrCtrlLeverState, //20
                     _stbyInstSwitchState,   //21
-                    (_forcesRTD select 0) select 1,        //22
-                    enginesPowerRTD _vehicle,   //23
-                    enginesTorqueRTD _vehicle,  //24
-                    _RPMEngine1,                //25
-                    _RPMEngine2,                //26
+                    _eng1StartSwitchOn,        //22
+                    _eng2StartSwitchOn,   //23
+                    0,  //24
+                    0,                //25
+                    0,                //26
                     _eng1State,                 //27
                     _eng2State,                 //28
                     _emerBusState,              //29

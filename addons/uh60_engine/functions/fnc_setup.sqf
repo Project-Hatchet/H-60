@@ -77,8 +77,8 @@ SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng2StarterState",    "OFF");
 //SET_GLOBAL_DEFAULT("vtx_uh60_acft_airsrceSwitchState",  "OFF");   //ENG, OFF, APU
 //Engines
 //--Fuel system levers
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng1FuelSysLeverState", "OFF");
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng2FuelSysLeverState", "OFF");
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng1FuelSysLeverState", "OFF");
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng2FuelSysLeverState", "OFF");
 //--Power control levers
 //SET_GLOBAL_DEFAULT("bmkhs_engPwrLvrState" select 0,     "OFF");
 //SET_GLOBAL_DEFAULT("bmkhs_engPwrLvrState" select 1,     "OFF");
