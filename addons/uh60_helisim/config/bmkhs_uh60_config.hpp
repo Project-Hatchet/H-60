@@ -59,14 +59,14 @@ class bmkhs_config {
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Engine Data          /////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
-    numEng          = 2;
-    engStartTime    = 9.0;
-    engContPwr      = 1066;   //kW
-    engEmerPwr      = 1447;   //kW
-    engIdleRef      = 0.57;
-    engFlyRef       = 1.00;
-    engDesignRPM    = 20900;
-    engHitPoints[]  = {"hitEngine1", "hitEngine2"};
+    numEng           = 2;
+    engStartTime     = 9.0;
+    engContPwr       = 1066;   //kW
+    engEmerPwr       = 1447;   //kW
+    engNpRef[]       = {0.00, 0.57, 1.00};       //off, idle, fly
+    engThrottleRef[] = {0.00, 0.01, 0.09, 0.18}; //off, motor, idle, fly
+    engDesignRPM     = 20900;
+    engHitPoints[]   = {"hitEngine1", "hitEngine2"};
     //-----------------|--PA--|--MC TQ-|-MTA DE-|-MTA SE-|
     engPerfTable0[] = {//-40 deg C
                        {     0,    1.31,    1.31,    1.31}

@@ -16,23 +16,23 @@ private _engTq  = [0.0, 0.0];
 private _rtrRPM = [0.0, 0.0];
 
 //Ng
-_engNg = _vehicle getVariable "vtx_uh60_sfmplus_engPctNG";
+_engNg = _vehicle getVariable "bmkhs_engPctNg";
 _vehicle setUserMFDvalue [19, (_engNg # 0) * 100];
 _vehicle setUserMFDvalue [45, (_engNg # 1) * 100];
 
 //TGT
-_engTGT = _vehicle getVariable "vtx_uh60_sfmplus_engTGT";
+_engTGT = _vehicle getVariable "bmkhs_engTgt";
 _vehicle setUserMFDvalue [21, (_engTGT # 0)];
 _vehicle setUserMFDvalue [47, (_engTGT # 1)];
 
 // if (!difficultyEnabledRTD) then {
     //Np
-    _engNp = _vehicle getVariable "vtx_uh60_sfmplus_engPctNP";
+    _engNp = _vehicle getVariable "bmkhs_engPcNp";
     _vehicle setUserMFDvalue [20, (_engNp # 0) * 100];
     _vehicle setUserMFDvalue [46, (_engNp # 1) * 100];
 
     //Torque
-    _engTq = _vehicle getVariable "vtx_uh60_sfmplus_engPctTQ";
+    _engTq = _vehicle getVariable "bmkhs_engPctTq";
     _vehicle setUserMFDvalue [22, (_engTq # 0) * 100];
     _vehicle setUserMFDvalue [48, (_engTq # 1) * 100];
 

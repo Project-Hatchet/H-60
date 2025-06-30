@@ -1,5 +1,5 @@
 params ["_vehicle"];
-
+/*
 private _airsrceSwitchState    = _vehicle getVariable "vtx_uh60_acft_airsrceSwitchState";
 
 //Engine 1
@@ -7,7 +7,7 @@ private _eng1State             = _vehicle getVariable "bmkhs_engState" select 0;
 private _eng1StarterState      = _vehicle getVariable "vtx_uh60_acft_eng1StarterState";
 private _eng1FuelLeverState    = _vehicle getVariable "vtx_uh60_acft_eng1FuelSysLeverState";
 private _eng1PwrCtrlLeverState = _vehicle getVariable "bmkhs_engPwrLvrState" select 0;
-/*
+
 //Is the starter engaged?
 if (_eng1State == "STARTING") then {
     //Do we have fuel?
