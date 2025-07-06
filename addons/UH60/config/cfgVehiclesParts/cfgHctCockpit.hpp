@@ -186,7 +186,7 @@ class interaction {
             position="b_starter1";
             label="NO.1 Engine Starter";
             radius=0.025;
-            buttonUp="_this call bmkhs_interact_fnc_eng1StartSwitch";//"[_this # 0, ""STARTER1"", ""ON""] call vtx_uh60_engine_fnc_starterState";
+            buttonUp="_this call bmkhs_interact_fnc_eng1StartButton";//"[_this # 0, ""STARTER1"", ""ON""] call vtx_uh60_engine_fnc_starterState";
             clickSound="hct_Switch_Sound";
         }; // b_starter1
         class b_starter2 {
@@ -194,7 +194,7 @@ class interaction {
             position="b_starter2";
             label="NO.2 Engine Starter";
             radius=0.025;
-            buttonUp="_this call bmkhs_interact_fnc_eng2StartSwitch";//"[_this # 0, ""STARTER2"", ""ON""] call vtx_uh60_engine_fnc_starterState";
+            buttonUp="_this call bmkhs_interact_fnc_eng2StartButton";//"[_this # 0, ""STARTER2"", ""ON""] call vtx_uh60_engine_fnc_starterState";
             clickSound="hct_Switch_Sound";
         }; // b_starter2
         class powerContRFM {

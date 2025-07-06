@@ -39,8 +39,8 @@ _eng2PwrCtrlLeverState = _vehicle getVariable "bmkhs_eng2PowerLeverState";//_veh
 _eng1State = _vehicle getVariable "bmkhs_engState" select 0;
 _eng2State = _vehicle getVariable "bmkhs_engState" select 1;
 //--Engine starter switch states
-_eng1StartSwitchOn = _vehicle getVariable "bmkhs_eng1StartSwitchOn";
-_eng2StartSwitchOn = _vehicle getVariable "bmkhs_eng2StartSwitchOn";
+_eng1StartButtonOn = _vehicle getVariable "bmkhs_eng1StartButtonOn";
+_eng2StartButtonOn = _vehicle getVariable "bmkhs_eng2StartButtonOn";
 
 HintSilent format ["Aircraft Module Debug Output
                     \nTo hide this debug text, disable
@@ -108,8 +108,8 @@ HintSilent format ["Aircraft Module Debug Output
                     _eng2FuelSysLeverState, //19
                     _eng2PwrCtrlLeverState, //20
                     _stbyInstSwitchState,   //21
-                    _eng1StartSwitchOn,        //22
-                    _eng2StartSwitchOn,   //23
+                    _eng1StartButtonOn,        //22
+                    _eng2StartButtonOn,   //23
                     0,  //24
                     0,                //25
                     0,                //26

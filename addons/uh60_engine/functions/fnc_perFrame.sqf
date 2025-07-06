@@ -17,8 +17,8 @@ private _rtrRPM = [0.0, 0.0];
 
 //Ng
 _engNg = _vehicle getVariable "bmkhs_engPctNg";
-_vehicle setUserMFDvalue [19, (_engNg # 0) * 100];
-_vehicle setUserMFDvalue [45, (_engNg # 1) * 100];
+_vehicle setUserMFDvalue [19, _engNg # 0];
+_vehicle setUserMFDvalue [45, _engNg # 1];
 
 //TGT
 _engTGT = _vehicle getVariable "bmkhs_engTgt";
@@ -28,13 +28,13 @@ _vehicle setUserMFDvalue [47, (_engTGT # 1)];
 // if (!difficultyEnabledRTD) then {
     //Np
     _engNp = _vehicle getVariable "bmkhs_engPcNp";
-    _vehicle setUserMFDvalue [20, (_engNp # 0) * 100];
-    _vehicle setUserMFDvalue [46, (_engNp # 1) * 100];
+    _vehicle setUserMFDvalue [20, (_engNp # 0)];
+    _vehicle setUserMFDvalue [46, (_engNp # 1)];
 
     //Torque
     _engTq = _vehicle getVariable "bmkhs_engPctTq";
-    _vehicle setUserMFDvalue [22, (_engTq # 0) * 100];
-    _vehicle setUserMFDvalue [48, (_engTq # 1) * 100];
+    _vehicle setUserMFDvalue [22, (_engTq # 0)];
+    _vehicle setUserMFDvalue [48, (_engTq # 1)];
 
     //Rotor RPM
     _rtrRPM = (_vehicle animationPhase "rotorCollectiveBlade1") * 1.025 / 10;
