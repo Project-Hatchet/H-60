@@ -63,10 +63,11 @@ class bmkhs_config {
     engUseStartBtn    = 1;
     engUseStartSwitch = 0;
     engStartTime      = 9.0;
-    engContPwr        = 1066;   //kW
-    engEmerPwr        = 1447;   //kW
-    engNpRef[]        = {0.00, 0.57, 1.00};       //off, idle, fly
-    engThrottleRef[]  = {0.00, 0.01, 0.09, 0.18}; //off, motor, idle, fly
+    engTqRef          = 481.0;
+    //--Np
+    engNpRef[]        = {0.57, 1.00};       //idle, fly
+    engThrottleRef[]  = {0.01, 0.09, 0.18}; //motor, idle, fly
+    //--Ng
     engNgRef[]        = {24.0, 52.0, 20.0, 67.4, 85.6}; //_motor, start, fuel, idle, fly
     engNgMaxTable[]   = 
     {
@@ -76,6 +77,7 @@ class bmkhs_config {
     ,{ 20.0, 102.2}
     ,{ 40.0, 102.2}
     };
+    //--Tgt
     engTgtRef[]       = {225.0, 641.0, 445.0, 517.0}; //off, start, idle, fly
     engTgtMaxTable[]  =
     {
