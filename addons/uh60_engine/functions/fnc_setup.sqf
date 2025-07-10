@@ -62,11 +62,11 @@ player addEventHandler ["SelectedRotorLibActionPerformed", {
 //SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuGenSwitchState",   "OFF");
 //SET_GLOBAL_DEFAULT("vtx_uh60_acft_apuGenState",         "OFF");
 //----Eng 1
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng1StarterState",    "OFF");
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng1StarterState",    "OFF");
 //SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng1GenSwitchState",  "OFF");
 //SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng1GenState",        "OFF");
 //----Eng 2
-SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng2StarterState",    "OFF");
+//SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng2StarterState",    "OFF");
 //SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng2GenSwitchState",  "OFF");
 //SET_GLOBAL_DEFAULT("vtx_uh60_acft_eng2GenState",        "OFF");
 //--Electical Bus

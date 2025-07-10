@@ -8,7 +8,7 @@
 
 #include "defines.hpp"
 params ["_vehicle", "_frameTime"];
-
+/*
 private _engNp  = [0.0, 0.0];
 private _engNg  = [0.0, 0.0];
 private _engTGT = [0.0, 0.0];
@@ -39,6 +39,7 @@ _vehicle setUserMFDvalue [47, (_engTGT # 1)];
     //Rotor RPM
     _rtrRPM = (_vehicle animationPhase "rotorCollectiveBlade1") * 1.025 / 10;
     _vehicle setUserMFDvalue [17, _rtrRPM * 100];
+    */
     /*
     HintSilent format ["SFM+
                         \nNg = %1
@@ -87,16 +88,16 @@ _vehicle setUserMFDvalue [47, (_engTGT # 1)];
 //     */
 // };
 
-if (!local _vehicle) exitWith {};
+//if (!local _vehicle) exitWith {};
 
 //Acft Module
-[_vehicle] call vtx_uh60_engine_fnc_acftSwitchStates;
-[_vehicle] call vtx_uh60_engine_fnc_acftEngLeverStates;
-[_vehicle] call vtx_uh60_engine_fnc_acftBattery; //<-- Call the battery bus
-[_vehicle] call vtx_uh60_engine_fnc_acftAPU;
-[_vehicle] call vtx_uh60_engine_fnc_acftGenController;
-[_vehicle] call vtx_uh60_engine_fnc_acftEngController;
-[_vehicle] call vtx_uh60_engine_fnc_acftSoundController;
-if (missionNamespace getVariable ["vtx_uh60_ui_showDebugMessages", false]) then {
-    [_vehicle] call vtx_uh60_engine_fnc_acftDebug;
-};
+//[_vehicle] call vtx_uh60_engine_fnc_acftSwitchStates;
+//[_vehicle] call vtx_uh60_engine_fnc_acftEngLeverStates;
+//[_vehicle] call vtx_uh60_engine_fnc_acftBattery; //<-- Call the battery bus
+//[_vehicle] call vtx_uh60_engine_fnc_acftAPU;
+//[_vehicle] call vtx_uh60_engine_fnc_acftGenController;
+//[_vehicle] call vtx_uh60_engine_fnc_acftEngController;
+//[_vehicle] call vtx_uh60_engine_fnc_acftSoundController;
+//if (missionNamespace getVariable ["vtx_uh60_ui_showDebugMessages", false]) then {
+//    [_vehicle] call vtx_uh60_engine_fnc_acftDebug;
+//};

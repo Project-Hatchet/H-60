@@ -3,4 +3,5 @@ PREP(perFrame);
 PREP(perSecond);
 PREP(setup);
 PREP(shutDown);
-PREP(systemsUpdate);
+PREP(updateDisplays);
+PREP(updateSystems);
