@@ -1,4 +1,22 @@
 
+/* ----------------------------------------------------------------------------
+Function: vtx_uh60_helisim_fnc_updateSystems
+
+Description:
+    ...
+
+Parameters:
+    ...
+
+Returns:
+    ...
+
+Examples:
+    ...
+
+Author:
+    BradMick
+---------------------------------------------------------------------------- */
 #include "\bmkhs_interact\headers\interact.hpp"
 
 params ["_heli"];

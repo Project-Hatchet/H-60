@@ -18,5 +18,8 @@ if !(
 /////////////////////////////////////////////////////////////////////////////////////////////
 [_vehicle] call vtx_uh60_helisim_fnc_updateSystems;
 [_vehicle] call vtx_uh60_helisim_fnc_updateDisplays;
+[_vehicle] call vtx_uh60_helisim_fnc_updateWarnings;
+[_vehicle] call vtx_uh60_helisim_fnc_updateCautions;
+[_vehicle] call vtx_uh60_helisim_fnc_updateAdvisories;
 
 true
