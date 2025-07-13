@@ -174,7 +174,7 @@ class bmkhs_config {
     numElements               = 6;
     rotorType[]               = {0, 1};                    //0 = main, 1 = tail, 2 = prop rotor
     rotorNumBlades[]          = {4, 4};
-    rotorGearRatio[]          = {81.00, 17.56};
+    rotorGearRatio[]          = {80.99, 17.57};
     rotorHeightAgl[]          = {2.87, 0.00};           //m
     rotorHitPoints[]          = {"HitHRotor", "HitVRotor"};
     rotorPivot[] =
@@ -188,15 +188,22 @@ class bmkhs_config {
      {-3.0,  0.0, 0.0}                  //deg, pitch, roll, yaw
     ,{ 0.0, 70.0, 0.0}                  //deg, pitch, roll, yaw
     };
+    rotorCollectivePitchAngles[] =
+    {
+     {   9.90,  25.90}
+    ,{  -15.6,  23.00}
+    };
+    rotorCyclicPitchAngles[]  = {-12.3, 16.5};
+    rotorCyclicRollAngles[]   = { -8.0,  8.0};
     //--
     rotorBladeRadius[]        = {  8.178,  1.676};           //m
     rotorBladeRootCutoutPct[] = {  0.140,  0.100};
     rotorBladeChord[]         = {  0.527,  0.247};           //m
     rotorBladePctChord[]      = {  0.400,  0.250};
+    rotorBladeTwist[]         = { -16.00,  -17.0};
     rotorBladeMass[]          = {107.226,  7.018};        //kg Mi-8 = 140kg per blade, Mi-8 Tail Rotor = 13.85kg per blade
-    rotorBladeHingeOffset[]   = {  0.05,   0.00};
-    rotorBladeCollPitch[]     = {   9.90, 25.90};
-/////////////////////////////////////////////////////////////////////////////////////////////
+    rotorBladeHingeOffset[]   = {   0.05,   0.00};
+     /////////////////////////////////////////////////////////////////////////////////////////////
 // Stabilator Data      /////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
     stabilator               = 1;    //0 or 1

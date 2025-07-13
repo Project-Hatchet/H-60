@@ -32,11 +32,11 @@ class CfgVehicles {
 			}; // modules
 		}; // hct_copilot
 
-    liftForceCoef          = 0.00;
-    bodyFrictionCoef       = 0.00;
-    cyclicAsideForceCoef   = 0.00;
-    cyclicForwardForceCoef = 0.00;
-    backRotorForceCoef     = 0.00;
+    liftForceCoef          = 0.00;//1.1;
+    bodyFrictionCoef       = 0.7;//0.00;
+    cyclicAsideForceCoef   = 0.00;//0.5;
+    cyclicForwardForceCoef = 0.00;//0.6;
+    backRotorForceCoef     = 0.00;//0.8;
 
     #include "bmkhs_uh60_config.hpp"
     //#include "\bmkhs_helisim\audio\sounds.hpp"
