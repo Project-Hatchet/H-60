@@ -1,4 +1,4 @@
-private _vehicle = vehicle player;
+private _vehicle = hct_vehicle;
 {
 	_x params ["_pylon", "_position", "_damageThreshold"];
 	private _ammo = _vehicle ammoOnPylon _pylon;
@@ -20,6 +20,6 @@ private _vehicle = vehicle player;
 } forEach [
 	[1, [-2, 2.4, -1.4], 0.5],
 	[2, [ 2, 2.4, -1.4], 0.5],
-	[48, [-2.8, 2.3, -1.4], 0.5],
-	[49, [ 2.8, 2.3, -1.4], 0.5]
+	[3, [-2.8, 2.3, -1.4], 0.5],
+	[4, [ 2.8, 2.3, -1.4], 0.5]
 ];
