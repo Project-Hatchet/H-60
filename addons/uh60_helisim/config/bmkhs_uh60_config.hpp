@@ -64,9 +64,10 @@ class bmkhs_config {
     engUseStartSwitch = 0;
     engStartTime      = 9.0;
     engTqRef          = 481.0;
-    //--Np
-    engNpRef[]        = {0.57, 1.00};       //idle, fly
     engThrottleRef[]  = {0.01, 0.09, 0.18}; //motor, idle, fly
+    //--Np
+    engDesignRpm      = 20900;
+    engNpTrimRef[]    = {0.57, 1.00};       //idle, fly
     //--Ng
     engNgRef[]        = {24.0, 52.0, 20.0, 67.4, 85.6}; //_motor, start, fuel, idle, fly
     engNgMaxTable[]   = 
@@ -87,7 +88,6 @@ class bmkhs_config {
     ,{ 20.0, 867.0, 896.0}
     ,{ 40.0, 867.0, 896.0}
     };
-    engDesignRPM      = 20900;
     engHitPoints[]    = {"hitEngine1", "hitEngine2"};
     //-----------------|--PA--|--MC TQ-|-MTA DE-|-MTA SE-|
     engPerfTable0[] = 
@@ -173,6 +173,7 @@ class bmkhs_config {
     numRotors                 = 2;
     numElements               = 6;
     rotorType[]               = {0, 1};                    //0 = main, 1 = tail, 2 = prop rotor
+    rotorAirfoilTable[]       = {2,2};
     rotorNumBlades[]          = {4, 4};
     rotorGearRatio[]          = {80.99, 17.57};
     rotorHeightAgl[]          = {2.87, 0.00};           //m
@@ -306,7 +307,7 @@ class bmkhs_config {
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Airfoil Data         /////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
-    airfoilTable01[] =    //NACA 0012 Airfoil - http://airfoiltools.com/polar/details?polar=xf-n0012-il-1000000
+    airfoilTable00[] = //NACA 0012 Airfoil - http://airfoiltools.com/polar/details?polar=xf-n0012-il-1000000
     {
     //------AoA-{0}--------CL-{1}--------CD-{2}--------CM {3}-----
         { -180.0,          0.0,           0.0,         0.0    },  //0  - DO NOT CHANGE!!
@@ -328,7 +329,7 @@ class bmkhs_config {
         {  180.0,          0.0,           0.0,         0.0    }   //16 - DO NOT CHANGE!!
     };
 
-    airfoilTable02[] =    //NACA 4412 Airfoil - http://airfoiltools.com/polar/details?polar=xf-naca4412-il-1000000
+    airfoilTable01[] = //NACA 4412 Airfoil - http://airfoiltools.com/polar/details?polar=xf-naca4412-il-1000000
     {
     //------AoA-{0}--------CL-{1}--------CD-{2}--------CM {3}-----
         { -180.0,          0.0,           0.0,         0.0     },  //0  - DO NOT CHANGE!!
@@ -345,6 +346,28 @@ class bmkhs_config {
         {   15.75,         1.66660,       0.04589,    -0.04510 },  //11 -
         {   17.5,          1.65480,       0.06793,    -0.04440 },  //12 -
         {   18.75,         1.60970,       0.09040,    -0.04820 },  //13 -
+        {   90.0,          0.0,           0.0,         0.0     },  //14 - DO NOT CHANGE!!
+        {  135.0,         -0.5,           -0.5,        0.0     },  //15 - DO NOT CHANGE!!
+        {  180.0,          0.0,            0.0,        0.0     }   //16 - DO NOT CHANGE!!
+    };
+
+    airfoilTable02[] = //SC1095 Airfoil - http://airfoiltools.com/polar/details?polar=xf-sc1095-il-500000
+    {
+    //------AoA-{0}--------CL-{1}--------CD-{2}--------CM {3}-----
+        { -180.0,          0.0,           0.0,         0.0     },  //0  - DO NOT CHANGE!!
+        { -135.0,          0.5,           0.5,         0.0     },  //1  - DO NOT CHANGE!!
+        {  -90.0,          0.0,           0.0,         0.0     },  //2  - DO NOT CHANGE!!
+        {  -15.25,        -0.88090,       0.13470,     0.03100 },  //3  -
+        {  -14.5,         -0.96870,       0.10227,     0.01390 },  //4  -
+        {  -12.25,        -1.14570,       0.03359,    -0.02600 },  //5  -
+        {  -10.0,         -1.00060,       0.01995,    -0.01870 },  //6  -
+        {   -5.0,         -0.49390,       0.01088,    -0.01170 },  //7  -
+        {    0.0,          0.07950,       0.00569,    -0.01230 },  //8  -
+        {    5.0,          0.63760,       0.01055,    -0.01160 },  //9  -
+        {   10.0,          1.16820,       0.01681,    -0.00910 },  //10 -
+        {   12.25,         1.32260,       0.02802,     0.00020 },  //11 -
+        {   13.0,          1.34090,       0.03258,     0.00590 },  //12 -
+        {   15.50,         1.22080,       0.08740,    -0.01850 },  //13 -
         {   90.0,          0.0,           0.0,         0.0     },  //14 - DO NOT CHANGE!!
         {  135.0,         -0.5,           -0.5,        0.0     },  //15 - DO NOT CHANGE!!
         {  180.0,          0.0,            0.0,        0.0     }   //16 - DO NOT CHANGE!!

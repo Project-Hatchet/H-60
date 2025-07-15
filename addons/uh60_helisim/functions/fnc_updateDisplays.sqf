@@ -42,8 +42,9 @@ _vehicle setUserMFDvalue [22, (_engTq # 0)];
 _vehicle setUserMFDvalue [48, (_engTq # 1)];
 
 //--Rotor RPM
-private _rtrRpm = (_vehicle animationPhase "rotorCollectiveBlade1") * 1.025 / 10;
-_vehicle setUserMFDvalue [17, _rtrRpm * 100];
+private _xmsnRpm   = _vehicle getVariable "bmkhs_xmsnRpm";
+private _designRpm = _vehicle getVariable "bmkhs_engDesignRpm";
+_vehicle setUserMFDvalue [17, (_xmsnRpm / _designRpm) * 100];
 /////////////////////////////////////////////////////////////////////////////////////////////
 // ESIS                 /////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
