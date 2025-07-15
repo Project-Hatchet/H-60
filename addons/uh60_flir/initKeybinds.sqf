@@ -1,3 +1,16 @@
+//addUserActionEventHandler ["transportNightVision", "Activate", vtx_uh60_flir_fnc_keyVisionMode];
+addUserActionEventHandler ["vehLockTurretView", "Activate", {
+  if (!vtx_uh60_flir_controllable) exitWith {};
+  if (vtx_uh60_flir_isInScriptedCamera) then {
+    [
+        AGLToASL positionCameraToWorld [0, 0, 0],
+        AGLToASL positionCameraToWorld [0, 0, 5000]
+    ] call vtx_uh60_flir_fnc_setStabilization;
+  } else {
+    [] call vtx_uh60_flir_fnc_setStabilization;
+  };
+}];
+
 [
     "UH-60M Blackhawk","vtx_uh60_flir_copilotCamera","Copilot Camera", // Control + Right click
     {

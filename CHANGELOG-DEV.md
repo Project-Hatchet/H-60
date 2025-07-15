@@ -1,3 +1,7 @@
+**0.7.5.5**
+
+ - Fix Stabilize Turret keybind needing T+Ctrl instead of responding to Ctrl+T
+ 
 **0.7.5.4**
 
  - Fix stuck master caution https://github.com/Project-Hatchet/H-60/issues/440

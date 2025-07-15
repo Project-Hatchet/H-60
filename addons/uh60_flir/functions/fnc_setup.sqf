@@ -125,10 +125,10 @@ _id = ["featureCamera", {
   call vtx_uh60_flir_fnc_setIsPipHidden;
   // Fix pip black screen
   if (_featureCamera == "" && {call vtx_uh60_mfd_fnc_isAnyFlirOpened}) then {
-    if (!isNil "vtx_uh60_flir_camera") then {
+    if (!isNil "vtx_uh60_flir_camera" || {isNull vtx_uh60_flir_camera}) then {
       call vtx_uh60_flir_fnc_pipStart;
     };
-    if (!isNil "vtx_uh60_mfd_slingCam") then {
+    if (!isNil "vtx_uh60_mfd_slingCam" || {isNull vtx_uh60_mfd_slingCam}) then {
       [hct_vehicle, true] call vtx_uh60_mfd_fnc_slingCam;
     };
   };
