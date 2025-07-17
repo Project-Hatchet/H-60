@@ -1,6 +1,7 @@
 **0.7.5.5**
 
  - Fix Stabilize Turret keybind needing T+Ctrl instead of responding to Ctrl+T
+ - Improve JVMF use CBA events instead of remoteExec
  
 **0.7.5.4**
 
