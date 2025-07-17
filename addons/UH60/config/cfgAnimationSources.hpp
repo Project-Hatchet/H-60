@@ -2,6 +2,7 @@ class AnimationSources {
   //#define ANIMSRC(name,src,per,init)
   ANIMSRC(cockpitlight_show,user,1,0);
   ANIMSRC(cabinlight_show,user,1,0);
+  ANIMSRC(PositionLight_Show,user,1,0);
   ANIMSRC(Hoist_Hook_hide,user,1,0);
   ANIMSRC(Door_LF,door,0.5,0);
   ANIMSRC(Door_RF,door,0.5,0);
