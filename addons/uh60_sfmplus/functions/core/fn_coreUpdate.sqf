@@ -28,7 +28,7 @@ DRAW_LINE = {
 
 //Input
 [_heli] call vtx_uh60_sfmplus_fnc_getInput;
-
+/*
 //Weight
 private _emptyMass = 0;
 private _partsMass = 0;
@@ -121,7 +121,7 @@ if (local _heli) then {
 
 //Damage
 [_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_damageApply;
-
+*/
 //Stabilator
 if(vtx_uh60_sfmPlusStabilatorEnabled == STABILTOR_MODE_ALWAYSENABLED
 	|| vtx_uh60_sfmPlusStabilatorEnabled == STABILTOR_MODE_JOYSTICKONLY && !vtx_uh60_sfmPlusKeyboardOnly) then {
@@ -169,4 +169,4 @@ hintsilent format ["v0.11
 #endif
 
 //Standby Inst
-[_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_standbyInst;
+//[_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_standbyInst;
