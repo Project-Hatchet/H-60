@@ -171,7 +171,7 @@ class bmkhs_config {
 // Rotor Data           /////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
     numRotors                 = 2;
-    numElements               = 6;
+    numElements[]             = {4,1};
     rotorType[]               = {0, 1};                    //0 = main, 1 = tail, 2 = prop rotor
     rotorAirfoilTable[]       = {2,2};
     rotorNumBlades[]          = {4, 4};
