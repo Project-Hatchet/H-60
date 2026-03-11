@@ -1,3 +1,7 @@
+**0.7.5.6**
+
+ - Fix visual glitch when smoke is behind blurred rotors
+ 
 **0.7.5.5**
 
  - Fix Stabilize Turret keybind needing T+Ctrl instead of responding to Ctrl+T
