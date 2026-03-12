@@ -36,6 +36,9 @@ if (_show) then {
   [vtx_uh60_flir_pipEffect, false] call vtx_uh60_flir_fnc_setVisionMode;
   vtx_uh60_flir_isInScriptedCamera = true;
 
+  ["unit", {
+    [false] call vtx_uh60_flir_fnc_scriptedCamera;
+  }] call CBA_fnc_addPlayerEventHandler;
 } else {
 
   vtx_uh60_flir_camera cameraEffect ["terminate", "back"];
