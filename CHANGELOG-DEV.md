@@ -1,6 +1,8 @@
 **0.7.5.6**
 
  - Fix visual glitch when smoke is behind blurred rotors
+ - Fix scripted camera crosshairs persisting
+ - Improve distance LODs
  
 **0.7.5.5**
 
