@@ -172,3 +172,16 @@ _action = ["vtx_skis_add","Install Skis", "", {(_target) animateSource ["skis_sh
 ["vtx_H60_base", 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
 _action = ["vtx_skis_remove","Uninstall Skis", "", {(_target) animateSource ["skis_show", 0];}, {((_target) animationSourcePhase "skis_show") > 0.9}, nil, [parameters], [1.33319,2.8541,-1.6735]] call ace_interact_menu_fnc_createAction;
 ["vtx_H60_base", 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
+
+if (vtx_uh60_misc_setting_FoldInteractionComplexity == 0) then {
+  private _modifierFunc = {
+    params ["_target", "_player", "_params", "_actionData"];
+    if ([_target, ACE_player] call vtx_uh60_misc_fnc_canUnfold) then {
+
+      _actionData set [1, "Unfold"];
+      _actionData set [3, {[_target, 0] call vtx_uh60_misc_fnc_fold;}];
+    };
+  };
+  _action = ["vtx_fold_blades", "Fold", "", {[_target, 1] call vtx_uh60_misc_fnc_fold;}, {[_target, ACE_player] call vtx_uh60_misc_fnc_canFold}, nil, [], "velka osa", 3, [false, false, false, false, false], _modifierFunc] call ace_interact_menu_fnc_createAction;
+  ["vtx_H60_base", 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
+};

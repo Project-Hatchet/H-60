@@ -580,4 +580,19 @@ class AnimationSources: AnimationSources {
     initPhase = 0;
   };
   class window_r_ffv: window_l_ffv {};
+  class RotorHFold {
+    source="user";
+    animPeriod=5;
+    initPhase=0;
+  };
+  class RotorVFold: RotorHFold {};
+  class Fold_Stabilator_rotate: RotorHFold {};
+  class Fold_Stabilator_l: RotorHFold {};
+  class Fold_Stabilator_r: RotorHFold {};
+  class Fold_TailRotorOut: RotorHFold {};
+  class Fold_TailRotorRotate: RotorHFold {};
+  class Fold_Blade3: RotorHFold {};
+  class Fold_Blade4: RotorHFold {};
+  class Fold_Blade1: RotorHFold {animPeriod=10;};
+  class Fold_Blade2: Fold_Blade1 {};
 };

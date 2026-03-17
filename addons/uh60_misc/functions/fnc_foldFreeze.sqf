@@ -1,20 +1,22 @@
 /*
  * Author: Ampersand
- * Checks if a helicopter is fully unfolded.
+ * Freeze the folding animation
  *
  * Arguments:
  * 0: Helicopter <OBJECT>
  *
  * Return Value:
- * 0: Success <BOOLEAN>
+ * None
  *
  * Example:
- * [_heli] call vtx_uh60_misc_fnc_isUnfolded
+ * [cursorObject] call vtx_uh60_misc_fnc_foldFreeze;
  */
 
 params ["_heli"];
 
 [
+  "RotorHFold",
+  "RotorVFold",
   "Fold_Blade1",
   "Fold_Blade2",
   "Fold_Blade3",
@@ -24,4 +26,4 @@ params ["_heli"];
   "Fold_Stabilator_r",
   "Fold_TailRotorOut",
   "Fold_TailRotorRotate"
-] findIf {_heli animationSourcePhase _x > 0} == -1
+] apply {_heli animateSource [_x, _heli animationSourcePhase _x, true]};

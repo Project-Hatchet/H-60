@@ -87,7 +87,7 @@ class Attributes: Attributes {
     control = "Checkbox";
     defaultValue = "(false)";
     displayName = "Fold Rotor Blades";
-    expression = "_this animateSource ['Fold_source', parseNumber _value, true];";
+    expression = "[_this, parseNumber _value, true] call vtx_uh60_misc_fnc_fold;";
     property = "vtx_uh60_FoldRotorBlades";
     tooltip = "Fold the rotor blades to reduce footprint.";
     typeName = "BOOL";

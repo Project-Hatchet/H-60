@@ -13,5 +13,8 @@
         <Key ID="STR_VTX_UH60_MISC_FoldInteractionSeparate">
             <English>Separate interactions for each step of process</English>
         </Key>
+        <Key ID="STR_VTX_UH60_MISC_FoldingRotors">
+            <English>Folding Rotors</English>
+        </Key>
     </Package>
 </Project>

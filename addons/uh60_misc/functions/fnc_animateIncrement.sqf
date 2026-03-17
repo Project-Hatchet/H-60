@@ -14,8 +14,10 @@ if (_animation in animationNames _vehicle) exitWith {
   _vehicle animate [_animation, _phase + _increment];
 };
 
-diag_log [
-  "vtx_uh60_misc_fnc_animateIncrement: Animation does not exist",
-  typeOf _vehicle,
-  _animation
-];
+#ifdef DEBUG_MODE_FULL
+  diag_log [
+    "vtx_uh60_misc_fnc_animateIncrement: Animation does not exist",
+    typeOf _vehicle,
+    _animation
+  ];
+#endif

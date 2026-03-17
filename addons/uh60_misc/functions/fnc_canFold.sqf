@@ -10,7 +10,10 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_heli, ACE_player] call vtx_uh60_misc_fnc_canFold
+ * [cursorObject, ACE_player] call vtx_uh60_misc_fnc_canFold
  */
 
-params ["_vehicle", "_unit"];
+params ["_heli", "_unit"];
+
+_heli animationSourcePhase "rpm" == 0
+&& {"ToolKit" in (items _unit)}

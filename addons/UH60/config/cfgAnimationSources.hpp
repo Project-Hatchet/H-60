@@ -14,12 +14,6 @@ class AnimationSources {
   };
   ANIMSRC(rotorHide_User,user,1,0);
   ANIMSRC(tailRotorHide_User,user,1,0);
-  // Fold rotor blades
-  class Fold_source {
-      animPeriod = 10;
-      initPhase = 0;
-      source = "user";
-  };
   // Rotate rotor hub to folding alignment
   class RotorHFold {
       animPeriod = 1;

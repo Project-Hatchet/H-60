@@ -1,20 +1,21 @@
 /*
  * Author: Ampersand
- * Checks if a helicopter is fully unfolded.
+ * Checks if a unit can unfold rotors
  *
  * Arguments:
  * 0: Helicopter <OBJECT>
+ * 1: Unit <OBJECT>
  *
  * Return Value:
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_heli] call vtx_uh60_misc_fnc_isUnfolded
+ * [cursorObject, ACE_player] call vtx_uh60_misc_fnc_canUnfold
  */
 
-params ["_heli"];
+params ["_heli", "_unit"];
 
-[
+selectMax ([
   "Fold_Blade1",
   "Fold_Blade2",
   "Fold_Blade3",
@@ -24,4 +25,6 @@ params ["_heli"];
   "Fold_Stabilator_r",
   "Fold_TailRotorOut",
   "Fold_TailRotorRotate"
-] findIf {_heli animationSourcePhase _x > 0} == -1
+] apply {
+  _heli animationSourcePhase _x
+}) > 0
