@@ -26,7 +26,53 @@ if (_speed isEqualTo -1) exitWith {
   [_heli] call vtx_uh60_misc_fnc_foldFreeze;
 };
 
-private _foldTime = 15;
+private _fnc_getAnimsTime = {
+  params ["_heli", "_animInfo"];
+
+  private _cfg = configOf _heli >> "AnimationSources";
+  selectMax (_animInfo apply {
+    _x params ["_name", "_phase"];
+    private _animPeriod = getNumber (_cfg >> _name >> "animPeriod");
+    abs ((_heli animationSourcePhase _name) - _phase) * _animPeriod;
+  })
+};
+
+private _foldTime = switch (_phase) do {
+  case 0: {
+    ([_heli, [
+      ["Fold_Blade1", 0],
+      ["Fold_Blade2", 0],
+      ["Fold_Stabilator_l", 0],
+      ["Fold_Stabilator_r", 0],
+      ["Fold_TailRotorRotate", 0]
+    ]] call _fnc_getAnimsTime) + ([_heli, [
+      ["Fold_Blade3", 0],
+      ["Fold_Blade4", 0],
+      ["Fold_Stabilator_rotate", 0],
+      ["Fold_TailRotorOut", 0]
+    ]] call _fnc_getAnimsTime);
+  };
+  case 1: {
+    ([_heli, [
+      ["RotorHFold", -((_heli animationSourcePhase "rotorh") mod 1 + 0.125)],
+      ["RotorVFold", -((_heli animationSourcePhase "rotorv") mod 1)]
+    ]] call _fnc_getAnimsTime) + ([_heli, [
+      ["Fold_Blade1", 1],
+      ["Fold_Blade2", 1],
+      ["Fold_Stabilator_l", 1],
+      ["Fold_Stabilator_r", 1],
+      ["Fold_TailRotorRotate", 1]
+    ]] call _fnc_getAnimsTime) + ([_heli, [
+      ["Fold_Blade3", 1],
+      ["Fold_Blade4", 1],
+      ["Fold_Stabilator_rotate", 1],
+      ["Fold_TailRotorOut", 1]
+    ]] call _fnc_getAnimsTime);
+  };
+  default { 15 }
+};
+systemChat str _foldTime;
+
 private _fnc_onFinish = {
     (_this select 0) params ["_unit", "_heli"];
 
@@ -42,6 +88,7 @@ private _fnc_condition = {
 };
 [(_foldTime + 0.5), [ACE_player, _heli], _fnc_onFinish, _fnc_onFailure, localize LSTRING(FoldingRotors), _fnc_condition] call ace_common_fnc_progressBar;
 
+// Unfold
 if (_phase == 0) exitWith {
   _target = [];
   [
@@ -84,6 +131,7 @@ if (_phase == 0) exitWith {
   }] call CBA_fnc_waitUntilAndExecute;
 };
 
+// Fold
 private _delay = 0;
 private _target = [];
 
