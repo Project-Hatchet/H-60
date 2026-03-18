@@ -5,6 +5,7 @@
  - Improve distance LODs
  - Add Roadway LOD to roof and cabin deck
  - Add ACE action for fold and unfold with progress bar
+ - Add keybinds for adjusting Flight Director modes
  
 **0.7.5.5**
 
