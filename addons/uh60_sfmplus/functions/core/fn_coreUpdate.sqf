@@ -120,7 +120,9 @@ if (local _heli) then {
 };
 
 //Damage
-[_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_damageApply;
+if (missionNamespace getVariable ["vtx_uh60_sfmplus_allowDamage",true]) then {
+    [_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_damageApply;
+};
 
 //Stabilator
 if(vtx_uh60_sfmPlusStabilatorEnabled == STABILTOR_MODE_ALWAYSENABLED
