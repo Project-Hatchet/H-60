@@ -138,6 +138,11 @@ _id = ["featureCamera", {
 }] call CBA_fnc_addPlayerEventHandler;
 vtx_uh60_flir_playerCBAEHs pushBack ["featureCamera", _id];
 
+_id = ["unit", {
+  [false] call vtx_uh60_flir_fnc_scriptedCamera;
+}] call CBA_fnc_addPlayerEventHandler;
+vtx_uh60_flir_playerCBAEHs pushBack ["unit", _id];
+
 //params ["_unit", "_isVisibleMap"]; // true, false
 _id = ["visibleMap", {
   params ["", "_isVisibleMap"];
