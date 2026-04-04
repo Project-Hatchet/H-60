@@ -410,6 +410,18 @@ class interaction {
            buttonUp="[(_this # 0), ""HDG""] call vtx_uh60_fd_fnc_psync;";
         }; // KnobFDRight_IAS
         class KnobFDLeftHDG : KnobFDRightHDG {position="knob_fdL_5";};// KnobFDLeftHDG
+        class Wipers {
+            positionType="static";
+            position="axis_knob_wiper";
+            label="Wipers";
+            radius=BTN_RADIUS_SWITCH;
+            animation="Wipers";
+            animSpeed=0;
+            animStates[] = {0, 1};
+            animLabels[] = {"OFF", "ON"};
+            animEnd="";
+            clickSound="hct_Switch_Sound_3";
+        }; // Wipers
         class toCabin {
           condition = "isNull (hct_vehicle turretUnit [1]) || {isNull (hct_vehicle turretUnit [2])}";
           positionType = "coordinates";

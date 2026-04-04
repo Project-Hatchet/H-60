@@ -1,3 +1,7 @@
+**0.7.5.6**
+
+ - Add wipers and knob animation
+
 **0.7.5.5**
 
  - Removed Roadway LOD to roof and cabin deck

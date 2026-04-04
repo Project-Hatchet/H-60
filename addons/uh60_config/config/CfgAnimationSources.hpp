@@ -358,9 +358,8 @@ class AnimationSources: AnimationSources {
   class CautionEng1Out:ACCLow{};
   class CautionEng2Out:ACCLow{};
   class CautionFire:ACCLow{};
-  class CautionMasterCaution:ACCLow{
-    initPhase = 0;
-  };
+  class CautionMasterCaution:ACCLow{};
+  class Wipers:ACCLow{};
   class Gauge_temp {
     source="user";
     animPeriod=1;
