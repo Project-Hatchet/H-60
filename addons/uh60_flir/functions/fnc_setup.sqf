@@ -105,16 +105,15 @@ _id = ["cameraView", {
   params ["_unit", "_newView", "_oldView"];
   call vtx_uh60_flir_fnc_setIsPipHidden;
 
-  if (vtx_uh60_flir_playerIsPilot) then {
-    if (_newView == "GUNNER") then {
-      15 cutRsc ["vtx_uh60_flir_crossHair", "PLAIN"];
-      //"filmGrain" ppEffectAdjust [0.5, 2, 1, 1, 1];
-      //"filmGrain" ppEffectCommit 0;
-      //"filmGrain" ppEffectEnable true;
-    } else {
-      //"filmGrain" ppEffectEnable false;
-      15 cutText ["", "PLAIN"];
-    };
+  if !(vtx_uh60_flir_playerIsPilot && {vtx_uh60_flir_controllable}) exitWith {};
+  if (_newView == "GUNNER") then {
+    15 cutRsc ["vtx_uh60_flir_crossHair", "PLAIN"];
+    //"filmGrain" ppEffectAdjust [0.5, 2, 1, 1, 1];
+    //"filmGrain" ppEffectCommit 0;
+    //"filmGrain" ppEffectEnable true;
+  } else {
+    //"filmGrain" ppEffectEnable false;
+    15 cutText ["", "PLAIN"];
   };
 }] call CBA_fnc_addPlayerEventHandler;
 vtx_uh60_flir_playerCBAEHs pushBack ["cameraView", _id];
@@ -126,10 +125,10 @@ _id = ["featureCamera", {
   call vtx_uh60_flir_fnc_setIsPipHidden;
   // Fix pip black screen
   if (_featureCamera == "" && {call vtx_uh60_mfd_fnc_isAnyFlirOpened}) then {
-    if (!isNil "vtx_uh60_flir_camera") then {
+    if (!isNil "vtx_uh60_flir_camera" || {isNull vtx_uh60_flir_camera}) then {
       call vtx_uh60_flir_fnc_pipStart;
     };
-    if (!isNil "vtx_uh60_mfd_slingCam") then {
+    if (!isNil "vtx_uh60_mfd_slingCam" || {isNull vtx_uh60_mfd_slingCam}) then {
       [hct_vehicle, true] call vtx_uh60_mfd_fnc_slingCam;
     };
   };
@@ -138,6 +137,11 @@ _id = ["featureCamera", {
   };
 }] call CBA_fnc_addPlayerEventHandler;
 vtx_uh60_flir_playerCBAEHs pushBack ["featureCamera", _id];
+
+_id = ["unit", {
+  [false] call vtx_uh60_flir_fnc_scriptedCamera;
+}] call CBA_fnc_addPlayerEventHandler;
+vtx_uh60_flir_playerCBAEHs pushBack ["unit", _id];
 
 //params ["_unit", "_isVisibleMap"]; // true, false
 _id = ["visibleMap", {

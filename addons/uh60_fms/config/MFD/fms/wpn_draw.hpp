@@ -5,121 +5,22 @@ TEXT_FMS_C(HEADER_TEXT,0.5,FMS_YHEAD)
 
 class STORES {
     source = "static";
-    text = "";};
+    text = "";
+};
 
 #define GROUP_STATION_SELECTED_BLINK type = "group"; \
   blinkingPattern[] = {0.2, 0.2}; \
   blinkingStartsOn = 1; \
   color[] = {0, 0, 0, 1}
 
-TEXT_FMS_L(STA1_LBL,FMS_MARGIN_L,FMS_Y1)
-	source = "pylonMagazineNameShort";
-  sourceIndex = 1;
-  sourceScale = 1;
-}; // STA1_LBL
-TEXT_FMS_L(STA1_AMMO,FMS_MARGIN_L,FMS_Y12)
-	source = "pylonAmmo";
-  sourceIndex = 1;
-  sourceScale = 1;
-}; // STA1_AMMO
-class Sta1_sel {
-  condition = "pylonSelected1";
-  GROUP_STATION_SELECTED_BLINK;
-
-  TEXT_FMS_L(STA1_LBL,FMS_MARGIN_L,FMS_Y1)
-    source = "pylonMagazineNameShort";
-    sourceIndex = 1;
-    sourceScale = 1;
-  }; // STA1_LBL
-  TEXT_FMS_L(STA1_AMMO,FMS_MARGIN_L,FMS_Y12)
-    source = "pylonAmmo";
-    sourceIndex = 1;
-    sourceScale = 1;
-  }; // STA1_AMMO
-};
-
-TEXT_FMS_R(STA2_LBL,FMS_MARGIN_R,FMS_Y1)
-	source = "pylonMagazineNameShort";
-  sourceIndex = 2;
-  sourceScale = 1;
-}; // STA2_LBL
-TEXT_FMS_R(STA2_AMMO,FMS_MARGIN_R,FMS_Y12)
-	source = "pylonAmmo";
-  sourceIndex = 2;
-  sourceScale = 1;
-}; // STA2_AMMO
-class Sta2_sel {
-  condition = "pylonSelected2";
-  GROUP_STATION_SELECTED_BLINK;
-  TEXT_FMS_R(STA2_LBL,FMS_MARGIN_R,FMS_Y1)
-    source = "pylonMagazineNameShort";
-    sourceIndex = 2;
-    sourceScale = 1;
-  }; // STA2_LBL
-  TEXT_FMS_R(STA2_AMMO,FMS_MARGIN_R,FMS_Y12)
-    source = "pylonAmmo";
-    sourceIndex = 2;
-    sourceScale = 1;
-  }; // STA2_AMMO
-};
-
-#ifdef SOURCEINDEX
-  #undef SOURCEINDEX
+#ifdef FMS_PYLONS_2
+  #include "wpn_draw_pylons_in.hpp"
 #endif
-#define SOURCEINDEX 3
-TEXT_FMS_L(STA3_LBL,FMS_MARGIN_L,FMS_Y2)
-	source = "pylonMagazineNameShort";
-  sourceIndex = SOURCEINDEX;
-  sourceScale = 1;
-}; // STA3_LBL
-TEXT_FMS_L(STA3_AMMO,FMS_MARGIN_L,FMS_Y22)
-	source = "pylonAmmo";
-  sourceIndex = SOURCEINDEX;
-  sourceScale = 1;
-}; // STA3_AMMO
-class Sta3_sel {
-  condition = "pylonSelected3";
-  GROUP_STATION_SELECTED_BLINK;
-  TEXT_FMS_L(STA3_LBL,FMS_MARGIN_L,FMS_Y2)
-    source = "pylonMagazineNameShort";
-    sourceIndex = SOURCEINDEX;
-    sourceScale = 1;
-  }; // STA3_LBL
-  TEXT_FMS_L(STA3_AMMO,FMS_MARGIN_L,FMS_Y22)
-    source = "pylonAmmo";
-    sourceIndex = SOURCEINDEX;
-    sourceScale = 1;
-  }; // STA3_AMMO
-};
 
-#ifdef SOURCEINDEX
-  #undef SOURCEINDEX
+#ifdef FMS_PYLONS_4
+  #include "wpn_draw_pylons_in.hpp"
+  #include "wpn_draw_pylons_out.hpp"
 #endif
-#define SOURCEINDEX 4
-TEXT_FMS_R(STA4_LBL,FMS_MARGIN_R,FMS_Y2)
-	source = "pylonMagazineNameShort";
-  sourceIndex = SOURCEINDEX;
-  sourceScale = 1;
-}; // STA4_LBL
-TEXT_FMS_R(STA4_AMMO,FMS_MARGIN_R,FMS_Y22)
-	source = "pylonAmmo";
-  sourceIndex = SOURCEINDEX;
-  sourceScale = 1;
-}; // STA4_AMMO
-class Sta4_sel {
-  condition = "pylonSelected4";
-  GROUP_STATION_SELECTED_BLINK;
-  TEXT_FMS_R(STA4_LBL,FMS_MARGIN_R,FMS_Y2)
-    source = "pylonMagazineNameShort";
-    sourceIndex = SOURCEINDEX;
-    sourceScale = 1;
-  }; // STA4_LBL
-  TEXT_FMS_R(STA4_AMMO,FMS_MARGIN_R,FMS_Y22)
-    source = "pylonAmmo";
-    sourceIndex = SOURCEINDEX;
-    sourceScale = 1;
-  }; // STA4_AMMO
-};
 
 #define FMS_X_AMMO 0.6
 TEXT_FMS_R(CM_LBL,0.5,FMS_Y32)
@@ -148,7 +49,15 @@ TEXT_FMS_L(CM_2_AMMO,FMS_X_AMMO,FMS_Y4)
   text = "";
 }; // CMW2_AMMO
 class CMW2_sel {
-  condition = "1 - pylonSelected1 - pylonSelected2 - pylonSelected3 - pylonSelected4 - mgun";
+  #ifdef FMS_PYLONS_2
+    condition = "1 - pylonSelected1 - pylonSelected2 - mgun";
+  #endif
+  #ifdef FMS_PYLONS_4
+    condition = "1 - pylonSelected1 - pylonSelected2 - pylonSelected3 - pylonSelected4 - mgun";
+  #endif
+  #ifdef FMS_PYLONS_0
+    condition = "0";
+  #endif
   GROUP_STATION_SELECTED_BLINK;
   TEXT_FMS_R(CM_2_LBL,0.5,FMS_Y4)
     source = "cmWeapon";
@@ -177,7 +86,15 @@ TEXT_FMS_L(CM_3_AMMO,FMS_X_AMMO,FMS_Y42)
   text = "";
 }; // CMW3_AMMO
 class CMW3_sel {
-  condition = "(1 -(pylonSelected1 - pylonSelected2 - pylonSelected3 - pylonSelected4)) * mgun";
+  #ifdef FMS_PYLONS_2
+    condition = "1 - pylonSelected1 - pylonSelected2 - mgun";
+  #endif
+  #ifdef FMS_PYLONS_4
+    condition = "1 - pylonSelected1 - pylonSelected2 - pylonSelected3 - pylonSelected4 - mgun";
+  #endif
+  #ifdef FMS_PYLONS_0
+    condition = "0";
+  #endif
   GROUP_STATION_SELECTED_BLINK;
   TEXT_FMS_R(CM_3_LBL,0.5,FMS_Y42)
     source = "cmWeapon";

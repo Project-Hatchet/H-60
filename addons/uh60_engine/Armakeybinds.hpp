@@ -299,7 +299,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_SearchLight_Up {
     displayName = "Search Light Up";
 		tooltip = "Rotate the Search light forward.";
-		onActivate = "[hct_vehicle, 'Searchlight_elev', rad 5] call vtx_uh60_misc_fnc_animateIncrement";		// _this is always true.
+		onActivate = "[hct_vehicle, 'searchlight_elev', rad 5] call vtx_uh60_misc_fnc_animateIncrement";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -307,7 +307,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_SearchLight_Down {
     displayName = "Search Light Down";
 		tooltip = "Rotate the Search light rearward.";
-		onActivate = "[hct_vehicle, 'Searchlight_elev', rad -5] call vtx_uh60_misc_fnc_animateIncrement";		// _this is always true.
+		onActivate = "[hct_vehicle, 'searchlight_elev', rad -5] call vtx_uh60_misc_fnc_animateIncrement";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -315,7 +315,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_SearchLight_Right {
     displayName = "Search Light Right";
 		tooltip = "Rotate the Search light light.";
-		onActivate = "[hct_vehicle, 'Searchlight_turn', rad -5] call vtx_uh60_misc_fnc_animateIncrement";		// _this is always true.
+		onActivate = "[hct_vehicle, 'searchlight_turn', rad -5] call vtx_uh60_misc_fnc_animateIncrement";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -323,7 +323,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_SearchLight_Left {
     displayName = "Search Light Left";
 		tooltip = "Rotate the Search light left.";
-		onActivate = "[hct_vehicle, 'Searchlight_turn', rad 5] call vtx_uh60_misc_fnc_animateIncrement";		// _this is always true.
+		onActivate = "[hct_vehicle, 'searchlight_turn', rad 5] call vtx_uh60_misc_fnc_animateIncrement";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).

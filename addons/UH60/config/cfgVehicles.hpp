@@ -36,14 +36,6 @@ class CfgVehicles {
     };
 
     class vtx_H60_base: Heli_Transport_01_base_F {
-        // scope = 2;
-        // #include "edenAttributes.hpp"
-        // side = 1;
-        // faction = "BLU_F";
-        // category = "Air";
-        // displayName = "$STR_VTX_UH60_UHMBlackhawk";
-        // model = "\z\vtx\addons\UH60\vtx_UH60.p3d";
-
         #include "cfgUVAnimations.hpp"
         #include "CfgUserActions.hpp"
         #include "edenAttributes.hpp"
@@ -51,26 +43,18 @@ class CfgVehicles {
         class VTX_H60_HDTS_Copilot;
         #include "cfghct.hpp"
         memoryPointDriverOptics = "slingcam";
-        // driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         class vtx_templateFLIR {
             #include "turrets\pilotCamera.hpp"
         };
         driverDoor = "Door_RF";
-        cargoDoors[] = {"cabindoor_L", "cabindoor_R"};
         scope=1;
-        category = "Air";
         editorSubcategory = "vtx_h60";
         side = 1;
         faction = "BLU_F";
+        features = "";
         armor = 600;
         armorStructural = 4;
-        type = VAir;
         threat[] = {0.8,0.2,0.5};
-        crewVulnerable = 1;
-        crewCrashProtection = 0.25;
-        visualTarget = 1;
-        visualTargetSize = 1.0;
-        ///damageResistance = 0.002;
         epeImpulseDamageCoef = 0;
         altFullForce = 1500;	/// in what height do the engines still have full thrust
         altNoForce = 4000;		/// thrust of the engines interpolates to zero between altFullForce and altNoForce
@@ -204,27 +188,20 @@ class CfgVehicles {
         icon = "z\vtx\addons\UH60\Data\UI\Map_vtx_UH60_CA.paa";	/// icon in map/editor
         picture = "z\vtx\addons\UH60\Data\UI\vtx_UH60_CA.paa";	/// small picture in command menu
 
-        hideProxyInCombat = 0;
-        viewDriverInExternal = 1;
-        viewGunnerInExternal = 1;
-        canHideDriver = 0;
         driverInAction = UH60_Pilot;
         driverAction = UH60_Pilot;
         driverRightHandAnimName="Cyclic_right";
         driverLeftHandAnimName="Collective_right";
         driverLeftLegAnimName="Pedal_Left_P";
         driverRightLegAnimName="Pedal_Right_P";
-        precisegetinout = 0;
         transportSoldier = 10;
 
         crew = vtx_uh60_pilot;
         typicalCargo[]={vtx_uh60_doorgunner,vtx_uh60_doorgunner,vtx_uh60_doorgunner};
-        gunnerAction = UH60_Gunner;
-        gunnerInAction = UH60_Gunner;
         transportMaxBackpacks = 11;
         cargoAction[] = {"passenger_low01", "passenger_generic01_leanleft", "passenger_generic01_leanleft", "passenger_generic01_leanright", "passenger_generic01_foldhands", "passenger_mantisrear", "passenger_mantisrear", "passenger_generic01_foldhands"};
 
-        cargoIsCoDriver[]={0,0};
+        // cargoIsCoDriver[]={0,0};
         memoryPointsGetInDriver    = "pos Driver";
         memoryPointsGetInDriverDir    = "pos Driver dir";
 
@@ -256,9 +233,9 @@ class CfgVehicles {
           "pos Cargo R dir",
           "pos Cargo R dir"
         };
-        hideWeaponsCargo = 1;
-        cargoCanEject = 1;
-        driverCanEject = 0;
+        // hideWeaponsCargo = 1;
+        // cargoCanEject = 1;
+        // driverCanEject = 0;
         selectionFireAnim = "";
         selectionHRotorStill	="rotorBlades";
         selectionHRotorMove		="rotorBlurred";
@@ -489,6 +466,26 @@ class CfgVehicles {
                 springDamperRate			= SUSPENSION_SPRUNG_MASS * 4;
             };
         }; // Wheels
+
+        // * Intentionally left out - incorrect previous usage
+        // cargoDoors[] = {"cabindoor_L", "cabindoor_R"}; // It's annoying to have the doors open/close for every enter/exit. This is already prevented by defining these inside class AnimationSources
+        // category = "Air"; // For Modules
+        // gunnerAction = UH60_Gunner;
+        // gunnerInAction = UH60_Gunner;
+
+        // * Intentionally left out - same as heli base
+        // hideProxyInCombat = 0;
+        // viewDriverInExternal = 0;
+        // viewGunnerInExternal = 0;
+        // canHideDriver = 0;
+        // precisegetinout = 0;
+        // type = VAir;
+        // crewVulnerable = 1;
+        // crewCrashProtection = 0.25;
+        // visualTarget = 1;
+        // visualTargetSize = 1.0;
+        ///damageResistance = 0.002;
+
     }; // vtx_H60_base
 
     class vtx_UH60M : vtx_H60_base {

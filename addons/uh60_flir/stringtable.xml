@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="VTX">
+    <Package name="UH60_FLIR">
+        <Key ID="STR_VTX_UH60_FLIR_UseScriptedCamera">
+            <English>Use Scripted Camera</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_UseScriptedCamera_Tooltip">
+            <English>Use scripted camera for FLIR view instead of pilot camera and turret optics.</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_AimSlewBlockMouse">
+            <English>FLIR Aim Slew Block Mouse</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_AimSlewBlockMouse_Tooltip">
+            <English>Block mouse from moving the cyclic while slewing FLIR. Not needed if Aim Slew key is same as ACE Interaction key.</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_SyncDelay">
+            <English>Sync Delay</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_SyncDelay_Tooltip">
+            <English>Delay in seconds between each sync of pilot camera state between two player pilots. Higher is less network load.</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_AimSlewSpeed">
+            <English>FLIR Aim Slew Speed</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_AimSlewSpeed_Tooltip">
+            <English>Sensitivity when slewing the FLIR using mouse or 'Aim (Up|Down|Left|Right)' inputs.</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_AimXFactor">
+            <English>FLIR Aim Slew Pan Speed</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_AimSlewSpeed_Tooltip">
+            <English>Sensitivity when slewing the FLIR using mouse or 'Aim (Up|Down|Left|Right)' inputs.</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_KeySlewSpeed">
+            <English>FLIR Key Slew Speed</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_KeySlewSpeed_Tooltip">
+            <English>Sensitivity when slewing the FLIR using the mod's keybinds.</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_KeyXFactor">
+            <English>FLIR Key Slew Pan Speed</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_KeyXFactor_Tooltip">
+            <English>Sensitivity multiplier for pan vs tilt. Use this to adjust diagonal movement.</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_AnimateTurret">
+            <English>Animate Turret</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_AnimateTurret_Tooltip">
+            <English>Animate the FLIR pod model. Small performance savings if unchecked.</English>
+        </Key>
+    </Package>
+</Project>

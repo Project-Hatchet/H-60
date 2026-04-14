@@ -2,6 +2,7 @@ class AnimationSources {
   //#define ANIMSRC(name,src,per,init)
   ANIMSRC(cockpitlight_show,user,1,0);
   ANIMSRC(cabinlight_show,user,1,0);
+  ANIMSRC(PositionLight_Show,user,1,0);
   ANIMSRC(Hoist_Hook_hide,user,1,0);
   ANIMSRC(Door_LF,door,0.5,0);
   ANIMSRC(Door_RF,door,0.5,0);
@@ -13,12 +14,6 @@ class AnimationSources {
   };
   ANIMSRC(rotorHide_User,user,1,0);
   ANIMSRC(tailRotorHide_User,user,1,0);
-  // Fold rotor blades
-  class Fold_source {
-      animPeriod = 10;
-      initPhase = 0;
-      source = "user";
-  };
   // Rotate rotor hub to folding alignment
   class RotorHFold {
       animPeriod = 1;

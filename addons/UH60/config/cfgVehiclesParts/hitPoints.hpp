@@ -1,8 +1,8 @@
 #define MULTIPLIER (1/15)
 class HitPoints
-{		
-	class hithrotor 	
-	{	
+{
+	class hithrotor
+	{
 		armor = 10.35;
 		radius = 0.47 ;
 		minimalHit = 130;
@@ -10,9 +10,9 @@ class HitPoints
 		name = "hithrotor";
 		material = 51;
 		passThrough = 0;
-	};	
-	class hitvrotor	
-	{	
+	};
+	class hitvrotor
+	{
 		armor = MULTIPLIER * 0.81;
 		radius = 0.24;
 		minimalHit = 0.1;
@@ -21,9 +21,9 @@ class HitPoints
 		material = 51;
 		visual = "munice";
 		passThrough = 0;
-	};	
-	class TailGearBox	
-	{	
+	};
+	class TailGearBox
+	{
 		armor = MULTIPLIER * 1.08;
 		radius = 0.69;
 		name = "TailGearBox";
@@ -31,9 +31,9 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
-	class RearAutoStab	
-	{	
+	};
+	class RearAutoStab
+	{
 		armor = MULTIPLIER * 0.18;
 		radius = 0.14;
 		name = "RearAutoStab";
@@ -41,19 +41,19 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
-	class TailIntermediateGearBox	
-	{	
+	};
+	class TailIntermediateGearBox
+	{
 		armor = MULTIPLIER * 0.54;
 		radius = 0.22;
-		name = "TailIntermediateGearBox";	
+		name = "TailIntermediateGearBox";
 		explosionShielding =0.300;
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
-	class FlightComp1	
-	{	
+	};
+	class FlightComp1
+	{
 		armor = MULTIPLIER * 0.36;
 		radius = 0.35;
 		name = "FlightComp1";
@@ -61,13 +61,33 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};				
-	class ApuHit	
-	{	
+	};
+	class ApuHit
+	{
 		armor = MULTIPLIER * 0.72;
 		radius = 0.46;
 		name = "ApuHit";
 		explosionShielding =0.400;
+		minimalHit = 0.1;
+		passThrough = 0;
+		material = 51;
+	};
+	class hitengine1
+	{
+		armor = MULTIPLIER * 1.08;
+		radius = 0.59;
+		name = "hitengine1";
+		explosionShielding =0.460;
+		minimalHit = 0.1;
+		passThrough = 0;
+		material = 51;
+	};
+	class hitengine2
+	{
+		armor = MULTIPLIER * 1.08;
+		radius = 0.59;
+		name = "hitengine2";
+		explosionShielding =0.460;
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
@@ -80,37 +100,6 @@ class HitPoints
 		name = "hitEngine";
 		passThrough = 0;
 		radius = 0.05;
-	};	
-	class hitengine1	
-	{	
-		armor = MULTIPLIER * 1.08;
-		radius = 0.59;
-		name = "hitengine1";
-		explosionShielding =0.460;
-		minimalHit = 0.1;
-		passThrough = 0;
-		material = 51;
-	};		
-	class hitengine2	
-	{	
-		armor = MULTIPLIER * 1.08;
-		radius = 0.59;
-		name = "hitengine2";
-		explosionShielding =0.460;
-		minimalHit = 0.1;
-		passThrough = 0;
-		material = 51;
-	};
-	class hitRWR
-	{
-		armor = MULTIPLIER * 1.08;
-		radius = 0.59;
-		name = "hitRWR";
-		depends = "(hitRWRFront + hitRWRRear)";
-		explosionShielding =0.360;
-		minimalHit = 0.1;
-		passThrough = 0;
-		material = 51;
 	};
 	class hitRWRFront {
 		armor = MULTIPLIER * 1.08;
@@ -130,8 +119,19 @@ class HitPoints
 		passThrough = 0;
 		material = 51;
 	};
-	class SlingHit	
-	{	
+	class hitRWR
+	{
+		armor = MULTIPLIER * 1.08;
+		radius = 0.59;
+		name = "hitRWR";
+		depends = "(hitRWRFront + hitRWRRear)";
+		explosionShielding =0.360;
+		minimalHit = 0.1;
+		passThrough = 0;
+		material = 51;
+	};
+	class SlingHit
+	{
 		armor = MULTIPLIER * 0.3;
 		material = 51;
 		name = "SlingHit";
@@ -140,29 +140,29 @@ class HitPoints
 		radius = 0.2;
 		class DestructionEffects
 		{
-			ammoExplosionEffect = "";				
-			class Explo				
-			{				
-				simulation = "particles";			
-				type = "WinchDestructionExplo";			
-				position = "slingLoad0";			
-				intensity = 1;			
-				interval = 1;			
-				lifeTime = 0.06;			
-			};				
-			class Sparks				
-			{				
-				simulation = "particles";			
-				type = "WinchDestructionSparks";			
-				position = "slingLoad0";			
-				intensity = 1;			
-				interval = 1;			
-				lifeTime = 0.1;			
-			};				
+			ammoExplosionEffect = "";
+			class Explo
+			{
+				simulation = "particles";
+				type = "WinchDestructionExplo";
+				position = "slingLoad0";
+				intensity = 1;
+				interval = 1;
+				lifeTime = 0.06;
+			};
+			class Sparks
+			{
+				simulation = "particles";
+				type = "WinchDestructionSparks";
+				position = "slingLoad0";
+				intensity = 1;
+				interval = 1;
+				lifeTime = 0.1;
+			};
 		};
-	};	
-	class HoistHit	
-	{	
+	};
+	class HoistHit
+	{
 		armor = MULTIPLIER * 0.38;
 		radius = 0.26;
 		name = "HoistHit";
@@ -170,9 +170,9 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
-	class HoistHookHit	
-	{	
+	};
+	class HoistHookHit
+	{
 		armor = MULTIPLIER * 0.38;
 		radius = 0.13;
 		name = "HoistHookHit";
@@ -180,9 +180,9 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
-	class MainRotorGearBox	
-	{	
+	};
+	class MainRotorGearBox
+	{
 		armor = MULTIPLIER * 1.08;
 		radius = 0.44;
 		name = "MainRotorGearBox";
@@ -190,9 +190,9 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
-	class MainRotorHub	
-	{	
+	};
+	class MainRotorHub
+	{
 		armor = MULTIPLIER * 0.96;
 		radius = 1.01;
 		name = "MainRotorHub";
@@ -200,9 +200,9 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
-	class WingStoreL	
-	{	
+	};
+	class WingStoreL
+	{
 		armor = MULTIPLIER * 0.54;
 		radius = 0.4;
 		name = "WingStoreL";
@@ -210,9 +210,9 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
-	class WingStoreR	
-	{	
+	};
+	class WingStoreR
+	{
 		armor = MULTIPLIER * 0.54;
 		radius = 0.4;
 		name = "WingStoreR";
@@ -220,9 +220,9 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
-	class AirDataComp	
-	{	
+	};
+	class AirDataComp
+	{
 		armor = MULTIPLIER * 0.36;
 		radius = 0.12;
 		name = "AirDataComp";
@@ -230,9 +230,9 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
-	class FlirHit	
-	{	
+	};
+	class FlirHit
+	{
 		armor = MULTIPLIER * 0.36;
 		radius = 0.35;
 		name = "FlirHit";
@@ -240,9 +240,9 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
-	class ProbTip	
-	{	
+	};
+	class ProbTip
+	{
 		armor = MULTIPLIER * 0.36;
 		radius = 0.21;
 		name = "FuelProbTip";
@@ -250,9 +250,9 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
-	class EgiComp	
-	{	
+	};
+	class EgiComp
+	{
 		armor = MULTIPLIER * 0.47;
 		radius = 0.28;
 		name = "EgiComp";
@@ -260,9 +260,9 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
-	class Battery1	
-	{	
+	};
+	class Battery1
+	{
 		armor = MULTIPLIER * 0.47;
 		radius = 0.21;
 		name = "Battery1";
@@ -270,9 +270,9 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
-	class Battery2	
-	{	
+	};
+	class Battery2
+	{
 		armor = MULTIPLIER * 0.47;
 		radius = 0.21;
 		name = "Battery2";
@@ -280,9 +280,9 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
+	};
 	class FlightControlComp2
-	{	
+	{
 		armor = MULTIPLIER * 0.48;
 		radius = 0.35;
 		name = "FlightControlComp2";
@@ -290,19 +290,19 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
-	class MFD1	
-	{	
+	};
+	class MFD1
+	{
 		armor = MULTIPLIER * 0.36;
 		radius = 0.21;
 		name = "MFD1";
-		explosionShielding =0.200;		
+		explosionShielding =0.200;
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
+	};
 	class MFD2
-	{	
+	{
 		armor = MULTIPLIER * 0.36;
 		radius = 0.21;
 		name = "MFD2";
@@ -310,9 +310,9 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
+	};
 	class MFD3
-	{	
+	{
 		armor = MULTIPLIER * 0.36;
 		radius = 0.21;
 		name = "MFD3";
@@ -320,7 +320,7 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
+	};
 	class MFD4
 	{
 		armor = MULTIPLIER * 0.36;
@@ -331,8 +331,8 @@ class HitPoints
 		passThrough = 0;
 		material = 51;
 	};
-	class Flare1	
-	{	
+	class Flare1
+	{
 		armor = MULTIPLIER * 0.36;
 		radius = 0.3;
 		name = "Flare1";
@@ -340,9 +340,9 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
+	};
 		class Flare2
-	{	
+	{
 		armor = MULTIPLIER * 0.36;
 		radius = 0.3;
 		name = "Flare2";
@@ -350,9 +350,9 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
+	};
 		class Flare3
-	{	
+	{
 		armor = MULTIPLIER * 0.36;
 		radius = 0.3;
 		name = "Flare3";
@@ -360,9 +360,9 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
+	};
 		class HHFlare1
-	{	
+	{
 		armor = MULTIPLIER * 0.36;
 		radius = 0.3;
 		name = "HHFlare1";
@@ -370,9 +370,9 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
+	};
 		class HHFlare2
-	{	
+	{
 		armor = MULTIPLIER * 0.36;
 		radius = 0.3;
 		name = "HHFlare2";
@@ -380,5 +380,5 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};	
-};		
+	};
+};

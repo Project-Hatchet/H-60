@@ -70,7 +70,7 @@ class UserActionGroups
 		"Vtx_Flir_SlewUp",
 		"Vtx_Flir_SlewDown",
 		"Vtx_Flir_SlewLeft",
-		"Vtx_Flir_SlewRight",
+		"Vtx_Flir_SlewRight"
 		}; // List of all actions inside this category.
 	};
 };

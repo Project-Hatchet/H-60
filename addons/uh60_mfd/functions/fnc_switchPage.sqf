@@ -31,7 +31,7 @@ switch (true) do {
         _vehicle setObjectTextureGlobal [MFD_OVERLAY(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Overlay_ca.paa"];
     };
     case (_pageIndex > MFD_PAGE_FLIR - 0.99 && _pageIndex < MFD_PAGE_FLIR + 0.99): {
-      if ((_vehicle animationsourcephase "FLIR_HIDE") == 1) exitWith {
+      if ((_vehicle animationsourcephase "FLIR_HIDE") == 1 && {(_vehicle animationsourcephase "HH60GFlir_show") == 0}) exitWith {
         _slingCam = true;
         _vehicle setObjectTextureGlobal [MFD_OVERLAY(_mfdIndex), "#(argb,512,512,1)r2t(vtx_uh60_flir_feed,1.0)"];
         _vehicle setObjectMaterialGlobal [MFD_OVERLAY(_mfdIndex), "\A3\Structures_F\Items\Electronics\Data\electronics_screens.rvmat"];
