@@ -95,39 +95,7 @@ class CfgVehicles {
         irTargetSize = 1.2;
         radarTargetSize = 1.2;
 
-        hiddenSelections[] = {
-          "emmisive_overhead",
-          "emmisive_frontDash",
-          "emmisive_pedestal",
-          "emmisive_ralt",
-          "emmisive_altp",
-          "emmisive_alt",
-          "emmisive_ias",
-          "emmisive_hdg",
-          "MAP_MFD1",
-          "MAP_MFD2",
-          "MAP_MFD3",
-          "MAP_MFD4",
-          "MAP_OVERLAY1",
-          "MAP_OVERLAY2",
-          "MAP_OVERLAY3",
-          "MAP_OVERLAY4",
-          "Exterrior_Hull",
-          "Exterrior_Misc",
-          "Exterrior_Tail",
-          "markings",
-          "left_num_1",
-          "left_num_2",
-          "right_num_1",
-          "right_num_2",
-          "Fuel_Probe",
-          "Mlass",
-          "emmisive_goarnd",
-          "emmisive_hvr",
-          "emmisive_fms",
-          "emmisive_cpld",
-          "emmisive_vs"
-        };
+        hiddenSelections[] = {HIDDENSELECTIONS};
         hiddenSelectionsTextures[] = {
           "",
           "",
@@ -609,10 +577,10 @@ class CfgVehicles {
     }; // vtx_UH60M_SLICK
 };
 
-class cfgNonAIVehicles{
+class CfgNonAIVehicles {
   class ProxyRetex;
-  class Fuel_Probe: ProxyRetex{
-    hiddenSelections[] ={"Fuel_Probe"};
-    model = "\z\vtx\addons\UH60\Data\FuelProbe\Fuel_Probe.p3d";
+  class ProxyFuel_probe_extending: ProxyRetex {
+    hiddenSelections[] = {HIDDENSELECTIONS};
+    model = "\z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_extending.p3d";
   };
 };
