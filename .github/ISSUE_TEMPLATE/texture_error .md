@@ -3,7 +3,7 @@ name: Texture Error
 about: Any Error related to a texture   
 title: 'Model: '
 labels: 'Texture error'
-assignees: 'a26mike'
+assignees: ''
 ---
 # Prerequisites
 <!-- Your issue may already be reported! -->

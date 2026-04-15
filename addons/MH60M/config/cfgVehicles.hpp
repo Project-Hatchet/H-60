@@ -354,10 +354,10 @@ class CfgVehicles {
     }; // vtx_MH60M_DAP_MLASS
 }; // CfgVehicles
 
-class cfgNonAIVehicles{
-	class ProxyRetex;
-	class LASS: ProxyRetex{
-		hiddenSelections[] ={"LASS"};
-		model = "z\vtx\addons\UH60\LASS.p3d";
-	};
+class CfgNonAIVehicles {
+  class ProxyRetex;
+  class ProxyLASS: ProxyRetex {
+    hiddenSelections[] ={HIDDENSELECTIONS};
+    model = "\z\vtx\addons\UH60\LASS.p3d";
+  };
 };

@@ -1,3 +1,10 @@
+**0.7.6.1**
+
+ - Can turn off wipers
+ - More retextureable areas
+ - Fix rotor shaft not visible https://github.com/Project-Hatchet/H-60/issues/527
+
+
 **0.7.5.6**
 
  - Add wipers and knob animation

@@ -107,13 +107,48 @@ if (_unit isNotEqualTo (driver _vehicle) && {(_vehicle unitTurret _unit) isNotEq
 #define HIDDENSELECTION_NUMBER_R1 22 // right_num_1,
 #define HIDDENSELECTION_NUMBER_R2 23 // right_num_2,
 #define HIDDENSELECTION_FUELPROBE 24 // Fuel_Probe,
-#define HIDDENSELECTION_MLASS 25 // Mlass,
-#define HIDDENSELECTION_EM_GOARND 26 // emmisive_goarnd,
-#define HIDDENSELECTION_EM_HOVER 27 // emmisive_hvr,
-#define HIDDENSELECTION_EM_FMS 28 // emmisive_fms,
-#define HIDDENSELECTION_EM_CPLD 39 // emmisive_cpld,
-#define HIDDENSELECTION_EM_VS 30 // emmisive_vs
+#define HIDDENSELECTION_MLASS 25 // MLASS,
+#define HIDDENSELECTION_LASS 26 // LASS,
+#define HIDDENSELECTION_FULL60M 27 // Full60M,
+#define HIDDENSELECTION_EM_GOARND 28 // emmisive_goarnd,
+#define HIDDENSELECTION_EM_HOVER 29 // emmisive_hvr,
+#define HIDDENSELECTION_EM_FMS 30 // emmisive_fms,
+#define HIDDENSELECTION_EM_CPLD 31 // emmisive_cpld,
+#define HIDDENSELECTION_EM_VS 32 // emmisive_vs
 
+#define HIDDENSELECTIONS "emmisive_overhead", \
+          "emmisive_frontDash", \
+          "emmisive_pedestal", \
+          "emmisive_ralt", \
+          "emmisive_altp", \
+          "emmisive_alt", \
+          "emmisive_ias", \
+          "emmisive_hdg", \
+          "MAP_MFD1", \
+          "MAP_MFD2", \
+          "MAP_MFD3", \
+          "MAP_MFD4", \
+          "MAP_OVERLAY1", \
+          "MAP_OVERLAY2", \
+          "MAP_OVERLAY3", \
+          "MAP_OVERLAY4", \
+          "Exterrior_Hull", \
+          "Exterrior_Misc", \
+          "Exterrior_Tail", \
+          "markings", \
+          "left_num_1", \
+          "left_num_2", \
+          "right_num_1", \
+          "right_num_2", \
+          "Fuel_Probe", \
+          "hs_mlass_co", \
+          "hs_lass_co", \
+          "hs_full60m_co", \
+          "emmisive_goarnd", \
+          "emmisive_hvr", \
+          "emmisive_fms", \
+          "emmisive_cpld", \
+          "emmisive_vs"
 
 // #ifdef PREP
 //     #undef PREP

@@ -28,7 +28,7 @@
         <Key ID="STR_VTX_UH60_FLIR_AimXFactor">
             <English>FLIR Aim Slew Pan Speed</English>
         </Key>
-        <Key ID="STR_VTX_UH60_FLIR_AimSlewSpeed_Tooltip">
+        <Key ID="STR_VTX_UH60_FLIR_AimXFactor_Tooltip">
             <English>Sensitivity when slewing the FLIR using mouse or 'Aim (Up|Down|Left|Right)' inputs.</English>
         </Key>
         <Key ID="STR_VTX_UH60_FLIR_KeySlewSpeed">

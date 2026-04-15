@@ -1,3 +1,24 @@
+**0.7.6**
+
+  - FIXED:
+    - Various RPT Spam #407, #506
+    - Gap in MH Model #506
+    - Master Caution Conditional Checks #440 - Master Caution light should now extinguish once all cautions on the CAS are cleared on their own.
+    - Fullscreen FLIR for Pilot #497
+    - Stabilize Turret keybind needing T+Ctrl instead of responding to Ctrl+T
+    - Improve JVMF use CBA events instead of remoteExec
+    - Visual glitch when smoke is behind blurred rotors
+    - Scripted camera crosshairs persisting
+
+  - ADDED:
+    - ACE action for fold and unfold with progress bar (requires toolkit)
+    - Keybinds for adjusting Flight Director modes
+    - Windshield Wipers and Wiper Knob interaction
+
+  - CHANGES/IMPROVEMENTS:
+    - Improved Distance LODs
+
+
 **0.7.5.1**
 
  - Fixed: MFD interactions using old framework variable
