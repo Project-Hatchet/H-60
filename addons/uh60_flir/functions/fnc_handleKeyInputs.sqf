@@ -13,7 +13,7 @@
  */
 
 // PIP Vision Mode
-private _visionMode = inputAction "transportNightVision";
+private _visionMode = inputAction "transportNightVision" + inputAction "nightVision" * parseNumber vtx_uh60_flir_isInScriptedCamera;
 if (_visionMode > 0) then {
   if (vtx_uh60_flir_transportNightVision == 0) then {
     vtx_uh60_flir_transportNightVision = ceil _visionMode;
