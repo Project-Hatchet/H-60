@@ -3,6 +3,7 @@
  - Fix LASS default textures
  - Fix FLIR snapping to initial geolock point when turning off geolock
  - Change normal N key to work while in fullscreen, but not in cockpit where it affects pilot personal NODs
+ - Fix keybinds in fullscreen for pilot (zoom, fire)
 
 **0.7.6.1**
 
