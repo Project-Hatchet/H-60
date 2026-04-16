@@ -118,7 +118,7 @@ class CfgVehicles {
                 };
             }; // modules
         }; //TC Seat
-        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa"};
+        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa","z\vtx\addons\mh60m\data\mlass_co.paa","z\vtx\addons\uh60\data\lass\lass_co.paa","z\vtx\addons\mh60m\data\full60m_co.paa"};
         #include "\z\vtx\addons\UH60\config\vehicleTransport.hpp"
         class MFD: MFD {
             class VTX_MFD_1 :           VTX_MFD_1 {};
@@ -214,7 +214,7 @@ class CfgVehicles {
             };
             #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
         };
-        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa"};
+        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa","z\vtx\addons\mh60m\data\mlass_co.paa","z\vtx\addons\uh60\data\lass\lass_co.paa","z\vtx\addons\mh60m\data\full60m_co.paa"};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera", "vtx_MH60M_M134_minigun"};
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries", "5000Rnd_762x51_Belt"};
         memoryPointGun[] = {"muzzle_1","muzzle_2"};
@@ -316,7 +316,7 @@ class CfgVehicles {
             };
             #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
         };
-        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa","z\vtx\addons\MH60M\Data\Mlass_co.paa"};
+        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa","z\vtx\addons\MH60M\Data\Mlass_co.paa","z\vtx\addons\mh60m\data\mlass_co.paa","z\vtx\addons\uh60\data\lass\lass_co.paa","z\vtx\addons\mh60m\data\full60m_co.paa"};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera", "vtx_MH60M_M134_minigun"};
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries", "5000Rnd_762x51_Belt"};
         memoryPointGun[] = {"muzzle_1","muzzle_2"};
