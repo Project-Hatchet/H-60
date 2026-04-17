@@ -15,6 +15,12 @@ class CopilotTurret: CopilotTurret {
 	gunnerGetOutAction="copilot_Heli_Light_02_Exit";
 	selectionFireAnim="";
 
+  // Disable SoundAttenuation (Internal Filter)
+  /* disableSoundAttenuation = 0;
+  viewGunnerInExternal = 0;
+  isPersonTurret = 0; */
+  soundAttenuationTurret = "HeliAttenuationGunner";
+
 	preciseGetInOut=1;
 	GunnerDoor="Door_LF";
 	proxyIndex=3;

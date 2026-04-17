@@ -43,6 +43,8 @@ class MainTurret: MainTurret { //Left Doorgun
     stabilizedInAxes = 0;
     viewGunnerInExternal = 1;
     hasGunner = 1;
+
+    playerPosition = 2; //- Sound Controller => "playerPos"
     weapons[]=
     {
         "vtx_wpn_m134"

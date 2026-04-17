@@ -170,31 +170,13 @@ class CfgSoundShaders
 
 class CfgVehicles
 {
-	class Helicopter_Base_F;
-	class Helicopter_Base_H: Helicopter_Base_F
-	{
-		class CargoTurret;
-		class Turrets
-		{
-			class CopilotTurret;
-			class MainTurret;
-		};
-	};
-	class Heli_Transport_01_base_F: Helicopter_Base_H
-	{
-		class Eventhandlers;
-		class ViewPilot;
-		class CargoTurret: CargoTurret
-		{
-			playerPosition = 1;
-		};
-	};
+	class Heli_Transport_01_base_F;
 	class vtx_H60_base: Heli_Transport_01_base_F
 	{
-		soundEngineOnInt[] = {"a3\sounds_f\dummysound",2,1};
-		soundEngineOffInt[] = {"a3\sounds_f\dummysound",1,1};
-		soundEngineOnExt[] = {"a3\sounds_f\dummysound",2,1,600};
-		soundEngineOffExt[] = {"a3\sounds_f\dummysound",2,1,600};
+		soundEngineOnInt[] = {"\a3\sounds_f\dummysound",2,1};
+		soundEngineOffInt[] = {"\a3\sounds_f\dummysound",1,1};
+		soundEngineOnExt[] = {"\a3\sounds_f\dummysound",2,1,600};
+		soundEngineOffExt[] = {"\a3\sounds_f\dummysound",2,1,600};
 
 		/*soundEngineOnInt[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Start_Int",2,1};
 		soundEngineOffInt[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown_Int",1,1};
@@ -301,24 +283,7 @@ class CfgVehicles
 				};
 			};
 		};
-		//-Set PlayerPOS SoundController and disable SoundAttenuation (Internal Filter)
-		class Turrets: Turrets
-		{
-			class CopilotTurret: CopilotTurret
-			{
-				disableSoundAttenuation = 0;
-				viewGunnerInExternal = 0;
-				soundAttenuationTurret = "HeliAttenuationGunner";
-				isPersonTurret = 0;
-			};
-			class MainTurret: MainTurret
-			{
-				playerPosition = 2;
-			};
-		};
 	};
-	//-Turret Compat
-	#include "Compat.hpp"
 };
 class CfgSounds
 {
