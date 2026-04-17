@@ -1,7 +1,7 @@
 // -APU
 class vtx_APUSoundLoop_Ext_SoundSet: vtx_Standard_External_Base
 {
-	soundshaders[] = 
+	soundshaders[] =
 	{
 		"vtx_APUSoundLoop_Ext_SoundShader"
 	};
@@ -17,6 +17,7 @@ class vtx_Rotor_Distance_SoundSet: vtx_External_Base
 	};
 	volumeFactor=0.8;
 	shape="vtx_BottomLess_Shape";
+	volumecurve="vtx_Ext_Distant_Curve";
 	distancefilter="vtx_Distant_Engine_Filter";
 	sound3dprocessingtype="vtx_Distant_3DProcessor";
 	doppler=1;
@@ -38,10 +39,10 @@ class vtx_EngineExt_SoundSet: vtx_External_Base
 		"vtx_EngineExt_SoundShader"
 	};
 	volumefactor=1.25;
-	// volumecurve="vtx_Tail_Rotor_Curve";
+	volumecurve="vtx_Tail_Rotor_Curve";
 	sound3dprocessingtype="vtx_TailRotor_3DProcessor";
 	posoffset[]={0,0,-10};
-	doppler=1;
+	// doppler=1;
 };
 class vtx_RotorExt_SoundSet: vtx_External_Base
 {
@@ -127,7 +128,7 @@ class vtx_H60_APU_Start_Int_SoundSet: vtx_H60_Startup_Int_SoundSet
 // -APU
 class vtx_ApuSoundLoop_Int_Soundet: vtx_Internal_Base
 {
-	soundshaders[] = 
+	soundshaders[] =
 	{
 		"vtx_ApuSoundLoop_Int_SoundShader"
 	};
@@ -152,7 +153,7 @@ class vtx_RotorInt_SoundSet: vtx_EngineInt_SoundSet
 };
 class vtx_Engine_Transport_SoundSet_Base: vtx_EngineInt_SoundSet
 {
-	soundshaders[] = 
+	soundshaders[] =
 	{
 		"vtx_Engine_Transport_SoundShader_Base"
 	};
