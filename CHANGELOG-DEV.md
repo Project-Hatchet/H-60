@@ -1,9 +1,15 @@
+**0.7.6.2**
+
+ - Fix LASS default textures
+ - Fix FLIR snapping to initial geolock point when turning off geolock
+ - Change normal N key to work while in fullscreen, but not in cockpit where it affects pilot personal NODs
+ - Fix keybinds in fullscreen for pilot (zoom, fire)
+
 **0.7.6.1**
 
  - Can turn off wipers
  - More retextureable areas
  - Fix rotor shaft not visible https://github.com/Project-Hatchet/H-60/issues/527
-
 
 **0.7.5.6**
 
