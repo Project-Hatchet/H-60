@@ -29,7 +29,7 @@ class MainTurret: MainTurret { //Left Doorgun
     proxyIndex = 6;
     selectionFireAnim="zasleh";
     // shared properties
-    canHideGunner = 1;
+    canHideGunner = 0; //- 1 : wound remove the pilot's internal sound
     forceHideGunner = 0;
     gunnerType = "vtx_uh60_doorgunner";
     gunnerLeftHandAnimName = "";
