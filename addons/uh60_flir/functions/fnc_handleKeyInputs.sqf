@@ -50,7 +50,7 @@ if (vtx_uh60_flir_playerIsCopilot) then {
   if (_laser > 0) then {
     if (vtx_uh60_flir_inputToggleLaser == 0) then {
       vtx_uh60_flir_inputToggleLaser = ceil _laser;
-      [_vehicle] call vtx_uh60_flir_fnc_toggleLaser;
+      [hct_vehicle] call vtx_uh60_flir_fnc_toggleLaser;
     };
   } else {
     vtx_uh60_flir_inputToggleLaser = 0;
@@ -64,7 +64,7 @@ if (vtx_uh60_flir_isInScriptedCamera) then {
   if (_nextWeapon > 0) then {
     if (vtx_uh60_flir_inputNextWeapon == 0) then {
       vtx_uh60_flir_inputNextWeapon = ceil _nextWeapon;
-      [_vehicle, [0]] call vtx_uh60_flir_fnc_nextWeapon;
+      [hct_vehicle, [0]] call vtx_uh60_flir_fnc_nextWeapon;
     };
   } else {
     vtx_uh60_flir_inputNextWeapon = 0;
@@ -75,7 +75,7 @@ if (vtx_uh60_flir_isInScriptedCamera) then {
   if (_fireWeapon > 0) then {
     if (vtx_uh60_flir_inputFireWeapon == 0) then {
       vtx_uh60_flir_inputFireWeapon = ceil _fireWeapon;
-      [_vehicle] call vtx_uh60_flir_fnc_fireWeapon;
+      [hct_vehicle] call vtx_uh60_flir_fnc_fireWeapon;
     };
   } else {
     vtx_uh60_flir_inputFireWeapon = 0;
