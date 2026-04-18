@@ -75,7 +75,7 @@ if (vtx_uh60_flir_isInScriptedCamera) then {
   if (_fireWeapon > 0) then {
     if (vtx_uh60_flir_inputFireWeapon == 0) then {
       vtx_uh60_flir_inputFireWeapon = ceil _fireWeapon;
-      [hct_vehicle] call vtx_uh60_flir_fnc_fireWeapon;
+      [hct_vehicle, hct_vehicle unitTurret hct_player] call vtx_uh60_flir_fnc_fireWeapon;
     };
   } else {
     vtx_uh60_flir_inputFireWeapon = 0;
