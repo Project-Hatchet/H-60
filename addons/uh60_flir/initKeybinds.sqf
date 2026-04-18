@@ -1,6 +1,6 @@
 //addUserActionEventHandler ["transportNightVision", "Activate", vtx_uh60_flir_fnc_keyVisionMode];
 addUserActionEventHandler ["vehLockTurretView", "Activate", {
-  if (!vtx_uh60_flir_controllable) exitWith {};
+  if (!vtx_uh60_flir_controllable || {cameraView == "GUNNER"}) exitWith {};
   if (vtx_uh60_flir_isInScriptedCamera) then {
     [
         AGLToASL positionCameraToWorld [0, 0, 0],
@@ -18,6 +18,7 @@ addUserActionEventHandler ["vehLockTurretView", "Activate", {
       if (
         vtx_uh60_flir_isVisibleMap ||
         {!vtx_uh60_flir_controllable} ||
+        {!vtx_uh60_flir_playerIsCopilot} ||
         {vtx_uh60_flir_featureCamera != ""}
       ) exitWith {false};
       vtx_uh60_flir_isInScriptedCamera = !vtx_uh60_flir_isInScriptedCamera;
