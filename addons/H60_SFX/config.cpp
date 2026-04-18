@@ -76,11 +76,20 @@ class CfgSoundCurves
 		points[]=
 		{
 			{0.0,1.0},
-			{0.4,0.6},
-			{0.6,0.4},
-			{0.8,0.2},
+			{0.3,0.6},
+			{0.6,0.2},
 			{0.9,0.1},
 			{1.0,0.0}
+		};
+	};
+  class vtx_Ext_Distant_Curve
+	{
+		points[]=
+		{
+			{0.0,0.2},
+			{0.8,0.4},
+			{0.9,0.6},
+			{1.0,1.0}
 		};
 	};
 	class vtx_Tail_Rotor_Curve
@@ -92,7 +101,6 @@ class CfgSoundCurves
 			{0.3,0.75},
 			{0.4,0.54},
 			{0.6,0.42},
-			{0.6,0.256},
 			{0.8,0.152},
 			{0.9,0.091},
 			{1.0,0.0}
@@ -125,7 +133,7 @@ class CfgSound3DProcessors
 	};
 	class vtx_TailRotor_3DProcessor: vtx_Close_3DProcessor
 	{
-		innerRange=0;
+		innerRange=10;
 		range=120;
 	};
 	class vtx_Rotor_3DProcessor: vtx_Close_3DProcessor
