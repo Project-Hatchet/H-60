@@ -1,3 +1,14 @@
+**0.7.6.4**
+
+ - Fix pilot keybind issues by restoring 0.7.5.2, pilot does not access scripted camera
+
+**0.7.6.3**
+
+ - Sound Improvements by @Aaren PR #532
+ - Increase the volume factor for distant sounds
+ - Adjust engine sound profiles
+ - New volume curve for distant sounds to better manage audio levels
+
 **0.7.6.2**
 
  - Fix LASS default textures

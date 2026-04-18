@@ -17,3 +17,10 @@ _allVariables apply {cameraOn setVariable _x;};
 _animations apply {cameraOn animate _x;};
 
 cameraOn engineOn true;
+
+spawn {
+  sleep 0.5;
+  [cameraOn, ["MFD_3", "mfd_any", "B_MFD3_14"]] call hct_interaction_fnc_scriptedInteract;  sleep 0.5;
+  [cameraOn, ["MFD_3", "tac", "B_MFD3_15"]] call hct_interaction_fnc_scriptedInteract;  sleep 0.5;
+  [cameraOn, ["MFD_3", "flir", "stowed", "B_MFD3_1"]] call hct_interaction_fnc_scriptedInteract;  sleep 0.5;
+};
