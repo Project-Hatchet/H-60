@@ -11,6 +11,21 @@ addUserActionEventHandler ["vehLockTurretView", "Activate", {
   };
 }];
 
+addUserActionEventHandler ["showMap", "Activate", {
+  if (visibleMap || !vtx_uh60_flir_isInScriptedCamera) exitWith {};
+  vtx_uh60_flir_scriptedCameraToMap = true;
+  [false] call vtx_uh60_flir_fnc_scriptedCamera;
+  [{ openMap true; }] call CBA_fnc_execNextFrame;
+
+}];
+
+addUserActionEventHandler ["hideMap", "Activate", {
+  if (!visibleMap || vtx_uh60_flir_isInScriptedCamera || !vtx_uh60_flir_scriptedCameraToMap) exitWith {};
+  vtx_uh60_flir_scriptedCameraToMap = false;
+  openMap false;
+  [true] call vtx_uh60_flir_fnc_scriptedCamera;
+}];
+
 [
     "UH-60M Blackhawk","vtx_uh60_flir_copilotCamera","Copilot Camera", // Control + Right click
     {
