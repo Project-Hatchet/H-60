@@ -2,6 +2,7 @@
 
  - Fix pilot keybind issues by restoring 0.7.5.2, pilot does not access scripted camera
  - Fix reassignment for outboard pylons
+ - Fix unreliability in reassigning pylons
  - Added Copilot can use map in fullscreen FLIR
 
 **0.7.6.3**
