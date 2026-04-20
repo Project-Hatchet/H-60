@@ -3,7 +3,7 @@ params ["_vehicle", "_button", "_var"];
 
 private _cycleWeapon = {
 	params ["_vehicle", "_options"];
-	private _turret = _vehicle unitTurret player;
+	private _turret = _vehicle unitTurret hct_player;
 	private _currentIdx = _options find (_vehicle currentWeaponTurret _turret);
 	if (_currentIdx == -1) exitWith {
 		private _allWeapons = _vehicle weaponsTurret _turret;
@@ -36,27 +36,16 @@ private _stationAssign = {
 	private _pylon = switch (_pylon) do {
 		case "LIB": {1};
 		case "RIB": {2};
-		case "LOB": {48};
-		case "ROB": {49};
+		case "LOB": {3};
+		case "ROB": {4};
 		default {-1};
 	};
 	if (_pylon == -1) exitWith {};
-	private _pylonControlTurret = (getAllPylonsInfo _vehicle) # (_pylon - 1) # 2;
-	private _pylonOwner = _vehicle turretUnit _pylonControlTurret;
-	if (_pylonOwner != player) exitWith {
-		// systemChat "YOU ARE NOT THE PYLON OWNER, REMOTE EXECUTING AND EXITING";
-		_this remoteExecCall ["vtx_uh60_weapons_fnc_interaction", _pylonOwner, false];
-	};
-	// systemChat "YOU ARE THE PYLON OWNER, HANDOFF STARTING";
-	private _turret = if (_targetOwner == "pilot") then {[]} else {[0]};
-	private _magazine = (getPylonMagazines _vehicle) # (_pylon - 1);
-	private _target = if (_targetOwner == "pilot") then {_vehicle turretUnit [-1]} else {_vehicle turretUnit [0]};
-	private _targets = [
-		_vehicle turretUnit [-1],
-		_vehicle turretUnit [0]
-	];
-	[_vehicle, _pylon, _magazine, _vehicle ammoOnPylon _pylon, _turret] remoteExecCall ["vtx_uh60_weapons_fnc_updatePylonAssignment", _targets, false];
-
+	private _turret = [[0], [-1]] select (_targetOwner == "pilot");
+  (getAllPylonsInfo _vehicle) # (_pylon - 1) params ["", "", "_currentTurret", "_magazine", "_ammo"];
+  if (_currentTurret isEqualTo _turret) exitWith {};
+  if (_turret isEqualTo [-1]) then {_turret = []};
+  [_vehicle, objNull, _turret, 1, _magazine, _ammo, _pylon] call ace_rearm_fnc_rearmSuccess;
 };
 
 switch (_button) do {
@@ -70,13 +59,13 @@ switch (_button) do {
 		[_vehicle, USERMFDV_ALT_CH, USERMFDV_PRI_CH] call _cycleLaserCodes;
 	};
 	case "HF_TRAJ": {
-		private _launchMode = _vehicle getvariable ["ace_missileguidance_attackProfile", "hellfire"];
+		private _launchMode = _vehicle getVariable ["ace_missileguidance_attackProfile", "hellfire"];
 		private _nextMode = switch (_launchMode) do {
 			case "hellfire_lo": {"hellfire"};
 			case "hellfire": {"hellfire_hi"};
 			case "hellfire_hi": {"hellfire_lo"};
 		};
-		_vehicle setvariable ["ace_missileguidance_attackProfile", _nextMode, true];
+		_vehicle setVariable ["ace_missileguidance_attackProfile", _nextMode, true];
 	};
 	case "SEL_GUN": {
 		[_vehicle, ["vtx_chaingun_hedp", "vtx_MH60M_M134_minigun"]] call _cycleWeapon;

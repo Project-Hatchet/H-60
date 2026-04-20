@@ -1,6 +1,6 @@
 //addUserActionEventHandler ["transportNightVision", "Activate", vtx_uh60_flir_fnc_keyVisionMode];
 addUserActionEventHandler ["vehLockTurretView", "Activate", {
-  if (!vtx_uh60_flir_controllable) exitWith {};
+  if (!vtx_uh60_flir_controllable || {cameraView == "GUNNER"}) exitWith {};
   if (vtx_uh60_flir_isInScriptedCamera) then {
     [
         AGLToASL positionCameraToWorld [0, 0, 0],
@@ -11,6 +11,21 @@ addUserActionEventHandler ["vehLockTurretView", "Activate", {
   };
 }];
 
+addUserActionEventHandler ["showMap", "Activate", {
+  if (visibleMap || !vtx_uh60_flir_isInScriptedCamera) exitWith {};
+  vtx_uh60_flir_scriptedCameraToMap = true;
+  [false] call vtx_uh60_flir_fnc_scriptedCamera;
+  [{ openMap true; }] call CBA_fnc_execNextFrame;
+
+}];
+
+addUserActionEventHandler ["hideMap", "Activate", {
+  if (!visibleMap || vtx_uh60_flir_isInScriptedCamera || !vtx_uh60_flir_scriptedCameraToMap) exitWith {};
+  vtx_uh60_flir_scriptedCameraToMap = false;
+  openMap false;
+  [true] call vtx_uh60_flir_fnc_scriptedCamera;
+}];
+
 [
     "UH-60M Blackhawk","vtx_uh60_flir_copilotCamera","Copilot Camera", // Control + Right click
     {
@@ -18,6 +33,7 @@ addUserActionEventHandler ["vehLockTurretView", "Activate", {
       if (
         vtx_uh60_flir_isVisibleMap ||
         {!vtx_uh60_flir_controllable} ||
+        {!vtx_uh60_flir_playerIsCopilot} ||
         {vtx_uh60_flir_featureCamera != ""}
       ) exitWith {false};
       vtx_uh60_flir_isInScriptedCamera = !vtx_uh60_flir_isInScriptedCamera;
