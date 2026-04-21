@@ -5,6 +5,8 @@ ADDON = false;
 #include "XEH_PREP.hpp"
 
 GVAR(pylonPositionParams) = [];
+GVAR(irLaserPFH) = -1;
+GVAR(laserEmitters) = [];
 
 vtx_uh60_weapons_laserCodes = [
 	1111,

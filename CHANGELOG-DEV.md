@@ -1,3 +1,7 @@
+**0.7.6.6**
+
+ - Add IR laser for pilots and doorgunners, keybind under H-60 Weapons
+
 **0.7.6.4**
 
  - Fix pilot keybind issues by restoring 0.7.5.2, pilot does not access scripted camera
