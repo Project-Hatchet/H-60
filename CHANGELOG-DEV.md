@@ -1,3 +1,7 @@
+**0.7.6.7**
+
+ - Fix FMS copilot for non-MLASS models
+
 **0.7.6.6**
 
  - Add IR laser for pilots and doorgunners, keybind under H-60 Weapons
