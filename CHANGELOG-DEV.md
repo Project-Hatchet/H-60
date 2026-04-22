@@ -1,6 +1,7 @@
 **0.7.6.7**
 
  - Fix FMS copilot for non-MLASS models
+ - Fix Arma keybinds for IAS and HDG knobs
 
 **0.7.6.6**
 
