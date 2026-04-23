@@ -3,6 +3,7 @@
  - Add ace actions for viv to ThingX class
  - Change ESSS retextureable
  - Fix MITAS in viewPilot
+ - Fix markings in lod
 
 **0.7.6.7**
 
