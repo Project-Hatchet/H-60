@@ -50,7 +50,7 @@ GVAR(unloadActionCargo) = [ // create action
 
 [QGVAR(setVehicleCargo), {
     params ["_carrier", "_cargo"];
-    TRACE_5("setVehicleCargo",_carrier,_cargo);
+    TRACE_3("setVehicleCargo",_carrier,_cargo);
     private _currentCarrier = [_carrier, isVehicleCargo _cargo] select (isNull _carrier);
 
     _carrier setVehicleCargo _cargo;
