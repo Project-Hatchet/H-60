@@ -77,7 +77,9 @@ class CfgVehicles {
           "", // "left_num_2",
           "", // "right_num_1",
           "", // "right_num_2",
-          "z\vtx\addons\UH60\Data\HH60\Fuel_probe_co.paa"
+          "z\vtx\addons\UH60\Data\HH60\Fuel_probe_co.paa",
+          "", "", "",
+          "z\vtx\addons\uh60\data\esss\uh60m_engine_mev_co.paa"
         };
     }; // vtx_MH60S_Pylons_GAU21L
     class vtx_MH60S_GAU21L: vtx_H60_base {
@@ -109,7 +111,11 @@ class CfgVehicles {
             weapon="VTX_HMG_M3M";
           };
         }; // AnimationSources
-        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa", "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa"};
+        hiddenSelectionsTextures[] = {
+          "","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa", "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa",
+          "", "", "",
+          "z\vtx\addons\uh60\data\esss\uh60m_engine_mev_co.paa"
+        };
     }; // vtx_MH60S_GAU21L
     class vtx_MH60S_Pylons: vtx_H60_base {
         class pilotCamera: vtx_templateFLIR {};
@@ -142,7 +148,10 @@ class CfgVehicles {
           ANIM_INIT(MAWS_Tubes_Show,1);
           ANIM_INIT(FLIR_HIDE,0);
         }; // AnimationSources
-        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa", "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa"};
+        hiddenSelectionsTextures[] = {
+        "","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa", "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa",
+          "", "", "",
+          "z\vtx\addons\uh60\data\esss\uh60m_engine_mev_co.paa"};
     }; // vtx_MH60S_Pylons_GAU21L
     class vtx_MH60S: vtx_H60_base {
         class pilotCamera: vtx_templateFLIR {};

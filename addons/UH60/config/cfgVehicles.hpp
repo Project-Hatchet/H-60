@@ -583,4 +583,8 @@ class CfgNonAIVehicles {
     hiddenSelections[] = {HIDDENSELECTIONS};
     model = "\z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_extending.p3d";
   };
+  class ProxyESSS2x: ProxyRetex {
+    hiddenSelections[] ={HIDDENSELECTIONS};
+    model = "\z\vtx\addons\UH60\ESSS2x.p3d";
+  };
 };

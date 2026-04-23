@@ -190,6 +190,7 @@ if (_unit isNotEqualTo (driver _vehicle) && {(_vehicle unitTurret _unit) isNotEq
           "hs_mlass_co", \
           "hs_lass_co", \
           "hs_full60m_co", \
+          "hs_esss", \
           "emmisive_goarnd", \
           "emmisive_hvr", \
           "emmisive_fms", \
