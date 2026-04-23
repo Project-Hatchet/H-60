@@ -1,3 +1,9 @@
+**0.7.6.8**
+
+ - Add ace actions for viv to ThingX class
+ - Change ESSS retextureable
+ - Fix MITAS in viewPilot
+
 **0.7.6.7**
 
  - Fix FMS copilot for non-MLASS models
