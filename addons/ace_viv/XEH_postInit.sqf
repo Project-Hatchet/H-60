@@ -10,16 +10,18 @@ GVAR(loadAction) = [ // create action
     {[ace_player, _target] call FUNC(canConfigureCargo)}
 ] call ace_interact_menu_fnc_createAction;
 
-["AllVehicles", "init", { // on air vehicle init, add action to class if has pylons
-    params ["_vehicle"];
-    private _typeOf = typeOf _vehicle;
+{
+  [_x, "init", { // on air vehicle init, add action to class if has pylons
+      params ["_vehicle"];
+      private _typeOf = typeOf _vehicle;
 
-    if (_typeOf in GVAR(carriers)) exitWith {};
-    if !(vehicleCargoEnabled _vehicle) exitWith {};
+      if (_typeOf in GVAR(carriers)) exitWith {};
+      if !(vehicleCargoEnabled _vehicle) exitWith {};
 
-    GVAR(carriers) pushBack _typeOf;
-    [_typeOf, 0, ["ACE_MainActions"], GVAR(loadAction)] call ace_interact_menu_fnc_addActionToClass;
-}, true, [], true] call CBA_fnc_addClassEventHandler;
+      GVAR(carriers) pushBack _typeOf;
+      [_typeOf, 0, ["ACE_MainActions"], GVAR(loadAction)] call ace_interact_menu_fnc_addActionToClass;
+  }, true, [], true] call CBA_fnc_addClassEventHandler;
+} forEach ["AllVehicles", "ThingX"];
 
 GVAR(unloadActionCarrier) = [ // create action
     QGVAR(unloadActionCarrier),
@@ -50,7 +52,7 @@ GVAR(unloadActionCargo) = [ // create action
 
 [QGVAR(setVehicleCargo), {
     params ["_carrier", "_cargo"];
-    TRACE_3("setVehicleCargo",_carrier,_cargo);
+    TRACE_2("setVehicleCargo",_carrier,_cargo);
     private _currentCarrier = [_carrier, isVehicleCargo _cargo] select (isNull _carrier);
 
     _carrier setVehicleCargo _cargo;
