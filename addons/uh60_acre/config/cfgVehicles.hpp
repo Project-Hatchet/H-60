@@ -21,7 +21,13 @@ class CfgVehicles {
     class vtx_MH60M: vtx_H60_base {
         #include "acreRacks_mh60m.hpp"
     };
-    class vtx_UH60M : vtx_H60_base {
-        #include "acreRacks_uh60m.hpp"
+    class vtx_MH60M_DAP: vtx_H60_base {
+        #include "acreRacks_mh60m.hpp"
     };
+    class vtx_MH60M_DAP_MLASS: vtx_H60_base {
+        #include "acreRacks_mh60m.hpp"
+    };
+    /*class vtx_UH60M : vtx_H60_base {
+        #include "acreRacks_uh60m.hpp"
+    };*/
 };

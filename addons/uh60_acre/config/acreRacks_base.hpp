@@ -27,7 +27,7 @@ class AcreRacks {
         displayName = "TC Coax";            // Name displayed in the interaction menu
         shortName = "TC";                                     // Short name displayed on the HUD. Maximum of 5 characters
         componentName = "ACRE_VRC111";                // Able to mount a PRC152
-        allowedPositions[] = {{"cargo", 9}}; // Who can configure the radio and open the radio GUI. Same wildcards as the intercom. It also allows transmitting/receiving
+        allowedPositions[] = {{"cargo", "all"}}; // Who can configure the radio and open the radio GUI. Same wildcards as the intercom. It also allows transmitting/receiving
         disabledPositions[] = {};
         defaultComponents[] = {};                         // Use this to attach simple components like Antennas. Not yet fully implemented
         mountedRadio = "";                                        // Predefined mounted radio
@@ -40,10 +40,12 @@ class AcreIntercoms {
         displayName = "Intercommunications system";                         // Name of the intercom network displayed to the players
         shortName = "ICS";
         // "all" is a wildcard that selects, in this case, all turrets (not including ffv)
-        allowedPositions[] = {"crew", {"turret", "all"}, {"ffv", "all"}, {"cargo", "all"}};
+        allowedPositions[] = {"crew", {"turret", "all"}};
         // Commander FFV turret and turret positions [1] and [2] do not have access to crew intercom
         // Seats with master stations have the possibility of broadcasting a message in that network (default: {})
         masterPositions[] = {"driver", {"turret", {0}}};
-        connectedByDefault = 1;
+        limitedPositions[] = {{"ffv", "all"}, {"cargo", "all"}};
+        numLimitedPositions = 2;
+        connectedByDefault = 0;
     };
 };

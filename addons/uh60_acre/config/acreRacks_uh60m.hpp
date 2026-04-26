@@ -49,6 +49,6 @@ class AcreIntercoms {
         numLimitedPositions = 2;
         // Seats with master stations have the possibility of broadcasting a message in that network (default: {})
         masterPositions[] = {"driver", {"turret", {0}}};
-        connectedByDefault = 1;
+        connectedByDefault = 0;
     };
 };
