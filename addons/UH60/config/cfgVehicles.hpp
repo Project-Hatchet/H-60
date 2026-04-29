@@ -494,7 +494,7 @@ class CfgVehicles {
         };
     };
 
-    class vtx_HH60 : vtx_H60_base {
+    class vtx_HH60: vtx_H60_base {
         scope = 2;
         forceInGarage = 1;
         editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_HH60.jpg";
@@ -521,7 +521,7 @@ class CfgVehicles {
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         class Turrets: Turrets
         {
-            class CopilotTurret: CopilotTurret {};
+            #include "turrets\copilot.hpp"
             class MainTurret: MainTurret {};
             class RightDoorGun: RightDoorGun {};
             #include "turrets\cargoTurrets.hpp"
@@ -568,7 +568,7 @@ class CfgVehicles {
         ANIM_INIT(Minigun_Sight_R_hide,1);
       };
       class Turrets: Turrets {
-        class CopilotTurret: CopilotTurret {};
+        #include "turrets\copilot.hpp"
         class MainTurret: MainTurret {};
         class RightDoorGun: RightDoorGun {};
         #include "turrets\cargoTurretsDoor.hpp"
