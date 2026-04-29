@@ -1,21 +1,14 @@
-class CopilotTurret: CopilotTurret
-{
-    weapons[]=
-    {
-        "Laserdesignator_mounted"
-    };
-    magazines[]=
-    {
-        "Laserbatteries"
-    };
+class CopilotTurret: CopilotTurret {
+    gunnerAction = "UH60_Pilot";
+    gunnerInAction = "UH60_Pilot";
     // Animation class
-    body = "FLIR_DIRECTION";
-    gun = "FLIR_ELEVATION";
+    body = "";
+    gun = "";
 
     // Animation source
-    animationSourceBody = "FLIR_DIRECTION";
-    animationSourceGun = "FLIR_ELEVATION";
-    stabilizedInAxes = 3;
+    animationSourceBody = "";
+    animationSourceGun = "";
+    stabilizedInAxes = 0;
     minElev = -180;
     maxElev = 40;
     initElev = 0;

@@ -107,7 +107,7 @@ _id = ["cameraView", {
 
   if !(vtx_uh60_flir_playerIsPilot && {vtx_uh60_flir_controllable}) exitWith {};
   if (_newView == "GUNNER") then {
-    15 cutRsc ["vtx_uh60_flir_crossHair", "PLAIN"];
+    //15 cutRsc ["vtx_uh60_flir_crossHair", "PLAIN"];
     //"filmGrain" ppEffectAdjust [0.5, 2, 1, 1, 1];
     //"filmGrain" ppEffectCommit 0;
     //"filmGrain" ppEffectEnable true;
@@ -152,7 +152,7 @@ _id = ["visibleMap", {
     if (_isVisibleMap) then {
       15 cutText ["", "PLAIN"];
     } else {
-      15 cutRsc ["vtx_uh60_flir_crossHair", "PLAIN"];
+      //15 cutRsc ["vtx_uh60_flir_crossHair", "PLAIN"];
     };
   };
   call vtx_uh60_flir_fnc_setIsPipHidden;
