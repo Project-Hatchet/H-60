@@ -4,6 +4,7 @@
  - Change ESSS retextureable
  - Fix MITAS in viewPilot
  - Fix markings in lod
+ - Fix ammo refill on pylon handover
 
 **0.7.6.7**
 
