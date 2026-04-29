@@ -22,3 +22,5 @@ PREP(keyMasterArm);
 PREP(irLaserPFH);
 PREP(onLaserOn);
 PREP(keyIRLaser);
+PREP(assignPylon);
+PREP(assignPylonLocal);
