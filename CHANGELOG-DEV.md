@@ -5,6 +5,7 @@
  - Fix MITAS in viewPilot
  - Fix markings in lod
  - Fix ammo refill on pylon handover
+ - Fix RPT "Trying to call RemoteExec(Call) with 0 targets for func"
 
 **0.7.6.7**
 

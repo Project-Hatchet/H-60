@@ -22,9 +22,8 @@ params ["_rot_dir", "_target", ["_targetObject", objNull], ["_immediate", false]
   };
 #endif
 
-if (_propagate) then {
-  private _targets = (crew _vehicle) - [player];
-  [_rot_dir, _target, _targetObject, _immediate, false] remoteExecCall ["vtx_uh60_flir_fnc_syncPilotCamera", _targets, false];
+if (_propagate && vtx_uh60_flir_otherPilotIsPlayer) then {
+  [_rot_dir, _target, _targetObject, _immediate, false] remoteExecCall ["vtx_uh60_flir_fnc_syncPilotCamera", vtx_uh60_flir_otherPilot, false];
 } else {
     params ["_rot_dir", "_target", "_targetObject"];
   switch (count _rot_dir) do {
