@@ -6,6 +6,7 @@
  - Fix markings in lod
  - Fix ammo refill on pylon handover
  - Fix RPT "Trying to call RemoteExec(Call) with 0 targets for func"
+ - Add setting Use Scripted Camera. If disabled, copilot uses turret optics. Desired behaviour is same as pilot camera.
 
 **0.7.6.7**
 
