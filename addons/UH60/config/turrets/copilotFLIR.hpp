@@ -1,6 +1,11 @@
 class CopilotTurret: CopilotTurret {
     gunnerAction = "UH60_Pilot";
     gunnerInAction = "UH60_Pilot";
+    weapons[]=
+    {
+        "Laserdesignator_mounted"
+    };
+    magazines[] = {};
     // Animation class
     body = "";
     gun = "";
@@ -23,17 +28,8 @@ class CopilotTurret: CopilotTurret {
     gunEnd = "flir_cam_pos";
     gunnerUsesPilotView = false;
     turretFollowFreeLook = 0;
-    class ViewGunner
-    {
-        minAngleX = -65;
-        maxAngleX = 85;
-        initAngleX = 0;
-        minAngleY = -150;
-        maxAngleY = 150;
-        initAngleY = 0;
-        minFov = 0.25;
-        maxFov = 0.9;
-        initFov = 0.75;
+    class ViewGunner: ViewPilot {
+      #include "ViewPilot.hpp"
     };
     class OpticsIn
     {
