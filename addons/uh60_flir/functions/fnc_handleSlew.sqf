@@ -49,12 +49,13 @@ if _keySlew then {
 vtx_uh60_flir_isSlewing = _keySlew || {vtx_uh60_flir_isInScriptedCamera && {_mouseSlew}} || {vtx_uh60_flir_slewAim && {_mouseSlew}} || {_isGunnerView && {_mouseSlew}};
 
 if (vtx_uh60_flir_isSlewing) then {
-    // systemchat str[ "SLEWING", time];
+systemchat str ["SLEWING", time];
     private _originPos = _vehicle modelToWorldVisualWorld (getPilotCameraPosition _vehicle);
     private _cameraVectorWorld = _vehicle vectorModelToWorld (getPilotCameraDirection _vehicle);
     private _rateY = ([0.04 * vtx_uh60_flir_setting_AimSlewSpeed, 0.08 * vtx_uh60_flir_setting_KeySlewSpeed] select _keySlew) * (vtx_uh60_flir_FOV * 50);
     private _rateX = vtx_uh60_flir_aspectRatio * ([vtx_uh60_flir_setting_AimXFactor, vtx_uh60_flir_setting_KeyXFactor] select _keySlew);
     if (getPilotCameraTarget _vehicle # 0) then {
+
         _cameraVectorWorld = (_originPos vectorFromTo (getPilotCameraTarget _vehicle # 1));
         private _slewOrigin = (_cameraVectorWorld) call CBA_fnc_vect2Polar;
         private _newDir = [
@@ -64,10 +65,10 @@ if (vtx_uh60_flir_isSlewing) then {
 
         private _intersect = [_originPos, _newDir # 0, _newDir # 1] call vtx_uh60_flir_fnc_intersectAtPolar;
         if (!isNil "_intersect") then {
-            if (!_isGunnerView) then {_vehicle setPilotCameraTarget _intersect};
+            if (!_isGunnerView || vtx_uh60_flir_playerIsCopilot) then {_vehicle setPilotCameraTarget _intersect};
             [getPilotCameraDirection _vehicle, getPilotCameraTarget _vehicle # 1] call vtx_uh60_flir_fnc_syncPilotCamera;
         } else {
-            if (!_isGunnerView) then {_vehicle setPilotCameraTarget objNull};
+            if (!_isGunnerView || vtx_uh60_flir_playerIsCopilot) then {_vehicle setPilotCameraTarget objNull};
             [getPilotCameraDirection _vehicle, objNull] call vtx_uh60_flir_fnc_syncPilotCamera;
         };
     } else {
