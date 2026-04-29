@@ -79,3 +79,6 @@ if (vtx_uh60_flir_isSlewing) then {
         [getPilotCameraDirection _vehicle, objNull] call vtx_uh60_flir_fnc_syncPilotCamera;
     };
 };
+if (!vtx_uh60_flir_setting_useScriptedCamera && vtx_uh60_flir_playerIsCopilot && cameraView == "GUNNER") then {
+  [_vehicle, true] call vtx_uh60_flir_fnc_syncAnimation;
+};

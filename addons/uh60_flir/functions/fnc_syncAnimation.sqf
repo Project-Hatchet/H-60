@@ -12,7 +12,11 @@
  * [_vehicle] call vtx_uh60_flir_fnc_syncAnimation
  */
 
-params ["_vehicle"];
+params ["_vehicle", ["_instant", false]];
+
+if (_instant) then {
+systemChat str [time];
+};
 
 // Pavehawk and Seahawk FLIR turrets don't animate properly yet
 if !(
@@ -28,7 +32,7 @@ if (_rotation isNotEqualTo [
 ]) then {
   _rotation params ["_azimuth", "_elevation"];
   private _rotationDiff = abs (((deg (_vehicle animationSourcePhase "FLIR_DIRECTION")) + 180) - ((deg _azimuth) + 180));
-  private _speed = (_rotationDiff / 360) max 1;
+  private _speed = [(_rotationDiff / 360) max 1, true] select _instant;
   // systemChat str [deg _azimuth, (deg (_vehicle animationSourcePhase "FLIR_DIRECTION")),  _speed];
   _vehicle animateSource ["FLIR_DIRECTION", _azimuth, _speed];
   _vehicle animateSource ["FLIR_ELEVATION", -_elevation, _speed];

@@ -8,7 +8,7 @@
 
 params ["_vehicle"];
 
-if (vtx_uh60_flir_setting_animateTurret && {local _vehicle}) then {
+if (vtx_uh60_flir_setting_useScriptedCamera && vtx_uh60_flir_setting_animateTurret && {local _vehicle}) then {
   [_vehicle] call vtx_uh60_flir_fnc_syncAnimation;
 };
 

@@ -327,7 +327,7 @@ class CfgVehicles {
         };
         class Turrets: Turrets
         {
-            #include "turrets\copilot.hpp"
+            #include "turrets\copilotFLIR.hpp"
             #include "turrets\doorgunsTurnOut.hpp"
         };
         class Exhausts
