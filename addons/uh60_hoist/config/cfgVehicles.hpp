@@ -66,31 +66,35 @@ class CfgVehicles
         class Turrets;
     };
     class vtx_hook_base: Boat_F {
+        scope = 1;
         //simulation = "car";
         simulation = "shipX";
         safeDepth = 20;
-        class HitPoints;
-        class Turrets: Turrets {
-            class CargoTurret_01;
-        };
-    };
-    class vtx_hook_helper: vtx_hook_base{
-        displayName = "Rescue Hoist Hook Helper";
-        author = "Project Hatchet Studios";
-        scope = 1;
-        model = "z\vtx\addons\uh60_hoist\data\vtx_hook_helper.p3d";
-        slingLoadCargoMemoryPoints[] = {"sling_point"};
-        mass = 10;
+        fuelCapacity = 0;
         hasDriver = 0;
+        mass = 180;
         maximumLoad = 0;
-        class ACE_Actions {};
-        class Turrets {};
-        class TransportItems {};
-        ace_cargo_hasCargo = 0;
+        ace_refuel_canReceive = 0;
         ace_cargo_space = 0;
+        ace_cargo_hasCargo = 0;
         acre_hasInfantryPhone = 0;
+        class HitPoints;
+        class ACE_Actions {};
         class AcreRacks {};
         class AcreIntercoms {};
+        class AnimationSources {};
+        class Components {};
+        class DestructionEffects {};
+        class Reflectors {};
+        class TransportItems {};
+        class Turrets {};
+
+    };
+    class vtx_hook_helper: vtx_hook_base {
+        displayName = "Rescue Hoist Hook Helper";
+        author = "Project Hatchet Studios";
+        model = "z\vtx\addons\uh60_hoist\data\vtx_hook_helper.p3d";
+        slingLoadCargoMemoryPoints[] = {"sling_point"};
     };
 
     class vtx_hook: vtx_hook_base {
@@ -107,13 +111,7 @@ class CfgVehicles
                 exceptions[] = {};
             };
         };
-        ace_refuel_canReceive = 0;
-        ace_cargo_space = 0;
-        ace_cargo_hasCargo = 0;
         // ACRE 2.6.0 Compatibility
-        acre_hasInfantryPhone = 0;
-        class AcreRacks {};
-        class AcreIntercoms {};
         armor = 1000000;
         author = "Project Hatchet Studios";
         cargoAction[] = {"ChopperLight_CB_static_H"};
@@ -122,36 +120,13 @@ class CfgVehicles
         preciseGetInOut = 1;
         cost = 0;
         displayName = "Rescue Hoist Hook";
-        fuelCapacity = 0;
-        hasDriver = false;
-        hasGunner = false;
-        hasCommander = false;
-        /*
-        class HitPoints: HitPoints {
-            class HitBody: HitBody {
-                name = "sling_point";
-            };
-        };
-        */
         hullDamageCauseExplosion = 0;
         icon = "z\vtx\addons\uh60_hoist\data\ui\iconHook.paa";
         picture = "z\vtx\addons\uh60_hoist\data\ui\vtx_hook_ca.paa";
         mapSize = 0.5;
-        mass = 10;
-        maximumLoad = 0;
         model = "z\vtx\addons\uh60_hoist\data\vtx_hook.p3d";
-        scope = 2;
         //slingLoadCargoMemoryPoints[] = {"sling_point"}; // Don't make slingable
         transportSoldier=1;
         typicalCargo[] = {};
-
-        class AnimationSources {};
-        class CargoTurret {};
-        class Components {};
-        class CommanderOptics {};
-        class DestructionEffects {};
-        class Reflectors {};
-        class TransportItems {};
-        class Turrets {};
     };
 };
