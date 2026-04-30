@@ -81,6 +81,8 @@ class CfgVehicles
         model = "z\vtx\addons\uh60_hoist\data\vtx_hook_helper.p3d";
         slingLoadCargoMemoryPoints[] = {"sling_point"};
         mass = 10;
+        hasDriver = 0;
+        maximumLoad = 0;
         class ACE_Actions {};
         class Turrets {};
         class TransportItems {};
