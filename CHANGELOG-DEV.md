@@ -1,3 +1,10 @@
+**0.7.6.9**
+
+ - Fix JVMF not displaying messages on leftmost MFD
+ - Fix RPT Cannot create entity with abstract type vtx_pylon
+ - Fix jvmf empty message check BCE/cTab
+ - Fix hoist hook and helper vehicles having inventory and driver seat
+ 
 **0.7.6.8**
 
  - Add ace actions for viv to ThingX class
