@@ -34,6 +34,7 @@ class CfgVehicles {
     class Boat_F;
     class vtx_pylon: Boat_F {
         //simulation = "car";
+        scope = 1;
         simulation = "shipX";
         safeDepth = 20;
         ace_refuel_canReceive = 0;
