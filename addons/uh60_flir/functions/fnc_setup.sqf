@@ -17,6 +17,7 @@ if (!hasPilotCamera _vehicle) exitWith {false};
 private _isNotInCockpit = [_vehicle] call vtx_uh60_flir_fnc_syncPilots;
 if (_isNotInCockpit) exitWith {false};
 
+[{hct_player action ["TurnIn", hct_vehicle];}] call CBA_fnc_execNextFrame;
 vtx_uh60_flir_blackColor = ppEffectCreate ["colorCorrections",2001];
 vtx_uh60_flir_blackColor ppEffectAdjust [0, 1.0, 0.0, [0, 0, 0, 0.75], [1, 1.0, 1.0, 1.0], [0, 0, 0, 0.0]];
 vtx_uh60_flir_blackColor ppEffectCommit 0;
@@ -107,7 +108,7 @@ _id = ["cameraView", {
 
   if !(vtx_uh60_flir_playerIsPilot && {vtx_uh60_flir_controllable}) exitWith {};
   if (_newView == "GUNNER") then {
-    15 cutRsc ["vtx_uh60_flir_crossHair", "PLAIN"];
+    //15 cutRsc ["vtx_uh60_flir_crossHair", "PLAIN"];
     //"filmGrain" ppEffectAdjust [0.5, 2, 1, 1, 1];
     //"filmGrain" ppEffectCommit 0;
     //"filmGrain" ppEffectEnable true;
@@ -152,7 +153,7 @@ _id = ["visibleMap", {
     if (_isVisibleMap) then {
       15 cutText ["", "PLAIN"];
     } else {
-      15 cutRsc ["vtx_uh60_flir_crossHair", "PLAIN"];
+      //15 cutRsc ["vtx_uh60_flir_crossHair", "PLAIN"];
     };
   };
   call vtx_uh60_flir_fnc_setIsPipHidden;

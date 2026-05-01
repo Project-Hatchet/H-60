@@ -56,7 +56,11 @@ if (_bootTime > -1) then {
   };
 };
 
-if (vtx_uh60_flir_isPipHidden && {!vtx_uh60_flir_isInScriptedCamera}) exitWith {};
+if (
+  vtx_uh60_flir_isPipHidden
+  && {[cameraView != "GUNNER", !vtx_uh60_flir_isInScriptedCamera] select vtx_uh60_flir_setting_useScriptedCamera}
+) exitWith {};
 
 [_vehicle] call vtx_uh60_flir_fnc_updateCamera;
 _this call vtx_uh60_flir_fnc_updateUIValues;
+
