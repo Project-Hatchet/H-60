@@ -157,7 +157,7 @@ class CfgVehicles {
         picture = "z\vtx\addons\UH60\Data\UI\vtx_UH60_CA.paa";	/// small picture in command menu
 
         driverInAction = UH60_Pilot;
-        driverAction = UH60_Pilot;
+        driverAction = "";
         driverRightHandAnimName="Cyclic_right";
         driverLeftHandAnimName="Collective_right";
         driverLeftLegAnimName="Pedal_Left_P";
@@ -327,7 +327,7 @@ class CfgVehicles {
         };
         class Turrets: Turrets
         {
-            #include "turrets\copilot.hpp"
+            #include "turrets\copilotFLIR.hpp"
             #include "turrets\doorgunsTurnOut.hpp"
         };
         class Exhausts
@@ -443,9 +443,10 @@ class CfgVehicles {
 
         // * Intentionally left out - same as heli base
         // hideProxyInCombat = 0;
-        // viewDriverInExternal = 0;
+        viewDriverInExternal = 1;
+        forceHideDriver = 1;
         // viewGunnerInExternal = 0;
-        // canHideDriver = 0;
+        canHideDriver = 1;
         // precisegetinout = 0;
         // type = VAir;
         // crewVulnerable = 1;
@@ -494,7 +495,7 @@ class CfgVehicles {
         };
     };
 
-    class vtx_HH60 : vtx_H60_base {
+    class vtx_HH60: vtx_H60_base {
         scope = 2;
         forceInGarage = 1;
         editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_HH60.jpg";
@@ -521,7 +522,7 @@ class CfgVehicles {
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         class Turrets: Turrets
         {
-            class CopilotTurret: CopilotTurret {};
+            #include "turrets\copilotFLIR.hpp"
             class MainTurret: MainTurret {};
             class RightDoorGun: RightDoorGun {};
             #include "turrets\cargoTurrets.hpp"
@@ -568,7 +569,7 @@ class CfgVehicles {
         ANIM_INIT(Minigun_Sight_R_hide,1);
       };
       class Turrets: Turrets {
-        class CopilotTurret: CopilotTurret {};
+        #include "turrets\copilot.hpp"
         class MainTurret: MainTurret {};
         class RightDoorGun: RightDoorGun {};
         #include "turrets\cargoTurretsDoor.hpp"
@@ -582,5 +583,9 @@ class CfgNonAIVehicles {
   class ProxyFuel_probe_extending: ProxyRetex {
     hiddenSelections[] = {HIDDENSELECTIONS};
     model = "\z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_extending.p3d";
+  };
+  class ProxyESSS2x: ProxyRetex {
+    hiddenSelections[] ={HIDDENSELECTIONS};
+    model = "\z\vtx\addons\UH60\ESSS2x.p3d";
   };
 };

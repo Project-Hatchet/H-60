@@ -19,3 +19,8 @@ PREP(ehNextWeapon);
 PREP(keyFireSelected);
 PREP(keyNextWeapon);
 PREP(keyMasterArm);
+PREP(irLaserPFH);
+PREP(onLaserOn);
+PREP(keyIRLaser);
+PREP(assignPylon);
+PREP(assignPylonLocal);

@@ -1,9 +1,5 @@
 #include "\z\ace\addons\main\script_macros.hpp"
 
-// testing, update fncs on the fly
-//#undef PREP
-//#define PREP(var1) TRIPLES(ADDON,fnc,var1) = { call compile preProcessFileLineNumbers '\MAINPREFIX\PREFIX\SUBPREFIX\COMPONENT_F\functions\DOUBLES(fnc,var1).sqf' }
-
 #define ANIMSRC(name,src,per,init) \
 class name { \
   source=QUOTE(src); \
@@ -24,6 +20,56 @@ class name { \
 if (_unit isNotEqualTo (driver _vehicle) && {(_vehicle unitTurret _unit) isNotEqualTo [0]}) exitWith {false}
 
 // User MFD Values
+#define USERMFDV_WAYPOINTDIRECTION 0 // Waypoint Direction DTK
+#define USERMFDV_WAYPOINTDISTANCE 1 // Waypoint Distance 2D
+#define USERMFDV_WAYPOINT1X 2 // Waypoint 1 X
+#define USERMFDV_WAYPOINT1Y 3 // Waypoint 1 Y
+#define USERMFDV_WAYPOINT2X 4 // Waypoint 2 X
+#define USERMFDV_WAYPOINT2Y 5 // Waypoint 2 Y
+#define USERMFDV_WAYPOINT3X 6 // Waypoint 3 X
+#define USERMFDV_WAYPOINT3Y 7 // Waypoint 3 Y
+#define USERMFDV_WAYPOINT4X 8 // Waypoint 4 X
+#define USERMFDV_WAYPOINT4Y 9 // Waypoint 4 Y
+#define USERMFDV_TACFLIRX 10 // TAC FLIR x UNUSED
+#define USERMFDV_TACFLIRY 11 // TAC FLIR Y UNUSED
+#define USERMFDV_FDRALT 12 // Flight Director Radar Altitude
+#define USERMFDV_FDALTP 13 // Flight Director Altitude Pressure
+#define USERMFDV_FDALT 14 // Flight Director Altitude
+#define USERMFDV_ANVISHUDMODE 15 // ANVIS HUD Mode
+#define USERMFDV_JVMFTYPE 16 // JVMF Type
+#define USERMFDV_ROTORRPM 17 // Rotor RPM UNUSED
+#define USERMFDV_TACCENTERMODE 18 // TAC Center Mode
+#define USERMFDV_ENG1NG 19 // Engine 1 NG
+#define USERMFDV_ENG1NP 20 // Engine 1 NP
+#define USERMFDV_ENG1TGT 21 // Engine 1 TGT
+#define USERMFDV_ENG1TQ 22 // Engine 1 TQ
+#define USERMFDV_MFD1PAGE 23 // MFD 1 Page Index
+#define USERMFDV_MFD2PAGE 24 // MFD 2 Page Index
+#define USERMFDV_MFD3PAGE 25 // MFD 3 Page Index
+#define USERMFDV_MFD4PAGE 26 // MFD 4 Page Index
+#define USERMFDV_TACSHIPX 27 // TAC Ship X
+#define USERMFDV_TACSHIPY 28 // TAC Ship Y
+#define USERMFDV_TACCURSORX 29 // TAC Cursor X
+#define USERMFDV_TACCURSORY 30 // TAC Cursor Y
+#define USERMFDV_FMS1PAGE 31 // FMS 1 Page Index
+#define USERMFDV_FMS2PAGE 32 // FMS 2 Page Index
+#define USERMFDV_WAYPOINT5X 33 // Waypoint 5 X
+#define USERMFDV_WAYPOINT5Y 34 // Waypoint 5 Y
+#define USERMFDV_WAYPOINT6X 35 // Waypoint 6 X
+#define USERMFDV_WAYPOINT6Y 36 // Waypoint 6 Y
+#define USERMFDV_VELOCITYX 37 // Velocity X
+#define USERMFDV_VELOCITYY 38 // Velocity Y
+#define USERMFDV_MFDSOI 39 // MFD SOI State
+#define USERMFDV_MFDTACZOOM 40 // MFD TAC Zoom
+#define USERMFDV_FDIAS 41 // Flight Director Indicated Airspeed
+#define USERMFDV_FDHDG 42 // Flight Director Heading
+#define USERMFDV_JVMF1 43 // JVMF 1 UNUSED
+#define USERMFDV_JVMF2 44 // JVMF 2 UNUSED
+#define USERMFDV_ENG2NG 45 // Engine 2 NG
+#define USERMFDV_ENG2NP 46 // Engine 2 NP
+#define USERMFDV_ENG2TGT 47 // Engine 2 TGT
+#define USERMFDV_ENG2TQ 48 // Engine 2 TQ
+#define USERMFDV_ESIS 49  // ESIS countdown
 #define USERMFDV_FUELTANK 50  // FUEL TANK STATUS
 #define USERMFDV_CAS 53 // CAS OVERLAY Caution and Advisory System
 #define USERMFDV_TAC_CENTER 54
@@ -144,6 +190,7 @@ if (_unit isNotEqualTo (driver _vehicle) && {(_vehicle unitTurret _unit) isNotEq
           "hs_mlass_co", \
           "hs_lass_co", \
           "hs_full60m_co", \
+          "hs_esss", \
           "emmisive_goarnd", \
           "emmisive_hvr", \
           "emmisive_fms", \

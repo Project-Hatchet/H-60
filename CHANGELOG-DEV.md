@@ -1,3 +1,29 @@
+**0.7.6.9**
+
+ - Fix JVMF not displaying messages on leftmost MFD
+ - Fix RPT Cannot create entity with abstract type vtx_pylon
+ - Fix jvmf empty message check BCE/cTab
+ - Fix hoist hook and helper vehicles having inventory and driver seat
+ 
+**0.7.6.8**
+
+ - Add ace actions for viv to ThingX class
+ - Change ESSS retextureable
+ - Fix MITAS in viewPilot
+ - Fix markings in lod
+ - Fix ammo refill on pylon handover
+ - Fix RPT "Trying to call RemoteExec(Call) with 0 targets for func"
+ - Add setting Use Scripted Camera. If disabled, copilot uses turret optics. Desired behaviour is same as pilot camera.
+
+**0.7.6.7**
+
+ - Fix FMS copilot for non-MLASS models
+ - Fix Arma keybinds for IAS and HDG knobs
+
+**0.7.6.6**
+
+ - Add IR laser for pilots and doorgunners, keybind under H-60 Weapons
+
 **0.7.6.4**
 
  - Fix pilot keybind issues by restoring 0.7.5.2, pilot does not access scripted camera

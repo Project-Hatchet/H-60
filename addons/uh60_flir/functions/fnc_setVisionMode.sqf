@@ -30,9 +30,8 @@ if (vtx_uh60_flir_isInScriptedCamera) then {
   };
 };
 
-if (_sync) then {
-  private _targets = (crew vehicle player) - [player];
-  [_effect, false] remoteExecCall ["vtx_uh60_flir_fnc_setVisionMode", _targets, false];
+if (_sync && vtx_uh60_flir_otherPilotIsPlayer) then {
+  ["vtx_uh60_flir_syncVisionMode", [_effect], [vtx_uh60_flir_otherPilot]] call CBA_fnc_targetEvent;
 };
 
 true

@@ -43,9 +43,8 @@ private _stationAssign = {
 	if (_pylon == -1) exitWith {};
 	private _turret = [[0], [-1]] select (_targetOwner == "pilot");
   (getAllPylonsInfo _vehicle) # (_pylon - 1) params ["", "", "_currentTurret", "_magazine", "_ammo"];
-  if (_currentTurret isEqualTo _turret) exitWith {};
   if (_turret isEqualTo [-1]) then {_turret = []};
-  [_vehicle, objNull, _turret, 1, _magazine, _ammo, _pylon] call ace_rearm_fnc_rearmSuccess;
+  [_vehicle, _turret, _magazine, _ammo, _pylon] call vtx_uh60_weapons_fnc_assignPylon;
 };
 
 switch (_button) do {
