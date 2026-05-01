@@ -5,6 +5,8 @@ class CopilotTurret: CopilotTurret {
   canHideGunner = 0;
   viewGunnerInExternal = 1;
   gunnerUsesPilotView = 1;
+  memoryPointGunnerOptics = "";
+  memoryPointGunnerOutOptics = "";
   gunnerRightHandAnimName="Cyclic_left";
   gunnerLeftHandAnimName="Collective_left";
   gunnerLeftLegAnimName="Pedal_Left_CP";
@@ -23,6 +25,7 @@ class CopilotTurret: CopilotTurret {
   class ViewGunner: ViewPilot {
     #include "ViewPilot.hpp"
   };
+  class OpticsIn {};
   class Hitpoints {};
   class Components {
     class SensorsManagerComponent {

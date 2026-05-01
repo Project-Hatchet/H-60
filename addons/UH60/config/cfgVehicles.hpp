@@ -157,7 +157,7 @@ class CfgVehicles {
         picture = "z\vtx\addons\UH60\Data\UI\vtx_UH60_CA.paa";	/// small picture in command menu
 
         driverInAction = UH60_Pilot;
-        driverAction = UH60_Pilot;
+        driverAction = "";
         driverRightHandAnimName="Cyclic_right";
         driverLeftHandAnimName="Collective_right";
         driverLeftLegAnimName="Pedal_Left_P";
@@ -443,9 +443,10 @@ class CfgVehicles {
 
         // * Intentionally left out - same as heli base
         // hideProxyInCombat = 0;
-        // viewDriverInExternal = 0;
+        viewDriverInExternal = 1;
+        forceHideDriver = 1;
         // viewGunnerInExternal = 0;
-        // canHideDriver = 0;
+        canHideDriver = 1;
         // precisegetinout = 0;
         // type = VAir;
         // crewVulnerable = 1;
@@ -521,7 +522,7 @@ class CfgVehicles {
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         class Turrets: Turrets
         {
-            #include "turrets\copilot.hpp"
+            #include "turrets\copilotFLIR.hpp"
             class MainTurret: MainTurret {};
             class RightDoorGun: RightDoorGun {};
             #include "turrets\cargoTurrets.hpp"

@@ -22,6 +22,7 @@ class CopilotTurret: CopilotTurret {
   maxFov = 0.9;
   initFov = 0.75;
   memoryPointGunnerOptics = "flir_cam_pos";
+  memoryPointGunnerOutOptics = "flir_cam_pos";
   gunBeg = "flir_cam_dir";
   gunEnd = "flir_cam_pos";
   turretFollowFreeLook = 0;
@@ -30,7 +31,9 @@ class CopilotTurret: CopilotTurret {
   CanEject=0;
   gunnerAction = "UH60_Pilot";
   gunnerInAction = "UH60_Pilot";
-  canHideGunner = 0;
+  canHideGunner = 1;
+  forceHideGunner = 1;
+  soundAttenuationTurret = "SemiOpenHeliAttenuation";
   viewGunnerInExternal = 1;
   gunnerUsesPilotView = 1;
   gunnerRightHandAnimName="Cyclic_left";
