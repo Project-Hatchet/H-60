@@ -309,21 +309,6 @@ class CfgVehicles
 				};
 			};
 		};
-		//-Set PlayerPOS SoundController and disable SoundAttenuation (Internal Filter)
-		class Turrets: Turrets
-		{
-			class CopilotTurret: CopilotTurret
-			{
-				disableSoundAttenuation = 0;
-				viewGunnerInExternal = 0;
-				soundAttenuationTurret = "HeliAttenuationGunner";
-				isPersonTurret = 0;
-			};
-			class MainTurret: MainTurret
-			{
-				playerPosition = 2;
-			};
-		};
 	};
 	//-Turret Compat
 	#include "Compat.hpp"

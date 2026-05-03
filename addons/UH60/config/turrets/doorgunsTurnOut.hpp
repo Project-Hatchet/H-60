@@ -42,6 +42,7 @@ class MainTurret: MainTurret { //Left Doorgun
     primaryGunner = 0;
     stabilizedInAxes = 0;
     viewGunnerInExternal = 1;
+    playerPosition = 2;
     hasGunner = 1;
     weapons[]=
     {
