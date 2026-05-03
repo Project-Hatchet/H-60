@@ -1,3 +1,9 @@
+**0.7.7.1**
+
+ - Fix hook deployable when hoist is hidden
+ - Fix non-DAP models able to use IZLID
+ - Change IZLID keybind text
+
 **0.7.6.9**
 
  - Fix JVMF not displaying messages on leftmost MFD
