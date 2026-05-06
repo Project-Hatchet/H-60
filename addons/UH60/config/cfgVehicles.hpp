@@ -512,7 +512,8 @@ class CfgVehicles {
           "", // "left_num_2",
           "", // "right_num_1",
           "", // "right_num_2",
-          "z\vtx\addons\UH60\Data\HH60\Fuel_probe_co.paa"
+          "z\vtx\addons\UH60\Data\HH60\Fuel_probe_co.paa",
+          "z\vtx\addons\mh60m\data\mlass_co.paa"
         };
         memoryPointCM[] = {"flare_launcher1","flare_launcher2","flare_launcher_3","flare_launcher_4"};
         memoryPointCMDir[] = {"flare_launcher1_dir","flare_launcher2_dir","flare_launcher_3_dir","flare_launcher_4_dir"};

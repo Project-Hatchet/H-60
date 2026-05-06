@@ -3,6 +3,7 @@
  - Fix hook deployable when hoist is hidden
  - Fix non-DAP models able to use IZLID
  - Change IZLID keybind text
+ - Fix no textures on HH60G radar and FLIR, Close #551
 
 **0.7.6.9**
 
