@@ -14,16 +14,16 @@ minAngleY = -170;
 maxAngleY = 170;
 
 //How far can the head be moved to the sides left and right
-minMoveX = -0.30;//-0.1;
-maxMoveX = 0.30;//0.1;
+minMoveX = -0.50;//-0.1;
+maxMoveX = 0.50;//0.1;
 
 //How far can the head be moved up and down
 minMoveY = -0.025;//-0.025;  // CHANGING THIS TO -1 HAS NO EFFECT // 0.5 SEEMS OK
-maxMoveY = 0.1;//0.05;
+maxMoveY = 0.2;//0.05;
 
 //How far can the head be moved forward and backward
-minMoveZ = -0.30;//-0.1;
-maxMoveZ = 0.30;//0.1;
+minMoveZ = -0.50;//-0.1;
+maxMoveZ = 0.50;//0.1;
 
 speedZoomMaxSpeed=0;
 speedZoomMaxFOV=1;

@@ -1,3 +1,8 @@
+**0.7.7.2**
+
+ - Increase head move range
+ - Add MH-60M and DAPs to Air Control buy list
+
 **0.7.7.1**
 
  - Fix hook deployable when hoist is hidden
