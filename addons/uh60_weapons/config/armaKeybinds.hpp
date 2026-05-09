@@ -42,8 +42,8 @@ class CfgUserActions
     onActivate = "[hct_vehicle, 'MISSILE'] call vtx_uh60_weapons_fnc_fireAndResetWeapon;";
   };
   class vtx_weapons_irLaser : vtx_weapons_fireLaser {
-    displayName = "Fire IR Laser";
-    tooltip = "Hit this button to fire the IR laser.";
+    displayName = "IZLID";
+    tooltip = "Hit this button to toggle the IZLID IR laser.";
     onActivate = "[] call vtx_uh60_weapons_fnc_keyIRLaser;";
   };
 };

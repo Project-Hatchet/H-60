@@ -15,6 +15,12 @@
  * Public: No
  */
 
+if !(
+  hct_vehicle isKindOf "vtx_MH60M" ||
+  {hct_vehicle isKindOf "vtx_MH60M_DAP"} ||
+  {hct_vehicle isKindOf "vtx_MH60M_DAP_MLASS"}
+) exitWith {};
+
 switch (hct_vehicle unitTurret hct_player) do {
   case [-1]: {
     ["vtx_uh60_weapons_irLaser", [hct_vehicle, [0.085828,5.45809,-0.308074], 0]] call CBA_fnc_globalEvent;

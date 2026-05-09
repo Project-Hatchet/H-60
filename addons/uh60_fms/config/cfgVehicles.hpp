@@ -59,7 +59,6 @@ class VTX_FMS_L4
   #include "MFD\FMS.hpp"
 }; // FMS_L4
 #undef FMS_PYLONS_4
-#undef FMS_PAGE_INDEX
 
 
 class CfgVehicles {

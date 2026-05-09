@@ -12,8 +12,8 @@ class AnimationSources: AnimationSources {
   class GAU21_R_Hide;
   class Skis_show;
   class HH60Flares_show;
-  class HH60Radar_show;
-  class HH60FLIR_show;
+  class HH60GRadar_show;
+  class HH60GFLIR_show;
   class MH60MMisc_show;
   class LandingLight_Show;
   class CabinLight_Show;
