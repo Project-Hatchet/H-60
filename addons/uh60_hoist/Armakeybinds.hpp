@@ -48,7 +48,15 @@ class CfgUserActions
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
 	};
-}; 
+  class Vtx_HOOK_STABILIZE {
+		displayName = "Stabilize Hoist Hook";
+		tooltip = "Stabilizes the Hoist Hook from swinging excessively";
+		onActivate = "_canControl = [vehicle player] call vtx_uh60_hoist_fnc_canControlHoist; if (_canControl) then {[vehicle player] call vtx_uh60_hoist_fnc_stabilizeHook;}";		// _this is always true.
+		onDeactivate = "";		// _this is always false.
+		onAnalog = "";	// _this is the scalar analog value.
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
+	};
+};
 class CfgDefaultKeysPresets{};
 class UserActionGroups
 {
@@ -62,6 +70,7 @@ class UserActionGroups
 		"Vtx_HOOK_RAISE_HELI",
 		"Vtx_HOOK_LOWER",
 		"Vtx_HOOK_RAISE",
+    "Vtx_HOOK_STABILIZE",
 		}; // List of all actions inside this category.
 	};
 };
