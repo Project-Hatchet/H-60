@@ -1,3 +1,13 @@
+**0.7.7.3**
+
+ - New editor preview images for MH models
+ - Add "Stabilize Hook" Modded Keybind
+ - Remove Redundant Hoist CBA Keybinds
+ - Remove Redundant MFD CBA Keybinds
+ - Remove Redundant FLIR Slew CBA Keybinds
+ - Remove Flight Director CBA Keybinds
+ - Remove Deprecated Debug Settings
+
 **0.7.7.2**
 
  - Increase head move range
