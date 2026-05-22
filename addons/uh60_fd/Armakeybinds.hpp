@@ -13,7 +13,7 @@ class CfgUserActions {
     tooltip = "Toggles the Barometric Altitude Preselect Mode";
     onActivate = "[hct_vehicle, 'ALTP'] call vtx_uh60_fd_fnc_modeSet;";		// _this is always true.
   };
-  class Vtx_BALT_Toggle: Vtx_RALT_Toggle {
+  class Vtx_ALT_Toggle: Vtx_RALT_Toggle {
     displayName = "ARM/DISARM ALT Hold";
     tooltip = "Toggles the Barometric Altitude Hold Mode";
     onActivate = "[hct_vehicle, 'ALT'] call vtx_uh60_fd_fnc_modeSet;";		// _this is always true.
@@ -43,7 +43,7 @@ class CfgUserActions {
     tooltip = "Increases the Barometric Altitude Preselect Mode";
     onActivate = "[hct_vehicle, ['misc', format ['KnobFD%1_ALTP', ['Left', 'Right'] select (driver hct_vehicle == hct_player)]], 1] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
   };
-  class Vtx_BALT_Increase: Vtx_RALT_Toggle {
+  class Vtx_ALT_Increase: Vtx_RALT_Toggle {
     displayName = "Increase ALT Hold";
     tooltip = "Increases the Barometric Altitude Hold Mode";
     onActivate = "[hct_vehicle, ['misc', format ['KnobFD%1_BALT', ['Left', 'Right'] select (driver hct_vehicle == hct_player)]], 1] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
@@ -68,7 +68,7 @@ class CfgUserActions {
     tooltip = "Decreases the Barometric Altitude Preselect Mode";
     onActivate = "[hct_vehicle, ['misc', format ['KnobFD%1_ALTP', ['Left', 'Right'] select (driver hct_vehicle == hct_player)]], -1] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
   };
-  class Vtx_BALT_Decrease: Vtx_RALT_Toggle {
+  class Vtx_ALT_Decrease: Vtx_RALT_Toggle {
     displayName = "Decrease ALT Hold";
     tooltip = "Decreases the Barometric Altitude Hold Mode";
     onActivate = "[hct_vehicle, ['misc', format ['KnobFD%1_BALT', ['Left', 'Right'] select (driver hct_vehicle == hct_player)]], -1] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
@@ -92,17 +92,17 @@ class UserActionGroups {
     group[] = {
       "Vtx_RALT_Toggle",
       "Vtx_ALTP_Toggle",
-      "Vtx_BALT_Toggle",
+      "Vtx_ALT_Toggle",
       "Vtx_IAS_Toggle",
       "Vtx_HDG_Toggle",
       "Vtx_RALT_Increase",
       "Vtx_ALTP_Increase",
-      "Vtx_BALT_Increase",
+      "Vtx_ALT_Increase",
       "Vtx_IAS_Increase",
       "Vtx_HDG_Increase",
       "Vtx_RALT_Decrease",
       "Vtx_ALTP_Decrease",
-      "Vtx_BALT_Decrease",
+      "Vtx_ALT_Decrease",
       "Vtx_IAS_Decrease",
       "Vtx_HDG_Decrease",
       "Vtx_FMS_Toggle"
