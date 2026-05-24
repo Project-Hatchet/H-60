@@ -32,7 +32,7 @@ private _doorSeats = [];
 } forEach ("true" configClasses (configOf _vehicle >> "Turrets"));
 
 private _result = true;
-if (_interactionName == "Closed") then {
+if (_animPhase < 0.9) then {
     if (_vehicle getVariable ["ace_fastroping_deploymentStage", 0] > 0) exitWith {
         hint "Door is blocked by FRIES";
         _result = false;
