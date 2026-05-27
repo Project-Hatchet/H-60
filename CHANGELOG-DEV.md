@@ -1,4 +1,9 @@
-**0.7.7.3**
+**0.7.7.4**
+
+ - Fix FD IAS keybind
+ - Add condition for ACE actions when cabin doors are blocked by units or FRIES
+ 
+ **0.7.7.3**
 
  - New editor preview images for MH models
  - Add "Stabilize Hook" Modded Keybind

@@ -1,7 +1,7 @@
 #define MAJOR 0
 #define MINOR 7
 #define PATCHLVL 7
-#define BUILD 3
+#define BUILD 4
 #define RELEASENAME HATCHET-ARMA-2.20
 #define BRANCH MAIN
 #define BUILDHASH ea0e3438

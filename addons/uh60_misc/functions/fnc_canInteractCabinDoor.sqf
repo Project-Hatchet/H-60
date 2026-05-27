@@ -13,11 +13,16 @@
  */
 
 params ["_caller", "_animName", "_animPhase", "_interactionName"];
-private _vehicle = vehicle _caller;
+// for ace interact from outside
+// [_target, "cabinDoor_L", _animPhase] call vtx_uh60_misc_fnc_canInteractCabinDoor;},
+private _isHCT = _caller == hct_player;
+private _vehicle = [_caller, vehicle _caller] select _isHCT;
 
 private _side = str _animName select [count _animName, 1]; // Match "L" or "R"
 if (_vehicle animationPhase format ["GAU21_%1_Hide", _side] == 0) exitWith {
-  hint "Door is blocked";
+  if (_isHCT) then {
+    hint "Door is blocked";
+  };
   false
 };
 
@@ -31,31 +36,41 @@ private _doorSeats = [];
     };
 } forEach ("true" configClasses (configOf _vehicle >> "Turrets"));
 
-private _result = true;
-if (_animPhase < 0.9) then {
-    if (_vehicle getVariable ["ace_fastroping_deploymentStage", 0] > 0) exitWith {
-        hint "Door is blocked by FRIES";
-        _result = false;
-    };
-    if (!(_doorSeats isEqualTo []) && {
-      !((_doorSeats apply {_vehicle turretUnit _x}) isEqualTo [objNull, objNull])
-    }) exitWith {
-        hint "Door is blocked";
-        _result = false;
-    };
-    // True
-    {
-        _vehicle lockTurret [_x, true];
-    } forEach _doorSeats;
-    _vehicle setVariable ["ace_fastroping_deploymentStage", -1, true];
-} else { // Open
+// Open
+if (_animPhase < 0.9) exitWith {
     {
         _vehicle lockTurret [_x, false];
     } forEach _doorSeats;
-    _vehicle setVariable ["ace_fastroping_deploymentStage", 0, true];
+    // _vehicle setVariable ["ace_fastroping_deploymentStage", 0, true];
+    true
 };
 
-_result
+// Close
+
+if (
+  _vehicle getVariable ["ace_fastroping_deploymentStage", 0] > 0
+  && {!isNull (_vehicle getVariable ["ace_fastroping_fries", objNull])}
+) exitWith {
+    if (_isHCT) then {
+        hint "Door is blocked by FRIES";
+    };
+    false
+};
+if (!(_doorSeats isEqualTo []) && {
+  !((_doorSeats apply {_vehicle turretUnit _x}) isEqualTo [objNull, objNull])
+}) exitWith {
+    if (_isHCT) then {
+        hint "Door is blocked";
+    };
+    false;
+};
+// True
+{
+    _vehicle lockTurret [_x, true];
+} forEach _doorSeats;
+//_vehicle setVariable ["ace_fastroping_deploymentStage", -1, true];
+
+true
 
 /* door seat
 private _doorSeats = [];
