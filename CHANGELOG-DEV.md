@@ -1,3 +1,23 @@
+**0.7.7.4**
+
+ - Fix FD IAS keybind
+ - Add condition for ACE actions when cabin doors are blocked by units or FRIES
+ 
+ **0.7.7.3**
+
+ - New editor preview images for MH models
+ - Add "Stabilize Hook" Modded Keybind
+ - Remove Redundant Hoist CBA Keybinds
+ - Remove Redundant MFD CBA Keybinds
+ - Remove Redundant FLIR Slew CBA Keybinds
+ - Remove Flight Director CBA Keybinds
+ - Remove Deprecated Debug Settings
+
+**0.7.7.2**
+
+ - Increase head move range
+ - Add MH-60M and DAPs to Air Control buy list
+
 **0.7.7.1**
 
  - Fix hook deployable when hoist is hidden

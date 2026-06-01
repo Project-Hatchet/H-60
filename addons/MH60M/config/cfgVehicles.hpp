@@ -256,7 +256,7 @@ class CfgVehicles {
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         scope = 2;
         forceInGarage = 1;
-        editorPreview = "z\vtx\addons\MH60M\Data\Preview\vtx_MH60M_DAP.jpg";
+        editorPreview = "z\vtx\addons\MH60M\Data\Preview\vtx_MH60M_DAP_MLASS.jpg";
         memoryPointDriverOptics = "pilotcamera_flir_pos";
         transportSoldier=0;
         cargoProxyIndexes[] = {12, 13, 14, 15, 16, 17, 20, 21, 22, 23};
