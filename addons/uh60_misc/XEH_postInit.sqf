@@ -26,7 +26,7 @@ private _doorOpenLeft = [
    // * Set Internal Wind-washing sound
    [[_target, "CustomSoundController9", (_anim + (1 - (_target animationPhase 'cabindoor_R'))) / 2]] remoteExecCall ["setCustomSoundController", crew _target];
  }, // * 3: Statement <CODE>
- {private _animPhase = abs (1 - (_target animationPhase "cabinDoor_L"));
+ {private _animPhase = _target animationPhase "cabinDoor_L";
  [_target, "cabinDoor_L", _animPhase] call vtx_uh60_misc_fnc_canInteractCabinDoor;}, // * 4: Condition <CODE>
  nil, // * 5: Insert children code <CODE> (Optional)
  [], // * 6: Action parameters <ANY> (Optional)
@@ -47,7 +47,7 @@ private _doorOpenRight = [
     // * Set Internal Wind-washing sound
     [[_target, "CustomSoundController9", ((1 - (_target animationPhase 'cabindoor_L')) + _anim) / 2]] remoteExecCall ["setCustomSoundController", crew _target];
   },
-  {private _animPhase = abs (1 - (_target animationPhase "cabinDoor_R"));
+  {private _animPhase = _target animationPhase "cabinDoor_L";
  [_target, "cabinDoor_R", _animPhase] call vtx_uh60_misc_fnc_canInteractCabinDoor;},
   nil,
   [],

@@ -36,22 +36,9 @@ private _doorSeats = [];
     };
 } forEach ("true" configClasses (configOf _vehicle >> "Turrets"));
 
-// Open
-if (_animPhase < 0.9) exitWith {
-    {
-        _vehicle lockTurret [_x, false];
-    } forEach _doorSeats;
-    // _vehicle setVariable ["ace_fastroping_deploymentStage", 0, true];
-    true
-};
-
-// Close
-
-if (
-  _vehicle getVariable ["ace_fastroping_deploymentStage", 0] > 0
-  && {!isNull (_vehicle getVariable ["ace_fastroping_fries", objNull])}
-) exitWith {
-    if (_isHCT) then {
+private _result = true;
+if (_animPhase < 0.9) then {
+    if (_vehicle getVariable ["ace_fastroping_deploymentStage", 0] > 0) exitWith {
         hint "Door is blocked by FRIES";
     };
     false
