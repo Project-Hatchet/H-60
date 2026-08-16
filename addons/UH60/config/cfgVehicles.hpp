@@ -327,7 +327,7 @@ class CfgVehicles {
         };
         class Turrets: Turrets
         {
-            #include "turrets\copilotFLIR.hpp"
+            #include "turrets\copilot.hpp" // #556: proven-working turret for ALL copilots; copilotFLIR.hpp returns when the model gains a View-Gunner LOD
             #include "turrets\doorgunsTurnOut.hpp"
         };
         class Exhausts
@@ -523,7 +523,7 @@ class CfgVehicles {
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         class Turrets: Turrets
         {
-            #include "turrets\copilotFLIR.hpp"
+            #include "turrets\copilot.hpp" // #556: proven-working turret for ALL copilots; copilotFLIR.hpp returns when the model gains a View-Gunner LOD
             class MainTurret: MainTurret {};
             class RightDoorGun: RightDoorGun {};
             #include "turrets\cargoTurrets.hpp"
