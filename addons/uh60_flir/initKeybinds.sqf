@@ -1,6 +1,15 @@
 //addUserActionEventHandler ["transportNightVision", "Activate", vtx_uh60_flir_fnc_keyVisionMode];
 addUserActionEventHandler ["vehLockTurretView", "Activate", {
-  if (!vtx_uh60_flir_controllable || {cameraView == "GUNNER"}) exitWith {};
+  // "Fullscreen FLIR" for the DRIVER is the vanilla pilot-camera view, which is
+  // cameraView "GUNNER" - so the gunner-view guard must let the pilot and the
+  // copilot through and block only real door gunners, whose T key keeps its
+  // vanilla turret-lock meaning. The mod's scripted camera has its own hooks
+  // (fnc_scriptedCamera) - exit here to avoid double-triggering (#538)
+  if (
+    !vtx_uh60_flir_controllable
+    || {vtx_uh60_flir_isInScriptedCamera}
+    || {cameraView == "GUNNER" && {!(vtx_uh60_flir_playerIsCopilot || vtx_uh60_flir_playerIsPilot)}}
+  ) exitWith {};
   if (vtx_uh60_flir_isInScriptedCamera) then {
     [
         AGLToASL positionCameraToWorld [0, 0, 0],

@@ -30,6 +30,17 @@ if (_isGunnerView) then {
 // get current dir
 (getPilotCameraRotation _vehicle) params ["_azimuth", "_elevation"];
 
+// Active follow: a target set while already inside the gunner view / scripted
+// camera is not steered by the engine, so aim the pilot camera at the tracked
+// object ourselves every frame. NOTE: the engine's getPilotCameraTarget does
+// NOT return the object - the mod patches it into element 2 of its own state
+// variable in fnc_syncPilotCamera, which is the only valid source (#538)
+private _trackedObj = vtx_uh60_flir_pilotCameraTarget param [2, objNull];
+if (!isNull _trackedObj) then {
+  private _trackOrigin = _vehicle modelToWorldVisualWorld (getPilotCameraPosition _vehicle);
+  _vehicle setPilotCameraDirection (_vehicle vectorWorldToModelVisual (_trackOrigin vectorFromTo getPosASLVisual _trackedObj));
+};
+
 // check key slew
 private _inputX = 0;
 private _inputY = 0;
@@ -56,6 +67,14 @@ if (vtx_uh60_flir_isSlewing) then {
     private _rateX = vtx_uh60_flir_aspectRatio * ([vtx_uh60_flir_setting_AimXFactor, vtx_uh60_flir_setting_KeyXFactor] select _keySlew);
     if (getPilotCameraTarget _vehicle # 0) then {
 
+        // Object track: in gunner view / scripted camera every mouselook twitch
+        // registers as slew, and retargeting here replaced the object lock with
+        // a ground position each frame - the camera never followed. Only
+        // deliberate key slew (or pressing lock again) may break a follow.
+        // Tracked object must come from the mod's own state variable - the
+        // engine's getPilotCameraTarget does not expose it (#538)
+        if (!isNull (vtx_uh60_flir_pilotCameraTarget param [2, objNull]) && {!_keySlew}) exitWith {};
+
         _cameraVectorWorld = (_originPos vectorFromTo (getPilotCameraTarget _vehicle # 1));
         private _slewOrigin = (_cameraVectorWorld) call CBA_fnc_vect2Polar;
         private _newDir = [
@@ -63,8 +82,9 @@ if (vtx_uh60_flir_isSlewing) then {
             (_slewOrigin # 2) + (_inputY * _rateY)
         ];
 
-        private _intersect = [_originPos, _newDir # 0, _newDir # 1] call vtx_uh60_flir_fnc_intersectAtPolar;
-        if (!isNil "_intersect") then {
+        private _intersectResult = [_originPos, _newDir # 0, _newDir # 1] call vtx_uh60_flir_fnc_intersectAtPolar;
+        if (!isNil "_intersectResult") then {
+            private _intersect = _intersectResult # 0; // slew stays a position lock; object tracking is setStabilization's job
             if (!_isGunnerView || vtx_uh60_flir_playerIsCopilot) then {_vehicle setPilotCameraTarget _intersect};
             [getPilotCameraDirection _vehicle, getPilotCameraTarget _vehicle # 1] call vtx_uh60_flir_fnc_syncPilotCamera;
         } else {
