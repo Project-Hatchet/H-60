@@ -100,6 +100,6 @@ if (vtx_uh60_flir_isSlewing) then {
         [getPilotCameraDirection _vehicle, objNull] call vtx_uh60_flir_fnc_syncPilotCamera;
     };
 };
-if (!vtx_uh60_flir_setting_useScriptedCamera && vtx_uh60_flir_playerIsCopilot && cameraView == "GUNNER") then {
-  [_vehicle, true] call vtx_uh60_flir_fnc_syncAnimation;
-};
+// (turret-optics animation sync removed with the Use Scripted Camera setting -
+// the copilot optics mode is disabled until the model gains a View - Gunner
+// LOD, #560; restore both together with the optics)
