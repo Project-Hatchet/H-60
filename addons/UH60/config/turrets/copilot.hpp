@@ -5,6 +5,10 @@ class CopilotTurret: CopilotTurret {
   canHideGunner = 0;
   viewGunnerInExternal = 1;
   gunnerUsesPilotView = 1;
+  // 1100 = View - Pilot LOD; without these the turret defaults to the door-gunner
+  // View - Gunner LOD and the copilot cockpit loses its upper console (#556)
+  LODTurnedIn = 1100;
+  LODTurnedOut = 1100;
   memoryPointGunnerOptics = "";
   memoryPointGunnerOutOptics = "";
   gunnerRightHandAnimName="Cyclic_left";
