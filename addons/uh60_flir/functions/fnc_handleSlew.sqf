@@ -63,8 +63,9 @@ if (vtx_uh60_flir_isSlewing) then {
             (_slewOrigin # 2) + (_inputY * _rateY)
         ];
 
-        private _intersect = [_originPos, _newDir # 0, _newDir # 1] call vtx_uh60_flir_fnc_intersectAtPolar;
-        if (!isNil "_intersect") then {
+        private _intersectResult = [_originPos, _newDir # 0, _newDir # 1] call vtx_uh60_flir_fnc_intersectAtPolar;
+        if (!isNil "_intersectResult") then {
+            private _intersect = _intersectResult # 0; // slew stays a position lock; object tracking is setStabilization's job
             if (!_isGunnerView || vtx_uh60_flir_playerIsCopilot) then {_vehicle setPilotCameraTarget _intersect};
             [getPilotCameraDirection _vehicle, getPilotCameraTarget _vehicle # 1] call vtx_uh60_flir_fnc_syncPilotCamera;
         } else {

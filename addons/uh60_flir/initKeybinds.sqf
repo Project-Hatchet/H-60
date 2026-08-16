@@ -1,6 +1,8 @@
 //addUserActionEventHandler ["transportNightVision", "Activate", vtx_uh60_flir_fnc_keyVisionMode];
 addUserActionEventHandler ["vehLockTurretView", "Activate", {
-  if (!vtx_uh60_flir_controllable || {cameraView == "GUNNER"}) exitWith {};
+  // GUNNER-view guard must not block the copilot: turret optics are the copilot's
+  // primary FLIR view, only doorgunners should keep vanilla turret lock (#538)
+  if (!vtx_uh60_flir_controllable || {cameraView == "GUNNER" && {!vtx_uh60_flir_playerIsCopilot}}) exitWith {};
   if (vtx_uh60_flir_isInScriptedCamera) then {
     [
         AGLToASL positionCameraToWorld [0, 0, 0],
