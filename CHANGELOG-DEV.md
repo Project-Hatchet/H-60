@@ -1,5 +1,7 @@
 **0.7.7.4**
 
+ - Fix copilot seat rendering wrong interior LOD (missing upper console) #556
+ - Fix FLIR lock/track of vehicles: lock key was dead in gunner view, and locking now targets the object the camera ray hits #538
  - Fix FD IAS keybind
  - Add condition for ACE actions when cabin doors are blocked by units or FRIES
  
