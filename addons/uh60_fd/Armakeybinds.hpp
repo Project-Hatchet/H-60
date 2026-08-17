@@ -46,7 +46,7 @@ class CfgUserActions {
   class Vtx_ALT_Increase: Vtx_RALT_Toggle {
     displayName = "Increase ALT Hold";
     tooltip = "Increases the Barometric Altitude Hold Mode";
-    onActivate = "[hct_vehicle, ['misc', format ['KnobFD%1_BALT', ['Left', 'Right'] select (driver hct_vehicle == hct_player)]], 1] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
+    onActivate = "[hct_vehicle, ['misc', format ['KnobFD%1_ALT', ['Left', 'Right'] select (driver hct_vehicle == hct_player)]], 1] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
   };
   class Vtx_IAS_Increase: Vtx_RALT_Toggle {
     displayName = "Increase IAS Hold";
@@ -71,7 +71,7 @@ class CfgUserActions {
   class Vtx_ALT_Decrease: Vtx_RALT_Toggle {
     displayName = "Decrease ALT Hold";
     tooltip = "Decreases the Barometric Altitude Hold Mode";
-    onActivate = "[hct_vehicle, ['misc', format ['KnobFD%1_BALT', ['Left', 'Right'] select (driver hct_vehicle == hct_player)]], -1] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
+    onActivate = "[hct_vehicle, ['misc', format ['KnobFD%1_ALT', ['Left', 'Right'] select (driver hct_vehicle == hct_player)]], -1] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
   };
   class Vtx_IAS_Decrease: Vtx_RALT_Toggle {
     displayName = "Decrease IAS Hold";
