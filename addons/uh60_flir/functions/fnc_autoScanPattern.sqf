@@ -12,8 +12,6 @@ private _startTime = _vehicle getVariable ["vtx_uh60_flir_fnc_lstTrackStartTime"
 
 //track to start position
 if (_startTime > cba_missionTime) exitWith {
-	private _setupProgress = (5 - (_startTime - cba_missionTime)) / 5;
-	systemChat str ["SETTING UP", _setupProgress];
 	((getPilotCameraRotation _vehicle) apply {deg _x}) params ["_yaw", "_pitch"];
 
 	([_yaw, _pitch] vectorDiff [_barWidth, 0]) params ["_yawDiff", "_pitchDiff"];
@@ -29,7 +27,6 @@ if (_startTime > cba_missionTime) exitWith {
 		rad (_newYaw),
 		rad (_newPitch)
 	];
-	// systemChat str ["SETTING UP", round _setupProgress, round _yaw, round _pitch];
 };
 
 private _timeElapsed = cba_missionTime - _startTime;
@@ -40,7 +37,6 @@ private _barProgress = (_bars - (_barTimeTotal * _currentBar));
 private _transitionAdjustment = 0;
 if (_barProgress > _barTime) then {
 	private _transitionProgress = (_barProgress - _barTime) / _transitionTime;
-	// systemChat str ["TRANSIT", _transitionProgress];
 	_barProgress = _barProgress min _barTime;
 	_transitionAdjustment = (_barHeight * _transitionProgress);
 	if (_currentBar + 1 == _barCount) then {
