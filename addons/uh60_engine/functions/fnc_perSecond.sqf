@@ -8,9 +8,10 @@
 #include "defines.hpp"
 params ["_vehicle"];
 
-private _fuelConsumed = vtx_uh60_engine_lastFuelLevel - fuel _vehicle;
+private _fuel = fuel _vehicle;
+private _fuelConsumed = (_vehicle getVariable ["vtx_uh60_engine_lastFuelLevel", _fuel]) - _fuel;
 
-vtx_uh60_engine_lastFuelLevel = fuel _vehicle;
+_vehicle setVariable ["vtx_uh60_engine_lastFuelLevel", _fuel];
 if (_fuelConsumed > 0) then {
     private _fuelTimeSecondsTotal = (fuel _vehicle) / _fuelConsumed;
     private _fuelTimeStr = [_fuelTimeSecondsTotal] call CBA_fnc_formatElapsedTime;
