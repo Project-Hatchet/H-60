@@ -23,11 +23,33 @@ params [
 
 //if (vtx_uh60_flir_playerIsPilot && {vtx_uh60_flir_isCopilotInGunnerView}) exitWith {false};
 
-vtx_uh60_flir_pilotCameraTarget params ["_isTracking", "", "_trackObj"];
-
+private _trackObj = vtx_uh60_flir_pilotCameraTarget param [2, objNull];
 
 private _originPos = hct_vehicle modelToWorldVisualWorld (getPilotCameraPosition hct_vehicle);
 private _cameraVectorWorld = hct_vehicle vectorModelToWorld (getPilotCameraDirection hct_vehicle);
+
+// The lock key is a toggle: with an object track active the camera is being
+// steered onto the target, so a fresh boresight ray always re-hits the same
+// vehicle and silently re-locked it. Break the lock instead - in fullscreen
+// there is no other way out, since mouselook deliberately does not stomp
+// tracks (#538 follow-up)
+if (!isNull _trackObj) exitWith {
+  private _dir = hct_vehicle vectorWorldToModelVisual (
+    [
+      _cameraVectorWorld,
+      ATLtoASL positionCameraToWorld [0,0,0]
+      vectorFromTo
+      ATLtoASL positionCameraToWorld [0,0,1000]
+    ] select vtx_uh60_flir_isInScriptedCamera
+  );
+  hct_vehicle setPilotCameraTarget objNull;
+  hct_vehicle setPilotCameraDirection _dir;
+  [[], objNull] call vtx_uh60_flir_fnc_syncPilotCamera;
+  if (missionNamespace getVariable ["vtx_uh60_ui_showDebugMessages", false]) then {
+    systemChat format ["FLIR lock: released %1", typeOf _trackObj];
+  };
+  true
+};
 
 private _intersectResult = if (_camPosASL isNotEqualTo []) then {
     // Scripted camera passes its true view ray. The pilot camera can trail a
