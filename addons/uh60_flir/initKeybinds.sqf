@@ -20,6 +20,39 @@ addUserActionEventHandler ["vehLockTurretView", "Activate", {
   };
 }];
 
+// The pilot's fullscreen FLIR is the ENGINE's gunner view, where the vanilla
+// lock action also fires and keeps its own toggle state - desynced from the
+// mod's script-set locks: on the second press the mod releases while vanilla,
+// believing nothing was locked, immediately re-locks natively and snaps the
+// camera away (tester report, #559). Consume the key/button at display level
+// there and route it through setStabilization only. Mouse buttons appear in
+// actionKeys as 65536 + button, same as the scripted-camera hooks (#538)
+vtx_uh60_flir_lastLockPress = 0;
+vtx_uh60_flir_nativeLockFire = {
+  if (diag_tickTime > vtx_uh60_flir_lastLockPress + 0.3) then {
+    vtx_uh60_flir_lastLockPress = diag_tickTime;
+    [] call vtx_uh60_flir_fnc_setStabilization;
+  };
+};
+vtx_uh60_flir_nativeLockCondition = {
+  cameraView == "GUNNER"
+  && {!vtx_uh60_flir_isInScriptedCamera}
+  && {missionNamespace getVariable ["vtx_uh60_flir_controllable", false]}
+  && {vtx_uh60_flir_playerIsPilot}
+};
+[{!isNull findDisplay 46}, {
+  (findDisplay 46) displayAddEventHandler ["KeyDown", {
+    params ["", "_key"];
+    if !(call vtx_uh60_flir_nativeLockCondition) exitWith {false};
+    if (_key in (actionKeys "vehLockTurretView")) then {call vtx_uh60_flir_nativeLockFire; true} else {false};
+  }];
+  (findDisplay 46) displayAddEventHandler ["MouseButtonDown", {
+    params ["", "_button"];
+    if !(call vtx_uh60_flir_nativeLockCondition) exitWith {false};
+    if ((65536 + _button) in (actionKeys "vehLockTurretView")) then {call vtx_uh60_flir_nativeLockFire; true} else {false};
+  }];
+}] call CBA_fnc_waitUntilAndExecute;
+
 addUserActionEventHandler ["showMap", "Activate", {
   if (visibleMap || !vtx_uh60_flir_isInScriptedCamera) exitWith {};
   vtx_uh60_flir_scriptedCameraToMap = true;

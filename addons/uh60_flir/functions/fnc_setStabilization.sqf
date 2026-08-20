@@ -44,6 +44,12 @@ if (!isNull _trackObj) exitWith {
   );
   hct_vehicle setPilotCameraTarget objNull;
   hct_vehicle setPilotCameraDirection _dir;
+  // remember the released direction: if the VANILLA lock action re-locks after
+  // us on the same press (its toggle state is desynced; HOTAS bindings bypass
+  // the display-level consume hooks), the per-frame authority in fnc_handleSlew
+  // stomps the rogue lock and restores this direction
+  vtx_uh60_flir_lastReleaseDir = _dir;
+  vtx_uh60_flir_lastReleaseTime = diag_tickTime;
   [[], objNull] call vtx_uh60_flir_fnc_syncPilotCamera;
   if (missionNamespace getVariable ["vtx_uh60_ui_showDebugMessages", false]) then {
     systemChat format ["FLIR lock: released %1", typeOf _trackObj];
@@ -116,6 +122,8 @@ if (!isNull _trackTarget) then {
 
     hct_vehicle setPilotCameraTarget objNull;
     hct_vehicle setPilotCameraDirection _dir;
+    vtx_uh60_flir_lastReleaseDir = _dir;
+    vtx_uh60_flir_lastReleaseTime = diag_tickTime;
     [[], objNull] call vtx_uh60_flir_fnc_syncPilotCamera;
 
   } else {
