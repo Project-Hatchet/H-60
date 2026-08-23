@@ -16,3 +16,4 @@ Thumbs.db
 .sconsign.dblite
 *.wav
 *.pkf
+apidocs/
