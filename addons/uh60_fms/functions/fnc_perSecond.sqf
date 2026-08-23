@@ -62,8 +62,8 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
             fms_locations_page_list = _places;
         };
         private _pageCount = ceil ((count fms_locations_page_list) / 4);
-        fms_locations_page_index = fms_locations_page_index max 0 min (_pageCount - 1);
-        private _strings = [format["%1/%2", fms_locations_page_index + 1, _pageCount], "", "", "",""];
+        fms_locations_page_index = fms_locations_page_index max 0 min ((_pageCount max 1) - 1); // an empty list gave -1 and negative-indexed the page
+        private _strings = [format["%1/%2", fms_locations_page_index + 1, _pageCount max 1], "", "", "",""];
         private _fmsPrintStart = fms_locations_page_index * 4;
         for "_i" from 0 to 3 do {
             if (_fmsPrintStart + _i < count fms_locations_page_list) then {
@@ -131,8 +131,8 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
             fms_comm_presets_page_list pushBack _preset;
         };
         private _pageCount = ceil ((count fms_comm_presets_page_list) / 4);
-        fms_comm_presets_page_index = fms_comm_presets_page_index max 0 min (_pageCount - 1);
-        private _strings = [format["%1/%2", fms_comm_presets_page_index + 1, _pageCount], "", "", "",""];
+        fms_comm_presets_page_index = fms_comm_presets_page_index max 0 min ((_pageCount max 1) - 1); // an empty list gave -1 and negative-indexed the page
+        private _strings = [format["%1/%2", fms_comm_presets_page_index + 1, _pageCount max 1], "", "", "",""];
         private _fmsPrintStart = fms_comm_presets_page_index * 4;
         for "_i" from 0 to 3 do {
             if (_fmsPrintStart + _i < count fms_comm_presets_page_list) then {
