@@ -9,7 +9,7 @@ if (_active && {!([player] call vtx_uh60_hoist_fnc_canControlHoist)}) exitWith {
 if !(local _heli) exitWith {[_heli, _active] remoteExecCall ["vtx_uh60_hoist_fnc_lowerHook", _heli]};
 
 // key-held state lives on the vehicle so it exists wherever the loop runs
-_heli setVariable ["vtx_uh60_hoist_extending", _active];
+_heli setVariable ["vtx_uh60_hoist_extending", _active, true]; // public: the rider-side attach PFH reads it
 if !(_active) exitWith {};
 if (_heli getVariable ["vtx_uh60_hoist_lowerLoopRunning", false]) exitWith {};
 _heli setVariable ["vtx_uh60_hoist_lowerLoopRunning", true];
@@ -27,6 +27,7 @@ _heli setVariable ["vtx_uh60_hoist_lowerLoopRunning", true];
             _speed,
             (_ropeLength + _speed * 0.3) min MAX_ROPE_LENGTH // keep the target ahead of the winch so _speed governs
         ];
+        _dummy awake true; // the 10 Hz winch cadence lets the rope-end body fall asleep in PhysX
         sleep 0.1;
     };
     _heli setVariable ["vtx_uh60_hoist_lowerLoopRunning", false];
