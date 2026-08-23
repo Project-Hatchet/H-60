@@ -237,3 +237,54 @@ Verification infrastructure worth building once, used everywhere: the config-dum
 3. **uh60_config's future** — genuine delta addon (recommended, matches references) vs full merge into UH60.
 4. **CCFS Pong** — easter egg or delete.
 5. **Localization ambition** — English-complete stringtables first (recommended), translations later via the AH-64D language-addon model if contributors appear.
+
+---
+
+## Addendum — legacy audit (2026-08-23)
+
+A dedicated sweep for outdated/deprecated material left by the mod's successive authorship eras (the prefix lineage is `vxf` → `vtx` → `hct`; git shows ~24 contributor identities across four eras). Findings below are slotted into the phase where they belong. Items already catalogued in Phases 2/4 are not repeated.
+
+### Fix immediately (Phase 0 tail — live defects)
+
+- **Phantom handlers.** `vtx_uh60_flir_fnc_syncTurret` does not exist but is remote-executed from `uh60_fms/fnc_interaction_waypoint.sqf:104,110` — FMS "slave FLIR to waypoint" errors silently. `vtx_uh60_hoist_fnc_getInHeli` (called from `fnc_getInHeliHook.sqf:23`) and `vtx_uh60_misc_fnc_switchTurret` (CBA event registered in `uh60_misc/XEH_postInit.sqf:12-13`, nothing raises it) are dead on one or both ends.
+- **Dev tooling ships to players.** `uh60_misc/dev/` (including a ~6 KB captured session-state dump in `fnc_instantStart.sqf`) is packed into the released PBO — the build has no exclude list. Also ~48 MB of source `.tga` files pack alongside their `.paa` equivalents because `tools/buildExtIncludes.txt` includes `*.tga`; this is most of `uh60_misc`'s PBO weight.
+- **Unguarded debug output**: `uh60_misc/fnc_fold.sqf:74` systemChats the fold time to players on every fold.
+- **`H60_SFX` remote-exec gap.** Its `CfgFunctions`-registered sound functions are `remoteExecCall`'d by name from `uh60_engine` with no `CfgRemoteExec` whitelist entry — works on default servers, fails on locked-down ones.
+- **Config typos with runtime effect**: unquoted classnames in arrays (`magazines[]={60Rnd_CMFlareMagazine}` at `UH60/config/cfgVehicles.hpp:296`); `UH60/cfgSetting.hpp:5` declares `main_addon = "UH60"` but the CfgPatches class is `vtx_uh60`, so the CBA version-dependency check never fires.
+
+### Fold into Phase 2 (delete first)
+
+- Orphan function files beyond the existing list: `uh60_cas/fnc_registerCaution.sqf`, `uh60_cas/fnc_shutdown.sqf` (references nonexistent `fnc_hitEH`), `uh60_engine/fnc_acftSoundController.sqf` (PREP commented out), `uh60_jvmf/fnc_initDialog.sqf`, `uh60_weapons/fnc_handleDamage.sqf` (dead, contains `hint` debug and a top-level pylon-arming dev harness — delete with prejudice), `uh60_misc/dev/*` (or exclude at build), `UH60/config/MFD/Components/horizon.hpp` (`MFD_PFD_TEST`, included nowhere).
+- Dead stringtable keys: all 5 in `uh60_mfd` (whole file removable), 2 in `uh60_fd`, 3 in `uh60_hoist`, 1 each in `ace_viv`/`UH60`, plus the 4 fold-complexity keys whose feature is disabled at every layer (`uh60_misc/XEH_preInit.sqf:6` comments out its own initSettings include; the only consumer is commented out in XEH_postInit).
+- The custom loading screen: `RscDisplayLoadProjectHatchet` is registered in config but its `fnc_loadingScreen` is never PREP'd — and the engine never instantiates a renamed load display anyway. Wire it properly or delete class + function + `data/splash/construction.paa`.
+- Abandoned NVGHUD/HDTS wiring: the include is commented out in `uh60_anvishud/config/cfgVehicles.hpp:42-58` while the whole `config/NVGHUD/` tree ships and `uh60_config` still delta-inherits `class NVGHUD` in 6 places from classes that no longer exist.
+- Commented damage-rvmat swap lists in `UH60/config/cfgVehicles.hpp:302-324` reference ~10 nonexistent rvmats; the two that do exist are referenced only from those comments (orphan assets).
+- `.travis.yml` (already listed) — note it also pins Python 3.4 and invokes `tools/config_style_checker.py`, which doesn't exist; the GitHub Actions `validate` job is commented out and references three validators (`config_style_checker`, `stringtable_validator`, `return_checker`) that don't exist either. Delete or restore as a pair with Phase 3's real CI.
+- Dead A2-era config properties: `typicalCargo[]` (5 sites, ignored by Arma 3), `soundEngineOn*[]` dummy-sound arrays in `H60_SFX` with two older commented generations beside them, empty `FalconDED` font family in `UH60/config.cpp:35-40`.
+- The `vxf_core` runtime migration warning in `main/XEH_postInit.sqf:10-13` (two framework generations old) and its sibling "delete if framework ever gets updated" workaround block.
+
+### Fold into Phase 3 (build)
+
+- Build excludes: strip `dev/` folders and `*.tga` from packing (HEMTT does this naturally; if SCons lives on, fix `buildExtIncludes.txt`).
+- `script_version.hpp` ships a hardcoded stale `BUILDHASH ea0e3438` and `RELEASENAME HATCHET-ARMA-2.20` — generate at build time or drop.
+- `SConstruct` computes `cfgConvertArg` (deliberate garbage value) and never uses it; `.gitignore`/`.vscode` still carry `.hemtt` remnants from the abandoned first HEMTT attempt.
+
+### Fold into Phase 4 (conventions)
+
+- The `vtx`→`hct` rename is half-done in *presentation*, not just filenames: `script_mod.hpp` `PREFIX vtx` renders every launcher entry as "vtx - …", the launcher logo is `logo_vtx_ca.paa`, and every stringtable declares `<Project name="VTX">` with `STR_VTX_*` keys. Decide how much of the visible branding moves to Hatchet within the frozen-classname constraint.
+- Version-gate fossils: `uh60_flir/fnc_setup.sqf:73-90` branches on `productVersion >= 2.07` (mod requires 2.12 — the else branch is unreachable); `uh60_sfmplus` `requiredVersion = 1.0`; `uh60_aar` `requiredVersion = 1.62` + OFP-era `version=1`; `H60_SFX` `requiredVersion = 0.1`.
+- CBA settings API drift: `CBA_fnc_addSetting` (13 calls) vs internal `CBA_Settings_fnc_init` (7 calls, three casings), mixed within single files (`uh60_anvishud/initSettings.sqf`).
+- `spawn`+`sleep` scheduling leftovers where CBA helpers exist: hoist winch loops (no sleep at all — being fixed on `fix/hoist-raise-lower`), `uh60_doorguns/fnc_fired.sqf`, `uh60_misc/fnc_perFrame.sqf:12` (spawns a script per keypress-frame to defer one frame), `uh60_mfd`/`uh60_weapons` `fnc_handleDamage` sleep chains, `fnc_quickstart.sqf`'s 34-line sleep script.
+- ACE integration reaches into internals: `uh60_weapons/fnc_hellfireGuidanceInit.sqf:140-166` hand-inlines `ace_missileguidance` PFH state (unversioned internals — breaks whenever ACE restructures `_args`); `uh60_flir/fnc_mfdWaypoint.sqf:41` reads raw MicroDAGR variables unguarded while `uh60_fms` uses the public API correctly; `ace_viv/XEH_postInit.sqf:35,48` registers unload actions on class `All`; `:43` has an `if (count _cargoList < 0)` branch that can never run.
+- Hardcoded English where stringtable keys already exist (hoist ACE actions/config/keybinds, `"UH-60M Blackhawk"` CBA category in two addons, all 3DEN attributes, JVMF's ~30 `ToDo: Localize` markers).
+
+### Fold into Phase 5 (systems)
+
+- **5.1 addendum:** `uh60_sfmplus` defines functions as wrappers around `call compile preProcessFileLineNumbers`, so `fnc_engineController` re-reads and recompiles its file from the PBO on every call — per frame, per helicopter. Converting sfmplus to normal PREP compilation is a free flight-model perf win and should ride with the engine consolidation. Its `XEH_PREP.hpp` is also included twice (preStart and preInit).
+- Six copies of a hardcoded hoist position `[1.405, 2.03, 0.45]` (one drifted to `…2.031, 0.49`) stand in for a missing model memory point — goes with the 5.4 hoist rewrite plus a modeler request.
+
+### Fold into Phase 6 (process/docs)
+
+- Attribution is effectively absent: `AUTHORS.txt` is a lone UTF-8 BOM (empty since 2021); 22 of 24 CfgPatches have `author = ""`; the only real credits are a frozen text page inside the MFD config (`uh60_mfd/config/MFD/pages/ccfs_menu_draw.hpp:95-104`) that disagrees with git history. Regenerate AUTHORS from git (mind the duplicate identities), populate CfgPatches via a macro, and make the MFD page include it or drop it.
+- Public metadata drift: README badge says 0.7.6.0 vs actual 0.7.7.4; `CHANGELOG.md` is 8 dev releases behind `CHANGELOG-DEV.md`; `meta.cpp` is empty (no Workshop publishedid); two different Discord invites (README vs issue templates) and two different repo URLs (`H-60` vs `public_h-60`) in circulation; issue-template filenames contain stray spaces and `config.yml` points at a misnamed file.
+- Third-party-era corners to document (not necessarily change): `uh60_aar`'s `USAF_Hatchet_AAR` CfgPatches class predates every project convention; `uh60_jvmf`'s cTab hook hardcodes a specific community fork's icon table behind `__has_include` logic whose branch order looks inverted (`fnc_ctabToJvmf.sqf:13-17`) — verify intent before touching.
