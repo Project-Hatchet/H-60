@@ -288,3 +288,33 @@ A dedicated sweep for outdated/deprecated material left by the mod's successive 
 - Attribution is effectively absent: `AUTHORS.txt` is a lone UTF-8 BOM (empty since 2021); 22 of 24 CfgPatches have `author = ""`; the only real credits are a frozen text page inside the MFD config (`uh60_mfd/config/MFD/pages/ccfs_menu_draw.hpp:95-104`) that disagrees with git history. Regenerate AUTHORS from git (mind the duplicate identities), populate CfgPatches via a macro, and make the MFD page include it or drop it.
 - Public metadata drift: README badge says 0.7.6.0 vs actual 0.7.7.4; `CHANGELOG.md` is 8 dev releases behind `CHANGELOG-DEV.md`; `meta.cpp` is empty (no Workshop publishedid); two different Discord invites (README vs issue templates) and two different repo URLs (`H-60` vs `public_h-60`) in circulation; issue-template filenames contain stray spaces and `config.yml` points at a misnamed file.
 - Third-party-era corners to document (not necessarily change): `uh60_aar`'s `USAF_Hatchet_AAR` CfgPatches class predates every project convention; `uh60_jvmf`'s cTab hook hardcodes a specific community fork's icon table behind `__has_include` logic whose branch order looks inverted (`fnc_ctabToJvmf.sqf:13-17`) — verify intent before touching.
+
+---
+
+## Reference update — MH-47G drop (2026-08-23)
+
+A new snapshot of the MH-47G reference landed (extracted to `PGS MH-47G\_new-2026-08-23\`; the old tree is kept beside it for diffing). Structural changes there: their satellite hatchet addon was merged into the core (with a compatibility CfgPatches stub and the function tag preserved), and the model PBO was renamed for naming accuracy — not split for decoupled iteration. **Verdict for this plan: every pattern Phase 5 cites is still their design of record — the ordered systems pass, publisher closures, flat WCA table, hoist chain, INSTANT START, and linearInterp are all intact.** What changed is additive; fold the following in:
+
+**Immediate (Phase 0-grade):**
+- Our IZLID beam function has two live bugs, independently found and fixed in their port of it: `uh60_weapons/fnc_irLaserPFH.sqf:54` filters self-hits against `_aircraft`, which is never defined (params declare `_vehicle`), and line 60's final draw starts from the walked-forward segment position instead of the true origin. When fixing, also adopt their sync change: on/off as a synced vehicle variable instead of our CBA membership-toggle event, whose double-fire can invert state in MP.
+
+**Phase 1 / issue #510 (cockpit attenuation):** they added an `AttenuationsEffects` cabin-EQ class and recorded that a missing View Geometry LOD **silently disables attenuation entirely** — a second candidate mechanism for #510 beside the base-class collision. Check the H-60 p3d's View Geometry LOD before concluding the config diff explains everything.
+
+**Phase 3 (PBO rename):** three hard-won rules from their merge, applicable to our `hct_h60_*` rename: keep an empty CfgPatches stub for any retired PBO name so existing `mission.sqm` `addons[]` entries keep loading; never name the host addon in a merged config's `requiredAddons` (engine circular-dependency hard stop); keep function-registration tags stable across moves — only `file=` paths change.
+
+**Phase 4 (conventions):**
+- Audit for unprefixed classnames: an identically named class in another Workshop mod let load order decide whose animation posed both mods' units. Everything reachable by name (sounds, actions, crew classes) needs the `vtx`/`hct` prefix.
+- ACE law, now documented on their side and citing our hoist as the correct precedent: never re-open `ACE_SelfActions` colon-less in config — it shadows the ACE-inherited actions (they lost seat changing on every seat). Register via `ace_interact_menu_fnc_addActionToClass` at runtime.
+- `vtx_uh60_flir_camera` being a bare missionNamespace global is now a cross-mod hazard in the wild: their EOS sniffs it and had to add a distance guard against hijacking. Move FLIR camera state to per-vehicle variables when the FLIR is next touched.
+
+**Phase 5.1 (systems pass):** two additions to adopt: (1) logic that runs on every client must derive randomness deterministically — they hash an already-synced timestamp instead of calling `random`, so every machine rolls the same result; (2) the rotor-brake interlock pattern: gate the actuator (`engineOn`), not the state machine — the scripted layers keep "running" while the real engine stays off, and airborne state ignores the brake so it can never kill engines in flight. Also: scripted damage effects must not call `setHitPointDamage` (it wipes bullet-hole visuals) — latch a damage-at-event variable instead.
+
+**Phase 5.2 (WCA):** analog-derived rows get hysteresis closures (a callable owning its own latch, e.g. trip >880 / reset <855) so a hovering value can't re-ring the tone every tick; a red-edge tracker snaps the MFD to the caution page only on a *new* red (set-difference via `arrayIntersect`); a `wcaTestAll` variable forces every registry row on for display testing.
+
+**Phase 5.3 (performance tables):** their original 3-row cruise table "read 20-30 points high"; the fix was 6+ rows and a speed column sourced from the aircraft TM's charts. Build ours at that density from TM 1-1520-280-10 from the start.
+
+**Phase 5.4/5.7:** the hoist's self-rechaining `waitAndExecute` is now their formalized house idiom (named chain block + segment constant + guard-`exitWith` that clears the running flag + unconditional tail re-arm + a slow PFH whose only job is re-arming a dead chain) — five instances. Adopt the same shape and contract as the H-60 convention when Phase 5.4 rewrites the hoist. Their deploy is `remoteExecCall` (unscheduled) specifically because a scheduled VM suspension between `createVehicle` and `ropeCreate` let the hook free-fall.
+
+**Phase 5.5 (MFD):** copy their slot-ledger artifact form — a dated, per-subsystem claims table for every `user*`/`userText` slot at the top of the instruments function, plus the `mfdMaxUserValues` requirement note. Their per-screen MFD families are generated by a script, not hand-cloned — do the same for our four screens (Xov's MFD tool may cover this). Model for new pages: their RWR scope consumes an existing threat feed with zero new script — prefer second consumers of existing feeds over new plumbing.
+
+**Confirmed non-goals:** pylon camera pods (they built and deliberately killed theirs — a shared scripted gimbal supersedes single-seat pods) and their SFM ground taxi (still heavily WIP on their side).
