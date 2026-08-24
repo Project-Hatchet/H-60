@@ -50,6 +50,16 @@ If you find any other errors, please ask the dev team in the Project Hatchet dis
 Once installed, you should be able to open the project's root folder in your terminal, and run `scons`.
 This should generate fully built PBOs in your addons folder.
 
+#### Pushing a build to the Steam Workshop Development branch
+`tools/push_dev.py` builds the mod from a named git ref and uploads it to the Development branch Workshop item in one step:
+
+```
+python tools/push_dev.py --branch <ref> --note "what changed"
+python tools/push_dev.py --branch <ref> --note "what changed" --dry-run   # build and verify only
+```
+
+It refuses to run on a dirty working tree, wipes the AddonBuilder sync mirror first (it syncs additively, so deleted files would otherwise ship again), verifies that every addon produced a fresh PBO, and asks for confirmation before uploading. The upload goes through `PublisherCmd` from Arma 3 Tools using the Steam client already logged in on your machine, so you need contributor rights on the Workshop item and nothing else. The script only knows the Development branch item - promoting to Stable is done by hand on purpose.
+
 
 
 
