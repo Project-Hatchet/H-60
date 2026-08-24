@@ -4,7 +4,9 @@ Steam Workshop DEVELOPMENT BRANCH item.
 
     python tools/push_dev.py --branch <ref> --note "what changed"
     python tools/push_dev.py --branch <ref> --note-file notes.txt
-    python tools/push_dev.py --branch <ref> --note "..." --dry-run   # build + verify, no upload
+    python tools/push_dev.py --branch <ref> --note-from-changelog                 # top block of CHANGELOG-DEV.md, as BBCode
+    python tools/push_dev.py --branch <ref> --note-from-changelog --preview-note  # print the note and exit
+    python tools/push_dev.py --branch <ref> --note "..." --dry-run                # build + verify, no upload
 
 What it does, in order:
   1. refuses to run on a dirty working tree
@@ -22,6 +24,7 @@ Promoting to Stable stays a manual, human act.
 
 import argparse
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -31,6 +34,7 @@ import winreg
 from pathlib import Path
 
 DEV_WORKSHOP_ID = "3071155671"  # Hatchet H-60 pack - Development branch
+ISSUE_URL = "https://github.com/Project-Hatchet/H-60/issues/"
 MOD_FOLDER = Path("release") / "@H-60"
 PBO_PREFIX = "hct_h60_"
 MOD_ROOT_FILES = ["mod.cpp", "meta.cpp", "logo_vtx_ca.paa", "logo_vtx_small_ca.paa"]
@@ -65,6 +69,50 @@ def publisher_cmd():
         die(f"PublisherCmd.exe not found at {exe}")
     return exe
 
+
+# --- change note -----------------------------------------------------------
+
+def show_file(ref, path):
+    """Contents of a file at a git ref, without checking it out."""
+    r = run(["git", "show", f"{ref}:{path}"])
+    if r.returncode != 0:
+        die(f"{path} not found at {ref}")
+    return r.stdout
+
+
+def linkify(text):
+    """#123 -> BBCode link to the GitHub issue/PR."""
+    return re.sub(r"#(\d{2,5})\b", lambda m: f"[url={ISSUE_URL}{m.group(1)}]#{m.group(1)}[/url]", text)
+
+
+def changelog_note(ref):
+    """Top version block of CHANGELOG-DEV.md at <ref>, rendered as a Steam BBCode change note."""
+    header = re.compile(r"^\s*\*\*(.+?)\*\*\s*$")
+    bullet = re.compile(r"^\s*-\s+(.*\S)")
+    version, items = None, []
+    for line in show_file(ref, "CHANGELOG-DEV.md").splitlines():
+        h = header.match(line)
+        if h:
+            if version is not None:
+                break
+            version = h.group(1).strip()
+            continue
+        b = bullet.match(line)
+        if b and version is not None:
+            items.append(b.group(1).strip())
+    if version is None or not items:
+        die("could not find a version block with bullets at the top of CHANGELOG-DEV.md")
+    out = [
+        f"[h1]Dev build {version}[/h1]",
+        f"[i]{ref}[/i]",
+        "[list]",
+        *[f"[*]{linkify(item)}" for item in items],
+        "[/list]",
+    ]
+    return "\n".join(out)
+
+
+# --- build -----------------------------------------------------------------
 
 def wipe_mirror():
     mirror = Path(os.environ["TEMP"]) / "z" / "vtx"
@@ -110,20 +158,35 @@ def build():
     return len(expected), total
 
 
+# --- main ------------------------------------------------------------------
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--branch", required=True, help="git ref to build (branch, tag, or sha)")
     note = ap.add_mutually_exclusive_group(required=True)
     note.add_argument("--note", help="Workshop change note text")
     note.add_argument("--note-file", help="file containing the change note")
+    note.add_argument("--note-from-changelog", action="store_true",
+                      help="build the note from the top version block of CHANGELOG-DEV.md at <ref>")
+    ap.add_argument("--preview-note", action="store_true", help="print the change note and exit (no build, no upload)")
     ap.add_argument("--dry-run", action="store_true", help="build and verify, skip the upload")
     ap.add_argument("--yes", action="store_true", help="skip the confirmation prompt")
     ap.add_argument("--skip-build", action="store_true", help="upload whatever is in release/@H-60 (no checkout/build)")
     args = ap.parse_args()
 
-    note_text = args.note if args.note is not None else Path(args.note_file).read_text(encoding="utf-8")
+    git("rev-parse", "--verify", f"{args.branch}^{{commit}}")
+
+    if args.note_from_changelog:
+        note_text = changelog_note(args.branch)
+    elif args.note is not None:
+        note_text = args.note
+    else:
+        note_text = Path(args.note_file).read_text(encoding="utf-8")
     if not note_text.strip():
         die("the change note is empty - describe what changed")
+    if args.preview_note:
+        print(note_text)
+        return
 
     if not args.skip_build:
         if git("status", "--porcelain"):
@@ -131,7 +194,6 @@ def main():
         previous = git("rev-parse", "--abbrev-ref", "HEAD")
         if previous == "HEAD":
             previous = git("rev-parse", "HEAD")
-        git("rev-parse", "--verify", f"{args.branch}^{{commit}}")
         print(f"checking out {args.branch} (will return to {previous})")
         git("checkout", "-q", args.branch)
         try:
