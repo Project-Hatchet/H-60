@@ -4,22 +4,31 @@ Steam Workshop DEVELOPMENT BRANCH item.
 
     python tools/push_dev.py --branch <ref> --note "what changed"
     python tools/push_dev.py --branch <ref> --note-file notes.txt
-    python tools/push_dev.py --branch <ref> --note-from-changelog                 # top block of CHANGELOG-DEV.md, as BBCode
-    python tools/push_dev.py --branch <ref> --note-from-changelog --preview-note  # print the note and exit
-    python tools/push_dev.py --branch <ref> --note "..." --dry-run                # build + verify, no upload
+    python tools/push_dev.py --branch <ref> --note-from-changelog --bump           # usual dev push: 0.7.9.1 -> 0.7.9.2
+    python tools/push_dev.py --branch <ref> --note-from-changelog --version 0.7.9.1  # first push of a new cycle
+    python tools/push_dev.py --branch <ref> --note-from-changelog --bump --preview-note  # print the note and exit
+    python tools/push_dev.py --branch <ref> --note "..." --dry-run                  # build + verify, no upload
 
 What it does, in order:
   1. refuses to run on a dirty working tree
   2. checks out <ref> (and returns to the previous checkout afterwards)
-  3. wipes the AddonBuilder sync mirror (%TEMP%\\z\\vtx) - it syncs
+  3. with --bump/--version: stamps the new version into
+     addons/main/script_version.hpp, retitles the **Unreleased** block at
+     the top of CHANGELOG-DEV.md to that version, and commits both on <ref>
+     - so the in-game version, the changelog and the Workshop note agree
+  4. wipes the AddonBuilder sync mirror (%TEMP%\\z\\vtx) - it syncs
      additively, so files deleted from the source otherwise ship again
-  4. runs `scons all` and verifies every addon folder produced a fresh PBO
-  5. shows a summary and asks for confirmation (skip with --yes)
-  6. uploads release/@H-60 with PublisherCmd, which uses the Steam client
+  5. runs `scons all`, writes a Development-branch mod.cpp, and verifies
+     every addon folder produced a fresh PBO
+  6. shows a summary and asks for confirmation (skip with --yes)
+  7. uploads release/@H-60 with PublisherCmd, which uses the Steam client
      already logged in on this machine - no credentials are stored anywhere
 
+Versioning: Stable is X.Y.Z; Dev builds carry the NEXT Stable's number with
+the build digit counting up per push (0.7.9.1, 0.7.9.2 ...). Start a cycle
+with --version, continue it with --bump. Promotion to Stable is manual.
+
 Deliberately DEV-ONLY: the Stable item is not known to this script.
-Promoting to Stable stays a manual, human act.
 """
 
 import argparse
@@ -37,7 +46,22 @@ DEV_WORKSHOP_ID = "3071155671"  # Hatchet H-60 pack - Development branch
 ISSUE_URL = "https://github.com/Project-Hatchet/H-60/issues/"
 MOD_FOLDER = Path("release") / "@H-60"
 PBO_PREFIX = "hct_h60_"
-MOD_ROOT_FILES = ["mod.cpp", "meta.cpp", "logo_vtx_ca.paa", "logo_vtx_small_ca.paa"]
+MOD_ROOT_FILES = ["meta.cpp", "logo_vtx_ca.paa", "logo_vtx_small_ca.paa"]
+VERSION_FILE = "addons/main/script_version.hpp"
+CHANGELOG = "CHANGELOG-DEV.md"
+DEV_MOD_CPP = """name = "H-60 pack - Development branch";
+picture = "logo_vtx_ca.paa";
+actionName = "Guide";
+action = "https://uh-60m.gitbook.io/workspace/guides/getting-started";
+description = "H-60 pack - Development branch";
+logo = "logo_vtx_ca.paa";
+logoOver = "logo_vtx_ca.paa";
+tooltip = "H-60 pack - Development branch";
+tooltipOwned = "H-60 pack - Development branch Owned";
+overview = "H-60 pack - Development branch";
+author = "Project Hatchet Studios";
+overviewPicture = "logo_vtx_ca.paa";
+"""
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -85,31 +109,93 @@ def linkify(text):
     return re.sub(r"#(\d{2,5})\b", lambda m: f"[url={ISSUE_URL}{m.group(1)}]#{m.group(1)}[/url]", text)
 
 
-def changelog_note(ref):
-    """Top version block of CHANGELOG-DEV.md at <ref>, rendered as a Steam BBCode change note."""
-    header = re.compile(r"^\s*\*\*(.+?)\*\*\s*$")
-    bullet = re.compile(r"^\s*-\s+(.*\S)")
-    version, items = None, []
-    for line in show_file(ref, "CHANGELOG-DEV.md").splitlines():
-        h = header.match(line)
+HEADER_RE = re.compile(r"^\s*\*\*(.+?)\*\*\s*$")
+BULLET_RE = re.compile(r"^\s*-\s+(.*\S)")
+
+
+def top_block(changelog_text):
+    """(header, [bullets]) of the first version block in CHANGELOG-DEV.md."""
+    header, items = None, []
+    for line in changelog_text.splitlines():
+        h = HEADER_RE.match(line)
         if h:
-            if version is not None:
+            if header is not None:
                 break
-            version = h.group(1).strip()
+            header = h.group(1).strip()
             continue
-        b = bullet.match(line)
-        if b and version is not None:
+        b = BULLET_RE.match(line)
+        if b and header is not None:
             items.append(b.group(1).strip())
-    if version is None or not items:
-        die("could not find a version block with bullets at the top of CHANGELOG-DEV.md")
+    if header is None or not items:
+        die(f"could not find a version block with bullets at the top of {CHANGELOG}")
+    return header, items
+
+
+def parse_version(hpp_text):
+    nums = {k: int(v) for k, v in re.findall(r"#define\s+(MAJOR|MINOR|PATCHLVL|BUILD)\s+(\d+)", hpp_text)}
+    if len(nums) != 4:
+        die(f"{VERSION_FILE} does not define MAJOR/MINOR/PATCHLVL/BUILD")
+    return (nums["MAJOR"], nums["MINOR"], nums["PATCHLVL"], nums["BUILD"])
+
+
+def fmt_version(v):
+    return ".".join(str(n) for n in v)
+
+
+def target_version(ref, args):
+    """The version this push will carry: explicit --version, --bump of the ref's version, or the ref's version as-is."""
+    current = parse_version(show_file(ref, VERSION_FILE))
+    if args.version:
+        parts = args.version.split(".")
+        if len(parts) != 4 or not all(p.isdigit() for p in parts):
+            die("--version must look like 0.7.9.1")
+        return tuple(int(p) for p in parts), True
+    if args.bump:
+        return (*current[:3], current[3] + 1), True
+    return current, False
+
+
+def changelog_note(ref, version):
+    """Top block of CHANGELOG-DEV.md at <ref>, rendered as a Steam BBCode change note under <version>."""
+    header, items = top_block(show_file(ref, CHANGELOG))
+    if header.lower() == "unreleased" and version is None:
+        die("the top changelog block is **Unreleased** - pass --bump or --version to stamp it, "
+            "or --note to bypass the changelog")
+    label = fmt_version(version) if version else header
     out = [
-        f"[h1]Dev build {version}[/h1]",
+        f"[h1]Dev build {label}[/h1]",
         f"[i]{ref}[/i]",
         "[list]",
         *[f"[*]{linkify(item)}" for item in items],
         "[/list]",
     ]
     return "\n".join(out)
+
+
+def stamp_version(version):
+    """On the checked-out branch: write the version, retitle the Unreleased block, commit both."""
+    label = fmt_version(version)
+    hpp = REPO / VERSION_FILE
+    hpp_text = hpp.read_text(encoding="utf-8")
+    nl = "\r\n" if "\r\n" in hpp_text else "\n"
+    hpp.write_text(nl.join([f"#define MAJOR {version[0]}", f"#define MINOR {version[1]}",
+                            f"#define PATCHLVL {version[2]}", f"#define BUILD {version[3]}", ""]), encoding="utf-8")
+
+    cl = REPO / CHANGELOG
+    text = cl.read_text(encoding="utf-8")
+    header, _ = top_block(text)
+    if header.lower() == "unreleased":
+        text = re.sub(r"^(\s*)\*\*Unreleased\*\*", lambda m: f"{m.group(1)}**{label}**", text, count=1, flags=re.M | re.I)
+        cl.write_text(text, encoding="utf-8")
+    elif header != label:
+        die(f"top changelog block is **{header}**, expected **Unreleased** (or **{label}** to re-push)")
+
+    if git("status", "--porcelain"):
+        git("add", VERSION_FILE, CHANGELOG)
+        git("commit", "-q", "-m", f"Dev build {label}")
+        print(f"  stamped {label} into {VERSION_FILE} and {CHANGELOG} (committed on the branch)")
+    else:
+        print(f"  {label} already stamped, nothing to commit")
 
 
 # --- build -----------------------------------------------------------------
@@ -130,6 +216,8 @@ def build():
         src = REPO / f
         if src.exists():
             shutil.copy2(src, REPO / MOD_FOLDER / f)
+    # the repo's mod.cpp is the Stable one; the Dev item gets its own name in the launcher
+    (REPO / MOD_FOLDER / "mod.cpp").write_text(DEV_MOD_CPP, encoding="utf-8")
 
     started = time.time()
     print(f"  building {len(expected)} addons with scons (this takes a few minutes)...")
@@ -168,6 +256,9 @@ def main():
     note.add_argument("--note-file", help="file containing the change note")
     note.add_argument("--note-from-changelog", action="store_true",
                       help="build the note from the top version block of CHANGELOG-DEV.md at <ref>")
+    ver = ap.add_mutually_exclusive_group()
+    ver.add_argument("--bump", action="store_true", help="increment the build digit of the version on <ref> and stamp it")
+    ver.add_argument("--version", help="stamp this exact version (e.g. 0.7.9.1) - use for the first push of a cycle")
     ap.add_argument("--preview-note", action="store_true", help="print the change note and exit (no build, no upload)")
     ap.add_argument("--dry-run", action="store_true", help="build and verify, skip the upload")
     ap.add_argument("--yes", action="store_true", help="skip the confirmation prompt")
@@ -175,9 +266,12 @@ def main():
     args = ap.parse_args()
 
     git("rev-parse", "--verify", f"{args.branch}^{{commit}}")
+    version, stamp = target_version(args.branch, args)
+    if stamp and args.skip_build:
+        die("--bump/--version need a checkout to stamp the branch; drop --skip-build")
 
     if args.note_from_changelog:
-        note_text = changelog_note(args.branch)
+        note_text = changelog_note(args.branch, version if stamp else None)
     elif args.note is not None:
         note_text = args.note
     else:
@@ -197,6 +291,8 @@ def main():
         print(f"checking out {args.branch} (will return to {previous})")
         git("checkout", "-q", args.branch)
         try:
+            if stamp:
+                stamp_version(version)
             sha = git("rev-parse", "--short", "HEAD")
             wipe_mirror()
             count, total = build()
@@ -210,6 +306,7 @@ def main():
 
     print("\n=== Dev Branch push summary ===")
     print(f"  ref:      {args.branch} @ {sha}")
+    print(f"  version:  {fmt_version(version)}{'  (stamped)' if stamp else ''}")
     print(f"  content:  {REPO / MOD_FOLDER}  ({count} PBOs, {total / 1e6:,.0f} MB)")
     print(f"  item:     https://steamcommunity.com/sharedfiles/filedetails/?id={DEV_WORKSHOP_ID}")
     print("  note:")
