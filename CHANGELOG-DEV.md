@@ -1,9 +1,11 @@
-**0.7.7.4**
+**0.7.8.1**
 
- - Fix copilot cockpit interior not rendering (missing upper console, no get-in animation). Copilot turret optics are temporarily removed - the seat renders correctly again; optics return once the model gains a View - Gunner LOD #556
- - Fix FLIR vehicle lock/tracking for both pilots in PiP and both fullscreen views: lock key now works in every view, locking targets the object the camera ray hits (with a boresight cone fallback for movers), and the cameras actively follow the tracked vehicle #538
- - Fix FD IAS keybind
- - Add condition for ACE actions when cabin doors are blocked by units or FRIES
+ - Copilot seat: the cockpit interior (upper console and instruments) renders again and the get-in animation is back. The copilot's dedicated camera view is temporarily disabled until the model is updated #556
+ - FLIR: you can lock and track vehicles from every view - PiP and fullscreen, pilot and copilot. Locking grabs the vehicle under the crosshair, the camera follows it, and pressing lock again releases it #538
+ - FLIR: ground points stay locked where you leave them when you slew, and moving the camera while tracking a vehicle drops to a ground hold instead of losing the picture
+ - Flight director IAS keybind fixed
+ - ACE door actions are blocked while units or FRIES are in the doorway
+ 
  
  **0.7.7.3**
 
