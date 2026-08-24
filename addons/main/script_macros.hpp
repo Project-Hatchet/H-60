@@ -153,14 +153,15 @@ if (_unit isNotEqualTo (driver _vehicle) && {(_vehicle unitTurret _unit) isNotEq
 #define HIDDENSELECTION_NUMBER_R1 22 // right_num_1,
 #define HIDDENSELECTION_NUMBER_R2 23 // right_num_2,
 #define HIDDENSELECTION_FUELPROBE 24 // Fuel_Probe,
-#define HIDDENSELECTION_MLASS 25 // MLASS,
-#define HIDDENSELECTION_LASS 26 // LASS,
-#define HIDDENSELECTION_FULL60M 27 // Full60M,
-#define HIDDENSELECTION_EM_GOARND 28 // emmisive_goarnd,
-#define HIDDENSELECTION_EM_HOVER 29 // emmisive_hvr,
-#define HIDDENSELECTION_EM_FMS 30 // emmisive_fms,
-#define HIDDENSELECTION_EM_CPLD 31 // emmisive_cpld,
-#define HIDDENSELECTION_EM_VS 32 // emmisive_vs
+#define HIDDENSELECTION_MLASS 25 // hs_mlass_co,
+#define HIDDENSELECTION_LASS 26 // hs_lass_co,
+#define HIDDENSELECTION_FULL60M 27 // hs_full60m_co,
+#define HIDDENSELECTION_ESSS 28 // hs_esss,
+#define HIDDENSELECTION_EM_GOARND 29 // emmisive_goarnd,
+#define HIDDENSELECTION_EM_HOVER 30 // emmisive_hvr,
+#define HIDDENSELECTION_EM_FMS 31 // emmisive_fms,
+#define HIDDENSELECTION_EM_CPLD 32 // emmisive_cpld,
+#define HIDDENSELECTION_EM_VS 33 // emmisive_vs
 
 #define HIDDENSELECTIONS "emmisive_overhead", \
           "emmisive_frontDash", \
