@@ -1,7 +1,7 @@
 private _displayName = localize LSTRING(RescueHoist);
 private _condition = {[_player] call vtx_uh60_hoist_fnc_canControlHoist || {[_player] call vtx_uh60_hoist_fnc_canMoveHeliToHook}};
 private _statement = {};
-private _action = ["vtx_hoist_action","Rescue Hoist","z\vtx\addons\uh60_hoist\data\ui\iconHook.paa", _statement, _condition] call ace_interact_menu_fnc_createAction;
+private _action = ["vtx_hoist_action", _displayName, "z\vtx\addons\uh60_hoist\data\ui\iconHook.paa", _statement, _condition] call ace_interact_menu_fnc_createAction;
 ["vtx_H60_base", 1, ["ACE_SelfActions"], _action, true] call ace_interact_menu_fnc_addActionToClass;
 
 _displayName = localize LSTRING(DeployHook);
@@ -29,7 +29,7 @@ _action = ["vtx_hoist_MoveToHook", _displayName, "", _statement, _condition] cal
 ["vtx_H60_base", 1, ["ACE_SelfActions", "vtx_hoist_action"], _action, true] call ace_interact_menu_fnc_addActionToClass;
 
 _displayName = localize LSTRING(RaiseHookToHeli);
-_condition = {[player] call vtx_uh60_hoist_fnc_canControlHoist && [_target] call vtx_uh60_hoist_fnc_isHoistReady};
+_condition = {[_player] call vtx_uh60_hoist_fnc_canControlHoist && [_target] call vtx_uh60_hoist_fnc_isHoistReady};
 _statement = vtx_uh60_hoist_fnc_raiseHookToHeli;
 _action = ["vtx_hoist_RaiseHookToHeli", _displayName, "", _statement, _condition] call ace_interact_menu_fnc_createAction;
 ["vtx_H60_base", 1, ["ACE_SelfActions", "vtx_hoist_action"], _action, true] call ace_interact_menu_fnc_addActionToClass;
