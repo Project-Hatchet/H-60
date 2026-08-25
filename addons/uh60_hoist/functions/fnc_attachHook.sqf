@@ -107,7 +107,14 @@ _unit setVariable [QGVAR(pfhID), [{
   private _distance = ((ropeEndPosition _rope) # 0) distance ((ropeEndPosition _rope) # 1);
   private _isRopeStretched = (_distance > _length + 1.5);
 
-  if (_isRopeStretched) then {
+  // Ride condition: a taut rope (ground snatch-pickup - retracting stretches
+  // it), OR the winch paying out slack while the hook hangs clear of the
+  // ground (cabin deploy - the rope can never go taut, which left attached
+  // riders pinned at the cabin door while the cable reeled out)
+  private _isLoweringOut = !_canStand
+    && {_heli getVariable ["vtx_uh60_hoist_extending", false]}
+    && {_length > _distance};
+  if (_isRopeStretched || _isLoweringOut) then {
     if (!_isUnitInHook) then {
       detach _helper;
       _hook lockCargo [1, false];

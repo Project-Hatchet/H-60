@@ -35,16 +35,16 @@ class CfgUserActions
 	class Vtx_HOOK_LOWER {
 		displayName = "Cable Extend (Analog)";
 		tooltip = "Progressively lowers the hook";
-		onActivate = "vtx_uh60_cable_Extending = true; [vehicle player] spawn vtx_uh60_hoist_fnc_lowerHook;";		// _this is always true.
-		onDeactivate = "vtx_uh60_cable_Extending = false";		// _this is always false.
+		onActivate = "[vehicle player, true] call vtx_uh60_hoist_fnc_lowerHook;";		// _this is always true.
+		onDeactivate = "[vehicle player, false] call vtx_uh60_hoist_fnc_lowerHook;";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
 	};
 	class Vtx_HOOK_RAISE {
 		displayName = "Cable Retract (Analog)";
 		tooltip = "Progressively raises the hook";
-		onActivate = "vtx_uh60_cable_Retracting = true; [vehicle player] spawn vtx_uh60_hoist_fnc_raiseHook;";		// _this is always true.
-		onDeactivate = "vtx_uh60_cable_Retracting = false";		// _this is always false.
+		onActivate = "[vehicle player, true] call vtx_uh60_hoist_fnc_raiseHook;";		// _this is always true.
+		onDeactivate = "[vehicle player, false] call vtx_uh60_hoist_fnc_raiseHook;";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
 	};
