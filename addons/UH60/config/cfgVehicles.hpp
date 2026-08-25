@@ -292,8 +292,8 @@ class CfgVehicles {
         class TransportWeapons{};
         radarType = 4;
 
-        weapons[]={CMFlareLauncher};
-        magazines[]={60Rnd_CMFlareMagazine};
+        weapons[]={"CMFlareLauncher"};
+        magazines[]={"60Rnd_CMFlareMagazine"};
 
         class Damage
         {
