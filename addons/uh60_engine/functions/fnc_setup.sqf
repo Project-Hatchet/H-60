@@ -9,12 +9,15 @@
 params ["_vehicle"];
 if (!vtx_uh60m_enabled_engine) exitWith {false};
 
-vtx_uh60_engine_engineEH = _vehicle addEventHandler ["engine", vtx_uh60_engine_fnc_engineEH];
-vtx_uh60_engine_lastFuelLevel = fuel _vehicle;
-vtx_uh60_engine_lastAltitude = ((getPosASL _vehicle) # 2);
+// per-vehicle state lives on the vehicle: mission globals would be clobbered
+// by a second H-60 running this module
+if (isNil {_vehicle getVariable "vtx_uh60_engine_engineEH"}) then {
+    _vehicle setVariable ["vtx_uh60_engine_engineEH", _vehicle addEventHandler ["engine", vtx_uh60_engine_fnc_engineEH]];
+};
+_vehicle setVariable ["vtx_uh60_engine_lastFuelLevel", fuel _vehicle];
 #define SET_GLOBAL_DEFAULT(VAR,DEFAULT) _vehicle setVariable [VAR, _vehicle getVariable [VAR, DEFAULT], true];
 SET_GLOBAL_DEFAULT("ENG1_PWR", 0)
-SET_GLOBAL_DEFAULT("ENG1_PWR", 0)
+SET_GLOBAL_DEFAULT("ENG2_PWR", 0)
 SET_GLOBAL_DEFAULT("ENG_START1", false)
 SET_GLOBAL_DEFAULT("ENG_START2", false)
 SET_GLOBAL_DEFAULT("BATT1_ENABLED", false)
@@ -34,13 +37,17 @@ if ((_vehicle animationPhase "handle_wheelbrake") == 1) then {
     [_vehicle, true, "OFF"] call vtx_uh60_engine_fnc_wheelBrakes;
 };
 //Monitor parking brake value
-player addEventHandler ["SelectedRotorLibActionPerformed", {
-    params ["_caller", "_target", "_enumNumber", "_actionId"];
-    if    (!local _caller || !local _target) exitWith {};
-    private _desiredState = if (_enumNumber == 4) then [{1},{0}];
-    _target animateSource ["Handle_wheelbrake", _desiredState, true];
-    [_target, (_enumNumber == 4)] call vtx_uh60_engine_fnc_wheelBrakes;
-}];
+//one player-level handler serves every H-60; add it once or module restarts
+//stack duplicates that never get removed
+if (isNil "vtx_uh60_engine_brakeEH") then {
+    vtx_uh60_engine_brakeEH = player addEventHandler ["SelectedRotorLibActionPerformed", {
+        params ["_caller", "_target", "_enumNumber", "_actionId"];
+        if    (!local _caller || !local _target) exitWith {};
+        private _desiredState = if (_enumNumber == 4) then [{1},{0}];
+        _target animateSource ["Handle_wheelbrake", _desiredState, true];
+        [_target, (_enumNumber == 4)] call vtx_uh60_engine_fnc_wheelBrakes;
+    }];
+};
 
 //New aircraft module
 //--Master ignition key (mik)
