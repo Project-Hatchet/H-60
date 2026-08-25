@@ -39,8 +39,11 @@ private _Vars = ["battBusState","apuPwrSwitchState","apuFuelSwitchState"] apply 
 
 //- Play Sound Globally
 [
+  "vtx_uh60_engine_playAPUSound",
   [
-    _vehicle ,_Vars,({_x == "ON"} count _Vars) == 3
-  ],
-  {["battBusState","apuPwrSwitchState","apuFuelSwitchState"] apply {_vehicle getVariable ("vtx_uh60_acft_" + _x)}}
-] remoteExecCall ['vtx_uh60_Sound_fnc_PlayAPUGlobal', [0, -2] select isDedicated];
+    [
+      _vehicle ,_Vars,({_x == "ON"} count _Vars) == 3
+    ],
+    {["battBusState","apuPwrSwitchState","apuFuelSwitchState"] apply {_vehicle getVariable ("vtx_uh60_acft_" + _x)}}
+  ]
+] call CBA_fnc_globalEvent;
