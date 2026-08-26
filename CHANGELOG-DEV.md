@@ -1,3 +1,20 @@
+**Unreleased**
+
+ - Fix the rescue hoist in multiplayer - the hook and anyone riding it now lower away from the aircraft instead of staying stuck at the cabin #576
+ - Fix engine and APU start/shutdown sounds not being heard by other players nearby #578
+ - Make sound playback work on servers with strict remoteExec whitelists #578
+ - Fix engine systems getting confused when more than one aircraft is running #577
+ - Fix the IZLID IR laser beam drawing from the wrong position - pilot and copilot each get their own correct beam #579
+ - Fix the FLIR weapons page flooding the game log with errors on aircraft with missing or 4-pylon weapon stations #566
+ - Fix an error when paging through an empty FMS page list #573
+ - Fix the flight director ALT increase/decrease keybinds #561
+ - Fix the Rescue Hoist scroll menu showing the wrong name #563
+ - Fix script errors left behind by previously removed functions #569 #562
+ - Fix several config typos that had in-game effects #572
+ - Fix the internal numbering of the helicopter's texture slots so retextures apply to the right parts #565
+ - Remove leftover debug text printed to players during rotor fold and in the FLIR and engine code #571 #564
+ - Smaller download - developer-only scripts and raw texture source files are no longer packed into the mod #570
+
 **0.7.7.4**
 
  - Fix copilot cockpit interior not rendering (missing upper console, no get-in animation). Copilot turret optics are temporarily removed - the seat renders correctly again; optics return once the model gains a View - Gunner LOD #556
