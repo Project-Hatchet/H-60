@@ -35,13 +35,15 @@ class pylonsBackground {
 				{{0.55, 0.86}, 1}
 			};
 		}; // lines
-		class Pylon48
+		class Pylon3
 		{
+			// outboard left station; invalid pylon indexes draw nothing, so this
+			// is safe on 2-station craft (previous value 48 never rendered at all)
 			type = "pylonicon";
 			pos[] = {{0.33,0.87},1};
-			pylon = 48;
+			pylon = 3;
 			name = "VTX_H60";
-		}; // Pylon1
+		}; // Pylon3
 		class Pylon1
 		{
 			type = "pylonicon";
@@ -56,13 +58,14 @@ class pylonsBackground {
 			pylon = 2;
 			name = "VTX_H60";
 		}; // Pylon2
-		class Pylon49
+		class Pylon4
 		{
+			// outboard right station (previous value 49 never rendered)
 			type = "pylonicon";
 			pos[] = {{0.67,0.87},1};
-			pylon = 49;
+			pylon = 4;
 			name = "VTX_H60";
-		}; // Pylon1
+		}; // Pylon4
 		TEXT_MID_SCALED(LSR,0.5,0.62+0.07,"LSR",0.05)
 
 		TEXT_MID_SCALED(GUNS,0.5,0.69+0.07,"GUNS",0.05)
@@ -73,8 +76,17 @@ class pylonsBackground {
 	};
 	class red {
 		color[] = common_red;
+		// the engine defines pylonSelectedN only for stations the aircraft has;
+		// referencing missing ones errors in the MFD evaluator on every spawn.
+		// Default build assumes 2 stations; 4-station craft (MLASS) use the
+		// VTX_MFD_*_ARMED4 classes, which define FLIR_PYLONS_4 before this
+		// include - mirroring the FMS_PYLONS_* family pattern.
 		class gun {
-			condition = "(1 -(pylonSelected1 - pylonSelected2 - pylonSelected3 - pylonSelected4)) * mgun";
+#ifdef FLIR_PYLONS_4
+			condition = "(1 - pylonSelected1 - pylonSelected2 - pylonSelected3 - pylonSelected4) * mgun";
+#else
+			condition = "(1 - pylonSelected1 - pylonSelected2) * mgun";
+#endif
 			class poly {
 				type = "polygon";
 				points[] = {
@@ -87,7 +99,11 @@ class pylonsBackground {
 			};
 		};
 		class laser {
+#ifdef FLIR_PYLONS_4
 			condition = "1 - pylonSelected1 - pylonSelected2 - pylonSelected3 - pylonSelected4 - mgun";
+#else
+			condition = "1 - pylonSelected1 - pylonSelected2 - mgun";
+#endif
 			class poly {
 				type = "polygon";
 				points[] = {
@@ -125,6 +141,7 @@ class pylonsBackground {
 				};
 			};
 		}; // sta2
+#ifdef FLIR_PYLONS_4
 		class sta3L {
 			condition = "pylonSelected3";
 			class poly {
@@ -150,7 +167,8 @@ class pylonsBackground {
 					}
 				};
 			};
-		}; // sta3L
+		}; // sta4R
+#endif
 	};
 };
 

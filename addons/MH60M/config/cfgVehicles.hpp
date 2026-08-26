@@ -29,6 +29,10 @@ class VTX_MFD_1_ARMED;
 class VTX_MFD_2_ARMED;
 class VTX_MFD_3_ARMED;
 class VTX_MFD_4_ARMED;
+class VTX_MFD_1_ARMED4;
+class VTX_MFD_2_ARMED4;
+class VTX_MFD_3_ARMED4;
+class VTX_MFD_4_ARMED4;
 class ANVISHUD;
 class ANVISHUD_COPILOT;
 class VTX_CLOCK;
@@ -325,19 +329,22 @@ class CfgVehicles {
         selectionFireAnim = "zasleh_12";
         class VehicleTransport {};
         class MFD: MFD {
-            class VTX_MFD_1 :           VTX_MFD_1_ARMED {};
+            // ARMED4 variants define FLIR_PYLONS_4: the MLASS is the only
+            // craft with 4 pylon stations, so only it may reference
+            // pylonSelected3/4 in MFD conditions
+            class VTX_MFD_1 :           VTX_MFD_1_ARMED4 {};
             class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};
             class VTX_MFD_1_Monospace : VTX_MFD_1_Monospace {};
             class VTX_MFD_1_Bold :      VTX_MFD_1_Bold {};
-            class VTX_MFD_2 :           VTX_MFD_2_ARMED {};
+            class VTX_MFD_2 :           VTX_MFD_2_ARMED4 {};
             class VTX_MFD_2_CMWS :      VTX_MFD_2_CMWS {};
             class VTX_MFD_2_Monospace : VTX_MFD_2_Monospace {};
             class VTX_MFD_2_Bold :      VTX_MFD_2_Bold {};
-            class VTX_MFD_3 :           VTX_MFD_3_ARMED {};
+            class VTX_MFD_3 :           VTX_MFD_3_ARMED4 {};
             class VTX_MFD_3_CMWS :      VTX_MFD_3_CMWS {};
             class VTX_MFD_3_Monospace : VTX_MFD_3_Monospace {};
             class VTX_MFD_3_Bold :      VTX_MFD_3_Bold {};
-            class VTX_MFD_4 :           VTX_MFD_4_ARMED {};
+            class VTX_MFD_4 :           VTX_MFD_4_ARMED4 {};
             class VTX_MFD_4_CMWS :      VTX_MFD_4_CMWS {};
             class VTX_MFD_4_Monospace : VTX_MFD_4_Monospace {};
             class VTX_MFD_4_Bold :      VTX_MFD_4_Bold {};
