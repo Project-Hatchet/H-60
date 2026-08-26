@@ -15,7 +15,7 @@
  - Remove leftover debug text printed to players during rotor fold and in the FLIR and engine code #571 #564
  - Smaller download - developer-only scripts and raw texture source files are no longer packed into the mod #570
 
-**0.7.7.4**
+**0.7.8.1**
 
  - Fix copilot cockpit interior not rendering (missing upper console, no get-in animation). Copilot turret optics are temporarily removed - the seat renders correctly again; optics return once the model gains a View - Gunner LOD #556
  - Fix FLIR vehicle lock/tracking for both pilots in PiP and both fullscreen views: lock key now works in every view, locking targets the object the camera ray hits (with a boresight cone fallback for movers), and the cameras actively follow the tracked vehicle #538
