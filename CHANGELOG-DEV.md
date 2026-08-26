@@ -1,4 +1,4 @@
-**Unreleased**
+**0.7.9.1**
 
  - Fix the rescue hoist in multiplayer - the hook and anyone riding it now lower away from the aircraft instead of staying stuck at the cabin #576
  - Fix engine and APU start/shutdown sounds not being heard by other players nearby #578
