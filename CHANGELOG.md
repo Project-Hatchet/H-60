@@ -1,3 +1,38 @@
+**0.7.8.1**
+
+  - FIXED:
+    - Copilot seat: cockpit interior (upper console and instruments) renders again and the get-in animation is back; the copilot's dedicated camera view is temporarily disabled until the model is updated #556
+    - FLIR: lock and track vehicles from every view (PiP and fullscreen, pilot and copilot); pressing lock again releases #538
+    - FLIR: ground points stay locked where you leave them when slewing; moving the camera while tracking a vehicle drops to a ground hold
+    - FLIR snapping back to the first geolock point when turning geolock off
+    - Flight director IAS keybind; IAS and HDG knob keybinds
+    - Hoist hook deployable while the hoist was hidden; hook and helper vehicles having an inventory and driver seat
+    - Non-DAP models able to use the IZLID
+    - Missing textures on the HH-60G radar and FLIR #551
+    - JVMF messages not showing on the leftmost MFD; empty-message check with BCE/cTab
+    - FMS copilot on non-MLASS models
+    - Pylon reassignment reliability, outboard pylon reassignment, ammo refill on pylon handover
+    - MITAS in pilot view, markings LOD, rotor shaft not visible #527
+    - Various RPT errors (abstract vtx_pylon entity, RemoteExec with 0 targets)
+
+  - ADDED:
+    - IR laser (IZLID) for pilots and door gunners, keybind under H-60 Weapons
+    - Stabilize Hook keybind
+    - ACE actions to load the cabin as vehicle-in-vehicle cargo (ThingX)
+    - MH-60M and DAPs on the Air Control buy list
+    - Editor preview images for the MH models
+    - Copilot can use the map while in fullscreen FLIR
+    - ACE door actions are blocked while units or FRIES are in the doorway
+
+  - CHANGES/IMPROVEMENTS:
+    - Sound improvements: engine profiles and a new distant-sound volume curve (thanks @Aaren) #532
+    - ESSS and more areas retexturable; LASS default textures fixed
+    - Wipers can be turned off
+    - Increased head movement range
+    - Redundant CBA keybinds for hoist, MFD, FLIR slew and flight director removed in favor of the Arma keybinds; deprecated debug settings removed
+    - IZLID keybind text
+    - N key works in fullscreen FLIR but not in the cockpit, where it affects the pilot's own NODs
+
 **0.7.6**
 
   - FIXED:
