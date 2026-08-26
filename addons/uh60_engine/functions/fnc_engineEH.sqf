@@ -6,9 +6,6 @@
  * params (array)[(object) vehicle, (bool) turnedOn]
  */
 
-/*
- diag_log format ["%1: engine EH", time];
-*/
 params ["_vehicle", "_turnedOn", ["_lever","throttle"], "_animEndState", "_animName"];
 
 if(_turnedOn) then {
@@ -21,11 +18,13 @@ if(_turnedOn) then {
 
 private _rotorspeed = _vehicle getSoundController "RotorSpeed";
 
-//- Play Sound Globally
+//- Play Sound Globally (rotorspeed must travel with the event - it was a
+//- sender-local variable the receivers never had, so the start/shutdown
+//- sound conditions errored on every remote client)
 [
-  _vehicle,
-  [_eng1State,_eng2State]
-] remoteExecCall ['vtx_uh60_Sound_fnc_PlayEngineGlobal', [0, -2] select isDedicated];
+  "vtx_uh60_engine_playEngineSound",
+  [_vehicle, [_eng1State,_eng2State], _rotorspeed]
+] call CBA_fnc_globalEvent;
 
 /////////////////////////////////
 if (!local _vehicle) exitWith {};

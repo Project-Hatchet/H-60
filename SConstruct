@@ -117,12 +117,12 @@ env.Command(r"buildTools\Natural Docs", [], [downloadNaturaldocs, Delete(r"build
 allPbos = env.Alias("all", pboAliases)
 targetDefinition("all", "Build all pbos.")
 
-buildDocs = env.Command(r"docs\index.html",
+buildDocs = env.Command(r"apidocs\index.html",
     [s for s in allFilesIn(settings["addonsFolder"]) if s.endswith(".sqf")] + [r"buildTools\Natural Docs"],
-    [Mkdir("docs"), r'"buildTools\Natural Docs\NaturalDocs.exe" naturaldocs'])
+    [Mkdir("apidocs"), r'"buildTools\Natural Docs\NaturalDocs.exe" naturaldocs'])
 env.AlwaysBuild(buildDocs)
 
-env.Alias("docs", r"docs\index.html")
+env.Alias("docs", r"apidocs\index.html")
 targetDefinition("docs", "Generate naturaldocs documentation")
 env.Help("\n")
 
@@ -130,7 +130,7 @@ if GetOption('clean'):
     env.Execute(sum(map(lambda pbo: removeSymlink(pbo.buildSymlink), pbos),[]))
 env.Clean(["build", "all"], r"build")
 env.Clean(["buildTools", "all"], r"buildTools")
-env.Clean(["docs", "all"], ["docs", r"naturaldocs\Working Data"])
+env.Clean(["docs", "all"], ["apidocs", r"naturaldocs\Working Data"])
 
 try:
     settings = getSettings()

@@ -1,51 +1,9 @@
 class CfgVehicles
 {
-    /* These overwrite inherited actions for some reason
-    class Heli_Transport_01_base_F;
-    class vtx_H60_base: Heli_Transport_01_base_F {
-        class ACE_SelfActions {
-            class VTX_Hoist {
-                displayName = "Hoist";
-                icon = "z\vtx\addons\uh60_hoist\data\ui\iconHook.paa";
-                class VTX_Hoist_DeployHook {
-                    displayName = "Deploy Hook";
-                    condition = "call vtx_uh60_hoist_fnc_canDeployHook";
-                    statement = "call vtx_uh60_hoist_fnc_deployHook";
-                };
-                class VTX_Hoist_SecureHook {
-                    displayName = "Secure Hook";
-                    condition = "call vtx_uh60_hoist_fnc_canSecureHook";
-                    statement = "call vtx_uh60_hoist_fnc_secureHook";
-                };
-                class VTX_Hoist_PullIntoHeli {
-                    displayName = "Pull In Hook Occupant";
-                    condition = "call vtx_uh60_hoist_fnc_canRecoverPerson";
-                    statement = "call vtx_uh60_hoist_fnc_recoverPerson";
-                };
-                class VTX_Hoist_MoveHeliToHook {
-                    displayName = "Move To Hook";
-                    condition = "[_player] call vtx_uh60_hoist_fnc_canMoveHeliToHook";
-                    statement = "[_player] call vtx_uh60_hoist_fnc_moveHeliToHook";
-                };
-                class VTX_Hoist_RaiseHookToHeli {
-                    displayName = "Raise Hook To Heli";
-                    condition = "call vtx_uh60_hoist_fnc_isHoistReady";
-                    statement = "call vtx_uh60_hoist_fnc_raiseHookToHeli";
-                };
-                class VTX_Hoist_LowerHookToGround {
-                    displayName = "Lower Hook To Ground";
-                    condition = "call vtx_uh60_hoist_fnc_isHoistReady";
-                    statement = "call vtx_uh60_hoist_fnc_lowerHookToGround";
-                };
-                class VTX_Hoist_Working {
-                    displayName = "Working...";
-                    condition = "!(call vtx_uh60_hoist_fnc_isHoistReady)";
-                    statement = "";
-                };
-            };
-        };
-    };
-    */
+    // Hoist self-actions are registered script-side in ACE_Actions.sqf
+    // (ace_interact_menu_fnc_addActionToClass): a config ACE_SelfActions
+    // block on vtx_H60_base would overwrite inherited actions instead of
+    // merging with them.
 
     class Man;
     class CAManBase: Man {

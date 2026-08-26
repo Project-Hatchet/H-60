@@ -42,6 +42,7 @@ if (GVAR(laserEmitters) isEqualTo []) exitWith {
     };
   };
   private _endPos = _begPos vectorAdd (_dir vectorMultiply LASER_MAX);
+  private _origin = _begPos; // keep the true origin - the segment loop walks _begPos forward
 
   private _intersects = [];
   while { _intersects isEqualTo [] } do {
@@ -51,11 +52,11 @@ if (GVAR(laserEmitters) isEqualTo []) exitWith {
       (_begPos distance positionCameraToWorld [0,0,0]) > viewDistance
       && {(_endPos distance positionCameraToWorld [0,0,0]) > viewDistance}
     ) exitWith {}; // just exit loop if we've drawn far enough
-    _intersects = lineIntersectsSurfaces [_begPos, _endPos, _aircraft];
+    _intersects = lineIntersectsSurfaces [_begPos, _endPos, _vehicle]; // _aircraft was never defined - the self-hit filter errored out and killed the rest of the draw
     if (_intersects isEqualTo []) then { // Check if we hit anything
       _begPos = _endPos; // if we didn't then move up the startpos to where the last draw ended
       _endPos = _endPos vectorAdd (_dir vectorMultiply LASER_MAX);
     };
   };
-  drawLaser [_begPos, _dir, [250, 0, 0, 1], [], 0.5, 1, LASER_MAX, true]; // final draw from actual origin
+  drawLaser [_origin, _dir, [250, 0, 0, 1], [], 0.5, 1, LASER_MAX, true]; // final draw from the actual origin (was drawn from the walked-forward segment position)
 } forEach GVAR(laserEmitters);

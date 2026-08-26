@@ -71,8 +71,6 @@ private _foldTime = switch (_phase) do {
   };
   default { 15 }
 };
-systemChat str _foldTime;
-
 private _fnc_onFinish = {
     (_this select 0) params ["_unit", "_heli"];
 
