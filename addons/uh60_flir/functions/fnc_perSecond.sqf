@@ -8,7 +8,9 @@
 
 params ["_vehicle"];
 
-if (vtx_uh60_flir_setting_useScriptedCamera && vtx_uh60_flir_setting_animateTurret && {local _vehicle}) then {
+// (Use Scripted Camera setting removed - the FLIR ball always animates from
+// the camera while the copilot turret optics are disabled, #560)
+if (vtx_uh60_flir_setting_animateTurret && {local _vehicle}) then {
   [_vehicle] call vtx_uh60_flir_fnc_syncAnimation;
 };
 

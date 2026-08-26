@@ -1,3 +1,4 @@
+// Returns [intersect position ASL, hit object (objNull for terrain)] or nil on no hit
 params ["_origin","_angleX","_angleY"];
 
 scopeName "return";
@@ -10,6 +11,7 @@ for "_i" from 0 to 15 step 1 do {
   private _endPos = _startPos vectorAdd _vectorIntersect;
   private _intersect = lineIntersectsSurfaces [_startPos, _endPos, (vehicle player)];
   if(count _intersect > 0) then {
-    (_intersect # 0 # 0) breakOut "return";
+    (_intersect # 0) params ["_intersectPos", "", "_hitObject", "_hitParent"];
+    [_intersectPos, [_hitObject, _hitParent] select (!isNull _hitParent)] breakOut "return";
   };
 };

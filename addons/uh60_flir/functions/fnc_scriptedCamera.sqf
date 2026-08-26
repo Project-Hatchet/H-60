@@ -36,6 +36,44 @@ if (_show) then {
   [vtx_uh60_flir_pipEffect, false] call vtx_uh60_flir_fnc_setVisionMode;
   vtx_uh60_flir_isInScriptedCamera = true;
 
+  // Vanilla user actions do not fire (and inputAction reads 0) while a
+  // cameraEffect camera is active, so hook the raw input and map it through
+  // the player's actual binding for the lock action. Mouse buttons appear in
+  // actionKeys as 65536 + button, so both device paths are needed (#538)
+  if (isNil "vtx_uh60_flir_fullscreenKeyEH") then {
+    vtx_uh60_flir_lastLockPress = 0;
+    private _fire = {
+      if (diag_tickTime > vtx_uh60_flir_lastLockPress + 0.3) then {
+        vtx_uh60_flir_lastLockPress = diag_tickTime;
+        [
+          AGLToASL positionCameraToWorld [0, 0, 0],
+          AGLToASL positionCameraToWorld [0, 0, 5000]
+        ] call vtx_uh60_flir_fnc_setStabilization;
+      };
+    };
+    vtx_uh60_flir_fullscreenLockFire = _fire;
+    vtx_uh60_flir_fullscreenKeyEH = (findDisplay 46) displayAddEventHandler ["KeyDown", {
+      params ["", "_key"];
+      if (!vtx_uh60_flir_isInScriptedCamera) exitWith {false};
+      if (missionNamespace getVariable ["vtx_uh60_ui_showDebugMessages", false]) then {
+        systemChat format ["FS KeyDown %1 (lock keys %2)", _key, actionKeys "vehLockTurretView"];
+      };
+      if (_key in (actionKeys "vehLockTurretView")) then {call vtx_uh60_flir_fullscreenLockFire; true} else {false};
+    }];
+    vtx_uh60_flir_fullscreenMouseEH = (findDisplay 46) displayAddEventHandler ["MouseButtonDown", {
+      params ["", "_button"];
+      if (!vtx_uh60_flir_isInScriptedCamera) exitWith {false};
+      if (missionNamespace getVariable ["vtx_uh60_ui_showDebugMessages", false]) then {
+        systemChat format ["FS MouseDown %1 -> %2 (lock keys %3)", _button, 65536 + _button, actionKeys "vehLockTurretView"];
+      };
+      if ((65536 + _button) in (actionKeys "vehLockTurretView")) then {call vtx_uh60_flir_fullscreenLockFire; true} else {false};
+    }];
+    if (missionNamespace getVariable ["vtx_uh60_ui_showDebugMessages", false]) then {
+      systemChat format ["FS lock hooks installed: key EH %1, mouse EH %2, lock keys %3",
+        vtx_uh60_flir_fullscreenKeyEH, vtx_uh60_flir_fullscreenMouseEH, actionKeys "vehLockTurretView"];
+    };
+  };
+
 } else {
 
   vtx_uh60_flir_camera cameraEffect ["terminate", "back"];
@@ -49,6 +87,15 @@ if (_show) then {
     // Fix pip black screen
     vtx_uh60_flir_camera cameraEffect ["internal", "BACK", "vtx_uh60_flir_feed"];
     "vtx_uh60_flir_feed" setPiPEffect vtx_uh60_flir_pipEffect;
+  };
+
+  if (!isNil "vtx_uh60_flir_fullscreenKeyEH") then {
+    (findDisplay 46) displayRemoveEventHandler ["KeyDown", vtx_uh60_flir_fullscreenKeyEH];
+    vtx_uh60_flir_fullscreenKeyEH = nil;
+  };
+  if (!isNil "vtx_uh60_flir_fullscreenMouseEH") then {
+    (findDisplay 46) displayRemoveEventHandler ["MouseButtonDown", vtx_uh60_flir_fullscreenMouseEH];
+    vtx_uh60_flir_fullscreenMouseEH = nil;
   };
 
   vtx_uh60_flir_isInScriptedCamera = false;

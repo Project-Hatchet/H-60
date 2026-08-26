@@ -21,13 +21,19 @@ class CopilotTurret: CopilotTurret {
   minFov = 0.25;
   maxFov = 0.9;
   initFov = 0.75;
-  memoryPointGunnerOptics = "flir_cam_pos";
-  memoryPointGunnerOutOptics = "flir_cam_pos";
+  // #556 HOTFIX: optics classes removed. An optics turret makes the engine
+  // render the View-Gunner LOD, which vtx_uh60.p3d does not have, so the
+  // copilot fell back to a gutted resolution LOD (see-through console).
+  // A/B-proven in-game 2026-08-16: only physical absence of OpticsIn heals it.
+  // Restore the optics (and this seat's turret FLIR view) once the model
+  // gains a View - Gunner (1000) LOD - a copy of View - Pilot (1100) works.
+  memoryPointGunnerOptics = "";
+  memoryPointGunnerOutOptics = "";
   gunBeg = "flir_cam_dir";
   gunEnd = "flir_cam_pos";
   turretFollowFreeLook = 0;
   turretInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
-  #include "OpticsIn.hpp"
+  // #include "OpticsIn.hpp"
   CanEject=0;
   gunnerAction = "UH60_Pilot";
   gunnerInAction = "UH60_Pilot";
@@ -36,6 +42,10 @@ class CopilotTurret: CopilotTurret {
   soundAttenuationTurret = "SemiOpenHeliAttenuation";
   viewGunnerInExternal = 1;
   gunnerUsesPilotView = 1;
+  // 1100 = View - Pilot LOD; without these the turret defaults to the door-gunner
+  // View - Gunner LOD and the copilot cockpit loses its upper console (#556)
+  LODTurnedIn = 1100;
+  LODTurnedOut = 1100;
   gunnerRightHandAnimName="Cyclic_left";
   gunnerLeftHandAnimName="Collective_left";
   gunnerLeftLegAnimName="Pedal_Left_CP";

@@ -5,6 +5,11 @@ class CopilotTurret: CopilotTurret {
   canHideGunner = 0;
   viewGunnerInExternal = 1;
   gunnerUsesPilotView = 1;
+  soundAttenuationTurret = "SemiOpenHeliAttenuation"; // carried over from copilotFLIR.hpp so cockpit audio keeps its attenuation (#510)
+  // 1100 = View - Pilot LOD; without these the turret defaults to the door-gunner
+  // View - Gunner LOD and the copilot cockpit loses its upper console (#556)
+  LODTurnedIn = 1100;
+  LODTurnedOut = 1100;
   memoryPointGunnerOptics = "";
   memoryPointGunnerOutOptics = "";
   gunnerRightHandAnimName="Cyclic_left";
@@ -25,7 +30,10 @@ class CopilotTurret: CopilotTurret {
   class ViewGunner: ViewPilot {
     #include "ViewPilot.hpp"
   };
-  class OpticsIn {};
+  // TEST BUILD (#556 A/B): OpticsIn removed - pre-FLIR copilots had no optics
+  // and rendered the View-Pilot LOD correctly; the optics turret conversion is
+  // the suspected trigger for the resolution-LOD fallback. SLICK = no-optics
+  // probe, UH60M (copilotFLIR.hpp) keeps optics as the control.
   class Hitpoints {};
   class Components {
     class SensorsManagerComponent {
