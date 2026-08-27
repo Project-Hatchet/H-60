@@ -172,6 +172,13 @@ def changelog_note(ref, version):
     return "\n".join(out)
 
 
+def add_build_code(note, ref, sha):
+    """Append the build code to the note's branch stamp line, so the Workshop
+    note identifies the exact commit that was built (a --bump/--version stamp
+    commit moves the branch, so this must run AFTER stamping)."""
+    return note.replace(f"[i]{ref}[/i]", f"[i]{ref} @ {sha}[/i]", 1)
+
+
 def stamp_version(version):
     """On the checked-out branch: write the version, retitle the Unreleased block, commit both."""
     label = fmt_version(version)
@@ -279,7 +286,9 @@ def main():
     if not note_text.strip():
         die("the change note is empty - describe what changed")
     if args.preview_note:
-        print(note_text)
+        # pre-stamp preview: shows the ref's current tip; a --bump/--version
+        # push will show the stamp commit's code instead
+        print(add_build_code(note_text, args.branch, git("rev-parse", "--short", args.branch)))
         return
 
     if not args.skip_build:
@@ -303,6 +312,9 @@ def main():
         out = REPO / MOD_FOLDER / "addons"
         pbos = list(out.glob(f"{PBO_PREFIX}*.pbo"))
         count, total = len(pbos), sum(p.stat().st_size for p in pbos)
+
+    note_sha = sha if sha != "(skip-build)" else git("rev-parse", "--short", args.branch)
+    note_text = add_build_code(note_text, args.branch, note_sha)
 
     print("\n=== Dev Branch push summary ===")
     print(f"  ref:      {args.branch} @ {sha}")
