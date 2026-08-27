@@ -46,6 +46,12 @@ class CfgUserActions
     tooltip = "Hit this button to toggle the IZLID IR laser.";
     onActivate = "[] call vtx_uh60_weapons_fnc_keyIRLaser;";
   };
+  class vtx_weapons_irLaserHold : vtx_weapons_fireLaser {
+    displayName = "IZLID [HOLD]";
+    tooltip = "Hold this button to activate the IZLID IR laser, release to deactivate.";
+    onActivate = "[1] call vtx_uh60_weapons_fnc_keyIRLaser;";		// _this is always true.
+    onDeactivate = "[0] call vtx_uh60_weapons_fnc_keyIRLaser;";		// _this is always false.
+  };
 };
 class CfgDefaultKeysPresets {};
 class UserActionGroups
@@ -61,7 +67,8 @@ class UserActionGroups
       "vtx_weapons_fireRocket",
       "vtx_weapons_fireLaser",
       "vtx_weapons_fireMissile",
-      "vtx_weapons_irLaser"
+      "vtx_weapons_irLaser",
+      "vtx_weapons_irLaserHold"
     }; // List of all actions inside this category.
   };
 };

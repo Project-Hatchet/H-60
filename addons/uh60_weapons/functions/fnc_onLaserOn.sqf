@@ -7,6 +7,8 @@
  * 0: Vehicle <OBJECT>
  * 1: Laser Start <ARRAY or STRING>
  * 2: Laser Direction <ARRAY or STRING or 0>
+ * 3: State <NUMBER> (optional, default -1)
+ *    -1: toggle, 0: force off, 1: force on
  *
  * Return Value:
  * None
@@ -17,11 +19,18 @@
  * Public: No
  */
 
-if (_this in GVAR(laserEmitters)) exitWith {
-  GVAR(laserEmitters) = GVAR(laserEmitters) - [_this];
-};
+params ["_vehicle", "_begSel", "_endSel", ["_state", -1]];
+private _emitter = [_vehicle, _begSel, _endSel];
+private _isOn = _emitter in GVAR(laserEmitters);
+private _turnOn = if (_state == -1) then { !_isOn } else { _state == 1 };
 
-GVAR(laserEmitters) pushBackUnique _this;
+if (_turnOn isEqualTo _isOn) exitWith {};
+
+if (_turnOn) then {
+  GVAR(laserEmitters) pushBackUnique _emitter;
+} else {
+  GVAR(laserEmitters) = GVAR(laserEmitters) - [_emitter];
+};
 
 if (
   GVAR(irLaserPFH) != -1
