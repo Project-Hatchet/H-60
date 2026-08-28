@@ -4,7 +4,7 @@ if (hasInterface) then {
   #include "ACE_Actions.sqf"
 
   GVAR(irLaserPFH) = -1;
-  [QGVAR(irLaser), LINKFUNC(onLaserOn)] call CBA_fnc_addEventHandler;
+  [QGVAR(irLaser), LINKFUNC(onIRLaserOn)] call CBA_fnc_addEventHandler;
   // Examples
   // ["vtx_uh60_weapons_irLaser", [cameraOn, [0,0,0], 0]] call CBA_fnc_globalEvent;
   // ["vtx_uh60_weapons_irLaser", [cameraOn, "pos", "dir"]] call CBA_fnc_globalEvent;

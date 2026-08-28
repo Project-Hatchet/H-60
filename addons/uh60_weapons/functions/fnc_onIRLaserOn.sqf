@@ -1,7 +1,7 @@
 #include "..\script_component.hpp"
 /*
  * Author: Ampersand
- * IR Laser on event
+ * IR/IZLID Laser on event
  *
  * Arguments:
  * 0: Vehicle <OBJECT>
@@ -14,7 +14,7 @@
  * None
  *
  * Example:
- * [] call vtx_uh60_weapons_fnc_onLaserOn
+ * [] call vtx_uh60_weapons_fnc_onIRLaserOn
  *
  * Public: No
  */
