@@ -1,12 +1,18 @@
 class CfgUserActions
 {
   class vtx_weapons_fireLaser {
-    displayName = "Fire Laser";
-    tooltip = "Hit this key to fire mentioned weapon.";
-    onActivate = "[hct_vehicle, 'Laserdesignator_pilotCamera', 'Laserdesignator_pilotCamera'] call vtx_uh60_weapons_fnc_fireAndResetWeapon;";		// _this is always true.
+    displayName = "Fire Laser [TOGGLE]";
+    tooltip = "Hit this key to toggle the laser designator on/off.";
+    onActivate = "[] call vtx_uh60_weapons_fnc_keyLaserDesignator;";		// _this is always true.
     onDeactivate = "";		// _this is always false.
     onAnalog = "";	// _this is the scalar analog value.
     analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
+  };
+  class vtx_weapons_fireLaserHold : vtx_weapons_fireLaser {
+    displayName = "Fire Laser [HOLD]";
+    tooltip = "Hold this key to activate the laser designator, release to deactivate.";
+    onActivate = "[1] call vtx_uh60_weapons_fnc_keyLaserDesignator;";		// _this is always true.
+    onDeactivate = "[0] call vtx_uh60_weapons_fnc_keyLaserDesignator;";		// _this is always false.
   };
   class vtx_weapons_masterArm: vtx_weapons_fireLaser {
     displayName = "Master Arm";
@@ -66,6 +72,7 @@ class UserActionGroups
       "vtx_weapons_fireAPKWS",
       "vtx_weapons_fireRocket",
       "vtx_weapons_fireLaser",
+      "vtx_weapons_fireLaserHold",
       "vtx_weapons_fireMissile",
       "vtx_weapons_irLaser",
       "vtx_weapons_irLaserHold"
