@@ -19,7 +19,6 @@ PREP(ehNextWeapon);
 PREP(keyFireSelected);
 PREP(keyNextWeapon);
 PREP(keyMasterArm);
-PREP(keyLaserDesignator);
 PREP(irLaserPFH);
 PREP(onIRLaserOn);
 PREP(keyIRLaser);
