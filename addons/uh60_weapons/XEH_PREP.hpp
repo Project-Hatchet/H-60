@@ -20,7 +20,7 @@ PREP(keyFireSelected);
 PREP(keyNextWeapon);
 PREP(keyMasterArm);
 PREP(irLaserPFH);
-PREP(onLaserOn);
+PREP(onIRLaserOn);
 PREP(keyIRLaser);
 PREP(assignPylon);
 PREP(assignPylonLocal);
