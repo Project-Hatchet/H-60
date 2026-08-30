@@ -49,7 +49,7 @@ PBO_PREFIX = "hct_h60_"
 MOD_ROOT_FILES = ["meta.cpp", "logo_vtx_ca.paa", "logo_vtx_small_ca.paa"]
 VERSION_FILE = "addons/main/script_version.hpp"
 CHANGELOG = "CHANGELOG-DEV.md"
-TESTING_LABEL = "ready-for-testing"  # the devbuild branch = Main + PRs wearing this label
+TESTING_LABEL = "Ready for Testing"  # the devbuild branch = Main + PRs wearing this label
 DEV_MOD_CPP = """name = "H-60 pack - Development branch";
 picture = "logo_vtx_ca.paa";
 actionName = "Guide";
@@ -189,7 +189,7 @@ def gh(*args):
 
 
 def prs_note(ref, version):
-    """Change note for a devbuild push: the open PRs labeled ready-for-testing.
+    """Change note for a devbuild push: the open PRs labeled Ready for Testing.
 
     That label list is exactly what the devbuild branch is generated from, so
     the Workshop note tells testers precisely which PRs they are testing and

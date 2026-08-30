@@ -1,5 +1,5 @@
 
-# Regenerates the devbuild branch: Main + every open PR labeled ready-for-testing.
+# Regenerates the devbuild branch: Main + every open PR labeled "Ready for Testing".
 #
 # The branch is machine-generated output - nobody commits to it and it is never
 # merged back. It is rebuilt from scratch on every trigger, so its contents are
@@ -8,7 +8,7 @@
 # what each rebuild actually contains.
 #
 # Setup this workflow needs (one-time):
-#   - a "ready-for-testing" label in the repo
+#   - a "Ready for Testing" label in the repo
 #   - a DEVBUILD_PUSH_TOKEN repo secret: a fine-grained PAT with contents
 #     read/write on this repo. Pushes made with the default workflow token do
 #     not trigger other workflows, so without it the devbuild branch still
@@ -36,18 +36,18 @@ permissions:
   pull-requests: write
 
 env:
-  LABEL: ready-for-testing
+  LABEL: Ready for Testing
   BASE: Main
 
 jobs:
   regenerate:
     runs-on: ubuntu-latest
-    # PR events only matter when the ready-for-testing label is involved:
+    # PR events only matter when the "Ready for Testing" label is involved:
     # the label being added/removed, or any update to a PR that carries it.
     if: >-
       github.event_name != 'pull_request_target'
-      || github.event.label.name == 'ready-for-testing'
-      || contains(github.event.pull_request.labels.*.name, 'ready-for-testing')
+      || github.event.label.name == 'Ready for Testing'
+      || contains(github.event.pull_request.labels.*.name, 'Ready for Testing')
     steps:
       - name: Checkout base branch
         uses: actions/checkout@v4.2.0
