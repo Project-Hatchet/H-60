@@ -49,6 +49,7 @@ PBO_PREFIX = "hct_h60_"
 MOD_ROOT_FILES = ["meta.cpp", "logo_vtx_ca.paa", "logo_vtx_small_ca.paa"]
 VERSION_FILE = "addons/main/script_version.hpp"
 CHANGELOG = "CHANGELOG-DEV.md"
+TESTING_LABEL = "Ready for Testing"  # the devbuild branch = Main + PRs wearing this label
 DEV_MOD_CPP = """name = "H-60 pack - Development branch";
 picture = "logo_vtx_ca.paa";
 actionName = "Guide";
@@ -179,14 +180,49 @@ def add_build_code(note, ref, sha):
     return note.replace(f"[i]{ref}[/i]", f"[i]{ref} @ {sha}[/i]", 1)
 
 
-def stamp_version(version):
-    """On the checked-out branch: write the version, retitle the Unreleased block, commit both."""
-    label = fmt_version(version)
+def gh(*args):
+    exe = shutil.which("gh") or r"C:\Program Files\GitHub CLI\gh.exe"
+    r = run([exe, *args])
+    if r.returncode != 0:
+        die(f"gh {' '.join(args)} failed:\n{r.stderr.strip()}")
+    return r.stdout
+
+
+def prs_note(ref, version):
+    """Change note for a devbuild push: the open PRs labeled Ready for Testing.
+
+    That label list is exactly what the devbuild branch is generated from, so
+    the Workshop note tells testers precisely which PRs they are testing and
+    where to report findings."""
+    import json
+    prs = json.loads(gh("pr", "list", "--state", "open", "--label", TESTING_LABEL,
+                        "--json", "number,title"))
+    if not prs:
+        die(f"no open PRs carry the '{TESTING_LABEL}' label - nothing to list in the note")
+    label = fmt_version(version) if version else fmt_version(parse_version(show_file(ref, VERSION_FILE)))
+    out = [
+        f"[h1]Dev build {label}[/h1]",
+        f"[i]{ref}[/i]",
+        "This test build contains the following changes under test - please report findings on the matching PR:",
+        "[list]",
+        *[f"[*]{linkify('#' + str(p['number']))} - {p['title']}" for p in sorted(prs, key=lambda p: p["number"])],
+        "[/list]",
+    ]
+    return "\n".join(out)
+
+
+def write_version_file(version):
     hpp = REPO / VERSION_FILE
     hpp_text = hpp.read_text(encoding="utf-8")
     nl = "\r\n" if "\r\n" in hpp_text else "\n"
     hpp.write_text(nl.join([f"#define MAJOR {version[0]}", f"#define MINOR {version[1]}",
                             f"#define PATCHLVL {version[2]}", f"#define BUILD {version[3]}", ""]), encoding="utf-8")
+
+
+def stamp_version(version):
+    """On the checked-out branch: write the version, retitle the Unreleased block, commit both."""
+    label = fmt_version(version)
+    write_version_file(version)
 
     cl = REPO / CHANGELOG
     text = cl.read_text(encoding="utf-8")
@@ -263,9 +299,14 @@ def main():
     note.add_argument("--note-file", help="file containing the change note")
     note.add_argument("--note-from-changelog", action="store_true",
                       help="build the note from the top version block of CHANGELOG-DEV.md at <ref>")
+    note.add_argument("--note-from-prs", action="store_true",
+                      help=f"build the note from the open PRs labeled '{TESTING_LABEL}' (for devbuild pushes)")
     ver = ap.add_mutually_exclusive_group()
     ver.add_argument("--bump", action="store_true", help="increment the build digit of the version on <ref> and stamp it")
     ver.add_argument("--version", help="stamp this exact version (e.g. 0.7.9.1) - use for the first push of a cycle")
+    ap.add_argument("--no-commit", action="store_true",
+                    help="stamp the version into the build only, committing nothing - required for pushing the "
+                         "regenerated devbuild branch, where commits would be wiped on the next rebuild")
     ap.add_argument("--preview-note", action="store_true", help="print the change note and exit (no build, no upload)")
     ap.add_argument("--dry-run", action="store_true", help="build and verify, skip the upload")
     ap.add_argument("--yes", action="store_true", help="skip the confirmation prompt")
@@ -276,9 +317,14 @@ def main():
     version, stamp = target_version(args.branch, args)
     if stamp and args.skip_build:
         die("--bump/--version need a checkout to stamp the branch; drop --skip-build")
+    if args.no_commit and not args.version:
+        die("--no-commit needs an explicit --version: nothing is committed, so --bump would "
+            "have no stamped base to count from")
 
     if args.note_from_changelog:
         note_text = changelog_note(args.branch, version if stamp else None)
+    elif args.note_from_prs:
+        note_text = prs_note(args.branch, version if stamp else None)
     elif args.note is not None:
         note_text = args.note
     else:
@@ -301,11 +347,17 @@ def main():
         git("checkout", "-q", args.branch)
         try:
             if stamp:
-                stamp_version(version)
+                if args.no_commit:
+                    write_version_file(version)
+                    print(f"  stamped {fmt_version(version)} into {VERSION_FILE} (build-time only, nothing committed)")
+                else:
+                    stamp_version(version)
             sha = git("rev-parse", "--short", "HEAD")
             wipe_mirror()
             count, total = build()
         finally:
+            if stamp and args.no_commit:
+                git("checkout", "-q", "--", VERSION_FILE)
             git("checkout", "-q", previous)
     else:
         sha = "(skip-build)"
