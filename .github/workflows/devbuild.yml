@@ -1,0 +1,128 @@
+
+# Regenerates the devbuild branch: Main + every open PR labeled ready-for-testing.
+#
+# The branch is machine-generated output - nobody commits to it and it is never
+# merged back. It is rebuilt from scratch on every trigger, so its contents are
+# always exactly derivable from the label list. PRs that fail to merge are
+# skipped, with a comment left on the PR. DEVBUILD.md at the branch root records
+# what each rebuild actually contains.
+#
+# Setup this workflow needs (one-time):
+#   - a "ready-for-testing" label in the repo
+#   - a DEVBUILD_PUSH_TOKEN repo secret: a fine-grained PAT with contents
+#     read/write on this repo. Pushes made with the default workflow token do
+#     not trigger other workflows, so without it the devbuild branch still
+#     regenerates but Validate & Build will not run on it.
+#   - no branch protection rule matching "devbuild" (it gets force-pushed)
+
+name: Devbuild
+
+on:
+  pull_request_target:
+    types: [labeled, unlabeled, synchronize, reopened, closed]
+  push:
+    branches:
+      - Main
+  release:
+    types: [published]
+  workflow_dispatch:
+
+concurrency:
+  group: devbuild-regenerate
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+env:
+  LABEL: ready-for-testing
+  BASE: Main
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    # PR events only matter when the ready-for-testing label is involved:
+    # the label being added/removed, or any update to a PR that carries it.
+    if: >-
+      github.event_name != 'pull_request_target'
+      || github.event.label.name == 'ready-for-testing'
+      || contains(github.event.pull_request.labels.*.name, 'ready-for-testing')
+    steps:
+      - name: Checkout base branch
+        uses: actions/checkout@v4.2.0
+        with:
+          ref: Main
+          fetch-depth: 0
+          token: ${{ secrets.DEVBUILD_PUSH_TOKEN || github.token }}
+
+      - name: Regenerate devbuild
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git config user.name "devbuild bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          base_sha=$(git rev-parse --short HEAD)
+          included=""
+          skipped=""
+
+          # Oldest PR first, so merge order is stable between rebuilds.
+          prs=$(gh pr list --repo "$GITHUB_REPOSITORY" --state open --label "$LABEL" \
+                  --json number,title,headRefOid \
+                  --jq 'sort_by(.number) | .[] | [(.number|tostring), .headRefOid, .title] | @tsv')
+
+          while IFS=$'\t' read -r num sha title; do
+            [ -z "${num:-}" ] && continue
+            title=${title//|/-}
+            git fetch -q origin "pull/$num/head"
+            if git merge -q --no-ff --no-edit -m "devbuild: merge #$num" FETCH_HEAD; then
+              echo "merged #$num - $title"
+              included="$included| #$num | $title |"$'\n'
+            else
+              git merge --abort
+              echo "SKIPPED #$num - $title (does not merge cleanly)"
+              skipped="$skipped| #$num | $title |"$'\n'
+              # One comment per PR head commit: the marker makes rebuilds quiet.
+              marker="<!-- devbuild-skipped #$num $sha -->"
+              if ! gh api "repos/$GITHUB_REPOSITORY/issues/$num/comments" --paginate \
+                     --jq '.[].body' | grep -qF "$marker"; then
+                gh pr comment "$num" --repo "$GITHUB_REPOSITORY" --body "$marker
+          This PR is labeled \`$LABEL\` but was **skipped from the devbuild branch**: it does not merge cleanly onto \`$BASE\` together with the other labeled PRs. Rebase it on \`$BASE\` (or resolve the clash with the other labeled PRs) and it will be picked up on the next rebuild."
+              fi
+            fi
+          done <<< "$prs"
+
+          {
+            echo "# devbuild"
+            echo
+            echo "Machine-generated branch: \`$BASE\` @ $base_sha plus every open PR labeled \`$LABEL\`."
+            echo "Do not commit to it, review it, or merge it anywhere - it is rebuilt from scratch on every label change."
+            echo
+            if [ -n "$included" ]; then
+              echo "## In this build"
+              echo
+              echo "| PR | Title |"
+              echo "|---|---|"
+              printf '%s' "$included"
+              echo
+            else
+              echo "No PRs are currently labeled - this build is \`$BASE\` as-is."
+              echo
+            fi
+            if [ -n "$skipped" ]; then
+              echo "## Skipped (labeled, but does not merge cleanly)"
+              echo
+              echo "| PR | Title |"
+              echo "|---|---|"
+              printf '%s' "$skipped"
+              echo
+            fi
+            echo "_Rebuilt $(date -u +'%Y-%m-%d %H:%M UTC') by [this run]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)._"
+          } > DEVBUILD.md
+
+          git add DEVBUILD.md
+          git commit -q -m "devbuild: regenerate from $BASE @ $base_sha"
+          git push -q --force origin HEAD:devbuild
+          echo "devbuild regenerated from $BASE @ $base_sha"
