@@ -27,9 +27,13 @@ on:
     types: [published]
   workflow_dispatch:
 
+# Queue runs, never cancel: a merged PR fires push + closed events almost
+# together, and with cancel-in-progress the closed-event run cancels the real
+# push run BEFORE its own job evaluates the label condition and skips - so
+# nothing regenerates. Runs take seconds and are idempotent; queueing is safe.
 concurrency:
   group: devbuild-regenerate
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 permissions:
   contents: write
