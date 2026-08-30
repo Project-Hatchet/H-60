@@ -81,11 +81,16 @@ jobs:
             [ -z "${num:-}" ] && continue
             title=${title//|/-}
             git fetch -q origin "pull/$num/head"
-            if git merge -q --no-ff --no-edit -m "devbuild: merge #$num" FETCH_HEAD; then
+            # Squash-merge: each included PR lands as ONE commit, so the
+            # devbuild log mirrors what Main's history will look like when
+            # the PR is properly merged. The PR itself is untouched and
+            # stays open - only Main receiving its commits would close it.
+            if git merge -q --squash FETCH_HEAD; then
+              git commit -q --allow-empty -m "devbuild: #$num - $title"
               echo "merged #$num - $title"
               included="$included| #$num | $title |"$'\n'
             else
-              git merge --abort
+              git reset -q --hard HEAD  # --squash sets no MERGE_HEAD, so 'merge --abort' cannot clean this up
               echo "SKIPPED #$num - $title (does not merge cleanly)"
               skipped="$skipped| #$num | $title |"$'\n'
               # One comment per PR head commit: the marker makes rebuilds quiet.
