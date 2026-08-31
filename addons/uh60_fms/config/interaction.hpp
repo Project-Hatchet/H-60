@@ -1,7 +1,9 @@
+#define FMS_BTN_STR_(x) #x
+#define FMS_BTN_STR(x) FMS_BTN_STR_(x)
 #define FMS_BTN(BTN_VAL,LABEL) \
   class BTN_VAL { \
     positionType="static"; \
-    position= BTN_VAL; \
+    position= FMS_BTN_STR(BTN_VAL); \
     label=LABEL; \
     radius=0.025; \
     clickSound="hct_Switch_Sound_2";
