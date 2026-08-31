@@ -100,6 +100,7 @@ class CfgVehicles {
           #define FMS_9 FMS_R_9
           #define FMS_10 FMS_R_10
           #include "interaction.hpp"
+          #include "keypad.hpp"
         }; // FMS
       }; // interaction
     }; // hct_driver
