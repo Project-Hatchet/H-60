@@ -56,9 +56,13 @@ if (_bootTime > -1) then {
   };
 };
 
-// (Use Scripted Camera setting removed - its off-mode selected the copilot
-// turret optics, disabled until the model gains a View - Gunner LOD, #560)
-if (vtx_uh60_flir_isPipHidden && {!vtx_uh60_flir_isInScriptedCamera}) exitWith {};
+// Skip the camera/overlay updates only when NO FLIR view is on screen. The
+// pilot's fullscreen is the vanilla GUNNER view (isPipHidden is always true
+// there), so it must count as a fullscreen view alongside the copilot's
+// scripted camera - reuse _inFullScreenCam from above rather than restating it.
+// (The old "Use Scripted Camera" setting picked one of the two; #559 removed
+// the setting but kept only the scripted-camera half - regression fixed here.)
+if (vtx_uh60_flir_isPipHidden && {!_inFullScreenCam}) exitWith {};
 
 [_vehicle] call vtx_uh60_flir_fnc_updateCamera;
 _this call vtx_uh60_flir_fnc_updateUIValues;
