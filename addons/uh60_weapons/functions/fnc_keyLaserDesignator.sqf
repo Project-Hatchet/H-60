@@ -27,6 +27,11 @@ if (_turnOn isEqualTo _isOn) exitWith {};
 
 private _currentWeapon = currentWeapon hct_vehicle;
 driver hct_vehicle forceWeaponFire ["Laserdesignator_pilotCamera", "Laserdesignator_pilotCamera"];
-hct_vehicle selectWeapon _currentWeapon;
+
+[{
+  params ["_vehicle", "_weapon"];
+  if (isNull _vehicle) exitWith {};
+  _vehicle selectWeapon _weapon;
+}, [hct_vehicle, _currentWeapon]] call CBA_fnc_execNextFrame;
 
 hct_vehicle setVariable ["vtx_uh60_weapons_laserDesignatorOn", _turnOn];
