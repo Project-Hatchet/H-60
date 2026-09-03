@@ -56,8 +56,7 @@ if (_bootTime > -1) then {
   };
 };
 
-// isPipHidden is always true outside INTERNAL view, so the pilot's GUNNER
-// fullscreen must count as an on-screen FLIR view here or its updates skip
+// Skip the camera/overlay updates only when NO FLIR view is on screen.
 if (vtx_uh60_flir_isPipHidden && {!_inFullScreenCam}) exitWith {};
 
 [_vehicle] call vtx_uh60_flir_fnc_updateCamera;
