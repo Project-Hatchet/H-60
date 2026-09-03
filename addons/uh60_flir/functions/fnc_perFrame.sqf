@@ -56,12 +56,8 @@ if (_bootTime > -1) then {
   };
 };
 
-// Skip the camera/overlay updates only when NO FLIR view is on screen. The
-// pilot's fullscreen is the vanilla GUNNER view (isPipHidden is always true
-// there), so it must count as a fullscreen view alongside the copilot's
-// scripted camera - reuse _inFullScreenCam from above rather than restating it.
-// (The old "Use Scripted Camera" setting picked one of the two; #559 removed
-// the setting but kept only the scripted-camera half - regression fixed here.)
+// isPipHidden is always true outside INTERNAL view, so the pilot's GUNNER
+// fullscreen must count as an on-screen FLIR view here or its updates skip
 if (vtx_uh60_flir_isPipHidden && {!_inFullScreenCam}) exitWith {};
 
 [_vehicle] call vtx_uh60_flir_fnc_updateCamera;
