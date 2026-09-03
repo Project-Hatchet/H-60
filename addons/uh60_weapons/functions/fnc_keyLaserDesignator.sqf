@@ -20,7 +20,7 @@ params [["_state", -1]];
 IS_EITHER_PILOT;
 IS_MASTER_ARM;
 
-private _isOn = hct_vehicle getVariable ["vtx_uh60_weapons_laserDesignatorOn", false];
+private _isOn = isLaserOn hct_vehicle;
 private _turnOn = if (_state == -1) then { !_isOn } else { _state == 1 };
 
 if (_turnOn isEqualTo _isOn) exitWith {};
@@ -33,5 +33,3 @@ driver hct_vehicle forceWeaponFire ["Laserdesignator_pilotCamera", "Laserdesigna
   if (isNull _vehicle) exitWith {};
   _vehicle selectWeapon _weapon;
 }, [hct_vehicle, _currentWeapon]] call CBA_fnc_execNextFrame;
-
-hct_vehicle setVariable ["vtx_uh60_weapons_laserDesignatorOn", _turnOn];
