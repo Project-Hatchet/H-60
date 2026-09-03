@@ -15,12 +15,12 @@ _vehicle setUserMFDvalue [37, (velocityModelSpace _vehicle) # 0];
 _vehicle setUserMFDvalue [38, (velocityModelSpace _vehicle) # 1];
 
 private _autohoverKeyDetected = (inputAction "autoHover" > 0 || inputAction "autoHoverCancel" > 0);
-if (_autohoverKeyDetected && !vtx_uh60_fd_autoHoverKeyDown) then {
-    vtx_uh60_fd_autoHoverKeyDown = true;
+if (_autohoverKeyDetected && !GET("autoHoverKeyDown",false)) then {
+    SET("autoHoverKeyDown", true);
     [_vehicle, "HVR"] call vtx_uh60_fd_fnc_modeSet;
 };
 if (!_autohoverKeyDetected) then {
-    vtx_uh60_fd_autoHoverKeyDown = false;
+    SET("autoHoverKeyDown", false);
 };
 
 if (!isEngineOn _vehicle) exitWith {};
@@ -30,21 +30,22 @@ if (isAutoHoverOn _vehicle && !(_vehicle getVariable ["hvr", false])) exitWith {
 };
 
 private _rotorState = _vehicle animationPhase "hrotor";
-if (_rotorState > vtx_uh60_lastRotorAnim) then {
-    vtx_uh60_rotorRPM = (_rotorState - vtx_uh60_lastRotorAnim);
+private _lastRotorAnim = GET("lastRotorAnim",_rotorState);
+if (_rotorState > _lastRotorAnim) then {
+    SET("rotorRPM", (_rotorState - _lastRotorAnim));
 };
-vtx_uh60_lastRotorAnim = _rotorState;
+SET("lastRotorAnim", _rotorState);
 
 private _altCode = GET("alt_mode",nil);
 if (!isNil "_altCode") then {_this call _altCode} else {
     if (vtx_uh60m_simpleCollective && difficultyEnabledRTD) then {
         private _collective = (inputAction "HeliCollectiveRaise") - (inputAction "HeliCollectiveLower");
         if (_collective != 0) then {
-            vtx_uh60_fd_collectiveHeld = vtx_uh60_fd_collectiveHeld + _frameTime;
+            SET("collectiveHeld", GET("collectiveHeld",0) + _frameTime);
         } else {
-            vtx_uh60_fd_collectiveHeld = 1;
+            SET("collectiveHeld", 1);
         };
-        [_vehicle, _frameTime, _collective * 8 * ((vtx_uh60_fd_collectiveHeld / 3) min 3)] call vtx_uh60_fd_fnc_verticalVelocity;
+        [_vehicle, _frameTime, _collective * 8 * ((GET("collectiveHeld",0) / 3) min 3)] call vtx_uh60_fd_fnc_verticalVelocity;
     };
 };
 
