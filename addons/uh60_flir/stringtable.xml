@@ -37,6 +37,12 @@
         <Key ID="STR_VTX_UH60_FLIR_KeyXFactor_Tooltip">
             <English>Sensitivity multiplier for pan vs tilt. Use this to adjust diagonal movement.</English>
         </Key>
+        <Key ID="STR_VTX_UH60_FLIR_SlewDeadzone">
+            <English>FLIR Slew Deadzone</English>
+        </Key>
+        <Key ID="STR_VTX_UH60_FLIR_SlewDeadzone_Tooltip">
+            <English>How much mouse slew input is needed before it counts as deliberate movement, e.g. demoting a vehicle follow to a ground lock.</English>
+        </Key>
         <Key ID="STR_VTX_UH60_FLIR_AnimateTurret">
             <English>Animate Turret</English>
         </Key>
