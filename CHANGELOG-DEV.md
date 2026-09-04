@@ -1,3 +1,9 @@
+**0.7.9**
+
+ - Add Fire Laser [HOLD] and IZLID [HOLD] keybinds - active while held, off on release #580 #581 #584
+ - Block autohover and countermeasure keybinds from the cabin and rear crew seats #557 #589
+ - Fix the pilot's fullscreen FLIR not refreshing its overlay readouts (like the GEOLOCK indicator) #592
+
 **0.7.9.1**
 
  - Fix the rescue hoist in multiplayer - the hook and anyone riding it now lower away from the aircraft instead of staying stuck at the cabin #576

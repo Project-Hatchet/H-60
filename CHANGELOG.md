@@ -1,3 +1,23 @@
+**0.7.9**
+
+  - FIXED:
+    - Rescue hoist in multiplayer: the hook and anyone riding it now lower away from the aircraft instead of staying stuck at the cabin #576
+    - Engine and APU start/shutdown sounds are now heard by other players nearby, and sound playback works on servers with strict remoteExec whitelists #577 #578
+    - Engine systems no longer get confused when more than one aircraft is running #577
+    - Pilot's fullscreen FLIR now refreshes its overlay readouts (like the GEOLOCK indicator) #592
+    - IZLID IR laser beam draws from the correct position - pilot and copilot each get their own beam #579
+    - FLIR weapons page no longer floods the game log with errors on aircraft with missing or 4-pylon weapon stations #566
+    - Error when paging through an empty FMS page list #573
+    - Flight director ALT increase/decrease keybinds #561
+    - Rescue Hoist scroll menu showing the wrong name #563
+    - Script errors left behind by previously removed functions, and several config typos with in-game effects #562 #569 #572
+    - Internal numbering of the helicopter's texture slots so retextures apply to the right parts #565
+    - Autohover and countermeasure keybinds no longer work from the cabin and rear crew seats #557 #589
+  - ADDED:
+    - Fire Laser [HOLD] and IZLID [HOLD] keybinds - active while held, off on release #580 #581 #584
+  - REMOVED:
+    - Leftover debug text printed to players; developer-only scripts and raw texture sources are no longer packed - the mod download is smaller #564 #570 #571
+
 **0.7.8.1**
 
   - FIXED:
