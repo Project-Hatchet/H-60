@@ -26,7 +26,9 @@ if (_vehicle getVariable ["vtx_uh60_flir_stowed", true]) then {
       private _timeRemaining = (_bootTime + 20) - cba_missionTime;
       _vehicle setUserMFDText [10, format["PREPARING PAYLOAD %1", floor _timeRemaining]];
     } else {
-      _vehicle setVariable ["vtx_uh60_flir_stowed", false, true];
+      if (player == driver _vehicle || {isNull (driver _vehicle)}) then {
+        _vehicle setVariable ["vtx_uh60_flir_stowed", false, true];
+      };
       {
         if ((getUserMFDValue _vehicle) # _x > 5 - 0.99 && (getUserMFDValue _vehicle) # _x < 5 + 0.99) exitWith {
           [_vehicle, _x, 5, true] call vtx_uh60_mfd_fnc_switchPage;
