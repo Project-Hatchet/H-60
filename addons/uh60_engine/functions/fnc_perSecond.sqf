@@ -25,15 +25,9 @@ if (_isPilotSeat) then {
     };
 };
 
-private _esisCount = _vehicle getVariable ["ESIS_COUNTER", 0];
-if (!local _vehicle) exitWith {
-    _vehicle setUserMFDValue [49, _esisCount];
-};
-
-if (_esisCount > -1) then {
-    _vehicle setVariable ["ESIS_COUNTER", _esisCount - 1, true];
-    _vehicle setUserMFDValue [49, _esisCount];
-};
+private _esisStartTime = _vehicle getVariable ["ESIS_START_TIME", cba_missionTime];
+private _esisCount = round (70 - (cba_missionTime - _esisStartTime)) max -1;
+_vehicle setUserMFDValue [49, _esisCount];
 
 if (difficultyEnabledRTD) then {
     [_vehicle] call vtx_uh60_engine_fnc_acftRTDController;
