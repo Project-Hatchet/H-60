@@ -25,8 +25,9 @@ SET_GLOBAL_DEFAULT("BATT2_ENABLED", false)
 SET_GLOBAL_DEFAULT("BATT1_POWER", 100)
 SET_GLOBAL_DEFAULT("BATT2_POWER", 100)
 SET_GLOBAL_DEFAULT("POWER_DRAIN_RATE", 0.11)
-SET_GLOBAL_DEFAULT("ESIS_COUNTER", 70)
-_vehicle setUserMFDValue [49, _vehicle getVariable ["ESIS_COUNTER", 70]];
+SET_GLOBAL_DEFAULT("ESIS_START_TIME", cba_missionTime)
+private _esisStartTime = _vehicle getVariable ["ESIS_START_TIME", cba_missionTime];
+_vehicle setUserMFDValue [49, (round (70 - (cba_missionTime - _esisStartTime))) max -1];
 
 _vehicle enableAutoTrimRTD true;
 
