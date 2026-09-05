@@ -45,7 +45,7 @@ vtx_uh60_flir_isSlewing = _keySlew || {vtx_uh60_flir_isInScriptedCamera && {_mou
 
 // Deliberate FLIR movement: key slew always counts; mouse only above a small
 // deadzone so an accidental mouselook twitch cannot demote a vehicle follow
-private _hasSlewInput = vtx_uh60_flir_isSlewing && {_keySlew || {(abs _inputX + abs _inputY) > 0.005}};
+private _hasSlewInput = vtx_uh60_flir_isSlewing && {_keySlew || {(abs _inputX + abs _inputY) > vtx_uh60_flir_setting_SlewDeadzone}};
 
 // Tracking state machine (per design spec):
 //   FREE    - camera moves freely
