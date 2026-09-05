@@ -137,7 +137,8 @@ private _editNumbersRight = ["vtx_uh60_paintNumbersRight" + (str random 1), "Cha
 private _customizationOptions = [
 	["vtx_fuelprobe", "Fuel Probe", ["vtx_fuelProbe", "fuelProbe_show", 1, 0, 7], {[1.3,4.1,-1.2]}],
 	["vtx_hoist", "Rescue Hoist", ["vtx_hoist", "Hoist_hide", 0, 1, 3], {[1.1,1.9,0.35]}],
-	["vtx_cockpitdoors", "Cockpit Doors", ["vtx_cockpitdoors", "Cockpitdoors_Hide", 0, 1, 3], {[1.1,5.1,-0.7]}]
+	["vtx_cockpitdoors", "Cockpit Doors", ["vtx_cockpitdoors", "Cockpitdoors_Hide", 0, 1, 3], {[1.1,5.1,-0.7]}],
+	["vtx_erfs", "ERFS Tank", ["vtx_erfs", "ERFS_show", 1, 0, 3], {[-0.046875,0.672591,-0.272467]}]
 ];
 
 {
