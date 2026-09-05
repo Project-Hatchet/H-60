@@ -16,15 +16,15 @@ private _altDiff = _altGoal - _alt;
 private _verticalVelocity = (velocity _vehicle) # 2;
 private _verticalVelocityGoal = (_altDiff max -1 min 1) *0.3048;
 if ((abs _altDiff) > 3) then {
-    if (vtx_uh60_fd_lastAltMatch) then {
-        vtx_uh60_fd_lastAltChangeTime = cba_missionTime;
+    if (GET("lastAltMatch",true)) then {
+        SET("lastAltChangeTime", cba_missionTime);
     };
-    vtx_uh60_fd_lastAltMatch = false;
-    private _timeSinceChange = cba_missionTime - vtx_uh60_fd_lastAltChangeTime;
+    SET("lastAltMatch", false);
+    private _timeSinceChange = cba_missionTime - GET("lastAltChangeTime",cba_missionTime);
     if(vtx_uh60_ui_showDebugMessages) then {systemChat str _timeSinceChange;};
     _verticalVelocityGoal = (_altDiff max -1 min 1) * (if (_timeSinceChange < 5) then [{1.21}, {4.87}]);
 } else {
-    vtx_uh60_fd_lastAltMatch = true;
+    SET("lastAltMatch", true);
 };
 
 [_vehicle, _frameTime, _verticalVelocityGoal] call vtx_uh60_fd_fnc_verticalVelocity;
