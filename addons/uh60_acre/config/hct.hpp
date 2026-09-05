@@ -1,11 +1,26 @@
 class hct_driver: hct_driver {
-    class modules: modules {
-        class acre {
-            startOnEnter = 1;
+  class modules: modules {
+      class acre {
+          startOnEnter = 1;
+      };
+  };
+  class interaction: interaction {
+    class FMS {
+      #undef FMS_PAGE_INDEX
+      #define FMS_PAGE_INDEX FMS_R_PAGE_INDEX
+      class FMS_Keypad {
+        class FMS_BTN_COM {
+          positionType = "coordinates";
+          position[] = {0.0688477,4.81626,-0.629442};
+          label = "COM";
+          radius = 0.025;
+          buttonUp = [(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_COMM_ACRE)], true] call vtx_uh60_fms_fnc_interaction_pageChange;
         };
+      };
     };
-    /*class interaction: interaction {
-        class acreConfig {
+  };
+};
+        /*class acreConfig {
             condition="vtx_uh60_acre_enabled";
             class Knob_radioVolume1 {
                 positionType="static";
@@ -60,9 +75,7 @@ class hct_driver: hct_driver {
                 animEnd="";
                 clickSound="hct_Switch_Sound";
             }; // knob_tx
-        }; // acreConfig
-    }; // interaction*/
-}; // pilot
+        }; // acreConfig*/
 
 class hct_copilot: hct_copilot {
     class modules: modules {
@@ -70,10 +83,19 @@ class hct_copilot: hct_copilot {
             startOnEnter = 1;
         };
     };
-    /*class interaction: interaction {
-        class acreConfig {
-            condition="vtx_uh60_acre_enabled";
-
-        }; // acreConfig
-    }; // interaction*/
+    class interaction: interaction {
+        class FMS {
+          #undef FMS_PAGE_INDEX
+          #define FMS_PAGE_INDEX FMS_L_PAGE_INDEX
+          class FMS_Keypad {
+              class FMS_BTN_COM {
+                positionType = "coordinates";
+                position[] = {-0.1992183,4.81418,-0.629442};
+                label = "COM";
+                radius = 0.025;
+                buttonUp = [(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_COMM_ACRE)], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+              };
+          };
+        };
+    }; // interaction
 }; // copilot
