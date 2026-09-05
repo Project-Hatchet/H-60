@@ -103,10 +103,36 @@ jobs:
             fi
           done <<< "$prs"
 
+          # Stamp the dev version: Main's version with PATCHLVL+1 (dev builds
+          # always work toward the next release) and a BUILD counter that
+          # increments on every rebuild and resets to 1 when a release bumps
+          # Main's version. The stamp only ever exists on this generated
+          # branch - Main's script_version.hpp is never touched, and each
+          # rebuild re-derives the stamp from Main plus the previous devbuild
+          # tip. push_dev.py picks the version up from the branch, so devbuild
+          # Workshop pushes no longer need --version/--bump.
+          VERSION_FILE=addons/main/script_version.hpp
+          parse_ver() { tr -d '\r' | awk '/#define (MAJOR|MINOR|PATCHLVL|BUILD) /{v[$2]=$3} END{print v["MAJOR"], v["MINOR"], v["PATCHLVL"], v["BUILD"]}'; }
+          read -r main_major main_minor main_patch _ < <(git show "$base_sha:$VERSION_FILE" | parse_ver)
+          dev_patch=$((main_patch + 1))
+          build=1
+          if git fetch -q origin devbuild 2>/dev/null; then
+            read -r p_major p_minor p_patch p_build < <(git show FETCH_HEAD:"$VERSION_FILE" 2>/dev/null | parse_ver)
+            if [ "${p_major:-}" = "$main_major" ] && [ "${p_minor:-}" = "$main_minor" ] && [ "${p_patch:-}" = "$dev_patch" ]; then
+              build=$((p_build + 1))
+            fi
+          fi
+          dev_version="$main_major.$main_minor.$dev_patch.$build"
+          printf '#define MAJOR %s\n#define MINOR %s\n#define PATCHLVL %s\n#define BUILD %s\n' \
+            "$main_major" "$main_minor" "$dev_patch" "$build" > "$VERSION_FILE"
+          git add "$VERSION_FILE"
+          echo "stamped $dev_version"
+
           {
             echo "# devbuild"
             echo
             echo "Machine-generated branch: \`$BASE\` @ $base_sha plus every open PR labeled \`$LABEL\`."
+            echo "In-game version stamp: \`$dev_version\` (stable \`$BASE\` is \`$main_major.$main_minor.$main_patch\`)."
             echo "Do not commit to it, review it, or merge it anywhere - it is rebuilt from scratch on every label change."
             echo
             if [ -n "$included" ]; then
@@ -132,6 +158,6 @@ jobs:
           } > DEVBUILD.md
 
           git add DEVBUILD.md
-          git commit -q -m "devbuild: regenerate from $BASE @ $base_sha"
+          git commit -q -m "devbuild: $dev_version - regenerate from $BASE @ $base_sha"
           git push -q --force origin HEAD:devbuild
-          echo "devbuild regenerated from $BASE @ $base_sha"
+          echo "devbuild $dev_version regenerated from $BASE @ $base_sha"
