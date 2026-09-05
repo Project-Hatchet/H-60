@@ -217,19 +217,19 @@ class AnimationSources {
     animPeriod=1;
     initPhase=0;
   };
-  class cabindoor_L {
+  class cabindoor_L: LandingLight_Show {
     displayName = "Close L Cabin Door";
     source="user";
     animPeriod=1;
     initPhase=0;
   };
-  class cabindoor_R {
+  class cabindoor_R: LandingLight_Show {
     displayName = "Close R Cabin Door";
     source="user";
     animPeriod=1;
     initPhase=0;
   };
-  class Stabilator_rotate_user {
+  class Stabilator_rotate_user: LandingLight_Show {
     source="user";
     animPeriod=1;
     initPhase=0;
