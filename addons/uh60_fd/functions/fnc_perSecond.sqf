@@ -11,12 +11,12 @@
 params ["_vehicle", "_frameTime"];
 
 private _alt = (getPosASL _vehicle) # 2 - ((getPos _vehicle) # 2);
-vtx_uh60_fd_terrainSlope = _alt - vtx_uh60_fd_lastTerrainAlt;
-vtx_uh60_fd_lastTerrainAlt = _alt;
+SET("terrainSlope", _alt - GET("lastTerrainAlt",_alt));
+SET("lastTerrainAlt", _alt);
 
 if (isEngineOn _vehicle) then {
-	vtx_uh60_poweredTime = vtx_uh60_poweredTime + 1;
+	SET("poweredTime", GET("poweredTime",0) + 1);
 };
 if (!isTouchingGround _vehicle) then {
-	vtx_uh60_flightTime = vtx_uh60_flightTime + 1;
+	SET("flightTime", GET("flightTime",0) + 1);
 };
