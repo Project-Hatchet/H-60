@@ -1,7 +1,7 @@
 # H-60 Phase 1 — Base-Class Consolidation: Detailed Plan
 
 **Prepared:** 2026-08-17 · **Updated:** 2026-09-04 (Phase 0 closed out; Riverman's 2026-08-29 rulings on addon naming and MEDEVAC placement folded in) · **Basis:** master improvement plan §Phase 1 (corrected Snow plan), the verified UH60↔uh60_config structural diff (2026-08-17), and Riverman's rulings on the Slick armament, MLASS lifetime, and HH60 separation.
-**Prerequisite:** Phase 0 — **COMPLETE.** Shipped as Stable 0.7.9 (2026-09-04); all Phase 0 PRs merged to Main. Remaining before kickoff: the PR-split team discussion (§8) and coordination with the in-flight 0.7.10-cycle PRs (§4).
+**Prerequisite:** Phase 0 — **COMPLETE.** Shipped as Stable 0.7.9 (2026-09-04); all Phase 0 PRs merged to Main. **Phase 1 kickoff: GO given 2026-09-05** — gating 0.7.10-cycle config PRs merged (#591/#595/#599/#601; #594/#597 are SQF-only and don't gate), PR strategy ruled (§8.3: sequential PRs).
 
 ---
 
@@ -144,5 +144,5 @@ Same workflow as Phase 0: branch published at creation, commits local until Rive
 
 1. ~~Name for the new addon folder~~ — **RULED (2026-08-29): `addons/HH60`**; CfgPatches class distinct from the vehicle class, exact name picked at implementation.
 2. ~~MEDEVAC declaration placement~~ — **RULED (2026-08-29): moves to UH60** with the Army family (see WP2.4).
-3. **Three-PR split vs single PR — goes to the TEAM for discussion at Phase 1 kickoff** (Riverman, 2026-08-29). The only remaining pre-kickoff decision.
+3. ~~Three-PR split vs single PR~~ — **RULED (Riverman, 2026-09-05): three sequential PRs, per §4.** Standing policy from here on: phases are planned as sequential PRs unless Riverman rules otherwise for a specific phase.
 4. When WP2.3's turret-lock audit produces its answer: confirm the intended door-lock behavior per Slick seat (during-work item, Riverman's call).
