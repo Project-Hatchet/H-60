@@ -3,7 +3,7 @@
  *
  * changes radio channel based on selected preset
  *
- * 
+ *
  */
 params ["_vehicle", "_radioIndex", "_presetIndex", ["_pageData", nil]];
 
@@ -15,3 +15,4 @@ _channel = fms_comm_presets_page_index * 4 + _presetIndex;
 _vehicle setUserMFDvalue _pageData;
 
 [_vehicle] call vtx_uh60_fms_fnc_perSecond;
+[_vehicle] call vtx_uh60_acre_fnc_notifyOtherSeat;

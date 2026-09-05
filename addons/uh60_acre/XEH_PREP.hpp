@@ -6,3 +6,4 @@ PREP(cycleRadioChannel);
 PREP(cycleSpatial);
 PREP(fmsSetPreset);
 PREP(radioStatusUpdate);
+PREP(notifyOtherSeat);
