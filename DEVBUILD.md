@@ -9,7 +9,10 @@ Do not commit to it, review it, or merge it anywhere - it is rebuilt from scratc
 | PR | Title |
 |---|---|
 | #594 | Adjust deadzone for FLIR slewing input |
+| #595 | Improve FMS ACRE synchronisation between seats |
 | #597 | 60 Network Improvements |
+| #599 | Fix MH- variants doors spawning on |
+| #601 | Fix ACRE Freqs extending past the box on FMS |
 | #604 | Bugfix: Corrected MoveToCabin interaction behaviour |
 | #605 | Feature Request #548: ERFS to be bale to be added / removed via ACE Interact |
 | #606 | Bugfix: geolock indicator not hiding |
