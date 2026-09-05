@@ -15,9 +15,10 @@ class AnimationSources {
   ANIMSRC(rotorHide_User,user,1,0);
   ANIMSRC(tailRotorHide_User,user,1,0);
   // Rotate rotor hub to folding alignment
+  // animPeriod/initPhase: live values per uh60_config's former duplicate (Phase 1 WP1 collision ruling)
   class RotorHFold {
-      animPeriod = 1;
-      initPhase = -0.125;
+      animPeriod = 5;
+      initPhase = 0;
       source = "user";
   };
   class RotorVFold: RotorHFold {
