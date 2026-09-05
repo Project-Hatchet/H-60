@@ -6,7 +6,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"vtx_UH60", "vtx_uh60_config", "acre_main"};
+        requiredAddons[] = {"vtx_UH60", "vtx_uh60_config", "vtx_uh60_fms", "acre_main"};
         skipWhenMissingDependencies = 1;
         author = "";
         authors[] = {""};
@@ -15,5 +15,6 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
+#include "\z\vtx\addons\uh60_fms\config\fmsDefines.hpp"
 
 #include "config\cfgVehicles.hpp"
