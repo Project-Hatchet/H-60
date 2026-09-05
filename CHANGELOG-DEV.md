@@ -1,4 +1,4 @@
-**Unreleased**
+**0.7.10.11**
 | #594 | Adjust deadzone for FLIR slewing input |
 | #595 | Improve FMS ACRE synchronisation between seats |
 | #597 | 60 Network Improvements |
