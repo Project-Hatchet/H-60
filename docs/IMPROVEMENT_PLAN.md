@@ -53,6 +53,8 @@ Framework-side note for 0.12: `Interaction-Framework/addons/interaction/fnc_knob
 ## Phase 1 — Base-class consolidation (the corrected Snow plan)
 
 > **Detailed execution plan: `docs/phase-1/PHASE_1_PLAN.md`** (work packages, verification harness, do-NOT list). Amendments since this section was written: the HH60 separates into its own addon `addons/HH60` (the Air Force bird; ruled 2026-08-17/2026-08-29), `vtx_UH60M_MEDEVAC` moves to UH60 with the Army family (ruled 2026-08-29), and the PR-split question goes to the team at kickoff. Issues #510 and #439 sit on the Phase 1 milestone as acceptance tests.
+>
+> **End-state note (2026-09-05):** the adopted asset/config split (§Phase 2.5) later relocates the consolidated declarations from UH60 into uh60_config. Phase 1's direction is **unchanged** — UH60 is the *staging* owner, because deduplication is direction-agnostic and uh60_config cannot own declarations until its load position flips (see §Phase 2.5 prerequisite).
 
 The Snow game plan's direction is right (make `addons/UH60` the sole owner of `vtx_H60_base`; convert the other three declaration sites to deltas/stubs; fix duplicate variant deltas; fix `requiredAddons`). Apply it **with these corrections**, all verified against the tree:
 
@@ -101,6 +103,23 @@ Cheap, zero-behavior-change, and a prerequisite for HEMTT (Phase 3). One PR, rev
 **2.4 Trim the comment graveyard where it's noise** (1,622 commented-out lines; 11 `condition = "0"` blocks; the four copy-pasted `#undef PREP` comment blocks). Exception per the MH-47G convention: keep commented code that documents a *failed experiment*, and label it as such.
 
 **Verify:** full build + the Phase 1 config-dump diff (should be byte-identical), plus in-game MFD page walk (the flat→nested completion is the only risky deletion).
+
+---
+
+## Phase 2.5 — Asset/config split: uh60_config becomes the config owner (ruled 2026-09-05)
+
+**Riverman + BroBeans (internal decision, surfaced and recorded 2026-09-05):** the long-term architecture is the AH-64D's shape — **one config-owner addon + asset-only model PBOs**. `uh60_config` becomes the sole owner of the fleet's vehicle-class config; `UH60` becomes a pure asset PBO (p3d + model.cfg, textures/rvmats, UI art, stub CfgPatches). The folder keeps the `config` name for sister-team parity and ships as `hct_h60_config` under the PBO-prefix adoption. Prime motivator (BroBeans): config iteration stops repacking the ~700-binary model PBO — small diffs, small Workshop hotswaps.
+
+This does **not** change Phase 1. Consolidating to one declaration per class (staged in UH60) is direction-agnostic: once exactly one copy of everything exists, relocating that copy is mechanical and provable with the same harness. Sequencing after Phase 1 completes:
+
+1. **Prerequisite — MFD-wiring inversion.** uh60_config today loads *last* (requires uh60_mfd/fms/anvishud) precisely because it wires their MFD elements (`VTX_MFD_1..4`, `VTX_FMS_L/R`, NVGHUD) onto the vehicles. A config owner must load *first*, before the ~16 systems deltas. Move the element wiring into the systems addons themselves — each addon attaches its own MFD classes as an honest delta — then flip uh60_config's `requiredAddons` down to `{vtx_UH60, vtx_main}`.
+2. Move every vehicle declaration UH60 → uh60_config (mechanical post-Phase-1; config-dump proof, same byte-identical bar).
+3. Reduce UH60 to assets + a stub CfgPatches; `units[]` moves to uh60_config; re-point the systems addons' `requiredAddons` from `vtx_UH60` to `vtx_UH60_config`.
+4. MH60M/MH60S keep their unique assets, and may keep their local CfgWeapons/sensors as honest deltas; their vehicle-class declarations move to the owner. The Phase 1 HH60 addon is unaffected (already config-only, loads after uh60_config, owns only `vtx_HH60`).
+
+Exact ordering relative to Phase 3 (HEMTT) is the team's call at Phase 2 scoping; the MFD-wiring inversion is the only structurally hard part and can land as its own PR chain.
+
+**Verify:** the Phase 1 config-dump harness per step (byte-identical), spawn matrix, and a full MP smoke — load order is the entire risk surface.
 
 ---
 
@@ -249,7 +268,7 @@ Verification infrastructure worth building once, used everywhere: the config-dum
 
 1. **PBO naming** — adopt `vtx_*` filenames at next minor (recommended) or keep `hct_h60_*` for launcher-preset stability.
 2. **Mass macro rewrite vs incremental** — incremental recommended (4.3); a big-bang rewrite of 2,188 identifiers is high-risk, low-reward.
-3. **uh60_config's future** — genuine delta addon (recommended, matches references) vs full merge into UH60.
+3. ~~**uh60_config's future**~~ — **RULED (2026-09-05, Riverman + BroBeans): a third option — uh60_config becomes the sole config owner and UH60 goes asset-only** (the AH-64D shape; see §Phase 2.5). Name unchanged for sister-team parity; ships as `hct_h60_config` under the prefix work.
 4. **CCFS Pong** — easter egg or delete.
 5. **Localization ambition** — English-complete stringtables first (recommended), translations later via the AH-64D language-addon model if contributors appear.
 

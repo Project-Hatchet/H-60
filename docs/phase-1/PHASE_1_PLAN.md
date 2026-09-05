@@ -30,6 +30,8 @@ Phase 1 does **not** merge addons, rename classes, move assets, or delete dead c
 | **MH60M / MH60S** | Unchanged structurally; `requiredAddons` corrected |
 | Other 11 re-openers (mfd, fms, anvishud, sfmplus, acre, cas, hoist, misc, weapons, ui, aar) | Unchanged — they are already well-behaved deltas |
 
+> **End-state note (ruled 2026-09-05, Riverman + BroBeans):** the adopted long-term architecture is the AH-64D-style **asset/config split** — `uh60_config` (shipping later as `hct_h60_config`) becomes the sole owner of all vehicle config and `UH60` goes asset-only, so config changes stop repacking the model PBO. **Phase 1 is unchanged by this.** It stages single ownership in UH60 because the deduplication is direction-agnostic, and uh60_config cannot own declarations until the MFD-wiring inversion flips it from last-loader to first-loader (master plan §Phase 2.5). Relocating the one consolidated copy afterwards is mechanical, proven by this same harness.
+
 Variant identity rulings that govern the merge:
 
 - **`vtx_UH60M_SLICK` is the armed ViV-cargo variant.** uh60_config's values (miniguns **shown**) are the intent; UH60's hide-lines are the wrong copy and are deleted. *(Riverman, 2026-08-17)*
