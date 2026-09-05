@@ -1,25 +1,4 @@
-/*
- * VTX H-60 · Phase 1 config-dump harness (WP0)
- *
- * Captures the EFFECTIVE (inheritance-resolved) config values the engine sees
- * for every spawnable H-60 class plus vtx_H60_base, and every vtx_*-sourced
- * class under the sound/function roots that H60_SFX and friends patch.
- *
- * How to run: paste this whole file into the debug console
- * (Eden > Tools > Debug Console, or Esc in a mission) and LOCAL EXEC.
- * The game may freeze for a minute or two while it writes; wait for the
- * "VTX config dump complete" hint, then run extract_dump.ps1 on the RPT.
- * Full procedure: tools/config_dump/README.md
- *
- * Output format (one logical line per fact, written to the RPT):
- *   VTXDUMP|<file>|<config path>|<kind>|<name>|<value>
- * kinds: inherits (parent class), N/T/A (number/text/array property),
- * classOrder (subclass names in ENGINE order - order is behavior for
- * indexed access like Turrets), ERROR. Lines over 900 chars continue on
- * VTXDUMP+| lines. Properties are emitted name-sorted and subclasses are
- * recursed name-sorted, so harmless declaration reordering does not show
- * up in diffs - only value, membership, and classOrder changes do.
- */
+comment "VTX H-60 Phase 1 config-dump harness (WP0). Docs: tools/config_dump/README.md. This file must stay comment-free: the debug console compiles pasted text WITHOUT the preprocessor, so // and /* */ are parse errors here (the comment command is safe).";
 
 VTXDUMP_lines = 0;
 
@@ -43,7 +22,6 @@ VTXDUMP_fnc_walk = {
 
     (_file + "|" + _path + "|inherits||" + configName inheritsFrom _cfg) call VTXDUMP_fnc_emit;
 
-    // properties (inherited included), name-sorted for diff stability
     private _propNames = (configProperties [_cfg, "!isClass _x", true]) apply { configName _x };
     _propNames sort true;
     {
@@ -55,10 +33,8 @@ VTXDUMP_fnc_walk = {
         _out call VTXDUMP_fnc_emit;
     } forEach _propNames;
 
-    // subclass ORDER in engine order (turret indexes etc. depend on it) ...
     private _subNames = (configProperties [_cfg, "isClass _x", true]) apply { configName _x };
     (_file + "|" + _path + "|classOrder||" + (_subNames joinString ",")) call VTXDUMP_fnc_emit;
-    // ... then recurse name-sorted so file layout stays stable
     _subNames sort true;
     {
         [_cfg >> _x, _file, _path + " >> " + _x, _depth + 1] call VTXDUMP_fnc_walk;
@@ -70,7 +46,6 @@ private _t0 = diag_tickTime;
 ("META|BEGIN|game=" + str productVersion) call VTXDUMP_fnc_emit;
 ("META|modVersion|" + getText (configFile >> "CfgPatches" >> "vtx_main" >> "versionStr")) call VTXDUMP_fnc_emit;
 
-// 1) The spawn matrix (PHASE_1_PLAN.md WP0.2) plus the contested base class.
 private _vehicles = [
     "vtx_H60_base",
     "vtx_UH60M", "vtx_UH60M_SLICK", "vtx_UH60M_MEDEVAC",
@@ -87,9 +62,6 @@ private _vehicles = [
     };
 } forEach _vehicles;
 
-// 2) Every class our addons contribute under the sound/function roots
-//    (H60_SFX demotion coverage - WP1.2). Filter: configSourceAddonList
-//    contains a vtx_* CfgPatches name.
 {
     private _rootName = _x;
     private _root = configFile >> _rootName;
@@ -112,7 +84,7 @@ private _vehicles = [
 
 ("META|DONE|lines=" + str VTXDUMP_lines + "|seconds=" + str (diag_tickTime - _t0)) call VTXDUMP_fnc_emit;
 systemChat "VTX config dump complete - run tools/config_dump/extract_dump.ps1";
-hint ("VTX config dump complete\n" + str VTXDUMP_lines + " lines in " + str (diag_tickTime - _t0) + "s\nNow run tools/config_dump/extract_dump.ps1");
+hint ("VTX config dump complete" + toString [10] + str VTXDUMP_lines + " lines in " + str (diag_tickTime - _t0) + "s" + toString [10] + "Now run tools/config_dump/extract_dump.ps1");
 
 VTXDUMP_fnc_emit = nil;
 VTXDUMP_fnc_walk = nil;

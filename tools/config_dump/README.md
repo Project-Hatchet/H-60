@@ -27,14 +27,21 @@ a real ordering change happened and must be assessed, not ignored.
 
 ## Capture procedure
 
-1. Build the tree into the local mod as usual and launch Arma 3 with the
-   **standard dev modset** (CBA, ACE, ACRE2, dependencies, the H-60 build).
+1. Build the tree into the local mod as usual and launch Arma 3 with the mod's
+   **actual dependencies** (CBA, ACE, Hatchet Framework, the H-60 build).
+   ACRE is NOT required: `uh60_acre` is `skipWhenMissingDependencies` and its
+   layer is simply absent without it — fine, Phase 1 never touches it.
    Use the **same game version and same modset for every capture** — the dump
-   includes inherited vanilla/ACE values, so a mismatched modset diffs everywhere.
+   includes inherited vanilla/ACE values and optional layers like uh60_acre,
+   so a mismatched modset diffs everywhere.
 2. Open Eden (VR map is fine) → Tools → **Debug Console** (or Esc console in a
    mission preview). Paste the entire contents of `dump_configs.sqf` and
    **LOCAL EXEC**. The game may freeze for a minute or two; wait for the
    *"VTX config dump complete"* hint.
+   > **Why the script has no comments:** the debug console compiles pasted text
+   > *without* running the preprocessor, so `//` and `/* */` are parse errors
+   > there. Keep `dump_configs.sqf` comment-free; document changes here instead.
+
 3. From the repo root:
 
    ```
