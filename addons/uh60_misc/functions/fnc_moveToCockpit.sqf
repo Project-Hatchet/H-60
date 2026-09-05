@@ -14,12 +14,12 @@
 
 params ["_vehicle"];
 
-if (isNull (_vehicle turretUnit [0])) exitWith {
-  player action ["moveToTurret", hct_vehicle, [0]];
-  true
-};
 if (isNull driver _vehicle) exitWith {
   player action ["moveToDriver", hct_vehicle];
+  true
+};
+if (isNull (_vehicle turretUnit [0])) exitWith {
+  player action ["moveToTurret", hct_vehicle, [0]];
   true
 };
 
