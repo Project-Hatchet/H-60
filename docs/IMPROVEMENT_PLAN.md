@@ -115,7 +115,7 @@ Cheap, zero-behavior-change, and a prerequisite for HEMTT (Phase 3). One PR, rev
 Executed as Phase 1 PRs, each proven with the config-dump harness:
 
 1. **PR A — #607** (`restructure/config-owner-variants`): edge flip (uh60_config's screen edges dropped; every re-opener gains `vtx_UH60_config`) + the Army family and S70M merged into sole declarations under `uh60_config/config/vehicles/` (one .hpp per vehicle — BroBeans' layout). Proof: 0 value changes, 65 inert classOrder shifts.
-2. **PR B — #608** (`restructure/hh60-addon`): `vtx_HH60` merged into its own addon (`addons/HH60`, CfgPatches `vtx_HH60_addon`) — the Phase 1 WP3 plan, unchanged.
+2. **PR B — #608** (`restructure/hh60-addon`): `vtx_HH60` merged into its own addon (`addons/HH60`, CfgPatches `vtx_hh60` — renamed from `vtx_HH60_addon` on BroBeans' review to match house style; the plan's "distinct from the vehicle class" caution was unfounded, per the long-standing `vtx_mh60m`/`vtx_MH60M` precedent) — otherwise the Phase 1 WP3 plan, unchanged.
 3. **PR C — #609** (`restructure/uh60-asset-only`): `vtx_H60_base` + the entire UH60 config tree (~40 files: turrets, cfgVehiclesParts, MFD screens, weapons/magazines/sounds, crew, CfgMoves, fonts declaration, editor subcategory) moved to uh60_config, the old base delta folded back into single declarations; UH60 reduced to the asset stub (keeps its CBA version check, XEH boilerplate, stringtable, Font assets).
 4. **PR D** (`restructure/phase1-tidy`): dead-file deletion (orphaned MFD/base screens, doorguns.hpp), dependency audit (uh60_doorguns gains the config edge for `vtx_wpn_m134`), CfgAnimationSourcesInherit documented as the MH60M/MH60S rapify scaffold it is, this docs catch-up.
 

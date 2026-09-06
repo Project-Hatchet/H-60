@@ -24,8 +24,8 @@ Phase 1 does **not** merge addons, rename classes, move assets, or delete dead c
 |---|---|
 | **uh60_config** | **Sole owner of all vehicle config** (ships later as `hct_h60_config`): `vtx_H60_base` + the shared include tree (turrets, parts, AnimationSources, weapons/magazines/sounds, MFD pedestal screens, CfgMoves, fonts declaration, editor subcategory), the crew units, and the sole declarations of `vtx_UH60M`, `vtx_UH60M_SLICK`, `vtx_UH60M_MEDEVAC`, `vtx_S70M` — one .hpp per vehicle under `config/vehicles/` |
 | **UH60** | **Asset-only**: p3ds + model.cfg, textures/rvmats, sounds, crew anim .rtm files, Font files, stringtable, XEH boilerplate, CBA version check, stub CfgPatches (`units[] = {}`) |
-| **HH60** *(new addon — `addons/HH60`, named per Riverman 2026-08-29; CfgPatches `vtx_HH60_addon`)* | The **Air Force bird**: sole owner of `vtx_HH60` (config-only; flies the shared p3d until the HH-60W model conversion) |
-| **H60_SFX** | Sound delta on `vtx_H60_base` (audit found its block already sound-only in content — no demotion edits were needed; gained the `vtx_HH60_addon` edge for its Compat patch) |
+| **HH60** *(new addon — `addons/HH60`, named per Riverman 2026-08-29; CfgPatches `vtx_hh60`)* | The **Air Force bird**: sole owner of `vtx_HH60` (config-only; flies the shared p3d until the HH-60W model conversion) |
+| **H60_SFX** | Sound delta on `vtx_H60_base` (audit found its block already sound-only in content — no demotion edits were needed; gained the `vtx_hh60` edge for its Compat patch) |
 | **ace_viv** | Unchanged except the `vtx_UH60_config` edge (still a one-property delta; see §6 warnings) |
 | **MH60M / MH60S** | **Keep their own vehicle declarations** (ruled 2026-09-05) as deltas deriving from the owner's base; `requiredAddons` corrected to `vtx_UH60_config`; their includes re-pointed to uh60_config's tree |
 | Other re-openers (mfd, fms, anvishud, sfmplus, acre, cas, hoist, misc, weapons, ui, aar, doorguns) | Unchanged in content — each declares an honest `vtx_UH60_config` edge where it re-opens owned classes |
@@ -104,7 +104,7 @@ The master plan scoped Phase 1 as one PR; with the HH60 amendment, three **seque
 
 1. **#603** `restructure/base-single-owner` — WP1 as planned. Proof: byte-identical (580,227 dump lines both sides).
 2. **PR A, #607** `restructure/config-owner-variants` — WP2 executed as merges *into uh60_config* (one .hpp per vehicle under `config/vehicles/`) + the dependency-edge flip. Proof: 0 value changes, 65 inert classOrder shifts. Slick armament ruling applied (miniguns shown, five dead hide-lines dropped); WP2.3's turret-lock audit deferred to the in-game soak.
-3. **PR B, #608** `restructure/hh60-addon` — WP3 as planned (CfgPatches `vtx_HH60_addon`; `CabinSeats_Hide` → live `initPhase=0` resolved on the record; H60_SFX gains the edge).
+3. **PR B, #608** `restructure/hh60-addon` — WP3 as planned (CfgPatches `vtx_hh60`, renamed from `vtx_HH60_addon` on BroBeans' review — see §8.1; `CabinSeats_Hide` → live `initPhase=0` resolved on the record; H60_SFX gains the edge).
 4. **PR C, #609** `restructure/uh60-asset-only` — the base + full config-tree move to uh60_config; UH60 reduced to the asset stub. (The original plan deferred this to §Phase 2.5.)
 5. **PR D** `restructure/phase1-tidy` — dead-file deletion, dependency audit (uh60_doorguns edge), CfgAnimationSourcesInherit documented as rapify scaffold, this docs catch-up.
 
@@ -152,7 +152,7 @@ Same workflow as Phase 0: branch published at creation, commits local until Rive
 
 ## 8. Open items
 
-1. ~~Name for the new addon folder~~ — **RULED (2026-08-29): `addons/HH60`**; CfgPatches class picked at implementation: `vtx_HH60_addon`.
+1. ~~Name for the new addon folder~~ — **RULED (2026-08-29): `addons/HH60`**; CfgPatches class first shipped as `vtx_HH60_addon`, then **renamed `vtx_hh60` on BroBeans' #608 review (2026-09-06)** for house-style parity (`vtx_uh60`/`vtx_mh60m`/`vtx_mh60s`). The plan's "keep it distinct from the vehicle class" caution was unfounded — CfgPatches and CfgVehicles are separate roots, and `vtx_mh60m`/`vtx_MH60M` have coexisted for years.
 2. ~~MEDEVAC declaration placement~~ — ~~**RULED (2026-08-29): moves to UH60**~~ **SUPERSEDED (2026-09-05):** stayed in uh60_config, which became the sole owner (see WP2.4 note and §4 as-built chain).
 3. ~~Three-PR split vs single PR~~ — **RULED (Riverman, 2026-09-05): sequential PRs, per §4** (as-built: five — #603 + PRs A–D). Standing policy from here on: phases are planned as sequential PRs unless Riverman rules otherwise for a specific phase.
 4. **Still open:** the Slick per-seat door-lock audit (WP2.3) rides the post-merge dev-build soak, alongside the #510/#439 acceptance retests — indexes were preserved as-is through the merges.
