@@ -113,6 +113,6 @@ class vtx_UH60M: vtx_H60_base {
       };
       class MainTurret: MainTurret {};
       class RightDoorGun: RightDoorGun {};
-      #include "\z\vtx\addons\UH60\config\turrets\troopCommander.hpp"
+      #include "..\turrets\troopCommander.hpp"
     };
 }; // vtx_UH60M

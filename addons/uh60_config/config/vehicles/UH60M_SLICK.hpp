@@ -43,13 +43,13 @@ class vtx_UH60M_SLICK: vtx_H60_base {
   }; // AnimationSources
   class Turrets: Turrets {
 #define COPILOT_MOUNT_NVGHUD
-    #include "..\..\..\UH60\config\turrets\copilot.hpp"
+    #include "..\turrets\copilot.hpp"
 #undef COPILOT_MOUNT_NVGHUD
     class MainTurret: MainTurret {};
     class RightDoorGun: RightDoorGun {};
-    #include "..\..\..\UH60\config\turrets\cargoTurretsDoor.hpp"
+    #include "..\turrets\cargoTurretsDoor.hpp"
   };
-  #include "..\..\..\UH60\config\vehicleTransportSlick.hpp"
+  #include "..\vehicleTransportSlick.hpp"
   class MFD: MFD {
     class VTX_MFD_1_NOFLIR :           VTX_MFD_1_NOFLIR {};
     class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};

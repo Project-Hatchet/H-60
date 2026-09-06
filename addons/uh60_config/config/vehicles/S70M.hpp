@@ -40,5 +40,5 @@ class vtx_S70M: vtx_H60_base {
     class Turrets: Turrets {
       class CopilotTurret: CopilotTurret {};
     };
-    #include "..\..\..\UH60\config\vehicleTransportSlick.hpp"
+    #include "..\vehicleTransportSlick.hpp"
 }; // vtx_S70M

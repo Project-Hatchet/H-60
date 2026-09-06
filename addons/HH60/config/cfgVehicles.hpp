@@ -105,11 +105,11 @@ class CfgVehicles {
     driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
     class Turrets: Turrets {
 #define COPILOT_MOUNT_NVGHUD
-      #include "\z\vtx\addons\UH60\config\turrets\copilot.hpp"
+      #include "\z\vtx\addons\uh60_config\config\turrets\copilot.hpp"
 #undef COPILOT_MOUNT_NVGHUD
       class MainTurret: MainTurret {};
       class RightDoorGun: RightDoorGun {};
-      #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
+      #include "\z\vtx\addons\uh60_config\config\turrets\cargoTurrets.hpp"
       #include "\z\vtx\addons\MH60M\config\turrets\troopCommander.hpp"
     };
 
@@ -145,7 +145,7 @@ class CfgVehicles {
         onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[3], [4]] ;";
       };
     }; // AnimationSources
-    #include "\z\vtx\addons\UH60\config\vehicleTransport.hpp"
+    #include "\z\vtx\addons\uh60_config\config\vehicleTransport.hpp"
     class MFD: MFD {
       class VTX_MFD_1 :           VTX_MFD_1 {};
       class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};

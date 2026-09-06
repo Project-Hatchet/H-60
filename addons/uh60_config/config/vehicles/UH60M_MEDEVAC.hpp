@@ -47,9 +47,9 @@ class vtx_UH60M_MEDEVAC: vtx_H60_base {
         };
       };
       #include "..\turrets\doorgunsFFV.hpp"
-      #include "..\..\..\UH60\config\turrets\cargoTurrets.hpp"
+      #include "..\turrets\cargoTurrets.hpp"
     };
-    #include "..\..\..\UH60\config\vehicleTransport.hpp"
+    #include "..\vehicleTransport.hpp"
     class hct_turret_1 {
       class interaction {
         #include "..\hct_window_l.hpp"

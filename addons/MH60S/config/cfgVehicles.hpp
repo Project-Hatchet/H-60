@@ -21,7 +21,7 @@ class CfgVehicles {
         };
     }; // Helicopter_Base_H
     class vtx_H60_base: Heli_Transport_01_base_F {
-        #include "\z\vtx\addons\UH60\config\CfgAnimationSourcesInherit.hpp"
+        #include "\z\vtx\addons\uh60_config\config\CfgAnimationSourcesInherit.hpp"
         class vtx_templateFLIR;
         class Components;
         class Turrets: Turrets
@@ -124,7 +124,7 @@ class CfgVehicles {
         {
             class CopilotTurret: CopilotTurret {};
             #include "doorguns_pylons.hpp"
-            #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
+            #include "\z\vtx\addons\uh60_config\config\turrets\cargoTurrets.hpp"
         };
         class Components: Components {
           #include "Pylons.hpp"
