@@ -16,6 +16,8 @@ class AnimationSources: AnimationSources {
   class cabindoor_R;
   class HH60GRadar_show;
   class HH60GFlir_show;
+  class Minigun_Sight_L_hide;
+  class Minigun_Sight_R_hide;
 
   class GunnerSeats_Hide {
     displayName = "Hide Gunner Seats";

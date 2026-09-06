@@ -28,6 +28,10 @@ class VTX_FDLeft;
 class VTX_FMS_L;
 class VTX_FMS_R;
 class VTX_ESIS_BOOT;
+// vanilla externs referenced by the shared turret includes (copilot.hpp)
+class SensorTemplatePassiveRadar;
+class SensorTemplateLaser;
+class SensorTemplateDataLink;
 
 class CfgVehicles {
   class Helicopter_Base_H;
@@ -35,6 +39,7 @@ class CfgVehicles {
     class AnimationSources;
     class CargoTurret;
     class Turrets;
+    class ViewPilot;
   };
 
   class vtx_H60_base: Heli_Transport_01_base_F {
@@ -60,282 +65,13 @@ class CfgVehicles {
     }; //TC Seat
   }; // vtx_H60_base
 
-  class vtx_UH60M: vtx_H60_base {
-    ace_medical_treatment_patientSeats[] = {0, 1, 2, 3};
-    class AnimationSources: AnimationSources {
-      ANIM_INIT(Hoist_hide,1);
-      ANIM_INIT(cabindoor_L,1);
-      ANIM_INIT(cabindoor_R,1);
-      class CabinSeats_1_Hide {
-        displayName = "Hide Cabin Seats (Front)";
-        source="user";
-        animPeriod=1;
-        initPhase=0;
-        mass = -MASS_CABINSEATS3;
-        lockCargoAnimationPhase = 1;
-        lockCargo[] = { 8, 9, 10 };
-      };
-      class CabinSeats_2_Hide {
-        displayName = "Hide Cabin Seats (Middle)";
-        source="user";
-        animPeriod=1;
-        initPhase=0;
-        mass = -MASS_CABINSEATS4;
-        lockCargoAnimationPhase = 1;
-        lockCargo[] = { 4, 5, 6, 7 };
-        forceAnimatePhase = 0;
-        forceAnimate[] = {
-          "GAU21_L_Hide", 1,
-          "GAU21_R_Hide", 1
-        };
-      };
-      class CabinSeats_3_Hide {
-        displayName = "Hide Cabin Seats (Rear)";
-        source="user";
-        animPeriod=1;
-        initPhase=0;
-        mass = -MASS_CABINSEATS4;
-        lockCargoAnimationPhase = 1;
-        lockCargo[] = { 0, 1, 2, 3 };
-        forceAnimatePhase = 0;
-        forceAnimate[] = {
-          "ERFS_show", 0,
-          "GAU21_L_Hide", 1,
-          "GAU21_R_Hide", 1
-        };
-      };
-    }; // AnimationSources
-    class MFD: MFD {
-      class VTX_MFD_1_NOFLIR :    VTX_MFD_1_NOFLIR {};
-      class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};
-      class VTX_MFD_1_Monospace : VTX_MFD_1_Monospace {};
-      class VTX_MFD_1_Bold :      VTX_MFD_1_Bold {};
-      class VTX_MFD_2_NOFLIR :    VTX_MFD_2_NOFLIR {};
-      class VTX_MFD_2_CMWS :      VTX_MFD_2_CMWS {};
-      class VTX_MFD_2_Monospace : VTX_MFD_2_Monospace {};
-      class VTX_MFD_2_Bold :      VTX_MFD_2_Bold {};
-      class VTX_MFD_3_NOFLIR :    VTX_MFD_3_NOFLIR {};
-      class VTX_MFD_3_CMWS :      VTX_MFD_3_CMWS {};
-      class VTX_MFD_3_Monospace : VTX_MFD_3_Monospace {};
-      class VTX_MFD_3_Bold :      VTX_MFD_3_Bold {};
-      class VTX_MFD_4_NOFLIR :    VTX_MFD_4_NOFLIR {};
-      class VTX_MFD_4_CMWS :      VTX_MFD_4_CMWS {};
-      class VTX_MFD_4_Monospace : VTX_MFD_4_Monospace {};
-      class VTX_MFD_4_Bold :      VTX_MFD_4_Bold {};
-      class NVGHUD: NVGHUD {};
-      class VTX_CLOCK: VTX_CLOCK {};
-      class VTX_ESIS_Horizon: VTX_ESIS_Horizon {};
-      class VTX_ESIS_Misc: VTX_ESIS_Misc {};
-      class VTX_FDRight: VTX_FDRight {};
-      class VTX_FDLeft: VTX_FDLeft {};
-      class VTX_FMS_L: VTX_FMS_L {};
-      class VTX_FMS_R: VTX_FMS_R {};
-      class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
-    };
-    class Turrets: Turrets {
-      class CopilotTurret: CopilotTurret {
-        class MFD {
-              class NVGHUD: NVGHUD_COPILOT {};
-        };
-      };
-      class MainTurret: MainTurret {};
-      class RightDoorGun: RightDoorGun {};
-      #include "\z\vtx\addons\UH60\config\turrets\troopCommander.hpp"
-    };
-  }; // vtx_UH60M
-
-  class vtx_UH60M_MEDEVAC: vtx_H60_base {
-    scope = 2;
-    forceInGarage = 1;
-    cargoAction[] = {
-      "passenger_low01",
-      "passenger_generic01_leanleft",
-      "passenger_generic01_leanleft",
-      "passenger_generic01_leanright"
-    };
-    cargoProxyIndexes[] = {1, 2, 3, 4, 24, 25, 6, 7, 12, 13, 14, 15, 16, 17, 20, 21, 22, 23};
-    ace_medical_treatment_patientSeats[] = {11, 12, 13, 14};
-    displayName = "HH-60M MEDEVAC";
-    hiddenSelectionsTextures[] = {
-      "","","","","","","","","","","","","","","","",
-      "z\vtx\addons\uh60_misc\data\textures\UH-60M_US_Army_Medevac\main_co.paa",
-      "z\vtx\addons\UH60\Data\Exterior\Misc_co.paa",
-      "z\vtx\addons\uh60_misc\data\textures\UH-60M_US_Army_Medevac\tail_co.paa",
-      "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","", // Markings, door numbers L1, L2, R1, R2
-      "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
-    };
-    transportSoldier=4;
-    class AnimationSources: AnimationSources {
-      ANIM_INIT(CabinSeats_1_Hide,1);
-      ANIM_INIT(CabinSeats_2_Hide,1);
-      ANIM_INIT(Hoist_hide,0);
-      ANIM_INIT(Minigun_Mount_L_hide,1);
-      ANIM_INIT(Minigun_Mount_R_hide,1);
-      ANIM_INIT(Minigun_L_hide,1);
-      ANIM_INIT(Minigun_R_hide,1);
-      // Door seats
-      class cabindoor_L: cabindoor_L {
-        initPhase = 1;
-        onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[5], [6]] ;";
-      };
-      class cabindoor_R: cabindoor_R {
-        initPhase = 1;
-        onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[3], [4]] ;";
-      };
-    }; // AnimationSources
-    class Turrets: Turrets {
-      class CopilotTurret: CopilotTurret {
-        class MFD {
-              class NVGHUD: NVGHUD_COPILOT {};
-        };
-      };
-      #include "turrets\doorgunsFFV.hpp"
-      #include "..\..\UH60\config\turrets\cargoTurrets.hpp"
-    };
-    #include "..\..\UH60\config\vehicleTransport.hpp"
-    class hct_turret_1 {
-      class interaction {
-        #include "hct_window_l.hpp"
-      };
-    };
-    class hct_turret_2 {
-      class interaction {
-        #include "hct_window_r.hpp"
-      };
-    };
-    class MFD: MFD {
-      class VTX_MFD_1_NOFLIR :           VTX_MFD_1_NOFLIR {};
-      class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};
-      class VTX_MFD_1_Monospace : VTX_MFD_1_Monospace {};
-      class VTX_MFD_1_Bold :      VTX_MFD_1_Bold {};
-      class VTX_MFD_2_NOFLIR :           VTX_MFD_2_NOFLIR {};
-      class VTX_MFD_2_CMWS :      VTX_MFD_2_CMWS {};
-      class VTX_MFD_2_Monospace : VTX_MFD_2_Monospace {};
-      class VTX_MFD_2_Bold :      VTX_MFD_2_Bold {};
-      class VTX_MFD_3_NOFLIR :           VTX_MFD_3_NOFLIR {};
-      class VTX_MFD_3_CMWS :      VTX_MFD_3_CMWS {};
-      class VTX_MFD_3_Monospace : VTX_MFD_3_Monospace {};
-      class VTX_MFD_3_Bold :      VTX_MFD_3_Bold {};
-      class VTX_MFD_4_NOFLIR :           VTX_MFD_4_NOFLIR {};
-      class VTX_MFD_4_CMWS :      VTX_MFD_4_CMWS {};
-      class VTX_MFD_4_Monospace : VTX_MFD_4_Monospace {};
-      class VTX_MFD_4_Bold :      VTX_MFD_4_Bold {};
-      class NVGHUD: NVGHUD {};
-      class VTX_CLOCK: VTX_CLOCK {};
-      class VTX_ESIS_Horizon: VTX_ESIS_Horizon {};
-      class VTX_ESIS_Misc: VTX_ESIS_Misc {};
-      class VTX_FDRight: VTX_FDRight {};
-      class VTX_FDLeft: VTX_FDLeft {};
-      class VTX_FMS_L: VTX_FMS_L {};
-      class VTX_FMS_R: VTX_FMS_R {};
-      class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
-    };
-  };
-
-  class vtx_S70M: vtx_H60_base {
-    displayName = "S-70i";
-    crew = "C_man_pilot_F";
-		side = 3;
-		faction = "CIV_F";
-		lockDetectionSystem = 0;
-		incomingMissileDetectionSystem = 0;
-    scope = 2;
-    forceInGarage = 1;
-    cargoAction[] = {};
-    cargoProxyIndexes[] = {};
-    ace_medical_treatment_patientSeats[] = {};
-
-    hiddenSelectionsTextures[] = {
-      "","","","","","","","","","","","","","","","",
-      "z\vtx\addons\MH60S\data\mh60s_main_co.paa",
-      "z\vtx\addons\MH60S\data\mh60s_misc_co.paa",
-      "z\vtx\addons\MH60S\data\mh60s_tail_co.paa",
-      "","","","","", // Markings, door numbers L1, L2, R1, R2
-      "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
-    };
-    transportSoldier=0;
-    class AnimationSources: AnimationSources {
-      ANIM_INIT(GunnerSeats_Hide,1);
-      ANIM_INIT(CabinSeats_1_Hide,1);
-      ANIM_INIT(CabinSeats_2_Hide,1);
-      ANIM_INIT(CabinSeats_3_Hide,1);
-      ANIM_INIT(Hoist_hide,0);
-      ANIM_INIT(Minigun_Mount_L_hide,1);
-      ANIM_INIT(Minigun_Mount_R_hide,1);
-      ANIM_INIT(Minigun_L_hide,1);
-      ANIM_INIT(Minigun_R_hide,1);
-      ANIM_INIT(MAWS_Tubes_Show,0.4);
-      ANIM_INIT(window_l,0);
-      ANIM_INIT(window_r,0);
-    }; // AnimationSources
-    class Turrets: Turrets {
-      class CopilotTurret: CopilotTurret {};
-    };
-    #include "..\..\UH60\config\vehicleTransportSlick.hpp"
-  };
-
-  class vtx_UH60M_SLICK: vtx_H60_base {
-    class AnimationSources: AnimationSources {
-      // Seats
-      ANIM_INIT(CabinSeats_1_Hide,1);
-      ANIM_INIT(CabinSeats_2_Hide,1);
-      ANIM_INIT(CabinSeats_3_Hide,1);
-      // Guns
-      ANIM_INIT(Minigun_Mount_L_hide,0);
-      ANIM_INIT(Minigun_Mount_R_hide,0);
-      ANIM_INIT(Minigun_L_hide,0);
-      ANIM_INIT(Minigun_R_hide,0);
-      class GunnerSeats_Hide: GunnerSeats_Hide {
-        initPhase = 0;
-        onPhaseChanged = "";
-      };
-      // Door seats
-      class cabindoor_L: cabindoor_L {
-        initPhase = 1;
-        onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[3], [4]] ;";
-      };
-      class cabindoor_R: cabindoor_R {
-        initPhase = 1;
-        onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[1], [2]] ;";
-      };
-    }; // AnimationSources
-    class MFD: MFD {
-      class VTX_MFD_1_NOFLIR :           VTX_MFD_1_NOFLIR {};
-      class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};
-      class VTX_MFD_1_Monospace : VTX_MFD_1_Monospace {};
-      class VTX_MFD_1_Bold :      VTX_MFD_1_Bold {};
-      class VTX_MFD_2_NOFLIR :           VTX_MFD_2_NOFLIR {};
-      class VTX_MFD_2_CMWS :      VTX_MFD_2_CMWS {};
-      class VTX_MFD_2_Monospace : VTX_MFD_2_Monospace {};
-      class VTX_MFD_2_Bold :      VTX_MFD_2_Bold {};
-      class VTX_MFD_3_NOFLIR :           VTX_MFD_3_NOFLIR {};
-      class VTX_MFD_3_CMWS :      VTX_MFD_3_CMWS {};
-      class VTX_MFD_3_Monospace : VTX_MFD_3_Monospace {};
-      class VTX_MFD_3_Bold :      VTX_MFD_3_Bold {};
-      class VTX_MFD_4_NOFLIR :           VTX_MFD_4_NOFLIR {};
-      class VTX_MFD_4_CMWS :      VTX_MFD_4_CMWS {};
-      class VTX_MFD_4_Monospace : VTX_MFD_4_Monospace {};
-      class VTX_MFD_4_Bold :      VTX_MFD_4_Bold {};
-      class NVGHUD: NVGHUD {};
-      class VTX_CLOCK: VTX_CLOCK {};
-      class VTX_ESIS_Horizon: VTX_ESIS_Horizon {};
-      class VTX_ESIS_Misc: VTX_ESIS_Misc {};
-      class VTX_FDRight: VTX_FDRight {};
-      class VTX_FDLeft: VTX_FDLeft {};
-      class VTX_FMS_L: VTX_FMS_L {};
-      class VTX_FMS_R: VTX_FMS_R {};
-      class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
-    };
-    class Turrets: Turrets {
-      class CopilotTurret: CopilotTurret {
-        class MFD {
-              class NVGHUD: NVGHUD_COPILOT {};
-        };
-      };
-      class MainTurret: MainTurret {};
-      class RightDoorGun: RightDoorGun {};
-    };
-  }; // vtx_UH60M_SLICK
+  // Sole full declarations of the Army family + civilian bird (Phase 1 PR A):
+  // one vehicle per file, all deriving from vtx_H60_base — a base edit
+  // propagates to every variant.
+  #include "vehicles\UH60M.hpp"
+  #include "vehicles\UH60M_MEDEVAC.hpp"
+  #include "vehicles\S70M.hpp"
+  #include "vehicles\UH60M_SLICK.hpp"
 
   class vtx_HH60 : vtx_H60_base {
     class AnimationSources: AnimationSources {

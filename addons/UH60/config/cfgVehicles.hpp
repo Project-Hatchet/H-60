@@ -457,43 +457,8 @@ class CfgVehicles {
 
     }; // vtx_H60_base
 
-    class vtx_UH60M : vtx_H60_base {
-        scope = 2;
-        editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_UH60M.jpg";
-        hiddenSelectionsTextures[] = {
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "z\vtx\addons\UH60\Data\Exterior\Hull Main_co.paa",
-            "z\vtx\addons\UH60\Data\Exterior\Misc_co.paa",
-            "z\vtx\addons\UH60\Data\Exterior\Hull Tail_co.paa",
-            "z\vtx\addons\UH60\Data\Exterior\Markings\Markings_ca.paa",
-            "", // "left_num_1",
-            "", // "left_num_2",
-            "", // "right_num_1",
-            "", // "right_num_2",
-            "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
-        };
-         class AnimationSources: AnimationSources
-        {
-            ANIM_INIT(FuelProbe_show,0);
-            ANIM_INIT(Minigun_Sight_L_hide,1);
-            ANIM_INIT(Minigun_Sight_R_hide,1);
-        };
-    };
+    // vtx_UH60M / vtx_UH60M_SLICK: sole full declarations moved to
+    // uh60_config/config/vehicles/ (Phase 1 PR A — config-dump proven).
 
     class vtx_HH60: vtx_H60_base {
         scope = 2;
@@ -549,34 +514,6 @@ class CfgVehicles {
         #include "vehicleTransport.hpp"
     }; // vtx_HH60
 
-    class vtx_UH60M_SLICK : vtx_H60_base {
-      scope = 2;
-      forceInGarage = 1;
-      displayName = "UH-60M Slick";
-      transportSoldier=0;
-      cargoProxyIndexes[] = {};
-      cargoAction[] = {};
-      typicalCargo[] = {"vtx_uh60_doorgunner"};
-
-      class AnimationSources: AnimationSources {
-        ANIM_INIT(CabinSeats_Hide,1);
-        ANIM_INIT(Hoist_hide,1);
-        ANIM_INIT(GunnerSeats_Hide,1);
-        ANIM_INIT(Minigun_L_hide,1);
-        ANIM_INIT(Minigun_R_hide,1);
-        ANIM_INIT(Minigun_Mount_L_hide,1);
-        ANIM_INIT(Minigun_Mount_R_hide,1);
-        ANIM_INIT(Minigun_Sight_L_hide,1);
-        ANIM_INIT(Minigun_Sight_R_hide,1);
-      };
-      class Turrets: Turrets {
-        #include "turrets\copilot.hpp"
-        class MainTurret: MainTurret {};
-        class RightDoorGun: RightDoorGun {};
-        #include "turrets\cargoTurretsDoor.hpp"
-      };
-      #include "vehicleTransportSlick.hpp"
-    }; // vtx_UH60M_SLICK
 };
 
 class CfgNonAIVehicles {

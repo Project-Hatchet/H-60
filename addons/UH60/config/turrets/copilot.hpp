@@ -52,4 +52,11 @@ class CopilotTurret: CopilotTurret {
     class VehicleSystemsDisplayManagerComponentLeft {};
     class VehicleSystemsDisplayManagerComponentRight {};
   };
+#ifdef COPILOT_MOUNT_NVGHUD
+  // Variant-level NVG HUD mount (uh60_config's vehicle files define the flag);
+  // the base include leaves it undefined so vtx_H60_base's copilot stays bare.
+  class MFD {
+    class NVGHUD: NVGHUD_COPILOT {};
+  };
+#endif
 };
