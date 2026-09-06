@@ -459,60 +459,7 @@ class CfgVehicles {
 
     // vtx_UH60M / vtx_UH60M_SLICK: sole full declarations moved to
     // uh60_config/config/vehicles/ (Phase 1 PR A — config-dump proven).
-
-    class vtx_HH60: vtx_H60_base {
-        scope = 2;
-        forceInGarage = 1;
-        editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_HH60.jpg";
-        displayName = "$STR_VTX_UH60_HHGMPavehawk";
-        memoryPointDriverOptics = "pilotcamera_flir_pos";
-
-        hiddenSelectionsTextures[] = {
-          "","","","","","","","","","","","","","","","",
-          "z\vtx\addons\UH60\Data\HH60\Hull_Main_co.paa",
-          "z\vtx\addons\UH60\Data\HH60\Misc_co.paa",
-          "z\vtx\addons\UH60\Data\HH60\Hull_Tail_co.paa",
-          "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa", // "markings",
-          "", // "left_num_1",
-          "", // "left_num_2",
-          "", // "right_num_1",
-          "", // "right_num_2",
-          "z\vtx\addons\UH60\Data\HH60\Fuel_probe_co.paa",
-          "z\vtx\addons\mh60m\data\mlass_co.paa"
-        };
-        memoryPointCM[] = {"flare_launcher1","flare_launcher2","flare_launcher_3","flare_launcher_4"};
-        memoryPointCMDir[] = {"flare_launcher1_dir","flare_launcher2_dir","flare_launcher_3_dir","flare_launcher_4_dir"};
-        class pilotCamera: vtx_templateFLIR {};
-        weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
-        magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
-        driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
-        class Turrets: Turrets
-        {
-            #include "turrets\copilot.hpp" // #556: proven-working turret for ALL copilots; copilotFLIR.hpp returns when the model gains a View-Gunner LOD
-            class MainTurret: MainTurret {};
-            class RightDoorGun: RightDoorGun {};
-            #include "turrets\cargoTurrets.hpp"
-            #include "\z\vtx\addons\MH60M\config\turrets\troopCommander.hpp"
-        };
-
-        transportSoldier=0;
-        cargoProxyIndexes[] = {12, 13, 14, 15, 16, 17, 20, 21, 22, 23};
-        ace_medical_treatment_patientSeats[] = {4, 5, 7, 8};
-        cargoAction[] = {};
-        class AnimationSources: AnimationSources
-        {
-            ANIM_INIT(FuelProbe_show,1);
-            ANIM_INIT(CabinSeats_Hide,1);
-            ANIM_INIT(HH60Flares_show,1);
-            ANIM_INIT(HH60GRadar_show,1);
-            ANIM_INIT(HH60GFlir_show,1);
-            ANIM_INIT(MAWS_Tubes_Show,1);
-            ANIM_INIT(ERFS_show,1);
-            ANIM_INIT(Minigun_Sight_L_hide,1);
-            ANIM_INIT(Minigun_Sight_R_hide,1);
-        };
-        #include "vehicleTransport.hpp"
-    }; // vtx_HH60
+    // vtx_HH60: sole full declaration moved to addons/HH60 (Phase 1 PR B).
 
 };
 
