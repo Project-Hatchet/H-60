@@ -8,6 +8,7 @@ class CfgPatches {
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
           "vtx_UH60",
+          "vtx_UH60_config",
           "ace_hellfire",
           "ace_missileguidance"
         };

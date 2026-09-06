@@ -4,9 +4,7 @@ class CfgPatches {
     class ADDON {
         name = COMPONENT_NAME;
         units[] = {
-      		"vtx_UH60M",
       		"vtx_HH60",
-          "vtx_UH60M_Slick",
           "vtx_uh60_doorgunner",
           "vtx_uh60_pilot"
         };
