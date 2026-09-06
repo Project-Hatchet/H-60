@@ -6,7 +6,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"vtx_UH60"};
+        requiredAddons[] = {"vtx_UH60", "vtx_UH60_config"}; // vtx_wpn_m134_safe derives from vtx_wpn_m134, owned by uh60_config since Phase 1 PR C
         author = "";
         authors[] = {""};
         VERSION_CONFIG;

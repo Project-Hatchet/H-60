@@ -54,7 +54,7 @@ Framework-side note for 0.12: `Interaction-Framework/addons/interaction/fnc_knob
 
 > **Detailed execution plan: `docs/phase-1/PHASE_1_PLAN.md`** (work packages, verification harness, do-NOT list). Amendments since this section was written: the HH60 separates into its own addon `addons/HH60` (the Air Force bird; ruled 2026-08-17/2026-08-29), `vtx_UH60M_MEDEVAC` moves to UH60 with the Army family (ruled 2026-08-29), and the PR-split question goes to the team at kickoff. Issues #510 and #439 sit on the Phase 1 milestone as acceptance tests.
 >
-> **End-state note (2026-09-05):** the adopted asset/config split (§Phase 2.5) later relocates the consolidated declarations from UH60 into uh60_config. Phase 1's direction is **unchanged** — UH60 is the *staging* owner, because deduplication is direction-agnostic and uh60_config cannot own declarations until its load position flips (see §Phase 2.5 prerequisite).
+> **End-state note (updated 2026-09-06, as-built):** the asset/config split (§Phase 2.5) was executed *inside* Phase 1 rather than after it. The 2026-09-05 load-order experiment removed its only prerequisite (rapified external inheritance is a by-name reference resolved at config read time — the "MFD-wiring inversion" was never needed), so after WP1 staged single ownership in UH60 (#603), the consolidated declarations moved straight to `uh60_config` (PRs #607/#608/#609) and `UH60` went asset-only. §Phase 2.5 holds the as-built record. The MEDEVAC-to-UH60 amendment in the note above is superseded — it lives in `uh60_config/config/vehicles/` with its siblings.
 
 The Snow game plan's direction is right (make `addons/UH60` the sole owner of `vtx_H60_base`; convert the other three declaration sites to deltas/stubs; fix duplicate variant deltas; fix `requiredAddons`). Apply it **with these corrections**, all verified against the tree:
 
@@ -106,20 +106,22 @@ Cheap, zero-behavior-change, and a prerequisite for HEMTT (Phase 3). One PR, rev
 
 ---
 
-## Phase 2.5 — Asset/config split: uh60_config becomes the config owner (ruled 2026-09-05)
+## Phase 2.5 — Asset/config split: uh60_config becomes the config owner (ruled 2026-09-05 · **EXECUTED inside Phase 1, 2026-09-05/06**)
 
-**Riverman + BroBeans (internal decision, surfaced and recorded 2026-09-05):** the long-term architecture is the AH-64D's shape — **one config-owner addon + asset-only model PBOs**. `uh60_config` becomes the sole owner of the fleet's vehicle-class config; `UH60` becomes a pure asset PBO (p3d + model.cfg, textures/rvmats, UI art, stub CfgPatches). The folder keeps the `config` name for sister-team parity and ships as `hct_h60_config` under the PBO-prefix adoption. Prime motivator (BroBeans): config iteration stops repacking the ~700-binary model PBO — small diffs, small Workshop hotswaps.
+**Riverman + BroBeans (internal decision, surfaced and recorded 2026-09-05):** the long-term architecture is the AH-64D's shape — **one config-owner addon + asset-only model PBOs**. `uh60_config` is the sole owner of the fleet's vehicle-class config; `UH60` is a pure asset PBO (p3d + model.cfg, textures/rvmats, sounds, crew anims, fonts, stub CfgPatches). The folder keeps the `config` name for sister-team parity and ships as `hct_h60_config` under the PBO-prefix adoption. Prime motivator (BroBeans): config iteration stops repacking the ~700-binary model PBO — small diffs, small Workshop hotswaps.
 
-This does **not** change Phase 1. Consolidating to one declaration per class (staged in UH60) is direction-agnostic: once exactly one copy of everything exists, relocating that copy is mechanical and provable with the same harness. Sequencing after Phase 1 completes:
+**As-built record.** The section as originally written gated the move behind an "MFD-wiring inversion" (uh60_config loaded last, so it supposedly could not own declarations that the screen addons' templates derive from). BroBeans challenged the gate; a controlled load-order experiment (2026-09-05, WP0 harness, scratch branch, never published) settled it: **rapified `class X: Y` external inheritance is a by-name reference resolved when the config is read, not when the addon loads** — a template addon may load *after* the deriving addon with byte-identical values, zero RPT errors, and only inert `classOrder` shifts. The inversion was never needed; the vehicles keep mounting the screen templates via externs, and the screen addons declare edges on `vtx_UH60_config` instead. (Build-time rapify remains strict per translation unit — parents must be forward-declarable in-unit — which shapes the scaffolding, not the architecture.)
 
-1. **Prerequisite — MFD-wiring inversion.** uh60_config today loads *last* (requires uh60_mfd/fms/anvishud) precisely because it wires their MFD elements (`VTX_MFD_1..4`, `VTX_FMS_L/R`, NVGHUD) onto the vehicles. A config owner must load *first*, before the ~16 systems deltas. Move the element wiring into the systems addons themselves — each addon attaches its own MFD classes as an honest delta — then flip uh60_config's `requiredAddons` down to `{vtx_UH60, vtx_main}`.
-2. Move every vehicle declaration UH60 → uh60_config (mechanical post-Phase-1; config-dump proof, same byte-identical bar).
-3. Reduce UH60 to assets + a stub CfgPatches; `units[]` moves to uh60_config; re-point the systems addons' `requiredAddons` from `vtx_UH60` to `vtx_UH60_config`.
-4. MH60M/MH60S keep their unique assets, and may keep their local CfgWeapons/sensors as honest deltas; their vehicle-class declarations move to the owner. The Phase 1 HH60 addon is unaffected (already config-only, loads after uh60_config, owns only `vtx_HH60`).
+Executed as Phase 1 PRs, each proven with the config-dump harness:
 
-Exact ordering relative to Phase 3 (HEMTT) is the team's call at Phase 2 scoping; the MFD-wiring inversion is the only structurally hard part and can land as its own PR chain.
+1. **PR A — #607** (`restructure/config-owner-variants`): edge flip (uh60_config's screen edges dropped; every re-opener gains `vtx_UH60_config`) + the Army family and S70M merged into sole declarations under `uh60_config/config/vehicles/` (one .hpp per vehicle — BroBeans' layout). Proof: 0 value changes, 65 inert classOrder shifts.
+2. **PR B — #608** (`restructure/hh60-addon`): `vtx_HH60` merged into its own addon (`addons/HH60`, CfgPatches `vtx_HH60_addon`) — the Phase 1 WP3 plan, unchanged.
+3. **PR C — #609** (`restructure/uh60-asset-only`): `vtx_H60_base` + the entire UH60 config tree (~40 files: turrets, cfgVehiclesParts, MFD screens, weapons/magazines/sounds, crew, CfgMoves, fonts declaration, editor subcategory) moved to uh60_config, the old base delta folded back into single declarations; UH60 reduced to the asset stub (keeps its CBA version check, XEH boilerplate, stringtable, Font assets).
+4. **PR D** (`restructure/phase1-tidy`): dead-file deletion (orphaned MFD/base screens, doorguns.hpp), dependency audit (uh60_doorguns gains the config edge for `vtx_wpn_m134`), CfgAnimationSourcesInherit documented as the MH60M/MH60S rapify scaffold it is, this docs catch-up.
 
-**Verify:** the Phase 1 config-dump harness per step (byte-identical), spawn matrix, and a full MP smoke — load order is the entire risk surface.
+**MH60M/MH60S keep their own vehicle declarations** (ruled 2026-09-05: they stay as they are) — deltas deriving from the owner's base, the same shape as before. Their step-4 relocation from the original sequencing is dropped.
+
+**Verify:** the Phase 1 config-dump harness per PR (byte-identical values; classOrder-only shifts as declarations change contribution slots), spawn matrix, and a full MP smoke on the merged result — load order was the entire predicted risk surface, and the experiment showed it isn't one.
 
 ---
 
