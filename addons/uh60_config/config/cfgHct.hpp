@@ -17,7 +17,7 @@ class hct_cargo {
             interactionCondition="_this call vtx_uh60_misc_fnc_canInteractCabinDoor";
             animStates[] = {0, 1};
             animLabels[] = {"Open", "Closed"};
-            animEnd = "[[(_this # 0), 'CustomSoundController9', ((1 - ((_this # 0) animationPhase 'cabindoor_L')) + (1 - ((_this # 0) animationPhase 'cabindoor_R'))) / 2]] remoteExecCall ['setCustomSoundController', crew (_this # 0)];";
+            animEnd = "_this call vtx_uh60_misc_fnc_interactedCabinDoor;";
             radius=0.1;
             animSpeed=1;
         }; // l_door
@@ -30,7 +30,7 @@ class hct_cargo {
             interactionCondition="_this call vtx_uh60_misc_fnc_canInteractCabinDoor";
             animStates[] = {0, 1};
             animLabels[] = {"Open", "Closed"};
-            animEnd = "[[(_this # 0), 'CustomSoundController9', ((1 - ((_this # 0) animationPhase 'cabindoor_L')) + (1 - ((_this # 0) animationPhase 'cabindoor_R'))) / 2]] remoteExecCall ['setCustomSoundController', crew (_this # 0)];";
+            animEnd = "_this call vtx_uh60_misc_fnc_interactedCabinDoor;";
             radius=0.1;
             animSpeed=1;
         }; // r_door
