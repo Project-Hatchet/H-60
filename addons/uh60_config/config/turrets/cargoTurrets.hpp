@@ -9,6 +9,7 @@ class CargoTurret_01: CargoTurret {
     isPersonTurret = 2;        /// enables a person to get into the turret from outside
     selectionFireAnim = "";
     disableSoundAttenuation = 0;
+    soundAttenuationTurret = "VTX_H60_CabinAttenuation"; // #510: bench crew are inside the airframe (ruling 2026-09-07); doors-open wind returns via the SoundSet wind-mix pass
     LODTurnedIn = 1200;
     LODTurnedOut = 1200;
     LODOpticsIn = 1200;

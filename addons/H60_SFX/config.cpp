@@ -168,6 +168,45 @@ class cfgDistanceFilters
 		powerfactor=18;
 	};
 };
+class AttenuationsEffects
+{
+	// #510 cabin attenuation (2026-09-07). Turret-family seats never get the
+	// pre-filtered interior sound channels; a soundAttenuationTurret profile
+	// filtering what the seat hears is the vanilla route (Mohawk ramp seats),
+	// and the stock profiles are too mild for an enclosed cabin. Values are the
+	// MH-47G reference's post-tuning moderate set. Door-gun and window turrets
+	// pair the profile with disableSoundAttenuation=0: the engine natively
+	// drops the filter when the gunner turns out (raw slipstream).
+	//
+	// KNOWN LIMIT (#510, 2026-09-07 builds 1-7): the profile only engages on
+	// seats the engine considers "inside". Turret seats WITHOUT turn-out
+	// machinery (copilot, troop commander) fail the engine's geometric interior
+	// test against this model's View Geometry LOD (no canopy above the
+	// glareshield; open side band at the TC) and stay unfiltered. Config space
+	// is exhausted - the fix is model-side and lands with the new model's LOD
+	// rebuild (View Geometry must be airtight around every crew position).
+	class VTX_H60_CabinAttenuation
+	{
+		class Equalizer0
+		{
+			center[]={100,250,1000,5000};
+			bandwidth[]={2,2,2,2};
+			gain[]={0.89,0.84,0.5,0.28};
+		};
+		class Equalizer1
+		{
+			center[]={50,500,2500,10000};
+			bandwidth[]={2,2,2,2};
+			gain[]={1,0.94,0.63,0.4};
+		};
+		class Echo
+		{
+			WetDryMix=0.1;
+			Feedback=0.1;
+			Delay=30;
+		};
+	};
+};
 class CfgSoundSets
 {
 	#include "CfgSoundSets.hpp"
