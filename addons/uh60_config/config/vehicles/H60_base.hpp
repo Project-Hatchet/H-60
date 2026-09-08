@@ -343,7 +343,7 @@ class vtx_H60_base: Heli_Transport_01_base_F {
             boundary					= "wheel_1_1_rim";
             width						= 0.3;
             mass						= 15;
-            MOI							= 30;
+            MOI							= 3000;
 
             dampingRate					= 0.1;
             dampingRateDamaged			= 1.0;
@@ -361,7 +361,7 @@ class vtx_H60_base: Heli_Transport_01_base_F {
             springStrength				= SUSPENSION_SPRUNG_MASS * 25;
             springDamperRate			= SUSPENSION_SPRUNG_MASS * 4;
 
-            longitudinalStiffnessPerUnitGravity	= 10000;
+            longitudinalStiffnessPerUnitGravity	= 20000;
             latStiffX					= 2.5;
             latStiffY					= 18.0;
             frictionVsSlipGraph[]=
