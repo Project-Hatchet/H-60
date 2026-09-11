@@ -5,8 +5,11 @@
  * already running: the slope-hold and taxi drive, both on the vehicle
  * OWNER. Called every second from fnc_perSecond, which is what quietly
  * re-arms them after locality changes (the 47G cab-PFH re-arm pattern).
- * Effectively a no-op under AFM/RTD - every chain exits on its first
- * tick there.
+ * Refuses to arm under AFM/RTD: the chains exit on their first tick
+ * there anyway, so arming was a die-and-rearm loop that logged the
+ * "VTXTAXI armed" breadcrumb once per second - 800+ RPT lines per AFM
+ * session (tester RPTs, 2026-09-10). The per-second pbArm call picks
+ * arming back up on its own if the player switches AFM back to SFM.
  *
  * Brake INPUT is not armed here: under SFM the Armakeybinds "Parking
  * Brake" bind calls fnc_pbToggle directly, and under AFM the RotorLib
@@ -18,6 +21,7 @@
  * params (array)[(object) vehicle]
  */
 params ["_vehicle"];
+if (difficultyEnabledRTD && {isObjectRTD _vehicle}) exitWith {};
 if (local _vehicle && {!(_vehicle getVariable ["vtx_uh60_engine_pbHoldOn", false])}) then {
     _vehicle setVariable ["vtx_uh60_engine_pbHoldOn", true];
     [_vehicle] call vtx_uh60_engine_fnc_pbHoldTick;
