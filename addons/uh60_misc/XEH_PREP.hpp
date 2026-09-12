@@ -3,6 +3,7 @@ PREP(animateIncrement);
 PREP(attachCRRC);
 PREP(canCustomizeVariant);
 PREP(canFold);
+PREP(canMoveToCabin);
 PREP(canInteractCabinDoor);
 PREP(canRemoveCustomization);
 PREP(canUnfold);
