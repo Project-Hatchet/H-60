@@ -13,8 +13,11 @@
  *  - drive gate = engine on + rotor near flight NR (rotorSpeed sound
  *    controller) instead of their virtual-collective band; a raised
  *    collective input (HeliUp held) = TAKEOFF intent and stands the
- *    drive + anti-liftoff clamp down so rolling takeoffs are never
- *    pinned to the ground (their MaxCol standdown, input-flavored).
+ *    drive + anti-liftoff clamp down (their MaxCol standdown,
+ *    input-flavored - reliable on keyboard, but ANALOG collectives can
+ *    lift while under the threshold), so the real rolling-takeoff
+ *    release is measured-state based: forward stick + at/above the
+ *    commanded taxi speed = the assist writes nothing (see below).
  *  - all knobs are missionNamespace globals, console-tunable LIVE
  *    (no rebuild per tuning round).
  *
@@ -105,20 +108,35 @@ if ((driver _vehicle) isEqualTo player) then {
             // along the nose each tick, so turns don't brake the ship
             private _mag = (sqrt ((_vel # 0) ^ 2 + (_vel # 1) ^ 2))
                 * ([1, -1] select ((_vel # 1) < 0));
-            // breakaway punch only until rolling, then heavy buildup
-            private _acc = [vtx_uh60_taxiAccelCrz, vtx_uh60_taxiAccel]
-                select (abs _mag < vtx_uh60_taxiBreakSpd);
-            private _vy = _mag + (((_tgt - _mag) max -_acc) min _acc);
-            // anti-liftoff (47G round 10): the push rides the hull's
-            // forward axis - clamp any upward leak while driving,
-            // downward stays so the suspension can settle
-            private _vz = (_vel # 2) min 0;
-            // pedal bite starts a stationary pivot only (47G round 12:
-            // stacked on the redirect it was free accel in turns)
-            if (_ped != 0 && {abs _mag < 1}) then {
-                _vy = _vy + vtx_uh60_taxiPedalBite * (abs _ped);
+            // ROLLING-TAKEOFF RELEASE (Cap + David, HOTAS, 2026-09-14):
+            // analog collectives rolled on smoothly sit BELOW the HeliUp
+            // standdown gate, so the drive kept running through takeoff
+            // rolls - the convergence controller capped ground speed at
+            // the stick-commanded target (~5 kt) and the anti-liftoff
+            // clamp pulled a lifting ship back down, releasing as a jolt.
+            // Fix: with forward stick held, once measured speed reaches
+            // the commanded target the assist has nothing to add - write
+            // NOTHING and let the rotor own the ship. Release from
+            // MEASURED state is input-device independent; the HeliUp gate
+            // above stays as the keyboard fast path. Aft/neutral stick
+            // keeps the full two-sided controller, so aft-cyclic braking
+            // and the neutral-stick stop are unchanged.
+            if !(_fwd > 0 && {_mag >= _tgt}) then {
+                // breakaway punch only until rolling, then heavy buildup
+                private _acc = [vtx_uh60_taxiAccelCrz, vtx_uh60_taxiAccel]
+                    select (abs _mag < vtx_uh60_taxiBreakSpd);
+                private _vy = _mag + (((_tgt - _mag) max -_acc) min _acc);
+                // anti-liftoff (47G round 10): the push rides the hull's
+                // forward axis - clamp any upward leak while driving,
+                // downward stays so the suspension can settle
+                private _vz = (_vel # 2) min 0;
+                // pedal bite starts a stationary pivot only (47G round 12:
+                // stacked on the redirect it was free accel in turns)
+                if (_ped != 0 && {abs _mag < 1}) then {
+                    _vy = _vy + vtx_uh60_taxiPedalBite * (abs _ped);
+                };
+                _vehicle setVelocityModelSpace [(_vel # 0) * 0.5, _vy, _vz];
             };
-            _vehicle setVelocityModelSpace [(_vel # 0) * 0.5, _vy, _vz];
         };
         // ground pivot governor: yaw <= v/R for a real turn radius,
         // floored so slow pedal pivots stay alive
