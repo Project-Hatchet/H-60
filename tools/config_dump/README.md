@@ -8,7 +8,7 @@ changes each work package logs (see `docs/phase-1/PHASE_1_PLAN.md` §3/§5).
 ## What it captures
 
 - **CfgVehicles spawn matrix + `vtx_H60_base`**: `vtx_UH60M`, `vtx_UH60M_SLICK`,
-  `vtx_UH60M_MEDEVAC`, `vtx_HH60`, `vtx_S70M`, `vtx_MH60M`, `vtx_MH60M_DAP`,
+  `vtx_UH60M_MEDEVAC`, `vtx_HH60`, `vtx_S70i`, `vtx_MH60M`, `vtx_MH60M_DAP`,
   `vtx_MH60M_DAP_MLASS`, `vtx_MH60S`, `vtx_MH60S_Pylons`, `vtx_MH60S_GAU21L`,
   `vtx_MH60S_Pylons_GAU21L` — full recursive tree, inherited members included
   (so a shadowed merge that silently drops inherited content shows up, the #510

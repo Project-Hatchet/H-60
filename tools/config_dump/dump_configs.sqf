@@ -49,7 +49,7 @@ private _t0 = diag_tickTime;
 private _vehicles = [
     "vtx_H60_base",
     "vtx_UH60M", "vtx_UH60M_SLICK", "vtx_UH60M_MEDEVAC",
-    "vtx_HH60", "vtx_S70M",
+    "vtx_HH60", "vtx_S70i",
     "vtx_MH60M", "vtx_MH60M_DAP", "vtx_MH60M_DAP_MLASS",
     "vtx_MH60S", "vtx_MH60S_Pylons", "vtx_MH60S_GAU21L", "vtx_MH60S_Pylons_GAU21L"
 ];

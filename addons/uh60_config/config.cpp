@@ -7,7 +7,7 @@ class CfgPatches {
           "vtx_UH60M",
           "vtx_UH60M_Slick",
           "vtx_UH60M_MEDEVAC",
-          "vtx_S70M",
+          "vtx_S70i",
           "vtx_uh60_doorgunner",
           "vtx_uh60_pilot"
         };
