@@ -423,7 +423,7 @@ class interaction {
       clickSound="hct_Switch_Sound_3";
     }; // Wipers
     class toCabin {
-      condition = "isNull (hct_vehicle turretUnit [1]) || {isNull (hct_vehicle turretUnit [2])}";
+      condition = "hct_vehicle call vtx_uh60_misc_fnc_canMoveToCabin";
       positionType = "coordinates";
       position[] = POS_MOVE_CABIN_COCKPIT;
       label = "Move To Cabin";

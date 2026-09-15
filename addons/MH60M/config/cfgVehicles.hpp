@@ -55,7 +55,7 @@ class CfgVehicles {
         class Turrets;
     }; // Heli_Transport_01_base_F
     class vtx_H60_base: Heli_Transport_01_base_F {
-        #include "\z\vtx\addons\UH60\config\CfgAnimationSourcesInherit.hpp"
+        #include "\z\vtx\addons\uh60_config\config\CfgAnimationSourcesInherit.hpp"
         class ViewPilot;
         class vtx_templateFLIR;
         class Components;
@@ -113,7 +113,7 @@ class CfgVehicles {
             };
             class MainTurret: MainTurret {};
             class RightDoorGun: RightDoorGun {};
-            #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
+            #include "\z\vtx\addons\uh60_config\config\turrets\cargoTurrets.hpp"
             #include "\z\vtx\addons\MH60M\config\turrets\troopCommander.hpp"
         };
         class hct_turret_12 {
@@ -125,7 +125,7 @@ class CfgVehicles {
             }; // modules
         }; //TC Seat
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa","z\vtx\addons\mh60m\data\mlass_co.paa","z\vtx\addons\uh60\data\lass\lass_co.paa","z\vtx\addons\mh60m\data\full60m_co.paa"};
-        #include "\z\vtx\addons\UH60\config\vehicleTransport.hpp"
+        #include "\z\vtx\addons\uh60_config\config\vehicleTransport.hpp"
         class MFD: MFD {
             class VTX_MFD_1 :           VTX_MFD_1 {};
             class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};
@@ -220,7 +220,7 @@ class CfgVehicles {
                     class ANVISHUD: ANVISHUD_COPILOT {};
                 };
             };
-            #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
+            #include "\z\vtx\addons\uh60_config\config\turrets\cargoTurrets.hpp"
         };
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa","z\vtx\addons\mh60m\data\mlass_co.paa","z\vtx\addons\uh60\data\lass\lass_co.paa","z\vtx\addons\mh60m\data\full60m_co.paa"};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera", "vtx_MH60M_M134_minigun"};
@@ -324,7 +324,7 @@ class CfgVehicles {
                     class ANVISHUD: ANVISHUD_COPILOT {};
                 };
             };
-            #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
+            #include "\z\vtx\addons\uh60_config\config\turrets\cargoTurrets.hpp"
         };
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa","z\vtx\addons\MH60M\Data\Mlass_co.paa","z\vtx\addons\mh60m\data\mlass_co.paa","z\vtx\addons\uh60\data\lass\lass_co.paa","z\vtx\addons\mh60m\data\full60m_co.paa"};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera", "vtx_MH60M_M134_minigun"};

@@ -1,7 +1,7 @@
 # H-60 Phase 1 — Base-Class Consolidation: Detailed Plan
 
-**Prepared:** 2026-08-17 · **Basis:** master improvement plan §Phase 1 (corrected Snow plan), the verified UH60↔uh60_config structural diff (2026-08-17), and Riverman's rulings on the Slick armament, MLASS lifetime, and HH60 separation.
-**Prerequisite:** Phase 0 merged (PRs #561–#566 + the two MP branches).
+**Prepared:** 2026-08-17 · **Updated:** 2026-09-06 (**as-built rewrite**: the asset/config split executed inside Phase 1 — see the end-state note in §2 and the as-built chain in §4; the 2026-08-29 MEDEVAC-to-UH60 ruling is superseded) · **Basis:** master improvement plan §Phase 1 (corrected Snow plan) + §Phase 2.5 (asset/config split, as-built record), the verified UH60↔uh60_config structural diff (2026-08-17), and Riverman's rulings on the Slick armament, MLASS lifetime, and HH60 separation.
+**Prerequisite:** Phase 0 — **COMPLETE.** Shipped as Stable 0.7.9 (2026-09-04); all Phase 0 PRs merged to Main. **Phase 1 kickoff: GO given 2026-09-05** — gating 0.7.10-cycle config PRs merged (#591/#595/#599/#601; #594/#597 are SQF-only and don't gate), PR strategy ruled (§8.3: sequential PRs).
 
 ---
 
@@ -20,15 +20,17 @@ Phase 1 does **not** merge addons, rename classes, move assets, or delete dead c
 
 ## 2. Target end-state
 
-| Addon | Role after Phase 1 |
+| Addon | Role after Phase 1 *(as-built, 2026-09-06)* |
 |---|---|
-| **UH60** | Assets (unchanged) + the **only** full declarations of `vtx_H60_base` and the **Army family**: `vtx_UH60M`, `vtx_UH60M_SLICK` |
-| **HH60** *(new addon)* | The **Air Force bird**: sole owner of `vtx_HH60` (config-only; flies the shared p3d until the HH-60W model conversion) |
-| **uh60_config** | Honest systems-delta layer: TextureSources (liveries), MASS_* weight logic, granular seat sources, hct_turret panels, FFV windows, CBA functions; sole owner of `vtx_UH60M_MEDEVAC` and `vtx_S70M` (unchanged — never duplicated) |
-| **H60_SFX** | Sound-only delta on `vtx_H60_base` (its current full redeclaration demoted) |
-| **ace_viv** | Unchanged (already a one-property delta; see §6 warnings) |
-| **MH60M / MH60S** | Unchanged structurally; `requiredAddons` corrected |
-| Other 11 re-openers (mfd, fms, anvishud, sfmplus, acre, cas, hoist, misc, weapons, ui, aar) | Unchanged — they are already well-behaved deltas |
+| **uh60_config** | **Sole owner of all vehicle config** (ships later as `hct_h60_config`): `vtx_H60_base` + the shared include tree (turrets, parts, AnimationSources, weapons/magazines/sounds, MFD pedestal screens, CfgMoves, fonts declaration, editor subcategory), the crew units, and the sole declarations of `vtx_UH60M`, `vtx_UH60M_SLICK`, `vtx_UH60M_MEDEVAC`, `vtx_S70M` — one .hpp per vehicle under `config/vehicles/` |
+| **UH60** | **Asset-only**: p3ds + model.cfg, textures/rvmats, sounds, crew anim .rtm files, Font files, stringtable, XEH boilerplate, CBA version check, stub CfgPatches (`units[] = {}`) |
+| **HH60** *(new addon — `addons/HH60`, named per Riverman 2026-08-29; CfgPatches `vtx_hh60`)* | The **Air Force bird**: sole owner of `vtx_HH60` (config-only; flies the shared p3d until the HH-60W model conversion) |
+| **H60_SFX** | Sound delta on `vtx_H60_base` (audit found its block already sound-only in content — no demotion edits were needed; gained the `vtx_hh60` edge for its Compat patch) |
+| **ace_viv** | Unchanged except the `vtx_UH60_config` edge (still a one-property delta; see §6 warnings) |
+| **MH60M / MH60S** | **Keep their own vehicle declarations** (ruled 2026-09-05) as deltas deriving from the owner's base; `requiredAddons` corrected to `vtx_UH60_config`; their includes re-pointed to uh60_config's tree |
+| Other re-openers (mfd, fms, anvishud, sfmplus, acre, cas, hoist, misc, weapons, ui, aar, doorguns) | Unchanged in content — each declares an honest `vtx_UH60_config` edge where it re-opens owned classes |
+
+> **End-state note (as-built, 2026-09-06):** the AH-64D-style **asset/config split** ruled on 2026-09-05 (Riverman + BroBeans) was executed *inside* Phase 1, not staged for later. The original plan gated it behind an MFD-wiring inversion (uh60_config was the last loader and supposedly could not own declarations deriving from later-loading screen templates); BroBeans' load-order experiment (2026-09-05, WP0 harness) disproved the gate — **rapified external inheritance resolves by name at config read time**, so the owner loads early and the screen addons follow. WP1 staged single ownership in UH60 (#603) exactly as planned below; PRs A/B/C (#607/#608/#609) then moved everything to uh60_config. The WP texts below are preserved as written for the record; where a WP says "UH60 becomes the single source," the final owner is uh60_config. See the master plan §Phase 2.5 for the full as-built record.
 
 Variant identity rulings that govern the merge:
 
@@ -66,13 +68,13 @@ Variant identity rulings that govern the merge:
 1. **`vtx_UH60M`**: the two halves are disjoint (identity/visual in UH60; seats/MFD/medical in uh60_config). Keep the full declaration in UH60; uh60_config's block remains as the delta that wires MFD elements (it must stay in uh60_config — it references `uh60_mfd`/`fms`/`anvishud` content that loads after UH60). Net config: identical.
 2. **`vtx_UH60M_SLICK`**: merge per the armament ruling — miniguns/mounts/gunner seats **shown**. Delete UH60's five `ANIM_INIT(...,1)` hide lines (UH60:564-568); keep uh60_config's `initPhase=0` set and granular `CabinSeats_1/2/3`. Remove the now-dead master `CabinSeats_Hide,1` and `Hoist_hide`/sight lines only if the config dump proves them inert; otherwise keep and log.
 3. **Audit the Slick's turret-lock indexes**: uh60_config's `cabindoor_L/R onPhaseChanged` locks turrets `[[3],[4]]`/`[[1],[2]]`, which matches neither HH60 (`[[5],[6]]`) nor MEDEVAC mappings. Verify against the merged Slick's actual `Turrets` order (UH60's block contributes `cargoTurretsDoor.hpp` — 7 door cargo turrets) and correct. **This is a deliberate change if wrong today; test door-lock behavior per seat in-game.**
-4. **MEDEVAC placement decision** *(small, Riverman's call during review)*: `vtx_UH60M_MEDEVAC` can stay wholly in uh60_config (it is not duplicated; least churn — recommended) or move to UH60 beside its siblings for family symmetry. Recommendation: **stay**, revisit in Phase 4.
+4. ~~**MEDEVAC placement — RULED (Riverman, 2026-08-29): `vtx_UH60M_MEDEVAC` moves to UH60**~~ — **SUPERSEDED (2026-09-05)** by the asset/config split executing inside Phase 1: with uh60_config the sole owner, the MEDEVAC was already home. As-built it lives in `uh60_config/config/vehicles/UH60M_MEDEVAC.hpp` beside its Army siblings — the 2026-08-29 ruling's intent (family together, one place) is satisfied in the other direction.
 
-**Deliberate changes to log:** Slick turret-lock indexes (if corrected). Everything else byte-identical.
+**Deliberate changes to log:** Slick turret-lock indexes (if corrected). Everything else byte-identical — including the relocated MEDEVAC, whose config dump must not change.
 
 ### WP3 — HH60 separation (new addon)
 
-1. Create `addons/HH60` (CfgPatches `vtx_HH60_addon` or similar — avoid colliding with the vehicle class name), `requiredAddons[] = {"vtx_UH60", "vtx_UH60_mfd", "vtx_UH60_fms", "vtx_UH60_anvishud"}` — the same set uh60_config needs, because the HH60 is the only variant wiring the full-FLIR `VTX_MFD_1..4`.
+1. Create `addons/HH60` *(folder name ruled by Riverman, 2026-08-29)* with a CfgPatches class distinct from the vehicle class (`vtx_HH60_addon` or similar — avoid colliding with `vtx_HH60`), `requiredAddons[] = {"vtx_UH60", "vtx_UH60_mfd", "vtx_UH60_fms", "vtx_UH60_anvishud"}` — the same set uh60_config needs, because the HH60 is the only variant wiring the full-FLIR `VTX_MFD_1..4`.
 2. Move **both halves** into it: UH60's full declaration (UH60:498-550) + uh60_config's delta (uh60_config:340-401), merged into one clean declaration deriving from `vtx_H60_base` — the MH60M/MH60S pattern.
 3. Resolve its one conflict on the record: `CabinSeats_Hide` → `initPhase=0` (uh60_config's granular replacement is the live behavior; UH60's `,1` line was dead-but-misleading).
 4. `units[]`: remove `vtx_HH60` from UH60's CfgPatches, add to the new addon's.
@@ -98,7 +100,17 @@ The master plan scoped Phase 1 as one PR; with the HH60 amendment, three **seque
 2. `restructure/army-variant-merge` — WP2. Proof: byte-identical except logged Slick items.
 3. `restructure/hh60-addon` — WP3 + WP4. Proof: byte-identical per variant; spawn matrix green; #510 retest.
 
-Same workflow as Phase 0: branch published at creation, commits local until Riverman verifies, PR on his word. Each PR's build = full `scons all` (25 PBOs, 26 after the HH60 addon lands) plus the config-dump diff attached to the PR description.
+**As-built chain (2026-09-05/06)** — WP1 shipped as planned; the rest restructured when the asset/config split moved inside Phase 1 (Riverman's ruling after the load-order experiment):
+
+1. **#603** `restructure/base-single-owner` — WP1 as planned. Proof: byte-identical (580,227 dump lines both sides).
+2. **PR A, #607** `restructure/config-owner-variants` — WP2 executed as merges *into uh60_config* (one .hpp per vehicle under `config/vehicles/`) + the dependency-edge flip. Proof: 0 value changes, 65 inert classOrder shifts. Slick armament ruling applied (miniguns shown, five dead hide-lines dropped); WP2.3's turret-lock audit deferred to the in-game soak.
+3. **PR B, #608** `restructure/hh60-addon` — WP3 as planned (CfgPatches `vtx_hh60`, renamed from `vtx_HH60_addon` on BroBeans' review — see §8.1; `CabinSeats_Hide` → live `initPhase=0` resolved on the record; H60_SFX gains the edge).
+4. **PR C, #609** `restructure/uh60-asset-only` — the base + full config-tree move to uh60_config; UH60 reduced to the asset stub. (The original plan deferred this to §Phase 2.5.)
+5. **PR D** `restructure/phase1-tidy` — dead-file deletion, dependency audit (uh60_doorguns edge), CfgAnimationSourcesInherit documented as rapify scaffold, this docs catch-up.
+
+Same workflow as Phase 0: branch published at creation, commits local until Riverman verifies, PR on his word. Each PR's build = affected PBOs minimum (`scons all` = 26 PBOs with the HH60 addon) plus the config-dump diff. Test cadence ruled mid-phase (Riverman, 2026-09-05): merge the chain, push one dev build with everything, fix issues as they surface — the per-PR soak plan below is superseded.
+
+**Coordination with the 0.7.10 dev cycle (added 2026-09-04):** several feature/fix PRs are in flight against the same config territory Phase 1 restructures — #591 (FMS interaction points), #594 (FLIR slew deadzone), #595 (ACRE comms sync), #597 (network improvements), #599 (MH60M door initPhase). Sequence at kickoff: either land/close them first, or capture the WP0 baseline *after* each merge and rebase the restructure branches — a Phase 1 branch must never carry a config-dump diff caused by someone else's merge. Re-capture the baseline whenever Main moves.
 
 ---
 
@@ -106,7 +118,7 @@ Same workflow as Phase 0: branch published at creation, commits local until Rive
 
 - **Config-dump diff** (WP0 harness) — the primary proof, run per-variant per-PR.
 - **Spawn matrix** — every class in WP0's list spawns in Eden/Zeus, textures and seats correct, no RPT errors. Include getting in pilot/copilot/door-gun/cargo seats.
-- **Issue #510 as acceptance test** *(from the master plan)*: cockpit sound attenuation depends on turret-config merges across the four competing base declarations; if Phase 1 is done right, attenuation works (or its true cause is exposed). Test UH60M + MH60M cockpit audio before/after.
+- **Issue #510 as acceptance test** *(from the master plan; #510 and #439 now sit on the Phase 1 milestone)*: cockpit sound attenuation depends on turret-config merges across the four competing base declarations; if Phase 1 is done right, attenuation works (or its true cause is exposed). Test UH60M + MH60M cockpit audio before/after. Second candidate mechanism from the MH-47G reference (2026-08-23): a missing View Geometry LOD silently disables attenuation entirely — check the p3d before concluding the config diff explains everything.
 - **Issue #439 retest** (hover symbology on UH/HH models) after WP3 — `vtx_HH60` was one of the duplicate-delta'd classes.
 - **Slick functional test**: door guns present and usable (armament ruling), ViV cargo loading works, door-lock behavior per seat (WP2.3).
 - **MLASS regression**: spawns, 4 pylons work, FLIR page carets/icons intact (Phase 0 #566 behavior preserved).
@@ -138,9 +150,9 @@ Same workflow as Phase 0: branch published at creation, commits local until Rive
 
 ---
 
-## 8. Open items for Riverman
+## 8. Open items
 
-1. Name for the new addon folder/CfgPatches class (`addons/HH60`, patches class distinct from the vehicle class).
-2. MEDEVAC declaration placement (recommend: stays in uh60_config for Phase 1).
-3. Confirm the three-PR split vs the original single-PR scope.
-4. When WP2.3's turret-lock audit produces its answer: confirm the intended door-lock behavior per Slick seat.
+1. ~~Name for the new addon folder~~ — **RULED (2026-08-29): `addons/HH60`**; CfgPatches class first shipped as `vtx_HH60_addon`, then **renamed `vtx_hh60` on BroBeans' #608 review (2026-09-06)** for house-style parity (`vtx_uh60`/`vtx_mh60m`/`vtx_mh60s`). The plan's "keep it distinct from the vehicle class" caution was unfounded — CfgPatches and CfgVehicles are separate roots, and `vtx_mh60m`/`vtx_MH60M` have coexisted for years.
+2. ~~MEDEVAC declaration placement~~ — ~~**RULED (2026-08-29): moves to UH60**~~ **SUPERSEDED (2026-09-05):** stayed in uh60_config, which became the sole owner (see WP2.4 note and §4 as-built chain).
+3. ~~Three-PR split vs single PR~~ — **RULED (Riverman, 2026-09-05): sequential PRs, per §4** (as-built: five — #603 + PRs A–D). Standing policy from here on: phases are planned as sequential PRs unless Riverman rules otherwise for a specific phase.
+4. **Still open:** the Slick per-seat door-lock audit (WP2.3) rides the post-merge dev-build soak, alongside the #510/#439 acceptance retests — indexes were preserved as-is through the merges.
