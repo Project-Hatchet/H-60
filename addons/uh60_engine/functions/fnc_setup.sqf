@@ -25,8 +25,9 @@ SET_GLOBAL_DEFAULT("BATT2_ENABLED", false)
 SET_GLOBAL_DEFAULT("BATT1_POWER", 100)
 SET_GLOBAL_DEFAULT("BATT2_POWER", 100)
 SET_GLOBAL_DEFAULT("POWER_DRAIN_RATE", 0.11)
-SET_GLOBAL_DEFAULT("ESIS_COUNTER", 70)
-_vehicle setUserMFDValue [49, _vehicle getVariable ["ESIS_COUNTER", 70]];
+SET_GLOBAL_DEFAULT("ESIS_START_TIME", cba_missionTime)
+private _esisStartTime = _vehicle getVariable ["ESIS_START_TIME", cba_missionTime];
+_vehicle setUserMFDValue [49, (round (70 - (cba_missionTime - _esisStartTime))) max -1];
 
 _vehicle enableAutoTrimRTD true;
 
@@ -35,6 +36,22 @@ if ((_vehicle animationPhase "handle_wheelbrake") == 1) then {
     [_vehicle, true, "ON"] call vtx_uh60_engine_fnc_wheelBrakes;
 } else {
     [_vehicle, true, "OFF"] call vtx_uh60_engine_fnc_wheelBrakes;
+};
+//Re-assert RotorLib brake state whenever this machine gains ownership:
+//fnc_wheelBrakes' setBrakesRTD is one-shot on whoever owned the vehicle at
+//toggle time, so a locality transfer (controls handoff, pilot egress) hands
+//the new owner a RotorLib sim whose brakes disagree with the lever (#498)
+if (isNil {_vehicle getVariable "vtx_uh60_engine_brakeLocalEH"}) then {
+    _vehicle setVariable ["vtx_uh60_engine_brakeLocalEH", _vehicle addEventHandler ["Local", {
+        params ["_vehicle", "_isLocal"];
+        if (_isLocal) then {
+            private _state = if ((_vehicle animationPhase "handle_wheelbrake") > 0.5) then [{1},{0}];
+            _vehicle setBrakesRTD [_state, 3];
+            if (vtx_uh60_ui_showDebugMessages) then {
+                diag_log format ["VTX BRAKES REASSERT (locality gained) | %1 | brake:%2", _vehicle, _state];
+            };
+        };
+    }]];
 };
 //Monitor parking brake value
 //one player-level handler serves every H-60; add it once or module restarts
