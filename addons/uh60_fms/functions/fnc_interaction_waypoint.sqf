@@ -47,7 +47,7 @@ switch (_action) do {
             private _waypoints = waypoints _group;
             private _waypointIndex = currentWaypoint _group;
 
-            private _wp = _group addWaypoint [_tgtPosASL, -1, count _waypoints, "Track Pos"];
+            private _wp = _group addWaypoint [ASLToAGL _tgtPosASL, -1, count _waypoints, "Track Pos"];
             _wp setWaypointDescription "Track Pos";
             if (!_autoNext) then {
               _wp setWaypointStatements ["false", ""];
@@ -69,9 +69,7 @@ switch (_action) do {
         if (isNil "fms_locations_selected") exitWith {};
         private _microDagrWaypoints = [] call ace_microdagr_fnc_deviceGetWaypoints;
         private _location = fms_locations_selected;
-        private _height = getTerrainHeightASL (locationPosition _location);
         private _position = locationPosition _location;
-        _position set [2, _height];
         private _newWP = [text _location, _position];
         _microDagrWaypoints pushBack _newWP;
         ACE_player setVariable ["ace_microdagr_waypoints", _microDagrWaypoints];
