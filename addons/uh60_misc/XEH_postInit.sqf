@@ -19,8 +19,9 @@ private _doorOpenLeft = [
    _target animateSource ["cabinDoor_L", 1 - _anim];
    playSound3D ["z\vtx\addons\H60_SFX\Sounds\Share\Door.wss", _target, false, getPosASLVisual _target, 3];
 
-   // * Set Internal Wind-washing sound
-   [[_target, "CustomSoundController9", (_anim + (1 - (_target animationPhase 'cabindoor_R'))) / 2]] remoteExecCall ["setCustomSoundController", crew _target];
+   // * Set Internal Wind-washing sound and lock state
+   private _state = ["Closed", "Open"] select _anim;
+   [_target, "CabinDoor_L", _state] call vtx_uh60_misc_fnc_interactedCabinDoor;
  }, // * 3: Statement <CODE>
  {private _animPhase = _target animationPhase "cabinDoor_L";
  [_target, "cabinDoor_L", _animPhase] call vtx_uh60_misc_fnc_canInteractCabinDoor;}, // * 4: Condition <CODE>
@@ -40,8 +41,9 @@ private _doorOpenRight = [
     _target animateSource ["cabinDoor_R", 1 - _anim];
     playSound3D ["z\vtx\addons\H60_SFX\Sounds\Share\Door.wss", _target, false, getPosASLVisual _target, 3];
 
-    // * Set Internal Wind-washing sound
-    [[_target, "CustomSoundController9", ((1 - (_target animationPhase 'cabindoor_L')) + _anim) / 2]] remoteExecCall ["setCustomSoundController", crew _target];
+    // * Set Internal Wind-washing sound and lock state
+    private _state = ["Closed", "Open"] select _anim;
+    [_target, "CabinDoor_R", _state] call vtx_uh60_misc_fnc_interactedCabinDoor;
   },
   {private _animPhase = _target animationPhase "cabinDoor_L";
  [_target, "cabinDoor_R", _animPhase] call vtx_uh60_misc_fnc_canInteractCabinDoor;},
