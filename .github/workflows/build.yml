@@ -10,11 +10,15 @@ on:
   pull_request:
 
 # When several commits land on the same PR in quick succession, only the
-# latest build matters - cancel the superseded ones. Push builds (Main,
-# devbuild) are never cancelled.
+# latest build matters - cancel the superseded ones. The same goes for the
+# devbuild branch: it is machine-generated (Main + labeled PRs, force-pushed
+# on every label change), so labeling several PRs in a burst force-pushes it
+# repeatedly and only the LAST regeneration's build is meaningful - without
+# cancellation a 9-PR labeling session queues 9 full Windows builds, 8 of
+# them stale before they start. Main push builds are never cancelled.
 concurrency:
   group: validate-build-${{ github.ref }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' || github.ref == 'refs/heads/devbuild' }}
 
 jobs:
   # validate:
