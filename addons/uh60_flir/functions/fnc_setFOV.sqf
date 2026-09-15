@@ -20,7 +20,9 @@ vtx_uh60_flir_camera camSetFov _fov;
 if (_sync) then {
   // ["vtx_uh60_flir_syncFOV", [_fov], [vtx_uh60_flir_otherPilot]] call CBA_fnc_targetEvent;
   private _targets = (crew vehicle player) - [player];
-  [_fov, false] remoteExecCall ["vtx_uh60_flir_fnc_setFOV", _targets, false];
+  if (_targets isNotEqualTo []) then {
+    [_fov, false] remoteExecCall ["vtx_uh60_flir_fnc_setFOV", _targets, false];
+  };
 };
 
 

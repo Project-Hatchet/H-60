@@ -10,13 +10,15 @@
 if (!isNil "test_fnc_waypts") exitWith {_this call test_fnc_waypts};
 params ["_vehicle"];
 
-private _wayPoint = [group player, currentWaypoint group player];
-private _position = waypointPosition _wayPoint;
+private _selIndex = missionNamespace getVariable ["vtx_uh60_fms_wpSelection", currentWaypoint group player];
+private _selValid = _selIndex > -1 && {_selIndex < count (waypoints group player)};
+private _wayPoint = [group player, [_selIndex, 0] select (!_selValid)];
+private _position = if (_selValid) then {waypointPosition _wayPoint} else {[0,0,0]};
 if ((count customWaypointPosition) > 0) then {
     _position = customWaypointPosition;
     [_vehicle, 7, "MAP MARK"] call vtx_uh60_mfd_fnc_setUserText;
 } else {
-    [_vehicle, 7, waypointDescription _wayPoint] call vtx_uh60_mfd_fnc_setUserText;
+    [_vehicle, 7, [waypointDescription _wayPoint, ""] select (!_selValid)] call vtx_uh60_mfd_fnc_setUserText;
 };
 
 //private _centered = _vehicle ammoOnPylon 4 == 0;
@@ -58,8 +60,13 @@ private _clearPos = {
 
 if (vtx_uh60_fms_renderWaypointsOnTAC) then {
     {
-        _waypointPosition = waypointPosition [group player, (currentWaypoint group player) + _forEachIndex - 1];
-        if (_forEachIndex == (currentWaypoint group player) && (count customWaypointPosition) > 0) then {
+        private _wpSlotIndex = _selIndex + _forEachIndex - 1;
+        _waypointPosition = if (_wpSlotIndex >= 0 && {_wpSlotIndex < count (waypoints group player)}) then {
+            waypointPosition [group player, _wpSlotIndex]
+        } else {
+            [0,0,0]
+        };
+        if (_wpSlotIndex == _selIndex && (count customWaypointPosition) > 0) then {
             _waypointPosition = customWaypointPosition;
         };
         if (!(_waypointPosition isEqualTo [0,0,0])) then {
