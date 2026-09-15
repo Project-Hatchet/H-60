@@ -33,16 +33,17 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
         ]
     };
     case FMS_PAGE_NAV_WAYPOINT: {
-        private _waypointIndex = currentWaypoint group player;
-        private _wayPoint = [group player, _waypointIndex];
-        private _position = waypointPosition _wayPoint;
-        private _gridArea = [worldName] call ace_common_fnc_getMGRSdata;
-        private _grid = [_position] call ace_common_fnc_getMapGridFromPos;
-        private _str = format ["%1    %2    %3    %4", _gridArea select 0, _gridArea select 1, _grid select 0, _grid select 1];
-        if (_waypointIndex < count (waypoints group player)) then {
-          [_str, format["%1/%2", _waypointIndex + 1, count (waypoints group player)], "", "",""]
+        private _waypoints = waypoints group player;
+        private _waypointIndex = missionNamespace getVariable ["vtx_uh60_fms_wpSelection", currentWaypoint group player];
+        if (_waypointIndex == -1 || {_waypointIndex >= count _waypoints}) then {
+          ["", format["%1/%2", 0, count _waypoints], "", "",""]
         } else {
-          [_str, format["%1/%2", 0, 0], "", "",""]
+          private _wayPoint = [group player, _waypointIndex];
+          private _position = waypointPosition _wayPoint;
+          private _gridArea = [worldName] call ace_common_fnc_getMGRSdata;
+          private _grid = [_position] call ace_common_fnc_getMapGridFromPos;
+          private _str = format ["%1    %2    %3    %4", _gridArea select 0, _gridArea select 1, _grid select 0, _grid select 1];
+          [_str, format["%1/%2", _waypointIndex + 1, count _waypoints], "", "",""]
         }
     };
     case FMS_PAGE_NAV_IMPORT: {
