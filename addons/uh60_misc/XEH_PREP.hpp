@@ -6,6 +6,8 @@ PREP(canFold);
 PREP(canInteractCabinDoor);
 PREP(canRemoveCustomization);
 PREP(canUnfold);
+PREP(ccLockSeats);
+PREP(ccSwap);
 PREP(fold);
 PREP(foldInstant);
 PREP(foldFreeze);
