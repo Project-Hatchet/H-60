@@ -224,9 +224,11 @@ class CfgVehicles {
                     class ANVISHUD: ANVISHUD_COPILOT {};
                 };
             };
-            // DAP carries no passengers (Riverman ruling 2026-09-07): cabin cargo
-            // turrets removed; the MFOS aft seats are the only rear positions
+            // DAP cabin (Riverman rulings 2026-09-07/18): the base M's cabin cargo
+            // turrets removed; MFOS aft crew chiefs + two full-time emergency
+            // pax door seats (downed-aircrew pickup) are the only rear positions
             #include "\z\vtx\addons\uh60_config\config\turrets\mfosAft.hpp"
+            #include "\z\vtx\addons\uh60_config\config\turrets\dapPaxSeats.hpp"
         };
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa","z\vtx\addons\mh60m\data\mlass_co.paa","z\vtx\addons\uh60\data\lass\lass_co.paa","z\vtx\addons\mh60m\data\full60m_co.paa"};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera", "vtx_MH60M_M134_minigun"};
@@ -332,9 +334,11 @@ class CfgVehicles {
                     class ANVISHUD: ANVISHUD_COPILOT {};
                 };
             };
-            // DAP carries no passengers (Riverman ruling 2026-09-07): cabin cargo
-            // turrets removed; the MFOS aft seats are the only rear positions
+            // DAP cabin (Riverman rulings 2026-09-07/18): the base M's cabin cargo
+            // turrets removed; MFOS aft crew chiefs + two full-time emergency
+            // pax door seats (downed-aircrew pickup) are the only rear positions
             #include "\z\vtx\addons\uh60_config\config\turrets\mfosAft.hpp"
+            #include "\z\vtx\addons\uh60_config\config\turrets\dapPaxSeats.hpp"
         };
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa","z\vtx\addons\MH60M\Data\Mlass_co.paa","z\vtx\addons\mh60m\data\mlass_co.paa","z\vtx\addons\uh60\data\lass\lass_co.paa","z\vtx\addons\mh60m\data\full60m_co.paa"};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera", "vtx_MH60M_M134_minigun"};
