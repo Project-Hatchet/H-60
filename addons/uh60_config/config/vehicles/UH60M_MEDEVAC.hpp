@@ -3,6 +3,7 @@
 // include paths adjusted one level for the vehicles\ folder.
 class vtx_UH60M_MEDEVAC: vtx_H60_base {
     scope = 2;
+    editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_UH60M_MEDEVAC.jpg"; // dev tester report 2026-09-07: never had one (verified back to 0.7.9)
     forceInGarage = 1;
     cargoAction[] = {
       "passenger_low01",

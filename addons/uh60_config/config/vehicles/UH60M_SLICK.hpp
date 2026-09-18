@@ -6,6 +6,7 @@
 // Member order preserved from the pre-merge engine result (config-dump proven).
 class vtx_UH60M_SLICK: vtx_H60_base {
   scope = 2;
+  editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_UH60M_SLICK.jpg"; // dev tester report 2026-09-07: never had one (verified back to 0.7.9)
   forceInGarage = 1;
   displayName = "UH-60M Slick";
   transportSoldier=0;
