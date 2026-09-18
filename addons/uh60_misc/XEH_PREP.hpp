@@ -11,6 +11,7 @@ PREP(fold);
 PREP(foldInstant);
 PREP(foldFreeze);
 PREP(hint);
+PREP(interactedCabinDoor);
 PREP(isUnfolded);
 PREP(moveToCabin);
 PREP(moveToCockpit);
