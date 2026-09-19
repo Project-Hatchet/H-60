@@ -8,11 +8,15 @@ PREP(apuState);
 PREP(batteryState);
 PREP(engineEH);
 PREP(hasFuelFlow);
+PREP(pbArm);
+PREP(pbHoldTick);
+PREP(pbToggle);
 PREP(perFrame);
 PREP(perSecond);
 PREP(rotorBrakeInterlock);
 PREP(setup);
 PREP(shutdown);
+PREP(taxiTick);
 PREP(starterState);
 PREP(wheelBrakes);
 
