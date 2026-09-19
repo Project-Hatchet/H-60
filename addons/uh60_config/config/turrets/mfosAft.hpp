@@ -56,16 +56,17 @@ class MFOSCrewChiefOut_L: MFOSCrewChief_L {
   proxyIndex = 15;
   gunnerAction = "passenger_bench_1";
   gunnerInAction = "passenger_bench_1";
-  // Walk-in, L SEAT ONLY (Riverman: dial the left in, then mirror to the
-  // right): tail side = soldier's left = NEGATIVE azimuth (positive =
-  // soldier's right). Test-fit 4: -120 -> -80 (could aim through the tail
-  // skin). Test-fit 5: -80 -> -50 (could still turn left far enough to see
-  // inside the cabin). Nose side untouched.
+  // Arcs RESET symmetric (Riverman 2026-09-18): the test-fit 4/5 left-seat
+  // walk-in (-120 -> -80 -> -50 tail side) was tuned for the OLD turn-out
+  // spot (aft sill, proxy 14) and carries no meaning at the 15/12 positions
+  // - both sides restart at the first-guess arcs and get walked in together
+  // from tester reports. Tail side = NEGATIVE azimuth on the L seat,
+  // POSITIVE on the R (positive = soldier's right).
   minElev=-50; maxElev=30; initElev=0;
-  minTurn=-50; maxTurn=120; initTurn=0;
+  minTurn=-120; maxTurn=120; initTurn=0;
   class TurnIn {
-    limitsArrayTop[] = {{30, 110}, {30, -50}};
-    limitsArrayBottom[] = {{-50, 110}, {-50, -50}};
+    limitsArrayTop[] = {{30, 110}, {30, -110}};
+    limitsArrayBottom[] = {{-50, 110}, {-50, -110}};
   };
 };
 class MFOSCrewChiefOut_R: MFOSCrewChiefOut_L {
@@ -73,12 +74,4 @@ class MFOSCrewChiefOut_R: MFOSCrewChiefOut_L {
   memoryPointsGetInGunner = "pos Cargo R";
   memoryPointsGetInGunnerDir = "pos Cargo R dir";
   proxyIndex = 12;
-  // R keeps the pre-walk-in arcs until the L numbers are approved; its tail
-  // side is the MIRROR (positive azimuth), so the eventual change here is
-  // maxTurn/+110 entries down to ~+80, not the minus side.
-  minTurn=-120; maxTurn=120;
-  class TurnIn {
-    limitsArrayTop[] = {{30, 110}, {30, -110}};
-    limitsArrayBottom[] = {{-50, 110}, {-50, -110}};
-  };
 };
