@@ -2,10 +2,19 @@ class CopilotTurret: CopilotTurret {
   CanEject=0;
   gunnerAction = "UH60_Pilot";
   gunnerInAction = "UH60_Pilot";
-  canHideGunner = 0;
-  viewGunnerInExternal = 1;
+  // #510 RESOLVED (2026-09-07): canHideGunner is deliberately NOT set here. The
+  // legacy canHideGunner=0 line that lived here was the root cause - the engine
+  // reads an explicit 0 as "gunner can never hide" = permanently turned out, so
+  // attenuation never engaged (copilot loud). Flipping it to 1 fixed the sound
+  // but put the seat on the turn-out render path, which hunts the View-Gunner
+  // (1000) LOD this model lacks - same gutted-console fallback as the #556
+  // optics incident (see copilotFLIR.hpp). Vanilla helicopter copilots leave it
+  // unset (resolves -1): seat counts as inside AND renders LODTurnedIn. Do not
+  // reintroduce this property in either polarity.
+  viewGunnerInExternal = 1; // vanilla CargoTurret value; 0-flip tested 2026-09-07, no effect on sound, don't touch
   gunnerUsesPilotView = 1;
-  soundAttenuationTurret = "SemiOpenHeliAttenuation"; // carried over from copilotFLIR.hpp so cockpit audio keeps its attenuation (#510)
+  soundAttenuationTurret = "VTX_H60_CabinAttenuation"; // #510: the stock SemiOpen profile was too mild - custom EQ profile in H60_SFX
+  disableSoundAttenuation = 0;
   // 1100 = View - Pilot LOD; without these the turret defaults to the door-gunner
   // View - Gunner LOD and the copilot cockpit loses its upper console (#556)
   LODTurnedIn = 1100;

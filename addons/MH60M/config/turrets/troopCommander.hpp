@@ -7,11 +7,10 @@ class troop_commander: CargoTurret {
   gunnerName = "Troop Commander";
   gunnerCompartments = Compartment2;
   proxyIndex = 20;
-  isPersonTurret = 0;        /// enables a person to get into the turret from outside
+  isPersonTurret = 0;        // #510: =1 hands the TC a personal FFV weapon and buys nothing acoustically - see uh60_config/config/turrets/troopCommander.hpp
   selectionFireAnim = "";
   disableSoundAttenuation = 0;
+  soundAttenuationTurret = "VTX_H60_CabinAttenuation"; // #510: was unfiltered - this seat is camera-external like all CargoTurret children
   LODTurnedIn = 1200;
   LODTurnedOut = 1200;
-  LODOpticsIn = 1200;
-  LODOpticsOut = 1200;
 };
