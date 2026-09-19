@@ -251,3 +251,58 @@ _action = ["vtx_skis_remove","Uninstall Skis", "", {(_target) animateSource ["sk
   _action = ["vtx_fold_blades", "Fold", "", {[_target, 1] call vtx_uh60_misc_fnc_fold;}, {[_target, ACE_player] call vtx_uh60_misc_fnc_canFold}, nil, [], "velka osa", 3, [false, false, false, false, false], _modifierFunc] call ace_interact_menu_fnc_createAction;
   ["vtx_H60_base", 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
 //};
+
+// DAP crew-chief Turn In / Turn Out (the aft MFOS turn-out replacement,
+// Riverman rulings 2026-09-17/18): CONTEXTUAL entries in the VEHICLE menu -
+// vehicle-class self actions at the ACE_SelfActions root, which is the same
+// tree ACE's own "Change Seats" lives in, so the entry shows up beside it,
+// not under it and not in the soldier's personal self-interact menu. The
+// direction filter in the condition means exactly one of the two labels
+// ("Turn Out" / "Turn In") is visible at a time.
+{
+  private _turnOut = [
+    "vtx_ccTurnOut", "Turn Out", "",
+    {[_player, false, "out"] call vtx_uh60_misc_fnc_ccSwap;},
+    {[_player, true, "out"] call vtx_uh60_misc_fnc_ccSwap;}
+  ] call ace_interact_menu_fnc_createAction;
+  private _turnIn = [
+    "vtx_ccTurnIn", "Turn In", "",
+    {[_player, false, "in"] call vtx_uh60_misc_fnc_ccSwap;},
+    {[_player, true, "in"] call vtx_uh60_misc_fnc_ccSwap;}
+  ] call ace_interact_menu_fnc_createAction;
+  [_x, 1, ["ACE_SelfActions"], _turnOut, true] call ace_interact_menu_fnc_addActionToClass;
+  [_x, 1, ["ACE_SelfActions"], _turnIn, true] call ace_interact_menu_fnc_addActionToClass;
+} forEach ["vtx_MH60M_DAP", "vtx_MH60M_DAP_MLASS"];
+
+// The turned-out spots are swap-only: locked where the vehicle is local, so
+// they never appear in the door get-in menu, the scroll-wheel seat change,
+// or ACE's Change Seats list (ACE skips lockedTurret seats). Event is "init",
+// NOT "initPost": CBA only applies "initPost" retroactively after postInit
+// has FINISHED (fnc_addClassEventHandler exits early on it), and this
+// registration runs during postInit - with "initPost" no Eden-placed DAP
+// ever got locked (test-fit 4, seats visible in every menu). The GetIn hook
+// covers the stale-menu case from test-fit 5: a unit crewed in at mission
+// start builds its action list before/at the init lock and only a lock
+// TRANSITION refreshes it, so every boarding re-toggles the locks (see
+// fnc_ccLockSeats). fnc_ccSwap unlocks the target for the one scripted
+// move, then relocks.
+{
+  [_x, "init", {
+    params ["_veh"];
+    if (!local _veh) exitWith {};
+    [_veh] call vtx_uh60_misc_fnc_ccLockSeats;
+  }, true, [], true] call CBA_fnc_addClassEventHandler;
+  [_x, "GetIn", {
+    params ["_veh"];
+    if (!local _veh) exitWith {};
+    [_veh, true] call vtx_uh60_misc_fnc_ccLockSeats;
+  }, true, [], true] call CBA_fnc_addClassEventHandler;
+  // GetOut keeps the reserved-seat rule honest: a crew chief who dismounts
+  // entirely from the turned-out spot (instead of turning back in) frees
+  // their crew-chief seat on the reconcile
+  [_x, "GetOut", {
+    params ["_veh"];
+    if (!local _veh) exitWith {};
+    [_veh, true] call vtx_uh60_misc_fnc_ccLockSeats;
+  }, true, [], true] call CBA_fnc_addClassEventHandler;
+} forEach ["vtx_MH60M_DAP", "vtx_MH60M_DAP_MLASS"];
