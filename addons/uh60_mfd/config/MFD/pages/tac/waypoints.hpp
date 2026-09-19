@@ -26,6 +26,27 @@ class CNAME { \
 };
 
 class waypoints {
+	class WP1_Star {
+		condition = C_WP1_EXISTS;
+		color[] = common_black;
+		class background_star {
+			type = "line";
+			width = 8;
+			points[] = {
+				SHAPE_STAR2("TAC_SELF_DIST","TAC_SELF_DIR","TAC_WP1_DIST","TAC_WP1_DIR")
+			};
+		};
+		class main_color {
+			color[] = common_purple;
+			class main_star {
+				type = "line";
+				width = 4;
+				points[] = {
+					SHAPE_STAR2("TAC_SELF_DIST","TAC_SELF_DIR","TAC_WP1_DIST","TAC_WP1_DIR")
+				};
+			};
+		};
+	};
 	LINE_AND_WAYPT(WP12,"((user2 > -1) * (user4  > -1))","TAC_WP1_DIST","TAC_WP1_DIR","TAC_WP2_DIST","TAC_WP2_DIR",common_purple)
 	LINE_AND_WAYPT(WP23,"((user4 > -1) * (user6  > -1))","TAC_WP2_DIST","TAC_WP2_DIR","TAC_WP3_DIST","TAC_WP3_DIR",common_white)
 	LINE_AND_WAYPT(WP34,"((user6 > -1) * (user8  > -1))","TAC_WP3_DIST","TAC_WP3_DIR","TAC_WP4_DIST","TAC_WP4_DIR",common_white)
