@@ -56,6 +56,22 @@ class CfgUserActions
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
 	};
+	class Vtx_Flir_TdcWaypointSet {
+		displayName = "TDC Waypoint Set";
+		tooltip = "Mark a waypoint at wherever FLIR is currently designating.";
+		onActivate = "call vtx_uh60_flir_fnc_keyTdcWaypointSet;";		// _this is always true.
+		onDeactivate = "";		// _this is always false.
+		onAnalog = "";	// _this is the scalar analog value.
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
+	};
+	class Vtx_Flir_TdcSlewWaypoint {
+		displayName = "TDC Slew Waypoint";
+		tooltip = "Slew FLIR to the current group waypoint.";
+		onActivate = "call vtx_uh60_flir_fnc_keyTdcSlewWaypoint;";		// _this is always true.
+		onDeactivate = "";		// _this is always false.
+		onAnalog = "";	// _this is the scalar analog value.
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
+	};
 };
 class CfgDefaultKeysPresets {};
 class UserActionGroups
@@ -70,7 +86,9 @@ class UserActionGroups
 		"Vtx_Flir_SlewUp",
 		"Vtx_Flir_SlewDown",
 		"Vtx_Flir_SlewLeft",
-		"Vtx_Flir_SlewRight"
+		"Vtx_Flir_SlewRight",
+		"Vtx_Flir_TdcWaypointSet",
+		"Vtx_Flir_TdcSlewWaypoint"
 		}; // List of all actions inside this category.
 	};
 };
