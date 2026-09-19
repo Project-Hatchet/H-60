@@ -1,5 +1,7 @@
+#include "defines.hpp"
+
 params ["_vehicle", "_frameTime"];
-if (vtx_uh60_rotorRPM < 0.04) exitWith {};
+if (GET("rotorRPM",0) < 0.04) exitWith {};
 // systemChat str ["running ias", _frameTime];
 
 private _desiredSpeedKts = (round((_vehicle animationSourcePhase "FD_4_ROT")*10))*10;
