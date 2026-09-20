@@ -192,17 +192,18 @@ _action = ["vtx_skis_remove","Uninstall Skis", "", {(_target) animateSource ["sk
 // not under it and not in the soldier's personal self-interact menu. The
 // direction filter in the condition means exactly one of the two labels
 // ("Turn Out" / "Turn In") is visible at a time.
+
+private _turnOut = [
+  "vtx_ccTurnOut", "Turn Out", "",
+  {[_player, false, "out"] call vtx_uh60_misc_fnc_ccSwap;},
+  {[_player, true, "out"] call vtx_uh60_misc_fnc_ccSwap;}
+] call ace_interact_menu_fnc_createAction;
+private _turnIn = [
+  "vtx_ccTurnIn", "Turn In", "",
+  {[_player, false, "in"] call vtx_uh60_misc_fnc_ccSwap;},
+  {[_player, true, "in"] call vtx_uh60_misc_fnc_ccSwap;}
+] call ace_interact_menu_fnc_createAction;
 {
-  private _turnOut = [
-    "vtx_ccTurnOut", "Turn Out", "",
-    {[_player, false, "out"] call vtx_uh60_misc_fnc_ccSwap;},
-    {[_player, true, "out"] call vtx_uh60_misc_fnc_ccSwap;}
-  ] call ace_interact_menu_fnc_createAction;
-  private _turnIn = [
-    "vtx_ccTurnIn", "Turn In", "",
-    {[_player, false, "in"] call vtx_uh60_misc_fnc_ccSwap;},
-    {[_player, true, "in"] call vtx_uh60_misc_fnc_ccSwap;}
-  ] call ace_interact_menu_fnc_createAction;
   [_x, 1, ["ACE_SelfActions"], _turnOut, true] call ace_interact_menu_fnc_addActionToClass;
   [_x, 1, ["ACE_SelfActions"], _turnIn, true] call ace_interact_menu_fnc_addActionToClass;
 } forEach ["vtx_MH60M_DAP", "vtx_MH60M_DAP_MLASS"];
@@ -219,23 +220,14 @@ _action = ["vtx_skis_remove","Uninstall Skis", "", {(_target) animateSource ["sk
 // TRANSITION refreshes it, so every boarding re-toggles the locks (see
 // fnc_ccLockSeats). fnc_ccSwap unlocks the target for the one scripted
 // move, then relocks.
+private _ccLockSeats = {
+  params ["_veh"];
+  if (!local _veh) exitWith {};
+  [_veh] call vtx_uh60_misc_fnc_ccLockSeats;
+};
 {
-  [_x, "init", {
-    params ["_veh"];
-    if (!local _veh) exitWith {};
-    [_veh] call vtx_uh60_misc_fnc_ccLockSeats;
-  }, true, [], true] call CBA_fnc_addClassEventHandler;
-  [_x, "GetIn", {
-    params ["_veh"];
-    if (!local _veh) exitWith {};
-    [_veh, true] call vtx_uh60_misc_fnc_ccLockSeats;
-  }, true, [], true] call CBA_fnc_addClassEventHandler;
-  // GetOut keeps the reserved-seat rule honest: a crew chief who dismounts
-  // entirely from the turned-out spot (instead of turning back in) frees
-  // their crew-chief seat on the reconcile
-  [_x, "GetOut", {
-    params ["_veh"];
-    if (!local _veh) exitWith {};
-    [_veh, true] call vtx_uh60_misc_fnc_ccLockSeats;
-  }, true, [], true] call CBA_fnc_addClassEventHandler;
+  //init doesn't function from a script call, only config level
+  //[_x, "init", _ccLockSeats, true, [], true] call CBA_fnc_addClassEventHandler;
+  [_x, "GetIn", _ccLockSeats, true, [], true] call CBA_fnc_addClassEventHandler;
+  [_x, "GetOut", _ccLockSeats, true, [], true] call CBA_fnc_addClassEventHandler;
 } forEach ["vtx_MH60M_DAP", "vtx_MH60M_DAP_MLASS"];
