@@ -220,10 +220,17 @@ _action = ["vtx_skis_remove","Uninstall Skis", "", {(_target) animateSource ["sk
 // fnc_ccLockSeats). fnc_ccSwap unlocks the target for the one scripted
 // move, then relocks.
 {
+  // init: PLAIN lock immediately (a toggle here leaves the seats unlocked at
+  // mission start - the next-frame relock doesn't fire reliably in the init
+  // window; field-tested 2026-09-20, turned-out seats were enterable until
+  // the first get-out), then a delayed toggle at +1s for the menu rebuild
+  // (the first ACE action-list build only refreshes on a lock TRANSITION -
+  // the "Door Left 1 unreachable until a crew cycle" report)
   [_x, "init", {
     params ["_veh"];
     if (!local _veh) exitWith {};
     [_veh] call vtx_uh60_misc_fnc_ccLockSeats;
+    [{_this call vtx_uh60_misc_fnc_ccLockSeats}, [_veh, true], 1] call CBA_fnc_waitAndExecute;
   }, true, [], true] call CBA_fnc_addClassEventHandler;
   [_x, "GetIn", {
     params ["_veh"];
