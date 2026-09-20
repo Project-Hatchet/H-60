@@ -214,8 +214,13 @@ private _erfsRemoveOption = [
 	[false,false,false,false,false],
 	{}
 ];
-["vtx_MH60M",0,[],(_erfsAddOption call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
-["vtx_MH60M",0,[],(_erfsRemoveOption call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
+// DAPs included (Riverman ruling 2026-09-20): they spawn ERFS-fitted (#626)
+// but crews may strip/refit the tanks like on the base M; the conditions
+// (toolkit + nearby tank + ERFS_show phase) are class-agnostic already
+{
+	[_x,0,[],(_erfsAddOption call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
+	[_x,0,[],(_erfsRemoveOption call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
+} forEach ["vtx_MH60M", "vtx_MH60M_DAP", "vtx_MH60M_DAP_MLASS"];
 
 ["ace_dragging_startedCarry", {
 	params ["_unit", "_target"];
