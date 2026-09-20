@@ -31,13 +31,16 @@ if !(
   _vehicle fireAtTarget [objNull];
 };
 
+if (!isNil "vtx_uh60_weapons_fireSelectedPFH") exitWith {};
+
 private _reloadTime = getNumber (configFile >> "CfgWeapons" >> _currentWeapon >> "_reloadTime");
-[{
+vtx_uh60_weapons_fireSelectedPFH = [{
     params ["_args", "_pfhID"];
     _args params ["_vehicle", "_currentWeapon", "_endTime"];
 
     if (vtx_uh60_weapons_isKeyUp || {CBA_missionTime >= _endTime}) exitWith {
         [_pfhID] call CBA_fnc_removePerFrameHandler;
+        vtx_uh60_weapons_fireSelectedPFH = nil;
     };
 
     _vehicle fireAtTarget [objNull];
