@@ -8,6 +8,11 @@
 #include "defines.hpp"
 params ["_vehicle"];
 
+// SFM parking-brake chains (slope hold + brake-key sync): cheap arm-once
+// check, and the re-arm path after locality/seat changes. Must sit before
+// the !local exit below - the key watcher runs on the pilot's machine.
+[_vehicle] call vtx_uh60_engine_fnc_pbArm;
+
 private _fuel = fuel _vehicle;
 private _fuelConsumed = (_vehicle getVariable ["vtx_uh60_engine_lastFuelLevel", _fuel]) - _fuel;
 
