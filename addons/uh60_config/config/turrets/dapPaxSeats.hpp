@@ -33,8 +33,13 @@ class CargoTurret_02: CargoTurret {
 class CargoTurret_03: CargoTurret_02 {
     gunnerName = "Door Left 1";
     proxyIndex = 14;
-    memoryPointsGetInGunner = "pos Cargo L";
-    memoryPointsGetInGunnerDir = "pos Cargo L dir";
+    // NOT the M's "pos Cargo L" (tester report 2026-09-20): on the DAP that
+    // point already serves the L Crew Chief seat, and the engine resolves one
+    // get-in per memory point - the crew chief won and this seat was
+    // unreachable from outside/scroll. L5 is free on the DAP (the M's Door
+    // Left 2 point; that seat doesn't exist here).
+    memoryPointsGetInGunner = "pos Cargo L5";
+    memoryPointsGetInGunnerDir = "pos Cargo L5 dir";
     class TurnIn {
         limitsArrayBottom[] = {[-32.2276,-94.9017],[-32.7616,-79.1958],[-45,-75.6488],[-44.9653,95]};
         limitsArrayTop[] = {[9.4395,-94.8557],[12.5849,-34.3841],[14.0365,60.8758],[14.1021,95]};
