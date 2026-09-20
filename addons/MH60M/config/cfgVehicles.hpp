@@ -215,6 +215,7 @@ class CfgVehicles {
             ANIM_INIT(RADAR_HIDE,0);
             ANIM_INIT(FLIR_HIDE,0);
             ANIM_INIT(MAWS_Tubes_Show,1);
+            ANIM_INIT(ERFS_show,1); // DAP spawns with the ERFS tanks fitted (Riverman ruling 2026-09-20)
         }; // AnimationSources
         class CargoTurret;
         class Turrets: Turrets
@@ -325,6 +326,7 @@ class CfgVehicles {
             ANIM_INIT(RADAR_HIDE,0);
             ANIM_INIT(FLIR_HIDE,0);
             ANIM_INIT(MAWS_Tubes_Show,1);
+            ANIM_INIT(ERFS_show,1); // DAP spawns with the ERFS tanks fitted (Riverman ruling 2026-09-20)
         }; // AnimationSources
         class CargoTurret;
         class Turrets: Turrets
