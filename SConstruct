@@ -8,6 +8,8 @@ import os
 import zipfile
 import json
 import subprocess
+import re
+import hashlib
 
 env = Environment(tools=[])
 
@@ -85,12 +87,51 @@ def buildSymlink(pathFrom, pathTo):
     commands.append(f'mklink /J "{pathTo}" "{pathFrom}"')
     return commands
 
+def modVersion():
+    with open(os.path.join("addons", "main", "script_version.hpp")) as file:
+        defines = dict(re.findall(r"#define\s+(\w+)\s+(\d+)", file.read()))
+    return "{MAJOR}.{MINOR}.{PATCHLVL}.{BUILD}".format(**defines)
+
+# RPT pbo listings print the pbo header's 'version' property; AddonBuilder never
+# writes one, so every H-60 pbo reported "unknown" and server/client build
+# mismatches were invisible per-pbo. Insert the script_version.hpp version into
+# the sreV properties block and refresh the trailing SHA1 checksum.
+def stampPboVersion(pboPath, version):
+    with open(pboPath, "rb") as file:
+        data = file.read()
+    if not data.startswith(b"\x00sreV"):
+        raise Exception(pboPath + ": no sreV header entry, cannot stamp version")
+    body, trailer = data[:-21], data[-21:]
+    if trailer[:1] != b"\x00" or trailer[1:] != hashlib.sha1(body).digest():
+        raise Exception(pboPath + ": trailing checksum invalid, cannot stamp version")
+    pos = 21  # empty filename + the 5 uint32 fields of the sreV entry
+    props = []
+    while True:
+        end = body.index(b"\x00", pos)
+        if end == pos:
+            break
+        props.append(body[pos:end])
+        pos = end + 1
+    if len(props) % 2:
+        raise Exception(pboPath + ": malformed header properties, cannot stamp version")
+    pairs = [props[i:i+2] for i in range(0, len(props), 2)]
+    pairs = [p for p in pairs if p[0].lower() != b"version"]
+    pairs.append([b"version", version.encode("ascii")])
+    propBlock = b"".join(p[0] + b"\x00" + p[1] + b"\x00" for p in pairs)
+    newBody = body[:21] + propBlock + body[pos:]
+    with open(pboPath, "wb") as file:
+        file.write(newBody + b"\x00" + hashlib.sha1(newBody).digest())
+
 def buildPbo(settings,env, pbo):
     optBinarize = "-binarize=C:\\Windows\\System32\\print.exe" if pbo.name in settings["noBinarize"] else ""
     cfgConvertArg = "-cfgconvert=asdfafds" # + a3toolsPath() + "\\CfgConvert\\CfgConvert.exe"
+    def stampAction(target, source, env, path=os.path.abspath(pbo.filepath)):
+        stampPboVersion(path, modVersion())
+        return 0
     env.Command(pbo.outputPath, allFilesIn(pbo.folder)+["build"],[
         f'"{addonBuilderPath()}" "{os.path.abspath(pbo.buildSymlink)}" "{os.path.abspath(settings["outputFolder"])}" "-project=build" "-prefix={pbo.pboPrefix}" -include=tools\\buildExtIncludes.txt {optBinarize}',
-        Move(os.path.abspath(settings["outputFolder"]) + "/" + pbo.filename, os.path.abspath(pbo.builtpath))
+        Move(os.path.abspath(settings["outputFolder"]) + "/" + pbo.filename, os.path.abspath(pbo.builtpath)),
+        Action(stampAction, f"stampPboVersion({pbo.filename})")
         ])
     targetDefinition(pbo.name, f"Build the {pbo.name} pbo.")
     return env.Alias(pbo.name, pbo.outputPath)

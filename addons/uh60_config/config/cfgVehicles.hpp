@@ -74,7 +74,7 @@ class CfgVehicles {
   // one vehicle per file, all deriving from vtx_H60_base.
   #include "vehicles\UH60M.hpp"
   #include "vehicles\UH60M_MEDEVAC.hpp"
-  #include "vehicles\S70M.hpp"
+  #include "vehicles\S70i.hpp"
   #include "vehicles\UH60M_SLICK.hpp"
 
   // vtx_HH60: sole full declaration moved to addons/HH60 (Phase 1 PR B).

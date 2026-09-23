@@ -52,9 +52,6 @@ if (!(_doorSeats isEqualTo []) && {
     false;
 };
 // True
-{
-    _vehicle lockTurret [_x, true];
-} forEach _doorSeats;
 //_vehicle setVariable ["ace_fastroping_deploymentStage", -1, true];
 
 true

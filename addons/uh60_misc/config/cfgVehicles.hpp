@@ -79,6 +79,15 @@ class cfgVehicles {
         displayName = "Blackhawk Service Platform";
         model = "\z\vtx\addons\uh60_misc\data\serviceplatform\Yax_service_test.p3d";
     };
+    class vtx_erfs: vtx_serviceplatform {
+        displayName = "Blackhawk ERFS Tank";
+        model = "\A3\Supplies_F_Heli\CargoNets\CargoNet_01_box_F.p3d"; // Placeholder model
+        ace_cargo_canLoad = 1;
+        ace_dragging_canCarry = 1;
+        ace_cargo_size = 1;
+        ace_cargo_noRename = 1;
+        ace_dragging_carryDirection = -90;
+    };
     class vtx_fuelProbe: vtx_serviceplatform {
         displayName = "Blackhawk Fuel Probe";
         model = "\z\vtx\addons\uh60_misc\data\partialModels\refuelingProbe.p3d";
