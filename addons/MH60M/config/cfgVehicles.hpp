@@ -115,6 +115,8 @@ class CfgVehicles {
             class RightDoorGun: RightDoorGun {};
             #include "\z\vtx\addons\uh60_config\config\turrets\cargoTurrets.hpp"
             #include "\z\vtx\addons\MH60M\config\turrets\troopCommander.hpp"
+            // (base MH-60M keeps the cabin cargo turrets; the DAP variants below
+            // carry no passengers and mount the MFOS aft gunners instead)
         };
         class hct_turret_12 {
             projectPrefix = "vtx_uh60";
@@ -199,6 +201,8 @@ class CfgVehicles {
             ANIM_INIT(Minigun_Sight_L_hide,1);
             ANIM_INIT(Minigun_Sight_R_hide,1);
             ANIM_INIT(MH60MMisc_show,1);
+            ANIM_INIT(mfos_fwd_hide,1);
+            ANIM_INIT(mfos_aft_hide,0);
 
             ANIM_INIT(CabinSeats_1_Hide,1);
             ANIM_INIT(CabinSeats_2_Hide,1);
@@ -211,6 +215,7 @@ class CfgVehicles {
             ANIM_INIT(RADAR_HIDE,0);
             ANIM_INIT(FLIR_HIDE,0);
             ANIM_INIT(MAWS_Tubes_Show,1);
+            ANIM_INIT(ERFS_show,1); // DAP spawns with the ERFS tanks fitted (Riverman ruling 2026-09-20)
         }; // AnimationSources
         class CargoTurret;
         class Turrets: Turrets
@@ -220,7 +225,11 @@ class CfgVehicles {
                     class ANVISHUD: ANVISHUD_COPILOT {};
                 };
             };
-            #include "\z\vtx\addons\uh60_config\config\turrets\cargoTurrets.hpp"
+            // DAP cabin (Riverman rulings 2026-09-07/18): the base M's cabin cargo
+            // turrets removed; MFOS aft crew chiefs + two full-time emergency
+            // pax door seats (downed-aircrew pickup) are the only rear positions
+            #include "\z\vtx\addons\uh60_config\config\turrets\mfosAft.hpp"
+            #include "\z\vtx\addons\uh60_config\config\turrets\dapPaxSeats.hpp"
         };
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa","z\vtx\addons\mh60m\data\mlass_co.paa","z\vtx\addons\uh60\data\lass\lass_co.paa","z\vtx\addons\mh60m\data\full60m_co.paa"};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera", "vtx_MH60M_M134_minigun"};
@@ -303,6 +312,8 @@ class CfgVehicles {
             ANIM_INIT(Minigun_Sight_L_hide,1);
             ANIM_INIT(Minigun_Sight_R_hide,1);
             ANIM_INIT(MH60MMisc_show,1);
+            ANIM_INIT(mfos_fwd_hide,1);
+            ANIM_INIT(mfos_aft_hide,0);
 
             ANIM_INIT(CabinSeats_1_Hide,1);
             ANIM_INIT(CabinSeats_2_Hide,1);
@@ -315,6 +326,7 @@ class CfgVehicles {
             ANIM_INIT(RADAR_HIDE,0);
             ANIM_INIT(FLIR_HIDE,0);
             ANIM_INIT(MAWS_Tubes_Show,1);
+            ANIM_INIT(ERFS_show,1); // DAP spawns with the ERFS tanks fitted (Riverman ruling 2026-09-20)
         }; // AnimationSources
         class CargoTurret;
         class Turrets: Turrets
@@ -324,7 +336,11 @@ class CfgVehicles {
                     class ANVISHUD: ANVISHUD_COPILOT {};
                 };
             };
-            #include "\z\vtx\addons\uh60_config\config\turrets\cargoTurrets.hpp"
+            // DAP cabin (Riverman rulings 2026-09-07/18): the base M's cabin cargo
+            // turrets removed; MFOS aft crew chiefs + two full-time emergency
+            // pax door seats (downed-aircrew pickup) are the only rear positions
+            #include "\z\vtx\addons\uh60_config\config\turrets\mfosAft.hpp"
+            #include "\z\vtx\addons\uh60_config\config\turrets\dapPaxSeats.hpp"
         };
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa","z\vtx\addons\MH60M\Data\Mlass_co.paa","z\vtx\addons\mh60m\data\mlass_co.paa","z\vtx\addons\uh60\data\lass\lass_co.paa","z\vtx\addons\mh60m\data\full60m_co.paa"};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera", "vtx_MH60M_M134_minigun"};
