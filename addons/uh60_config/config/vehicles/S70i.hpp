@@ -21,7 +21,7 @@ class vtx_S70i: vtx_H60_base {
       "z\vtx\addons\MH60S\data\mh60s_main_co.paa",
       "z\vtx\addons\MH60S\data\mh60s_misc_co.paa",
       "z\vtx\addons\MH60S\data\mh60s_tail_co.paa",
-      "","","","","", // Markings, door numbers L1, L2, R1, R2
+      "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","", // Markings (blank — no military markings), door numbers L1, L2, R1, R2
       "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
     };
     transportSoldier=0;
@@ -41,6 +41,7 @@ class vtx_S70i: vtx_H60_base {
     }; // AnimationSources
     class Turrets: Turrets {
       class CopilotTurret: CopilotTurret {};
+      #include "..\turrets\crewSeatsFFV.hpp"
     };
     class MFD: MFD {
       class VTX_MFD_1_NOFLIR :           VTX_MFD_1_NOFLIR {};
