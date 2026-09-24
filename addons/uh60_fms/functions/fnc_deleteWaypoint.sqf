@@ -8,8 +8,9 @@
 params ["_player"];
 private _microDagrWaypoints = [] call ace_microdagr_fnc_deviceGetWaypoints; 
 
-_grp = group _player; 
-_idx = currentWaypoint _grp; 
+_grp = group _player;
+_idx = currentWaypoint _grp;
+if (_idx <= 0) exitWith {};
 _desc = waypointDescription [_grp, _idx];
 
 _pos = waypointPosition [_grp, _idx]; 
