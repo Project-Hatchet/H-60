@@ -24,7 +24,9 @@ if((count _copilotTurretIndex) > 0 && (count _turretIndex) > 0 && {(_turretIndex
 
 if (count _turretIndex == 0) exitWith { false }; // at this point if you're not in a turret you can't control
 
-if ((_turretIndex # 0) < 3) exitWith { true }; // doorgunners are 1 and 2
+// Door gunners no longer get control (Riverman ruling 2026-09-23): on the real
+// aircraft only the pilots and the crew member holding the hoist pendant run
+// the winch — in config terms, the "(hoist controls)" seat matched below.
 
 private _config = [configOf _vehicle, _turretIndex] call ace_common_fnc_getTurretConfigPath;
 private _gunnerName = getText (_config >> "gunnerName");
