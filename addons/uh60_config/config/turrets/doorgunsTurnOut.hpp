@@ -31,6 +31,12 @@ class MainTurret: MainTurret { //Left Doorgun
     // shared properties
     canHideGunner = 1;
     forceHideGunner = 0;
+    // #510 + turn-out sound objective (2026-09-07, flight-proven): filtered
+    // cabin audio while turned in, raw slipstream when turned out. =0 gives
+    // that switching natively; =2 kills attenuation in BOTH states (tested -
+    // it is not a turn-out-only switch, despite what the wiki implies)
+    soundAttenuationTurret = "VTX_H60_CabinAttenuation";
+    disableSoundAttenuation = 0;
     gunnerType = "vtx_uh60_doorgunner";
     gunnerLeftHandAnimName = "";
     gunnerRightHandAnimName = "";
