@@ -3,25 +3,10 @@ params ["_vehicle", "_button", "_var"];
 	// systemchat str _this;
 switch (_button) do {
 	case "WAYPT_SLEW": {
-		private _currentWaypointIndex = currentWaypoint group player;
-		private _waypoints = waypoints group player;
-
-		if (_currentWaypointIndex < count _waypoints) exitWith { // valid base game waypoint
-			private _target = AGLToASL waypointPosition [group player, _currentWaypointIndex];
-			_vehicle setPilotCameraTarget _target;
-			[[], _target] call vtx_uh60_flir_fnc_syncPilotCamera;
-		};
+		call vtx_uh60_flir_fnc_keyTdcSlewWaypoint;
 	};
 	case "WAYPT_CREATE": {
-		(getPilotCameraTarget _vehicle) params ["_stabilized", "_position"];
-		if (!_stabilized) exitWith {};
-		private _targets = _vehicle getVariable ["vtx_uh60_flir_targets", 0];
-        [
-            format ["TGT %1 %2", _targets + 1, name player],
-            _position,
-            ""
-        ] call vtx_uh60_fms_fnc_addWaypoint;
-		_vehicle setVariable ["vtx_uh60_flir_targets", _targets + 1];
+		call vtx_uh60_flir_fnc_keyTdcWaypointSet;
 	};
 	case "LST_CHAN": {
 		//private _laserCodeIndex = _vehicle ammoOnPylon 44;
