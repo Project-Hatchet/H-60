@@ -21,7 +21,7 @@ class vtx_S70i: vtx_H60_base {
       "z\vtx\addons\MH60S\data\mh60s_main_co.paa",
       "z\vtx\addons\MH60S\data\mh60s_misc_co.paa",
       "z\vtx\addons\MH60S\data\mh60s_tail_co.paa",
-      "","","","","", // Markings, door numbers L1, L2, R1, R2
+      "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","", // Markings (blank — no military markings), door numbers L1, L2, R1, R2
       "z\vtx\addons\UH60\Data\FuelProbe\Fuel_probe_co.paa"
     };
     transportSoldier=0;
@@ -41,6 +41,34 @@ class vtx_S70i: vtx_H60_base {
     }; // AnimationSources
     class Turrets: Turrets {
       class CopilotTurret: CopilotTurret {};
+      #include "..\turrets\crewSeatsFFV.hpp"
+      // Pendant seat — same "Door Right 1 (hoist controls)" as the military
+      // variants (copy of cargoTurretsDoor.hpp CargoTurret_01), so the S-70i
+      // gains hoist-operator capability when fix/hoist-control-gate lands.
+      // Riverman ruling 2026-09-23: the crew chief never runs the winch from
+      // the window seat; the pendant lives at the right cabin door.
+      class CargoTurret_01: CargoTurret {
+        gunnerAction = "passenger_bench_1";
+        gunnerInAction = "passenger_bench_1";
+        memoryPointsGetInGunner = "pos Cargo R";
+        memoryPointsGetInGunnerDir = "pos Cargo R dir";
+        gunnerName = "Door Right 1 (hoist controls)";
+        gunnerCompartments = Compartment2;
+        proxyIndex = 12;
+        isPersonTurret = 2;        /// enables a person to get into the turret from outside
+        selectionFireAnim = "";
+        disableSoundAttenuation = 0;
+        LODTurnedIn = 1200;
+        LODTurnedOut = 1200;
+        LODOpticsIn = 1200;
+        LODOpticsOut = 1200;
+        class TurnIn /// limits for gunner turned in
+        {
+            limitsArrayBottom[] = {[-45,-94.9656],[-45,80.9904],[-31.9033,82.8465],[-31.7935,95]};
+            limitsArrayTop[] = {[14.705,-95],[14.1224,-62.859],[12.3049,32.9414],[9.0862,94.948]};
+        };
+        class TurnOut: TurnIn {}; /// turn out uses the same limits as turn in this time
+      };
     };
     class MFD: MFD {
       class VTX_MFD_1_NOFLIR :           VTX_MFD_1_NOFLIR {};
