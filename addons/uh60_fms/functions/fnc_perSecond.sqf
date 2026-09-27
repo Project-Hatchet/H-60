@@ -25,9 +25,9 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
             };
         };
         [
-            str ceil (missionNamespace getVariable ["vtx_uh60_engine_fuelConsumption",0]),
-            missionNamespace getVariable ["vtx_uh60_engine_fuelTime","--:--:--"],
-            str floor (missionNamespace getVariable ["vtx_uh60_engine_fuelRange",0]),
+            str ceil (_vehicle getVariable ["vtx_uh60_engine_fuelConsumption",0]),
+            _vehicle getVariable ["vtx_uh60_engine_fuelTime","--:--:--"],
+            str floor (_vehicle getVariable ["vtx_uh60_engine_fuelRange",0]),
             str round (((_weight # 0) + (_weight # 1) + (_weight # 3) + (_weight # 4)) * 2.20462),
             _stateText
         ]

@@ -1,5 +1,7 @@
+#include "defines.hpp"
+
 params ["_vehicle", "_frameTime", ["_fmsCoupled", false]];
-if (vtx_uh60_rotorRPM < 0.04) exitWith {};
+if (GET("rotorRPM",0) < 0.04) exitWith {};
 private _desiredHeading = (round(((vehicle player) animationSourcePhase "FD_5_ROT")*36));
 private _waypointCount = count (waypoints (group player));
 private _hasWaypoint = _waypointCount > (currentWaypoint (group player));
@@ -18,7 +20,8 @@ _reldir = {
 private _headingDiff = [_desiredHeading, _heading] call _reldir;
 private _outputForce = -1 * ([_vehicle, "hdg", _frameTime, 0, _headingDiff] call hct_util_fnc_pidRun);
 // systemChat str ["running HDG", round _desiredHeading, round _heading, _headingDiff, _outputForce];
-_vehicle addTorque (_vehicle vectorModelToWorld [0,0,_outputForce max (-1*ias_max_rudderTorque) min ias_max_rudderTorque]);
+private _maxRudderTorque = GET("maxRudderTorque",800);
+_vehicle addTorque (_vehicle vectorModelToWorld [0,0,_outputForce max (-1*_maxRudderTorque) min _maxRudderTorque]);
 
 private _speedKts = (speed _vehicle) / 1.852;
 private _desiredBank = 0;
@@ -35,4 +38,5 @@ if (abs _headingDiff < 2) then {
 (_vehicle call BIS_fnc_getPitchBank) params ["_pitch", "_bank"];
 private _bankForce = -1 * ([_vehicle, "roll", _frameTime, _desiredBank max -30 min 30, _bank] call hct_util_fnc_pidRun);
 // systemChat str ["banking", _desiredBank, _bankForce, _bank];
-_vehicle addTorque (_vehicle vectorModelToWorld [0,_bankForce max (-1*ias_max_pitchTorque) min ias_max_pitchTorque,0]);
+private _maxPitchTorque = GET("maxPitchTorque",2000);
+_vehicle addTorque (_vehicle vectorModelToWorld [0,_bankForce max (-1*_maxPitchTorque) min _maxPitchTorque,0]);

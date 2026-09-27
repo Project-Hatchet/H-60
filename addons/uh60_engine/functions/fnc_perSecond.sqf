@@ -6,29 +6,28 @@
  * params (array)[(object) vehicle]
  */
 #include "defines.hpp"
+#include "\z\vtx\addons\uh60_fms\config\fmsDefines.hpp"
 params ["_vehicle"];
 
 private _fuel = fuel _vehicle;
 private _fuelConsumed = (_vehicle getVariable ["vtx_uh60_engine_lastFuelLevel", _fuel]) - _fuel;
 
 _vehicle setVariable ["vtx_uh60_engine_lastFuelLevel", _fuel];
-if (_fuelConsumed > 0) then {
-    private _fuelTimeSecondsTotal = (fuel _vehicle) / _fuelConsumed;
-    private _fuelTimeStr = [_fuelTimeSecondsTotal] call CBA_fnc_formatElapsedTime;
-    vtx_uh60_engine_fuelTime = _fuelTimeStr;
-    vtx_uh60_engine_fuelConsumption = _fuelConsumed * 2040 * 60;
-    vtx_uh60_engine_fuelRange = round ((_fuelTimeSecondsTotal * (vectorMagnitude (velocity _vehicle))) * 0.000539957);
+
+private _isPilotSeat = (player == driver _vehicle) || {(_vehicle unitTurret player) isEqualTo [0]};
+if (_isPilotSeat) then {
+    private _fmsPageIndex = if (player == driver _vehicle) then {FMS_R_PAGE_INDEX} else {FMS_L_PAGE_INDEX};
+    if (((getUserMFDValue _vehicle) # _fmsPageIndex) == FMS_PAGE_PERFORMANCE && {_fuelConsumed > 0}) then {
+        private _fuelTimeSecondsTotal = (fuel _vehicle) / _fuelConsumed;
+        SET("vtx_uh60_engine_fuelTime", [_fuelTimeSecondsTotal] call CBA_fnc_formatElapsedTime);
+        SET("vtx_uh60_engine_fuelConsumption", _fuelConsumed * 2040 * 60);
+        SET("vtx_uh60_engine_fuelRange", round ((_fuelTimeSecondsTotal * (vectorMagnitude (velocity _vehicle))) * 0.000539957));
+    };
 };
 
-private _esisCount = _vehicle getVariable ["ESIS_COUNTER", 0];
-if (!local _vehicle) exitWith {
-    _vehicle setUserMFDValue [49, _esisCount];
-};
-
-if (_esisCount > -1) then {
-    _vehicle setVariable ["ESIS_COUNTER", _esisCount - 1, true];
-    _vehicle setUserMFDValue [49, _esisCount];
-};
+private _esisStartTime = _vehicle getVariable ["ESIS_START_TIME", cba_missionTime];
+private _esisCount = round (70 - (cba_missionTime - _esisStartTime)) max -1;
+_vehicle setUserMFDValue [49, _esisCount];
 
 if (difficultyEnabledRTD) then {
     [_vehicle] call vtx_uh60_engine_fnc_acftRTDController;
