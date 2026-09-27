@@ -216,8 +216,27 @@ private _erfsRemoveOption = [
 	[false,false,false,false,false],
 	{}
 ];
-["vtx_MH60M",0,[],(_erfsAddOption call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
-["vtx_MH60M",0,[],(_erfsRemoveOption call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
+// DAPs included (Riverman ruling 2026-09-20): they spawn ERFS-fitted (#626)
+// but crews may strip/refit the tanks like on the base M; the conditions
+// (toolkit + nearby tank + ERFS_show phase) are class-agnostic already
+{
+	[_x,0,[],(_erfsAddOption call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
+	[_x,0,[],(_erfsRemoveOption call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
+} forEach ["vtx_MH60M", "vtx_MH60M_DAP", "vtx_MH60M_DAP_MLASS"];
+
+["ace_dragging_startedCarry", {
+	params ["_unit", "_target"];
+	if (_target isKindOf "vtx_erfs") then {
+		_target disableCollisionWith _unit;
+	};
+}] call CBA_fnc_addEventHandler;
+
+["ace_dragging_stoppedCarry", {
+	params ["_unit", "_target"];
+	if (_target isKindOf "vtx_erfs") then {
+		_target enableCollisionWith _unit;
+	};
+}] call CBA_fnc_addEventHandler;
 
 _action = ["vtx_skis_add","Install Skis", "", {(_target) animateSource ["skis_show", 1];}, {((_target) animationSourcePhase "skis_show") < 0.1}, nil, [parameters], [1.33319,2.8541,-1.6735]] call ace_interact_menu_fnc_createAction;
 ["vtx_H60_base", 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
