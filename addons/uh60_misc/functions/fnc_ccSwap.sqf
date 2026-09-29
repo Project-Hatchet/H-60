@@ -13,9 +13,16 @@
  *
  * The turned-out seats stay LOCKED (init hook in XEH_postInit) so they never
  * show in any menu; a locked turret refuses even moveInTurret (the 47's
- * hoist-crew law), so the target is unlocked for exactly this one move and
- * relocked once the unit is aboard. Lock commands go to the vehicle's owner
- * (remoteExecCall on the object = its owner; local call in SP/hosted).
+ * hoist-crew law), so the swap is a handshake with the vehicle's owner
+ * (fnc_ccSwapLocks), which is rarely the crew chief's machine in MP:
+ *  1. ask the owner to open the target AND the seat being left
+ *  2. wait until the target READS BACK unlocked - nobody is moved before
+ *     that, so a request that never lands leaves the unit in its seat
+ *  3. moveOut, then moveInTurret every frame until aboard; if the target
+ *     keeps refusing, fall back to the seat the unit came from
+ *  4. hand both paths back to the owner, which reconciles the locks
+ * (dev tester report 2026-09-29: in hosted MP the one-shot move-in was
+ * refused and the swap left the crew chief outside the aircraft.)
  *
  * Seats are matched by gunnerName so the turret paths never need hardcoding:
  * "L Crew Chief" <-> "L Crew Chief (Turned Out)", same for R.
@@ -55,30 +62,48 @@ if (_tgt == -1) exitWith {false};
 if (_dryRun) exitWith {true};
 
 private _path = (_crew # _tgt) # 3;
+private _from = (_crew # _mine) # 3;
 
 // the target is locked whenever it matters (turned-out spots always; the
-// vacated crew-chief seat while its owner is turned out), and a locked
-// turret refuses even moveInTurret (47 hoist-crew law) - so open it for
-// exactly this one move. The busy marker keeps the lock reconcile
-// (fnc_ccLockSeats, fired by any GetIn/GetOut mid-swap) off that path; the
-// finish step clears it and reconciles, which computes every final lock
-// state from the new occupancy - including the fail paths, so a botched
+// vacated crew-chief seat while its owner is turned out). Both ends of the
+// swap are opened and marked busy on the owner, which keeps the lock
+// reconcile (fnc_ccLockSeats, fired by any GetIn/GetOut mid-swap) off them;
+// the close step releases them and reconciles, which computes every final
+// lock state from the new occupancy - including the fail paths, so a botched
 // move can't strand a seat locked or open.
-private _finish = {
-    params ["_unit", "_veh", "_path"];
-    _veh setVariable ["vtx_ccSwapBusy", [], true];
-    [_veh, false] remoteExecCall ["vtx_uh60_misc_fnc_ccLockSeats", _veh];
-};
-_veh setVariable ["vtx_ccSwapBusy", [_path], true];
-[_veh, [_path, false]] remoteExecCall ["lockTurret", _veh];
-moveOut _unit;
-[{isNull objectParent (_this # 0)},
- {
-    params ["_unit", "_veh", "_path", "_finish"];
-    _unit moveInTurret [_veh, _path];
-    [{objectParent (_this # 0) isEqualTo (_this # 1)},
-     (_this # 3), [_unit, _veh, _path], 5, (_this # 3)
-    ] call CBA_fnc_waitUntilAndExecute;
+["vtx_uh60_misc_ccSwapOpen", [_veh, [_from, _path]], _veh] call CBA_fnc_targetEvent;
+
+[{
+    params ["", "_veh", "", "_path"];
+    !(_veh lockedTurret _path)
  },
- [_unit, _veh, _path, _finish], 3, _finish] call CBA_fnc_waitUntilAndExecute;
+ {
+    params ["_unit", "_veh", "_from", "_path"];
+    if !(objectParent _unit isEqualTo _veh) exitWith {
+        ["vtx_uh60_misc_ccSwapClose", [_veh, [_from, _path]], _veh] call CBA_fnc_targetEvent;
+    };
+    moveOut _unit;
+    [{
+        params ["_args", "_handle"];
+        _args params ["_unit", "_veh", "_from", "_path", "_start", "_wasOut"];
+        private _out = isNull objectParent _unit;
+        if (_out) then {_args set [5, true];};
+        private _elapsed = CBA_missionTime - _start;
+        if ((_wasOut && {!_out}) || {!alive _unit} || {_elapsed > 4}) exitWith {
+            [_handle] call CBA_fnc_removePerFrameHandler;
+            ["vtx_uh60_misc_ccSwapClose", [_veh, [_from, _path]], _veh] call CBA_fnc_targetEvent;
+        };
+        if (_out) then {
+            // target first; back to the seat the unit came from if it
+            // keeps refusing
+            _unit moveInTurret [_veh, if (_elapsed < 1.5) then {_path} else {_from}];
+        };
+    }, 0, [_unit, _veh, _from, _path, CBA_missionTime, false]] call CBA_fnc_addPerFrameHandler;
+ },
+ [_unit, _veh, _from, _path], 3,
+ {
+    // the unlock never read back: nobody was moved, just release the paths
+    params ["", "_veh", "_from", "_path"];
+    ["vtx_uh60_misc_ccSwapClose", [_veh, [_from, _path]], _veh] call CBA_fnc_targetEvent;
+ }] call CBA_fnc_waitUntilAndExecute;
 true

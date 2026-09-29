@@ -5,8 +5,9 @@
  * source of truth, recomputed from occupancy on every call (callers guard
  * vehicle locality):
  *  - "(Turned Out)" spots: ALWAYS locked - swap-only, fnc_ccSwap is the only
- *    way in or out (it briefly unlocks its target and marks the path in the
- *    vtx_ccSwapBusy variable, which this function skips).
+ *    way in or out (the owner opens both ends of the swap and marks them
+ *    in the vtx_ccSwapBusy variable, which this function skips - see
+ *    fnc_ccSwapLocks).
  *  - "L/R Crew Chief": locked while their "(Turned Out)" counterpart is
  *    OCCUPIED (Riverman ruling 2026-09-18: the vacated seat stays reserved
  *    for the turned-out crew chief), open otherwise. The GetOut hook
@@ -51,15 +52,18 @@ private _unlock = [];
     };
 } forEach _turrets;
 
+private _debug = missionNamespace getVariable ["vtx_uh60_ui_showDebugMessages", false];
 {_veh lockTurret [_x, false]} forEach _unlock;
 if (_toggle) then {
     {_veh lockTurret [_x, false]} forEach _lock;
     [{
-        params ["_veh", "_lock", "_unlock"];
+        params ["_veh", "_lock", "_unlock", "_debug"];
+        // a swap may have opened one of these paths since they were computed
+        _lock = _lock - (_veh getVariable ["vtx_ccSwapBusy", []]);
         {_veh lockTurret [_x, true]} forEach _lock;
-        diag_log format ["VTX CC RELOCK: %1 locked %2 open %3 readback %4", typeOf _veh, _lock, _unlock, _lock apply {_veh lockedTurret _x}];
-    }, [_veh, _lock, _unlock]] call CBA_fnc_execNextFrame;
+        if (_debug) then {diag_log format ["VTX CC RELOCK: %1 locked %2 open %3 readback %4", typeOf _veh, _lock, _unlock, _lock apply {_veh lockedTurret _x}];};
+    }, [_veh, _lock, _unlock, _debug]] call CBA_fnc_execNextFrame;
 } else {
     {_veh lockTurret [_x, true]} forEach _lock;
-    diag_log format ["VTX CC LOCK: %1 locked %2 open %3 readback %4", typeOf _veh, _lock, _unlock, _lock apply {_veh lockedTurret _x}];
+    if (_debug) then {diag_log format ["VTX CC LOCK: %1 locked %2 open %3 readback %4", typeOf _veh, _lock, _unlock, _lock apply {_veh lockedTurret _x}];};
 };

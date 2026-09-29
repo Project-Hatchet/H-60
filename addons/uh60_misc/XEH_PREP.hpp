@@ -9,6 +9,7 @@ PREP(canRemoveCustomization);
 PREP(canUnfold);
 PREP(ccLockSeats);
 PREP(ccSwap);
+PREP(ccSwapLocks);
 PREP(fold);
 PREP(foldInstant);
 PREP(foldFreeze);
