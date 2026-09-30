@@ -12,6 +12,8 @@
 // their side (proxies 18/19) to see and clear the tail, and back.
 class MFOSCrewChief_L: CargoTurret {
   gunnerName = "L Crew Chief";
+  soundAttenuationTurret = "VTX_H60_CabinAttenuation"; // #510: seated inside the airframe, same as the fwd crew chief seats (#617); inherited by the turned-out spots
+  disableSoundAttenuation = 0;
   gunnerType = "vtx_uh60_doorgunner";
   gunnerCompartments = "Compartment2";
   gunnerAction = passenger_inside_1;
