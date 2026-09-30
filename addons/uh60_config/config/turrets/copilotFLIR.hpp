@@ -37,9 +37,10 @@ class CopilotTurret: CopilotTurret {
   CanEject=0;
   gunnerAction = "UH60_Pilot";
   gunnerInAction = "UH60_Pilot";
-  canHideGunner = 1;
-  forceHideGunner = 1;
-  soundAttenuationTurret = "SemiOpenHeliAttenuation";
+  // #510: canHideGunner/forceHideGunner deliberately unset - the legacy
+  // canHideGunner=0 (and the =1 probe) both break this seat; see copilot.hpp
+  soundAttenuationTurret = "VTX_H60_CabinAttenuation"; // #510 parity with copilot.hpp (this file returns with the optics restoration)
+  disableSoundAttenuation = 0;
   viewGunnerInExternal = 1;
   gunnerUsesPilotView = 1;
   // 1100 = View - Pilot LOD; without these the turret defaults to the door-gunner
