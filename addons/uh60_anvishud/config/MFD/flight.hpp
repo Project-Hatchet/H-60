@@ -159,7 +159,7 @@ class torqueWrapper {
 			source = "static";
 			sourceIndex = 1;
 			sourceScale = 1;
-			text = "MSL";
+			text = "FT";
 		}; // TORQUE_LBL
 	};
 
