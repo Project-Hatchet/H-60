@@ -10,6 +10,8 @@ PREP(handleKeyInputs);
 PREP(handleSlew);
 PREP(initVars);
 PREP(keyFLIRSlewToHMD);
+PREP(keyTdcWaypointSet);
+PREP(keyTdcSlewWaypoint);
 PREP(keyVisionMode);
 PREP(keyZoom);
 PREP(mfdNav);

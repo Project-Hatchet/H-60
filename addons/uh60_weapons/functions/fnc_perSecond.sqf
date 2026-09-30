@@ -1,7 +1,6 @@
 params ["_vehicle"];
 
 [_vehicle] call vtx_uh60_weapons_fnc_updateMFDValues;
-vtx_uh60_hellfire_currentTof = (vtx_uh60_hellfire_currentTof - 1) max -1;
 
 if (ace_player == driver _vehicle) then {
   if (_vehicle getVariable ["vtx_uh60_weapons_masterArm_isSafe", false]) then {
