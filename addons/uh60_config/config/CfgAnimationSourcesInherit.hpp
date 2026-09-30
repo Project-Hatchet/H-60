@@ -154,4 +154,6 @@ class AnimationSources: AnimationSources {
   class CollisionLightWhite_source;
   class window_l;
   class window_r;
+  class mfos_fwd_hide;
+  class mfos_aft_hide;
 };
