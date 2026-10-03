@@ -60,7 +60,6 @@ switch (_mode) do {
         if (GET_VS_STATE) then {SET_GLOBAL("alt_mode",vtx_uh60_fd_fnc_vs)}else{SET_GLOBAL("alt_mode",nil)};
     };
     case "IAS": {
-        if (difficultyEnabledRTD) exitWith {["Warning\nFD could not be engaged\nThe Heading autopilot mode is not enabled on advanced flight model\n"] call vtx_uh60_misc_fnc_hint;};
         if (isTouchingGround _vehicle) exitWith {["Warning\nFD could not be engaged\nMode could not be engaged on ground"] call vtx_uh60_misc_fnc_hint;};
         CYCLE_IAS_STATE;
         if (GET_IAS_STATE) then {
@@ -69,7 +68,6 @@ switch (_mode) do {
         } else {SET_GLOBAL("pitch_mode", nil)};
     };
     case "HDG": {
-        if (difficultyEnabledRTD) exitWith {["Warning\nFD could not be engaged\nThe Heading autopilot mode is not enabled on advanced flight model\n"] call vtx_uh60_misc_fnc_hint;};
         if (isTouchingGround _vehicle) exitWith {["Warning\nFD could not be engaged\nMode could not be engaged on ground"] call vtx_uh60_misc_fnc_hint;};
         CYCLE_HDG_STATE;
         if (GET_HDG_STATE) then {
@@ -78,7 +76,6 @@ switch (_mode) do {
         } else {SET_GLOBAL("roll_mode", nil)};
     };
     case "FMS": {
-        if (difficultyEnabledRTD) exitWith {["Warning\nFD could not be engaged\nThe FMS coupled mode is not enabled on advanced flight model\n"] call vtx_uh60_misc_fnc_hint;};
         if (isTouchingGround _vehicle) exitWith {["Warning\nFD could not be engaged\nMode could not be engaged on ground"] call vtx_uh60_misc_fnc_hint;};
         CYCLE_FMS_STATE;
         if (GET_FMS_STATE) then {
@@ -87,7 +84,6 @@ switch (_mode) do {
         } else {SET_GLOBAL("roll_mode", nil)};
     };
     case "HVR": {
-        // if (difficultyEnabledRTD) exitWith {["Warning\nFD could not be engaged\nThe Heading autopilot mode is not enabled on advanced flight model\n"] call vtx_uh60_misc_fnc_hint;};
         if (isTouchingGround _vehicle) exitWith {["Warning\nFD could not be engaged\nMode could not be engaged on ground"] call vtx_uh60_misc_fnc_hint;};
         CYCLE_HVR_STATE;
         if (GET_HVR_STATE) then {

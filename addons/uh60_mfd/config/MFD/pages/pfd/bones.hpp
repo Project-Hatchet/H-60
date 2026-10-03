@@ -233,7 +233,6 @@ class PFD_Q2 {
 class PFD_TRQ { 
 	type="linear";
 	source="user";
-	//source="rtdRotorTorque";
 	sourceIndex=22;
 	sourceScale=1;
 	min=0;
@@ -245,7 +244,6 @@ class PFD_TRQ {
 class PFD_COLL {
 	type="linear";
 	source="user";
-	//source="rtdCollective";
 	sourceIndex=48;
 	sourceScale=1;
 	min=0;

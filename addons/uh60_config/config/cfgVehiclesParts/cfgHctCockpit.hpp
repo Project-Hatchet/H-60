@@ -77,7 +77,7 @@ class interaction {
       animSpeed=0;
       animStates[] = {0.5, 0};
       animLabels[] = {"OFF", "APU BOOST"};
-      animEnd="_this call bmkhs_interact_fnc_apuFuelSwitch";//"_this call vtx_uh60_engine_fnc_apuState";
+      animEnd="_this call vtx_uh60_engine_fnc_apuState";
       clickSound="hct_Switch_Sound";
     }; // fuelPump
     class apucont {
@@ -89,7 +89,7 @@ class interaction {
       animSpeed=0;
       animStates[] = {0.5, 0};
       animLabels[] = {"OFF", "ON"};
-      animEnd="_this call bmkhs_interact_fnc_apuSwitch; (_this # 0) call vtx_uh60_cas_fnc_updateCautionPanel;";
+      animEnd="_this call vtx_uh60_engine_fnc_apuState; (_this # 0) call vtx_uh60_cas_fnc_updateCautionPanel;";
       clickSound="hct_Switch_Sound_3";
     }; // apucont
     class b_airsce: apucont {
@@ -99,20 +99,19 @@ class interaction {
       animStates[] = {1, 0.5, 0};
       animLabels[] = {"ENG" ,"OFF", "APU"};
       clickSound="hct_Switch_Sound_3";
-      animEnd="[(_this # 0), (_this # 2)] call bmkhs_interact_fnc_airSourceSwitch";
+      animEnd="";
     }; // b_airsce
     class b_batt1: apucont {
       position="b_batt1";
       label="NO.1 BATT";
       animation="Switch_batt1";
-      animEnd="_this call bmkhs_interact_fnc_battery1Switch";//"_this call vtx_uh60_engine_fnc_batteryState";
+      animEnd="_this call vtx_uh60_engine_fnc_batteryState";
       clickSound="hct_Switch_Sound_3";
     }; // b_batt1
     class b_batt2: b_batt1 {
       position="b_batt2";
       label="NO.2 BATT";
       animation="Switch_batt2";
-      animEnd="_this call bmkhs_interact_fnc_battery2Switch";
     }; // b_batt2
       SIMPLE_SWITCH(b_egi1,"button_egi1","NO.1 EGI","Switch_Egi1",1,0,"")
       SIMPLE_SWITCH(b_egi2,"button_egi2","NO.2 EGI","Switch_Egi2",1,0,"")
@@ -122,7 +121,7 @@ class interaction {
       label="STBY INST";
       animation="Switch_stbyinst";
       animLabels[] = {"OFF", "ARM"};
-      animEnd="[(_this # 0), (_this # 2)] call bmkhs_interact_fnc_standbyInstrumentSwitch";//"_this call vtx_uh60_engine_fnc_batteryState";
+      animEnd="_this call vtx_uh60_engine_fnc_batteryState";
     }; // b_stbyinst
     class b_fuelboostpump1: b_batt1 {
       position="b_fuelboostpump1";
@@ -138,19 +137,19 @@ class interaction {
       position="b_gen1";
       label="NO.1 GEN";
       animation="Switch_gen1";
-      animEnd="_this call bmkhs_interact_fnc_acGenerator1Switch";//"_this call vtx_uh60_engine_fnc_batteryState";
+      animEnd="_this call vtx_uh60_engine_fnc_batteryState";
     }; // b_gen1
     class b_gen2: b_batt1 {
       position="b_gen2";
       label="NO.2 GEN";
       animation="Switch_gen2";
-      animEnd="_this call bmkhs_interact_fnc_acGenerator2Switch";//"_this call vtx_uh60_engine_fnc_batteryState";
+      animEnd="_this call vtx_uh60_engine_fnc_batteryState";
     }; // b_gen2
     class b_apugen: b_batt1 {
       position="b_apugen";
       label="APU GEN";
       animation="Switch_apugen";
-      animEnd="_this call bmkhs_interact_fnc_apuGeneratorSwitch";//"_this call vtx_uh60_engine_fnc_batteryState";
+      animEnd="_this call vtx_uh60_engine_fnc_batteryState";
     }; // b_apugen
     class b_fuelsys1 {
       positionType="anim";
@@ -161,13 +160,12 @@ class interaction {
       animation="Lever_fuelsys1";
       animStates[] = {0,0.6,1};
       animLabels[] = {"OFF", "DIR","XFD"};
-      animEnd="[(_this # 0), (_this # 2)] call bmkhs_interact_fnc_eng1FuelLever";//"[(_this # 0), false, ""fuel""] remoteExecCall [""vtx_uh60_engine_fnc_engineEH"", crew (_this # 0)]; if (vtx_uh60_ui_showDebugMessages) then {diag_log ""fuelsys"";};";
+      animEnd="[(_this # 0), false, ""fuel""] remoteExecCall [""vtx_uh60_engine_fnc_engineEH"", crew (_this # 0)]; if (vtx_uh60_ui_showDebugMessages) then {diag_log ""fuelsys"";};";
     }; // b_fuelsys1
     class b_fuelsys2: b_fuelsys1 {
       position="b_fuelsys2";
       label="NO.2 FUEL SYS";
       animation="Lever_fuelsys2";
-      animEnd="[(_this # 0), (_this # 2)] call bmkhs_interact_fnc_eng2FuelLever";
     }; // b_fuelsys2
     class b_ignition {
       positionType="static";
@@ -178,7 +176,7 @@ class interaction {
       animation="Switch_ignition";
       animStates[] = {0, 1};
       animLabels[] = {"OFF", "ON"};
-      animEnd="_this call bmkhs_interact_fnc_masterIgnitionSwitch";//"_this call vtx_uh60_engine_fnc_starterState";
+      animEnd="_this call vtx_uh60_engine_fnc_starterState";
       clickSound = "hct_Key_Sound";
     }; // b_ignition
     class b_starter1 {
@@ -186,7 +184,7 @@ class interaction {
       position="b_starter1";
       label="NO.1 Engine Starter";
       radius=0.025;
-      buttonUp="_this call bmkhs_interact_fnc_eng1StartButton";//"[_this # 0, ""STARTER1"", ""ON""] call vtx_uh60_engine_fnc_starterState";
+      buttonUp="[_this # 0, ""STARTER1"", ""ON""] call vtx_uh60_engine_fnc_starterState";
       clickSound="hct_Switch_Sound";
     }; // b_starter1
     class b_starter2 {
@@ -194,11 +192,10 @@ class interaction {
       position="b_starter2";
       label="NO.2 Engine Starter";
       radius=0.025;
-      buttonUp="_this call bmkhs_interact_fnc_eng2StartButton";//"[_this # 0, ""STARTER2"", ""ON""] call vtx_uh60_engine_fnc_starterState";
+      buttonUp="[_this # 0, ""STARTER2"", ""ON""] call vtx_uh60_engine_fnc_starterState";
       clickSound="hct_Switch_Sound";
     }; // b_starter2
     class powerContRFM {
-      condition="!difficultyEnabledRTD";
     class b_engpowercont1 {
       interactionCondition = "_this call vtx_uh60_engine_fnc_rotorBrakeInterlock";
       positionType="anim";
@@ -209,27 +206,6 @@ class interaction {
       animSpeed=0.5;
       animStates[] = {0,0.23,0.85}; // no idle for the moment for SFM
       animLabels[] = {"OFF","IDLE","FLY"};
-      animEnd="[(_this # 0), (_this # 2)] call bmkhs_interact_fnc_eng1PowerLever";//"[(_this # 0), (_this # 2 != ""OFF""), ""throttle"", (_this # 2), (_this # 1)] remoteExecCall [""vtx_uh60_engine_fnc_engineEH"", crew (_this # 0)]; if (vtx_uh60_ui_showDebugMessages) then {diag_log ""powercont"";};";
-    }; // b_engpowercont1
-    class b_engpowercont2: b_engpowercont1 {
-      position="b_engpowercont2";
-      label="NO.2 ENG PCL";
-      animation="Lever_engpower2";
-      animEnd="[(_this # 0), (_this # 2)] call bmkhs_interact_fnc_eng2PowerLever";
-    }; // b_engpowercont2
-    }; // powerContRFM
-    class powerContRTD {
-      condition="difficultyEnabledRTD";
-    class b_engpowercont1 {
-      interactionCondition = "_this call vtx_uh60_engine_fnc_rotorBrakeInterlock";
-      positionType="anim";
-      position="b_engpowercont1";
-      label="NO.1 ENG PCL";
-      radius=0.035;
-      animation="Lever_engpower1";
-      animSpeed=0.5;
-      animStates[] = {0,0.23,0.85};
-      animLabels[] = {"OFF", "IDLE","FLY"};
       animEnd="[(_this # 0), (_this # 2 != ""OFF""), ""throttle"", (_this # 2), (_this # 1)] remoteExecCall [""vtx_uh60_engine_fnc_engineEH"", crew (_this # 0)]; if (vtx_uh60_ui_showDebugMessages) then {diag_log ""powercont"";};";
     }; // b_engpowercont1
     class b_engpowercont2: b_engpowercont1 {
@@ -237,7 +213,7 @@ class interaction {
       label="NO.2 ENG PCL";
       animation="Lever_engpower2";
     }; // b_engpowercont2
-    }; // powerContRTD
+    }; // powerContRFM
     class l_rotorbrake: b_airsce {
       clickSound="hct_RotorBrake_Sound";
       position="RotorBrake";

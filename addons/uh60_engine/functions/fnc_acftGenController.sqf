@@ -1,25 +1,17 @@
 params ["_vehicle"];
 
-//private _acBusOn = _vehicle getVariable "bmkhs_acBusOn";
-//
-//if (_acBusOn) then {
-//  _vehicle animate ["GeneratorsOnOff", 1];
-//} else {
-//  _vehicle animate ["GeneratorsOnOff", 0];
-//};
-/*
 //APU
 private _apuState           = _vehicle getVariable "vtx_uh60_acft_apuState";
 private _apuGenSwitchState  = _vehicle getVariable "vtx_uh60_acft_apuGenSwitchState";
 private _apuGenState        = _vehicle getVariable "vtx_uh60_acft_apuGenState";
 //Engine 1
 private _eng1State          = _vehicle getVariable "bmkhs_engState" select 0;
-private _eng1PctNP          = _vehicle getVariable "vtx_uh60_sfmplus_engPctNP" select 0;
+private _eng1PctNP          = _vehicle getVariable "bmkhs_engPctNp" select 0;
 private _eng1GenSwitchState = _vehicle getVariable "vtx_uh60_acft_eng1GenSwitchState";
 private _eng1GenState       = _vehicle getVariable "vtx_uh60_acft_eng1GenState";
 //Engine 2
 private _eng2State          = _vehicle getVariable "bmkhs_engState" select 1;
-private _eng2PctNP          = _vehicle getVariable "vtx_uh60_sfmplus_engPctNP" select 1;
+private _eng2PctNP          = _vehicle getVariable "bmkhs_engPctNp" select 1;
 private _eng2GenSwitchState = _vehicle getVariable "vtx_uh60_acft_eng2GenSwitchState";
 private _eng2GenState       = _vehicle getVariable "vtx_uh60_acft_eng2GenState";
 
@@ -76,4 +68,4 @@ if (_ACBusState == "ON") then {
     _vehicle animate ["GeneratorsOnOff", 1];
 } else {
     _vehicle animate ["GeneratorsOnOff", 0];
-};*/
+};

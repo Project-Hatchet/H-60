@@ -12,8 +12,6 @@ params ["_vehicle", "_show"];
 
 CTRL(4001121) ctrlShow (_show);
 HELPCTRL(4) ctrlShow (false);
-HELPCTRL(5) ctrlShow (false);
-HELPCTRL(6) ctrlShow (false);
 HELPCTRL(7) ctrlShow (false);
 HELPCTRL(8) ctrlShow (false);
 HELPCTRL(9) ctrlShow (false);

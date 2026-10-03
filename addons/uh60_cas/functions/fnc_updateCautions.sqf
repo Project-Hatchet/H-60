@@ -91,7 +91,7 @@ _setPylonFn = {
 };
 
 // GEN 1 GEN 2 HYD 1 HYD 2
-(_vehicle getVariable ["vtx_uh60_sfmplus_engPctNP", [0,0]]) params ["_np1", "_np2"];
+(_vehicle getVariable ["bmkhs_engPctNp", [0,0]]) params ["_np1", "_np2"];
 private _np = (_np1 max _np2);
 [USERMFDV_L00, _np < 0.9] call _setPylonFn;
 [USERMFDV_R00, _np < 0.9] call _setPylonFn;
@@ -129,7 +129,7 @@ if (_trot > 2) then {
 [USERMFDV_L13, (damage _vehicle) > 0.5] call _setPylonFn;
 
 // STARTER 1 STARTER 2
-(_vehicle getVariable ["vtx_uh60_sfmplus_engState", ["OFF", "OFF"]]) params ["_eng1", "_eng2"];
+(_vehicle getVariable ["bmkhs_engState", ["OFF", "OFF"]]) params ["_eng1", "_eng2"];
 [USERMFDV_L15, _eng1 == "STARTING"] call _setPylonFn;
 [USERMFDV_R15, _eng2 == "STARTING"] call _setPylonFn;
 

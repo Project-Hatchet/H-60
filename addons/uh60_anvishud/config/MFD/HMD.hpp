@@ -98,16 +98,6 @@ class Bones {
 	};
 	#include "pitchLadder_bones.hpp"
 	#include "horizonBank_bones.hpp"
-	class rtdCollectiveBar
-	{
-		type="linear";
-	    source="rtdCollective";
-	    min=0;
-	    max=1;
-		sourceScale=1;
-		minPos[]={0,0.57};
-		maxPos[]={0,0.8};
-	};
 	class VSIBar
 	{
 		type="linear";

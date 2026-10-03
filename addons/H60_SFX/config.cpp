@@ -11,7 +11,6 @@ class CfgPatches
 			"vtx_uh60_config",
 			"vtx_hh60", // Compat.hpp patches vtx_HH60, owned by addons/HH60 since Phase 1 PR B
 			"vtx_uh60_doorguns",
-			"vtx_uh60_sfmplus",
 			"vtx_mh60m",
 			"vtx_mh60s",
 			"vtx_ace_viv"

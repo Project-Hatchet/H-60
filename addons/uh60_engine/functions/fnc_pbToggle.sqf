@@ -2,12 +2,11 @@
  * vtx_uh60_engine_fnc_pbToggle
  *
  * Toggles the parking brake lever - the one entry point every input
- * converges on: the Armakeybinds "Parking Brake" bind, the SFM
- * HeliWheelsBrake watcher (fnc_pbKeyTick), and (under AFM) the RotorLib
- * action EH in fnc_setup all end up flipping the same lever, and the
+ * converges on: the Armakeybinds "Parking Brake" bind and the SFM
+ * HeliWheelsBrake watcher (fnc_pbKeyTick) both end up flipping the same lever, and the
  * lever's state is what the slope hold and taxi drive read.
  *
- * Direct animateSource (the fnc_setup RotorLib-EH pattern), NOT the
+ * Direct animateSource, NOT the
  * framework's scriptedInteract with a computed label - that path
  * double-actuated (suspected click-retry while the lever animation is
  * still traveling; flagged for the framework conversation).

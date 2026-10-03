@@ -13,7 +13,8 @@ params ["_vehicle"];
 private _fms = if (player == driver _vehicle) then [{ FMS_R_PAGE_INDEX }, { FMS_L_PAGE_INDEX }];
 private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
     case FMS_PAGE_PERFORMANCE: {
-        private _weight = weightRTD _vehicle;
+        //Gross mass less fuel, kg - HeliSim sets the mass and publishes the fuel.
+        private _weight = (getMass _vehicle) - (_vehicle getVariable ["bmkhs_totFuelMass", 0]);
         private _state = _vehicle animationPhase "Fuelprobe_Extend";
         private _stateText = "NOT INSTALLED";
         if (_vehicle animationSourcePhase "Fuelprobe_show" > 0) then {
@@ -28,7 +29,7 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
             str ceil (_vehicle getVariable ["vtx_uh60_engine_fuelConsumption",0]),
             _vehicle getVariable ["vtx_uh60_engine_fuelTime","--:--:--"],
             str floor (_vehicle getVariable ["vtx_uh60_engine_fuelRange",0]),
-            str round (((_weight # 0) + (_weight # 1) + (_weight # 3) + (_weight # 4)) * 2.20462),
+            str round (_weight * 2.20462),
             _stateText
         ]
     };

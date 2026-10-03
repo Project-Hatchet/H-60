@@ -5,12 +5,10 @@
  * lever SET + weight on wheels + slow -> horizontal velocity damped each
  * tick, so a parked ship stops creeping downhill on slopes. Deliberately
  * soft - stands down above 8 km/h so it never fights a takeoff or a
- * landing rollout. AFM/RTD untouched: there setBrakesRTD provides real
- * wheel brakes (fnc_wheelBrakes) and this chain refuses to run, so
- * HeliSim later needs no changes here.
+ * landing rollout.
  *
  * The lever animation is the single source of truth - hand click, brake
- * key and the AFM RotorLib event all converge on Handle_wheelbrake, and
+ * key and the parking brake bind all converge on Handle_wheelbrake, and
  * this chain only ever reads its phase.
  *
  * Armed by fnc_pbArm from the engine perSecond loop, which is also what
@@ -33,8 +31,7 @@ if (isNil "vtx_uh60_pbHoldMaxSlope") then {
     vtx_uh60_pbHoldMaxSlope = 17;   // deg terrain slope: past this, no hold
 };
 
-if (isNull _vehicle || {!alive _vehicle} || {!local _vehicle}
-    || {difficultyEnabledRTD && {isObjectRTD _vehicle}}) exitWith {
+if (isNull _vehicle || {!alive _vehicle} || {!local _vehicle}) exitWith {
     _vehicle setVariable ["vtx_uh60_engine_pbHoldOn", false];
 };
 // per-tick gates just skip the damp (no chain churn on brake taps)

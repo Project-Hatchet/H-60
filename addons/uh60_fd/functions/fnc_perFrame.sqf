@@ -47,17 +47,7 @@ if (_rotorState > _lastRotorAnim) then {
 SET("lastRotorAnim", _rotorState);
 
 private _altCode = GET("alt_mode",nil);
-if (!isNil "_altCode") then {_this call _altCode} else {
-    if (vtx_uh60m_simpleCollective && difficultyEnabledRTD) then {
-        private _collective = (inputAction "HeliCollectiveRaise") - (inputAction "HeliCollectiveLower");
-        if (_collective != 0) then {
-            SET("collectiveHeld", GET("collectiveHeld",0) + _frameTime);
-        } else {
-            SET("collectiveHeld", 1);
-        };
-        [_vehicle, _frameTime, _collective * 8 * ((GET("collectiveHeld",0) / 3) min 3)] call vtx_uh60_fd_fnc_verticalVelocity;
-    };
-};
+if (!isNil "_altCode") then {_this call _altCode};
 
 
 private _pitchCode = GET("pitch_mode",nil);

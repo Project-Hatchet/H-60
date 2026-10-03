@@ -235,7 +235,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_PCL1_OFF {
     displayName = "#1 PCL Off";
 		tooltip = "Moves the #1 PCL to the OFF Position";
-		onActivate = "[hct_vehicle, ['startup', 'powerContRTD', 'b_engpowercont1'], 'OFF'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'powerContRFM', 'b_engpowercont1'], 'OFF'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -243,7 +243,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_PCL1_IDLE {
     displayName = "#1 PCL Idle";
 		tooltip = "Moves the #1 PCL to the Idle Position";
-		onActivate = "[hct_vehicle, ['startup', 'powerContRTD', 'b_engpowercont1'], 'IDLE'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'powerContRFM', 'b_engpowercont1'], 'IDLE'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -251,7 +251,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_PCL1_FLY {
     displayName = "#1 PCL Fly";
 		tooltip = "Moves the #1 PCL to the Fly Position";
-		onActivate = "[hct_vehicle, ['startup', 'powerContRTD', 'b_engpowercont1'], 'FLY'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'powerContRFM', 'b_engpowercont1'], 'FLY'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -259,7 +259,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_PCL2_OFF {
     displayName = "#2 PCL Off";
 		tooltip = "Moves the #2 PCL to the OFF Position";
-		onActivate = "[hct_vehicle, ['startup', 'powerContRTD', 'b_engpowercont2'], 'OFF'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'powerContRFM', 'b_engpowercont2'], 'OFF'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -267,7 +267,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_PCL2_IDLE {
     displayName = "#2 PCL Idle";
 		tooltip = "Moves the #2 PCL to the Idle Position";
-		onActivate = "[hct_vehicle, ['startup', 'powerContRTD', 'b_engpowercont2'], 'IDLE'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'powerContRFM', 'b_engpowercont2'], 'IDLE'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
@@ -275,7 +275,7 @@ class Vtx_FuelPump_OFF {
  class Vtx_PCL2_FLY {
     displayName = "#2 PCL Fly";
 		tooltip = "Moves the #2 PCL to the Fly Position";
-		onActivate = "[hct_vehicle, ['startup', 'powerContRTD', 'b_engpowercont2'], 'FLY'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
+		onActivate = "[hct_vehicle, ['startup', 'powerContRFM', 'b_engpowercont2'], 'FLY'] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).

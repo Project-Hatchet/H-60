@@ -12,7 +12,7 @@
 #endif
 
 #ifdef DEBUG_SETTINGS_UH60_HELISIM
-    #define DEBUG_SETTINGS DEBUG_SETTINGS_MH60M
+    #define DEBUG_SETTINGS DEBUG_SETTINGS_UH60_HELISIM
 #endif
 
 #include "\z\vtx\addons\main\script_macros.hpp"

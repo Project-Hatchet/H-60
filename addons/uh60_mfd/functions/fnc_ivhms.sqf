@@ -37,9 +37,6 @@ _vehicle setUserMFDText [6,_modulesText select [62,62]];
 // 7 MODULES3
 _vehicle setUserMFDText [7,_modulesText select [124,62]];
 
-// 8 ADVANCED FLIGHT MODEL
-_vehicle setUserMFDText [8, if (difficultyEnabledRTD) then [{"FM ADVANCED"}, {"FM STANDARD"}]];
-
 // 9 hct_DRIVER
 _vehicle setUserMFDText [9, configName _config];
 

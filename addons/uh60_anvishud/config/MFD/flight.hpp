@@ -31,21 +31,6 @@ class torqueWrapper {
 	};
 	class DCLT_HIDE {
 		condition=COND_FULL_ONLY;
-		class IS_RTD {
-			condition="simulRTD";
-			TEXT_HMD_L(C_LBL,0.015,0.81+(SMALL_LINEHEIGHT*1))
-				source = "static";
-				sourceIndex = 1;
-				sourceScale = 1;
-				text = "C";
-			}; // TORQUE_LBL
-			TEXT_HMD_L(C_VAL,0.065,0.81+(SMALL_LINEHEIGHT*1))
-				source = "rtdCollective";
-				sourceIndex = 1;
-				sourceScale = 100;
-				text = "";
-			}; // TORQUE_VAL
-		};
 		class ACOL_ON {
 			condition="collisionlights";
 			TEXT_HMD_L(TEXT,0.015,0.81-SMALL_LINEHEIGHT*2)

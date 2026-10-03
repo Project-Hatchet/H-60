@@ -7,7 +7,7 @@
  * accelerates toward it (converges - no runaway, no static-friction
  * stall), pedals pivot the ship with a speed-scaled turn-radius cap,
  * and upward velocity is clamped while driving so a nose-low hull never
- * unsticks the gear. AFM/RTD untouched - the chain refuses to run there.
+ * unsticks the gear.
  *
  * 60 adaptations vs the 47G original:
  *  - drive gate = engine on + rotor near flight NR (rotorSpeed sound
@@ -47,8 +47,7 @@ if (isNil "vtx_uh60_taxiMaxKmh") then {
 };
 
 if (isNull _vehicle || {!alive _vehicle} || {!local _vehicle}
-    || {!isTouchingGround _vehicle}
-    || {difficultyEnabledRTD && {isObjectRTD _vehicle}}) exitWith {
+    || {!isTouchingGround _vehicle}) exitWith {
     _vehicle setVariable ["vtx_uh60_engine_taxiOn", false];
 };
 

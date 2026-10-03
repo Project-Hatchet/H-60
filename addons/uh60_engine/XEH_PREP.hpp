@@ -25,11 +25,9 @@ PREP(acftAPU);
 PREP(acft_SetAPU);
 PREP(acftBattery);
 PREP(acftDebug);
-PREP(acftEngController);
 PREP(acftEngLeverStates);
 PREP(acftGenController);
-PREP(acftRTDController);
-PREP(acftSoundController);
+//PREP(acftSoundController);
 PREP(acftSwitchStates);
 
 PREP(UpdateAPU_State);

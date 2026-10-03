@@ -44,7 +44,6 @@ class vtx_H60_base: Heli_Transport_01_base_F {
     //multiplier of back rotor force
     backRotorForceCoef = 0.8;
     simulation = "helicopterRTD";
-    #include "..\cfgVehiclesParts\RotorLibHelicopterProperties.hpp"
     #include "..\cfgVehiclesParts\sounds.hpp"
     #include "..\cfgVehiclesParts\slingload.hpp"
     #include "..\cfgVehiclesParts\UI.hpp"

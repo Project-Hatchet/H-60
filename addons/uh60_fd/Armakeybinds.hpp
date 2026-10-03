@@ -20,12 +20,12 @@ class CfgUserActions {
   };
   class Vtx_IAS_Toggle: Vtx_RALT_Toggle {
     displayName = "ARM/DISARM IAS Hold";
-    tooltip = "Toggles the Indicated Airspeed Hold Mode. NOT AVAILABLE IN AFM";
+    tooltip = "Toggles the Indicated Airspeed Hold Mode.";
     onActivate = "[hct_vehicle, 'IAS'] call vtx_uh60_fd_fnc_modeSet;";		// _this is always true.
   };
   class Vtx_HDG_Toggle: Vtx_RALT_Toggle {
     displayName = "ARM/DISARM HDG Hold";
-    tooltip = "Toggles the Heading Hold Mode. NOT AVAILABLE IN AFM";
+    tooltip = "Toggles the Heading Hold Mode.";
     onActivate = "[hct_vehicle, 'HDG'] call vtx_uh60_fd_fnc_modeSet;";		// _this is always true.
   };
   class Vtx_FMS_Toggle: Vtx_RALT_Toggle {
@@ -50,12 +50,12 @@ class CfgUserActions {
   };
   class Vtx_IAS_Increase: Vtx_RALT_Toggle {
     displayName = "Increase IAS Hold";
-    tooltip = "Increases the Indicated Airspeed Hold Mode. NOT AVAILABLE IN AFM";
+    tooltip = "Increases the Indicated Airspeed Hold Mode.";
     onActivate = "[hct_vehicle, ['misc', format ['KnobFD%1_IAS', ['Left', 'Right'] select (driver hct_vehicle == hct_player)]], 1] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
   };
   class Vtx_HDG_Increase: Vtx_RALT_Toggle {
     displayName = "Increase HDG Hold";
-    tooltip = "Increases the Heading Hold Mode. NOT AVAILABLE IN AFM";
+    tooltip = "Increases the Heading Hold Mode.";
     onActivate = "[hct_vehicle, ['misc', format ['KnobFD%1_HDG', ['Left', 'Right'] select (driver hct_vehicle == hct_player)]], 1] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
   };
   class Vtx_RALT_Decrease: Vtx_RALT_Toggle {
@@ -75,12 +75,12 @@ class CfgUserActions {
   };
   class Vtx_IAS_Decrease: Vtx_RALT_Toggle {
     displayName = "Decrease IAS Hold";
-    tooltip = "Decreases the Indicated Airspeed Hold Mode. NOT AVAILABLE IN AFM";
+    tooltip = "Decreases the Indicated Airspeed Hold Mode.";
     onActivate = "[hct_vehicle, ['misc', format ['KnobFD%1_IAS', ['Left', 'Right'] select (driver hct_vehicle == hct_player)]], -1] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
   };
   class Vtx_HDG_Decrease: Vtx_RALT_Toggle {
     displayName = "Decrease HDG Hold";
-    tooltip = "Decreases the Heading Hold Mode. NOT AVAILABLE IN AFM";
+    tooltip = "Decreases the Heading Hold Mode.";
     onActivate = "[hct_vehicle, ['misc', format ['KnobFD%1_HDG', ['Left', 'Right'] select (driver hct_vehicle == hct_player)]], -1] call hct_interaction_fnc_scriptedInteract;";		// _this is always true.
   };
 }; // CfgUserActions

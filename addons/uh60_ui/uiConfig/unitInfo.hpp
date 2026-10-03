@@ -68,25 +68,6 @@ class RscInGameUI
                     y = 0.095;
                     text = "Flight Director Standby: Control + Tab";
                 };
-        		class RTDWarning: vtx_centerText
-        		{
-        			idc = 5;
-        			x = 0;
-        			y = 0;
-        			w = safeZoneW;
-                    h = 0.08;
-                    size = 0.15;
-                    colorText[] = {1,0,0,1};
-        			text = "";
-        		};
-        		class RTDSimple2: RTDWarning
-        		{
-        			idc = 6;
-        			x = 0;
-        			y = 0.05;
-        			w = safeZoneW;
-        			text = "Consider enabling the simple collective option in CBA to allow for simple AFM flying with keyboard & mouse";
-        		};
 
                 #define ENGSTARTW 0.5
                 #define ENGSTARTH 0.25
