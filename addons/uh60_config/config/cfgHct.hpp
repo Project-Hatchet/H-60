@@ -1,17 +1,9 @@
 class hct_driver {
-<<<<<<<< HEAD:addons/UH60/config/cfgHct.hpp
-    #include "cfgVehiclesParts\cfgHctCockpit.hpp"
-};
-
-class hct_copilot {
-    #include "cfgVehiclesParts\cfgHctCockpit.hpp"
-========
     #include "cfgVehiclesParts\cfghctCockpit.hpp"
 };
 
 class hct_copilot {
     #include "cfgVehiclesParts\cfghctCockpit.hpp"
->>>>>>>> origin/Main:addons/uh60_config/config/cfgHct.hpp
 };
 
 class hct_cargo {
