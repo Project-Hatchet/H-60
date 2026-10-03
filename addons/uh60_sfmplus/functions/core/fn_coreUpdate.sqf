@@ -69,9 +69,8 @@ vtx_uh60_sfmplus_baseWeight = _emptyMass + _partsMass;
 //Add ViV
 
 private _maxTotFuelMass = _heli getVariable "vtx_uh60_sfmplus_maxTotFuelMass";
-private _tank1Mass    = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet select 0;
-private _tank2Mass    = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet select 1;
-private _tank3Mass    = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet select 2;
+private _fuelMasses = [_heli] call vtx_uh60_sfmplus_fnc_fuelSet;
+_fuelMasses params ["_tank1Mass", "_tank2Mass", "_tank3Mass"];
 
 //Engines
 [_heli, _deltaTime] call vtx_uh60_sfmplus_fnc_engineController;

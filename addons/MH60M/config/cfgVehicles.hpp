@@ -29,6 +29,10 @@ class VTX_MFD_1_ARMED;
 class VTX_MFD_2_ARMED;
 class VTX_MFD_3_ARMED;
 class VTX_MFD_4_ARMED;
+class VTX_MFD_1_ARMED4;
+class VTX_MFD_2_ARMED4;
+class VTX_MFD_3_ARMED4;
+class VTX_MFD_4_ARMED4;
 class ANVISHUD;
 class ANVISHUD_COPILOT;
 class VTX_CLOCK;
@@ -38,6 +42,10 @@ class VTX_FDRight;
 class VTX_FDLeft;
 class VTX_FMS_L;
 class VTX_FMS_R;
+class VTX_FMS_L2;
+class VTX_FMS_R2;
+class VTX_FMS_L4;
+class VTX_FMS_R4;
 class VTX_ESIS_BOOT;
 
 class CfgVehicles {
@@ -47,7 +55,7 @@ class CfgVehicles {
         class Turrets;
     }; // Heli_Transport_01_base_F
     class vtx_H60_base: Heli_Transport_01_base_F {
-        #include "\z\vtx\addons\UH60\config\CfgAnimationSourcesInherit.hpp"
+        #include "\z\vtx\addons\uh60_config\config\CfgAnimationSourcesInherit.hpp"
         class ViewPilot;
         class vtx_templateFLIR;
         class Components;
@@ -82,6 +90,8 @@ class CfgVehicles {
             ANIM_INIT(CabinSeats_1_Hide,1);
             ANIM_INIT(CabinSeats_2_Hide,1);
             ANIM_INIT(CabinSeats_3_Hide,1);
+            ANIM_INIT(Door_RF_Hide,1);
+            ANIM_INIT(Door_LF_Hide,1);
             ANIM_INIT(Cockpitdoors_Hide,1);
             ANIM_INIT(Minigun_Sight_L_hide,1);
             ANIM_INIT(Minigun_Sight_R_hide,1);
@@ -103,7 +113,7 @@ class CfgVehicles {
             };
             class MainTurret: MainTurret {};
             class RightDoorGun: RightDoorGun {};
-            #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
+            #include "\z\vtx\addons\uh60_config\config\turrets\cargoTurrets.hpp"
             #include "\z\vtx\addons\MH60M\config\turrets\troopCommander.hpp"
         };
         class hct_turret_12 {
@@ -114,8 +124,8 @@ class CfgVehicles {
                 };
             }; // modules
         }; //TC Seat
-        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa"};
-        #include "\z\vtx\addons\UH60\config\vehicleTransport.hpp"
+        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa","z\vtx\addons\mh60m\data\mlass_co.paa","z\vtx\addons\uh60\data\lass\lass_co.paa","z\vtx\addons\mh60m\data\full60m_co.paa"};
+        #include "\z\vtx\addons\uh60_config\config\vehicleTransport.hpp"
         class MFD: MFD {
             class VTX_MFD_1 :           VTX_MFD_1 {};
             class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};
@@ -193,6 +203,8 @@ class CfgVehicles {
             ANIM_INIT(CabinSeats_1_Hide,1);
             ANIM_INIT(CabinSeats_2_Hide,1);
             ANIM_INIT(CabinSeats_3_Hide,1);
+            ANIM_INIT(Door_RF_Hide,1);
+            ANIM_INIT(Door_LF_Hide,1);
             ANIM_INIT(Cockpitdoors_Hide,1);
             ANIM_INIT(FuelProbe_show,1);
             ANIM_INIT(MITAS_show,1);
@@ -208,9 +220,9 @@ class CfgVehicles {
                     class ANVISHUD: ANVISHUD_COPILOT {};
                 };
             };
-            #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
+            #include "\z\vtx\addons\uh60_config\config\turrets\cargoTurrets.hpp"
         };
-        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa"};
+        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa","z\vtx\addons\mh60m\data\mlass_co.paa","z\vtx\addons\uh60\data\lass\lass_co.paa","z\vtx\addons\mh60m\data\full60m_co.paa"};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera", "vtx_MH60M_M134_minigun"};
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries", "5000Rnd_762x51_Belt"};
         memoryPointGun[] = {"muzzle_1","muzzle_2"};
@@ -241,8 +253,8 @@ class CfgVehicles {
             class VTX_ESIS_Misc: VTX_ESIS_Misc {};
             class VTX_FDRight: VTX_FDRight {};
             class VTX_FDLeft: VTX_FDLeft {};
-            class VTX_FMS_L: VTX_FMS_L {};
-            class VTX_FMS_R: VTX_FMS_R {};
+            class VTX_FMS_L2: VTX_FMS_L2 {};
+            class VTX_FMS_R2: VTX_FMS_R2 {};
             class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
         };
     }; // vtx_H60_base
@@ -252,7 +264,7 @@ class CfgVehicles {
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         scope = 2;
         forceInGarage = 1;
-        editorPreview = "z\vtx\addons\MH60M\Data\Preview\vtx_MH60M_DAP.jpg";
+        editorPreview = "z\vtx\addons\MH60M\Data\Preview\vtx_MH60M_DAP_MLASS.jpg";
         memoryPointDriverOptics = "pilotcamera_flir_pos";
         transportSoldier=0;
         cargoProxyIndexes[] = {12, 13, 14, 15, 16, 17, 20, 21, 22, 23};
@@ -295,6 +307,8 @@ class CfgVehicles {
             ANIM_INIT(CabinSeats_1_Hide,1);
             ANIM_INIT(CabinSeats_2_Hide,1);
             ANIM_INIT(CabinSeats_3_Hide,1);
+            ANIM_INIT(Door_RF_Hide,1);
+            ANIM_INIT(Door_LF_Hide,1);
             ANIM_INIT(Cockpitdoors_Hide,1);
             ANIM_INIT(FuelProbe_show,1);
             ANIM_INIT(MITAS_show,1);
@@ -310,9 +324,9 @@ class CfgVehicles {
                     class ANVISHUD: ANVISHUD_COPILOT {};
                 };
             };
-            #include "\z\vtx\addons\UH60\config\turrets\cargoTurrets.hpp"
+            #include "\z\vtx\addons\uh60_config\config\turrets\cargoTurrets.hpp"
         };
-        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa","z\vtx\addons\MH60M\Data\Mlass_co.paa"};
+        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa","z\vtx\addons\MH60M\Data\Mlass_co.paa","z\vtx\addons\mh60m\data\mlass_co.paa","z\vtx\addons\uh60\data\lass\lass_co.paa","z\vtx\addons\mh60m\data\full60m_co.paa"};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera", "vtx_MH60M_M134_minigun"};
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries", "5000Rnd_762x51_Belt"};
         memoryPointGun[] = {"muzzle_1","muzzle_2"};
@@ -321,19 +335,22 @@ class CfgVehicles {
         selectionFireAnim = "zasleh_12";
         class VehicleTransport {};
         class MFD: MFD {
-            class VTX_MFD_1 :           VTX_MFD_1_ARMED {};
+            // ARMED4 variants define FLIR_PYLONS_4: the MLASS is the only
+            // craft with 4 pylon stations, so only it may reference
+            // pylonSelected3/4 in MFD conditions
+            class VTX_MFD_1 :           VTX_MFD_1_ARMED4 {};
             class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};
             class VTX_MFD_1_Monospace : VTX_MFD_1_Monospace {};
             class VTX_MFD_1_Bold :      VTX_MFD_1_Bold {};
-            class VTX_MFD_2 :           VTX_MFD_2_ARMED {};
+            class VTX_MFD_2 :           VTX_MFD_2_ARMED4 {};
             class VTX_MFD_2_CMWS :      VTX_MFD_2_CMWS {};
             class VTX_MFD_2_Monospace : VTX_MFD_2_Monospace {};
             class VTX_MFD_2_Bold :      VTX_MFD_2_Bold {};
-            class VTX_MFD_3 :           VTX_MFD_3_ARMED {};
+            class VTX_MFD_3 :           VTX_MFD_3_ARMED4 {};
             class VTX_MFD_3_CMWS :      VTX_MFD_3_CMWS {};
             class VTX_MFD_3_Monospace : VTX_MFD_3_Monospace {};
             class VTX_MFD_3_Bold :      VTX_MFD_3_Bold {};
-            class VTX_MFD_4 :           VTX_MFD_4_ARMED {};
+            class VTX_MFD_4 :           VTX_MFD_4_ARMED4 {};
             class VTX_MFD_4_CMWS :      VTX_MFD_4_CMWS {};
             class VTX_MFD_4_Monospace : VTX_MFD_4_Monospace {};
             class VTX_MFD_4_Bold :      VTX_MFD_4_Bold {};
@@ -343,17 +360,17 @@ class CfgVehicles {
             class VTX_ESIS_Misc: VTX_ESIS_Misc {};
             class VTX_FDRight: VTX_FDRight {};
             class VTX_FDLeft: VTX_FDLeft {};
-            class VTX_FMS_L: VTX_FMS_L {};
-            class VTX_FMS_R: VTX_FMS_R {};
+            class VTX_FMS_L4: VTX_FMS_L4 {};
+            class VTX_FMS_R4: VTX_FMS_R4 {};
             class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
         };
     }; // vtx_MH60M_DAP_MLASS
 }; // CfgVehicles
 
-class cfgNonAIVehicles{
-	class ProxyRetex;
-	class LASS: ProxyRetex{
-		hiddenSelections[] ={"LASS"};
-		model = "z\vtx\addons\UH60\LASS.p3d";
-	};
+class CfgNonAIVehicles {
+  class ProxyRetex;
+  class ProxyLASS: ProxyRetex {
+    hiddenSelections[] ={HIDDENSELECTIONS};
+    model = "\z\vtx\addons\UH60\LASS.p3d";
+  };
 };

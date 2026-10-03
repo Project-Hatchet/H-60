@@ -79,7 +79,7 @@ class vtx_TransmissionDamage_Ext_phase1_SoundShader_Base
 		}
 	};
 	frequency="0.66 + rotorspeed / 3";
-	volume="((transmissiondamage factor [0.3, 0.35])*(transmissiondamage factor [0.5, 0.45])*(rotorspeed factor [0.2, 0.5])*(CustomSoundController14+1)";
+	volume="(transmissiondamage factor [0.3, 0.35])*(transmissiondamage factor [0.5, 0.45])*(rotorspeed factor [0.2, 0.5])*(CustomSoundController14+1)";
 	range=100;
 };
 class vtx_TransmissionDamage_Ext_phase2_SoundShader_Base: vtx_TransmissionDamage_Ext_phase1_SoundShader_Base

@@ -3,11 +3,12 @@
 class CfgPatches {
     class ADDON {
         name = COMPONENT_NAME;
-        units[] = {};
+        units[] = {"vtx_pylon"};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
           "vtx_UH60",
+          "vtx_UH60_config",
           "ace_hellfire",
           "ace_missileguidance"
         };

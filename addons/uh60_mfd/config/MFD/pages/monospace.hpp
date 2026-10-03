@@ -16,6 +16,7 @@ class Bones {
 };
 
 class Draw {
+  #define JVMF_LINE_SCALING 0.04
 	class JVMF {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_JVMF);
 		TEXT_LEFT_SCALED_USERTEXT(freetext01,0.13,0.21+(JVMF_LINE_SCALING*0),31,0.04)
@@ -44,7 +45,6 @@ class Draw {
 			TEXT_LEFT_SCALED_USERTEXT(freetext09,0.13,0.21+(JVMF_LINE_SCALING*8),39,0.04)
 			TEXT_LEFT_SCALED_USERTEXT(freetext10,0.13,0.21+(JVMF_LINE_SCALING*9),40,0.04)
 		};
-		#define JVMF_LINE_SCALING 0.04
 	};
 	class ivhms {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_IVHMS);

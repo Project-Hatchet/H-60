@@ -17,6 +17,14 @@ params ["_vehicle"];
 private _camPosASL = hct_vehicle modelToWorldVisualWorld vtx_uh60_flir_camPos;
 vtx_uh60_flir_camera setPosASL _camPosASL;
 getPilotCameraTarget _vehicle params ["_isTracking", "_tgtPosASL", ""];
+// Object follow: the engine's target position is a static snapshot for
+// script-set object locks - aim at the live object from the mod's own state
+// variable instead (element 2, patched in fnc_syncPilotCamera) (#538)
+private _trackedObj = vtx_uh60_flir_pilotCameraTarget param [2, objNull];
+if (!isNull _trackedObj) then {
+  _isTracking = true;
+  _tgtPosASL = getPosASLVisual _trackedObj;
+};
 if (_isTracking) then {
   if (vtx_uh60_flir_isInScriptedCamera) then { // Fix laser target wandering off
     private _laserTarget = laserTarget hct_vehicle;

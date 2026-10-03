@@ -30,7 +30,7 @@ class plane_background {
 };
 
 class north_background {
-	condition = TAC_SELF_ORIENT;
+	condition = USERNNN(USERMFDV_TAC_ALIGN);
 	color[] =  common_black;
 	class white {
 		color[] =  common_white;

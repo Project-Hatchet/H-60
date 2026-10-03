@@ -4,7 +4,7 @@ class vtx_APUSoundLoop_Ext_SoundShader
 {
 	samples[]=
 	{
-		
+
 		{
 			"\z\vtx\addons\H60_SFX\Sounds\share\apu_ext_loop",
 			1
@@ -24,7 +24,7 @@ class vtx_Rotor_Distance_SoundShader
 {
 	samples[]=
 	{
-		
+
 		{
 			"\z\vtx\addons\H60_SFX\Sounds\Ext\Distant_Rotor",
 			1
@@ -46,7 +46,7 @@ class vtx_Engine_Distance_SoundShader
 {
 	samples[]=
 	{
-		
+
 		{
 			"\z\vtx\addons\H60_SFX\Sounds\Ext\Distant_Engine",
 			1
@@ -58,8 +58,8 @@ class vtx_Engine_Distance_SoundShader
 	rangecurve[]=
 	{
 		{0,0},
-		{300,1},
-		{1000,0.3},
+		{800,1},
+		{2000,0.3},
 		{3000,0}
 	};
 };
@@ -67,7 +67,7 @@ class vtx_EngineExt_SoundShader
 {
 	samples[]=
 	{
-		
+
 		{
 			"\z\vtx\addons\H60_SFX\Sounds\Ext\Engine_Ext",
 			1
@@ -75,20 +75,20 @@ class vtx_EngineExt_SoundShader
 	};
 	frequency="rotorSpeed*(1+rotorThrust/6)";
 	volume="camext*(rotorSpeed factor [0.3, 1])*(CustomSoundController14+1)";
-	range=1000;
+	range=1500;
 	rangecurve[]=
 	{
-		{0,1},
-		{300,0.8},
-		{800,0.3},
-		{1000,0}
+		{0,0.8},
+		{800,1},
+		{1200,0.3},
+		{1500,0}
 	};
 };
 class vtx_RotorExt_SoundShader: vtx_EngineExt_SoundShader
 {
 	samples[]=
 	{
-		
+
 		{
 			"\z\vtx\addons\H60_SFX\Sounds\Ext\Rotor_Ext",
 			1
@@ -109,7 +109,7 @@ class vtx_Turbine_Ext_SoundShader
 {
 	samples[]=
 	{
-		
+
 		{
 			"\z\vtx\addons\H60_SFX\Sounds\Ext\Turbine_Ext",
 			1
@@ -121,8 +121,7 @@ class vtx_Turbine_Ext_SoundShader
 	rangecurve[]=
 	{
 		{0,1},
-		{30,1},
-		{150,0.65},
+		{50,0.65},
 		{200,0}
 	};
 };
@@ -219,7 +218,7 @@ class vtx_ApuSoundLoop_Int_SoundShader: vtx_ApuSoundLoop_Ext_SoundShader
 {
 	samples[]=
 	{
-		
+
 		{
 			"\z\vtx\addons\H60_SFX\Sounds\share\apu_int_loop",
 			1
@@ -232,7 +231,7 @@ class vtx_EngineInt_SoundShader
 {
 	samples[]=
 	{
-		
+
 		{
 			"\z\vtx\addons\H60_SFX\Sounds\Int\Engine_Int",
 			1
@@ -245,7 +244,7 @@ class vtx_RotorInt_SoundShader
 {
 	samples[]=
 	{
-		
+
 		{
 			"\z\vtx\addons\H60_SFX\Sounds\Int\Rotor_Int",
 			1
@@ -258,7 +257,7 @@ class vtx_Engine_Transport_SoundShader_Base
 {
 	samples[]=
 	{
-		
+
 		{
 			"\z\vtx\addons\H60_SFX\Sounds\Int\Engine_Transport",
 			1

@@ -3,7 +3,7 @@ name: Model Error
 about: Any Error related to the model   
 title: 'Model: '
 labels: 'Model error'
-assignees: 'a26mike'
+assignees: ''
 ---
 # Prerequisites
 <!-- Your issue may already be reported! -->

@@ -13,8 +13,10 @@ if (_stabilized) then {
 	private _gridStr = format ["%1    %2    %3    %4", _gridArea select 0, _gridArea select 1, _grid select 0, _grid select 1];
 	_outputString = _outputString + _gridStr;
 };
-if (vtx_uh60_hellfire_currentTof > -1) then {
-	_outputString = _outputString + format["   HF TOF = %1", vtx_uh60_hellfire_currentTof];
+private _impactTime = _vehicle getVariable ["vtx_uh60_hellfire_impactTime", -1];
+private _currentTof = if (_impactTime < 0) then {-1} else {(ceil (_impactTime - cba_missionTime)) max -1};
+if (_currentTof > -1) then {
+	_outputString = _outputString + format["   HF TOF = %1", _currentTof];
 } else { // if no hellfire in the air, do the waypoint check
 	if (_stabilized) then {
 		{
@@ -52,7 +54,7 @@ if (_foundLaser) then {
 	_constraintsBoxType = if (_angleDiff < 7.5) then [{3}, {4}];
 };
 
-if (cba_missionTime < vtx_uh60_hellfire_lastLaunchTime + 1.5) then {
+if (cba_missionTime < (_vehicle getVariable ["vtx_uh60_hellfire_lastLaunchTime", 0]) + 1.5) then {
 	_constraintsBoxType = 6;
 };
 

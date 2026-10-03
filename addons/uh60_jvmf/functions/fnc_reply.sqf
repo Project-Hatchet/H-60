@@ -10,5 +10,5 @@ private _timestamp = [daytime, "HH:MM"] call BIS_fnc_timeToString;
 private _message = VTX_JVMF_MESSAGES # VTX_JVMF_SELECTED_IDX;
 _message params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
 
-[_replySender, _ID, _reply, _timestamp, player] remoteExecCall ["vtx_uh60_jvmf_fnc_receiveReply"];
+["vtx_uh60_jvmf_replySent", [_replySender, _ID, _reply, _timestamp, hct_player]] call CBA_fnc_globalEvent;
 if (vtx_uh60_ui_showDebugMessages) then {diag_log "reply";};

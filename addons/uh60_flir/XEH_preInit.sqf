@@ -3,7 +3,7 @@
 ADDON = false;
 
 #include "XEH_PREP.hpp"
-#include "initSettings.sqf";
+#include "initSettings.sqf"
 
 call vtx_uh60_flir_fnc_initVars;
 

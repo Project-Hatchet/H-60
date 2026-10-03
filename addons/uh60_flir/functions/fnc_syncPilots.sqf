@@ -14,7 +14,7 @@
  * [_vehicle] call vtx_uh60_flir_fnc_syncPilots
  */
 
-params ["_vehicle", ["_sync", true]];
+params [["_vehicle", hct_vehicle], ["_sync", true]];
 
 _pilot = driver _vehicle;
 _copilot = _vehicle turretUnit [0];
@@ -45,7 +45,7 @@ private _isNotInCockpit = switch (player) do {
 };
 
 if (vtx_uh60_flir_otherPilotIsPlayer && {_sync}) then {
-  ["vtx_uh60_flir_syncPilots", [], [vtx_uh60_flir_otherPilot]] call CBA_fnc_targetEvent;
+  ["vtx_uh60_flir_syncPilots", [_vehicle], [vtx_uh60_flir_otherPilot]] call CBA_fnc_targetEvent;
 };
 
 _isNotInCockpit

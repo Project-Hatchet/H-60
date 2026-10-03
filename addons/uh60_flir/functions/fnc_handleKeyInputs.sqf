@@ -25,22 +25,22 @@ if (_visionMode > 0) then {
 
 if (!vtx_uh60_flir_controllable) exitWith {};
 
-// Stabilize enables object tracking anywhere
-private _stab = inputAction "vehLockTurretView";
-if (_stab > 0) then {
-  if (vtx_uh60_flir_inputStabilize == 0) then {
-    vtx_uh60_flir_inputStabilize = ceil _stab;
-    if (vtx_uh60_flir_isInScriptedCamera) then {
+// Stabilize/lock in the scripted camera must be POLLED: vanilla user action
+// events do not fire while a cameraEffect camera is active (the cockpit/optics
+// path keeps the addUserActionEventHandler in initKeybinds.sqf) (#538)
+if (vtx_uh60_flir_isInScriptedCamera) then {
+  private _stab = inputAction "vehLockTurretView";
+  if (_stab > 0) then {
+    if (vtx_uh60_flir_inputStabilize == 0) then {
+      vtx_uh60_flir_inputStabilize = ceil _stab;
       [
          AGLToASL positionCameraToWorld [0, 0, 0],
          AGLToASL positionCameraToWorld [0, 0, 5000]
       ] call vtx_uh60_flir_fnc_setStabilization;
-    } else {
-      [] call vtx_uh60_flir_fnc_setStabilization;
     };
+  } else {
+    vtx_uh60_flir_inputStabilize = 0;
   };
-} else {
-  vtx_uh60_flir_inputStabilize = 0;
 }; // Stabilize
 
 if (vtx_uh60_flir_playerIsCopilot) then {
@@ -49,20 +49,20 @@ if (vtx_uh60_flir_playerIsCopilot) then {
   if (_laser > 0) then {
     if (vtx_uh60_flir_inputToggleLaser == 0) then {
       vtx_uh60_flir_inputToggleLaser = ceil _laser;
-      [_vehicle] call vtx_uh60_flir_fnc_toggleLaser;
+      [hct_vehicle] call vtx_uh60_flir_fnc_toggleLaser;
     };
   } else {
     vtx_uh60_flir_inputToggleLaser = 0;
   };
 
-  // Copilot Camera
+  // Scripted Camera for both pilots
   if (vtx_uh60_flir_isInScriptedCamera) then {
     // Next Weapon
     private _nextWeapon = inputAction "nextWeapon"; // Next Weapon
     if (_nextWeapon > 0) then {
       if (vtx_uh60_flir_inputNextWeapon == 0) then {
         vtx_uh60_flir_inputNextWeapon = ceil _nextWeapon;
-        [_vehicle, [0]] call vtx_uh60_flir_fnc_nextWeapon;
+        [hct_vehicle, [0]] call vtx_uh60_flir_fnc_nextWeapon;
       };
     } else {
       vtx_uh60_flir_inputNextWeapon = 0;
@@ -73,7 +73,7 @@ if (vtx_uh60_flir_playerIsCopilot) then {
     if (_fireWeapon > 0) then {
       if (vtx_uh60_flir_inputFireWeapon == 0) then {
         vtx_uh60_flir_inputFireWeapon = ceil _fireWeapon;
-        [_vehicle] call vtx_uh60_flir_fnc_fireWeapon;
+        [hct_vehicle, hct_vehicle unitTurret hct_player] call vtx_uh60_flir_fnc_fireWeapon;
       };
     } else {
       vtx_uh60_flir_inputFireWeapon = 0;
@@ -103,7 +103,6 @@ if (vtx_uh60_flir_playerIsCopilot) then {
     };
 
   }; // isInScriptedCamera
-
 }; // playerIsCopilot
 
 true

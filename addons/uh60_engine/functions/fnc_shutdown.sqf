@@ -1,3 +1,7 @@
 params ["_vehicle"];
 
-_vehicle removeEventHandler ["engine", vtx_uh60_engine_engineEH];
+private _ehId = _vehicle getVariable "vtx_uh60_engine_engineEH";
+if (!isNil "_ehId") then {
+    _vehicle removeEventHandler ["engine", _ehId];
+    _vehicle setVariable ["vtx_uh60_engine_engineEH", nil];
+};

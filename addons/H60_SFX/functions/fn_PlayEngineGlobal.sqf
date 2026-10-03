@@ -3,9 +3,9 @@
  *
  * engine power Sound
  *
- * params (array)[(object) vehicle, (array) _Vars]
+ * params (array)[(object) vehicle, (array) _Vars, (number) _rotorspeed]
  */
-params ["_vehicle","_Vars"];
+params ["_vehicle","_Vars","_rotorspeed"];
 
 //-Engine Start
 if ((_Vars find "STARTING" > -1) && (_rotorspeed < 0.6)) then {

@@ -1,3 +1,79 @@
+**0.7.9**
+
+  - FIXED:
+    - Rescue hoist in multiplayer: the hook and anyone riding it now lower away from the aircraft instead of staying stuck at the cabin #576
+    - Engine and APU start/shutdown sounds are now heard by other players nearby, and sound playback works on servers with strict remoteExec whitelists #577 #578
+    - Engine systems no longer get confused when more than one aircraft is running #577
+    - Pilot's fullscreen FLIR now refreshes its overlay readouts (like the GEOLOCK indicator) #592
+    - IZLID IR laser beam draws from the correct position - pilot and copilot each get their own beam #579
+    - FLIR weapons page no longer floods the game log with errors on aircraft with missing or 4-pylon weapon stations #566
+    - Error when paging through an empty FMS page list #573
+    - Flight director ALT increase/decrease keybinds #561
+    - Rescue Hoist scroll menu showing the wrong name #563
+    - Script errors left behind by previously removed functions, and several config typos with in-game effects #562 #569 #572
+    - Internal numbering of the helicopter's texture slots so retextures apply to the right parts #565
+    - Autohover and countermeasure keybinds no longer work from the cabin and rear crew seats #557 #589
+  - ADDED:
+    - Fire Laser [HOLD] and IZLID [HOLD] keybinds - active while held, off on release #580 #581 #584
+  - REMOVED:
+    - Leftover debug text printed to players; developer-only scripts and raw texture sources are no longer packed - the mod download is smaller #564 #570 #571
+
+**0.7.8.1**
+
+  - FIXED:
+    - Copilot seat: cockpit interior (upper console and instruments) renders again and the get-in animation is back; the copilot's dedicated camera view is temporarily disabled until the model is updated #556
+    - FLIR: lock and track vehicles from every view (PiP and fullscreen, pilot and copilot); pressing lock again releases #538
+    - FLIR: ground points stay locked where you leave them when slewing; moving the camera while tracking a vehicle drops to a ground hold
+    - FLIR snapping back to the first geolock point when turning geolock off
+    - Flight director IAS keybind; IAS and HDG knob keybinds
+    - Hoist hook deployable while the hoist was hidden; hook and helper vehicles having an inventory and driver seat
+    - Non-DAP models able to use the IZLID
+    - Missing textures on the HH-60G radar and FLIR #551
+    - JVMF messages not showing on the leftmost MFD; empty-message check with BCE/cTab
+    - FMS copilot on non-MLASS models
+    - Pylon reassignment reliability, outboard pylon reassignment, ammo refill on pylon handover
+    - MITAS in pilot view, markings LOD, rotor shaft not visible #527
+    - Various RPT errors (abstract vtx_pylon entity, RemoteExec with 0 targets)
+
+  - ADDED:
+    - IR laser (IZLID) for pilots and door gunners, keybind under H-60 Weapons
+    - Stabilize Hook keybind
+    - ACE actions to load the cabin as vehicle-in-vehicle cargo (ThingX)
+    - MH-60M and DAPs on the Air Control buy list
+    - Editor preview images for the MH models
+    - Copilot can use the map while in fullscreen FLIR
+    - ACE door actions are blocked while units or FRIES are in the doorway
+
+  - CHANGES/IMPROVEMENTS:
+    - Sound improvements: engine profiles and a new distant-sound volume curve (thanks @Aaren) #532
+    - ESSS and more areas retexturable; LASS default textures fixed
+    - Wipers can be turned off
+    - Increased head movement range
+    - Redundant CBA keybinds for hoist, MFD, FLIR slew and flight director removed in favor of the Arma keybinds; deprecated debug settings removed
+    - IZLID keybind text
+    - N key works in fullscreen FLIR but not in the cockpit, where it affects the pilot's own NODs
+
+**0.7.6**
+
+  - FIXED:
+    - Various RPT Spam #407, #506
+    - Gap in MH Model #506
+    - Master Caution Conditional Checks #440 - Master Caution light should now extinguish once all cautions on the CAS are cleared on their own.
+    - Fullscreen FLIR for Pilot #497
+    - Stabilize Turret keybind needing T+Ctrl instead of responding to Ctrl+T
+    - Improve JVMF use CBA events instead of remoteExec
+    - Visual glitch when smoke is behind blurred rotors
+    - Scripted camera crosshairs persisting
+
+  - ADDED:
+    - ACE action for fold and unfold with progress bar (requires toolkit)
+    - Keybinds for adjusting Flight Director modes
+    - Windshield Wipers and Wiper Knob interaction
+
+  - CHANGES/IMPROVEMENTS:
+    - Improved Distance LODs
+
+
 **0.7.5.1**
 
  - Fixed: MFD interactions using old framework variable

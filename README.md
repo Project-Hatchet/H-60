@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://github.com/Project-Hatchet/H-60/releases">
-        <img src="https://img.shields.io/badge/Version-0.7.3.1-blue.svg?style=flat-square" alt="H-60 Pack Version">
+        <img src="https://img.shields.io/badge/Version-0.7.9-blue.svg?style=flat-square" alt="H-60 Pack Version">
     </a>
     <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1745501605">
         <img src="https://img.shields.io/steam/downloads/1745501605" alt="H-60 Pack" >
@@ -22,7 +22,7 @@ The **Hatchet H-60 Pack** is a helicopter pack that brings realistic H-60 series
 ## Development Guide
 
 ### SConstruct(SCONS) Build environment
-The H-60 is built with SConstcut, or for short, SCONS.
+The H-60 is built with SConstruct, or for short, SCONS.
 
 #### Prerequisite: python > 3
 To install scons, you require python 3.
@@ -49,6 +49,22 @@ If you find any other errors, please ask the dev team in the Project Hatchet dis
 #### Usage
 Once installed, you should be able to open the project's root folder in your terminal, and run `scons`.
 This should generate fully built PBOs in your addons folder.
+
+#### Pushing a build to the Steam Workshop Development branch
+`tools/push_dev.py` builds the mod from a named git ref and uploads it to the Development branch Workshop item in one step:
+
+```
+python tools/push_dev.py --branch <ref> --note-from-changelog --bump               # usual dev push
+python tools/push_dev.py --branch <ref> --note-from-changelog --version 0.7.9.1    # first push of a new cycle
+python tools/push_dev.py --branch <ref> --note-from-changelog --bump --preview-note  # see the note, change nothing
+python tools/push_dev.py --branch <ref> --note "what changed" --dry-run             # build and verify only
+```
+
+Write what changed for players under a `**Unreleased**` header at the top of `CHANGELOG-DEV.md` on the branch you are pushing. The script stamps the new version into `addons/main/script_version.hpp`, retitles that block to the version, commits both on the branch, and uses the block as the Workshop change note - so the in-game version, the changelog and the Workshop always agree.
+
+Versioning: Stable releases are `X.Y.Z`; Development builds carry the *next* Stable's number with the build digit counting up per push (`0.7.9.1`, `0.7.9.2`, ...). Start a cycle with `--version`, continue with `--bump`. Bump the patch number for routine Stable promotions and the minor number for substantial ones.
+
+It refuses to run on a dirty working tree, wipes the AddonBuilder sync mirror first (it syncs additively, so deleted files would otherwise ship again), verifies that every addon produced a fresh PBO, and asks for confirmation before uploading. The upload goes through `PublisherCmd` from Arma 3 Tools using the Steam client already logged in on your machine, so you need contributor rights on the Workshop item and nothing else. The script only knows the Development branch item - promoting to Stable is done by hand on purpose.
 
 
 

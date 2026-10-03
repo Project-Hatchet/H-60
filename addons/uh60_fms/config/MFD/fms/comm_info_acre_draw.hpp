@@ -103,8 +103,8 @@ class FREQ_box {
   lineType = 2;
   points[] ={
     {{FMS_MARGIN_R + 0.04, FMS_Y3 + 0.10},1}, //BR
-    {{FMS_MARGIN_R - 0.36, FMS_Y3 + 0.10},1}, //BL
-    {{FMS_MARGIN_R - 0.36, FMS_Y3 + 0.045},1}, //TL
+    {{FMS_MARGIN_R - 0.4, FMS_Y3 + 0.10},1}, //BL
+    {{FMS_MARGIN_R - 0.4, FMS_Y3 + 0.045},1}, //TL
     {{FMS_MARGIN_R + 0.04, FMS_Y3 + 0.045},1}, //TR
     {{FMS_MARGIN_R + 0.04, FMS_Y3 + 0.10},1} //BR
   };

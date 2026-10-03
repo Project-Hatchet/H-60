@@ -8,7 +8,7 @@ class CfgPatches
 		author = "BradMick, MattySmith22";
 		weapons[] = {};
 		requiredVersion = 1.0;
-		requiredAddons[] = {"vtx_UH60"};
+		requiredAddons[] = {"vtx_UH60", "vtx_UH60_config"};
     };
 };
 

@@ -50,5 +50,5 @@ if (vtx_uh60_flir_isInScriptedCamera) then {
 
 
 // geolock
-(_controlsGroup controlsGroupCtrl 155) ctrlSetText (if((getPilotCameraTarget _vehicle) # 0) then [{"GEOLOCK"}, {""}]);
-(_controlsGroup controlsGroupCtrl 154) ctrlSetText (if(false) then [{"TRK COR"}, {""}]);
+(_controlsGroup controlsGroupCtrl 155) ctrlSetText (["", "GEOLOCK"] select (getPilotCameraTarget _vehicle # 0));
+//(_controlsGroup controlsGroupCtrl 154) ctrlSetText (if(false) then [{"TRK COR"}, {""}]);

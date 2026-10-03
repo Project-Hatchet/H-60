@@ -17,6 +17,7 @@ vtx_uh60_flir_playerIsPilot = false;
 vtx_uh60_flir_playerIsCopilot = false;
 vtx_uh60_flir_otherPilotIsPlayer = false;
 vtx_uh60_flir_otherPilot = objNull;
+vtx_uh60_flir_scriptedCameraToMap = false;
 
 // Eventhandlers
 vtx_uh60_flir_playerEHs = [];

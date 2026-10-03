@@ -12,4 +12,4 @@ class window_r {
       radius=0.1;
       animSpeed=1;
   }; // window_r
-}
+};

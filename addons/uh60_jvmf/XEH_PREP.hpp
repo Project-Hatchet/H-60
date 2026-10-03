@@ -11,3 +11,4 @@ PREP(openMessage);
 PREP(prepareInboxDialog);
 PREP(ctabToJvmf);
 PREP(deleteMessage);
+PREP(shutdown);

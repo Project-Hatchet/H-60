@@ -6,7 +6,10 @@
  * params (array)[(object) vehicle]
  */
 
+#include "..\script_component.hpp"
 #include "defines.hpp"
+
+IS_EITHER_PILOT;
 
 params ["_vehicle", "_mode"];
 

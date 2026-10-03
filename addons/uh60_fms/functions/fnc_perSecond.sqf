@@ -25,24 +25,25 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
             };
         };
         [
-            str ceil (missionNamespace getVariable ["vtx_uh60_engine_fuelConsumption",0]),
-            missionNamespace getVariable ["vtx_uh60_engine_fuelTime","--:--:--"],
-            str floor (missionNamespace getVariable ["vtx_uh60_engine_fuelRange",0]),
+            str ceil (_vehicle getVariable ["vtx_uh60_engine_fuelConsumption",0]),
+            _vehicle getVariable ["vtx_uh60_engine_fuelTime","--:--:--"],
+            str floor (_vehicle getVariable ["vtx_uh60_engine_fuelRange",0]),
             str round (((_weight # 0) + (_weight # 1) + (_weight # 3) + (_weight # 4)) * 2.20462),
             _stateText
         ]
     };
     case FMS_PAGE_NAV_WAYPOINT: {
-        private _waypointIndex = currentWaypoint group player;
-        private _wayPoint = [group player, _waypointIndex];
-        private _position = waypointPosition _wayPoint;
-        private _gridArea = [worldName] call ace_common_fnc_getMGRSdata;
-        private _grid = [_position] call ace_common_fnc_getMapGridFromPos;
-        private _str = format ["%1    %2    %3    %4", _gridArea select 0, _gridArea select 1, _grid select 0, _grid select 1];
-        if (_waypointIndex < count (waypoints group player)) then {
-          [_str, format["%1/%2", _waypointIndex + 1, count (waypoints group player)], "", "",""]
+        private _waypoints = waypoints group player;
+        private _waypointIndex = missionNamespace getVariable ["vtx_uh60_fms_wpSelection", currentWaypoint group player];
+        if (_waypointIndex == -1 || {_waypointIndex >= count _waypoints}) then {
+          ["", format["%1/%2", 0, count _waypoints], "", "",""]
         } else {
-          [_str, format["%1/%2", 0, 0], "", "",""]
+          private _wayPoint = [group player, _waypointIndex];
+          private _position = waypointPosition _wayPoint;
+          private _gridArea = [worldName] call ace_common_fnc_getMGRSdata;
+          private _grid = [_position] call ace_common_fnc_getMapGridFromPos;
+          private _str = format ["%1    %2    %3    %4", _gridArea select 0, _gridArea select 1, _grid select 0, _grid select 1];
+          [_str, format["%1/%2", _waypointIndex + 1, count _waypoints], "", "",""]
         }
     };
     case FMS_PAGE_NAV_IMPORT: {
@@ -62,8 +63,8 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
             fms_locations_page_list = _places;
         };
         private _pageCount = ceil ((count fms_locations_page_list) / 4);
-        fms_locations_page_index = fms_locations_page_index max 0 min (_pageCount - 1);
-        private _strings = [format["%1/%2", fms_locations_page_index + 1, _pageCount], "", "", "",""];
+        fms_locations_page_index = fms_locations_page_index max 0 min ((_pageCount max 1) - 1); // an empty list gave -1 and negative-indexed the page
+        private _strings = [format["%1/%2", fms_locations_page_index + 1, _pageCount max 1], "", "", "",""];
         private _fmsPrintStart = fms_locations_page_index * 4;
         for "_i" from 0 to 3 do {
             if (_fmsPrintStart + _i < count fms_locations_page_list) then {
@@ -131,8 +132,8 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
             fms_comm_presets_page_list pushBack _preset;
         };
         private _pageCount = ceil ((count fms_comm_presets_page_list) / 4);
-        fms_comm_presets_page_index = fms_comm_presets_page_index max 0 min (_pageCount - 1);
-        private _strings = [format["%1/%2", fms_comm_presets_page_index + 1, _pageCount], "", "", "",""];
+        fms_comm_presets_page_index = fms_comm_presets_page_index max 0 min ((_pageCount max 1) - 1); // an empty list gave -1 and negative-indexed the page
+        private _strings = [format["%1/%2", fms_comm_presets_page_index + 1, _pageCount max 1], "", "", "",""];
         private _fmsPrintStart = fms_comm_presets_page_index * 4;
         for "_i" from 0 to 3 do {
             if (_fmsPrintStart + _i < count fms_comm_presets_page_list) then {

@@ -16,7 +16,10 @@ params ["_heli"];
 
 if !(_heli isKindOf "vtx_h60_base") exitWith {false};
 private _hoist_vars = _heli getVariable ["vtx_uh60_hoist_vars", []];
-if !(_hoist_vars isEqualTo []) exitWith{false};
-if (_heli animationSourcePhase "hoist_hook_hide" != 0) exitWith {false};
+if (_hoist_vars isNotEqualTo []) exitWith {false};
+if (
+  _heli animationSourcePhase "hoist_hook_hide" != 0
+  || {_heli animationSourcePhase "hoist_hide" != 0}
+) exitWith {false};
 
 true

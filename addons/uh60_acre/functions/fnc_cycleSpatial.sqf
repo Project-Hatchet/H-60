@@ -15,20 +15,21 @@ private _radio = [_racks # _index] call acre_sys_rack_fnc_getMountedRadio;
 private _oldSpatial = [_radio] call acre_api_fnc_getRadioSpatial;
 
 if (_cycle == 1) then {
-	switch (_oldSpatial) do 
+	switch (_oldSpatial) do
 	{
 		case "LEFT": {_newSpatial = "RIGHT";};
 		case "RIGHT": {_newSpatial = "CENTER";};
-		case "CENTER": {_newSpatial = "LEFT";}; 
+		case "CENTER": {_newSpatial = "LEFT";};
 	};
 } else {
-	switch (_oldSpatial) do 
+	switch (_oldSpatial) do
 	{
 		case "LEFT": {_newSpatial = "CENTER";};
 		case "RIGHT": {_newSpatial = "LEFT";};
-		case "CENTER": {_newSpatial = "RIGHT";}; 
+		case "CENTER": {_newSpatial = "RIGHT";};
 	};
 };
 
 _setSpatial = [_radio, _newSpatial] call acre_api_fnc_setRadioSpatial;
+[_vehicle] call vtx_uh60_acre_fnc_notifyOtherSeat;
 true

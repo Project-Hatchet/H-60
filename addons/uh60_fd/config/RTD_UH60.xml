@@ -1323,7 +1323,7 @@
                 <Position x="0" y="-9.3" z="1.05"/>
 
                 <Up x="1.0" y="0.0" z="0"/>
-                <Front x="0.0" y="0.755" z="0.656"/>
+                <Front x="0.0" y="0.75398" z="0.6569"/>
                 <SurfaceArea area="3.001"/>
             </Geometry>
             <ControlResponse controlSurfaceForceArmPos="0.0" controlSurfaceLiftCoeffDerivative="0.0"/>

@@ -9,10 +9,6 @@ private _action = [
 ] call ace_interact_menu_fnc_createAction;
 ["Rubber_duck_base_F",0,["ACE_MainActions"],_action, true] call ace_interact_menu_fnc_addActionToClass;
 
-["vtx_uh60_misc_switchTurret", {
-    call vtx_uh60_misc_fnc_switchTurret;
-}] call CBA_fnc_addEventHandler;
-
 
 private _doorOpenLeft = [
  "vtx_uh60_cabinDoorLeft", // * 0: Action name <STRING>
@@ -23,10 +19,12 @@ private _doorOpenLeft = [
    _target animateSource ["cabinDoor_L", 1 - _anim];
    playSound3D ["z\vtx\addons\H60_SFX\Sounds\Share\Door.wss", _target, false, getPosASLVisual _target, 3];
 
-   // * Set Internal Wind-washing sound
-   [[_target, "CustomSoundController9", (_anim + (1 - (_target animationPhase 'cabindoor_R'))) / 2]] remoteExecCall ["setCustomSoundController", crew _target];
+   // * Set Internal Wind-washing sound and lock state
+   private _state = ["Closed", "Open"] select _anim;
+   [_target, "CabinDoor_L", _state] call vtx_uh60_misc_fnc_interactedCabinDoor;
  }, // * 3: Statement <CODE>
- {true}, // * 4: Condition <CODE>
+ {private _animPhase = _target animationPhase "cabinDoor_L";
+ [_target, "cabinDoor_L", _animPhase] call vtx_uh60_misc_fnc_canInteractCabinDoor;}, // * 4: Condition <CODE>
  nil, // * 5: Insert children code <CODE> (Optional)
  [], // * 6: Action parameters <ANY> (Optional)
  {_target selectionPosition "cabindoor_L_handle"}, // * 7: Position (Position array, Position code or Selection Name) <ARRAY>, <CODE> or <STRING> (Optional)
@@ -43,10 +41,12 @@ private _doorOpenRight = [
     _target animateSource ["cabinDoor_R", 1 - _anim];
     playSound3D ["z\vtx\addons\H60_SFX\Sounds\Share\Door.wss", _target, false, getPosASLVisual _target, 3];
 
-    // * Set Internal Wind-washing sound
-    [[_target, "CustomSoundController9", ((1 - (_target animationPhase 'cabindoor_L')) + _anim) / 2]] remoteExecCall ["setCustomSoundController", crew _target];
+    // * Set Internal Wind-washing sound and lock state
+    private _state = ["Closed", "Open"] select _anim;
+    [_target, "CabinDoor_R", _state] call vtx_uh60_misc_fnc_interactedCabinDoor;
   },
-  {true},
+  {private _animPhase = _target animationPhase "cabinDoor_L";
+ [_target, "cabinDoor_R", _animPhase] call vtx_uh60_misc_fnc_canInteractCabinDoor;},
   nil,
   [],
   {_target selectionPosition "cabindoor_R_handle"},
@@ -136,6 +136,16 @@ private _editNumbersRight = ["vtx_uh60_paintNumbersRight" + (str random 1), "Cha
 ["vtx_h60_base",0,[],(_editNumbersLeft call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
 ["vtx_h60_base",0,[],(_editNumbersRight call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
 
+#define CUSTOMIZATION_ACTION_TIME 5
+#define WRAP_PROGRESS(FNC) { \
+	params ["_target", "_player", "_params"]; \
+	[CUSTOMIZATION_ACTION_TIME, [_target, _player, _params], { \
+		params ["_args"]; \
+		_args params ["_target", "_player", "_params"]; \
+		[_target, _player, _params] call FNC; \
+	}] call ace_common_fnc_progressBar; \
+}
+
 private _customizationOptions = [
 	["vtx_fuelprobe", "Fuel Probe", ["vtx_fuelProbe", "fuelProbe_show", 1, 0, 7], {[1.3,4.1,-1.2]}],
 	["vtx_hoist", "Rescue Hoist", ["vtx_hoist", "Hoist_hide", 0, 1, 3], {[1.1,1.9,0.35]}],
@@ -148,7 +158,7 @@ private _customizationOptions = [
 		(_className + "_attach"),
 		("Attach " + _description),
 		"",
-		vtx_uh60_misc_fnc_addCustomization,
+		WRAP_PROGRESS(vtx_uh60_misc_fnc_addCustomization),
 		vtx_uh60_misc_fnc_canCustomizeVariant,
 		nil,
 		_addParams,
@@ -161,14 +171,88 @@ private _customizationOptions = [
 		(_className + "_remove"),
 		("Remove " + _description),
 		"",
-		vtx_uh60_misc_fnc_removeCustomization,
+		WRAP_PROGRESS(vtx_uh60_misc_fnc_removeCustomization),
 		vtx_uh60_misc_fnc_canRemoveCustomization, nil, _addParams, _position, _range, [false,false,false,false,false], {}
 	];
 	["vtx_h60_base",0,[],(_addOption call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
 	["vtx_h60_base",0,[],(_removeOption call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
 } forEach _customizationOptions;
 
+// MH-60 only - not offered on the UH-60
+private _erfsAddParams = ["vtx_erfs", "ERFS_show", 1, 0, 3];
+private _erfsPosition = {[-0.046875,0.672591,-0.272467]};
+private _erfsAddOption = [
+	"vtx_erfs_attach",
+	"Attach ERFS Tank",
+	"",
+	{
+		params ["_target", "_player", "_params"];
+		[CUSTOMIZATION_ACTION_TIME, [_target, _player, _params], {
+			params ["_args"];
+			_args params ["_target", "_player", "_params"];
+			[_target, _player, _params] call vtx_uh60_misc_fnc_addCustomization;
+			_target animateSource ["CabinSeats_3_Hide", 1];
+			{ _target lockCargo [_x, true] } forEach [0, 1, 2, 3];
+		}] call ace_common_fnc_progressBar;
+	},
+	vtx_uh60_misc_fnc_canCustomizeVariant,
+	nil,
+	_erfsAddParams,
+	_erfsPosition,
+	4.5,
+	[false,false,false,false,false],
+	{}
+];
+private _erfsRemoveOption = [
+	"vtx_erfs_remove",
+	"Remove ERFS Tank",
+	"",
+	WRAP_PROGRESS(vtx_uh60_misc_fnc_removeCustomization),
+	vtx_uh60_misc_fnc_canRemoveCustomization,
+	nil,
+	_erfsAddParams,
+	_erfsPosition,
+	4.5,
+	[false,false,false,false,false],
+	{}
+];
+// DAPs included (Riverman ruling 2026-09-20): they spawn ERFS-fitted (#626)
+// but crews may strip/refit the tanks like on the base M; the conditions
+// (toolkit + nearby tank + ERFS_show phase) are class-agnostic already
+{
+	[_x,0,[],(_erfsAddOption call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
+	[_x,0,[],(_erfsRemoveOption call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
+} forEach ["vtx_MH60M", "vtx_MH60M_DAP", "vtx_MH60M_DAP_MLASS"];
+
+["ace_dragging_startedCarry", {
+	params ["_unit", "_target"];
+	if (_target isKindOf "vtx_erfs") then {
+		_target disableCollisionWith _unit;
+	};
+}] call CBA_fnc_addEventHandler;
+
+["ace_dragging_stoppedCarry", {
+	params ["_unit", "_target"];
+	if (_target isKindOf "vtx_erfs") then {
+		_target enableCollisionWith _unit;
+	};
+}] call CBA_fnc_addEventHandler;
+
 _action = ["vtx_skis_add","Install Skis", "", {(_target) animateSource ["skis_show", 1];}, {((_target) animationSourcePhase "skis_show") < 0.1}, nil, [parameters], [1.33319,2.8541,-1.6735]] call ace_interact_menu_fnc_createAction;
 ["vtx_H60_base", 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
 _action = ["vtx_skis_remove","Uninstall Skis", "", {(_target) animateSource ["skis_show", 0];}, {((_target) animationSourcePhase "skis_show") > 0.9}, nil, [parameters], [1.33319,2.8541,-1.6735]] call ace_interact_menu_fnc_createAction;
 ["vtx_H60_base", 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
+
+// Setting is skipped until complex interactions are made
+//if (vtx_uh60_misc_setting_FoldInteractionComplexity == 0) then {
+  private _modifierFunc = {
+    params ["_target", "_player", "_params", "_actionData"];
+    if ([_target, ACE_player] call vtx_uh60_misc_fnc_canUnfold) then {
+
+      _actionData set [1, "Unfold"];
+      _actionData set [3, {[_target, 0] call vtx_uh60_misc_fnc_fold;}];
+    };
+  };
+  _action = ["vtx_fold_blades", "Fold", "", {[_target, 1] call vtx_uh60_misc_fnc_fold;}, {[_target, ACE_player] call vtx_uh60_misc_fnc_canFold}, nil, [], "velka osa", 3, [false, false, false, false, false], _modifierFunc] call ace_interact_menu_fnc_createAction;
+  ["vtx_H60_base", 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
+//};

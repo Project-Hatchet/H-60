@@ -23,12 +23,13 @@
 #define IAS_ANIM_STR "FD_4_ROT"
 #define HDG_ANIM_STR "FD_5_ROT"
 
-#define GET_RALT ((round (ANIM(RALT_ANIM_STR)*10))*10)
-#define GET_ALT    ((round (ANIM(ALT_ANIM_STR)*10))*100)
-#define GET_ALTP ((round (ANIM(ALTP_ANIM_STR)*10))*100)
-#define GET_IAS    ((round (ANIM(IAS_ANIM_STR)*10))*10)
+#define SAFE_NUM(X) ([0, X] select (finite (X)))
+#define GET_RALT SAFE_NUM((round (ANIM(RALT_ANIM_STR)*10))*10)
+#define GET_ALT    SAFE_NUM((round (ANIM(ALT_ANIM_STR)*10))*100)
+#define GET_ALTP SAFE_NUM((round (ANIM(ALTP_ANIM_STR)*10))*100)
+#define GET_IAS    SAFE_NUM((round (ANIM(IAS_ANIM_STR)*10))*10)
 //#define GET_HDG    ((round (ANIM(HDG_ANIM_STR)))*36)
-#define GET_HDG    (round(ANIM(HDG_ANIM_STR)*36))
+#define GET_HDG    SAFE_NUM(round(ANIM(HDG_ANIM_STR)*36))
 #define GET_VS     (GET("vs_val",0))
 
 #define SET_RALT(FT) (SET_ANIM(RALT_ANIM_STR,(round(FT/10)/10)))

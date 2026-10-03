@@ -6,7 +6,19 @@ on:
   push:
     branches:
     - Main
+    - devbuild
   pull_request:
+
+# When several commits land on the same PR in quick succession, only the
+# latest build matters - cancel the superseded ones. The same goes for the
+# devbuild branch: it is machine-generated (Main + labeled PRs, force-pushed
+# on every label change), so labeling several PRs in a burst force-pushes it
+# repeatedly and only the LAST regeneration's build is meaningful - without
+# cancellation a 9-PR labeling session queues 9 full Windows builds, 8 of
+# them stale before they start. Main push builds are never cancelled.
+concurrency:
+  group: validate-build-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' || github.ref == 'refs/heads/devbuild' }}
 
 jobs:
   # validate:
@@ -25,6 +37,12 @@ jobs:
   #   - name: Check for BOM
   #     uses: arma-actions/bom-check@master
   build:
+    # PRs from forks cannot build: the Arma 3 Tools download secret is
+    # withheld from fork-triggered runs, so their build always fails at
+    # setup. Skip instead of showing outside contributors a guaranteed
+    # red X - fork PRs get built via the devbuild branch once labeled
+    # "Ready for Testing".
+    if: github.event_name != 'pull_request' || !github.event.pull_request.head.repo.fork
     runs-on: windows-2022
     steps:
       - name: Checkout the source code
