@@ -26,12 +26,6 @@ vtx_uh60_helisim_baseClass = getText (configFile >> "CfgPatches" >> "vtx_uh60_he
             _data params ["_name", "_idx", "_prevIdx", "_value", "_posName"];
 
             switch (_name) do {
-                //One flag per bleed source - see docs/HELISIM_TODO.md
-                case "airSource": {
-                    _heli setVariable ["vtx_uh60_helisim_airSrcEng", _posName == "Eng", true];
-                    _heli setVariable ["vtx_uh60_helisim_airSrcApu", _posName == "Apu", true];
-                };
-
                 case "apuBtn": {
                     ["vtx_uh60_helisim_playAPUSound", [_heli, _value > 0]] call CBA_fnc_globalEvent;
                 };

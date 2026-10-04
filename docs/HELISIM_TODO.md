@@ -4,30 +4,9 @@ Open items for the UH-60 pack (`addons/uh60_helisim`) and the HeliSim Core work 
 
 ## HeliSim Core
 
-- [ ] **Add AIR SOURCE (ENG / APU) bleed selection to Core.** The selection of which bleed
-  source feeds the pneumatic system is a flight model item, not pack logic. The UH-60's AIR
-  SOURCE switch is one three-position control (ENG / OFF / APU), and Core's component gates
-  only read booleans or circuits, so it cannot gate the APU bleed and the engine bleed
-  separately from config. **Interim:** the pack's `controlMoved` handler
-  (`XEH_preInit.sqf`) publishes `vtx_uh60_helisim_airSrcEng` / `vtx_uh60_helisim_airSrcApu`
-  from the switch position, and the `ApuBleed` / `EngineBleed` producers gate on them.
-  Remove both once Core owns the selection.
-- [ ] **Make `BMKHS_CONTROL` (controlMacros.hpp) build-tool portable.** It builds `onActivate`
-  with `__EVAL(format[...])`. HEMTT evaluates that; Arma's Addon Builder (the H-60's scons
-  build) compiles it to `<null>`, so every keybind shows in the menu and does nothing. Plain
-  preprocessor quoting works under both. The guide's group-view pattern has the same problem:
-  `QUOTE(bmkhs_ctrl_##cname##_##ptok)` keeps the `##` literally under Addon Builder, so the
-  group names match no action and the menu section is empty; pasting in a helper macro first
-  and quoting that works under both. **Interim:** the pack redefines both views in
-  `config/CfgUserActions.hpp`.
-
-- [ ] **Expose the control interlock check.** `bmkhs_fnc_control` checks `enabledBy[]` /
-  `inhibitedBy[]` internally; there is no query for "may this control move there". The
-  H-60's `cockpitAllowed` mirrors that loop so Hatchet can refuse before moving (see
-  `docs/HATCHET.md`). A Core query would remove the copy.
 - [ ] **Merge and publish Core 1.2.0.** Committed on Core branch `release/1.2.0` (not merged to
   master, not pushed): the mass `Equipment` block, control mixing from config, the simple rotor
-  `controlMap[]`, casual upright tail rotors, per-engine fuel selectors and "off", drive
+  `controlMap[]`, casual upright tail rotors, per-engine fuel selectors and "off", a flag per control position (`bmkhs_<control>_<Position>`), `bmkhs_fnc_controlAllowed`, drive
   failures latching on every engine a summing component carries, the rig's force path and the
   guide's outputs Reference. The H-60 depends on all of it.
 - [ ] **Fire model.** Core has none (`SYS_ENG_OIL_FIRE_CHANCE` is defined but unused), so the

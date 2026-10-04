@@ -21,14 +21,14 @@
             variableName = "apuBleed";
             output       = "PNEU";
             drivenBy[]   = {"APU_DRIVE", 0.85};   //up to speed before it has air to give
-            gate[]       = {"vtx_uh60_helisim_airSrcApu"};
+            gate[]       = {"bmkhs_airSource_Apu"};          //AIR SOURCE at APU
             nominal      = 1.0;
             rampSeconds  = 0;
         };
         class EngineBleed {
             variableName = "engBleed";
             output       = "PNEU";
-            gate[]       = {"bmkhs_engBleedAvail", "vtx_uh60_helisim_airSrcEng"};
+            gate[]       = {"bmkhs_engBleedAvail", "bmkhs_airSource_Eng"};   //an engine at FLY, AIR SOURCE at ENG
             nominal      = 1.0;
             rampSeconds  = 0;
         };

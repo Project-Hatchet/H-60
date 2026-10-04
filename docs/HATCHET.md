@@ -10,7 +10,7 @@ on screen. Every HeliSim control follows this; don't add another path.
 - **HeliSim is the only state.** The pack tells HeliSim the moment Hatchet starts a move,
   and everything else reads HeliSim's published variables.
 - **The pack never animates a HeliSim control.** The `controlMoved` handler in
-  `uh60_helisim/XEH_preInit.sqf` reacts to moves (bleed flags, APU sound) but
+  `uh60_helisim/XEH_preInit.sqf` reacts to moves (APU sound) but
   moves nothing.
 
 ## The pieces
@@ -25,8 +25,8 @@ on screen. Every HeliSim control follows this; don't add another path.
 
 ## A click
 
-1. Hatchet checks `interactionCondition` → `cockpitAllowed`. It reads the control's
-   `enabledBy[]` / `inhibitedBy[]` the way Core does. **Refused means the control does not
+1. Hatchet checks `interactionCondition` → `cockpitAllowed`, which asks Core
+   (`bmkhs_fnc_controlAllowed`) - HeliSim's interlocks are Core's to answer. **Refused means the control does not
    move** - the guide's mechanical stop. Nothing has to snap back.
 2. Hatchet calls `animStart` → `cockpitInteract` with the target label, then starts the
    animation. Telling HeliSim here, not in `animEnd`, keeps the engine and the lever in
