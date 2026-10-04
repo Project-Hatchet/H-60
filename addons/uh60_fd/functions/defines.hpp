@@ -4,11 +4,6 @@
 #define GET(VAR,DEFAULT) (_vehicle getVariable [VAR, DEFAULT])
 #define SET(VAR,VAL) (_vehicle setVariable [VAR, VAL])
 #define SET_GLOBAL(VAR,VAL) (_vehicle setVariable [VAR, VAL, true])
-#define POWER_CONSUME(NUM) (SET("POWER_DRAIN_RATE",(GET("POWER_DRAIN_RATE",0)+NUM)))
-#define BATT_POWER ((_vehicle getVariable ["BATT1_POWER", 0]) + (_vehicle getVariable ["BATT1_POWER", 0]))
-#define BATT_POWER_CHANGE(BATT,RATE) _vehicle setVariable [BATT, (_vehicle getVariable BATT) + (RATE) min 100 max 0];
-#define BATT_ON ((_vehicle animationPhase "Switch_batt1" < 0.1) && (_vehicle animationPhase "Switch_batt2" < 0.1))
-#define BATT_ON_AND_POWERED (BATT_ON && BATT_POWER > 0)
 
 #define TO_FT(M) (M*3.28084)
 #define TO_M(FT) (FT*0.3048)

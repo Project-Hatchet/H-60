@@ -1,14 +1,14 @@
 projectPrefix = "vtx_uh60";
 class modules {
-  class engine {
+  class ground {
     startOnEnter = 1;
   };
-  class fd: engine {};
-  class jvmf: engine {};
-  class flir: engine {};
-  class misc: engine {};
-  class cas: engine {};
-  class ui: engine {
+  class fd: ground {};
+  class jvmf: ground {};
+  class flir: ground {};
+  class misc: ground {};
+  class cas: ground {};
+  class ui: ground {
     startOnEnter = 0;
   };
 };
@@ -77,7 +77,8 @@ class interaction {
       animSpeed=0;
       animStates[] = {0.5, 0};
       animLabels[] = {"OFF", "APU BOOST"};
-      animEnd="_this call vtx_uh60_engine_fnc_apuState";
+      animStart="[(_this # 0), 'fuelPump', (_this # 2)] call vtx_uh60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'fuelPump'] call vtx_uh60_helisim_fnc_cockpitAllowed";
       clickSound="hct_Switch_Sound";
     }; // fuelPump
     class apucont {
@@ -89,7 +90,8 @@ class interaction {
       animSpeed=0;
       animStates[] = {0.5, 0};
       animLabels[] = {"OFF", "ON"};
-      animEnd="_this call vtx_uh60_engine_fnc_apuState; (_this # 0) call vtx_uh60_cas_fnc_updateCautionPanel;";
+      animStart="[(_this # 0), 'apuBtn', (_this # 2)] call vtx_uh60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'apuBtn'] call vtx_uh60_helisim_fnc_cockpitAllowed";
       clickSound="hct_Switch_Sound_3";
     }; // apucont
     class b_airsce: apucont {
@@ -99,19 +101,23 @@ class interaction {
       animStates[] = {1, 0.5, 0};
       animLabels[] = {"ENG" ,"OFF", "APU"};
       clickSound="hct_Switch_Sound_3";
-      animEnd="";
+      animStart="[(_this # 0), 'airSource', (_this # 2)] call vtx_uh60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'airSource'] call vtx_uh60_helisim_fnc_cockpitAllowed";
     }; // b_airsce
     class b_batt1: apucont {
       position="b_batt1";
       label="NO.1 BATT";
       animation="Switch_batt1";
-      animEnd="_this call vtx_uh60_engine_fnc_batteryState";
+      animStart="[(_this # 0), 'batt1Switch', (_this # 2)] call vtx_uh60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'batt1Switch'] call vtx_uh60_helisim_fnc_cockpitAllowed";
       clickSound="hct_Switch_Sound_3";
     }; // b_batt1
     class b_batt2: b_batt1 {
       position="b_batt2";
       label="NO.2 BATT";
       animation="Switch_batt2";
+      animStart="[(_this # 0), 'batt2Switch', (_this # 2)] call vtx_uh60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'batt2Switch'] call vtx_uh60_helisim_fnc_cockpitAllowed";
     }; // b_batt2
       SIMPLE_SWITCH(b_egi1,"button_egi1","NO.1 EGI","Switch_Egi1",1,0,"")
       SIMPLE_SWITCH(b_egi2,"button_egi2","NO.2 EGI","Switch_Egi2",1,0,"")
@@ -121,35 +127,45 @@ class interaction {
       label="STBY INST";
       animation="Switch_stbyinst";
       animLabels[] = {"OFF", "ARM"};
-      animEnd="_this call vtx_uh60_engine_fnc_batteryState";
+      animStart="[(_this # 0), 'stbyInst', (_this # 2)] call vtx_uh60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'stbyInst'] call vtx_uh60_helisim_fnc_cockpitAllowed";
     }; // b_stbyinst
     class b_fuelboostpump1: b_batt1 {
       position="b_fuelboostpump1";
       label="NO.1 FUEL BOOST PUMP";
       animation="Switch_fuelboostpump1";
+      animEnd="";
+      animStart="";
+      interactionCondition="";
     }; // b_fuelboostpump1
     class b_fuelboostpump2: b_batt1 {
       position="b_fuelboostpump2";
       label="NO.2 FUEL BOOST PUMP";
       animation="Switch_fuelboostpump2";
+      animEnd="";
+      animStart="";
+      interactionCondition="";
     }; // b_fuelboostpump2
     class b_gen1: b_batt1 {
       position="b_gen1";
       label="NO.1 GEN";
       animation="Switch_gen1";
-      animEnd="_this call vtx_uh60_engine_fnc_batteryState";
+      animStart="[(_this # 0), 'gen1Sw', (_this # 2)] call vtx_uh60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'gen1Sw'] call vtx_uh60_helisim_fnc_cockpitAllowed";
     }; // b_gen1
     class b_gen2: b_batt1 {
       position="b_gen2";
       label="NO.2 GEN";
       animation="Switch_gen2";
-      animEnd="_this call vtx_uh60_engine_fnc_batteryState";
+      animStart="[(_this # 0), 'gen2Sw', (_this # 2)] call vtx_uh60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'gen2Sw'] call vtx_uh60_helisim_fnc_cockpitAllowed";
     }; // b_gen2
     class b_apugen: b_batt1 {
       position="b_apugen";
       label="APU GEN";
       animation="Switch_apugen";
-      animEnd="_this call vtx_uh60_engine_fnc_batteryState";
+      animStart="[(_this # 0), 'apuGenSw', (_this # 2)] call vtx_uh60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'apuGenSw'] call vtx_uh60_helisim_fnc_cockpitAllowed";
     }; // b_apugen
     class b_fuelsys1 {
       positionType="anim";
@@ -160,12 +176,15 @@ class interaction {
       animation="Lever_fuelsys1";
       animStates[] = {0,0.6,1};
       animLabels[] = {"OFF", "DIR","XFD"};
-      animEnd="[(_this # 0), false, ""fuel""] remoteExecCall [""vtx_uh60_engine_fnc_engineEH"", crew (_this # 0)]; if (vtx_uh60_ui_showDebugMessages) then {diag_log ""fuelsys"";};";
+      animStart="[(_this # 0), 'eng1FuelSys', (_this # 2)] call vtx_uh60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'eng1FuelSys'] call vtx_uh60_helisim_fnc_cockpitAllowed";
     }; // b_fuelsys1
     class b_fuelsys2: b_fuelsys1 {
       position="b_fuelsys2";
       label="NO.2 FUEL SYS";
       animation="Lever_fuelsys2";
+      animStart="[(_this # 0), 'eng2FuelSys', (_this # 2)] call vtx_uh60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'eng2FuelSys'] call vtx_uh60_helisim_fnc_cockpitAllowed";
     }; // b_fuelsys2
     class b_ignition {
       positionType="static";
@@ -176,7 +195,8 @@ class interaction {
       animation="Switch_ignition";
       animStates[] = {0, 1};
       animLabels[] = {"OFF", "ON"};
-      animEnd="_this call vtx_uh60_engine_fnc_starterState";
+      animStart="[(_this # 0), 'ignition', (_this # 2)] call vtx_uh60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'ignition'] call vtx_uh60_helisim_fnc_cockpitAllowed";
       clickSound = "hct_Key_Sound";
     }; // b_ignition
     class b_starter1 {
@@ -184,7 +204,7 @@ class interaction {
       position="b_starter1";
       label="NO.1 Engine Starter";
       radius=0.025;
-      buttonUp="[_this # 0, ""STARTER1"", ""ON""] call vtx_uh60_engine_fnc_starterState";
+      buttonUp="[_this # 0, 'eng1StartSw', 1] call vtx_uh60_helisim_fnc_cockpitInteract";
       clickSound="hct_Switch_Sound";
     }; // b_starter1
     class b_starter2 {
@@ -192,26 +212,28 @@ class interaction {
       position="b_starter2";
       label="NO.2 Engine Starter";
       radius=0.025;
-      buttonUp="[_this # 0, ""STARTER2"", ""ON""] call vtx_uh60_engine_fnc_starterState";
+      buttonUp="[_this # 0, 'eng2StartSw', 1] call vtx_uh60_helisim_fnc_cockpitInteract";
       clickSound="hct_Switch_Sound";
     }; // b_starter2
     class powerContRFM {
     class b_engpowercont1 {
-      interactionCondition = "_this call vtx_uh60_engine_fnc_rotorBrakeInterlock";
       positionType="anim";
       position="b_engpowercont1";
       label="NO.1 ENG PCL";
       radius=0.035;
       animation="Lever_engpower1";
-      animSpeed=0.5;
-      animStates[] = {0,0.23,0.85}; // no idle for the moment for SFM
+      animSpeed=0.0775;  //(0.85 - 0.23) / leverTravelTime 8 s (helisim_engine.hpp)
+      animStates[] = {0,0.23,0.85};
       animLabels[] = {"OFF","IDLE","FLY"};
-      animEnd="[(_this # 0), (_this # 2 != ""OFF""), ""throttle"", (_this # 2), (_this # 1)] remoteExecCall [""vtx_uh60_engine_fnc_engineEH"", crew (_this # 0)]; if (vtx_uh60_ui_showDebugMessages) then {diag_log ""powercont"";};";
+      animStart="[(_this # 0), 'eng1PwrLvr', (_this # 2)] call vtx_uh60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'eng1PwrLvr'] call vtx_uh60_helisim_fnc_cockpitAllowed";
     }; // b_engpowercont1
     class b_engpowercont2: b_engpowercont1 {
       position="b_engpowercont2";
       label="NO.2 ENG PCL";
       animation="Lever_engpower2";
+      animStart="[(_this # 0), 'eng2PwrLvr', (_this # 2)] call vtx_uh60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'eng2PwrLvr'] call vtx_uh60_helisim_fnc_cockpitAllowed";
     }; // b_engpowercont2
     }; // powerContRFM
     class l_rotorbrake: b_airsce {
@@ -222,7 +244,8 @@ class interaction {
       animation="Lever_RotorBrake";
       animStates[] = {0, 1};
       animLabels[] = {"OFF", "ON"};
-      animEnd="";
+      animStart="[(_this # 0), 'rotorBrake', (_this # 2)] call vtx_uh60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'rotorBrake'] call vtx_uh60_helisim_fnc_cockpitAllowed";
       radius=0.1;
       animSpeed=1;
     }; // l_rotorbrake
@@ -234,7 +257,9 @@ class interaction {
       animation="Handle_wheelbrake";
       animStates[] = {1, 0};
       animLabels[] = {"ON", "OFF"};
-      animEnd="_this call vtx_uh60_engine_fnc_wheelBrakes;";
+      animEnd="_this call vtx_uh60_ground_fnc_wheelBrakes;";
+      animStart="";
+      interactionCondition="";
       radius=0.1;
       animSpeed=3;
     }; // l_wheelbrake

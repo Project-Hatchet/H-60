@@ -111,8 +111,8 @@ class barsWrapper {
     //BAR(RPM2BAR, "EICAS_RPM2",0.893,BARBOTTOM,BAR_WIDTH)
 	//BAR(T2BAR,   "T2",0.962,BARBOTTOM,BAR_WIDTH)
 
-	BAR(FUEL1,   "EICAS_Fuel",0.459,FUEL_BARS_Y2,BAR_WIDTH)
-	BAR(FUEL2,   "EICAS_Fuel",0.545,FUEL_BARS_Y2,BAR_WIDTH)
+	BAR(FUEL1,   "EICAS_Fuel1",0.459,FUEL_BARS_Y2,BAR_WIDTH)
+	BAR(FUEL2,   "EICAS_Fuel2",0.545,FUEL_BARS_Y2,BAR_WIDTH)
 }; // barsWrapper
 
 class singleEngineTorque {
@@ -178,16 +178,18 @@ class eng2_out {
 class noAuxTanks {
   condition = USER_LT(USERMFDV_FUELTANK,1);
 	TEXT_MID_MID_SRC(FUEL_VAL,0.5,0.85)
-		source="fuel";
-		sourceScale = 2412;
+		source="user";
+		sourceIndex = USERMFDV_FUELTOTAL;
+		sourceScale = 1;
 		sourceLength = 4;
 	};
 };
 class hasInternalAux {
   condition = USER_GT(USERMFDV_FUELTANK,0);
 	TEXT_MID_MID_SRC(FUEL_VAL,0.5,0.85)
-		source="fuel";
-		sourceScale = 3506;
+		source="user";
+		sourceIndex = USERMFDV_FUELTOTAL;
+		sourceScale = 1;
 		sourceLength = 4;
 	};
 	class aux_fuel_boxes {
@@ -202,11 +204,11 @@ class hasInternalAux {
 		};
 	}; // aux_fuel_boxes
 	TEXT_MID_SCALED(FUEL_INT_L_INDICATOR,0.37,0.81,"INT",0.05)
-	TEXT_MID_SMALL_SRC(FUEL_VALUE_AUX_INT,0.37,0.85) source="fuel";    sourceScale = 1094;};
+	TEXT_MID_SMALL_SRC(FUEL_VALUE_AUX_INT,0.37,0.85) source="user"; sourceIndex = USERMFDV_FUELERFS; sourceScale = 1;};
 };
 
-TEXT_MID_SMALL_SRC(FUEL_VALUE_L,0.459,0.78) source="fuel";    sourceScale = 1206;};
-TEXT_MID_SMALL_SRC(FUEL_VALUE_R,0.545,0.78) source="fuel";    sourceScale = 1206;};
+TEXT_MID_SMALL_SRC(FUEL_VALUE_L,0.459,0.78) source="user"; sourceIndex = USERMFDV_FUEL1; sourceScale = 1;};
+TEXT_MID_SMALL_SRC(FUEL_VALUE_R,0.545,0.78) source="user"; sourceIndex = USERMFDV_FUEL2; sourceScale = 1;};
 //checklist?
 TEXT_RIGHT_SMALL_SRC(CAS1,0.043,0.745 - 0.05-0.006) source="userText"; sourceIndex = 0; sourceScale = 1;};
 TEXT_RIGHT_SMALL_SRC(CAS2,0.043,0.775 - 0.05-0.005) source="userText"; sourceIndex = 1; sourceScale = 1;};

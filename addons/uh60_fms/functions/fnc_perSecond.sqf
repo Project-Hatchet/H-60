@@ -13,8 +13,14 @@ params ["_vehicle"];
 private _fms = if (player == driver _vehicle) then [{ FMS_R_PAGE_INDEX }, { FMS_L_PAGE_INDEX }];
 private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
     case FMS_PAGE_PERFORMANCE: {
-        //Gross mass less fuel, kg - HeliSim sets the mass and publishes the fuel.
-        private _weight = (getMass _vehicle) - (_vehicle getVariable ["bmkhs_totFuelMass", 0]);
+        //HeliSim's fuel, readable from any seat: what is left (Arma's fuel fraction, which
+        //HeliSim keeps in step with its tanks) and what the engines are burning, kg/s.
+        private _fuelKg  = (fuel _vehicle) * (_vehicle getVariable ["bmkhs_maxTotFuelMass", 0]);
+        private _burnKgS = 0;
+        {_burnKgS = _burnKgS + _x} forEach (_vehicle getVariable ["bmkhs_engFuelFlow", []]);
+        private _endurance = if (_burnKgS > 0) then {_fuelKg / _burnKgS} else {-1};
+        //Gross mass less fuel, kg
+        private _weight = (_vehicle getVariable ["bmkhs_gwt", getMass _vehicle]) - _fuelKg;
         private _state = _vehicle animationPhase "Fuelprobe_Extend";
         private _stateText = "NOT INSTALLED";
         if (_vehicle animationSourcePhase "Fuelprobe_show" > 0) then {
@@ -26,9 +32,9 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
             };
         };
         [
-            str ceil (_vehicle getVariable ["vtx_uh60_engine_fuelConsumption",0]),
-            _vehicle getVariable ["vtx_uh60_engine_fuelTime","--:--:--"],
-            str floor (_vehicle getVariable ["vtx_uh60_engine_fuelRange",0]),
+            str ceil (_burnKgS * 2.20462 * 60),
+            if (_endurance < 0) then {"--:--:--"} else {[_endurance] call CBA_fnc_formatElapsedTime},
+            str floor (if (_endurance < 0) then {0} else {_endurance * (vectorMagnitude (velocity _vehicle)) * 0.000539957}),
             str round (_weight * 2.20462),
             _stateText
         ]

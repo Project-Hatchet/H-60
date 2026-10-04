@@ -1,7 +1,3 @@
-//UH-60 lifting surfaces. Converted from the pre-1.1 bmkhs_uh60_config.hpp stabilator and
-//vertical fin with Core's own old span/chord/pos geometry, so each quad sits where the old
-//surface did. NOT generated from fm.p3d - Core's generator replaces this file (and resets it).
-
     class Wings {
         class Wing01 {
             name           = "stabilator";
@@ -27,8 +23,7 @@
         };
     };
 
-    //Stabilator incidence, deg. Rows are collective 0 to 1; columns are Core's fixed airspeeds.
-    //Resampled from the old 30-200 kt table onto these points.
+    //Stabilator incidence, deg - collective rows by airspeed (kts)
     //-----------------------Coll-     30     40     50   57.5     80   82.5    100    115    120    140    150    160    165    180
     heliSimStabTable[] =    {
                          {0.00, -25.00, -15.50,  -6.00,  -4.88,  -3.00,  -3.00,  -3.00,  -3.00,  -3.00,  -3.00,  -3.00,  -3.00,  -3.00,  -3.00}

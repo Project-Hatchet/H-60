@@ -1,15 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Airfoils //////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
-    //Lift and drag against angle of attack, per airfoil section. Rotors and wings name the
-    //section they use, so a config says what an aerofoil IS rather than pointing at a list.
-    //
-    //  name    - how rotors and wings refer to this section. Must be unique; Core matches on
-    //            it exactly, so a name that matches nothing is a config error.
-    //  table[] - {AoA deg, CL, CD}, interpolated. The +/-90 and +/-180 rows anchor the curve
-    //            through the reversed-flow regions and must not be edited.
-    //
-    //UH-60: the three sections from the pre-1.1 config's airfoilTable00-02, CM column dropped.
+    //{AoA deg, CL, CD}. Do not edit the +/-90 and +/-180 rows.
     numAirfoils = 3;
     class Airfoils {
         class Airfoil01 {

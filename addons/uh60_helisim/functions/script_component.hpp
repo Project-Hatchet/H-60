@@ -1,1 +1,0 @@
-#include "\z\vtx\addons\uh60_helisim\script_component.hpp"

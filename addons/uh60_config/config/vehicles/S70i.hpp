@@ -41,6 +41,9 @@ class vtx_S70i: vtx_H60_base {
     }; // AnimationSources
     class Turrets: Turrets {
       class CopilotTurret: CopilotTurret {};
+      //Door guns not fitted - no ammunition aboard
+      class MainTurret: MainTurret { magazines[] = {}; };
+      class RightDoorGun: RightDoorGun { magazines[] = {}; };
     };
     class MFD: MFD {
       class VTX_MFD_1_NOFLIR :           VTX_MFD_1_NOFLIR {};

@@ -182,3 +182,14 @@ class EICAS_Fuel
     minPos[]={0,FUEL_BARS_Y1};
     maxPos[]={0,FUEL_BARS_Y2};
 }; // Fuel
+//Each main tank, lb, full at 547 kg (1206 lb)
+class EICAS_Fuel1: EICAS_Fuel
+{
+    source="user";
+    sourceIndex=USERMFDV_FUEL1;
+    max=1206;
+};
+class EICAS_Fuel2: EICAS_Fuel1
+{
+    sourceIndex=USERMFDV_FUEL2;
+};

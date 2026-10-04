@@ -1,17 +1,143 @@
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Flight Controls //////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
-    //UH-60: the old config's inputLagValue (0.95); FMC gains are the AH-64D's - retune for the UH-60.
+    //FMC gains are the AH-64D's - retune
     inputLagValue     = 0.95;
     //Casual mode auto pitch target
-    autoAttLevelPitch = -5.0;     //deg
+    autoAttLevelPitch = -3.0;     //deg
     autoAttRollLimit  = 30.0;     //deg, bank commanded by the roll key
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+// Control Mixing ///////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+    //Each mix adds control travel to one rotor axis, from one control's position.
+    //  source     - "collective" (0..1) or "pedal" (-1..1, + right)
+    //  target     - "pitch" (+ fwd), "roll" (+ left) or "yaw" (+ right pedal)
+    //  table[]    - {{source position, added travel}, ...}
+    //  gate[]     - optional, all must hold - same form as component gates. No gate:
+    //               mechanical, always applied.
+    //  airspeed[] - optional, {{knots, scale}, ...}
+    //From the rig (python/dev/forces.py) at 80 pct of full compensation, so the pilot still
+    //holds left pedal with power. YawToPitch reads the tail rotor command (pedal plus the
+    //collective yaw mixes). CollectiveToPitch is the rig's leftover - Core has no stabilator downwash.
+    //CollectiveAirspeedToYaw is not rig-derived yet.
+    class ControlMixing {
+        //Mixing unit. Fwd cyclic as collective increases. On the aircraft it cancels rotor
+        //downwash on the stabilator, which HeliSim does not model - so this is only the rig's
+        //leftover main rotor / CG pitch at 80 pct.
+        class CollectiveToPitch {
+            source  = "collective";
+            target  = "pitch";
+            table[] = {
+                { 0.0,  0.000},
+                { 0.1,  0.002},
+                { 0.2,  0.003},
+                { 0.3,  0.005},
+                { 0.4,  0.006},
+                { 0.5,  0.008},
+                { 0.6,  0.009},
+                { 0.7,  0.010},
+                { 0.8,  0.011},
+                { 0.9,  0.014},
+                { 1.0,  0.016}
+            };
+        };
+        //Mixing unit. More tail rotor pitch (left pedal) as collective increases - torque
+        class CollectiveToYaw {
+            source  = "collective";
+            target  = "yaw";
+            table[] = {
+                { 0.0,  0.000},
+                { 0.1, -0.010},
+                { 0.2, -0.019},
+                { 0.3, -0.029},
+                { 0.4, -0.038},
+                { 0.5, -0.048},
+                { 0.6, -0.057},
+                { 0.7, -0.062},
+                { 0.8, -0.065},
+                { 0.9, -0.107},
+                { 1.0, -0.150}
+            };
+        };
+        //Mixing unit. Left cyclic as collective increases - tail rotor rolling moment and
+        //translating tendency
+        class CollectiveToRoll {
+            source  = "collective";
+            target  = "roll";
+            table[] = {
+                { 0.0,  0.000},
+                { 0.1, -0.001},
+                { 0.2, -0.002},
+                { 0.3, -0.004},
+                { 0.4, -0.005},
+                { 0.5, -0.006},
+                { 0.6, -0.008},
+                { 0.7, -0.008},
+                { 0.8, -0.009},
+                { 0.9, -0.014},
+                { 1.0, -0.020}
+            };
+        };
+        //Mixing unit. Aft cyclic as tail rotor pitch increases (left pedal) - canted tail
+        //rotor lift
+        class YawToPitch {
+            source  = "pedal";
+            target  = "pitch";
+            table[] = {
+                {-1.0, -0.173},
+                {-0.8, -0.157},
+                {-0.6, -0.126},
+                {-0.4, -0.084},
+                {-0.2, -0.037},
+                { 0.0,  0.000},
+                { 0.2,  0.037},
+                { 0.4,  0.069},
+                { 0.6,  0.093},
+                { 0.8,  0.109},
+                { 1.0,  0.120}
+            };
+        };
+        //Left cyclic as tail rotor pitch increases (left pedal) - tail rotor side thrust above the CG
+        class YawToRoll {
+            source  = "pedal";
+            target  = "roll";
+            table[] = {
+                {-1.0,  0.251},
+                {-0.8,  0.228},
+                {-0.6,  0.183},
+                {-0.4,  0.121},
+                {-0.2,  0.054},
+                { 0.0,  0.000},
+                { 0.2, -0.055},
+                { 0.4, -0.102},
+                { 0.6, -0.137},
+                { 0.8, -0.161},
+                { 1.0, -0.177}
+            };
+        };
+        //No.2 FCC through the yaw trim actuator, on top of collective to yaw. Full mixing
+        //0 to 40 kt, decreasing to none at 100 kt. Needs the FMC yaw channel and DC power.
+        class CollectiveAirspeedToYaw {
+            source     = "collective";
+            target     = "yaw";
+            table[]    = {
+                {0.0, 0.000},
+                {1.0, 0.000}
+            };
+            airspeed[] = {
+                {  0, 1.0},
+                { 40, 1.0},
+                {100, 0.0}
+            };
+            gate[]     = {"bmkhs_fmcYawOn", "bmkhs_dcBusOn"};
+        };
+    };
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // FMC Gains        /////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
-//PID gains, {kp, ki, kd, ki_clamp}. These are the tuning that defines how the
-//aircraft handles - one set does not carry across airframes.
+//PID gains, {kp, ki, kd, ki_clamp}
 
     //Position / velocity hold
     pidRoll[]           = {0.0550, 0.0070, 0.0900, 0.0070};
@@ -24,8 +150,6 @@
     pidBarAlt[]         = {0.0010, 0.0000, 0.0008, 0.0000};
     //Heading hold
     pidHdgHold[]        = {0.0750, 0.0200, 0.0050, 0.0200};
-    //Turn coordination. Error is lateral g and the output is clamped to +-0.1 in
-    //fn_fmcHeadingHold, so size these against that rather than the +-1 gauge.
     pidTrnCoord[]       = {0.2500, 0.0600, 0.3000, 0.1500};
     //SAS
     pidSasPitch[]       = {0.1500, 0.0000, 0.0020, 0.0000};

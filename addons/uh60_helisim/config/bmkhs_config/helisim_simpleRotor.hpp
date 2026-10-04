@@ -1,61 +1,12 @@
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Rotors - Simple //////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
-//A rotor is a hub at a position turning blades of a given size, so its geometry, its blade
-//and what it does with the controls are defined together here. Core reads numSimpleRotors
-//and loops; nothing downstream indexes by rotor NUMBER.
-//
-//The simple model works four fixed blade positions and scales by blade count, so the lift
-//and drag tables carry what the rotor does rather than deriving it per blade element.
-//
-//  type         - "main" or "tail". What the rotor IS, so Core never assumes rotor 0 is
-//                 the main one.
-//  direction    - "ccw" or "cw", seen from above.
-//  numBlades    - the four modelled positions are scaled to this.
-//  pivot[]      - hub position, {lateral, longitudinal, vertical} in m,
-//                 right-positive / nose-positive / up-positive
-//  rotation[]   - disc orientation, {pitch, roll, yaw} in deg
-//  mastLength   - m along the disc's own up axis, from pivot to hub
-//  gearRatio    - rotor to engine shaft; shared with the transmission model
-//  torqueTau    - s, torque filter time constant
-//
-//  BLADE
-//  bladeRadius  - m
-//  bladeChord   - m
-//  bladeMass    - kg, one blade
-//
-//  DISC TILT - min / mid / max in deg, interpolated from the centred stick. A rotor whose
-//  disc does not tilt declares zeroes.
-//
-//  coneAngle    - deg at full collective. Coning lifts the tips, so the thrust position
-//                 moves inboard and the disc carries a vertical arm.
-//  flapBackRollMax / flapBackPitchMax - deg at an advance ratio of 1.0. The advancing blade
-//                 lifts more than the retreating one, so the disc tilts as speed builds.
-//                 Applied as blade flap, which moves both the thrust position and its
-//                 direction - it is NOT also applied to the lift coefficient.
-//  rollLiftCoef / pitchLiftCoef - the cyclic lift coefficient, independent of the
-//                 collective's. This is what makes the fore/aft and left/right blades carry
-//                 different lift, so the pitch and roll moments come out of real forces at
-//                 real positions rather than being applied as a torque.
-//  gndEffValue  - thrust multiplier on the deck, fading to 1.0 by one rotor diameter up.
-//                 A rotor that does not sit in ground effect declares 1.0.
-//  reacTqScalar - scales the tangential blade drag that produces the yaw reaction. The same
-//                 drag drives the transmission, which this does not touch.
-//
-//  liftCoefTable / dragCoefTable - rows are the control axis that loads this rotor
-//  (collective for a main, pedal for a tail), columns are the airspeeds in the header row,
-//  m/s. The drag table carries induced and profile together, and its airspeed columns carry
-//  how they vary with speed - that is what the transmission feels.
 
-//UH-60: geometry (pivots, disc rotation, gear ratios, blades) from the pre-1.1 UH-60 config;
-//the rotor is hub-at-pivot there, so mastLength is 0. The flap, lift/drag coefficient and
-//torque values are the AH-64D's as a starting tune - same tip speed (221 m/s) and ~10% more
-//blade area. Tail disc is canted 20 deg (roll 70); the pedal tables keep the AH-64D's sign for
-//a positive-roll tail disc - if yaw comes out reversed, flip the tail liftCoefTable signs.
+//Geometry is the UH-60's; lift/drag tables and flap values are the AH-64D's - retune.
+//If pedal yaw comes out reversed, flip the tail liftCoefTable signs.
 
     numSimpleRotors = 2;
-    //Rotor limits, Nr - {normal low, normal high, high rotor, maximum}; below and above normal is transient.
-    nrLimits[] = {0.95, 1.05, 1.06, 1.10};
+    nrLimits[] = {0.96, 1.05, 1.06, 1.10};
     class SimpleRotors {
         class SimpleRotor01 {
             type             = "main";
@@ -123,7 +74,6 @@
             bladeChord       = 0.247;     //m
             bladeMass        = 7.018;     //kg
 
-            //The tail disc does not tilt - pedal changes its pitch, not its plane.
             pitchFlapMin     = 0.0;
             pitchFlapMid     = 0.0;
             pitchFlapMax     = 0.0;
@@ -140,23 +90,33 @@
             reacTqScalar     = 0.25;
             autoTorque       = 0.0;
 
+            //Pedal through controlMap is the table key: the map is the feel (the old tail
+            //rotor's pedal curve), the three rows are left / mid / right thrust. Fitted with
+            //the rig, then left x1.25 and right x2, then both x1.5, then left x1.3 right x1.25, then right x1.5, then left x0.914 for main reacTq 0.5, from flight test.
+            controlMap[] = {
+                {-1.00, -1.0000},
+                {-0.75, -0.8875},
+                {-0.50, -0.6250},
+                {-0.25, -0.2700},
+                { 0.00,  0.0000},
+                { 0.25,  0.3900},
+                { 0.50,  0.7000},
+                { 0.75,  0.8900},
+                { 1.00,  1.0000}
+            };
             //-----------Pedal----0.00---10.29---20.58---36.01---46.30---51.44---61.73---66.88---72.02
             liftCoefTable[] = {
                          {"A/S", 0.00,  10.29,  20.58,  36.01,  46.30,  51.44,  61.73,  66.88,  72.02}
-                        ,{-1.00, 2.1344, 2.3460, 2.5324, 2.7784, 2.9256, 2.9952, 3.1280, 3.1912, 3.2524}
-                        ,{-0.60, 0.1921, 0.2111, 0.2279, 0.2501, 0.2633, 0.2696, 0.2815, 0.2872, 0.2927}
+                        ,{-1.00, 1.7554, 1.9294, 2.0828, 2.2852, 2.4061, 2.4632, 2.5726, 2.6244, 2.6750}
                         ,{ 0.00, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000}
-                        ,{ 0.60,-0.1921,-0.2111,-0.2279,-0.2501,-0.2633,-0.2696,-0.2815,-0.2872,-0.2927}
-                        ,{ 1.00,-2.1344,-2.3460,-2.5324,-2.7784,-2.9256,-2.9952,-3.1280,-3.1912,-3.2524}
+                        ,{ 1.00,-1.2443,-1.3674,-1.4760,-1.6194,-1.7055,-1.7460,-1.8231,-1.8601,-1.8956}
                         };
             //-----------Pedal----0.00---10.29---20.58---36.01---46.30---51.44---61.73---66.88---72.02
             dragCoefTable[] = {
                          {"A/S", 0.00,  10.29,  20.58,  36.01,  46.30,  51.44,  61.73,  66.88,  72.02}
-                        ,{-1.00, 0.1200, 0.1200, 0.1200, 0.1200, 0.1200, 0.1200, 0.1200, 0.1200, 0.1200}
-                        ,{-0.60, 0.0226, 0.0226, 0.0226, 0.0226, 0.0226, 0.0226, 0.0226, 0.0226, 0.0226}
+                        ,{-1.00, 0.1010, 0.1010, 0.1010, 0.1010, 0.1010, 0.1010, 0.1010, 0.1010, 0.1010}
                         ,{ 0.00, 0.0130, 0.0130, 0.0130, 0.0130, 0.0130, 0.0130, 0.0130, 0.0130, 0.0130}
-                        ,{ 0.60, 0.0122, 0.0122, 0.0122, 0.0122, 0.0122, 0.0122, 0.0122, 0.0122, 0.0122}
-                        ,{ 1.00, 0.0040, 0.0040, 0.0040, 0.0040, 0.0040, 0.0040, 0.0040, 0.0040, 0.0040}
+                        ,{ 1.00, 0.0754, 0.0754, 0.0754, 0.0754, 0.0754, 0.0754, 0.0754, 0.0754, 0.0754}
                         };
         };
     };

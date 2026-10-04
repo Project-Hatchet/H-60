@@ -377,16 +377,18 @@ class fuelBarsWrapper {
 class noAuxTanks {
 	condition = USER_LT(USERMFDV_FUELTANK,1);
 	TEXT_MID_MID_SRC(FUEL_VAL,0.2864,0.8)
-		source="fuel";
-		sourceScale = 2412;
+		source="user";
+		sourceIndex = USERMFDV_FUELTOTAL;
+		sourceScale = 1;
 		sourceLength = 4;
 	};
 }; //FUEL_QTY
 class hasInternalAux {
 	condition = USER_GT(USERMFDV_FUELTANK,0);
 	TEXT_MID_MID_SRC(FUEL_VAL,0.2864,0.8)
-		source="fuel";
-		sourceScale = 3506;
+		source="user";
+		sourceIndex = USERMFDV_FUELTOTAL;
+		sourceScale = 1;
 		sourceLength = 4;
 	};
 }; //FUEL_QTY

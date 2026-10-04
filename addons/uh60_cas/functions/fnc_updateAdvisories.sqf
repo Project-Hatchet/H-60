@@ -15,6 +15,14 @@ params ["_vehicle"];
 
 ADVISORY("WOW",(isTouchingGround (_this # 0)))
 
+// Written out - the comma in getVariable's default would split the macro arguments
+if (_vehicle getVariable ["bmkhs_apuOn", false]) then {
+    [_vehicle, "APU ON", {(_this # 0) getVariable ["bmkhs_apuOn", false]}, false, true] call vtx_uh60_cas_fnc_registerCautionAdvisory;
+};
+if ((_vehicle getVariable ["bmkhs_apuGen", 0]) >= 1) then {
+    [_vehicle, "APU GEN ON", {((_this # 0) getVariable ["bmkhs_apuGen", 0]) >= 1}, false, true] call vtx_uh60_cas_fnc_registerCautionAdvisory;
+};
+
 ADVISORY("BOOST PUMP 1 ON",((_this # 0) animationPhase "Switch_fuelboostpump1" == 0))
 ADVISORY("BOOST PUMP 2 ON",((_this # 0) animationPhase "Switch_fuelboostpump2" == 0))
 

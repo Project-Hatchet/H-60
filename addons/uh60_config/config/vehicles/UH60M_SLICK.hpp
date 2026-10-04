@@ -15,7 +15,6 @@ class vtx_UH60M_SLICK: vtx_H60_base {
   typicalCargo[] = {"vtx_uh60_doorgunner"};
 
   class AnimationSources: AnimationSources {
-    ANIM_INIT(CabinSeats_Hide,1);
     ANIM_INIT(Hoist_hide,1);
     class GunnerSeats_Hide: GunnerSeats_Hide {
       initPhase = 0;

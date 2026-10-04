@@ -14,6 +14,11 @@ params ["_vehicle", "_frameTime"];
 
 _this call vtx_uh60_fms_fnc_updateWaypointInfo;
 
+// Read first - a comma inside a macro argument splits it
+private _apuOn    = _vehicle getVariable ["bmkhs_apuOn", false];
+private _apuGenOn = (_vehicle getVariable ["bmkhs_apuGen", 0]) >= 1;
+private _engState = _vehicle getVariable ["bmkhs_engState", ["OFF", "OFF"]];
+
 private _fms = if (player == driver _vehicle) then [{ FMS_R_PAGE_INDEX }, { FMS_L_PAGE_INDEX }];
 private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
     case FMS_LISTS_STARTUP_1: {
@@ -23,8 +28,8 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
         HELP_LABEL_COND("b_batt2","2",(_vehicle animationPhase "Switch_batt2" < 0.1))
 
         HELP_LABEL_COND("b_fuelpump","3",(_vehicle animationPhase "Switch_fuelpump" < 0.1))
-        HELP_LABEL_COND("b_apucont","4",(_vehicle getVariable "vtx_uh60_acft_apuState" == "ON"))
-        HELP_LABEL_COND("b_apugen","5",(_vehicle getVariable "vtx_uh60_acft_apuGenState" == "ON"))
+        HELP_LABEL_COND("b_apucont","4",(_apuOn))
+        HELP_LABEL_COND("b_apugen","5",(_apuGenOn))
         HELP_LABEL_COND("b_stbyinst","6",(_vehicle animationPhase "Switch_stbyinst" < 0.1))
     };
     case FMS_LISTS_STARTUP_2: {
@@ -33,8 +38,8 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
         HELP_LABEL_COND("b_fuelsys1","9",(_vehicle animationPhase "Lever_fuelsys1" > 0.5))
         HELP_LABEL_COND("b_fuelsys2","9",(_vehicle animationPhase "Lever_fuelsys2" > 0.5))
 
-        HELP_LABEL_COND("b_starter1","10",(_vehicle getVariable "ENG_START1"))
-        HELP_LABEL_COND("b_starter2","10",(_vehicle getVariable "ENG_START2"))
+        HELP_LABEL_COND("b_starter1","10",((_engState # 0) != "OFF"))
+        HELP_LABEL_COND("b_starter2","10",((_engState # 1) != "OFF"))
         HELP_LABEL_COND("b_engpowercont1","11-12",(_vehicle animationPhase "Lever_engpower1" > 0.8))
         HELP_LABEL_COND("b_engpowercont2","11-12",(_vehicle animationPhase "Lever_engpower2" > 0.8))
         HELP_LABEL_COND("b_apucont","13",(_vehicle animationPhase "Switch_apucont" > 0.1))

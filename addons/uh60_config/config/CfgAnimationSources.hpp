@@ -56,7 +56,9 @@ class AnimationSources {
     mass = -MASS_GAU21;
     forceAnimatePhase = 0;
     forceAnimate[] = {
-      "CabinSeats_Hide", 1,
+      "CabinSeats_1_Hide", 1,
+      "CabinSeats_2_Hide", 1,
+      "CabinSeats_3_Hide", 1,
       "ERFS_show", 0
     };
   };
@@ -67,7 +69,9 @@ class AnimationSources {
     mass = -MASS_GAU21;
     forceAnimatePhase = 0;
     forceAnimate[] = {
-      "CabinSeats_Hide", 1,
+      "CabinSeats_1_Hide", 1,
+      "CabinSeats_2_Hide", 1,
+      "CabinSeats_3_Hide", 1,
       "ERFS_show", 0
     };
   };
@@ -163,7 +167,9 @@ class AnimationSources {
     mass = MASS_ERFS;
     forceAnimatePhase = 1;
     forceAnimate[] = {
-      "CabinSeats_Hide", 1,
+      "CabinSeats_1_Hide", 1,
+      "CabinSeats_2_Hide", 1,
+      "CabinSeats_3_Hide", 1,
       "GAU21_L_Hide", 1,
       "GAU21_R_Hide", 1
     };
@@ -221,22 +227,6 @@ class AnimationSources {
     displayName = "Hide Gunner Seats";
     mass = -MASS_GUNNERSEATS;
     onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[1], [2]] ;";
-  };
-  class CabinSeats_Hide {
-    source="user";
-    animPeriod=1;
-    initPhase=0;
-    mass = -MASS_CABINSEATS;
-    lockCargoAnimationPhase = 1;
-    //lockCargo[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-    // if forceAnimatePhase is equal to the phase of this animation sources, every sources from forceAnimate will be changed with their given phase
-    forceAnimatePhase = 0;
-    // animationSource1, phase, animationSource2, phase... No probabilities here, only true or false
-    forceAnimate[] = {
-      "ERFS_show", 0,
-      "GAU21_L_Hide", 1,
-      "GAU21_R_Hide", 1
-    };
   };
   class CabinSeats_1_Hide {
     source="user";

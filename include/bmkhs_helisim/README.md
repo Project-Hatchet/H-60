@@ -4,7 +4,7 @@ A copy of the HeliSim Core header `uh60_helisim` includes, committed so the H-60
 with nothing but `scons` - no submodule, no junction, no setup step. SConstruct copies
 `include\` into `build\` beside `x\cba` and `z\ace`, which is how `\bmkhs_helisim\...` resolves.
 
-**Matches HeliSim Core 1.1.1.0.**
+**Matches HeliSim Core 1.2.0.0.**
 
 **Do not edit these files here.** Change them in HeliSim Core, then copy them back over.
 The procedure is in HeliSim Core's `docs/AIRCRAFT_GUIDE.md` under
@@ -13,6 +13,5 @@ The procedure is in HeliSim Core's `docs/AIRCRAFT_GUIDE.md` under
 | Header | Included by |
 |---|---|
 | `fmOverride.hpp` | `addons/uh60_helisim/config/cfgVehicles.hpp` - the flight model override block |
-
-A no-systems aircraft needs only this one. Add the others (`hitPoints.hpp`,
-`controlMacros.hpp`, `functions/.../*.hpp`) when the pack starts including them.
+| `hitPoints.hpp` | `addons/uh60_helisim/config/cfgVehicles.hpp` - `BMKHS_HITPOINT` for the hitpoint declarations |
+| `controlMacros.hpp` | `addons/uh60_helisim/config/CfgUserActions.hpp` - keybind row macros (`BMKHS_CONTROL` is redefined there for Addon Builder, see `docs/HELISIM_TODO.md`) |

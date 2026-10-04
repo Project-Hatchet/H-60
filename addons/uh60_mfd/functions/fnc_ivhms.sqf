@@ -4,8 +4,6 @@
 params ["_vehicle"];
 vtx_uh60_mfd_allowText = false;
 {_vehicle setUserMFDValue [_x, 6]} forEach [23, 24, 25, 26];
-_vehicle animate ["GeneratorsOnOff",1];
-_vehicle animate ["PowerOnOff",1];
 [_vehicle, ["startup", "b_batt1"], "ON"] call hct_interaction_fnc_scriptedInteract;
 
 

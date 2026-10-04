@@ -1,12 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Rotors - Blade Element Theory ////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
-//Per-rotor arrays, index 0 = main, 1 = tail. Core reads numRotors and loops.
-//Model shaping - inflow, flap dynamics, damping - stays in Core.
-//
-//UH-60: geometry, blades and pitch ranges from the pre-1.1 UH-60 config. Root cutout is the old
-//rotorBladeRootCutoutPct of the radius; blade length is radius minus that cutout. Flap time
-//constants and delta-3 are the AH-64D's - nothing UH-60 specific existed for them.
+//Index 0 = main, 1 = tail. Flap constants and delta-3 are the AH-64D's.
 
     numRotors            = 2;
     rotorType[]          = {0,      1};          //0 = main, 1 = tail
@@ -16,7 +11,6 @@
     rotorMastLength[]    = {0.00,   0.00};    //m - the old config put the hub at the pivot
     rotorGearRatio[]     = {80.99,  17.57};   //258 / 1190 rpm main / tail at 20900 Np
 
-    //Hub position and disc orientation in model space.
     rotorPivot[]         = {
                             { 0.00,  1.81,  1.50}     //main hub, m
                           , { 0.35, -7.99,  1.77}     //tail hub, m
@@ -26,7 +20,7 @@
                           , { 0.0, 70.0, 0.0}         //tail disc, deg - canted 20 deg
                           };
 
-    //Flap response time constants, {longitudinal, lateral} per rotor.
+    //Flap time constants, {longitudinal, lateral}
     rotorFlapTimeConst[] = {
                             {2.0, 3.0}                //main
                           , {0.5, 0.5}                //tail
@@ -50,6 +44,5 @@
     rotorCollMid[]       = {0,      0};
     rotorCollMax[]       = {25.9,   23.0};
 
-    //Model bindings - the aircraft must provide these selections
     rotorAnimSource[]    = {"rotorH",       "rotorV"};
     rotorHitPoint[]      = {"hithrotor",    "hitvrotor"};

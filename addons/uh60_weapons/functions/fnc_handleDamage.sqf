@@ -28,8 +28,3 @@ vtx_uh60_weapons_fnc_handleDamage = {
 		[2, [ 2, 2.4, -1.4], 0.5]
 	];
 };
-[] spawn {
-	vehicle player setPylonLoadOut [1, "VTX_PylonRack_M261_M229", false, []];
-	vehicle player setPylonLoadOut [2, "VTX_4Rnd_ACE_Hellfire_AGM114K", false, []];
-	[vehicle player] call vtx_uh60_weapons_fnc_handleDamage;
-};

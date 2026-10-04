@@ -1,2 +1,0 @@
-PREP(setup);
-PREP(perFrame);

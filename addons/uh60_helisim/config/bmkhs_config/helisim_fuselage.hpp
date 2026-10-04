@@ -1,7 +1,4 @@
-//UH-60 fuselage. Converted from the pre-1.1 bmkhs_uh60_config.hpp quads - the same panels,
-//re-ordered leading edge first. NOT generated from fm.p3d: model fm.p3d over vtx_uh60.p3d and
-//run Core's fm_generateAeroSurfacePoints.py to replace this file (that resets every value).
-//vtx_uh60.p3d is autocenter = 0, so these model-space numbers need no boundingCenter offset.
+//Converted from the pre-1.1 config, not generated from fm.p3d.
 
     fuselageAirfoil     = "NACA 0012";
 
