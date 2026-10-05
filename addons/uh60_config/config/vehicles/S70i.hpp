@@ -49,7 +49,6 @@ class vtx_S70i: vtx_H60_base {
       // the window seat; the pendant lives at the right cabin door.
       class CargoTurret_01: CargoTurret {
         soundAttenuationTurret = "VTX_H60_CabinAttenuation"; // #510: pendant seat is inside the airframe, same as the base M door seats (#617)
-        disableSoundAttenuation = 0;
         gunnerAction = "passenger_bench_1";
         gunnerInAction = "passenger_bench_1";
         memoryPointsGetInGunner = "pos Cargo R";
