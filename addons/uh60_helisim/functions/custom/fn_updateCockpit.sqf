@@ -2,7 +2,8 @@
 Function: vtx_uh60_helisim_fnc_updateCockpit
 
 Description:
-    MFD engine values, door sound controllers and ESIS countdown, for the crew's machine.
+    MFD engine values, flight director knobs, door sound controllers and ESIS countdown, for
+    the crew's machine.
 
 Parameters:
     _heli - The helicopter [Object]
@@ -48,6 +49,19 @@ if (_engineOn && {!(_heli getVariable ["vtx_uh60_helisim_engineWasOn", false])})
     setCustomSoundController [_heli, "CustomSoundController8", [((_heli animationSourcePhase "Door_RF") + (_heli animationSourcePhase "Door_LF")) / 2, 1] select ((_heli animationSourcePhase "Cockpitdoors_Hide") > 0)];
 };
 _heli setVariable ["vtx_uh60_helisim_engineWasOn", _engineOn];
+
+//Flight director - the panel knobs follow Core's targets
+{
+    _y params ["_source", "_perPhase", "_range", "", "_step"];
+    private _tgt  = _heli getVariable ["bmkhs_fdTgt_" + _x, 0];
+    private _diff = ((_heli animationSourcePhase _source) * _perPhase) - _tgt;
+    if (_x == "hdg") then { _diff = [_diff] call CBA_fnc_simplifyAngle180 };
+    private _dragged = time < (_heli getVariable ["vtx_uh60_helisim_fdKnobAt_" + _x, -1]) + 1;
+    if (!_dragged && {abs _diff > (_step * 0.5) + 0.001}) then { _heli animateSource [_source, _tgt / _perPhase, true] };
+} forEach vtx_uh60_helisim_fdKnobs;
+//The FD panel readouts and the PFD / ND bugs: RALT, ALTP, ALT, IAS, HDG
+{ _heli setUserMFDValue [_x select 0, _heli getVariable ["bmkhs_fdTgt_" + (_x select 1), 0]] } forEach
+    [[12, "ralt"], [13, "altp"], [14, "alt"], [41, "ias"], [42, "hdg"]];
 
 if (time < (_heli getVariable ["vtx_uh60_helisim_cockpitSecond", -1]) + 1) exitWith {};
 _heli setVariable ["vtx_uh60_helisim_cockpitSecond", time];

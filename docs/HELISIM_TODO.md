@@ -48,13 +48,17 @@ Do after the H-60 HeliSim integration is complete.
   (`python/dev/forces.py`, pointed at the pack with `BMKHS_CONFIG`): hover trim where the pilot
   should hold it, full pedal holding full collective, equal spare yaw both ways. Then
   flight-test the yaw rate. Both still use the old multi-row pedal tables.
+- [ ] **One gate function for every gate reader.** Core checks `gate[]` (a variable name, or
+  `{circuit, threshold}`; all must hold) inline in each reader: producer, converter, storage,
+  systems debug, `controlAllowed`, engine governor, gas turbine starter, control mixing and the
+  FMC. Replace every copy with one Core function. Same behaviour; the producer and
+  `controlAllowed` keep recording which gate failed (`GateWhy`) around it.
 
 ## H-60
 
-- [ ] **Flight director drives HeliSim's controls, not the airframe.** `uh60_fd` holds vertical
-  speed, heading and pitch with `addForce` / `addTorque` on the aircraft
-  (`fnc_verticalVelocity`, `fnc_hdg`, `fnc_achievePitch`), bypassing HeliSim's rotor and
-  controls. Rework it to command HeliSim's control inputs, as a real autopilot moves the controls.
+- [ ] **Tune the flight director.** It is Core's now (`FMC >> FlightDirector`, `uh60_fd`
+  deleted); its gains in `helisim_flightControls.hpp` are a first cut. Fly each mode - RALT,
+  ALT, ALTP capture, IAS, HDG (by bank above 20 kt, by pedal below), FMS and HVR - and tune.
 - [ ] **Ground handling outside HeliSim.** `uh60_ground` taxi and parking-brake hold
   (`fnc_taxiTick`, `fnc_pbHoldTick`) set the aircraft's velocity directly. Decide whether
   HeliSim owns ground handling (a Core item if so) and move it there.

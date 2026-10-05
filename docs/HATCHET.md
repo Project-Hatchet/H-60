@@ -19,9 +19,9 @@ on screen. Every HeliSim control follows this; don't add another path.
 |---|---|---|
 | Hatchet interaction | `uh60_config/.../cfgHctCockpit.hpp` | Animates the control; calls the pack |
 | Control | `uh60_helisim/.../helisim_controls.hpp` | HeliSim's positions; `hctInteraction[]` names the interaction |
-| `cockpitAllowed` | `uh60_helisim/functions` | `interactionCondition`: may it move there? |
-| `cockpitInteract` | `uh60_helisim/functions` | `animStart` / `buttonUp`: tell HeliSim, on the owner |
-| `cockpitBind` | `uh60_helisim/functions` | Keybinds and linked controls: drive the interaction |
+| `cockpitAllowed` | `uh60_helisim/functions/custom` | `interactionCondition`: may it move there? |
+| `cockpitInteract` | `uh60_helisim/functions/custom` | `animStart` / `buttonUp`: tell HeliSim, on the owner |
+| `cockpitBind` | `uh60_helisim/functions/custom` | Keybinds and linked controls: drive the interaction |
 
 ## A click
 
@@ -56,6 +56,21 @@ animates both at the same rate. The other lever's own `animStart` sees
 
 Other engine OFF or already at FLY: only the clicked lever moves. Other engine STARTING:
 `cockpitAllowed` refuses FLY.
+
+## The flight director panel
+
+The FD buttons and knobs are not HeliSim controls - they are Core's FMC inputs, the same
+actions a keybind sends. Each calls `vtx_uh60_helisim_fnc_fmcInput`, which hands it to Core's
+`inputControlHandle` / `inputAnalogHandler` on the owner:
+
+- **Buttons** send the mode's action (`bmkhs_fdAlt`, ...). Core engages it and cancels the others
+  on its axis; the light follows Core's `fdModeChanged` event.
+- **Knobs** - a drag (`fnc_fdKnob`) sends the knob's position as a fraction of the target's range
+  (`bmkhs_fdAltTarget`, ...); the push sends sync (`bmkhs_fdAltSync`). The knob table in
+  `XEH_preInit.sqf` maps each knob's animation to target units.
+- **The knobs follow Core.** `fnc_updateCockpit` turns a knob to Core's target whenever the two
+  differ by more than half a step - a sync, a keybind step, ALTP capture - except for a second
+  after a drag.
 
 ## Rates
 

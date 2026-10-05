@@ -271,7 +271,7 @@ class interaction {
       label="RALT Hold";
       radius=BTN_RADIUS_SWITCH;
       clickSound="hct_Switch_Sound";
-      buttonUp="[(_this # 0), ""RALT""] call vtx_uh60_fd_fnc_modeSet;";
+      buttonUp="[(_this # 0), ""bmkhs_fdRalt"", true] call vtx_uh60_helisim_fnc_fmcInput;";
     }; // ralt
     class b_ap_ralt_R: b_ap_ralt_L {
       position="ap_fdR_1";
@@ -279,7 +279,7 @@ class interaction {
     class b_ap_altp_L: b_ap_ralt_L {
       position="ap_fdL_2";
       label="ALTP Mode";
-      buttonUp="[(_this # 0), ""ALTP""] call vtx_uh60_fd_fnc_modeSet;";
+      buttonUp="[(_this # 0), ""bmkhs_fdAltp"", true] call vtx_uh60_helisim_fnc_fmcInput;";
     }; // altp
     class b_ap_altp_R: b_ap_altp_L {
       position="ap_fdR_2";
@@ -287,7 +287,7 @@ class interaction {
     class b_ap_alt_L: b_ap_ralt_L {
       position="ap_fdL_3";
       label="ALT Hold";
-      buttonUp="[(_this # 0), ""ALT""] call vtx_uh60_fd_fnc_modeSet;";
+      buttonUp="[(_this # 0), ""bmkhs_fdAlt"", true] call vtx_uh60_helisim_fnc_fmcInput;";
     }; // alt
     class b_ap_alt_R: b_ap_alt_L {
       position="ap_fdR_3";
@@ -295,7 +295,7 @@ class interaction {
     class b_ap_ias_L: b_ap_ralt_L {
       position="ap_fdL_4";
       label="IAS Hold";
-      buttonUp="[(_this # 0), ""IAS""] call vtx_uh60_fd_fnc_modeSet;";
+      buttonUp="[(_this # 0), ""bmkhs_fdIas"", true] call vtx_uh60_helisim_fnc_fmcInput;";
     }; // IAS
     class b_ap_ias_R: b_ap_ias_L {
       position="ap_fdR_4";
@@ -303,7 +303,7 @@ class interaction {
     class b_ap_hdg_L: b_ap_ralt_L {
       position="ap_fdL_5";
       label="HDG Hold";
-      buttonUp="[(_this # 0), ""HDG""] call vtx_uh60_fd_fnc_modeSet;";
+      buttonUp="[(_this # 0), ""bmkhs_fdHdg"", true] call vtx_uh60_helisim_fnc_fmcInput;";
     }; // HDG
     class b_ap_hdg_R: b_ap_hdg_L {
       position="ap_fdR_5";
@@ -311,7 +311,7 @@ class interaction {
     class b_ap_fms_L: b_ap_ralt_L {
       position="ap_fdL_fms";
       label="FMS Couple";
-      buttonUp="[(_this # 0), ""FMS""] call vtx_uh60_fd_fnc_modeSet;";
+      buttonUp="[(_this # 0), ""bmkhs_fdNav"", true] call vtx_uh60_helisim_fnc_fmcInput;";
     }; // HDG
     class b_ap_fms_R: b_ap_fms_L {
       position="ap_fdR_fms";
@@ -319,7 +319,7 @@ class interaction {
     class b_ap_hvr_L: b_ap_ralt_L {
       position="ap_fdL_hvr";
       label="Hover Hold";
-      buttonUp="[(_this # 0), ""HVR""] call vtx_uh60_fd_fnc_modeSet;";
+      buttonUp="[(_this # 0), ""bmkhs_fdHvr"", true] call vtx_uh60_helisim_fnc_fmcInput;";
     }; // HDG
     class b_ap_hvr_R: b_ap_hvr_L {
       position="ap_fdR_hvr";
@@ -364,9 +364,9 @@ class interaction {
       animation="FD_1_ROT";
       looping = 1;
       dragStart="";
-      dragging="[(_this # 0), ""RALT""] call vtx_uh60_fd_fnc_spinKnob;";
-      dragStop="[(_this # 0), ""RALT""] call vtx_uh60_fd_fnc_spinKnob;";
-      buttonUp="[(_this # 0), ""RALT""] call vtx_uh60_fd_fnc_psync;";
+      dragging="[(_this # 0), ""ralt""] call vtx_uh60_helisim_fnc_fdKnob;";
+      dragStop="[(_this # 0), ""ralt""] call vtx_uh60_helisim_fnc_fdKnob;";
+      buttonUp="[(_this # 0), ""bmkhs_fdRaltSync"", true] call vtx_uh60_helisim_fnc_fmcInput;";
     }; // KnobFDRight_RALT
     class KnobFDLeft_RALT: KnobFDRight_RALT {position="knob_fdL_1";};// KnobFDLeft_RALT
     class KnobFDRight_ALTP: KnobFDRight_RALT {
@@ -375,9 +375,9 @@ class interaction {
       dragRange = 0.5*10;
       label="ALTP Select";
       animation="FD_2_ROT";
-      dragging="[(_this # 0), ""ALTP""] call vtx_uh60_fd_fnc_spinKnob;";
-      dragStop="[(_this # 0), ""ALTP""] call vtx_uh60_fd_fnc_spinKnob;";
-      buttonUp="[(_this # 0), ""ALTP""] call vtx_uh60_fd_fnc_psync;";
+      dragging="[(_this # 0), ""altp""] call vtx_uh60_helisim_fnc_fdKnob;";
+      dragStop="[(_this # 0), ""altp""] call vtx_uh60_helisim_fnc_fdKnob;";
+      buttonUp="[(_this # 0), ""bmkhs_fdAltpSync"", true] call vtx_uh60_helisim_fnc_fmcInput;";
     }; // KnobFDRight_ALTP
     class KnobFDLeft_ALTP: KnobFDRight_ALTP {position="knob_fdL_2";};// KnobFDLeft_ALTP
     class KnobFDRight_ALT: KnobFDRight_RALT {
@@ -386,9 +386,9 @@ class interaction {
       dragRange = 0.5*10;
       label="ALT Select";
       animation="FD_3_ROT";
-      dragging="[(_this # 0), ""ALT""] call vtx_uh60_fd_fnc_spinKnob;";
-      dragStop="[(_this # 0), ""ALT""] call vtx_uh60_fd_fnc_spinKnob;";
-      buttonUp="[(_this # 0), ""ALT""] call vtx_uh60_fd_fnc_psync;";
+      dragging="[(_this # 0), ""alt""] call vtx_uh60_helisim_fnc_fdKnob;";
+      dragStop="[(_this # 0), ""alt""] call vtx_uh60_helisim_fnc_fdKnob;";
+      buttonUp="[(_this # 0), ""bmkhs_fdAltSync"", true] call vtx_uh60_helisim_fnc_fmcInput;";
     }; // KnobFDRight_ALT
     class KnobFDLeft_ALT: KnobFDRight_ALT {position="knob_fdL_3";};// KnobFDLeft_ALT
     class KnobFDRight_IAS: KnobFDRight_RALT {
@@ -397,9 +397,9 @@ class interaction {
       dragRange = 0.5*0.65;
       label="IAS Select";
       animation="FD_4_ROT";
-      dragging="[(_this # 0), ""IAS""] call vtx_uh60_fd_fnc_spinKnob;";
-      dragStop="[(_this # 0), ""IAS""] call vtx_uh60_fd_fnc_spinKnob;";
-      buttonUp="[(_this # 0), ""IAS""] call vtx_uh60_fd_fnc_psync;";
+      dragging="[(_this # 0), ""ias""] call vtx_uh60_helisim_fnc_fdKnob;";
+      dragStop="[(_this # 0), ""ias""] call vtx_uh60_helisim_fnc_fdKnob;";
+      buttonUp="[(_this # 0), ""bmkhs_fdIasSync"", true] call vtx_uh60_helisim_fnc_fmcInput;";
     }; // KnobFDRight_IAS
     class KnobFDLeft_IAS: KnobFDRight_IAS {position="knob_fdL_4";};// KnobFDLeft_IAS
     class KnobFDRight_HDG: KnobFDRight_RALT {
@@ -409,9 +409,9 @@ class interaction {
       dragRange = 0.5*9;
       label="HDG Select";
       animation="FD_5_ROT";
-      dragging="[(_this # 0), ""HDG""] call vtx_uh60_fd_fnc_spinKnob;";
-      dragStop="[(_this # 0), ""HDG""] call vtx_uh60_fd_fnc_spinKnob;";
-      buttonUp="[(_this # 0), ""HDG""] call vtx_uh60_fd_fnc_psync;";
+      dragging="[(_this # 0), ""hdg""] call vtx_uh60_helisim_fnc_fdKnob;";
+      dragStop="[(_this # 0), ""hdg""] call vtx_uh60_helisim_fnc_fdKnob;";
+      buttonUp="[(_this # 0), ""bmkhs_fdHdgSync"", true] call vtx_uh60_helisim_fnc_fmcInput;";
     }; // KnobFDRight_IAS
     class KnobFDLeft_HDG: KnobFDRight_HDG {position="knob_fdL_5";};// KnobFDLeft_HDG
     class Wipers {

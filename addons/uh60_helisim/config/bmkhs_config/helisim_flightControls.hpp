@@ -1,7 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Flight Controls //////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
-    //FMC gains are the AH-64D's - retune
     inputLagValue     = 0.95;
     //Casual mode auto pitch target
     autoAttLevelPitch = -3.0;     //deg
@@ -135,26 +134,78 @@
     };
 
 /////////////////////////////////////////////////////////////////////////////////////////////
-// FMC Gains        /////////////////////////////////////////////////////////////////////////
+// FMC              /////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
-//PID gains, {kp, ki, kd, ki_clamp}
+//Field reference: \bmkhs_helisim\fmc.hpp. PID gains {kp, ki, kd, ki_clamp}, the AH-64D's - retune.
+//Every feature works through the pilot-assist servos on the No. 2 (utility) system, and the
+//computer needs DC.
+    class FMC {
+        class Sas {
+            gate[]      = {{"UTIL_HYD", 1260}, "bmkhs_dcBusOn"};
+            authority[] = {0.2, 0.1, 0.1};   //pitch, roll, yaw
+            pitch[]     = {0.1500, 0.0000, 0.0020, 0.0000};
+            roll[]      = {0.1000, 0.0000, 0.0020, 0.0000};
+            yaw[]       = {0.3000, 0.0500, 0.0250, 0.0500};
+        };
+        class AttitudeHold {
+            gate[]      = {{"UTIL_HYD", 1260}, "bmkhs_dcBusOn"};
+            posBelowKts = 5;
+            velBelowKts = 40;               //accelerating
+            attBelowKts = 30;               //decelerating
+            authority   = 0.1;
+            posPitch[]  = {0.1500, 0.0070, 0.1200, 0.0070};
+            posRoll[]   = {0.0550, 0.0070, 0.0900, 0.0070};
+            attPitch[]  = {0.0925, 0.0025, 0.0450, 0.0025};
+            attRoll[]   = {0.0400, 0.0015, 0.0180, 0.0015};
+        };
+        class AltitudeHold {
+            gate[]      = {{"UTIL_HYD", 1260}, "bmkhs_dcBusOn"};
+            radBelowFt  = 1428;
+            radBelowKts = 40;
+            engageFpm   = 200;
+            collBand    = 0.05;
+            dropAboveTq = 0.98;
+            rad[]       = {0.0500, 0.0001, 0.0050, 0.0001};
+            bar[]       = {0.0010, 0.0000, 0.0008, 0.0000};
+        };
+        class HeadingHold {
+            gate[]      = {{"UTIL_HYD", 1260}, "bmkhs_dcBusOn"};
+            hdgBelowKts = 5;
+            blendToKts  = 40;
+            breakout[]  = {0.05, 0.10, 0.20};   //pedal, by attitude hold sub-mode: pos / vel / att
+            authority   = 0.1;
+            hdg[]       = {0.0750, 0.0200, 0.0050, 0.0200};
+            trn[]       = {0.2500, 0.0600, 0.3000, 0.1500};
+        };
+        //The FD panel: RALT, ALTP, ALT, IAS, HDG, FMS (nav) and HVR. Gains are a first cut - tune.
+        class FlightDirector {
+            gate[]        = {{"UTIL_HYD", 1260}, "bmkhs_dcBusOn"};
+            modes[]       = {"ralt", "alt", "altp", "ias", "hdg", "nav", "hvr"};
+            class Targets {               //{min, max, step, wraps}
+                ralt[] = {0, 1000, 10};   //ft
+                alt[]  = {0, 20000, 100}; //ft
+                altp[] = {0, 20000, 100}; //ft
+                ias[]  = {0, 200, 10};    //kt
+                hdg[]  = {0, 360, 1, 1};  //deg
+            };
+            altGain       = 10;
+            vsMaxFpm      = 1000;
+            captureFt     = 50;
+            maxPitchDeg   = 15;
+            maxBankDeg    = 30;
+            bankPerDeg    = 1;
+            bankAboveKts  = 20;
+            collAuthority = 1.0;            //full travel - continuous torque is the limit
+            cycAuthority  = 0.1;
+            pedAuthority  = 0.1;
+            vs[]          = {0.0002, 0.0001,  0.0000, 10000};   //integral reaches full collective
+            ias[]         = {0.5000, 0.0500,  0.0000, 100};
+            pitch[]       = {0.0925, 0.0025,  0.0450, 0.0025};
+            roll[]        = {0.0400, 0.0015,  0.0180, 0.0015};
+            yaw[]         = {0.0750, 0.0200,  0.0050, 0.0200};
+        };
+    };
 
-    //Position / velocity hold
-    pidRoll[]           = {0.0550, 0.0070, 0.0900, 0.0070};
-    pidPitch[]          = {0.1500, 0.0070, 0.1200, 0.0070};
-    //Attitude hold
-    pidRollAtt[]        = {0.0400, 0.0015, 0.0180, 0.0015};
-    pidPitchAtt[]       = {0.0925, 0.0025, 0.0450, 0.0025};
-    //Altitude hold
-    pidRadAlt[]         = {0.0500, 0.0001, 0.0050, 0.0001};
-    pidBarAlt[]         = {0.0010, 0.0000, 0.0008, 0.0000};
-    //Heading hold
-    pidHdgHold[]        = {0.0750, 0.0200, 0.0050, 0.0200};
-    pidTrnCoord[]       = {0.2500, 0.0600, 0.3000, 0.1500};
-    //SAS
-    pidSasPitch[]       = {0.1500, 0.0000, 0.0020, 0.0000};
-    pidSasRoll[]        = {0.1000, 0.0000, 0.0020, 0.0000};
-    pidSasYaw[]         = {0.3000, 0.0500, 0.0250, 0.0500};
     //Auto-pedal
     pidAutoAttPitch[]   = {0.0925, 0.0025, 0.0220, 0.0025};
     pidAutoAttRoll[]    = {0.0400, 0.0015, 0.0250, 0.0015};
