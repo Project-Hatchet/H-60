@@ -34,11 +34,9 @@ Not planned - candidates, recorded so the reasoning isn't lost.
 
 Do after the H-60 HeliSim integration is complete.
 
-- [ ] **Per-detent animation speeds (PR to `Project-Hatchet/hatchet-framework`).** Hatchet has
-  one `animSpeed` per interaction, so the power levers travel OFF↔IDLE at the IDLE→FLY rate
-  (~3 s) while HeliSim switches instantly - the cockpit is not congruent with the engine. Add
-  e.g. `animSpeeds[]` alongside `animStates[]` in `fnc_loadItem` / `fnc_leverAnimate`, then set
-  the levers to `{0, 0, 0.0775}` (snap, snap, travel to FLY). See `docs/HATCHET.md` → Rates.
+- [ ] **Merge the per-move lever speed PR** (`Project-Hatchet/hatchet-framework`,
+  `improvement/lever-anim-speeds`). Hatchet's `animSpeedCode`; the power levers already use
+  it (`fnc_leverSpeed`) and fall back to `animSpeed` until it ships. See `docs/HATCHET.md` → Rates.
 
 ## After the H-60 release
 

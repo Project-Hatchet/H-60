@@ -222,7 +222,8 @@ class interaction {
       label="NO.1 ENG PCL";
       radius=0.035;
       animation="Lever_engpower1";
-      animSpeed=0.0775;  //(0.85 - 0.23) / leverTravelTime 8 s (helisim_engine.hpp)
+      animSpeed=0.0775;  //a Hatchet without animSpeedCode: (0.85 - 0.23) / leverTravelTime 8 s
+      animSpeedCode="[_this, 0] call vtx_uh60_helisim_fnc_leverSpeed";   //to FLY over Core's leverTravelTime
       animStates[] = {0,0.23,0.85};
       animLabels[] = {"OFF","IDLE","FLY"};
       animStart="[(_this # 0), 'eng1PwrLvr', (_this # 2)] call vtx_uh60_helisim_fnc_cockpitInteract";
@@ -232,6 +233,7 @@ class interaction {
       position="b_engpowercont2";
       label="NO.2 ENG PCL";
       animation="Lever_engpower2";
+      animSpeedCode="[_this, 1] call vtx_uh60_helisim_fnc_leverSpeed";
       animStart="[(_this # 0), 'eng2PwrLvr', (_this # 2)] call vtx_uh60_helisim_fnc_cockpitInteract";
       interactionCondition="[_this, 'eng2PwrLvr'] call vtx_uh60_helisim_fnc_cockpitAllowed";
     }; // b_engpowercont2

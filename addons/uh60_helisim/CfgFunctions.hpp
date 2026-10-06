@@ -17,6 +17,7 @@ class CfgFunctions
             class cockpitInteract {R;};
             class cockpitBind     {R;};
             class cockpitAllowed  {R;};
+            class leverSpeed      {R;};
             class fmcInput        {R;};
             class fdKnob          {R;};
             class updateCockpit   {R;};

@@ -78,13 +78,13 @@ Hatchet animates with `animateSource` at the interaction's `animSpeed`, in phase
 (the sources' `animPeriod` is 1). A control whose HeliSim move takes time must travel in
 that time:
 
-- Power levers: `animSpeed = (FLY phase - IDLE phase) / leverTravelTime` =
-  `(0.85 - 0.23) / 8` = `0.0775`. **Change `leverTravelTime` in `helisim_engine.hpp` and
-  this must change with it.**
+- Power levers: Hatchet's `animSpeedCode` calls `fnc_leverSpeed` as each move starts.
+  IDLE to FLY takes the engine's `leverTravelTime`, read from Core (`bmkhs_engines`), as
+  HeliSim's governor does; every other move HeliSim makes at once, and the lever takes
+  0.5 s (`HAND_SECONDS`) - a snap looks wrong. Changing `leverTravelTime` changes the lever
+  with it. `animSpeed = 0.0775` (`(0.85 - 0.23) / 8`) is only for a Hatchet without
+  `animSpeedCode`.
 - Everything else snaps (`animSpeed = 0`) or uses its existing speed.
-
-Hatchet has one speed per interaction, so OFF↔IDLE travels at the same rate (~3 s) instead
-of snapping. **Known gap** - a per-detent speed in Hatchet is on `HELISIM_TODO.md`.
 
 ## Adding a HeliSim control
 
