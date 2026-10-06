@@ -1,3 +1,8 @@
+**0.7.10**
+
+ - Dev 0.7.10.91/.92: MFOS crew chief seats rebuilt at a quarter of the detail in every LOD; minigun safety cover and switch animate for the door gunner; seats visible through the windows from outside (glass draw order) #626
+ - Dev 0.7.10.82: DAP crew chief Turn Out rebuilt as an owner handshake so it works in multiplayer #626
+
 **0.7.9**
 
  - Add Fire Laser [HOLD] and IZLID [HOLD] keybinds - active while held, off on release #580 #581 #584
