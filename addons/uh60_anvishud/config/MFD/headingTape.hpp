@@ -78,8 +78,8 @@ class HEADINGTAPE_DCLT {
         condition = COND_METRIC;
         class altitude_caret_label {
             type="text";
-            source="altitudeAGL";
-            sourceIndex=7;
+            source="user";
+            sourceIndex=101;
             scale=1.5;
             sourceScale=1;
             align = "left";
@@ -93,8 +93,8 @@ class HEADINGTAPE_DCLT {
         condition = COND_IMPERIAL;
         class altitude_caret_label {
             type="text";
-            source="altitudeAGL";
-            sourceIndex=7;
+            source="user";
+            sourceIndex=101;
             scale=1.5;
             sourceScale=3.28084;
             align = "left";

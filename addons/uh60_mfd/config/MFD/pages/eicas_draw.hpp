@@ -121,12 +121,12 @@ class singleEngineTorque {
 	BAR_WARN(Q2BAR,   "Q2",0.651,BARBOTTOM,BAR_WIDTH,48,135)
 };
 class twinEngineSlowTorque {
-	condition = "(((user22 > 5) + (user48 > 5)) > 1.5) * (speed < 41)";
+	condition = "(((user22 > 5) + (user48 > 5)) > 1.5) * (user102 < 41)";
 	BAR_WARN(Q1BAR,   "Q1",0.353,BARBOTTOM,BAR_WIDTH,22,120)
 	BAR_WARN(Q2BAR,   "Q2",0.651,BARBOTTOM,BAR_WIDTH,48,120)
 };
 class twinEngineFastTorque {
-	condition = "(((user22 > 5) + (user48 > 5)) > 1.5) * (speed > 41)";
+	condition = "(((user22 > 5) + (user48 > 5)) > 1.5) * (user102 > 41)";
 	BAR_WARN(Q1BAR,   "Q1",0.353,BARBOTTOM,BAR_WIDTH,22,100)
 	BAR_WARN(Q2BAR,   "Q2",0.651,BARBOTTOM,BAR_WIDTH,48,100)
 };

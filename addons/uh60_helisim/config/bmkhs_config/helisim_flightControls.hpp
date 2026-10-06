@@ -153,8 +153,8 @@
             velBelowKts = 40;               //accelerating
             attBelowKts = 30;               //decelerating
             authority   = 0.1;
-            posPitch[]  = {0.1500, 0.0070, 0.1200, 0.0070};
-            posRoll[]   = {0.0550, 0.0070, 0.0900, 0.0070};
+            posPitch[]  = {0.0900, 0.0070, 0.0720, 0.0070};   //0.6x - it went unstable climbing at high power
+            posRoll[]   = {0.0330, 0.0070, 0.0540, 0.0070};
             attPitch[]  = {0.0925, 0.0025, 0.0450, 0.0025};
             attRoll[]   = {0.0400, 0.0015, 0.0180, 0.0015};
         };
@@ -175,7 +175,7 @@
             breakout[]  = {0.05, 0.10, 0.20};   //pedal, by attitude hold sub-mode: pos / vel / att
             authority   = 0.1;
             hdg[]       = {0.0750, 0.0200, 0.0050, 0.0200};
-            trn[]       = {0.2500, 0.0600, 0.3000, 0.1500};
+            trn[]       = {0.2500, 0.0600, 0.3000, 1.0000};   //integral holds the pedal that centres the ball
         };
         //The FD panel: RALT, ALTP, ALT, IAS, HDG, FMS (nav) and HVR. Gains are a first cut - tune.
         class FlightDirector {
@@ -190,19 +190,26 @@
             };
             altGain       = 10;
             vsMaxFpm      = 1000;
+            vsAccelFpm    = 200;
             captureFt     = 50;
+            iasAccelKts   = 2;
             maxPitchDeg   = 15;
+            pitchRateDps  = 3;
             maxBankDeg    = 30;
             bankPerDeg    = 1;
+            rollRateDps   = 5;
             bankAboveKts  = 20;
+            hvrDecelKts   = 2;
             collAuthority = 1.0;            //full travel - continuous torque is the limit
-            cycAuthority  = 0.1;
+            cycAuthority  = 0.8;
             pedAuthority  = 0.1;
-            vs[]          = {0.0002, 0.0001,  0.0000, 10000};   //integral reaches full collective
-            ias[]         = {0.5000, 0.0500,  0.0000, 100};
+            vs[]          = {0.0394, 0.0197,  0.0000, 50.8};    //m/s; integral reaches full collective
+            ias[]         = {0.9720, 0.0972,  0.0000, 51.4};    //m/s to deg
             pitch[]       = {0.0925, 0.0025,  0.0450, 0.0025};
-            roll[]        = {0.0400, 0.0015,  0.0180, 0.0015};
+            roll[]        = {0.0400, 0.0015,  0.0180, 20.0};    //integral trims out a standing bank
             yaw[]         = {0.0750, 0.0200,  0.0050, 0.0200};
+            hvrPitch[]    = {0.0900, 0.0070,  0.0720, 0.0070};  //the attitude hold's pos / vel gains
+            hvrRoll[]     = {0.0330, 0.0070,  0.0540, 0.0070};
         };
     };
 

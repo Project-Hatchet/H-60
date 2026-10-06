@@ -38,7 +38,7 @@ class CfgVehicles {
         class MFD;
     }; // Heli_Transport_01_base_F
     class vtx_H60_base: Heli_Transport_01_base_F {
-        mfdMaxUserValues = 100;
+        mfdMaxUserValues = 107;   //0-99, then HeliSim's 100-106 (main/script_macros.hpp)
         // class VTX_H60_HDTS_Copilot {
         // 		#include "MFD\HMD.hpp"
         //         turret[] = {0};

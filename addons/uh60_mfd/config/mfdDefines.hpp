@@ -92,8 +92,8 @@
 
 
 // CONDITIONS
-#define RALT_ENABLED "altitudeAGL < 304"
-#define RALT_DISABLED "altitudeAGL > 304"
+#define RALT_ENABLED "user101 < 304"
+#define RALT_DISABLED "user101 > 304"
 #define EGI_DISABLED "1"
 #define ASE_DISABLED_NONE USER_LT(USERMFDV_R22,1)
 #define ASE_DISABLED USER_GT(USERMFDV_R22,0)

@@ -14,8 +14,16 @@ Returns:
 params ["_heli", "_target"];
 
 (vtx_uh60_helisim_fdKnobs get _target) params ["_source", "_perPhase", "_range", "_action"];
-private _units = (_heli animationSourcePhase _source) * _perPhase;
-if (_target == "hdg") then { _units = ((_units mod _range) + _range) mod _range };
+private _phase = _heli animationSourcePhase _source;
+//The heading knob turns endlessly - past either end of the circle, put it back inside it
+if (_target == "hdg") then {
+    private _turn = _range / _perPhase;
+    if (_phase < 0 || {_phase >= _turn}) then {
+        _phase = ((_phase mod _turn) + _turn) mod _turn;
+        _heli animateSource [_source, _phase, true];
+    };
+};
+private _units = _phase * _perPhase;
 
 //The knob follows Core's target again once the drag is over - see fn_updateCockpit
 _heli setVariable ["vtx_uh60_helisim_fdKnobAt_" + _target, time];

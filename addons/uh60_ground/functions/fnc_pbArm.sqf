@@ -16,7 +16,7 @@ if (local _vehicle && {!(_vehicle getVariable ["vtx_uh60_ground_pbHoldOn", false
     [_vehicle] call vtx_uh60_ground_fnc_pbHoldTick;
 };
 if (local _vehicle && {!(_vehicle getVariable ["vtx_uh60_ground_taxiOn", false])}
-    && {isTouchingGround _vehicle}) then {
+    && {[_vehicle] call bmkhs_fnc_stateOnGround}) then {
     _vehicle setVariable ["vtx_uh60_ground_taxiOn", true];
     // unconditional breadcrumb: proves in the RPT that the chain armed,
     // independent of the vtx_uh60_taxiDebug console flag

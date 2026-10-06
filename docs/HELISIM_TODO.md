@@ -13,6 +13,10 @@ Open items for the UH-60 pack (`addons/uh60_helisim`) and the HeliSim Core work 
   H-60's FIRE lamp is never lit.
 - [ ] **Battery low-charge threshold.** Core only exposes the 0.25 dropout, so the H-60's BATT
   LOW lamp is never lit.
+- [ ] **Transmission failure is two events, not one.** The systems solve fails the transmission
+  at 0.85 (`SYS_COMP_DMG_THRESH`), dropping the accessory and tail drives - pumps, generators,
+  hydraulics - while `breaksOnFailure` (rotors, engine overspeed) waits for 1.0. Before Core
+  (AH-64D #804) it was one moment at 1.0. Applies to every pack.
 
 ## Possible future Core features
 

@@ -39,8 +39,8 @@
             rampSeconds  = 0;             //no nominal: it carries whatever Nr is doing
             torqueFrom   = "bmkhs_engPctTq";
             torqueSum    = 1;
-            tqLimitsFrom = "tqLimits";      //twin: the engines' limits, times their count
-            tqLimitsSeFrom = "tqLimitsSe";  //single engine: one engine carries it all
+            tqLimitsFrom = "tqLimits";      //the engines' limits, times their count - one engine
+                                            //cannot overtorque it; the nose gearboxes take that
             jittersTorque = 1;
             breaksOnFailure[] = {"mainRotor", "tailRotor", "bmkhs_engineOverspeed"};   //unloaded, the engines overspeed
             class Outputs {
@@ -102,6 +102,19 @@
     };
 
     class Converters {
+        //A nose gearbox per engine takes its torque into the transmission. Rated for less than
+        //the transmission, it only carries enough to hurt it when one engine does the work of
+        //two. No hitpoints, so Core keeps its damage (perEngine). Come apart, it unloads and
+        //overspeeds its engine.
+        class NoseGearbox {
+            variableName      = "noseGearbox";
+            perEngine         = 1;
+            input[]           = {"Nr"};
+            torqueFrom        = "bmkhs_engPctTq";   //per member, so engine 2 feeds gearbox 2
+            tqLimitsSeFrom    = "tqLimitsSe";
+            jittersTorque     = 1;
+            breaksOnFailure[] = {"bmkhs_engineOverspeed"};
+        };
         class IntermediateGearbox {
             damageRole   = "intermediateGearbox";
             variableName = "igb";

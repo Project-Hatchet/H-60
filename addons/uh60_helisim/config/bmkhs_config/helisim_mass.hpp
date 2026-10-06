@@ -25,7 +25,7 @@
     //Pilots on every variant. Each variant adds its own seats from Seat03 (cfgVehicles.hpp).
     //Arms measured in game (occupant's chest). S-70i and Slick door gun seats use the UH-60M arms.
     #define SEAT_MASS_CREW  100.0   //220 lb - pilots, door gunners
-    #define SEAT_MASS_TROOP 158.8   //350 lb - infantry with combat load, every cabin seat
+    #define SEAT_MASS_TROOP 149.7   //330 lb - infantry with combat load, every cabin seat
     #define SEAT_DRIVER(cls,x,y,z)   class cls { arm[] = {x,y,z}; mass = SEAT_MASS_CREW;  role = "driver"; turret[] = {};  cargoIndex = -1; };
     #define SEAT_TURRET(cls,t,x,y,z) class cls { arm[] = {x,y,z}; mass = SEAT_MASS_CREW;  role = "turret"; turret[] = {t}; cargoIndex = -1; };
     #define SEAT_TROOP(cls,t,x,y,z)  class cls { arm[] = {x,y,z}; mass = SEAT_MASS_TROOP; role = "turret"; turret[] = {t}; cargoIndex = -1; };

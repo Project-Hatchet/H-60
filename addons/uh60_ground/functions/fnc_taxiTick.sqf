@@ -47,15 +47,16 @@ if (isNil "vtx_uh60_taxiMaxKmh") then {
 };
 
 if (isNull _vehicle || {!alive _vehicle} || {!local _vehicle}
-    || {!isTouchingGround _vehicle}) exitWith {
+    || {!([_vehicle] call bmkhs_fnc_stateOnGround)}) exitWith {
     _vehicle setVariable ["vtx_uh60_ground_taxiOn", false];
 };
 
 // per-tick gates skip the drive without killing the chain
 if ((driver _vehicle) isEqualTo player) then {
-    private _rawF = (inputAction "HeliCyclicForward") - (inputAction "HeliCyclicBack");
-    private _rawP = (inputAction "HeliRudderRight") - (inputAction "HeliRudderLeft");
-    private _nr = _vehicle getSoundController "rotorSpeed";
+    //The controls and the rotor as HeliSim has them
+    private _rawF = _vehicle getVariable ["bmkhs_cyclicFwdAft", 0];
+    private _rawP = _vehicle getVariable ["bmkhs_pedalLeftRight", 0];
+    private _nr = _vehicle getVariable ["bmkhs_rtrRpm", 0];
 
     // gate-hunt diagnostic (the 47G ghost-hunt pattern): console
     // `vtx_uh60_taxiDebug = true;` -> one RPT line per second naming
@@ -64,9 +65,9 @@ if ((driver _vehicle) isEqualTo player) then {
         && {diag_tickTime - (_vehicle getVariable ["vtx_uh60_taxiDbgT", 0]) > 1}) then {
         _vehicle setVariable ["vtx_uh60_taxiDbgT", diag_tickTime];
         diag_log format ["VTXTAXI nr=%1 brake=%2 heliUp=%3 rawF=%4 rawP=%5 base=%6 touching=%7 spd=%8",
-            _nr, _vehicle animationPhase "handle_wheelbrake", inputAction "HeliUp",
+            _nr, _vehicle animationPhase "handle_wheelbrake", _vehicle getVariable ["bmkhs_kbHeliCollectiveRaiseOut", 0],
             _rawF, _rawP, _vehicle getVariable ["vtx_uh60_taxiBase", [0,0]],
-            isTouchingGround _vehicle, speed _vehicle];
+            [_vehicle] call bmkhs_fnc_stateOnGround, _vehicle getVariable "bmkhs_gndSpeed"];
     };
 
     if (_nr < vtx_uh60_taxiMinNR
@@ -85,14 +86,14 @@ if ((driver _vehicle) isEqualTo player) then {
     // drive gates: brake released, rotor up, and NOT takeoff intent
     // (collective input held = the pilot wants to fly - drive and
     // anti-liftoff clamp both stand down so a rolling takeoff works)
-    if ((inputAction "HeliUp") < 0.5) then {
+    if ((_vehicle getVariable ["bmkhs_kbHeliCollectiveRaiseOut", 0]) < 0.5) then {
         private _base = _vehicle getVariable ["vtx_uh60_taxiBase", [0, 0]];
         private _fwd = _rawF - (_base # 0);
         private _ped = _rawP - (_base # 1);
         if (abs _fwd < vtx_uh60_taxiDeadband) then { _fwd = 0 };
         if (abs _ped < vtx_uh60_taxiDeadband) then { _ped = 0 };
         if (_fwd != 0 || {_ped != 0}) then {
-            private _vel = velocityModelSpace _vehicle;
+            private _vel = _vehicle getVariable "bmkhs_velModelSpaceNoWind";
             // stick fraction -> commanded taxi speed; full speed well
             // below full stick so taxi never needs hull-pitching throws
             private _tgt = (((_fwd / vtx_uh60_taxiStickFull) max -1) min 1)
@@ -139,9 +140,9 @@ if ((driver _vehicle) isEqualTo player) then {
         };
         // ground pivot governor: yaw <= v/R for a real turn radius,
         // floored so slow pedal pivots stay alive
-        private _cap = (((abs (velocityModelSpace _vehicle # 1)) / vtx_uh60_taxiTurnR)
+        private _cap = (((abs ((_vehicle getVariable "bmkhs_velModelSpaceNoWind") # 1)) / vtx_uh60_taxiTurnR)
             max vtx_uh60_taxiYawFloor) min vtx_uh60_taxiYawCap;
-        private _av = angularVelocityModelSpace _vehicle;
+        private _av = _vehicle getVariable "bmkhs_angVelModelSpace";
         if (abs (_av # 2) > _cap) then {
             _vehicle setAngularVelocityModelSpace [_av # 0, _av # 1,
                 _cap * ((_av # 2) / abs (_av # 2))];

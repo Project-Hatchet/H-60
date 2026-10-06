@@ -107,8 +107,9 @@ if (vtx_uh60_fms_renderWaypointsOnTAC) then {
 };
 
 private _tofStr = "";
-if (speed _vehicle > 2) then {
-  private _speedMS = vectorMagnitude (velocity _vehicle);
+//HeliSim ground speed, m/s (USERMFDV_GS)
+private _speedMS = (getUserMFDValue _vehicle) # 103;
+if (_speedMS > 0.56) then {
   private _tofSecondsTotal = (_position distance _vehicle) / _speedMS;
   _tofStr = [_tofSecondsTotal] call CBA_fnc_formatElapsedTime;
 } else {

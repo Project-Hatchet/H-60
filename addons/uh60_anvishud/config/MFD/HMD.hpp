@@ -111,7 +111,8 @@ class Bones {
 	class AltitudeEdge
 	{
 		type="linear";
-	    source="altitudeAGL";
+	    source="user";
+	    sourceIndex=101;
 		min=0;
 		max=50;
 		sourceScale=1;
@@ -166,12 +167,17 @@ class Bones {
 		type = "limit";
 		limits[] = {0.1,0.1,0.9,0.9};
 	};
+	//HeliSim's trim ball, g - positive is ball left (USERMFDV_BALL); full scale is the slip bars
 	class Slip_Ball_X
 	{
-		type="vector";
-		source="velocity";
-		pos0[]=	{0.500,0.9425};
-		pos10[]={0.515,0.9425};
+		type="linear";
+		source="user";
+		sourceIndex=106;
+		sourceScale=1;
+		min=-0.15;
+		max=0.15;
+		minPos[]={"0.5+0.15",0.9425};
+		maxPos[]={"0.5-0.15",0.9425};
 	};
 	class GforceX_Slip
 	{
@@ -274,7 +280,7 @@ class Draw {
 		}; // points
 	}; // Center_Cross
 	class VelocityLine {
-		condition="(speed > 3)";
+		condition="(user103 > 3)";
 		class VelocityLineDraw
 		{
 			type = "line";

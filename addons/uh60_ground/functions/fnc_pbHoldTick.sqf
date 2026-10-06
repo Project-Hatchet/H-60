@@ -4,7 +4,7 @@
  * SFM parking-brake hold (MH-47G-proven template): owner-side tick; brake
  * lever SET + weight on wheels + slow -> horizontal velocity damped each
  * tick, so a parked ship stops creeping downhill on slopes. Deliberately
- * soft - stands down above 8 km/h so it never fights a takeoff or a
+ * soft - stands down above 4.3 kt so it never fights a takeoff or a
  * landing rollout.
  *
  * The lever animation is the single source of truth - hand click, brake
@@ -18,11 +18,12 @@
  * params (array)[(object) vehicle]
  */
 params ["_vehicle"];
+#include "\bmkhs_helisim\functions\core\core.hpp"
 
 // tuning knobs (one-time init; console-tunable live like the taxi set)
 if (isNil "vtx_uh60_pbHoldMaxSlope") then {
     vtx_uh60_pbHoldDamp     = 0.15; // horizontal velocity multiplier per tick
-    vtx_uh60_pbHoldMaxKmh   = 8;    // above this the hold stands down (takeoff/rollout)
+    vtx_uh60_pbHoldMaxKts   = 4.3;  // ground speed above this (8 km/h) the hold stands down (takeoff/rollout)
     // TM 1-1520-280-10 5-28: slope landing limits are 15 deg upslope /
     // lateral, 6 deg nose-down. Undamped the hold gripped a 20 deg slope
     // (2026-09-08 test - stronger than the real gear); beyond this ground
@@ -36,9 +37,10 @@ if (isNull _vehicle || {!alive _vehicle} || {!local _vehicle}) exitWith {
 };
 // per-tick gates just skip the damp (no chain churn on brake taps)
 if ((_vehicle animationPhase "handle_wheelbrake") > 0.5
-    && {isTouchingGround _vehicle} && {(speed _vehicle) < vtx_uh60_pbHoldMaxKmh}
+    && {[_vehicle] call bmkhs_fnc_stateOnGround}
+    && {((_vehicle getVariable "bmkhs_gndSpeed") * MPS_TO_KNOTS) < vtx_uh60_pbHoldMaxKts}
     && {acos ((surfaceNormal (getPosASL _vehicle)) # 2) < vtx_uh60_pbHoldMaxSlope}) then {
-    private _vel = velocity _vehicle;
+    private _vel = _vehicle getVariable "bmkhs_velWorldSpaceNoWind";
     // horizontal exponential damp; vertical untouched so the suspension
     // settles instead of being pinned mid-droop
     _vehicle setVelocity [(_vel # 0) * vtx_uh60_pbHoldDamp, (_vel # 1) * vtx_uh60_pbHoldDamp, _vel # 2];

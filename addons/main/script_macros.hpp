@@ -120,6 +120,14 @@ if (_unit isNotEqualTo (driver _vehicle) && {(_vehicle unitTurret _unit) isNotEq
 #define USERMFDV_LST_MODE 97 // LST MODE
 #define USERMFDV_FUELERFS 98 // ERFS tank, lb
 #define USERMFDV_FUELTOTAL 99 // Total fuel, lb
+// HeliSim state, from Core - written by uh60_helisim fn_updateCockpit on the aircraft's owner
+#define USERMFDV_BARALT 100 // Barometric altitude, m
+#define USERMFDV_RADALT 101 // Radar altitude, m
+#define USERMFDV_IAS 102 // Airspeed, m/s
+#define USERMFDV_GS 103 // Ground speed, m/s
+#define USERMFDV_WINDDIR 104 // Wind, direction it blows toward, deg
+#define USERMFDV_ONGROUND 105 // On the ground, 1 / 0
+#define USERMFDV_BALL 106 // Trim ball, g - positive is ball left
 
 #define USERNNN(index) user##index
 #define USER_EQ(index,val) QUOTE(USERNNN(index) == val)

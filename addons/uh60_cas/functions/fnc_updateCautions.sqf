@@ -62,7 +62,8 @@ private _setPylonFn = {
 private _dmg = {[_vehicle, _this] call bmkhs_fnc_damageGet};
 
 // Hydraulics are expected once the accessory drive is turning, or in flight
-private _hydExpected = !isTouchingGround _vehicle || {([_vehicle, "ACCESSORY_DRIVE"] call bmkhs_fnc_systemCircuit) >= 0.85};
+//HeliSim on-ground, from the owner - this runs on every crew machine
+private _hydExpected = ((getUserMFDValue _vehicle) # USERMFDV_ONGROUND) < 0.5 || {([_vehicle, "ACCESSORY_DRIVE"] call bmkhs_fnc_systemCircuit) >= 0.85};
 private _priLow  = _hydExpected && {(_vehicle getVariable ["bmkhs_priHydPsi", 0]) < 1260};
 private _utilLow = _hydExpected && {(_vehicle getVariable ["bmkhs_utilHydPsi", 0]) < 1260};
 

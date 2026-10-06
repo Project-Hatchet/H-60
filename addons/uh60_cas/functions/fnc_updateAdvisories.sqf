@@ -13,7 +13,8 @@ params ["_vehicle"];
         [_vehicle, MESSAGE, {CONDITION}, false, true] call vtx_uh60_cas_fnc_registerCautionAdvisory; \
     };
 
-ADVISORY("WOW",(isTouchingGround (_this # 0)))
+//HeliSim on-ground, from the owner (USERMFDV_ONGROUND 105)
+ADVISORY("WOW",(((getUserMFDValue (_this # 0)) # 105) > 0.5))
 
 // Written out - the comma in getVariable's default would split the macro arguments
 if (_vehicle getVariable ["bmkhs_apuOn", false]) then {

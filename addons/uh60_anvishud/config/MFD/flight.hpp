@@ -94,8 +94,8 @@ class torqueWrapper {
 	class METRIC {
 		condition = COND_METRIC;
 		TEXT_HMD_R(KTS_VAL,0.085,0.41)
-			source = "speed";
-			sourceIndex = 1;
+			source="user";
+			sourceIndex=102;
 			sourceScale = 3.6;
 			text = "";
 		}; // TORQUE_VAL
@@ -107,8 +107,8 @@ class torqueWrapper {
 		}; // TORQUE_LBL
 
 		TEXT_HMD_R(MSL_ALT_VAL,0.94,0.41)
-			source = "altitudeASL";
-			sourceIndex = 1;
+			source="user";
+			sourceIndex=100;
 			sourceScale = 1;
 			text = "";
 		}; // TORQUE_VAL
@@ -122,8 +122,8 @@ class torqueWrapper {
 	class IMPERIAL {
 		condition = COND_IMPERIAL;
 		TEXT_HMD_R(KTS_VAL,0.085,0.41)
-			source = "speed";
-			sourceIndex = 1;
+			source="user";
+			sourceIndex=102;
 			sourceScale = 1.94384;
 			text = "";
 		}; // TORQUE_VAL
@@ -135,8 +135,8 @@ class torqueWrapper {
 		}; // TORQUE_LBL
 
 		TEXT_HMD_R(MSL_ALT_VAL,0.94,0.41)
-			source = "altitudeASL";
-			sourceIndex = 1;
+			source="user";
+			sourceIndex=100;
 			sourceScale = 3.28;
 			text = "";
 		}; // TORQUE_VAL

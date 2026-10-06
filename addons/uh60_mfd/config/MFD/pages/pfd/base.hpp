@@ -34,7 +34,7 @@ class overlayWrapper {
 		};
 		class CoveringText {
 			class RALTRotation1Cond {
-				condition="(altitudeAGL*3.2808399) < 100";
+				condition="(user101*3.2808399) < 100";
 				class RaltArm {
 					type="line";
 					width = 7;
@@ -51,7 +51,7 @@ class overlayWrapper {
 				}; // RaltArm2
 			}; // RALTRotation1Cond
 			class RALTRotation2Cond {
-				condition="((altitudeAGL*3.2808399) > 100) * ( (altitudeAGL*3.2808399) < 400 )";
+				condition="((user101*3.2808399) > 100) * ( (user101*3.2808399) < 400 )";
 				class RaltArm {
 					type="line";
 					width = 7;
@@ -68,7 +68,7 @@ class overlayWrapper {
 				}; // RaltArm2
 			}; // RALTRotation2Cond
 			class RALTRotation3Cond {
-				condition="(altitudeAGL*3.2808399) > 400";
+				condition="(user101*3.2808399) > 400";
 				class RaltArm {
 					type="line";
 					width = 7;
@@ -85,7 +85,8 @@ class overlayWrapper {
 				}; // RaltArm2
 			}; // RALTRotation3Cond
 			TEXT_MID_MID_SRC(RALT_TXT,0.87,0.59)
-				source="altitudeAGL";
+				source="user";
+				sourceIndex=101;
 				sourceScale = 3.2808399;
 				sourceLength = 4;
 			};
@@ -215,7 +216,8 @@ TEXT_MID_MID_SRC(HDG_TXT,0.5,0.51)
 };
 
 TEXT_MID_SMALL_SRC(BALT_TXT,0.812,0.262)
-	source="altitudeASL";
+	source="user";
+	sourceIndex=100;
 	sourceScale = 3.2808399;
 	sourceLength = 4;
 };
@@ -288,14 +290,16 @@ class FlightDirector{
 };//FlightDirector
 
 TEXT_MID_SMALL_SRC(IAS_VAL,0.1715,0.258)
-	source="speed";
+	source="user";
+	sourceIndex=102;
 	sourceScale = 1.94384;
 	sourceLength = 3;
 };
 
 TEXT_LEFT_SMALL(GS_TXT,0.24,0.465,"GS")
 TEXT_MID_MID_SRC(GS_VAL,0.275,0.45)
-	source="speed";
+	source="user";
+	sourceIndex=103;
 	sourceScale = 1.94384;
 	sourceLength = 3;
 };
@@ -750,12 +754,12 @@ class singleEngineTorque {
     BAR_WARN(RPM2BAR,"PFD_Q2", 0.185,BARBOTTOM,0.01,48,135)
 };
 class twinEngineSlowTorque {
-	condition = "(((user22 > 5) + (user48 > 5)) > 1.5) * (speed < 41)";
+	condition = "(((user22 > 5) + (user48 > 5)) > 1.5) * (user102 < 41)";
     BAR_WARN(RPM1BAR,"PFD_Q1", 0.088,BARBOTTOM,0.01,22,120)
     BAR_WARN(RPM2BAR,"PFD_Q2", 0.185,BARBOTTOM,0.01,48,120)
 };
 class twinEngineFastTorque {
-	condition = "(((user22 > 5) + (user48 > 5)) > 1.5) * (speed > 41)";
+	condition = "(((user22 > 5) + (user48 > 5)) > 1.5) * (user102 > 41)";
     BAR_WARN(RPM1BAR,"PFD_Q1", 0.088,BARBOTTOM,0.01,22,100)
     BAR_WARN(RPM2BAR,"PFD_Q2", 0.185,BARBOTTOM,0.01,48,100)
 };

@@ -34,7 +34,7 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
         [
             str ceil (_burnKgS * 2.20462 * 60),
             if (_endurance < 0) then {"--:--:--"} else {[_endurance] call CBA_fnc_formatElapsedTime},
-            str floor (if (_endurance < 0) then {0} else {_endurance * (vectorMagnitude (velocity _vehicle)) * 0.000539957}),
+            str floor (if (_endurance < 0) then {0} else {_endurance * ((getUserMFDValue _vehicle) # 103) * 0.000539957}),
             str round (_weight * 2.20462),
             _stateText
         ]

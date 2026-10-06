@@ -45,6 +45,6 @@ _vehicle animate ["ACCLow", parseNumber ((_vehicle getVariable ["bmkhs_accHydPsi
 
 // Tones - airborne, battery bus powered
 if (_vehicle != vehicle player) exitWith {};
-private _toneMod = parseNumber ((_vehicle getVariable ["bmkhs_battBusOn", false]) && {!isTouchingGround _vehicle});
+private _toneMod = parseNumber ((_vehicle getVariable ["bmkhs_battBusOn", false]) && {!([_vehicle] call bmkhs_fnc_stateOnGround)});
 setCustomSoundController [_vehicle, "CustomSoundController7", _toneMod * ((_engOut # 0) + (_engOut # 1))];
 setCustomSoundController [_vehicle, "CustomSoundController6", _toneMod * _rpmWarn];
