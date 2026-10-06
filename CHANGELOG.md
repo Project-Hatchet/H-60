@@ -1,3 +1,39 @@
+**0.7.10**
+
+  - FIXED:
+    - Door seats lock with the correct cabin door on each side, and walking up to a door no longer makes its seats' interactions disappear #612
+    - UH-60M Slick door gunner seats are usable again - they were being locked by the cabin door logic #626
+    - Cabin sound: door gunners and MEDEVAC window seats are muffled when turned in and hear the full slipstream when turned out; bench and door seats are muffled #617
+    - Flight director and fuel readouts no longer leak between aircraft - each helicopter keeps its own state, which also addresses the spinning/rolling on the ground after a pilot/copilot handoff #597
+    - FMS fuel page shows each aircraft's own consumption, time and range #597
+    - Move to Cabin is always available and falls back through door gunner, troop commander and cargo seats; Move to Cockpit goes to the pilot seat first #604
+    - FLIR: geolock indicator disappears when the lock is dropped #606
+    - FLIR: no camera drift at rest - slew deadzone corrected, with a new setting to tune it #594
+    - MFD Create Waypoint works on the first press #615
+    - Waypoint 1 draws its marker on the TAC map, including a lone first waypoint #625
+    - ACRE radio on/off and channel changes now show on both pilots' FMS immediately; frequency readout fits its outline #595 #601
+    - ERFS tanks carried with ACE no longer collide with the aircraft #623
+    - MH-60M cockpit doors no longer appear on spawn #599
+    - S-70i instrument corrections #624
+    - EICAS no longer floods the game log #614
+  - ADDED:
+    - MFOS (Martin Baker) crew chief seats at the gun stations on every variant #626
+    - MH-60M DAP aft crew station: two crew chief seats with personal-weapon fire, Turn Out / Turn In via ACE interact to the cargo door sill (the vacated seat stays reserved), and two emergency passenger door seats #626
+    - S-70i: two crew chief seats and the hoist pendant seat; ships with the hoist fitted #626
+    - ERFS tanks attached and removed via ACE interact (toolkit plus a nearby ERFS tank object); DAPs spawn with ERFS fitted; weight and fuel capacity follow #605
+    - TDC Waypoint Set and Slew keybinds: drop a waypoint where the FLIR is designating (numbered from 99 downward) and slew to a waypoint; FMS NAV selection can now be cleared #615
+    - Simple Flight Model ground handling: the parking brake holds on slopes up to about 17 degrees and releases above 8 km/h, ground taxi with cyclic and pedals up to 20 km/h (no rearward taxi), and a Parking Brake keybind under Configure Addons > H-60 Cockpit #621
+    - Editor preview images for the UH-60M Slick, HH-60M MEDEVAC and S-70i #624
+    - View Gunner LOD in the aircraft model #626
+  - CHANGES/IMPROVEMENTS:
+    - Hoist control belongs to the pilots and the "(hoist controls)" door seat only; door gunners and passengers can no longer operate it, and the Stabilize Hook keybind works again #627
+    - S-70i classname renamed from vtx_S70M to vtx_S70i - missions and compositions that placed the old class must be updated #624
+    - MH-60M DAP interior cabin seating removed in favour of the aft crew station above #626
+    - Internal restructure: all aircraft config now lives in one addon and the HH-60 is its own addon. Server admins: the PBO set has changed, re-copy the whole mod folder rather than individual files #603 #607 #608 #609
+  - KNOWN ISSUES:
+    - Copilot and Troop Commander seats are still loud inside - waiting on a model fix
+    - Under SFM the tail wheel can lift under full forward cyclic while taxiing; high-speed rolling landings behave as before
+
 **0.7.9**
 
   - FIXED:

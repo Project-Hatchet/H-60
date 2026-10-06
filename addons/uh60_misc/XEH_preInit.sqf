@@ -17,4 +17,16 @@ ADDON = false;
 // } forEach ["VTX_UH60M", "VTX_MH60M", "vtx_MH60M_DAP", "vtx_MH60M_DAP_MLASS"];
 // diag_log str ["FINISHED PRE-LOADING of H-60", systemTime];
 
+// Crew-chief swap handshake (fnc_ccSwap): sent as CBA target events on the
+// vehicle, so they land on its owner - and run immediately when that is this
+// machine. CBA events need no CfgRemoteExec whitelist
+["vtx_uh60_misc_ccSwapOpen", {
+    params ["_veh", "_paths"];
+    [_veh, _paths, true] call vtx_uh60_misc_fnc_ccSwapLocks;
+}] call CBA_fnc_addEventHandler;
+["vtx_uh60_misc_ccSwapClose", {
+    params ["_veh", "_paths"];
+    [_veh, _paths, false] call vtx_uh60_misc_fnc_ccSwapLocks;
+}] call CBA_fnc_addEventHandler;
+
 ADDON = true;
