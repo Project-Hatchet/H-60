@@ -1,5 +1,6 @@
 **Unreleased**
 
+ - Retire the MH-60M DAP MLASS variant. It no longer appears in the editor, Zeus or the Virtual Garage. Missions that already placed one keep working: the old classname now spawns a regular MH-60M DAP. Saved MLASS pylon loadouts are ignored (the game log may show harmless unknown-magazine warnings)
  - Add the hoist operator role: the right crew chief gets a "Enter Hoist Operator" ACE self-interaction (same menu as the DAP Turn Out) (right cabin door open, hoist fitted) that moves them onto the "Door Right 1 (hoist controls)" seat and makes them the aircraft's hoist operator; "Exit Hoist Operator" moves them back. Their crew seat stays reserved while they are on the hoist (on armed aircraft the right minigun is unmanned and locked during hoisting). Pilots keep hoist control as before
  - Passengers who sit in the "(hoist controls)" seat no longer get hoist control - only the designated operator does (deliberate tightening of the 0.7.9 behavior)
  - Works on every aircraft with the pendant seat, including the S-70i (Right Crew Chief) and MEDEVAC (Right Window)
