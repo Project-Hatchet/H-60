@@ -673,4 +673,17 @@ class AnimationSources {
   class Fold_Blade4: RotorHFold {};
   class Fold_Blade1: RotorHFold {animPeriod=10;};
   class Fold_Blade2: Fold_Blade1 {};
+
+  // MFOS crew seats (model pass 2026-09-06): fwd = crew chief stations, shown
+  // on every variant; aft = DAP cabin fit, hidden unless a variant re-opens
+  // with ANIM_INIT(mfos_aft_hide,0) (the MH-60M DAPs do). No mass wiring yet —
+  // revisit with the cabin-furniture weights if the DAP loadout math needs it.
+  class mfos_fwd_hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class mfos_aft_hide: mfos_fwd_hide {
+    initPhase=1;
+  };
 };

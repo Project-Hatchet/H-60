@@ -33,13 +33,18 @@ class vtx_UH60M_SLICK: vtx_H60_base {
     ANIM_INIT(CabinSeats_2_Hide,1);
     ANIM_INIT(CabinSeats_3_Hide,1);
     // Door seats
+    // Turret paths on the SLICK tree: [0] copilot, [1]/[2] door gunners,
+    // [3]/[4] Door Right 1/2, [5]/[6] Door Left 1/2 (cargoTurretsDoor order).
+    // Pre-fix these locked [[3],[4]] (right seats) from the LEFT door and
+    // [[1],[2]] — the DOOR GUNNERS — from the right door (dev tester report
+    // 2026-09-23: "crew seats not enterable"). Now mirrors the MEDEVAC pattern.
     class cabindoor_L: cabindoor_L {
       initPhase = 1;
-      onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[3], [4]] ;";
+      onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[5], [6]] ;";
     };
     class cabindoor_R: cabindoor_R {
       initPhase = 1;
-      onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[1], [2]] ;";
+      onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[3], [4]] ;";
     };
   }; // AnimationSources
   class Turrets: Turrets {
