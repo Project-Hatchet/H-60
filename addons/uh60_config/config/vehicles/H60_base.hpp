@@ -80,10 +80,10 @@ class vtx_H60_base: Heli_Transport_01_base_F {
       "",
       "",
       "",
-      "z\vtx\addons\UH60\Data\Exterior\Hull Main_co.paa",
+      "z\vtx\addons\uh60_misc\data\textures\UH-60M_US_Army\main_co.paa", // "UH-60M (US Army)" skin (ruling 2026-10-07): the Slick inherits this set
       "z\vtx\addons\UH60\Data\Exterior\Misc_co.paa",
-      "z\vtx\addons\UH60\Data\Exterior\Hull Tail_co.paa",
-      "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa",
+      "z\vtx\addons\uh60_misc\data\textures\UH-60M_US_Army\tail_co.paa",
+      "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa", // markings: no overlay (the US Army text is painted into the tail texture)
       "", // "left_num_1",
       "", // "left_num_2",
       "", // "right_num_1",
