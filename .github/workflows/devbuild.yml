@@ -4,8 +4,9 @@
 # The branch is machine-generated output - nobody commits to it and it is never
 # merged back. It is rebuilt from scratch on every trigger, so its contents are
 # always exactly derivable from the label list. PRs that fail to merge are
-# skipped, with a comment left on the PR. DEVBUILD.md at the branch root records
-# what each rebuild actually contains.
+# skipped, with a comment left on the PR - except a clash in CHANGELOG-DEV.md
+# alone, which stacked PRs always produce and which resolves to the PR's copy.
+# DEVBUILD.md at the branch root records what each rebuild actually contains.
 #
 # Setup this workflow needs (one-time):
 #   - a "Ready for Testing" label in the repo
@@ -88,6 +89,17 @@ jobs:
             if git merge -q --squash FETCH_HEAD; then
               git commit -q --allow-empty -m "devbuild: #$num - $title"
               echo "merged #$num - $title"
+              included="$included| #$num | $title |"$'\n'
+            elif [ "$(git diff --name-only --diff-filter=U)" = "CHANGELOG-DEV.md" ]; then
+              # A stacked PR always clashes with its parent's squash here: the
+              # parent inserted its lines into the Unreleased block, the child
+              # inserts the same lines plus its own at the same spot. The
+              # child's copy is the superset, so take it. Only when the
+              # changelog is the SOLE conflict - a code clash still skips.
+              git checkout -q --theirs CHANGELOG-DEV.md
+              git add CHANGELOG-DEV.md
+              git commit -q --allow-empty -m "devbuild: #$num - $title"
+              echo "merged #$num - $title (changelog taken from the PR)"
               included="$included| #$num | $title |"$'\n'
             else
               git reset -q --hard HEAD  # --squash sets no MERGE_HEAD, so 'merge --abort' cannot clean this up
