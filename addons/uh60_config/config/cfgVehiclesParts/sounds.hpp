@@ -1,9 +1,3 @@
-//soundGetIn[]={"z\vtx\addons\UH60\sounds\open_close",db-10,1};
-//soundGetOut[]={"z\vtx\addons\UH60\sounds\open_close",db-10,1, 40};
-//soundEngineOnInt[] = {"z\vtx\addons\UH60\sounds\UH1H_start_int", db-7, 1.0};
-//soundEngineOnExt[] = {"z\vtx\addons\UH60\sounds\UH1H_start_ext", db-7, 1.0, 700};
-//soundEngineOffInt[] =    {"z\vtx\addons\UH60\sounds\UH1H_stop_int", db-7, 1.0};
-//soundEngineOffExt[] =    {"z\vtx\addons\UH60\sounds\UH1H_stop_ext", db-7, 1.0, 700};
 
 class Sounds: Sounds
 {
@@ -45,8 +39,6 @@ class Sounds: Sounds
         volume = "camPos*(0 max (rotorSpeed-0.1))*5";
     };
 
-    //volume = "camPos*(0 max (rotorSpeed-0.1))*(1 + rotorThrust)";
-    //
 
     /*Internal UH60 */
     class EngineIn
@@ -85,11 +77,4 @@ class Sounds: Sounds
         sound[] = {"A3\Sounds_F\vehicles\noises\vehicle_stress3",1,1,50};
         volume = "(1-camPos) * 3 * CustomSoundController4";
     };
-    /*class RotorHighIn
-    {
-        sound[] = {"z\vtx\addons\UH60\sounds\UH1H_rotor_high_int_1", db10, 1.1};
-        frequency = "rotorSpeed";
-        volume = "(1-camPos)*3*(rotorThrust-0.9)" ;
-    };
-    */
 };

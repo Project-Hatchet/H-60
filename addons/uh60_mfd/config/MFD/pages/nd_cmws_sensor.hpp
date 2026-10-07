@@ -2,11 +2,7 @@ class ND_CMWS_SENSOR {
 	type = "sensor";
 	pos[]	= {{0.53-0.4,0.5-0.4},1};
 	down[]	= {{0.53+0.4,0.5+0.4},1};
-	// pos[]	= {TAC_CMWS_Offset,{(0+SIZE)*0.725, 0+SIZE}, 1};
-	// down[]	= {TAC_CMWS_Offset,{(0-SIZE)*0.725, 0-SIZE}, 1};
 
-	//showTargetTypes = 1+2+8+64+1024;    // RWR only
-	//showTargetTypes = "2 + 8 + 32 + 64 + 128 + 256";
 	/*	1 - Sensor sectors,
 		2 - Threats,
 		4 - Marked tgt symbol,
@@ -114,47 +110,4 @@ class ND_CMWS_SENSOR {
 	class rwrEnemy: rwr{};
 	class rwrGroup: rwr{};
 	class rwrDestroyed: rwr{};
-	// class markedTarget: rwr {};
-	// class assignedTarget: markedTarget{};
-	// class target:markedTarget{  condition = "0"; };
-	// class targetFriendly: target {};
-	// class targetEnemy: markedTarget{};
-	// class targetGroup: target{};
-	// class targetDestroyed:MissileThreat{};
-	// class targetGround: target {};
-	// class targetGroundFriendly: targetGround {};
-	// class targetGroundEnemy: targetGround {};
-	// class targetGroundGroup: targetGround{};
-	// class targetGroundDestroyed:MissileThreat{};
-	// class targetGroundRemote: MissileThreat{};
-	// class targetGroundRemoteFriendly: targetGroundRemote{};
-	// class targetGroundRemoteEnemy: targetGroundRemote{};
-	// class targetGroundRemoteGroup: targetGroundRemote{};
-	// class targetGroundRemoteDestroyed:MissileThreat{};
-	// class targetLaser: target{};
-	// class targetLaserFriendly: targetLaser{};
-	// class targetLaserEnemy: targetLaser{};
-	// class targetLaserGroup: targetLaser{};
-	// class targetNVG: targetLaser{};
-	// class targetNVGFriendly: targetNVG{};
-	// class targetNVGEnemy: targetNVG{};
-	// class targetNVGGroup: targetNVG{};
-	// class targetMan: target{};
-	// class targetManFriendly: targetMan{};   
-	// class targetManEnemy: targetMan{};
-	// class targetManGroup: targetMan  {};
-	// class targetManRemote: target  {};
-	// class targetManRemoteFriendly: targetManRemote {};
-	// class targetManRemoteEnemy: targetManRemote {};
-	// class targetManRemoteGroup: targetManRemote {};
-	// class targetAir: target {};
-	// class targetAirFriendly: targetAir {};
-	// class targetAirEnemy: targetAir {};
-	// class targetAirGroup: targetAir {};
-	// class targetAirDestroyed:MissileThreat{};
-	// class targetAirRemote: targetAir {};
-	// class targetAirRemoteFriendly: targetAirRemote {};
-	// class targetAirRemoteEnemy: targetAirRemote {};
-	// class targetAirRemoteGroup: targetAirRemote {};
-	// class targetAirRemoteDestroyed:MissileThreat{};
 };
