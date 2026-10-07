@@ -294,7 +294,7 @@ class vtx_H60_base: Heli_Transport_01_base_F {
     };
     class Turrets: Turrets
     {
-        #include "..\turrets\copilot.hpp" // #556: proven-working turret for ALL copilots; copilotFLIR.hpp returns when the model gains a View-Gunner LOD
+        #include "..\turrets\copilot.hpp" // #556: the one copilot turret for every variant; a copilot optics seat needs its own pass (2026-10-06 probe)
         #include "..\turrets\doorgunsTurnOut.hpp"
     };
     class Exhausts
