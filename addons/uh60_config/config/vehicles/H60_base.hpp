@@ -51,7 +51,6 @@ class vtx_H60_base: Heli_Transport_01_base_F {
     #include "..\cfgVehiclesParts\reflectors.hpp"
     #include "..\cfgVehiclesParts\fries.hpp"
     #include "..\cfgVehiclesParts\hitPoints.hpp"
-    //#include "..\cfgVehiclesParts\vehicleCustomization.hpp"
 
     incomingMissileDetectionSystem = 16;
     lockDetectionSystem = 1+2+4+8+16;
