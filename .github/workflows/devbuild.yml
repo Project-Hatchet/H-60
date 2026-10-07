@@ -103,28 +103,46 @@ jobs:
             fi
           done <<< "$prs"
 
-          # Stamp the dev version: Main's version with PATCHLVL+1 (dev builds
-          # always work toward the next release) and a BUILD counter that
-          # increments on every rebuild and resets to 1 when a release bumps
-          # Main's version. The stamp only ever exists on this generated
-          # branch - Main's script_version.hpp is never touched, and each
-          # rebuild re-derives the stamp from Main plus the previous devbuild
-          # tip. push_dev.py picks the version up from the branch, so devbuild
-          # Workshop pushes no longer need --version/--bump.
+          # Stamp the dev version: the NEXT Stable's number (dev builds always
+          # work toward the next release) and a BUILD counter that increments
+          # on every rebuild and resets to 1 when the number changes. The next
+          # Stable is Main's version with PATCHLVL+1 unless tools/build.json
+          # names it in "devNextVersion" - a minor/major cycle (0.7.10 -> 0.8.0)
+          # cannot be derived. "0.8.0" names the number; "0.8.0.3" also sets
+          # the lowest BUILD to hand out, for a cycle that began with hand-
+          # stamped pushes. The key is honored only while it is ahead of
+          # Main's version, so it retires itself when that release ships.
+          # The stamp only ever exists on this generated branch - Main's
+          # script_version.hpp is never touched, and each rebuild re-derives
+          # the stamp from Main plus the previous devbuild tip. push_dev.py
+          # picks the version up from the branch, so devbuild Workshop pushes
+          # no longer need --version/--bump.
           VERSION_FILE=addons/main/script_version.hpp
           parse_ver() { tr -d '\r' | awk '/#define (MAJOR|MINOR|PATCHLVL|BUILD) /{v[$2]=$3} END{print v["MAJOR"], v["MINOR"], v["PATCHLVL"], v["BUILD"]}'; }
           read -r main_major main_minor main_patch _ < <(git show "$base_sha:$VERSION_FILE" | parse_ver)
-          dev_patch=$((main_patch + 1))
+          dev_major=$main_major; dev_minor=$main_minor; dev_patch=$((main_patch + 1)); min_build=1
+          next=$(git show "$base_sha:tools/build.json" | jq -r '.devNextVersion // empty')
+          if [ -n "$next" ]; then
+            IFS=. read -r n_major n_minor n_patch n_build <<< "$next"
+            main_ver="$main_major.$main_minor.$main_patch"; next_ver="$n_major.$n_minor.$n_patch"
+            if [ "$next_ver" != "$main_ver" ] && [ "$(printf '%s\n' "$main_ver" "$next_ver" | sort -V | tail -n 1)" = "$next_ver" ]; then
+              dev_major=$n_major; dev_minor=$n_minor; dev_patch=$n_patch; min_build=${n_build:-1}
+              echo "devNextVersion $next: dev builds stamp $next_ver.N"
+            else
+              echo "devNextVersion $next is not ahead of $BASE ($main_ver) - ignored, remove it from tools/build.json"
+            fi
+          fi
           build=1
           if git fetch -q origin devbuild 2>/dev/null; then
             read -r p_major p_minor p_patch p_build < <(git show FETCH_HEAD:"$VERSION_FILE" 2>/dev/null | parse_ver)
-            if [ "${p_major:-}" = "$main_major" ] && [ "${p_minor:-}" = "$main_minor" ] && [ "${p_patch:-}" = "$dev_patch" ]; then
+            if [ "${p_major:-}" = "$dev_major" ] && [ "${p_minor:-}" = "$dev_minor" ] && [ "${p_patch:-}" = "$dev_patch" ]; then
               build=$((p_build + 1))
             fi
           fi
-          dev_version="$main_major.$main_minor.$dev_patch.$build"
+          if [ "$build" -lt "$min_build" ]; then build=$min_build; fi
+          dev_version="$dev_major.$dev_minor.$dev_patch.$build"
           printf '#define MAJOR %s\n#define MINOR %s\n#define PATCHLVL %s\n#define BUILD %s\n' \
-            "$main_major" "$main_minor" "$dev_patch" "$build" > "$VERSION_FILE"
+            "$dev_major" "$dev_minor" "$dev_patch" "$build" > "$VERSION_FILE"
           git add "$VERSION_FILE"
           echo "stamped $dev_version"
 
