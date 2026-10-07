@@ -5,11 +5,11 @@
 // AnimationSources is the merged single owner in ..\CfgAnimationSources.hpp.
 class vtx_H60_base: Heli_Transport_01_base_F {
     #include "..\cfgUVAnimations.hpp"
-    #include "..\CfgUserActions.hpp"
+    #include "..\cfgUserActions.hpp"
     #include "..\edenAttributes.hpp"
     author = "Project Hatchet Studios";
     class VTX_H60_HDTS_Copilot;
-    #include "..\cfghct.hpp"
+    #include "..\cfgHct.hpp"
     memoryPointDriverOptics = "slingcam";
     class vtx_templateFLIR {
         #include "..\turrets\pilotCamera.hpp"
