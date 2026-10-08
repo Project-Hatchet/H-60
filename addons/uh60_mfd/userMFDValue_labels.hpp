@@ -103,5 +103,7 @@ vtx_uh60_mfd_userMFDValue_labels = ["TAC_WPCUS_Dir","TAC_WPCUS_DIST", // 0, 1 if
 "GS",
 "WINDDIR",
 "ONGROUND",
-"BALL"
+"BALL",
+"TQLIMIT",
+"POWERON"
 ];

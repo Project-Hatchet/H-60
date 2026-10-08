@@ -270,6 +270,12 @@ class PFD_RPM {
 	minPos[]={0,BARTOP};
 	maxPos[]={0,BARBOTTOM};
 };
+class PFD_NP1: PFD_RPM {
+	sourceIndex=20;
+};
+class PFD_NP2: PFD_RPM {
+	sourceIndex=46;
+};
 
 class PFD_HSI_CENTER {
 	type="fixed";

@@ -58,6 +58,8 @@ Do after the H-60 HeliSim integration is complete.
 
 ## H-60
 
+- [ ] **Oil pressure on the EICAS.** Find its spot and color it: 22-26 psi idle, 26-100 psi
+  normal, 100-120 psi 5 min limit. `oilPsiLimits` is `{0.22, 1.20}`; Core has no timed oil band.
 - [ ] **Tune the flight director.** It is Core's now (`FMC >> FlightDirector`, `uh60_fd`
   deleted); its gains in `helisim_flightControls.hpp` are a first cut. Fly each mode - RALT,
   ALT, ALTP capture, IAS, HDG (by bank above 20 kt, by pedal below), FMS and HVR - and tune.

@@ -22,6 +22,7 @@ class CfgFunctions
             class fdKnob          {R;};
             class updateCockpit   {R;};
             class updateVisuals   {R;};
+            class updateLimits    {R;};
         };
     };
 };

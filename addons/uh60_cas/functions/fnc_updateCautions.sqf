@@ -122,7 +122,7 @@ private _apuFail = ("apu" call _dmg) > 0.85
 [USERMFDV_R15, _eng2 == "STARTING"] call _setPylonFn;
 
 // STBY INST
-[USERMFDV_R20, !(_vehicle getVariable ["bmkhs_stbyInstOn", false])] call _setPylonFn;
+[USERMFDV_R20, (_vehicle getVariable ["bmkhs_stbyInstIdx", 0]) != 1] call _setPylonFn;
 
 // Airframe and mission equipment - no HeliSim system
 [USERMFDV_L13, (damage _vehicle) > 0.5] call _setPylonFn;

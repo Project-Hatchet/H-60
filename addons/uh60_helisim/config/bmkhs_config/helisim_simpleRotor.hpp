@@ -6,7 +6,9 @@
 //If pedal yaw comes out reversed, flip the tail liftCoefTable signs.
 
     numSimpleRotors = 2;
-    nrLimits[] = {0.96, 1.05, 1.06, 1.10};
+    nrLimits[]         = {0.90, 1.05, 1.10, 1.10};
+    nrLimitsPowerOn[]  = {0.95, 1.01, 1.07, 1.07};    //fn_updateLimits
+    nrLimitsPowerOff[] = {0.90, 1.05, 1.10, 1.10};
     class SimpleRotors {
         class SimpleRotor01 {
             type             = "main";

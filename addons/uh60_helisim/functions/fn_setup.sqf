@@ -16,7 +16,6 @@ if (_heli getVariable ["bmkhs_initialised", false]) exitWith {};
 
 //Set before coreConfig, which reads them.
 if (local _heli) then {
-    _heli setVariable ["ESIS_START_TIME", _heli getVariable ["ESIS_START_TIME", CBA_missionTime], true];
     _heli setVariable ["bmkhs_erfsTankInstalled", (_heli animationSourcePhase "ERFS_show") >= 0.5, true];
 };
 

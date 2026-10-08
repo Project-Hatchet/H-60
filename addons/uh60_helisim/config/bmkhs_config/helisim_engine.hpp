@@ -23,14 +23,16 @@
             fuelSources[] = {"off", "no1Tank", "no2Tank"};
 
             //Engine limits
-            oilPsiLimits[] = {0.23, 1.20};
+            oilPsiLimits[] = {0.22, 1.20};
             ngMin          = 0.63;
-            ngLimits[]     = {{1.022, 12, 10}, {1.051, 0, 20}};
-            npLimits[]     = {{1.05, 12, 10}, {1.21, 0, 20}};
-            tqLimits[]     = {{1.00, 6, 5}, {1.15, 0, 10}};
-            tgtLimits[]    = {{810, 1800, 1000}, {870, 600, 0}, {878, 0, 0}, {949, 0, 2000}};
-            tqLimitsSe[]   = {{1.10, 150, 10}, {1.22, 6, 2}, {1.25, 0, 4}};
-            tgtLimitsSe[]  = {{810, 1800, 1000}, {870, 600, 0}, {878, 150, 0}, {896, 12, 0}, {949, 0, 2000}};
+            ngLimits[]     = {{1.05, 12, 10}, {1.06, 0, 20}};
+            npLimits[]     = {{1.05, 12, 10}, {1.07, 0, 20}};
+            tqLimits[]     = {{1.20, 10, 5}, {1.44, 0, 10}};
+            tqLimitsSlow[] = {{1.20, 10, 5}, {1.44, 0, 10}};    //dual engine, below 80 kt - fn_updateLimits
+            tqLimitsFast[] = {{1.00, 10, 5}, {1.44, 0, 10}};    //dual engine, above 80 kt
+            tgtLimits[]    = {{793, 1800, 1000}, {846, 600, 0}, {879, 0, 0}, {949, 0, 2000}};
+            tqLimitsSe[]   = {{1.35, 10, 5}, {1.44, 0, 10}};
+            tgtLimitsSe[]  = {{793, 1800, 1000}, {846, 600, 0}, {879, 150, 0}, {903, 12, 0}, {949, 0, 2000}};
 
             //Compressor - stations 2 -> 3.
             class Compressor {
@@ -70,8 +72,8 @@
                 fuelLhv             = 43000;    //kJ/kg - JP-8
                 combustorEfficiency = 0.99;
 
-                maxTgt      = 867;      //deg C - TGT limiter, twin engine
-                maxTgtSe    = 896;      //deg C - TGT limiter, single engine
+                maxTgt      = 879;      //deg C - TGT limiter, twin engine
+                maxTgtSe    = 903;      //deg C - TGT limiter, single engine
                 startTgt    = 851;       //deg C, start limit
                 startMinTgt = 80;        //deg C
 

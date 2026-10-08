@@ -12,17 +12,23 @@ Returns:
 ---------------------------------------------------------------------------- */
 params ["_heli"];
 
-private _battBus = _heli getVariable ["bmkhs_battBusOn", false];
-private _acBus   = _heli getVariable ["bmkhs_acBusOn", false];
+private _battBus   = _heli getVariable ["bmkhs_battBusOn", false];
+private _acBus     = _heli getVariable ["bmkhs_acBusOn", false];
+private _stbyInst  = (_heli getVariable ["bmkhs_stbyInstIdx", 0]) == 1;
+private _esisOn    = _battBus && {_acBus || _stbyInst};
+if (_esisOn isNotEqualTo (_heli getVariable ["vtx_uh60_helisim_esisOn", false])) then {
+    _heli setVariable ["vtx_uh60_helisim_esisOn", _esisOn, true];
+    if (_esisOn) then { _heli setVariable ["ESIS_START_TIME", CBA_missionTime, true] };
+};
 {
-    _x params ["_source", "_phase"];
-    if ((_heli animationSourcePhase _source) != _phase) then {
-        _heli animateSource [_source, _phase, true];
+    _x params ["_anim", "_phase"];
+    if ((_heli animationPhase _anim) != _phase) then {
+        _heli animate [_anim, _phase, true];
     };
 } forEach [
     ["PowerOnOff",      [0, 1] select _battBus],
     ["GeneratorsOnOff", [0, 1] select _acBus],
-    ["ESIS_hide",       [1, 0] select (_battBus && {_acBus || {_heli getVariable ["bmkhs_stbyInstOn", false]}})]
+    ["ESIS_hide",       [1, 0] select _esisOn]
 ];
 
 private _engState = _heli getVariable ["bmkhs_engState", ["OFF", "OFF"]];

@@ -128,6 +128,8 @@ if (_unit isNotEqualTo (driver _vehicle) && {(_vehicle unitTurret _unit) isNotEq
 #define USERMFDV_WINDDIR 104 // Wind, direction it blows toward, deg
 #define USERMFDV_ONGROUND 105 // On the ground, 1 / 0
 #define USERMFDV_BALL 106 // Trim ball, g - positive is ball left
+#define USERMFDV_TQLIMIT 107 // Continuous torque limit now in force, % - fn_updateLimits
+#define USERMFDV_POWERON 108 // Nr limits, power on 1 / power off 0 - fn_updateLimits
 
 #define USERNNN(index) user##index
 #define USER_EQ(index,val) QUOTE(USERNNN(index) == val)

@@ -37,7 +37,7 @@ vtx_uh60_helisim_fdLights = createHashMapFromArray [
         };
 
         case "apuStateChanged": {
-            _heli animateSource ["APUOn", [0, 1] select (_heli getVariable ["bmkhs_apuOn", false]), true];
+            _heli animateSource ["APUOn",[0, 1] select (_heli getVariable ["bmkhs_apuOn", false]), true];
         };
 
         case "controlMoved": {

@@ -744,25 +744,12 @@ class powerPodTexWrap {
 };
 
 class powerPodBarWrap {
-	color[] = common_green;
-	BAR(RPMBAR, "PFD_RPM",0.136,BARBOTTOM,0.01)
+	BAR_LIMITS(RPMBAR, "PFD_RPM",0.136,BARBOTTOM,0.01,LIM_NR_G,    LIM_NR_Y,    LIM_NR_R)
+	BAR_LIMITS(NP1BAR, "PFD_NP1",0.119,BARBOTTOM,0.005,LIM_NP_G(20),LIM_NP_Y(20),LIM_NP_R(20))
+	BAR_LIMITS(NP2BAR, "PFD_NP2",0.153,BARBOTTOM,0.005,LIM_NP_G(46),LIM_NP_Y(46),LIM_NP_R(46))
+	BAR_LIMITS(Q1BAR,  "PFD_Q1", 0.088,BARBOTTOM,0.01,LIM_TQ_G(22),LIM_TQ_Y(22),LIM_TQ_R(22))
+	BAR_LIMITS(Q2BAR,  "PFD_Q2", 0.185,BARBOTTOM,0.01,LIM_TQ_G(48),LIM_TQ_Y(48),LIM_TQ_R(48))
 }; // powerPodBarWrap
-
-class singleEngineTorque {
-	condition = "((user22 > 5) + (user48 > 5)) < 1.5";
-    BAR_WARN(RPM1BAR,"PFD_Q1", 0.088,BARBOTTOM,0.01,22,135)
-    BAR_WARN(RPM2BAR,"PFD_Q2", 0.185,BARBOTTOM,0.01,48,135)
-};
-class twinEngineSlowTorque {
-	condition = "(((user22 > 5) + (user48 > 5)) > 1.5) * (user102 < 41)";
-    BAR_WARN(RPM1BAR,"PFD_Q1", 0.088,BARBOTTOM,0.01,22,120)
-    BAR_WARN(RPM2BAR,"PFD_Q2", 0.185,BARBOTTOM,0.01,48,120)
-};
-class twinEngineFastTorque {
-	condition = "(((user22 > 5) + (user48 > 5)) > 1.5) * (user102 > 41)";
-    BAR_WARN(RPM1BAR,"PFD_Q1", 0.088,BARBOTTOM,0.01,22,100)
-    BAR_WARN(RPM2BAR,"PFD_Q2", 0.185,BARBOTTOM,0.01,48,100)
-};
 
 
 

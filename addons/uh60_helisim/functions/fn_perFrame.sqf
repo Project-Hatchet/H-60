@@ -12,6 +12,7 @@ Returns:
 ---------------------------------------------------------------------------- */
 params ["_heli"];
 
+[_heli] call vtx_uh60_helisim_fnc_updateLimits;
 [_heli] call bmkhs_fnc_coreUpdate;
 
 //ERFS tank follows ERFS_show
