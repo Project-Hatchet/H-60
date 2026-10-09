@@ -5,7 +5,6 @@ PREP(registerCautionAdvisory);
 PREP(removeCautionAdvisory);
 PREP(setup);
 PREP(shutdown);
-PREP(registerCaution);
 PREP(updateAdvisories);
 PREP(updateCautionPanel);
 PREP(updateCautions);
