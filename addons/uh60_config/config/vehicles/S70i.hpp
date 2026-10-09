@@ -54,7 +54,7 @@ class vtx_S70i: vtx_H60_base {
         memoryPointsGetInGunner = "pos Cargo R";
         memoryPointsGetInGunnerDir = "pos Cargo R dir";
         gunnerName = "Door Right 1 (hoist controls)";
-        gunnerCompartments = Compartment2;
+        gunnerCompartments = "Compartment2";
         proxyIndex = 12;
         isPersonTurret = 2;        /// enables a person to get into the turret from outside
         selectionFireAnim = "";

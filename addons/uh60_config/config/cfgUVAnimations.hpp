@@ -2,37 +2,37 @@ class UVAnimations
 {
 	class MFD1_MapX
 	{
-		type                        = translation;
-		source                    = MAP_X;
-		section                 = MAP_MFD1;
+		type                        = "translation";
+		source                    = QUOTE(MAP_X);
+		section                 = QUOTE(MAP_MFD1);
 		minValue		= 0;
 		maxValue 		= 1;
 		offset0[]		= {-0.5,0};
 		offset1[]		= {0.5,0};
 	};
-	class MFD2_MapX: MFD1_MapX {section = MAP_MFD2;};
-	class MFD3_MapX: MFD1_MapX {section = MAP_MFD3;};
-	class MFD4_MapX: MFD1_MapX {section = MAP_MFD4;};
+	class MFD2_MapX: MFD1_MapX {section = QUOTE(MAP_MFD2);};
+	class MFD3_MapX: MFD1_MapX {section = QUOTE(MAP_MFD3);};
+	class MFD4_MapX: MFD1_MapX {section = "MAP_MFD4";};
 
 	class MFD1_MapY
 	{
-		type                        = translation;
-		source                    = MAP_Y;
-		section                 = MAP_MFD1;
+		type                        = "translation";
+		source                    = QUOTE(MAP_Y);
+		section                 = QUOTE(MAP_MFD1);
 		minValue 		= 0;
 		maxValue 		= 1;
 		offset0[]		= {0,0.5};
 		offset1[]		= {0,-0.5};
 	};
-	class MFD2_MapY: MFD1_MapY {section = MAP_MFD2;};
-	class MFD3_MapY: MFD1_MapY {section = MAP_MFD3;};
-	class MFD4_MapY: MFD1_MapY {section = MAP_MFD4;};
+	class MFD2_MapY: MFD1_MapY {section = QUOTE(MAP_MFD2);};
+	class MFD3_MapY: MFD1_MapY {section = QUOTE(MAP_MFD3);};
+	class MFD4_MapY: MFD1_MapY {section = "MAP_MFD4";};
 
 	class MFD1_MapScale
 	{
-		type                        = scale;
-		source                    = MAP1_Scale;
-		section                 = MAP_MFD1;
+		type                        = "scale";
+		source                    = "MAP1_Scale";
+		section                 = QUOTE(MAP_MFD1);
 		minValue                = 0;
 		maxValue                = 1;
 		center[] 		= { 0.5, 0.5 };
@@ -40,22 +40,22 @@ class UVAnimations
 		scale1[] 		= {1,1};
 
 	};
-	class MFD2_MapScale: MFD1_MapScale {section = MAP_MFD2;};
-	class MFD3_MapScale: MFD1_MapScale {section = MAP_MFD3;};
-	class MFD4_MapScale: MFD1_MapScale {section = MAP_MFD4;};
+	class MFD2_MapScale: MFD1_MapScale {section = QUOTE(MAP_MFD2);};
+	class MFD3_MapScale: MFD1_MapScale {section = QUOTE(MAP_MFD3);};
+	class MFD4_MapScale: MFD1_MapScale {section = "MAP_MFD4";};
 
 	class MFD1_MapRotation
 	{
-		type                        = rotate;
-		source                    = MAP_Rotation;
-		section                 = MAP_MFD1;
+		type                        = "rotate";
+		source                    = "MAP_Rotation";
+		section                 = QUOTE(MAP_MFD1);
 		minValue		= "0";
 		maxValue 		= "360";
 		center[] 		= { 0.5, 0.5 };
 		angle0 			= "rad 0";
 		angle1 			= "rad +360";
 	};
-	class MFD2_MapRotation: MFD1_MapRotation {section = MAP_MFD2;};
-	class MFD3_MapRotation: MFD1_MapRotation {section = MAP_MFD3;};
-	class MFD4_MapRotation: MFD1_MapRotation {section = MAP_MFD4;};
+	class MFD2_MapRotation: MFD1_MapRotation {section = QUOTE(MAP_MFD2);};
+	class MFD3_MapRotation: MFD1_MapRotation {section = QUOTE(MAP_MFD3);};
+	class MFD4_MapRotation: MFD1_MapRotation {section = "MAP_MFD4";};
 };

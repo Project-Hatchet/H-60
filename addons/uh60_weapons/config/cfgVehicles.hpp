@@ -53,9 +53,9 @@ class CfgVehicles {
         cost = 0;
         displayName = "Pylon";
         fuelCapacity = 0;
-        hasDriver = false;
-        hasGunner = false;
-        hasCommander = false;
+        hasDriver = "false";
+        hasGunner = "false";
+        hasCommander = "false";
         faction = "BLU_F";
         category = "Air";
         side = 1;

@@ -77,3 +77,14 @@ Two smaller oddities kept value-identical on purpose (candidates for a later rul
 - The stale AddonBuilder mirror lives at `%TEMP%\z\vtx` and is **exactly** what `push_dev.py wipe_mirror()` deletes; a `cmd /c rmdir` with `%TEMP%` from Git Bash does not reach it. The contaminated first compare shipped ~290 Phase-2-deleted files (fonts, textures, functions) inside the scons PBOs — a live reminder of why the mirror wipe matters until WP4e.
 - HEMTT requires a `$PBOPREFIX$` file in every addon (an addon without one fails with "Addon prefix not found").
 - `QUOTE(QUOTE(x))` is the portable way to embed a quoted string inside a `QUOTE()`d code value; a single inner `"x"` is not escaped by either preprocessor.
+
+## 8. Portability lessons from the WP2b acceptance test (2026-10-10)
+
+The acceptance test for WP2b is a **scons build of the fixed tree against a scons build of the unfixed tree, derapified and diffed** (`hemtt utils config derapify` on each `config.bin`). CfgConvert must produce the same configs, or an edit was not value-neutral. The first pass failed it in four ways that `hemtt check` alone could never show, because they are differences between the two preprocessors:
+
+- **`##` inside `QUOTE()` is not portable.** Arma's stringizer leaves `QUOTE(BONE##_pos)` as the literal `"P2D5##_pos"`; HEMTT pastes first. Use `QUOTE(DOUBLES(BONE,pos))`: a nested macro expands before stringizing under both.
+- **Padded macro values leak into quoted names.** `#define USERMFDV_HMD_R 58 //comment` has a trailing space in its value; bare, CfgConvert trimmed it, but `QUOTE(USERNNN(USERMFDV_HMD_R))` ships `"user58 "`. Defines whose values end up inside quoted names must be comment-free on the define line.
+- **Plain quotes hide macros.** `x = "safeZoneW - ENGSTARTW"` no longer expands `ENGSTARTW`; any quoted expression that contains a macro must be `QUOTE(...)`.
+- **`db` tokens are numbers to CfgConvert.** Bare `db5` in a `sound[]` array was converted to `1.7782794` at compile time; quoting it would have shipped the string. The numeric values are written out, with the dB value as a comment.
+
+After the fixes the derapified diff of the four affected addons against the unfixed build is empty apart from the arc fix already on Main. Whitespace inside SQF code strings (`[(_this select 0), [32, 2], true]` vs `[(_this select 0),[32, 2], true]`) is the only textual class left, from `ARR_n` spacing, and it is harmless SQF.

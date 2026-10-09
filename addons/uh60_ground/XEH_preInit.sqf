@@ -2,7 +2,7 @@
 
 ADDON = false;
 
-#include "initSettings.sqf";
+#include "initSettings.inc.sqf"
 #include "XEH_PREP.hpp"
 
 ADDON = true;

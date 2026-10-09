@@ -164,13 +164,13 @@
         };
 
     #define LEVEL_NARROW(NAME,WIDTH) \
-        class NAME : level0 { \
+        class NAME : Level0 { \
             type = "line"; \
             points[] = {{#NAME, {WIDTH, 0}, 1}, {#NAME, {-WIDTH, 0}, 1}}; \
         };
 
     #define LEVEL_WIDE(NAME,WIDTH) \
-        class NAME : level0 { \
+        class NAME : Level0 { \
             type = "line"; \
             points[] = {{#NAME, {WIDTH, 0}, 1}, {#NAME, {-WIDTH, 0}, 1}}; \
         };
@@ -179,15 +179,15 @@
     #define LEVEL_TEXT(LEVEL,BONE,WIDTH) \
             TEXT_LEFT_OPEN(DOUBLES(VAL_L,BONE)) \
                 text = LEVEL; \
-                pos[] = {BONE, {-WIDTH, -0.032}, 1}; \
-                right[] = {BONE, {-(WIDTH-0.06), -0.032}, 1}; \
-                down[] = {BONE, {-WIDTH, 0.01}, 1}; \
+                pos[] = {QUOTE(BONE), {-WIDTH, -0.032}, 1}; \
+                right[] = {QUOTE(BONE), {-(WIDTH-0.06), -0.032}, 1}; \
+                down[] = {QUOTE(BONE), {-WIDTH, 0.01}, 1}; \
             }; \
             TEXT_LEFT_OPEN(DOUBLES(VAL_R,BONE)) \
                 text = LEVEL; \
-                pos[] = {BONE, {(WIDTH+0.03), -0.032}, 1}; \
-                right[] = {BONE, {(WIDTH+0.09), -0.032}, 1}; \
-                down[] = {BONE, {(WIDTH+0.03), 0.01}, 1}; \
+                pos[] = {QUOTE(BONE), {(WIDTH+0.03), -0.032}, 1}; \
+                right[] = {QUOTE(BONE), {(WIDTH+0.09), -0.032}, 1}; \
+                down[] = {QUOTE(BONE), {(WIDTH+0.03), 0.01}, 1}; \
             };
 
     #define LEVEL_SET(HALF,WHOLE,NARROW,WIDE,TEXT) \

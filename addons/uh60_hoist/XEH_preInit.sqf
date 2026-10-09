@@ -3,6 +3,6 @@
 ADDON = false;
 
 #include "XEH_PREP.hpp"
-#include "initSettings.sqf";
+#include "initSettings.inc.sqf"
 
 ADDON = true;

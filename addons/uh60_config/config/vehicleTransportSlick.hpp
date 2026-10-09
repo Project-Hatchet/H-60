@@ -9,7 +9,7 @@ class VehicleTransport {
         unloadingInterval			= 2;								// Time between unloading vehicles (in seconds)
         loadingDistance				= 5;								// Maximal distance for loading in exit point (in meters).
         loadingAngle				= 60;								// Maximal sector where cargo vehicle must be to for loading (in degrees).
-        parachuteClassDefault       = B_Parachute_02_F;					// Type of parachute used when dropped in air. Can be overridden by parachuteClass in Cargo.
+        parachuteClassDefault       = "B_Parachute_02_F";					// Type of parachute used when dropped in air. Can be overridden by parachuteClass in Cargo.
         parachuteHeightLimitDefault = 50;								// Minimal height above terrain when parachute is used. Can be overriden by parachuteHeightLimit in Cargo.
     };
 };

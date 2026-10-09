@@ -34,7 +34,7 @@ class ballColor {
 		type        = "polygon";
 		points[] ={
 			{
-				CCFS_POLYGON(BALL_X,BALL_Y)
+				CCFS_POLYGON("BALL_X","BALL_Y")
 			}
 		};
 	};

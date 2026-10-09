@@ -32,7 +32,8 @@
 #define JVMF_TYPE 16
 #define WARN_INDEX 1
 
-#define COND_ISNUMBER(INDEX,VALUE) (user##INDEX>(VALUE-0.01))*(user##INDEX<(VALUE+0.99))
+#define COND_ISNUMBER_EXPR(INDEX,VALUE) (user##INDEX>(VALUE-0.01))*(user##INDEX<(VALUE+0.99))
+#define COND_ISNUMBER(INDEX,VALUE) QUOTE(COND_ISNUMBER_EXPR(INDEX,VALUE))
 #define MFD_PAGE_EICAS 0
 #define MFD_PAGE_PFD 1
 #define MFD_PAGE_TAC 2
@@ -71,9 +72,10 @@
 #define FLIR_MODE_STOWED (MFD_PAGE_FLIR+0.5)
 #define FLIR_MODE_WPN_ASSIGN (MFD_PAGE_FLIR+0.6)
 
-#define COND_SUBPAGE(INDEX,VALUE) (user##INDEX>(VALUE-0.1))*(user##INDEX<(VALUE+0.1))
-#define COND_NOT_SUBPAGE(INDEX,VALUE) (1 - (user##INDEX>(VALUE-0.1))*(user##INDEX<(VALUE+0.1)))
-#define COND_SUBPAGE_OR_SUBPAGE(INDEX,VALUE1,VALUE2) (COND_SUBPAGE(INDEX,VALUE1)+COND_SUBPAGE(INDEX,VALUE2))
+#define COND_SUBPAGE_EXPR(INDEX,VALUE) (user##INDEX>(VALUE-0.1))*(user##INDEX<(VALUE+0.1))
+#define COND_SUBPAGE(INDEX,VALUE) QUOTE(COND_SUBPAGE_EXPR(INDEX,VALUE))
+#define COND_NOT_SUBPAGE(INDEX,VALUE) QUOTE((1 - COND_SUBPAGE_EXPR(INDEX,VALUE)))
+#define COND_SUBPAGE_OR_SUBPAGE(INDEX,VALUE1,VALUE2) QUOTE((COND_SUBPAGE_EXPR(INDEX,VALUE1)+COND_SUBPAGE_EXPR(INDEX,VALUE2)))
 
 
 //HELPERS
@@ -378,7 +380,7 @@
         pos[] = {{X, Y}, 1}; \
         right[] = {{X + (TEXT_MID_SIZE*0.75), Y}, 1}; \
         down[] = {{X, Y + TEXT_MID_SIZE}, 1}; \
-        text = TEXT; \
+        text = "TEXT"; \
     };
 
 #define TEXT_MFD_SCALE(CLASS,X,Y,SIZE,ALIGN) \
@@ -430,16 +432,16 @@
     };
 
 #define POINTS_LEVEL_W(BONE) \
-    {BONE##_pos, {0.035, 0}, 1}, {BONE##_pos, {-0.035, 0}, 1},{}, \
-    {BONE##_neg, {0.035, 0}, 1}, {BONE##_neg, {-0.035, 0}, 1},{}
+    {QUOTE(DOUBLES(BONE,pos)), {0.035, 0}, 1}, {QUOTE(DOUBLES(BONE,pos)), {-0.035, 0}, 1},{}, \
+    {QUOTE(DOUBLES(BONE,neg)), {0.035, 0}, 1}, {QUOTE(DOUBLES(BONE,neg)), {-0.035, 0}, 1},{}
 
 #define POINTS_LEVEL_M(BONE) \
-    {BONE##_pos, {0.015, 0}, 1}, {BONE##_pos, {-0.015, 0}, 1},{}, \
-    {BONE##_neg, {0.015, 0}, 1}, {BONE##_neg, {-0.015, 0}, 1},{}
+    {QUOTE(DOUBLES(BONE,pos)), {0.015, 0}, 1}, {QUOTE(DOUBLES(BONE,pos)), {-0.015, 0}, 1},{}, \
+    {QUOTE(DOUBLES(BONE,neg)), {0.015, 0}, 1}, {QUOTE(DOUBLES(BONE,neg)), {-0.015, 0}, 1},{}
 
 #define POINTS_LEVEL_N(BONE) \
-    {BONE##_pos, {0.007, 0}, 1}, {BONE##_pos, {-0.007, 0}, 1},{}, \
-    {BONE##_neg, {0.007, 0}, 1}, {BONE##_neg, {-0.007, 0}, 1},{}
+    {QUOTE(DOUBLES(BONE,pos)), {0.007, 0}, 1}, {QUOTE(DOUBLES(BONE,pos)), {-0.007, 0}, 1},{}, \
+    {QUOTE(DOUBLES(BONE,neg)), {0.007, 0}, 1}, {QUOTE(DOUBLES(BONE,neg)), {-0.007, 0}, 1},{}
 
 #define LEVEL_BACKGROUND(COLORTOP,COLORBOTTOM,WIDTH) \
     class polygon_top { \
@@ -472,13 +474,13 @@
     };
 
 #define LEVEL_NARROW(NAME,WIDTH) \
-    class NAME : level0 { \
+    class NAME : Level0 { \
         type = "line"; \
         points[] = {{#NAME, {WIDTH, 0}, 1}, {#NAME, {-WIDTH, 0}, 1}}; \
     };
 
 #define LEVEL_WIDE(NAME,WIDTH) \
-    class NAME : level0 { \
+    class NAME : Level0 { \
         type = "line"; \
         points[] = {{#NAME, {WIDTH, 0}, 1}, {#NAME, {-WIDTH, 0}, 1}}; \
     };
@@ -487,15 +489,15 @@
 #define LEVEL_TEXT(LEVEL,BONE,WIDTH,TEXT) \
         TEXT_LEFT_OPEN(DOUBLES(VAL_L,BONE)) \
             text = TEXT; \
-            pos[] = {BONE, {-WIDTH, -0.032+0.01}, 1}; \
-            right[] = {BONE, {-(WIDTH-0.062), -0.032+0.01}, 1}; \
-            down[] = {BONE, {-WIDTH, 0.01+0.01}, 1}; \
+            pos[] = {QUOTE(BONE), {-WIDTH, -0.032+0.01}, 1}; \
+            right[] = {QUOTE(BONE), {-(WIDTH-0.062), -0.032+0.01}, 1}; \
+            down[] = {QUOTE(BONE), {-WIDTH, 0.01+0.01}, 1}; \
         }; \
         TEXT_LEFT_OPEN(DOUBLES(VAL_R,BONE)) \
             text = TEXT; \
-            pos[] = {BONE, {(WIDTH+0.03), -0.032+0.01}, 1}; \
-            right[] = {BONE, {(WIDTH+0.09), -0.032+0.01}, 1}; \
-            down[] = {BONE, {(WIDTH+0.03), 0.01+0.01}, 1}; \
+            pos[] = {QUOTE(BONE), {(WIDTH+0.03), -0.032+0.01}, 1}; \
+            right[] = {QUOTE(BONE), {(WIDTH+0.09), -0.032+0.01}, 1}; \
+            down[] = {QUOTE(BONE), {(WIDTH+0.03), 0.01+0.01}, 1}; \
         };
 
 #define LEVEL_SET(HALF,WHOLE,NARROW,WIDE,TEXT) \

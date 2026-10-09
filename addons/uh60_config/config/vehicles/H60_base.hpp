@@ -122,7 +122,7 @@ class vtx_H60_base: Heli_Transport_01_base_F {
     icon = "z\vtx\addons\UH60\Data\UI\Map_vtx_UH60_CA.paa";	/// icon in map/editor
     picture = "z\vtx\addons\UH60\Data\UI\vtx_UH60_CA.paa";	/// small picture in command menu
 
-    driverInAction = UH60_Pilot;
+    driverInAction = "UH60_Pilot";
     driverAction = "";
     driverRightHandAnimName="Cyclic_right";
     driverLeftHandAnimName="Collective_right";
@@ -130,7 +130,7 @@ class vtx_H60_base: Heli_Transport_01_base_F {
     driverRightLegAnimName="Pedal_Right_P";
     transportSoldier = 10;
 
-    crew = vtx_uh60_pilot;
+    crew = "vtx_uh60_pilot";
     transportMaxBackpacks = 11;
     cargoAction[] = {"passenger_low01", "passenger_generic01_leanleft", "passenger_generic01_leanleft", "passenger_generic01_leanright", "passenger_generic01_foldhands", "passenger_mantisrear", "passenger_mantisrear", "passenger_generic01_foldhands"};
 
@@ -298,7 +298,7 @@ class vtx_H60_base: Heli_Transport_01_base_F {
 
     driveOnComponent[]=
     {
-        wheels
+        "wheels"
     };
     minOmega	= 0;
     maxOmega=2000;
@@ -306,7 +306,7 @@ class vtx_H60_base: Heli_Transport_01_base_F {
     {
         class Wheel_1
         {
-            steering					= false;
+            steering					= "false";
             side						= "left";
             boneName					= "wheel_1_1";
             suspForceAppPointOffset		= "wheel_1_1_center";
@@ -353,7 +353,7 @@ class vtx_H60_base: Heli_Transport_01_base_F {
         };
         class Wheel_3: Wheel_2
         {
-            steering					= true;
+            steering					= "true";
             side						= "right";
             boneName					= "wheel_2_1";
             suspForceAppPointOffset		= "wheel_2_1_center";

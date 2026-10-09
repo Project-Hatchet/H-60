@@ -43,19 +43,19 @@ class Sounds: Sounds
     /*Internal UH60 */
     class EngineIn
     {
-        sound[] = {"z\vtx\addons\UH60\sounds\Internal.ogg", db0, 0.8};
+        sound[] = {"z\vtx\addons\UH60\sounds\Internal.ogg", 1, 0.8};         // db0
         frequency = "rotorSpeed*1.2-(rotorThrust*0.1)";
 		volume="(1-camPos)*((rotorSpeed-0.75)*4)";
     };
     class RotorLowIn
     {
-        sound[] = {"z\vtx\addons\UH60\sounds\Rotor.ogg", db5, 1.1};
+        sound[] = {"z\vtx\addons\UH60\sounds\Rotor.ogg", 1.7782794, 1.1}; // db5
         frequency = "rotorSpeed-(rotorThrust*0.3)";
 		volume="2*(1-camPos)*((rotorSpeed factor[0.3, 1.1]) min (rotorSpeed factor[1.1, 0.3]))";
     };
     class ApuSoundLoop
     {
-        sound[] = {"z\vtx\addons\UH60\sounds\apu_int_loop.wss", db5, 1.1};
+        sound[] = {"z\vtx\addons\UH60\sounds\apu_int_loop.wss", 1.7782794, 1.1}; // db5
         frequency = "CustomSoundController1";
 		volume="(1-camPos)*CustomSoundController2";
     };

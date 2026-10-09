@@ -1,3 +1,4 @@
+#pragma hemtt flag pe23_ignore_has_include
 /*
  * vtx_uh60_jvmf_fnc_ctabToJvmf
  *
