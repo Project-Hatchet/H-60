@@ -1,3 +1,7 @@
+**0.8.0**
+
+ - Fix the cabin, kneeling, DAP passenger, S-70i and MH-60S GAU-21 cabin seat firing arcs never applying - the limits were written in a form the game read as text, so those seats had no arc limits at all
+
 **0.7.10**
 
  - Dev 0.7.10.91/.92: MFOS crew chief seats rebuilt at a quarter of the detail in every LOD; minigun safety cover and switch animate for the door gunner; seats visible through the windows from outside (glass draw order) #626

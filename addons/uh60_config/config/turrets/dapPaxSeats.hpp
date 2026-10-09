@@ -26,8 +26,8 @@ class CargoTurret_02: CargoTurret {
     LODOpticsOut = 1200;
     class TurnIn /// limits for gunner turned in
     {
-        limitsArrayBottom[] = {[-45,-94.9656],[-45,80.9904],[-31.9033,82.8465],[-31.7935,95]};
-        limitsArrayTop[] = {[14.705,-95],[14.1224,-62.859],[12.3049,32.9414],[9.0862,94.948]};
+        limitsArrayBottom[] = {{-45,-94.9656},{-45,80.9904},{-31.9033,82.8465},{-31.7935,95}};
+        limitsArrayTop[] = {{14.705,-95},{14.1224,-62.859},{12.3049,32.9414},{9.0862,94.948}};
     };
     class TurnOut: TurnIn {}; /// turn out uses the same limits as turn in this time
 };
@@ -42,7 +42,7 @@ class CargoTurret_03: CargoTurret_02 {
     memoryPointsGetInGunner = "pos Cargo L5";
     memoryPointsGetInGunnerDir = "pos Cargo L5 dir";
     class TurnIn {
-        limitsArrayBottom[] = {[-32.2276,-94.9017],[-32.7616,-79.1958],[-45,-75.6488],[-44.9653,95]};
-        limitsArrayTop[] = {[9.4395,-94.8557],[12.5849,-34.3841],[14.0365,60.8758],[14.1021,95]};
+        limitsArrayBottom[] = {{-32.2276,-94.9017},{-32.7616,-79.1958},{-45,-75.6488},{-44.9653,95}};
+        limitsArrayTop[] = {{9.4395,-94.8557},{12.5849,-34.3841},{14.0365,60.8758},{14.1021,95}};
     };
 };
