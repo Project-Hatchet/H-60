@@ -12,7 +12,6 @@ class vtx_UH60M_SLICK: vtx_H60_base {
   transportSoldier=0;
   cargoProxyIndexes[] = {};
   cargoAction[] = {};
-  typicalCargo[] = {"vtx_uh60_doorgunner"};
 
   class AnimationSources: AnimationSources {
     ANIM_INIT(Hoist_hide,1);
