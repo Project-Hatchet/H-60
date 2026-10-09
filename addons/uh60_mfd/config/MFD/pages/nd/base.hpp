@@ -1,4 +1,4 @@
-#define HVR_CONDITION_PAGES ((COND_SUBPAGE(MFD_PAGE_INDEX,ND_MODE_ALL)*(speed<10)*(altitudeAGL > 2))+COND_SUBPAGE(MFD_PAGE_INDEX,ND_MODE_HOVER))
+#define HVR_CONDITION_PAGES ((COND_SUBPAGE(MFD_PAGE_INDEX,ND_MODE_ALL)*(user103<10)*(user101 > 2))+COND_SUBPAGE(MFD_PAGE_INDEX,ND_MODE_HOVER))
 
 alpha = BACKGROUND_ALPHA;
 class overlayWrapper {
@@ -30,7 +30,8 @@ class overlayWrapper {
 		};
 		class coveringText {
 			TEXT_MID_MID_SRC(RALT_TXT,0.87,0.12)
-				source="altitudeAGL";
+				source="user";
+				sourceIndex=101;
 				sourceScale = 3.2808399;
 				sourceLength = 4;
 			};
@@ -119,7 +120,7 @@ class overlayWrapper {
 				}; // FD_RALTRotation3Cond
 			}; // FD_Purple
 			class RALTRotation1Cond {
-				condition="(altitudeAGL*3.2808399) < 100";
+				condition="(user101*3.2808399) < 100";
 				class RaltArm {
 					type="line";
 					width = 7;
@@ -136,7 +137,7 @@ class overlayWrapper {
 				}; // RaltArm2
 			}; // RALTRotation1Cond
 			class RALTRotation2Cond {
-				condition="((altitudeAGL*3.2808399) > 100) * ( (altitudeAGL*3.2808399) < 400 )";
+				condition="((user101*3.2808399) > 100) * ( (user101*3.2808399) < 400 )";
 				class RaltArm {
 					type="line";
 					width = 7;
@@ -153,7 +154,7 @@ class overlayWrapper {
 				}; // RaltArm2
 			}; // RALTRotation2Cond
 			class RALTRotation3Cond {
-				condition="(altitudeAGL*3.2808399) > 400";
+				condition="(user101*3.2808399) > 400";
 				class RaltArm {
 					type="line";
 					width = 7;
@@ -235,7 +236,8 @@ class HSI_WAYPOINTDIRECTION {
 //wind
 TEXT_LEFT_SMALL(GS_TXT,0.08,0.05+0.015,"GS")
 TEXT_MID_MID_SRC(GS_VAL,0.08+0.035,0.05)
-	source="speed";
+	source="user";
+	sourceIndex=103;
 	sourceScale = 1.94384;
 	sourceLength = 3;
 };

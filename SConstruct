@@ -57,7 +57,7 @@ def getPboInfo(settings):
         with open(os.path.join(pboInfo.folder,"$PBOPREFIX$"), "r") as file:
             pboInfo.pboPrefix = file.readline().strip()
         try:
-            pboInfo.a3symlink = os.path.join("P:",pboInfo.pboPrefix)
+            pboInfo.a3symlink = os.path.join(arma3Path(),pboInfo.pboPrefix)
         except:
             pboInfo.a3symlink = None
 
@@ -79,6 +79,7 @@ def removeSymlink(pathTo):
     return commands
 
 def buildSymlink(pathFrom, pathTo):
+#    print (pathFrom)
     if pathTo is None:
         return []
     commands = removeSymlink(pathTo)
@@ -128,7 +129,8 @@ def buildPbo(settings,env, pbo):
     def stampAction(target, source, env, path=os.path.abspath(pbo.filepath)):
         stampPboVersion(path, modVersion())
         return 0
-    env.Command(pbo.outputPath, allFilesIn(pbo.folder)+["build"],[
+    linkCommands = [] if os.path.isdir(pbo.buildSymlink) else buildSymlink(pbo.folder, pbo.buildSymlink)
+    env.Command(pbo.outputPath, allFilesIn(pbo.folder)+includeCopies, linkCommands + [
         f'"{addonBuilderPath()}" "{os.path.abspath(pbo.buildSymlink)}" "{os.path.abspath(settings["outputFolder"])}" "-project=build" "-prefix={pbo.pboPrefix}" -include=tools\\buildExtIncludes.txt {optBinarize}',
         Move(os.path.abspath(settings["outputFolder"]) + "/" + pbo.filename, os.path.abspath(pbo.builtpath)),
         Action(stampAction, f"stampPboVersion({pbo.filename})")
@@ -143,15 +145,15 @@ def downloadNaturaldocs(target, source, env):
     with zipfile.ZipFile(zipFilePath, 'r') as zip_ref:
         zip_ref.extractall(r"buildTools")
 
-print(addonBuilderPath())
+#print(addonBuilderPath())
 settings = getSettings()
 pbos = getPboInfo(settings)
+
+includeCopies = [env.Command(os.path.join("build", os.path.relpath(f, "include")), f, Copy("$TARGET", "$SOURCE")) for f in allFilesIn("include")]
 
 pboAliases = [buildPbo(settings,env, pbo) for pbo in pbos]
 
 env.Command("buildTools", [], Mkdir("buildTools"))
-
-buildDir = env.Command("build", allFilesIn("include"), [Copy("build", "include")] + sum(map(lambda pbo: buildSymlink(pbo.folder, pbo.buildSymlink),pbos),[]))
 
 env.Command(r"buildTools\Natural Docs", [], [downloadNaturaldocs, Delete(r"buildTools\NaturalDocs.zip")])
 

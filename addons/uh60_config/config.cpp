@@ -40,12 +40,6 @@ class CfgFontFamilies {
     class VTX_UH60M_Font {
         fonts[] = {"\z\vtx\addons\UH60\config\Font\font46"};
     };
-    class FalconDED {
-        // sizes 6-37 exist in UH60\config\Font but were never enabled; only 46 ships
-        fonts[] = {
-            "\z\vtx\addons\UH60\config\Font\FalconDED46"
-        };
-    };
 };
 
 #define mag_xx(a,b) class _xx_##a {magazine = a; count = b;}
@@ -54,7 +48,7 @@ class CfgFontFamilies {
 #include "config\defines\mfdDefines.hpp"
 #include "config\cfgWeapons.hpp"
 #include "config\cfgMagazines.hpp"
-#include "config\CfgVehicles.hpp"
+#include "config\cfgVehicles.hpp"
 #include "config\cfgSounds.hpp"
 
 #include "config\UI\baseClasses.hpp"

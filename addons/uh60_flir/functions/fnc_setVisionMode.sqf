@@ -17,9 +17,6 @@ params ["_effect", ["_sync", true]];
 
 vtx_uh60_flir_pipEffect = _effect;
 "vtx_uh60_flir_feed" setPiPEffect vtx_uh60_flir_pipEffect;
-// if (_effect # 0 == 0) then {
-//   "vtx_uh60_flir_feed" setPiPEffect [3, 1, 1.0, 1.0, 0.0, [0.5, 0.5, 0.5, 0], [1.0, 1.0, 1.0, 0],  [0.199, 0.587, 0.114, 0.0]];
-// };
 
 if (vtx_uh60_flir_isInScriptedCamera) then {
   camUseNVG (vtx_uh60_flir_pipEffect isEqualTo [1]);
@@ -35,20 +32,3 @@ if (_sync && vtx_uh60_flir_otherPilotIsPlayer) then {
 };
 
 true
-
-/*
-
-vtx_uh60_flir_pipEffectsHashMap = createHashMapFromArray [
-  ["Normal", [0]],
-  ["NVG", [1]],
-  ["Ti", [2]],
-  [0, [2]], // thermalMode[] white-hot
-  [1, [7]], // thermalMode[] black-hot
-  [2, [8]], // thermalMode[] green-hot
-  // backwards for getting value for setCamUseTI
-  [[2], 0], // thermalMode[] white-hot
-  [[7], 1], // thermalMode[] black-hot
-  [[8], 2] // thermalMode[] green-hot
-];
-
-*/

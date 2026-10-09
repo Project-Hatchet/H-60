@@ -13,6 +13,7 @@
 #define common_red RGBA256(160,30,30,1.0)
 #define common_black RGBA256(0,0,0,1.0)
 #define danger_red RGBA256(240,00,00,1.0)
+#define caution_yellow RGBA256(255,255,0,1.0)
 
 //pitch-attitude scale
 #define pitch_att_blue RGBA256(5,60,140,1)
@@ -92,8 +93,8 @@
 
 
 // CONDITIONS
-#define RALT_ENABLED "altitudeAGL < 304"
-#define RALT_DISABLED "altitudeAGL > 304"
+#define RALT_ENABLED "user101 < 304"
+#define RALT_DISABLED "user101 > 304"
 #define EGI_DISABLED "1"
 #define ASE_DISABLED_NONE USER_LT(USERMFDV_R22,1)
 #define ASE_DISABLED USER_GT(USERMFDV_R22,0)
@@ -553,6 +554,45 @@
         }; \
     };
 
+
+//A bar coloured by its limits - each condition a string, green continuous, yellow transient,
+//red past the maximum
+#define BAR_POLY(BONE,X,Y,W) \
+    class bar { \
+        type="polygon"; \
+        points[] ={ \
+            { \
+                {BONE,{X + -W, 0},1}, \
+                {BONE,{X + W, 0},1}, \
+                {{X + W,Y},1}, \
+                {{X - W,Y},1} \
+            } \
+        }; \
+    };
+
+#define BAR_LIMITS(CLASS,BONE,X,Y,W,GREEN,YELLOW,RED) \
+    class CLASS { \
+        class greenWrap  { condition = GREEN;  color[] = common_green;   BAR_POLY(BONE,X,Y,W) }; \
+        class yellowWrap { condition = YELLOW; color[] = caution_yellow; BAR_POLY(BONE,X,Y,W) }; \
+        class redWrap    { condition = RED;    color[] = danger_red;     BAR_POLY(BONE,X,Y,W) }; \
+    };
+
+//The bands, by MFD value
+#define LIM_NP_G(V)  QUOTE((GLUE(user,V) > 95) * (GLUE(user,V) <= 101))
+#define LIM_NP_Y(V)  QUOTE((GLUE(user,V) > 91) * (GLUE(user,V) <= 95) + (GLUE(user,V) > 101) * (GLUE(user,V) <= 107))
+#define LIM_NP_R(V)  QUOTE((GLUE(user,V) <= 91) + (GLUE(user,V) > 107))
+#define LIM_NG_G(V)  QUOTE(GLUE(user,V) <= 105)
+#define LIM_NG_Y(V)  QUOTE((GLUE(user,V) > 105) * (GLUE(user,V) <= 106))
+#define LIM_NG_R(V)  QUOTE(GLUE(user,V) > 106)
+#define LIM_TGT_G(V) QUOTE(GLUE(user,V) <= 793)
+#define LIM_TGT_Y(V) QUOTE((GLUE(user,V) > 793) * (GLUE(user,V) <= 949))
+#define LIM_TGT_R(V) QUOTE(GLUE(user,V) > 949)
+#define LIM_TQ_G(V)  QUOTE(GLUE(user,V) <= user107)
+#define LIM_TQ_Y(V)  QUOTE((GLUE(user,V) > user107) * (GLUE(user,V) <= 144))
+#define LIM_TQ_R(V)  QUOTE(GLUE(user,V) > 144)
+#define LIM_NR_G "(user108 > 0.5) * (user17 > 95) * (user17 <= 101) + (user108 < 0.5) * (user17 <= 105)"
+#define LIM_NR_Y "(user108 > 0.5) * ((user17 > 91) * (user17 <= 95) + (user17 > 101) * (user17 <= 107)) + (user108 < 0.5) * (user17 > 105) * (user17 <= 110)"
+#define LIM_NR_R "(user108 > 0.5) * ((user17 <= 91) + (user17 > 107)) + (user108 < 0.5) * (user17 > 110)"
 
 #define POLYGON(CLASS,X,Y,W,H) \
     class CLASS { \

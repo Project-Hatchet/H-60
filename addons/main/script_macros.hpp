@@ -70,7 +70,9 @@ if (_unit isNotEqualTo (driver _vehicle) && {(_vehicle unitTurret _unit) isNotEq
 #define USERMFDV_ENG2TGT 47 // Engine 2 TGT
 #define USERMFDV_ENG2TQ 48 // Engine 2 TQ
 #define USERMFDV_ESIS 49  // ESIS countdown
-#define USERMFDV_FUELTANK 50  // FUEL TANK STATUS
+#define USERMFDV_FUELTANK 50  // FUEL TANK STATUS - 1 with the ERFS installed
+#define USERMFDV_FUEL1 51  // No.1 tank, lb
+#define USERMFDV_FUEL2 52  // No.2 tank, lb
 #define USERMFDV_CAS 53 // CAS OVERLAY Caution and Advisory System
 #define USERMFDV_TAC_CENTER 54
 #define USERMFDV_TAC_ALIGN 55
@@ -80,13 +82,13 @@ if (_unit isNotEqualTo (driver _vehicle) && {(_vehicle unitTurret _unit) isNotEq
 #define USERMFDV_HMD_G 59 //9)   //HMD Color G
 #define USERMFDV_HMD_B 60 //10)  //HMD Color B
 #define USERMFDV_HMD_A 61 //11)  //HMD Brighhtness
-#define USERMFDV_62 62 //12
-#define USERMFDV_63 63 //13
-#define USERMFDV_64 64 //14
+#define USERMFDV_L20 62 // Overlay	 ENG 1 OIL PRESS
+#define USERMFDV_L21 63 // Overlay	 ENG 2 OIL PRESS
+#define USERMFDV_L22 64 // Overlay	 ROTOR BRAKE ON
 #define USERMFDV_65 65 //15
 #define USERMFDV_L00 66 // Overlay	 GEN 1 FAIL
 #define USERMFDV_L01 67 // Overlay	 HYD PUMP 1 FAIL
-#define USERMFDV_L02 68 // Overlay
+#define USERMFDV_L02 68 // Overlay	 FUEL 1 LOW
 #define USERMFDV_L10 69 // Overlay	 CHIP ENG 1
 #define USERMFDV_L11 70 // Overlay	 CHIP MAIN MDL SUMP
 #define USERMFDV_L12 71 // Overlay	 MAIN XMSN PRES
@@ -95,7 +97,7 @@ if (_unit isNotEqualTo (driver _vehicle) && {(_vehicle unitTurret _unit) isNotEq
 #define USERMFDV_L15 74 // Overlay	 ENG 1 STARTER ON
 #define USERMFDV_R00 75 // Overlay	 GEN 2 FAIL
 #define USERMFDV_R01 76 // Overlay	 HYD PUMP 2
-#define USERMFDV_R02 77 // Overlay	 EGI FAIL
+#define USERMFDV_R02 77 // Overlay	 FUEL 2 LOW
 #define USERMFDV_R10 78 // Overlay	 CHIP ENG 2
 #define USERMFDV_R11 79 // Overlay	 T/R SERVO 1 FAIL
 #define USERMFDV_R12 80 // Overlay	 T/R QUAD FAIL
@@ -107,7 +109,7 @@ if (_unit isNotEqualTo (driver _vehicle) && {(_vehicle unitTurret _unit) isNotEq
 #define USERMFDV_R22 86 // Overlay	 CMWS FAIL
 #define USERMFDV_R23 87 // Overlay	 FLIR FAIL
 #define USERMFDV_R24 88 // Overlay	 MFD BUS ERR
-#define USERMFDV_R25 89 // Overlay
+#define USERMFDV_R25 89 // Overlay	 EGI FAIL
 #define USERMFDV_HELLFIRE_BOX 90 // HF engagement box
 #define USERMFDV_HELLFIRE_TRA 91 // HF Trajectory
 #define USERMFDV_PRI_CH 92 // PRI CHAN
@@ -116,6 +118,18 @@ if (_unit isNotEqualTo (driver _vehicle) && {(_vehicle unitTurret _unit) isNotEq
 #define USERMFDV_LRFD 95 // LRFD
 #define USERMFDV_ADVISORIES 96 // ADVISORIES
 #define USERMFDV_LST_MODE 97 // LST MODE
+#define USERMFDV_FUELERFS 98 // ERFS tank, lb
+#define USERMFDV_FUELTOTAL 99 // Total fuel, lb
+// HeliSim state, from Core - written by uh60_helisim fn_updateCockpit on the aircraft's owner
+#define USERMFDV_BARALT 100 // Barometric altitude, m
+#define USERMFDV_RADALT 101 // Radar altitude, m
+#define USERMFDV_IAS 102 // Airspeed, m/s
+#define USERMFDV_GS 103 // Ground speed, m/s
+#define USERMFDV_WINDDIR 104 // Wind, direction it blows toward, deg
+#define USERMFDV_ONGROUND 105 // On the ground, 1 / 0
+#define USERMFDV_BALL 106 // Trim ball, g - positive is ball left
+#define USERMFDV_TQLIMIT 107 // Continuous torque limit now in force, % - fn_updateLimits
+#define USERMFDV_POWERON 108 // Nr limits, power on 1 / power off 0 - fn_updateLimits
 
 #define USERNNN(index) user##index
 #define USER_EQ(index,val) QUOTE(USERNNN(index) == val)

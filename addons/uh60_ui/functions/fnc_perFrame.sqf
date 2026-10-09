@@ -37,9 +37,6 @@ if (vtx_uh60_ui_helpEnabled) then {
         HELP_LABEL_COND("b_batt2","",(_vehicle animationPhase "Switch_batt2" < 0.1))
         HELP_LABEL("FMS_L_1","FMS")
         HELP_LABEL("FMS_R_1","FMS")
-    } else {
-        HELPCTRL(5) ctrlShow ((!difficultyEnabledRTD) && !_hasDoorgun);
-        HELPCTRL(6) ctrlShow ((!difficultyEnabledRTD) && !_hasDoorgun);
     };
 };
 

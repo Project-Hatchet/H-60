@@ -5,11 +5,11 @@
 // AnimationSources is the merged single owner in ..\CfgAnimationSources.hpp.
 class vtx_H60_base: Heli_Transport_01_base_F {
     #include "..\cfgUVAnimations.hpp"
-    #include "..\CfgUserActions.hpp"
+    #include "..\cfgUserActions.hpp"
     #include "..\edenAttributes.hpp"
     author = "Project Hatchet Studios";
     class VTX_H60_HDTS_Copilot;
-    #include "..\cfghct.hpp"
+    #include "..\cfgHct.hpp"
     memoryPointDriverOptics = "slingcam";
     class vtx_templateFLIR {
         #include "..\turrets\pilotCamera.hpp"
@@ -44,7 +44,6 @@ class vtx_H60_base: Heli_Transport_01_base_F {
     //multiplier of back rotor force
     backRotorForceCoef = 0.8;
     simulation = "helicopterRTD";
-    #include "..\cfgVehiclesParts\RotorLibHelicopterProperties.hpp"
     #include "..\cfgVehiclesParts\sounds.hpp"
     #include "..\cfgVehiclesParts\slingload.hpp"
     #include "..\cfgVehiclesParts\UI.hpp"
@@ -52,7 +51,6 @@ class vtx_H60_base: Heli_Transport_01_base_F {
     #include "..\cfgVehiclesParts\reflectors.hpp"
     #include "..\cfgVehiclesParts\fries.hpp"
     #include "..\cfgVehiclesParts\hitPoints.hpp"
-    //#include "..\cfgVehiclesParts\vehicleCustomization.hpp"
 
     incomingMissileDetectionSystem = 16;
     lockDetectionSystem = 1+2+4+8+16;
@@ -81,10 +79,10 @@ class vtx_H60_base: Heli_Transport_01_base_F {
       "",
       "",
       "",
-      "z\vtx\addons\UH60\Data\Exterior\Hull Main_co.paa",
+      "z\vtx\addons\uh60_misc\data\textures\UH-60M_US_Army\main_co.paa", // "UH-60M (US Army)" skin (ruling 2026-10-07): the Slick inherits this set
       "z\vtx\addons\UH60\Data\Exterior\Misc_co.paa",
-      "z\vtx\addons\UH60\Data\Exterior\Hull Tail_co.paa",
-      "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa",
+      "z\vtx\addons\uh60_misc\data\textures\UH-60M_US_Army\tail_co.paa",
+      "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa", // markings: no overlay (the US Army text is painted into the tail texture)
       "", // "left_num_1",
       "", // "left_num_2",
       "", // "right_num_1",
@@ -133,7 +131,6 @@ class vtx_H60_base: Heli_Transport_01_base_F {
     transportSoldier = 10;
 
     crew = vtx_uh60_pilot;
-    typicalCargo[]={vtx_uh60_doorgunner,vtx_uh60_doorgunner,vtx_uh60_doorgunner};
     transportMaxBackpacks = 11;
     cargoAction[] = {"passenger_low01", "passenger_generic01_leanleft", "passenger_generic01_leanleft", "passenger_generic01_leanright", "passenger_generic01_foldhands", "passenger_mantisrear", "passenger_mantisrear", "passenger_generic01_foldhands"};
 
@@ -266,36 +263,11 @@ class vtx_H60_base: Heli_Transport_01_base_F {
     class Damage
     {
         tex[]={};
-        mat[]={
-         // "z\vtx\addons\UH60\Data\uh60m_dust_filter.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_dust_filter.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_dust_filter_destruct.rvmat",
-
-         // "z\vtx\addons\UH60\Data\uh60m_engine.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_engine.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_engine_destruct.rvmat",
-
-         // "z\vtx\addons\UH60\Data\uh60m_fuselage.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_fuselage.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_fuselage_destruct.rvmat",
-
-         //    "z\vtx\addons\UH60\Data\uh60m_interior.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_interior.rvmat",
-         //    "z\vtx\addons\UH60\Data\uh60m_interior_destruct.rvmat",
-
-         // "z\vtx\addons\UH60\Data\uh60m_navijak.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_navijak.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_navijak_destruct.rvmat",
-
-         // "z\vtx\addons\UH60\Data\uh60m_glass.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_glass_damage.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_glass_damage.rvmat",
-
-        };
+        mat[]={};
     };
     class Turrets: Turrets
     {
-        #include "..\turrets\copilot.hpp" // #556: proven-working turret for ALL copilots; copilotFLIR.hpp returns when the model gains a View-Gunner LOD
+        #include "..\turrets\copilot.hpp" // #556: the one copilot turret for every variant; a copilot optics seat needs its own pass (2026-10-06 probe)
         #include "..\turrets\doorgunsTurnOut.hpp"
     };
     class Exhausts

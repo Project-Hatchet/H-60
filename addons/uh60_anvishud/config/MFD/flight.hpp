@@ -31,21 +31,6 @@ class torqueWrapper {
 	};
 	class DCLT_HIDE {
 		condition=COND_FULL_ONLY;
-		class IS_RTD {
-			condition="simulRTD";
-			TEXT_HMD_L(C_LBL,0.015,0.81+(SMALL_LINEHEIGHT*1))
-				source = "static";
-				sourceIndex = 1;
-				sourceScale = 1;
-				text = "C";
-			}; // TORQUE_LBL
-			TEXT_HMD_L(C_VAL,0.065,0.81+(SMALL_LINEHEIGHT*1))
-				source = "rtdCollective";
-				sourceIndex = 1;
-				sourceScale = 100;
-				text = "";
-			}; // TORQUE_VAL
-		};
 		class ACOL_ON {
 			condition="collisionlights";
 			TEXT_HMD_L(TEXT,0.015,0.81-SMALL_LINEHEIGHT*2)
@@ -109,8 +94,8 @@ class torqueWrapper {
 	class METRIC {
 		condition = COND_METRIC;
 		TEXT_HMD_R(KTS_VAL,0.085,0.41)
-			source = "speed";
-			sourceIndex = 1;
+			source="user";
+			sourceIndex=102;
 			sourceScale = 3.6;
 			text = "";
 		}; // TORQUE_VAL
@@ -122,8 +107,8 @@ class torqueWrapper {
 		}; // TORQUE_LBL
 
 		TEXT_HMD_R(MSL_ALT_VAL,0.94,0.41)
-			source = "altitudeASL";
-			sourceIndex = 1;
+			source="user";
+			sourceIndex=100;
 			sourceScale = 1;
 			text = "";
 		}; // TORQUE_VAL
@@ -137,8 +122,8 @@ class torqueWrapper {
 	class IMPERIAL {
 		condition = COND_IMPERIAL;
 		TEXT_HMD_R(KTS_VAL,0.085,0.41)
-			source = "speed";
-			sourceIndex = 1;
+			source="user";
+			sourceIndex=102;
 			sourceScale = 1.94384;
 			text = "";
 		}; // TORQUE_VAL
@@ -150,8 +135,8 @@ class torqueWrapper {
 		}; // TORQUE_LBL
 
 		TEXT_HMD_R(MSL_ALT_VAL,0.94,0.41)
-			source = "altitudeASL";
-			sourceIndex = 1;
+			source="user";
+			sourceIndex=100;
 			sourceScale = 3.28;
 			text = "";
 		}; // TORQUE_VAL
