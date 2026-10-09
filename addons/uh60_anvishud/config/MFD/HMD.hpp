@@ -420,7 +420,6 @@ class Draw {
 	#include "navigationInfo.hpp"
 	#include "headingTape.hpp"
 	#include "DVE.hpp"
-	#include "radar.hpp"
 	#include "pitchLadder.hpp"
 	#include "horizonBankRot.hpp"
 	#include "weaponInfo.hpp"

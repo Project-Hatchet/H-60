@@ -87,23 +87,6 @@ class vtx_uh60_jvmf_writeDialog {
         	h = 0.022 * safezoneH;
             onKeyUp="(_this select 0) ctrlSetText ((ctrlText (_this select 0)) select [0,18])";
         };
-        // class RscText_1004: RscText
-        // {
-        // 	idc = 1004;
-        // 	text = "MSG ID:"; //--- ToDo: Localize;
-        // 	x = 0.396875 * safezoneW + safezoneX;
-        // 	y = 0.335 * safezoneH + safezoneY;
-        // 	w = 0.04125 * safezoneW;
-        // 	h = 0.022 * safezoneH;
-        // };
-        // class RscEdit_1401: RscEdit
-        // {
-        // 	idc = 1401;
-        // 	x = 0.438125 * safezoneW + safezoneX;
-        // 	y = 0.335 * safezoneH + safezoneY;
-        // 	w = 0.0721875 * safezoneW;
-        // 	h = 0.022 * safezoneH;
-        // };
         class RscText_1005: RscText
         {
         	idc = 1005;
