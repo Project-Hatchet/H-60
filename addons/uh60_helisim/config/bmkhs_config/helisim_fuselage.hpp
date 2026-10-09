@@ -54,13 +54,15 @@
         class FuselagePanel03 {
             name          = "fuselageFront";
             facing        = "forward";
+            //Solved in Core's rig with the main rotor tables, 18,000 lb, sea level: 140 kt, 81%,
+            //3 deg nose low (the mast tilt). Flat across altitude.
             dragCoefTable[] =
             {
-             {   0, 0.200}
-            ,{2000, 0.270}
-            ,{4000, 0.300}
-            ,{6000, 0.520}
-            ,{8000, 0.750}
+             {   0, 0.497}
+            ,{2000, 0.497}
+            ,{4000, 0.497}
+            ,{6000, 0.497}
+            ,{8000, 0.497}
             };
             panels[] =
             {
