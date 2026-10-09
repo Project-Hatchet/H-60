@@ -105,16 +105,6 @@
 		TEXT_MID_SCALED(MYTEXT,0,-0.025,"",0.05) \
 	};
 
-#define TEST_BOX(COLOR,TEXT) \
-	class BlackOverlay {\
-		condition = "0";\
-	};
-	// BACKGROUND_RECTANGLE \
-	// 	BOX_CONTENT_START(COLOR)};}; \
-	// 		TEXT_MID_SCALED(MYTEXT,0,-0.025,TEXT,0.05) \
-	// 	}; \
-	// };
-
 #define LINE_VERT(COLOR,SIZE) \
  	class verticalLine { \
         color[] = COLOR; \

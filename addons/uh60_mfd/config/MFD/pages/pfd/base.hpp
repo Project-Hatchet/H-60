@@ -930,23 +930,3 @@ class HVRPage {
 		};
 	};
 };
-
-class EGI_MASK {
-	condition = "0";
-	color[] = common_black;
-	class Polygon {
-		type        = "polygon";
-		points[] ={
-			{
-				{{0.7, 0},1},
-				{{0.9, 0},1},
-				{{0.9, 0.4},1},
-				{{0.7, 0.4},1}
-			}
-		};
-	};
-	class text {
-		color[] = common_white;
-        TEXT_MID_SCALED(TEXT,0.87,0.2,"RALT OFF",0.06)
-	};
-};
