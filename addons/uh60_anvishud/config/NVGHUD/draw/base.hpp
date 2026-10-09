@@ -1,5 +1,3 @@
-#include "dev.hpp"
-
 class FOVCenter {
 	type="line";
 	width = 4;
