@@ -62,3 +62,40 @@ jobs:
         with:
           name: hatchet-${{ github.sha }}-nobin
           path: release
+
+  # Phase 3 (HEMTT migration, WP4a): the HEMTT build runs beside the SCons build
+  # until the equivalence proof and a tester wave have cleared it, then SCons
+  # retires (WP4e). Needs no Arma 3 Tools and no secrets, so it also runs for
+  # PRs from forks - the first CI signal outside contributors get.
+  # Models are pre-binarized (ODOL) and HEMTT rapifies configs itself, hence
+  # --no-bin. `hemtt check --pedantic` fails only on errors; the ~2,400 known
+  # warnings (macro redefinitions in the MFD page headers, padded macro
+  # arguments) are catalogued in docs/phase-3/proof/scouting.md and are
+  # Phase 4 material.
+  hemtt:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout the source code
+        uses: actions/checkout@v4.2.0
+        with:
+          fetch-depth: 1
+      - name: Set up HEMTT
+        uses: arma-actions/hemtt@v1
+        env:
+          # the action downloads HEMTT through the GitHub API; authenticated
+          # requests avoid the shared unauthenticated rate limit
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check
+        run: hemtt check --pedantic
+      - name: Build
+        run: hemtt build --no-bin
+      - name: Name the mod folder
+        run: mv .hemttout/build .hemttout/@H-60
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4.4.0
+        with:
+          name: hatchet-${{ github.sha }}-hemtt
+          path: .hemttout/@H-60
+          retention-days: 14
+          if-no-files-found: error
