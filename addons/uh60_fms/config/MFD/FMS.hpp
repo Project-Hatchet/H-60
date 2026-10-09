@@ -33,11 +33,11 @@ class Draw {
 	}; // checklists_startup_2
 	class checklists_STOP_1 {
 		condition = COND_ISNUMBER(FMS_PAGE_INDEX,FMS_LISTS_SHUTDOWN_1);
-		#include "fms\checklists_STOP_1_draw.hpp"
+		#include "fms\checklists_stop_1_draw.hpp"
 	}; // checklists_startup_1
 	class checklists_STOP_2 {
 		condition = COND_ISNUMBER(FMS_PAGE_INDEX,FMS_LISTS_SHUTDOWN_2);
-		#include "fms\checklists_STOP_2_draw.hpp"
+		#include "fms\checklists_stop_2_draw.hpp"
 	}; // checklists_startup_2
 	class nav_menu {
 		condition = COND_ISNUMBER(FMS_PAGE_INDEX,FMS_PAGE_NAV_MENU);

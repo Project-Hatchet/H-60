@@ -83,7 +83,7 @@ diag_log str (configProperties [_cfg, "true", true] apply {
 
 ## Phase 2 — Delete first, refactor second
 
-Cheap, zero-behavior-change, and a prerequisite for HEMTT (Phase 3). One PR, reviewed as pure deletions/renames.
+Cheap, zero-behavior-change, and a prerequisite for HEMTT (Phase 3). Delivered as a chain of small sequential PRs per the standing policy (ruled 2026-10-07), each reviewed as pure deletions/renames, and built on the HeliSim integration branch for the 0.8 cycle rather than on Main.
 
 **2.1 Fix the 12 case-broken `#include` paths** (audit §3.5: `main/config.cpp`, `MH60S`, `stretcher`, `UH60` ×3, `uh60_anvishud`, `uh60_config`, `uh60_fms` ×2, `uh60_sfmplus`). Windows tolerates them; HEMTT/Linux CI will not.
 

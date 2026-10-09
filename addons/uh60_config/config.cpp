@@ -54,7 +54,7 @@ class CfgFontFamilies {
 #include "config\defines\mfdDefines.hpp"
 #include "config\cfgWeapons.hpp"
 #include "config\cfgMagazines.hpp"
-#include "config\CfgVehicles.hpp"
+#include "config\cfgVehicles.hpp"
 #include "config\cfgSounds.hpp"
 
 #include "config\UI\baseClasses.hpp"
