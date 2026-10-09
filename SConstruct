@@ -129,12 +129,12 @@ def buildPbo(settings,env, pbo):
     def stampAction(target, source, env, path=os.path.abspath(pbo.filepath)):
         stampPboVersion(path, modVersion())
         return 0
-    linkCommands = [] if os.path.isdir(pbo.buildSymlink) else buildSymlink(pbo.folder, pbo.buildSymlink)
-    env.Command(pbo.outputPath, allFilesIn(pbo.folder)+includeCopies, linkCommands + [
+    env.Command(pbo.outputPath, allFilesIn(pbo.folder)+includeCopies, [
         f'"{addonBuilderPath()}" "{os.path.abspath(pbo.buildSymlink)}" "{os.path.abspath(settings["outputFolder"])}" "-project=build" "-prefix={pbo.pboPrefix}" -include=tools\\buildExtIncludes.txt {optBinarize}',
         Move(os.path.abspath(settings["outputFolder"]) + "/" + pbo.filename, os.path.abspath(pbo.builtpath)),
         Action(stampAction, f"stampPboVersion({pbo.filename})")
         ])
+    env.Depends(pbo.outputPath, buildLinks)
     targetDefinition(pbo.name, f"Build the {pbo.name} pbo.")
     return env.Alias(pbo.name, pbo.outputPath)
 
@@ -150,6 +150,11 @@ settings = getSettings()
 pbos = getPboInfo(settings)
 
 includeCopies = [env.Command(os.path.join("build", os.path.relpath(f, "include")), f, Copy("$TARGET", "$SOURCE")) for f in allFilesIn("include")]
+
+# Every addon's config resolves z\vtx\addons\<other>\... through the build junctions, so all of them
+# must exist before the first PBO builds - on a fresh checkout none do. Created once, only the missing ones.
+buildLinks = env.Alias("links", [], sum((buildSymlink(p.folder, p.buildSymlink) for p in pbos if not os.path.isdir(p.buildSymlink)), []))
+env.AlwaysBuild(buildLinks)
 
 pboAliases = [buildPbo(settings,env, pbo) for pbo in pbos]
 
