@@ -176,7 +176,7 @@ Not in the original plan. BradMick's **HeliSim Core** (`bmkhs_helisim`, Workshop
 
 ## Phase 3 — Build system: HEMTT migration + real CI
 
-> **Detailed plan:** `docs/phase-3/PHASE_3_PLAN.md` (2026-10-09) — work packages WP0–WP5, the PBO-naming table, and the open rulings. The items below are the original scope; the phase plan is authoritative where they differ (notably: 3.1 is already satisfied by HEMTT reading `script_version.hpp` natively, and only two shipped files use `__EVAL`/`__EXEC`).
+> **Detailed plan:** `docs/phase-3/PHASE_3_PLAN.md` (2026-10-09) — work packages WP0–WP5, the PBO-naming table, and the open rulings. The items below are the original scope; the phase plan is authoritative where they differ (notably: 3.1 is already satisfied by HEMTT reading `script_version.hpp` natively, only one live `__EVAL` site exists, in `H60_SFX`; and PBO naming was **ruled 2026-10-09**: project prefix `hct` plus lower-case `h60_*` folder renames, no rename hook — the "folder renames deferred" note below is superseded, see the phase plan §6).
 
 Model directly on AH-64D (the only reference with visible build infra). An abandoned attempt already exists (`origin/hemtt-gh-action`, `.gitignore` entries) — restart it now that 2.1 unblocks it.
 
