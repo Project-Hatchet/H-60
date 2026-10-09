@@ -131,7 +131,6 @@ class vtx_H60_base: Heli_Transport_01_base_F {
     transportSoldier = 10;
 
     crew = vtx_uh60_pilot;
-    typicalCargo[]={vtx_uh60_doorgunner,vtx_uh60_doorgunner,vtx_uh60_doorgunner};
     transportMaxBackpacks = 11;
     cargoAction[] = {"passenger_low01", "passenger_generic01_leanleft", "passenger_generic01_leanleft", "passenger_generic01_leanright", "passenger_generic01_foldhands", "passenger_mantisrear", "passenger_mantisrear", "passenger_generic01_foldhands"};
 
@@ -264,32 +263,7 @@ class vtx_H60_base: Heli_Transport_01_base_F {
     class Damage
     {
         tex[]={};
-        mat[]={
-         // "z\vtx\addons\UH60\Data\uh60m_dust_filter.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_dust_filter.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_dust_filter_destruct.rvmat",
-
-         // "z\vtx\addons\UH60\Data\uh60m_engine.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_engine.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_engine_destruct.rvmat",
-
-         // "z\vtx\addons\UH60\Data\uh60m_fuselage.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_fuselage.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_fuselage_destruct.rvmat",
-
-         //    "z\vtx\addons\UH60\Data\uh60m_interior.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_interior.rvmat",
-         //    "z\vtx\addons\UH60\Data\uh60m_interior_destruct.rvmat",
-
-         // "z\vtx\addons\UH60\Data\uh60m_navijak.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_navijak.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_navijak_destruct.rvmat",
-
-         // "z\vtx\addons\UH60\Data\uh60m_glass.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_glass_damage.rvmat",
-         // "z\vtx\addons\UH60\Data\uh60m_glass_damage.rvmat",
-
-        };
+        mat[]={};
     };
     class Turrets: Turrets
     {

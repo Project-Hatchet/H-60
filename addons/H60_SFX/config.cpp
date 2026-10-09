@@ -243,19 +243,6 @@ class CfgVehicles
 		soundEngineOnExt[] = {"a3\sounds_f\dummysound",2,1,600};
 		soundEngineOffExt[] = {"a3\sounds_f\dummysound",2,1,600};
 
-		/*soundEngineOnInt[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Start_Int",2,1};
-		soundEngineOffInt[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown_Int",1,1};
-		soundEngineOnExt[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Start",2,1,600};
-		soundEngineOffExt[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown",2,1,600};*/
-
-		/*vtx_soundEngineOnInt[] = {"vtx_H60_Engine_On_Int"};
-		vtx_soundEngineOffInt[] = {"vtx_H60_Engine_Off_Int"};
-		vtx_soundEngineOnExt[] = {"vtx_H60_Engine_On_Ext",1,600};
-		vtx_soundEngineOffExt[] = {"vtx_H60_Engine_Off_Ext",1,600};
-
-		vtx_soundAPUInt[] = {"vtx_H60_APU_On_Int"};
-		vtx_soundAPUExt[] = {"vtx_H60_APU_On_Ext",1,600};*/
-
     // vtx_Sound_ShutDelay = 40;
 		class sounds
 		{

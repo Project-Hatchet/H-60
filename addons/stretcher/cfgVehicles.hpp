@@ -93,7 +93,6 @@ class CfgVehicles {
   	memoryPointsGetInCargoDir = "pos_cargo_dir";
     slingLoadCargoMemoryPoints[] = {"SlingLoadCargo1","SlingLoadCargo2","SlingLoadCargo3","SlingLoadCargo4"};
     transportSoldier = 1;
-    typicalCargo[] = {};
     textureList[] = {};
     class AnimationSources {};
     class Components {};

@@ -39,24 +39,6 @@ class CfgVehicles {
     }; // Heli_Transport_01_base_F
     class vtx_H60_base: Heli_Transport_01_base_F {
         mfdMaxUserValues = 109;   //0-99, then HeliSim's 100-108 (main/script_macros.hpp)
-        // class VTX_H60_HDTS_Copilot {
-        // 		#include "MFD\HMD.hpp"
-        //         turret[] = {0};
-        //         color[]={pylonAmmoRelative8, pylonAmmoRelative9, pylonAmmoRelative10, pylonAmmoRelative11};
-        // }; // VTX_H60_HDTS_Pilot
-        // class VTX_H60_HDTS_Pilot {
-        // 		#include "MFD\HMD.hpp"
-        //         color[]={pylonAmmoRelative12, pylonAmmoRelative13, pylonAmmoRelative14, pylonAmmoRelative15};
-        // }; // VTX_H60_HDTS_Pilot
-        // class VTX_H60_NVGHUD {
-        //     #include "NVGHUD\defines.hpp"
-        //     #include "NVGHUD\MFD.hpp"
-        //     color[]={pylonAmmoRelative12, pylonAmmoRelative13, pylonAmmoRelative14, pylonAmmoRelative15};
-        // };
-        // class MFD: MFD {
-        //     class HMD3: VTX_H60_HDTS_Pilot {};
-        //     class NVGHUD: VTX_H60_NVGHUD {};
-        // };
         class hct_driver: hct_driver {
             class modules: modules {
                 class anvishud {

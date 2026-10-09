@@ -76,7 +76,6 @@ class CfgVehicles {
         model = "z\vtx\addons\uh60_weapons\pylon.p3d";
         //slingLoadCargoMemoryPoints[] = {"sling_point"}; // Don't make slingable
         transportSoldier=1;
-        typicalCargo[] = {};
 
         class AnimationSources {};
         class CargoTurret {};
