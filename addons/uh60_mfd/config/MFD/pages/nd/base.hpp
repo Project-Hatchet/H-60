@@ -1,4 +1,4 @@
-#define HVR_CONDITION_PAGES ((COND_SUBPAGE(MFD_PAGE_INDEX,ND_MODE_ALL)*(user103<10)*(user101 > 2))+COND_SUBPAGE(MFD_PAGE_INDEX,ND_MODE_HOVER))
+#define HVR_CONDITION_PAGES QUOTE(((COND_SUBPAGE_EXPR(MFD_PAGE_INDEX,ND_MODE_ALL)*(user103<10)*(user101 > 2))+COND_SUBPAGE_EXPR(MFD_PAGE_INDEX,ND_MODE_HOVER)))
 
 alpha = BACKGROUND_ALPHA;
 class overlayWrapper {
@@ -314,7 +314,7 @@ class downArrow {
 
 // Waypoints
 class NOT_AIRCRAFT_CENTERED {
-    condition = (user18 > 0);
+    condition = "(user18 > 0)";
 	TEXT_MID_SMALL(GS_TXT,0.4,0.9,"ALIGN TAC TO SELF TO SEE WAYPOINTS")
 };
 
@@ -344,7 +344,7 @@ class AIRCRAFT_CENTERED {
 			{DIST, 1, DIR, 1,{-0.015, -0.015},1}
 
 		class JVMF_STABILIZED {
-			condition = (user43 > -1);
+			condition = "(user43 > -1)";
 			color[] = common_blue;
 			class Mark_Circle
 			{

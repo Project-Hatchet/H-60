@@ -78,10 +78,14 @@ if (_unit isNotEqualTo (driver _vehicle) && {(_vehicle unitTurret _unit) isNotEq
 #define USERMFDV_TAC_ALIGN 55
 #define USERMFDV_TAC_ZOOM 56
 #define USERMFDV_TAC_MOVE 57
-#define USERMFDV_HMD_R 58 //8)   //HMD Color R
-#define USERMFDV_HMD_G 59 //9)   //HMD Color G
-#define USERMFDV_HMD_B 60 //10)  //HMD Color B
-#define USERMFDV_HMD_A 61 //11)  //HMD Brighhtness
+// 8)   //HMD Color R
+#define USERMFDV_HMD_R 58
+// 9)   //HMD Color G
+#define USERMFDV_HMD_G 59
+// 10)  //HMD Color B
+#define USERMFDV_HMD_B 60
+// 11)  //HMD Brighhtness
+#define USERMFDV_HMD_A 61
 #define USERMFDV_L20 62 // Overlay	 ENG 1 OIL PRESS
 #define USERMFDV_L21 63 // Overlay	 ENG 2 OIL PRESS
 #define USERMFDV_L22 64 // Overlay	 ROTOR BRAKE ON

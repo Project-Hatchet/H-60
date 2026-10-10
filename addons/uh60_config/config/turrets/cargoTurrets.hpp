@@ -4,7 +4,7 @@ class CargoTurret_01: CargoTurret {
     memoryPointsGetInGunner = "pos Cargo R";
     memoryPointsGetInGunnerDir = "pos Cargo R dir";
     gunnerName = "Door Right 1 (hoist controls)";
-    gunnerCompartments = Compartment2;
+    gunnerCompartments = "Compartment2";
     proxyIndex = 12;
     isPersonTurret = 2;        /// enables a person to get into the turret from outside
     selectionFireAnim = "";
@@ -52,8 +52,8 @@ class CargoTurret_04: CargoTurret_03 {
         gunnerAction = "passenger_inside_4"; \
         gunnerInAction = "passenger_inside_4"; \
         gunnerName = LABEL; \
-        memoryPointsGetInGunner = pos Cargo MEMPT; \
-        memoryPointsGetInGunnerDir = pos Cargo MEMPT dir; \
+        memoryPointsGetInGunner = QUOTE(pos Cargo MEMPT); \
+        memoryPointsGetInGunnerDir = QUOTE(pos Cargo MEMPT dir); \
         proxyIndex = INDEX; \
     };
 KNEELING_SEAT(CargoTurret_05,"Cabin (left center 1)",L3,16)

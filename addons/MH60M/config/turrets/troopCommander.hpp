@@ -5,7 +5,7 @@ class troop_commander: CargoTurret {
   memoryPointsGetInGunner = "pos Cargo R";
   memoryPointsGetInGunnerDir = "pos Cargo R dir";
   gunnerName = "Troop Commander";
-  gunnerCompartments = Compartment2;
+  gunnerCompartments = "Compartment2";
   proxyIndex = 20;
   isPersonTurret = 0;        // #510: =1 hands the TC a personal FFV weapon and buys nothing acoustically - see uh60_config/config/turrets/troopCommander.hpp
   selectionFireAnim = "";

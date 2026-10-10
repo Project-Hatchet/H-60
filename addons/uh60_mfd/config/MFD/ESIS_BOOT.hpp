@@ -90,7 +90,7 @@ class Draw {
 		}; // backgroundPolygon
 		class white {
 			color[] = common_white;
-			TEXT_MID_SCALED(ALIGN_PROG,0.45,0.6,"ALIGNMENT IN PROGRESS",0.1);
+			TEXT_MID_SCALED(ALIGN_PROG,0.45,0.6,"ALIGNMENT IN PROGRESS",0.1)
 			TEXT_MID_SCALED_SRC(ALIGN_PROG_NUM,0.5,0.7,0.1)
 				source = "user";
 				sourceIndex = 49;
@@ -179,8 +179,8 @@ class Draw {
 		}; // black
 		class red {
 			color[] = {1,0,0,1};
-			TEXT_MID_SCALED(ATT,0.5,0.2,"ATT",0.15);
-			TEXT_MID_SCALED(FAIL,0.5,0.3,"FAIL",0.15);
+			TEXT_MID_SCALED(ATT,0.5,0.2,"ATT",0.15)
+			TEXT_MID_SCALED(FAIL,0.5,0.3,"FAIL",0.15)
 		}; // red
 	}; // align
 }; // Draw

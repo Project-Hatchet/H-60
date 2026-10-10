@@ -26,7 +26,7 @@ class CfgVehicles {
     class TransportItems {
       class _xx_vtx_stretcher_item {
         count = 1;
-        name = GVAR(item);
+        name = QGVAR(item);
       };
     };
   };

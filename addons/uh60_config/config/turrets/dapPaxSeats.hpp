@@ -15,7 +15,7 @@ class CargoTurret_02: CargoTurret {
     memoryPointsGetInGunner = "pos Cargo R5";
     memoryPointsGetInGunnerDir = "pos Cargo R5 dir";
     gunnerName = "Door Right 2";
-    gunnerCompartments = Compartment2;
+    gunnerCompartments = "Compartment2";
     proxyIndex = 13;
     isPersonTurret = 2;        /// enables a person to get into the turret from outside
     selectionFireAnim = "";

@@ -141,7 +141,7 @@
 
 class BFT
 {
-    type = sensor;
+    type = "sensor";
     // #define SENSOR_SIZE(numb)\
     //     pos[]	= {{0,0}, 1};\
     //     down[]	= {{1,1}, 1};
@@ -153,7 +153,7 @@ class BFT
 
     showTargetTypes = 1+2+4+8+16+32+64+128+256+512+1024;    // RWR only
     width = 1; // default width of lines can by different in case of class XXXX used instead of arrays
-    range=user40*30*2;
+    range="user40*30*2";
     sensorLineType = 3; // same as "lineType"
     sensorLineWidth = 0;
 	class MissileThreat {};
