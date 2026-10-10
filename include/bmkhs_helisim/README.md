@@ -4,7 +4,7 @@ A copy of the HeliSim Core header `uh60_helisim` includes, committed so the H-60
 with nothing but `scons` - no submodule, no junction, no setup step. SConstruct copies
 `include\` into `build\` beside `x\cba` and `z\ace`, which is how `\bmkhs_helisim\...` resolves.
 
-**Matches HeliSim Core 1.2.0.0.**
+**Matches HeliSim Core 1.3.0.0.**
 
 **Do not edit these files here.** Change them in HeliSim Core, then copy them back over.
 The procedure is in HeliSim Core's `docs/AIRCRAFT_GUIDE.md` under

@@ -14,6 +14,7 @@
         class SimpleRotor01 {
             type             = "main";
             direction        = "ccw";
+            damageRole       = "mainRotor";
             numBlades        = 4;
             pivot[]          = {0.00, 1.81, 1.50};
             rotation[]       = {-3.00, 0.00, 0.00};
@@ -72,6 +73,7 @@
         class SimpleRotor02 {
             type             = "tail";
             direction        = "ccw";
+            damageRole       = "tailRotor";
             numBlades        = 4;
             pivot[]          = {0.35, -7.99, 1.77};
             rotation[]       = {0.00, 70.00, 0.000};
