@@ -197,6 +197,8 @@ class AnimationSources {
       "EGMS", 0
     };
   };
+  // MLASS variant retired (compat stub in MH60M cfgVehicles); this source only
+  // keeps the baked-in MLASS mesh hidden on every variant - dies with the new model
   class MLASS_show {
     source="user";
     animPeriod=1;

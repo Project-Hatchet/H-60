@@ -29,10 +29,6 @@ class VTX_MFD_1_ARMED;
 class VTX_MFD_2_ARMED;
 class VTX_MFD_3_ARMED;
 class VTX_MFD_4_ARMED;
-class VTX_MFD_1_ARMED4;
-class VTX_MFD_2_ARMED4;
-class VTX_MFD_3_ARMED4;
-class VTX_MFD_4_ARMED4;
 class ANVISHUD;
 class ANVISHUD_COPILOT;
 class VTX_CLOCK;
@@ -44,8 +40,6 @@ class VTX_FMS_L;
 class VTX_FMS_R;
 class VTX_FMS_L2;
 class VTX_FMS_R2;
-class VTX_FMS_L4;
-class VTX_FMS_R4;
 class VTX_ESIS_BOOT;
 
 class CfgVehicles {
@@ -197,7 +191,7 @@ class CfgVehicles {
               onPhaseChanged = "";
             };
             ANIM_INIT(LASS_show,1);
-            ANIM_INIT(MLASS_show,0);
+            ANIM_INIT(MLASS_show,0); // hides the baked-in MLASS mesh - dies with the new model
             ANIM_INIT(Minigun_Sight_L_hide,1);
             ANIM_INIT(Minigun_Sight_R_hide,1);
             ANIM_INIT(MH60MMisc_show,1);
@@ -267,119 +261,19 @@ class CfgVehicles {
             class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
         };
     }; // vtx_H60_base
-    class vtx_MH60M_DAP_MLASS: vtx_H60_base {
-        displayName = "MH-60M DAP MLASS";
-        class pilotCamera: vtx_templateFLIR {};
-        driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
-        scope = 2;
-        forceInGarage = 1;
-        editorPreview = "z\vtx\addons\MH60M\Data\Preview\vtx_MH60M_DAP_MLASS.jpg";
-        memoryPointDriverOptics = "pilotcamera_flir_pos";
-        transportSoldier=0;
-        cargoProxyIndexes[] = {12, 13, 14, 15, 16, 17, 20, 21, 22, 23};
-        cargoAction[] = {};
-        class Components: Components {
-          #include "PylonsMLASS.hpp"
-          #include "sensors.hpp"
-        }; // Components
-        class AnimationSources: AnimationSources {
-            class Gatling_1
-            {
-                source="revolving";
-                weapon="vtx_MH60M_M134_minigun";
-            };
-            class Gatling_2
-            {
-                source="revolving";
-                weapon="vtx_MH60M_M134_minigun";
-            };
-            class Muzzle_Flash_M134_L
-            {
-                source="ammoRandom";
-                weapon="vtx_MH60M_M134_minigun";
-            };
-            class Muzzle_Flash_M134_R
-            {
-                source="ammoRandom";
-                weapon="vtx_MH60M_M134_minigun";
-            };
-            class GunnerSeats_Hide: GunnerSeats_Hide {
-              initPhase = 1;
-              onPhaseChanged = "";
-            };
-            ANIM_INIT(LASS_show,0);
-            ANIM_INIT(MLASS_show,1);
-            ANIM_INIT(Minigun_Sight_L_hide,1);
-            ANIM_INIT(Minigun_Sight_R_hide,1);
-            ANIM_INIT(MH60MMisc_show,1);
-            ANIM_INIT(mfos_fwd_hide,1);
-            ANIM_INIT(mfos_aft_hide,0);
-
-            ANIM_INIT(CabinSeats_1_Hide,1);
-            ANIM_INIT(CabinSeats_2_Hide,1);
-            ANIM_INIT(CabinSeats_3_Hide,1);
-            ANIM_INIT(Door_RF_Hide,1);
-            ANIM_INIT(Door_LF_Hide,1);
-            ANIM_INIT(Cockpitdoors_Hide,1);
-            ANIM_INIT(FuelProbe_show,1);
-            ANIM_INIT(MITAS_show,1);
-            ANIM_INIT(RADAR_HIDE,0);
-            ANIM_INIT(FLIR_HIDE,0);
-            ANIM_INIT(MAWS_Tubes_Show,1);
-            ANIM_INIT(ERFS_show,1); // DAP spawns with the ERFS tanks fitted (Riverman ruling 2026-09-20)
-        }; // AnimationSources
-        class CargoTurret;
-        class Turrets: Turrets
-        {
-            class CopilotTurret: CopilotTurret {
-                class MFD {
-                    class ANVISHUD: ANVISHUD_COPILOT {};
-                };
-            };
-            // DAP cabin (Riverman rulings 2026-09-07/18): the base M's cabin cargo
-            // turrets removed; MFOS aft crew chiefs + two full-time emergency
-            // pax door seats (downed-aircrew pickup) are the only rear positions
-            #include "\z\vtx\addons\uh60_config\config\turrets\mfosAft.hpp"
-            #include "\z\vtx\addons\uh60_config\config\turrets\dapPaxSeats.hpp"
-        };
-        hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60M\data\Hull_Main_co.paa","z\vtx\addons\MH60M\Data\Misc_co.paa","z\vtx\addons\MH60M\data\Hull_Tail_co.paa","a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa","","","","","z\vtx\addons\MH60M\data\Fuel_probe_co.paa","z\vtx\addons\MH60M\Data\Mlass_co.paa","z\vtx\addons\mh60m\data\mlass_co.paa","z\vtx\addons\uh60\data\lass\lass_co.paa","z\vtx\addons\mh60m\data\full60m_co.paa"};
-        weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera", "vtx_MH60M_M134_minigun"};
-        magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries", "5000Rnd_762x51_Belt"};
-        memoryPointGun[] = {"muzzle_1","muzzle_2"};
-        gunBeg[] = {"muzzle_1","muzzle_2"};
-        gunEnd[] = {"chamber_1","chamber_2"};
-        selectionFireAnim = "zasleh_12";
-        class VehicleTransport {};
-        class MFD: MFD {
-            // ARMED4 variants define FLIR_PYLONS_4: the MLASS is the only
-            // craft with 4 pylon stations, so only it may reference
-            // pylonSelected3/4 in MFD conditions
-            class VTX_MFD_1 :           VTX_MFD_1_ARMED4 {};
-            class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};
-            class VTX_MFD_1_Monospace : VTX_MFD_1_Monospace {};
-            class VTX_MFD_1_Bold :      VTX_MFD_1_Bold {};
-            class VTX_MFD_2 :           VTX_MFD_2_ARMED4 {};
-            class VTX_MFD_2_CMWS :      VTX_MFD_2_CMWS {};
-            class VTX_MFD_2_Monospace : VTX_MFD_2_Monospace {};
-            class VTX_MFD_2_Bold :      VTX_MFD_2_Bold {};
-            class VTX_MFD_3 :           VTX_MFD_3_ARMED4 {};
-            class VTX_MFD_3_CMWS :      VTX_MFD_3_CMWS {};
-            class VTX_MFD_3_Monospace : VTX_MFD_3_Monospace {};
-            class VTX_MFD_3_Bold :      VTX_MFD_3_Bold {};
-            class VTX_MFD_4 :           VTX_MFD_4_ARMED4 {};
-            class VTX_MFD_4_CMWS :      VTX_MFD_4_CMWS {};
-            class VTX_MFD_4_Monospace : VTX_MFD_4_Monospace {};
-            class VTX_MFD_4_Bold :      VTX_MFD_4_Bold {};
-            class ANVISHUD: ANVISHUD {};
-            class VTX_CLOCK: VTX_CLOCK {};
-            class VTX_ESIS_Horizon: VTX_ESIS_Horizon {};
-            class VTX_ESIS_Misc: VTX_ESIS_Misc {};
-            class VTX_FDRight: VTX_FDRight {};
-            class VTX_FDLeft: VTX_FDLeft {};
-            class VTX_FMS_L4: VTX_FMS_L4 {};
-            class VTX_FMS_R4: VTX_FMS_R4 {};
-            class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
-        };
+    // MLASS variant retired (Riverman rulings 2026-09-09 / 2026-09-30). The
+    // CLASSNAME stays for good as a compatibility stub so missions that placed
+    // an MLASS keep loading: it spawns a regular DAP under the old name,
+    // hidden from Eden, Zeus and the Virtual Garage. NEVER delete this class
+    // and never give it scope = 2. Its 4-station pylon rack, MFD pages and
+    // editor preview are gone; saved MLASS pylon loadouts log harmless
+    // unknown-magazine warnings. The MLASS mesh, MLASS_show animations and
+    // texture slots stay until the new model (Stage 2): the mesh is baked
+    // into vtx_uh60.p3d and would SHOW on every variant without them.
+    class vtx_MH60M_DAP_MLASS: vtx_MH60M_DAP {
+        scope = 1;
+        scopeCurator = 0;
+        forceInGarage = 0;
     }; // vtx_MH60M_DAP_MLASS
 }; // CfgVehicles
 

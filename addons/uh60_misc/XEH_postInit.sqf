@@ -226,7 +226,7 @@ private _erfsRemoveOption = [
 {
 	[_x,0,[],(_erfsAddOption call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
 	[_x,0,[],(_erfsRemoveOption call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
-} forEach ["vtx_MH60M", "vtx_MH60M_DAP", "vtx_MH60M_DAP_MLASS"];
+} forEach ["vtx_MH60M", "vtx_MH60M_DAP"]; // inheritance covers the vtx_MH60M_DAP_MLASS compat stub - listing it would add the actions twice
 
 ["ace_dragging_startedCarry", {
 	params ["_unit", "_target"];
