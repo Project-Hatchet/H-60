@@ -1,0 +1,34 @@
+name = "Hatchet H-60 Pack"
+prefix = "hct"
+mainprefix = "z"
+
+[properties]
+author = "Project Hatchet"
+
+[version]
+# addons/main/script_version.hpp is HEMTT's default location; MAJOR/MINOR/PATCHLVL/BUILD
+# are read from it. When the folder becomes h60_main (WP2d) set:
+# path = "addons/h60_main/script_version.hpp"
+git_hash = 0
+
+[files]
+include = [
+    "mod.cpp",
+    "meta.cpp",
+    "logo_vtx_ca.paa",
+    "logo_vtx_small_ca.paa",
+    "LICENSE",
+    "README.md",
+]
+# Addon Builder packs only the extensions in tools/buildExtIncludes.txt; HEMTT packs
+# everything. These keep the PBO manifests identical to the scons build.
+exclude = [
+    "*.png",
+    "*.tga",
+    "*.md",
+    "texHeaders.bin",
+]
+
+[hemtt.release]
+sign = false
+archive = true
