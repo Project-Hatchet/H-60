@@ -1,6 +1,11 @@
-**0.8.0**
+**Unreleased**
 
- - Fix the cabin, kneeling, DAP passenger, S-70i and MH-60S GAU-21 cabin seat firing arcs never applying - the limits were written in a form the game read as text, so those seats had no arc limits at all
+ - Add the hoist operator role: the right crew chief gets a "Enter Hoist Operator" ACE self-interaction (same menu as the DAP Turn Out) (right cabin door open, hoist fitted) that moves them onto the "Door Right 1 (hoist controls)" seat and makes them the aircraft's hoist operator; "Exit Hoist Operator" moves them back. Their crew seat stays reserved while they are on the hoist (on armed aircraft the right minigun is unmanned and locked during hoisting). Pilots keep hoist control as before
+ - Passengers who sit in the "(hoist controls)" seat no longer get hoist control - only the designated operator does (deliberate tightening of the 0.7.9 behavior)
+ - Works on every aircraft with the pendant seat, including the S-70i (Right Crew Chief) and MEDEVAC (Right Window)
+ - DAP: the right crew chief can run the hoist while turned out (the turned-out spot is the hoist station on the DAP)
+ - MEDEVAC window seats and S-70i crew chief seats now start turned in - you no longer board already leaning out of the window (turn out as usual when you want to)
+ - Fix attaching a removed part (rescue hoist, fuel probe, cockpit doors, ERFS tank) doing nothing while you are still carrying it
 
 **0.7.10**
 
