@@ -74,12 +74,20 @@
 #define STR(A) #A
 
 
-#define BFT_ANGLEX(DEG,RADIUS) (sin DEG * (BFT_ICON_W*RADIUS))
-#define BFT_ANGLEY(DEG,RADIUS) (cos DEG * (BFT_ICON_H*RADIUS))
+// Trig point macros ship as expression STRINGS the engine evaluates at runtime (SQF rules:
+// degrees, function before multiply). CfgConvert always stored them that way; HEMTT would
+// otherwise evaluate them at build time with radians and the wrong precedence (WP3 finding).
+// _EXPR variants stay bare for composition inside a QUOTE().
+#define BFT_ANGLEX_EXPR(DEG,RADIUS) (sin DEG * (BFT_ICON_W*RADIUS))
+#define BFT_ANGLEX(DEG,RADIUS) QUOTE(BFT_ANGLEX_EXPR(DEG,RADIUS))
+#define BFT_ANGLEY_EXPR(DEG,RADIUS) (cos DEG * (BFT_ICON_H*RADIUS))
+#define BFT_ANGLEY(DEG,RADIUS) QUOTE(BFT_ANGLEY_EXPR(DEG,RADIUS))
 #define BFT_ANGLE(DEG,RADIUS) {BFT_ANGLEX(DEG,RADIUS), BFT_ANGLEY(DEG,RADIUS)}
 
-#define ANGLEX(DEG,RADIUS) (sin DEG * (RADIUS))
-#define ANGLEY(DEG,RADIUS) (cos DEG * (RADIUS))
+#define ANGLEX_EXPR(DEG,RADIUS) (sin DEG * (RADIUS))
+#define ANGLEX(DEG,RADIUS) QUOTE(ANGLEX_EXPR(DEG,RADIUS))
+#define ANGLEY_EXPR(DEG,RADIUS) (cos DEG * (RADIUS))
+#define ANGLEY(DEG,RADIUS) QUOTE(ANGLEY_EXPR(DEG,RADIUS))
 #define ANGLE(DEG,RADIUS) {ANGLEX(DEG,RADIUS), ANGLEY(DEG,RADIUS)}
 
 
