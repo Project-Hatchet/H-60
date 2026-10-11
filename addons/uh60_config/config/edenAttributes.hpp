@@ -32,10 +32,6 @@ class Attributes: Attributes {
         name = "None";
         value = "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa";
       };
-      class Vanilla {
-        name = "7645";
-        value = "z\vtx\addons\UH60\Data\Exterior\Markings\Markings_ca.paa";
-      };
       class GrimReaper {
         name = "Grim Reaper";
         value = "\z\vtx\addons\uh60_misc\data\markings\markings_grimreaper_ca.paa";

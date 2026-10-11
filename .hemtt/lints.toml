@@ -1,0 +1,13 @@
+# Baseline copied from HeliSim Core (ruled 2026-10-09: start permissive, tighten per PR).
+[config]
+math_could_be_unquoted = false
+
+[sqf]
+select_parse_number = false
+
+[sqf.var_all_caps]
+options.ignore = [
+    "ACE_DEFAULT_LASER_WAVELENGTH",
+    "P", "Y", "R",
+    "PSI", "INPUT",
+]

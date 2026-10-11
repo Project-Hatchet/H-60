@@ -1,5 +1,3 @@
-#include "dev.hpp"
-
 class FOVCenter {
 	type="line";
 	width = 4;
@@ -34,7 +32,7 @@ class Velocity {
 #include "textLeft.hpp"
 #include "textRight.hpp"
 #include "textBottom.hpp"
-#include "trimBall.hpp"
+#include "trimball.hpp"
 #include "altScale.hpp"
 #include "pitchladder.hpp"
 #include "rollbar.hpp"

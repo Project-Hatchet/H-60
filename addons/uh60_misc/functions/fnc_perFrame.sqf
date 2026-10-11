@@ -21,11 +21,11 @@ if (!isNil "_attachedBoat") then {
     if (!isNull (getSlingLoad _vehicle)) then {
         _vehicle setSlingLoad objNull;
     };
-    if (inputAction "HeliRopeAction" > 0 && ((getPos _vehicle) # 2) > 2) then {
+    if (inputAction "HeliRopeAction" > 0 && (_vehicle getVariable ["bmkhs_radAlt", 0]) > 2) then {
         _attachedBoat attachTo [_vehicle, [0,1.5,-1.5]];
         detach _attachedBoat;
         _attachedBoat lock false;
-        _attachedBoat setVelocity (velocity _vehicle);
+        _attachedBoat setVelocity (_vehicle getVariable "bmkhs_velWorldSpaceNoWind");
         _vehicle setVariable ["vtx_crrc_attached", nil, true];
         _attachedBoat enableRopeAttach true;
     };

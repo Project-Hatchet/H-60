@@ -5,7 +5,7 @@ class troop_commander: CargoTurret {
   memoryPointsGetInGunner = "pos Cargo R";
   memoryPointsGetInGunnerDir = "pos Cargo R dir";
   gunnerName = "Troop Commander";
-  gunnerCompartments = Compartment2;
+  gunnerCompartments = "Compartment2";
   proxyIndex = 11;
   // #510 (2026-09-07, builds 1-7): every config permutation exhausted - this
   // seat matched the vanilla attenuating cargo seats (Mohawk ramp, Ghost Hawk

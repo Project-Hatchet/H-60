@@ -2,10 +2,9 @@
 *.zip
 *.cache
 release/*
+.hemttout/
 releases/*
 keys/*
-/.hemtt
-/.hemttout
 *.pbo
 texHeaders.bin
 *.swp

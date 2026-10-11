@@ -152,15 +152,15 @@ class TAC_JVMF_DIST: TAC_WP1_DIST {
 };
 class BFT_CENTER
 {
-    type	= fixed;
+    type	= "fixed";
     pos[]	= {0.5,0.5};
 };
 class TAC_PCAS_IPBP_Dir: TAC_WP1_Dir {	sourceIndex=37; };
-class TAC_PCAS_IPBP_Dist: TAC_WP1_Dist {	sourceIndex=38; };
+class TAC_PCAS_IPBP_Dist: TAC_WP1_DIST {	sourceIndex=38; };
 class TAC_PCAS_TGT_Dir: TAC_WP1_Dir {	sourceIndex=39; };
-class TAC_PCAS_TGT_Dist: TAC_WP1_Dist {	sourceIndex=40; };
+class TAC_PCAS_TGT_Dist: TAC_WP1_DIST {	sourceIndex=40; };
 class TAC_PCAS_INGR_Dir: TAC_WP1_Dir {	sourceIndex=41; };
-class TAC_PCAS_INGR_Dist: TAC_WP1_Dist {	sourceIndex=42; };
+class TAC_PCAS_INGR_Dist: TAC_WP1_DIST {	sourceIndex=42; };
 
 class TAC_PCAS_INGR_DirRel: TAC_WP1_Dir {
     center[] = {0,0};
@@ -180,13 +180,13 @@ class TAC_PCAS_EGR_Dir: TAC_WP1_Dir {	sourceIndex=45; };
 
 class TAC_PCAS_FIXED_LINE
 {
-    type	= fixed;
+    type	= "fixed";
     pos[]	= {0,0.25};
 };
 
 class TAC_PCAS_OFFCENTER
 {
-    type	= fixed;
+    type	= "fixed";
     pos[]	= {-0.5,-0.5};
 };
 class TAC_CURSOR_X {

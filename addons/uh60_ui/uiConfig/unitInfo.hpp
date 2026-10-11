@@ -18,8 +18,8 @@ class RscInGameUI
 		class HelpText: RscIGText
 		{
 			idc = 4001119;
-			x = safezoneX + 0.015;
-			y = safezoneY + 0.01;
+			x = "safezoneX + 0.015";
+			y = "safezoneY + 0.01";
 			w = 0.5;
             h = 0.15;
 			text = "Press H For Help";
@@ -27,19 +27,19 @@ class RscInGameUI
         class HMDOverlay: RscPicture
         {
 			idc = 4001123;
-			x = safezoneX + safezoneW / 2 - (safezoneH*0.75) / 2;
-			y = safezoneY + safezoneH / 2 - safezoneH / 2;
-			w = (safezoneH*0.75);
-            h = safezoneH;
+			x = "safezoneX + safezoneW / 2 - (safezoneH*0.75) / 2";
+			y = "safezoneY + safezoneH / 2 - safezoneH / 2";
+			w = "(safezoneH*0.75)";
+            h = "safezoneH";
 			text = "";
             colorText[] = {1,1,1,0.7};
         };
         class HelpOverlay: RscControlsGroup {
 			idc = 4001121;
-            x = safezoneX;
-            y = safezoneY;
-            w = safezoneW;
-            h = safezoneH;
+            x = "safezoneX";
+            y = "safezoneY";
+            w = "safezoneW";
+            h = "safezoneH";
             class Controls {
                 class InteractionText: RscIGText
                 {
@@ -68,32 +68,13 @@ class RscInGameUI
                     y = 0.095;
                     text = "Flight Director Standby: Control + Tab";
                 };
-        		class RTDWarning: vtx_centerText
-        		{
-        			idc = 5;
-        			x = 0;
-        			y = 0;
-        			w = safeZoneW;
-                    h = 0.08;
-                    size = 0.15;
-                    colorText[] = {1,0,0,1};
-        			text = "";
-        		};
-        		class RTDSimple2: RTDWarning
-        		{
-        			idc = 6;
-        			x = 0;
-        			y = 0.05;
-        			w = safeZoneW;
-        			text = "Consider enabling the simple collective option in CBA to allow for simple AFM flying with keyboard & mouse";
-        		};
 
                 #define ENGSTARTW 0.5
                 #define ENGSTARTH 0.25
                 class EngineStartBackground: IGUIBack
                 {
                         idc = 7;
-                    	x = safeZoneW - ENGSTARTW;
+                    	x = QUOTE(safeZoneW - ENGSTARTW);
                     	y = 0;
                     	w = ENGSTARTW;
                     	h = 0.2;
@@ -103,7 +84,7 @@ class RscInGameUI
                 class EngineStart1: RscIGText
                 {
                     idc = 8;
-                    x = safeZoneW - ENGSTARTW + 0.015;
+                    x = QUOTE(safeZoneW - ENGSTARTW + 0.015);
                     y = 0.01;
                     w = ENGSTARTW - 0.015;
                     h = 0.05;
@@ -138,15 +119,15 @@ class RscInGameUI
 
         class HelpOverlayGunner: RscControlsGroup {
 			idc = 4001122;
-            x = safezoneX;
-            y = safezoneY;
-            w = safezoneW;
-            h = safezoneH;
+            x = "safezoneX";
+            y = "safezoneY";
+            w = "safezoneW";
+            h = "safezoneH";
             class Controls {
             class GunBackground: IGUIBack
             {
                     idc = 7;
-                    x = safeZoneW - ENGSTARTW;
+                    x = QUOTE(safeZoneW - ENGSTARTW);
                     y = 0;
                     w = ENGSTARTW;
                     h = 0.2;
@@ -155,7 +136,7 @@ class RscInGameUI
                 class GunStart1: RscIGText
                 {
                     idc = 13;
-                    x = safeZoneW - ENGSTARTW + 0.015;
+                    x = QUOTE(safeZoneW - ENGSTARTW + 0.015);
                     y = 0.01;
                     w = ENGSTARTW - 0.015;
                     h = 0.05;

@@ -85,21 +85,4 @@ addUserActionEventHandler ["hideMap", "Activate", {
     [241, [false, true, false]],false
 ] call CBA_fnc_addKeybind;
 
-/* Use base game keybind
-[
-    "UH-60M Blackhawk","vtx_uh60_flir_c_stabilize","FLIR Stabilize", // Ctrl + T
-    vtx_uh60_flir_fnc_setStabilization,{},
-    [20, [false, true, false]],false
-] call CBA_fnc_addKeybind;
-*/
-
-/* moved to transportNightVision base game keybind
-[
-    "UH-60M Blackhawk","vtx_uh60_flir_pipEffect","FLIR Camera Mode", // T
-    {
-        if (vtx_uh60_flir_isPipHidden) exitWith {false};
-        call vtx_uh60_flir_fnc_keyVisionMode
-    },{},
-    [20, [false, false, false]],false
-] call CBA_fnc_addKeybind;
-*/
+// FLIR Stabilize (Ctrl+T) and FLIR Camera Mode (T) use the base-game keybinds; the CBA keybinds they replaced are gone.

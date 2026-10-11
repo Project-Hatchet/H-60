@@ -53,9 +53,9 @@ class CfgVehicles {
         cost = 0;
         displayName = "Pylon";
         fuelCapacity = 0;
-        hasDriver = false;
-        hasGunner = false;
-        hasCommander = false;
+        hasDriver = "false";
+        hasGunner = "false";
+        hasCommander = "false";
         faction = "BLU_F";
         category = "Air";
         side = 1;
@@ -76,7 +76,6 @@ class CfgVehicles {
         model = "z\vtx\addons\uh60_weapons\pylon.p3d";
         //slingLoadCargoMemoryPoints[] = {"sling_point"}; // Don't make slingable
         transportSoldier=1;
-        typicalCargo[] = {};
 
         class AnimationSources {};
         class CargoTurret {};

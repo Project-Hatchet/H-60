@@ -14,7 +14,7 @@ class hct_driver: hct_driver {
           position[] = {0.0688477,4.81626,-0.629442};
           label = "COM";
           radius = 0.025;
-          buttonUp = [(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_COMM_ACRE)], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+          buttonUp = QUOTE([ARR_3((_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_COMM_ACRE)],true)] call vtx_uh60_fms_fnc_interaction_pageChange);
         };
       };
     };
@@ -93,7 +93,7 @@ class hct_copilot: hct_copilot {
                 position[] = {-0.1992183,4.81418,-0.629442};
                 label = "COM";
                 radius = 0.025;
-                buttonUp = [(_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_COMM_ACRE)], true] call vtx_uh60_fms_fnc_interaction_pageChange;
+                buttonUp = QUOTE([ARR_3((_this select 0),[ARR_2(FMS_PAGE_INDEX,FMS_PAGE_COMM_ACRE)],true)] call vtx_uh60_fms_fnc_interaction_pageChange);
               };
           };
         };

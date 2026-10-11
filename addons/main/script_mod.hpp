@@ -7,6 +7,9 @@
 
 #define VERSION MAJOR.MINOR.PATCHLVL.BUILD
 #define VERSION_AR MAJOR,MINOR,PATCHLVL,BUILD
+// CBA's VERSION_CONFIG writes version = VERSION unquoted, which only parses for a MAJOR.MINOR float.
+// The H-60 version is four-part, and every shipped config.bin carries it as the string "0.7.10.0" - keep that.
+#define VERSION_CONFIG version = QUOTE(VERSION); versionStr = QUOTE(VERSION); versionAr[] = {VERSION_AR}
 
 #define VTX_TAG VTX
 

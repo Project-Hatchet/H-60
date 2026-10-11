@@ -1,9 +1,8 @@
 // vtx_HH60 — the Air Force HH-60G-dressed airframe (long-term identity:
 // HH-60W). Sole full declaration (Phase 1 PR B): merged from UH60's identity
 // half and uh60_config's systems half, 2026-09-05. Member order preserved from
-// the pre-merge engine result (config-dump proven). CabinSeats_Hide collision
-// resolved to the live value: initPhase=0 (uh60_config's granular replacement
-// always won; UH60's ,1 was dead-but-misleading).
+// the pre-merge engine result (config-dump proven). The cabin seats are the
+// three row sources, CabinSeats_1/2/3_Hide.
 // Assets stay in UH60 — path references need no dependency edge.
 
 // screen templates (owned by uh60_mfd / uh60_fms / uh60_anvishud; resolve by
@@ -55,7 +54,6 @@ class CfgVehicles {
     class MFD;
     class AnimationSources: AnimationSources {
       class FuelProbe_show;
-      class CabinSeats_Hide;
       class HH60Flares_show;
       class HH60GRadar_show;
       class HH60GFlir_show;
@@ -119,10 +117,6 @@ class CfgVehicles {
     cargoAction[] = {};
     class AnimationSources: AnimationSources {
       ANIM_INIT(FuelProbe_show,1);
-      class CabinSeats_Hide: CabinSeats_Hide {
-        initPhase = 0;
-        onPhaseChanged = "";
-      };
       ANIM_INIT(HH60Flares_show,1);
       ANIM_INIT(HH60GRadar_show,1);
       ANIM_INIT(HH60GFlir_show,1);

@@ -13,6 +13,7 @@
 #define common_red RGBA256(160,30,30,1.0)
 #define common_black RGBA256(0,0,0,1.0)
 #define danger_red RGBA256(240,00,00,1.0)
+#define caution_yellow RGBA256(255,255,0,1.0)
 
 //pitch-attitude scale
 #define pitch_att_blue RGBA256(5,60,140,1)
@@ -31,7 +32,8 @@
 #define JVMF_TYPE 16
 #define WARN_INDEX 1
 
-#define COND_ISNUMBER(INDEX,VALUE) (user##INDEX>(VALUE-0.01))*(user##INDEX<(VALUE+0.99))
+#define COND_ISNUMBER_EXPR(INDEX,VALUE) (user##INDEX>(VALUE-0.01))*(user##INDEX<(VALUE+0.99))
+#define COND_ISNUMBER(INDEX,VALUE) QUOTE(COND_ISNUMBER_EXPR(INDEX,VALUE))
 #define MFD_PAGE_EICAS 0
 #define MFD_PAGE_PFD 1
 #define MFD_PAGE_TAC 2
@@ -70,9 +72,10 @@
 #define FLIR_MODE_STOWED (MFD_PAGE_FLIR+0.5)
 #define FLIR_MODE_WPN_ASSIGN (MFD_PAGE_FLIR+0.6)
 
-#define COND_SUBPAGE(INDEX,VALUE) (user##INDEX>(VALUE-0.1))*(user##INDEX<(VALUE+0.1))
-#define COND_NOT_SUBPAGE(INDEX,VALUE) (1 - (user##INDEX>(VALUE-0.1))*(user##INDEX<(VALUE+0.1)))
-#define COND_SUBPAGE_OR_SUBPAGE(INDEX,VALUE1,VALUE2) (COND_SUBPAGE(INDEX,VALUE1)+COND_SUBPAGE(INDEX,VALUE2))
+#define COND_SUBPAGE_EXPR(INDEX,VALUE) (user##INDEX>(VALUE-0.1))*(user##INDEX<(VALUE+0.1))
+#define COND_SUBPAGE(INDEX,VALUE) QUOTE(COND_SUBPAGE_EXPR(INDEX,VALUE))
+#define COND_NOT_SUBPAGE(INDEX,VALUE) QUOTE((1 - COND_SUBPAGE_EXPR(INDEX,VALUE)))
+#define COND_SUBPAGE_OR_SUBPAGE(INDEX,VALUE1,VALUE2) QUOTE((COND_SUBPAGE_EXPR(INDEX,VALUE1)+COND_SUBPAGE_EXPR(INDEX,VALUE2)))
 
 
 //HELPERS
@@ -82,18 +85,26 @@
 #define STR(A) #A
 
 
-#define BFT_ANGLEX(DEG,RADIUS) (sin DEG * (BFT_ICON_W*RADIUS))
-#define BFT_ANGLEY(DEG,RADIUS) (cos DEG * (BFT_ICON_H*RADIUS))
+// Trig point macros ship as expression STRINGS the engine evaluates at runtime (SQF rules:
+// degrees, function before multiply). CfgConvert always stored them that way; HEMTT would
+// otherwise evaluate them at build time with radians and the wrong precedence (WP3 finding).
+// _EXPR variants stay bare for composition inside a QUOTE().
+#define BFT_ANGLEX_EXPR(DEG,RADIUS) (sin DEG * (BFT_ICON_W*RADIUS))
+#define BFT_ANGLEX(DEG,RADIUS) QUOTE(BFT_ANGLEX_EXPR(DEG,RADIUS))
+#define BFT_ANGLEY_EXPR(DEG,RADIUS) (cos DEG * (BFT_ICON_H*RADIUS))
+#define BFT_ANGLEY(DEG,RADIUS) QUOTE(BFT_ANGLEY_EXPR(DEG,RADIUS))
 #define BFT_ANGLE(DEG,RADIUS) {BFT_ANGLEX(DEG,RADIUS), BFT_ANGLEY(DEG,RADIUS)}
 
-#define ANGLEX(DEG,RADIUS) (0.75*(sin DEG * (RADIUS)))
-#define ANGLEY(DEG,RADIUS) (cos DEG * (RADIUS))
+#define ANGLEX_EXPR(DEG,RADIUS) (0.75*(sin DEG * (RADIUS)))
+#define ANGLEX(DEG,RADIUS) QUOTE(ANGLEX_EXPR(DEG,RADIUS))
+#define ANGLEY_EXPR(DEG,RADIUS) (cos DEG * (RADIUS))
+#define ANGLEY(DEG,RADIUS) QUOTE(ANGLEY_EXPR(DEG,RADIUS))
 #define ANGLE(DEG,RADIUS) {ANGLEX(DEG,RADIUS), ANGLEY(DEG,RADIUS)}
 
 
 // CONDITIONS
-#define RALT_ENABLED "altitudeAGL < 304"
-#define RALT_DISABLED "altitudeAGL > 304"
+#define RALT_ENABLED "user101 < 304"
+#define RALT_DISABLED "user101 > 304"
 #define EGI_DISABLED "1"
 #define ASE_DISABLED_NONE USER_LT(USERMFDV_R22,1)
 #define ASE_DISABLED USER_GT(USERMFDV_R22,0)
@@ -377,7 +388,7 @@
         pos[] = {{X, Y}, 1}; \
         right[] = {{X + (TEXT_MID_SIZE*0.75), Y}, 1}; \
         down[] = {{X, Y + TEXT_MID_SIZE}, 1}; \
-        text = TEXT; \
+        text = "TEXT"; \
     };
 
 #define TEXT_MFD_SCALE(CLASS,X,Y,SIZE,ALIGN) \
@@ -429,16 +440,16 @@
     };
 
 #define POINTS_LEVEL_W(BONE) \
-    {BONE##_pos, {0.035, 0}, 1}, {BONE##_pos, {-0.035, 0}, 1},{}, \
-    {BONE##_neg, {0.035, 0}, 1}, {BONE##_neg, {-0.035, 0}, 1},{}
+    {QUOTE(DOUBLES(BONE,pos)), {0.035, 0}, 1}, {QUOTE(DOUBLES(BONE,pos)), {-0.035, 0}, 1},{}, \
+    {QUOTE(DOUBLES(BONE,neg)), {0.035, 0}, 1}, {QUOTE(DOUBLES(BONE,neg)), {-0.035, 0}, 1},{}
 
 #define POINTS_LEVEL_M(BONE) \
-    {BONE##_pos, {0.015, 0}, 1}, {BONE##_pos, {-0.015, 0}, 1},{}, \
-    {BONE##_neg, {0.015, 0}, 1}, {BONE##_neg, {-0.015, 0}, 1},{}
+    {QUOTE(DOUBLES(BONE,pos)), {0.015, 0}, 1}, {QUOTE(DOUBLES(BONE,pos)), {-0.015, 0}, 1},{}, \
+    {QUOTE(DOUBLES(BONE,neg)), {0.015, 0}, 1}, {QUOTE(DOUBLES(BONE,neg)), {-0.015, 0}, 1},{}
 
 #define POINTS_LEVEL_N(BONE) \
-    {BONE##_pos, {0.007, 0}, 1}, {BONE##_pos, {-0.007, 0}, 1},{}, \
-    {BONE##_neg, {0.007, 0}, 1}, {BONE##_neg, {-0.007, 0}, 1},{}
+    {QUOTE(DOUBLES(BONE,pos)), {0.007, 0}, 1}, {QUOTE(DOUBLES(BONE,pos)), {-0.007, 0}, 1},{}, \
+    {QUOTE(DOUBLES(BONE,neg)), {0.007, 0}, 1}, {QUOTE(DOUBLES(BONE,neg)), {-0.007, 0}, 1},{}
 
 #define LEVEL_BACKGROUND(COLORTOP,COLORBOTTOM,WIDTH) \
     class polygon_top { \
@@ -471,13 +482,13 @@
     };
 
 #define LEVEL_NARROW(NAME,WIDTH) \
-    class NAME : level0 { \
+    class NAME : Level0 { \
         type = "line"; \
         points[] = {{#NAME, {WIDTH, 0}, 1}, {#NAME, {-WIDTH, 0}, 1}}; \
     };
 
 #define LEVEL_WIDE(NAME,WIDTH) \
-    class NAME : level0 { \
+    class NAME : Level0 { \
         type = "line"; \
         points[] = {{#NAME, {WIDTH, 0}, 1}, {#NAME, {-WIDTH, 0}, 1}}; \
     };
@@ -486,15 +497,15 @@
 #define LEVEL_TEXT(LEVEL,BONE,WIDTH,TEXT) \
         TEXT_LEFT_OPEN(DOUBLES(VAL_L,BONE)) \
             text = TEXT; \
-            pos[] = {BONE, {-WIDTH, -0.032+0.01}, 1}; \
-            right[] = {BONE, {-(WIDTH-0.062), -0.032+0.01}, 1}; \
-            down[] = {BONE, {-WIDTH, 0.01+0.01}, 1}; \
+            pos[] = {QUOTE(BONE), {-WIDTH, -0.032+0.01}, 1}; \
+            right[] = {QUOTE(BONE), {-(WIDTH-0.062), -0.032+0.01}, 1}; \
+            down[] = {QUOTE(BONE), {-WIDTH, 0.01+0.01}, 1}; \
         }; \
         TEXT_LEFT_OPEN(DOUBLES(VAL_R,BONE)) \
             text = TEXT; \
-            pos[] = {BONE, {(WIDTH+0.03), -0.032+0.01}, 1}; \
-            right[] = {BONE, {(WIDTH+0.09), -0.032+0.01}, 1}; \
-            down[] = {BONE, {(WIDTH+0.03), 0.01+0.01}, 1}; \
+            pos[] = {QUOTE(BONE), {(WIDTH+0.03), -0.032+0.01}, 1}; \
+            right[] = {QUOTE(BONE), {(WIDTH+0.09), -0.032+0.01}, 1}; \
+            down[] = {QUOTE(BONE), {(WIDTH+0.03), 0.01+0.01}, 1}; \
         };
 
 #define LEVEL_SET(HALF,WHOLE,NARROW,WIDE,TEXT) \
@@ -553,6 +564,45 @@
         }; \
     };
 
+
+//A bar coloured by its limits - each condition a string, green continuous, yellow transient,
+//red past the maximum
+#define BAR_POLY(BONE,X,Y,W) \
+    class bar { \
+        type="polygon"; \
+        points[] ={ \
+            { \
+                {BONE,{X + -W, 0},1}, \
+                {BONE,{X + W, 0},1}, \
+                {{X + W,Y},1}, \
+                {{X - W,Y},1} \
+            } \
+        }; \
+    };
+
+#define BAR_LIMITS(CLASS,BONE,X,Y,W,GREEN,YELLOW,RED) \
+    class CLASS { \
+        class greenWrap  { condition = GREEN;  color[] = common_green;   BAR_POLY(BONE,X,Y,W) }; \
+        class yellowWrap { condition = YELLOW; color[] = caution_yellow; BAR_POLY(BONE,X,Y,W) }; \
+        class redWrap    { condition = RED;    color[] = danger_red;     BAR_POLY(BONE,X,Y,W) }; \
+    };
+
+//The bands, by MFD value
+#define LIM_NP_G(V)  QUOTE((GLUE(user,V) > 95) * (GLUE(user,V) <= 101))
+#define LIM_NP_Y(V)  QUOTE((GLUE(user,V) > 91) * (GLUE(user,V) <= 95) + (GLUE(user,V) > 101) * (GLUE(user,V) <= 107))
+#define LIM_NP_R(V)  QUOTE((GLUE(user,V) <= 91) + (GLUE(user,V) > 107))
+#define LIM_NG_G(V)  QUOTE(GLUE(user,V) <= 105)
+#define LIM_NG_Y(V)  QUOTE((GLUE(user,V) > 105) * (GLUE(user,V) <= 106))
+#define LIM_NG_R(V)  QUOTE(GLUE(user,V) > 106)
+#define LIM_TGT_G(V) QUOTE(GLUE(user,V) <= 793)
+#define LIM_TGT_Y(V) QUOTE((GLUE(user,V) > 793) * (GLUE(user,V) <= 949))
+#define LIM_TGT_R(V) QUOTE(GLUE(user,V) > 949)
+#define LIM_TQ_G(V)  QUOTE(GLUE(user,V) <= user107)
+#define LIM_TQ_Y(V)  QUOTE((GLUE(user,V) > user107) * (GLUE(user,V) <= 144))
+#define LIM_TQ_R(V)  QUOTE(GLUE(user,V) > 144)
+#define LIM_NR_G "(user108 > 0.5) * (user17 > 95) * (user17 <= 101) + (user108 < 0.5) * (user17 <= 105)"
+#define LIM_NR_Y "(user108 > 0.5) * ((user17 > 91) * (user17 <= 95) + (user17 > 101) * (user17 <= 107)) + (user108 < 0.5) * (user17 > 105) * (user17 <= 110)"
+#define LIM_NR_R "(user108 > 0.5) * ((user17 <= 91) + (user17 > 107)) + (user108 < 0.5) * (user17 > 110)"
 
 #define POLYGON(CLASS,X,Y,W,H) \
     class CLASS { \

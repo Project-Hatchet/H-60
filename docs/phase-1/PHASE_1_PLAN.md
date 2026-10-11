@@ -1,6 +1,7 @@
 # H-60 Phase 1 — Base-Class Consolidation: Detailed Plan
 
 **Prepared:** 2026-08-17 · **Updated:** 2026-09-06 (**as-built rewrite**: the asset/config split executed inside Phase 1 — see the end-state note in §2 and the as-built chain in §4; the 2026-08-29 MEDEVAC-to-UH60 ruling is superseded) · **Basis:** master improvement plan §Phase 1 (corrected Snow plan) + §Phase 2.5 (asset/config split, as-built record), the verified UH60↔uh60_config structural diff (2026-08-17), and Riverman's rulings on the Slick armament, MLASS lifetime, and HH60 separation.
+**Status:** **COMPLETE** — shipped in Stable 0.7.10 (2026-10-06); the as-built chain in §4 is the record. (2026-10-08)
 **Prerequisite:** Phase 0 — **COMPLETE.** Shipped as Stable 0.7.9 (2026-09-04); all Phase 0 PRs merged to Main. **Phase 1 kickoff: GO given 2026-09-05** — gating 0.7.10-cycle config PRs merged (#591/#595/#599/#601; #594/#597 are SQF-only and don't gate), PR strategy ruled (§8.3: sequential PRs).
 
 ---

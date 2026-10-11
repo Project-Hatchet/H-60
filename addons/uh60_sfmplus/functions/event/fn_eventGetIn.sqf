@@ -1,1 +1,0 @@
-vtx_uh60_sfmPlusKeyboardOnly = true;

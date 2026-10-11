@@ -6,9 +6,8 @@ class CopilotTurret: CopilotTurret {
   // legacy canHideGunner=0 line that lived here was the root cause - the engine
   // reads an explicit 0 as "gunner can never hide" = permanently turned out, so
   // attenuation never engaged (copilot loud). Flipping it to 1 fixed the sound
-  // but put the seat on the turn-out render path, which hunts the View-Gunner
-  // (1000) LOD this model lacks - same gutted-console fallback as the #556
-  // optics incident (see copilotFLIR.hpp). Vanilla helicopter copilots leave it
+  // but put the seat on the turn-out render path - the same gutted-console
+  // fallback as the #556 optics incident. Vanilla helicopter copilots leave it
   // unset (resolves -1): seat counts as inside AND renders LODTurnedIn. Do not
   // reintroduce this property in either polarity.
   viewGunnerInExternal = 1; // vanilla CargoTurret value; 0-flip tested 2026-09-07, no effect on sound, don't touch
@@ -39,10 +38,9 @@ class CopilotTurret: CopilotTurret {
   class ViewGunner: ViewPilot {
     #include "ViewPilot.hpp"
   };
-  // TEST BUILD (#556 A/B): OpticsIn removed - pre-FLIR copilots had no optics
-  // and rendered the View-Pilot LOD correctly; the optics turret conversion is
-  // the suspected trigger for the resolution-LOD fallback. SLICK = no-optics
-  // probe, UH60M (copilotFLIR.hpp) keeps optics as the control.
+  // No OpticsIn: the #556 A/B proved an optics turret broke the copilot console,
+  // and the 2026-10-06 optics probe found its aim limits also hijack the
+  // copilot's mouse. A copilot optics seat needs its own pass.
   class Hitpoints {};
   class Components {
     class SensorsManagerComponent {

@@ -62,8 +62,9 @@
 #define TAC_MODE_LEGEND (MFD_PAGE_TAC+0.1)
 #define TAC_MODE_MAPCONF (MFD_PAGE_TAC+0.2)
 
-#define COND_SUBPAGE(INDEX,VALUE) (user##INDEX>(VALUE-0.1))*(user##INDEX<(VALUE+0.1))
-#define COND_SUBPAGE_OR_SUBPAGE(INDEX,VALUE1,VALUE2) (COND_SUBPAGE(INDEX,VALUE1)+COND_SUBPAGE(INDEX,VALUE2))
+#define COND_SUBPAGE_EXPR(INDEX,VALUE) (user##INDEX>(VALUE-0.1))*(user##INDEX<(VALUE+0.1))
+#define COND_SUBPAGE(INDEX,VALUE) QUOTE(COND_SUBPAGE_EXPR(INDEX,VALUE))
+#define COND_SUBPAGE_OR_SUBPAGE(INDEX,VALUE1,VALUE2) QUOTE((COND_SUBPAGE_EXPR(INDEX,VALUE1)+COND_SUBPAGE_EXPR(INDEX,VALUE2)))
 
 
 //HELPERS
@@ -73,18 +74,26 @@
 #define STR(A) #A
 
 
-#define BFT_ANGLEX(DEG,RADIUS) (sin DEG * (BFT_ICON_W*RADIUS))
-#define BFT_ANGLEY(DEG,RADIUS) (cos DEG * (BFT_ICON_H*RADIUS))
+// Trig point macros ship as expression STRINGS the engine evaluates at runtime (SQF rules:
+// degrees, function before multiply). CfgConvert always stored them that way; HEMTT would
+// otherwise evaluate them at build time with radians and the wrong precedence (WP3 finding).
+// _EXPR variants stay bare for composition inside a QUOTE().
+#define BFT_ANGLEX_EXPR(DEG,RADIUS) (sin DEG * (BFT_ICON_W*RADIUS))
+#define BFT_ANGLEX(DEG,RADIUS) QUOTE(BFT_ANGLEX_EXPR(DEG,RADIUS))
+#define BFT_ANGLEY_EXPR(DEG,RADIUS) (cos DEG * (BFT_ICON_H*RADIUS))
+#define BFT_ANGLEY(DEG,RADIUS) QUOTE(BFT_ANGLEY_EXPR(DEG,RADIUS))
 #define BFT_ANGLE(DEG,RADIUS) {BFT_ANGLEX(DEG,RADIUS), BFT_ANGLEY(DEG,RADIUS)}
 
-#define ANGLEX(DEG,RADIUS) (sin DEG * (RADIUS))
-#define ANGLEY(DEG,RADIUS) (cos DEG * (RADIUS))
+#define ANGLEX_EXPR(DEG,RADIUS) (sin DEG * (RADIUS))
+#define ANGLEX(DEG,RADIUS) QUOTE(ANGLEX_EXPR(DEG,RADIUS))
+#define ANGLEY_EXPR(DEG,RADIUS) (cos DEG * (RADIUS))
+#define ANGLEY(DEG,RADIUS) QUOTE(ANGLEY_EXPR(DEG,RADIUS))
 #define ANGLE(DEG,RADIUS) {ANGLEX(DEG,RADIUS), ANGLEY(DEG,RADIUS)}
 
 
 // CONDITIONS
-#define RALT_ENABLED "altitudeAGL < 304"
-#define RALT_DISABLED "altitudeAGL > 304"
+#define RALT_ENABLED "user101 < 304"
+#define RALT_DISABLED "user101 > 304"
 #define EGI_DISABLED "1"
 #define ASE_DISABLED_NONE USER_LT(USERMFDV_R22,1) // "pylonAmmo36 < 1"
 #define ASE_DISABLED USER_GT(USERMFDV_R22,0) // "pylonAmmo36 > 0"

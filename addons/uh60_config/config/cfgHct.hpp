@@ -1,9 +1,9 @@
 class hct_driver {
-    #include "cfgVehiclesParts\cfghctCockpit.hpp"
+    #include "cfgVehiclesParts\cfgHctCockpit.hpp"
 };
 
 class hct_copilot {
-    #include "cfgVehiclesParts\cfghctCockpit.hpp"
+    #include "cfgVehiclesParts\cfgHctCockpit.hpp"
 };
 
 class hct_cargo {

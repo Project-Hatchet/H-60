@@ -46,7 +46,7 @@ class CfgVehicles {
         {
             class CopilotTurret: CopilotTurret {};
             #include "doorguns_pylons.hpp"
-            #include "GAU21L.hpp"
+            #include "gau21L.hpp"
             #include "cargoTurretsGAU21L.hpp"
         };
         class Components: Components {
@@ -87,7 +87,7 @@ class CfgVehicles {
             class CopilotTurret: CopilotTurret {};
             class MainTurret: MainTurret {};
             class RightDoorGun: RightDoorGun {};
-            #include "gau21L_free.hpp"
+            #include "gau21L.hpp"
             #include "cargoTurretsGAU21L.hpp"
         };
         class AnimationSources: AnimationSources {

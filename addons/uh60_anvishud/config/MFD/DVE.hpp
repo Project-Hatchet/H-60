@@ -7,7 +7,7 @@ class DVE_DCLT {
 	};
 
 	class HVR_COND {
-		condition="(speed < 10) * (altitudeAGL > 2)";
+		condition="(user103 < 10) * (user101 > 2)";
 		color[] = common_blue;
 		#define HSI_HVR_10KTS 0.04
 		TEXT_FMS_C(HOVER_ANNOUNCE,0.5,0.15)

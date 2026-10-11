@@ -1,57 +1,7 @@
+//HeliSim-role hitpoints live in uh60_helisim (helisim_hitpoints.hpp).
 #define MULTIPLIER (1/15)
 class HitPoints
 {
-	class hithrotor
-	{
-		armor = 10.35;
-		radius = 0.47 ;
-		minimalHit = 130;
-		explosionShielding = 3000;
-		name = "hithrotor";
-		material = 51;
-		passThrough = 0;
-	};
-	class hitvrotor
-	{
-		armor = MULTIPLIER * 0.81;
-		radius = 0.24;
-		minimalHit = 0.1;
-		explosionShielding =0.270;
-		name = "hitvrotor";
-		material = 51;
-		visual = "munice";
-		passThrough = 0;
-	};
-	class TailGearBox
-	{
-		armor = MULTIPLIER * 1.08;
-		radius = 0.69;
-		name = "TailGearBox";
-		explosionShielding =0.360;
-		minimalHit = 0.1;
-		passThrough = 0;
-		material = 51;
-	};
-	class RearAutoStab
-	{
-		armor = MULTIPLIER * 0.18;
-		radius = 0.14;
-		name = "RearAutoStab";
-		explosionShielding =0.100;
-		minimalHit = 0.1;
-		passThrough = 0;
-		material = 51;
-	};
-	class TailIntermediateGearBox
-	{
-		armor = MULTIPLIER * 0.54;
-		radius = 0.22;
-		name = "TailIntermediateGearBox";
-		explosionShielding =0.300;
-		minimalHit = 0.1;
-		passThrough = 0;
-		material = 51;
-	};
 	class FlightComp1
 	{
 		armor = MULTIPLIER * 0.36;
@@ -61,45 +11,6 @@ class HitPoints
 		minimalHit = 0.1;
 		passThrough = 0;
 		material = 51;
-	};
-	class ApuHit
-	{
-		armor = MULTIPLIER * 0.72;
-		radius = 0.46;
-		name = "ApuHit";
-		explosionShielding =0.400;
-		minimalHit = 0.1;
-		passThrough = 0;
-		material = 51;
-	};
-	class hitengine1
-	{
-		armor = MULTIPLIER * 1.08;
-		radius = 0.59;
-		name = "hitengine1";
-		explosionShielding =0.460;
-		minimalHit = 0.1;
-		passThrough = 0;
-		material = 51;
-	};
-	class hitengine2
-	{
-		armor = MULTIPLIER * 1.08;
-		radius = 0.59;
-		name = "hitengine2";
-		explosionShielding =0.460;
-		minimalHit = 0.1;
-		passThrough = 0;
-		material = 51;
-	};
-	class HitEngine {
-		armor = MULTIPLIER * 999;
-		depends = "0.5 * (HitEngine1 + HitEngine2)";
-		explosionShielding = 1;
-		minimalHit = 1;
-		name = "hitEngine";
-		passThrough = 0;
-		radius = 0.05;
 	};
 	class hitRWRFront {
 		armor = MULTIPLIER * 1.08;
@@ -181,16 +92,6 @@ class HitPoints
 		passThrough = 0;
 		material = 51;
 	};
-	class MainRotorGearBox
-	{
-		armor = MULTIPLIER * 1.08;
-		radius = 0.44;
-		name = "MainRotorGearBox";
-		explosionShielding =0.599;
-		minimalHit = 0.1;
-		passThrough = 0;
-		material = 51;
-	};
 	class MainRotorHub
 	{
 		armor = MULTIPLIER * 0.96;
@@ -261,26 +162,6 @@ class HitPoints
 		passThrough = 0;
 		material = 51;
 	};
-	class Battery1
-	{
-		armor = MULTIPLIER * 0.47;
-		radius = 0.21;
-		name = "Battery1";
-		explosionShielding =0.261;
-		minimalHit = 0.1;
-		passThrough = 0;
-		material = 51;
-	};
-	class Battery2
-	{
-		armor = MULTIPLIER * 0.47;
-		radius = 0.21;
-		name = "Battery2";
-		explosionShielding =0.261;
-		minimalHit = 0.1;
-		passThrough = 0;
-		material = 51;
-	};
 	class FlightControlComp2
 	{
 		armor = MULTIPLIER * 0.48;
@@ -341,7 +222,7 @@ class HitPoints
 		passThrough = 0;
 		material = 51;
 	};
-		class Flare2
+	class Flare2
 	{
 		armor = MULTIPLIER * 0.36;
 		radius = 0.3;
@@ -351,7 +232,7 @@ class HitPoints
 		passThrough = 0;
 		material = 51;
 	};
-		class Flare3
+	class Flare3
 	{
 		armor = MULTIPLIER * 0.36;
 		radius = 0.3;
@@ -361,7 +242,7 @@ class HitPoints
 		passThrough = 0;
 		material = 51;
 	};
-		class HHFlare1
+	class HHFlare1
 	{
 		armor = MULTIPLIER * 0.36;
 		radius = 0.3;
@@ -371,7 +252,7 @@ class HitPoints
 		passThrough = 0;
 		material = 51;
 	};
-		class HHFlare2
+	class HHFlare2
 	{
 		armor = MULTIPLIER * 0.36;
 		radius = 0.3;

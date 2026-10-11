@@ -39,7 +39,8 @@ class ND_FD_hdgRotation : ND_HeadingRotation {
 
 class ND_RALTRotation1 : ND_HeadingRotation {
 	center[] = {0.87,0.15};
-	source="altitudeAGL";
+	source="user";
+	sourceIndex=101;
 	sourceScale = 3.2808399;
 	min = "0";
 	max = "100";
@@ -47,14 +48,16 @@ class ND_RALTRotation1 : ND_HeadingRotation {
 	maxAngle = 0;
 };
 class ND_RALTRotation2 : ND_RALTRotation1 {
-	source="altitudeAGL";
+	source="user";
+	sourceIndex=101;
 	min = "100";
 	max = "400";
 	minAngle = 0;
 	maxAngle = 90;
 };
 class ND_RALTRotation3 : ND_RALTRotation2 {
-	source="altitudeAGL";
+	source="user";
+	sourceIndex=101;
 	min = "400";
 	max = "1000";
 	minAngle = 90;
@@ -88,7 +91,8 @@ class ND_RotationWind : ND_HeadingRotationWind {
 	center[] = {0,0};
 	minAngle = 360;
 	maxAngle = 0;
-	source="windage";
+	source="user";
+	sourceIndex=104;
 	aspectRatio = 1;
 };
 class ND_WPRotateOffset {

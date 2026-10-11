@@ -51,32 +51,9 @@ if (!(_doorSeats isEqualTo []) && {
     };
     false;
 };
-// True
-//_vehicle setVariable ["ace_fastroping_deploymentStage", -1, true];
 
 true
 
-/* door seat
-private _doorSeats = [];
-private _doorSeatSide = [];
-{
-    private _gunnerName = getText (_x >> "gunnerName");
-    if (_gunnerName select [0, 5] == "Door ") then {
-        _doorSeats pushBack [_forEachIndex + 1];
-        _doorSeatSide pushBack (_gunnerName select [5, 5]);
-    };
-} forEach ("true" configClasses (configOf _vehicle >> "Turrets"));
-
-if (_doorSeats isEqualTo []) exitWith {true};
-
-{
-    _x params ["_unit", "_role", "_cargoIndex", "_turretPath", "_isPersonTurret"];
-    if (_isPersonTurret && {!isNull _unit && {_cargoIndex > -1 && {_turretPath in _doorSeats}}}) exitWith {
-        hint "Door is blocked";
-        false
-    };
-} forEach fullCrew [vehicle _caller, "turret", true]
-*/
 
 /* params
 [
