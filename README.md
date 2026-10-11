@@ -21,37 +21,23 @@ The **Hatchet H-60 Pack** is a helicopter pack that brings realistic H-60 series
 
 ## Development Guide
 
-### SConstruct(SCONS) Build environment
-The H-60 is built with SConstruct, or for short, SCONS.
+### Building with HEMTT
+The H-60 is built with [HEMTT](https://hemtt.dev). Install it with `winget install BrettMayson.HEMTT`, then from the repository root:
 
-#### Prerequisite: python > 3
-To install scons, you require python 3.
-To check what python version you have installed, you can use the `python --version` command
-
-#### Scons installation
-Once you confirmed you have python installed, you can use the command
-`python -m pip install scons`
-To install scons
-
-#### Troubleshooting
-**PATH Warning**
-Important: when installing scons, you might find the following error:
 ```
-WARNING: The scripts scons-configure-cache.exe, scons.exe and sconsign.exe are installed in 'C:\Users\<user>\AppData\Local\Programs\Python\Python39\Scripts' which is not on PATH.
-Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+hemtt check    # lint and parse everything - what CI runs on every push
+hemtt build    # build the mod into .hemttout/build
 ```
-If you find this, you will have to add the python folder to your PATH.
-If you don't know how to add variables to your PATH, you can find more information here https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/
+
+No Arma 3 Tools are needed: every model and animation in the tree is already binarized, and HEMTT rapifies configs itself. The full build takes under a minute. `docs/RELEASE.md` covers versioning, Dev pushes and Stable releases.
+
+The older SCons build (`SConstruct`) is still in the tree for the transition and is still exercised by CI, but new work should use HEMTT; it is retired once a Stable has shipped from HEMTT.
 
 **Other errors**
 If you find any other errors, please ask the dev team in the Project Hatchet discord server.
 
-#### Usage
-Once installed, you should be able to open the project's root folder in your terminal, and run `scons`.
-This should generate fully built PBOs in your addons folder.
-
 #### Pushing a build to the Steam Workshop Development branch
-`tools/push_dev.py` builds the mod from a named git ref and uploads it to the Development branch Workshop item in one step:
+`tools/push_dev.py` builds the mod from a named git ref with HEMTT and uploads it to the Development branch Workshop item in one step:
 
 ```
 python tools/push_dev.py --branch <ref> --note-from-changelog --bump               # usual dev push
@@ -64,7 +50,7 @@ Write what changed for players under a `**Unreleased**` header at the top of `CH
 
 Versioning: Stable releases are `X.Y.Z`; Development builds carry the *next* Stable's number with the build digit counting up per push (`0.7.9.1`, `0.7.9.2`, ...). Start a cycle with `--version`, continue with `--bump`. Bump the patch number for routine Stable promotions and the minor number for substantial ones.
 
-It refuses to run on a dirty working tree, wipes the AddonBuilder sync mirror first (it syncs additively, so deleted files would otherwise ship again), verifies that every addon produced a fresh PBO, and asks for confirmation before uploading. The upload goes through `PublisherCmd` from Arma 3 Tools using the Steam client already logged in on your machine, so you need contributor rights on the Workshop item and nothing else. The script only knows the Development branch item - promoting to Stable is done by hand on purpose.
+It refuses to run on a dirty working tree or on a local branch that differs from origin, replaces `release/@H-60` with the fresh HEMTT output so nothing stale can ship, verifies that every addon produced a fresh PBO, and asks for confirmation before uploading. The upload goes through `PublisherCmd` from Arma 3 Tools using the Steam client already logged in on your machine, so you need contributor rights on the Workshop item and nothing else. The script only knows the Development branch item - promoting to Stable is done by hand on purpose.
 
 
 
