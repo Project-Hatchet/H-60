@@ -16,10 +16,12 @@ What it does, in order:
      addons/main/script_version.hpp, retitles the **Unreleased** block at
      the top of CHANGELOG-DEV.md to that version, and commits both on <ref>
      - so the in-game version, the changelog and the Workshop note agree
-  4. wipes the AddonBuilder sync mirror (%TEMP%\\z\\vtx) - it syncs
-     additively, so files deleted from the source otherwise ship again
-  5. runs `scons all`, writes a Development-branch mod.cpp, and verifies
-     every addon folder produced a fresh PBO
+  4. refuses to build a branch whose local copy differs from origin (the
+     devbuild branch is force-pushed by the bot; a stale local copy has
+     been built twice before)
+  5. runs `hemtt build`, replaces release/@H-60 with the fresh output (so
+     PBOs of deleted addons never linger), writes a Development-branch
+     mod.cpp, and verifies every addon folder produced a fresh PBO
   6. shows a summary and asks for confirmation (skip with --yes)
   7. uploads release/@H-60 with PublisherCmd, which uses the Steam client
      already logged in on this machine - no credentials are stored anywhere
@@ -45,8 +47,8 @@ from pathlib import Path
 DEV_WORKSHOP_ID = "3071155671"  # Hatchet H-60 pack - Development branch
 ISSUE_URL = "https://github.com/Project-Hatchet/H-60/issues/"
 MOD_FOLDER = Path("release") / "@H-60"
-PBO_PREFIX = "hct_h60_"
-MOD_ROOT_FILES = ["meta.cpp", "logo_vtx_ca.paa", "logo_vtx_small_ca.paa"]
+PBO_PREFIX = "hct_"  # HEMTT names PBOs <project prefix>_<addon folder>.pbo
+HEMTT_OUT = Path(".hemttout") / "build"
 VERSION_FILE = "addons/main/script_version.hpp"
 CHANGELOG = "CHANGELOG-DEV.md"
 TESTING_LABEL = "Ready for Testing"  # the devbuild branch = Main + PRs wearing this label
@@ -93,6 +95,34 @@ def publisher_cmd():
     if not exe.exists():
         die(f"PublisherCmd.exe not found at {exe}")
     return exe
+
+
+def hemtt_exe():
+    """hemtt on PATH, or the winget install that may not be on PATH."""
+    found = shutil.which("hemtt")
+    if found:
+        return Path(found)
+    pkgs = Path(os.environ.get("LOCALAPPDATA", "")) / "Microsoft" / "WinGet" / "Packages"
+    for cand in sorted(pkgs.glob("BrettMayson.HEMTT_*/hemtt.exe")):
+        return cand
+    die("hemtt not found - install it (winget install BrettMayson.HEMTT) or put it on PATH")
+
+
+def ensure_matches_origin(ref):
+    """Refuse to build a local branch that is not what origin has.
+
+    The devbuild branch is force-pushed by the bot on every label change, and a
+    stale local copy of it has been built and uploaded twice. Tags and shas pass
+    through; a branch with no remote counterpart passes through."""
+    if run(["git", "show-ref", "--verify", "--quiet", f"refs/heads/{ref}"]).returncode != 0:
+        return
+    if run(["git", "ls-remote", "--exit-code", "--heads", "origin", ref]).returncode != 0:
+        return
+    git("fetch", "-q", "origin", ref)
+    local, remote = git("rev-parse", ref), git("rev-parse", "FETCH_HEAD")
+    if local != remote:
+        die(f"local {ref} is at {local[:7]} but origin/{ref} is at {remote[:7]} - "
+            f"update it first:  git fetch -f origin {ref}:{ref}")
 
 
 # --- change note -----------------------------------------------------------
@@ -243,50 +273,46 @@ def stamp_version(version):
 
 # --- build -----------------------------------------------------------------
 
-def wipe_mirror():
-    mirror = Path(os.environ["TEMP"]) / "z" / "vtx"
-    if mirror.exists():
-        shutil.rmtree(mirror)
-        print(f"  wiped AddonBuilder mirror {mirror}")
-
-
 def build():
+    """hemtt build, then release/@H-60 becomes exactly that output plus the Dev mod.cpp."""
     addons_dir = REPO / "addons"
     expected = sorted(p.name for p in addons_dir.iterdir() if p.is_dir())
-    out = REPO / MOD_FOLDER / "addons"
-    out.mkdir(parents=True, exist_ok=True)
-    for f in MOD_ROOT_FILES:
-        src = REPO / f
-        if src.exists():
-            shutil.copy2(src, REPO / MOD_FOLDER / f)
-    # the repo's mod.cpp is the Stable one; the Dev item gets its own name in the launcher
-    (REPO / MOD_FOLDER / "mod.cpp").write_text(DEV_MOD_CPP, encoding="utf-8")
+    hemtt = hemtt_exe()
 
     started = time.time()
-    print(f"  building {len(expected)} addons with scons (this takes a few minutes)...")
-    r = subprocess.run(["scons", "all"], cwd=REPO, text=True, capture_output=True)
+    print(f"  building {len(expected)} addons with hemtt ({hemtt})...")
+    shutil.rmtree(REPO / ".hemttout", ignore_errors=True)
+    r = subprocess.run([str(hemtt), "build"], cwd=REPO, text=True, capture_output=True)
     if r.returncode != 0:
         print(r.stdout[-3000:])
-        die(f"scons failed:\n{r.stderr[-2000:]}")
+        die(f"hemtt build failed:\n{r.stderr[-2000:]}")
 
+    # Replace the mod folder wholesale: the old scons flow wrote into it and never
+    # removed PBOs of addons that no longer exist, which then shipped.
+    mod = REPO / MOD_FOLDER
+    shutil.rmtree(mod, ignore_errors=True)
+    shutil.copytree(REPO / HEMTT_OUT, mod)
+    # the repo's mod.cpp is the Stable one; the Dev item gets its own name in the launcher
+    (mod / "mod.cpp").write_text(DEV_MOD_CPP, encoding="utf-8")
+
+    out = mod / "addons"
+    pbos = sorted(out.glob("*.pbo"))
     problems = []
     total = 0
-    for name in expected:
-        pbo = out / f"{PBO_PREFIX}{name}.pbo"
-        if not pbo.exists():
-            problems.append(f"missing {pbo.name}")
+    if len(pbos) != len(expected):
+        problems.append(f"{len(pbos)} PBOs for {len(expected)} addon folders")
+    for pbo in pbos:
+        if not pbo.name.startswith(PBO_PREFIX):
+            problems.append(f"unexpected name {pbo.name}")
         elif pbo.stat().st_mtime < started:
             problems.append(f"stale {pbo.name} (not rebuilt)")
         elif pbo.stat().st_size == 0:
             problems.append(f"empty {pbo.name}")
         else:
             total += pbo.stat().st_size
-    stray = [p.name for p in out.glob("*.pbo") if not p.name.startswith(PBO_PREFIX)]
-    if stray:
-        problems.append(f"unprefixed leftovers in output: {', '.join(stray)}")
     if problems:
         die("build verification failed:\n  " + "\n  ".join(problems))
-    return len(expected), total
+    return len(pbos), total
 
 
 # --- main ------------------------------------------------------------------
@@ -340,6 +366,7 @@ def main():
     if not args.skip_build:
         if git("status", "--porcelain"):
             die("working tree is not clean - commit or stash first")
+        ensure_matches_origin(args.branch)
         previous = git("rev-parse", "--abbrev-ref", "HEAD")
         if previous == "HEAD":
             previous = git("rev-parse", "HEAD")
@@ -353,7 +380,6 @@ def main():
                 else:
                     stamp_version(version)
             sha = git("rev-parse", "--short", "HEAD")
-            wipe_mirror()
             count, total = build()
         finally:
             if stamp and args.no_commit:
