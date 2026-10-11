@@ -21,21 +21,24 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' || github.ref == 'refs/heads/devbuild' }}
 
 jobs:
-  # validate:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - name: Checkout the source code
-  #     uses: actions/checkout@v2
-  #   - name: Validate SQF
-  #     run: python3 tools/sqf_validator.py
-  #   - name: Validate Config
-  #     run: python3 tools/config_style_checker.py
-  #   - name: Validate Stringtables
-  #     run: python3 tools/stringtable_validator.py
-  #   - name: Validate Return Types
-  #     run: python3 tools/return_checker.py
-  #   - name: Check for BOM
-  #     uses: arma-actions/bom-check@master
+  # Phase 3 WP4d: structural checks a Linux runner can enforce - include case,
+  # empty files, BOMs, PREP/file parity, addon layout and the HEMTT portability
+  # rules. SQF syntax and lints are the hemtt job's business (hemtt check);
+  # tools/sqf_validator.py stays unwired until the tree passes its tab rule.
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout the source code
+        uses: actions/checkout@v4.2.0
+        with:
+          fetch-depth: 1
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate the tree
+        run: python tools/validate_tree.py
   build:
     # PRs from forks cannot build: the Arma 3 Tools download secret is
     # withheld from fork-triggered runs, so their build always fails at

@@ -5,6 +5,7 @@ The pack is built with [HEMTT](https://hemtt.dev). One command builds it, one sc
 ## Everyday builds
 
 ```
+python tools/validate_tree.py   # include case, empty files, BOMs, PREP parity, HEMTT portability rules; the CI validate job
 hemtt check            # lints and parses every config, script and stringtable; the CI gate
 hemtt build            # .hemttout/build - the mod folder, 25 PBOs
 hemtt launch           # .hemtt/launch.toml profiles (when they exist)
