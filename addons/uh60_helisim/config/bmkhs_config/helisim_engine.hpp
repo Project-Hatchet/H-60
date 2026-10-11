@@ -58,7 +58,7 @@
                     ,{ 40, 1.2354}
                 };
 
-                lightOffNg = 0.15;       //fuel introduced
+                lightOffNg = 0.23;       //fuel introduced
                 selfSustNg = 0.52;       //starter cuts out
                 idleNg     = 0.679;
 
