@@ -46,7 +46,7 @@ _ALLOWED = (ast.Expression, ast.BinOp, ast.UnaryOp, ast.Compare, ast.Constant, a
 
 
 def _safe_eval(expr, names):
-    tree = ast.parse(expr, mode="eval")
+    tree = ast.parse(_sqf_to_py_expr(expr), mode="eval")
     for node in ast.walk(tree):
         if not isinstance(node, _ALLOWED):
             raise ValueError(type(node).__name__)
@@ -78,8 +78,9 @@ def _safe_eval(expr, names):
 
 def _sqf_to_py_expr(s):
     # Arma expressions use the same operators as Python for what configs contain; '==' stays,
-    # '!=' stays, boolean and/or words are not used in config conditions.
-    return s
+    # '!=' stays, boolean and/or words are not used in config conditions. Leading zeros in
+    # integer literals ("0.05*01") are legal in Arma but not in Python - strip them.
+    return re.sub(r"(?<![\w.])0+(\d)", r"\1", s)
 
 
 class Norm:
@@ -100,6 +101,11 @@ class Norm:
             if a == b: return True
             ca, cb = re.sub(r"\s+", "", a), re.sub(r"\s+", "", b)
             if ca == cb: return True
+            # Arma's preprocessor parenthesises substituted macro arguments, HEMTT's does not:
+            # "(sin 30 * ((0.2 * 1)))" vs "(sin 30 * (0.2 * 1))". For expressions carrying SQF
+            # functions the evaluator below cannot run, so compare with parentheses removed.
+            if re.search(r"\b(sin|cos|tan|atan|sqrt|abs|exp|log)\b", a) and ca.replace("(", "").replace(")", "") == cb.replace("(", "").replace(")", ""):
+                return True
             # expression equivalence over userN / pylonN style variables
             if EXPR_RE.match(a) and EXPR_RE.match(b):
                 names = sorted(set(re.findall(r"\b[A-Za-z_]\w*\b", a + " " + b)))

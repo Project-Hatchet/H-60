@@ -88,3 +88,9 @@ The acceptance test for WP2b is a **scons build of the fixed tree against a scon
 - **`db` tokens are numbers to CfgConvert.** Bare `db5` in a `sound[]` array was converted to `1.7782794` at compile time; quoting it would have shipped the string. The numeric values are written out, with the dB value as a comment.
 
 After the fixes the derapified diff of the four affected addons against the unfixed build is empty apart from the arc fix already on Main. Whitespace inside SQF code strings (`[(_this select 0), [32, 2], true]` vs `[(_this select 0),[32, 2], true]`) is the only textual class left, from `ARR_n` spacing, and it is harmless SQF.
+
+## 9. WP3 lessons (2026-10-11)
+
+- **HEMTT evaluates any unquoted expression it can parse, at build time, including ones with SQF functions — and gets those wrong** (radians; `cos 0 * x` read as `cos(0*x)`). CfgConvert stored them as strings for the engine. Every `sin`/`cos` point macro is now `QUOTE()`d; see `equivalence-85944de.md` §3. Pure arithmetic (`160/256`) is evaluated correctly and is a harmless number-vs-string difference.
+- **CfgConvert drops commas inside quoted text passed through a macro argument**; HEMTT does not. The CCFS credits page regains its punctuation under HEMTT.
+- **The in-game config dump is the only test that sees value changes inside `config.bin`.** The manifest compare classifies `config.bin` as "rapified-bytes" by design, so a wrong value hides there until a dump compares it. Run both for any change to how configs are produced.
