@@ -72,7 +72,8 @@ def read(path):
 
 
 def resolve_include(src_dir, target):
-    t = target.replace("/", os.sep)
+    # Arma paths are written with backslashes; on Linux they must become real separators
+    t = target.replace("\\", os.sep).replace("/", os.sep)
     if t.startswith(os.sep):
         parts = t.strip(os.sep).split(os.sep)
         if len(parts) > 3 and parts[0].lower() == "z" and parts[1].lower() == "vtx" and parts[2].lower() == "addons":
