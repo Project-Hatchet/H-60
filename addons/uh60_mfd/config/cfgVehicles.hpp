@@ -295,12 +295,6 @@ class VTX_MFD_1_ARMED: VTX_MFD_1
 {
     #include "MFD\MFD.hpp"
 }; // MFD_1
-#define FLIR_PYLONS_4
-class VTX_MFD_1_ARMED4: VTX_MFD_1
-{
-    #include "MFD\MFD.hpp"
-}; // MFD_1_ARMED4
-#undef FLIR_PYLONS_4
 #undef HAS_ATTACK_PAGE
 class VTX_MFD_1_CMWS
 {
@@ -335,12 +329,6 @@ class VTX_MFD_2_ARMED: VTX_MFD_2
 {
     #include "MFD\MFD.hpp"
 }; // MFD_1
-#define FLIR_PYLONS_4
-class VTX_MFD_2_ARMED4: VTX_MFD_2
-{
-    #include "MFD\MFD.hpp"
-}; // MFD_2_ARMED4
-#undef FLIR_PYLONS_4
 #undef HAS_ATTACK_PAGE
 class VTX_MFD_2_CMWS
 {
@@ -375,12 +363,6 @@ class VTX_MFD_3_ARMED: VTX_MFD_3
 {
     #include "MFD\MFD.hpp"
 }; // MFD_1
-#define FLIR_PYLONS_4
-class VTX_MFD_3_ARMED4: VTX_MFD_3
-{
-    #include "MFD\MFD.hpp"
-}; // MFD_3_ARMED4
-#undef FLIR_PYLONS_4
 #undef HAS_ATTACK_PAGE
 class VTX_MFD_3_CMWS
 {
@@ -415,12 +397,6 @@ class VTX_MFD_4_ARMED: VTX_MFD_4
 {
     #include "MFD\MFD.hpp"
 }; // MFD_1
-#define FLIR_PYLONS_4
-class VTX_MFD_4_ARMED4: VTX_MFD_4
-{
-    #include "MFD\MFD.hpp"
-}; // MFD_4_ARMED4
-#undef FLIR_PYLONS_4
 #undef HAS_ATTACK_PAGE
 class VTX_MFD_4_CMWS
 {

@@ -21,8 +21,7 @@ params [["_state", -1]];
 
 if !(
   hct_vehicle isKindOf "vtx_MH60M" ||
-  {hct_vehicle isKindOf "vtx_MH60M_DAP"} ||
-  {hct_vehicle isKindOf "vtx_MH60M_DAP_MLASS"}
+  {hct_vehicle isKindOf "vtx_MH60M_DAP"} // covers the vtx_MH60M_DAP_MLASS compat stub (inherits the DAP)
 ) exitWith {};
 
 switch (hct_vehicle unitTurret hct_player) do {

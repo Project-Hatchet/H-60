@@ -17,8 +17,7 @@ params ["_vehicle", ["_instant", false]];
 // Pavehawk and Seahawk FLIR turrets don't animate properly yet
 if !(
   _vehicle isKindOf "vtx_MH60M" ||
-  {_vehicle isKindOf "vtx_MH60M_DAP"} ||
-  {_vehicle isKindOf "vtx_MH60M_DAP_MLASS"}
+  {_vehicle isKindOf "vtx_MH60M_DAP"} // covers the vtx_MH60M_DAP_MLASS compat stub (inherits the DAP)
 ) exitWith {};
 
 private _rotation = getPilotCameraRotation _vehicle;

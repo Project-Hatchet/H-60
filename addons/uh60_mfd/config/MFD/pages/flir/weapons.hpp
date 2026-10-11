@@ -78,15 +78,9 @@ class pylonsBackground {
 		color[] = common_red;
 		// the engine defines pylonSelectedN only for stations the aircraft has;
 		// referencing missing ones errors in the MFD evaluator on every spawn.
-		// Default build assumes 2 stations; 4-station craft (MLASS) use the
-		// VTX_MFD_*_ARMED4 classes, which define FLIR_PYLONS_4 before this
-		// include - mirroring the FMS_PYLONS_* family pattern.
+		// Every H-60 has two stations.
 		class gun {
-#ifdef FLIR_PYLONS_4
-			condition = "(1 - pylonSelected1 - pylonSelected2 - pylonSelected3 - pylonSelected4) * mgun";
-#else
 			condition = "(1 - pylonSelected1 - pylonSelected2) * mgun";
-#endif
 			class poly {
 				type = "polygon";
 				points[] = {
@@ -99,11 +93,7 @@ class pylonsBackground {
 			};
 		};
 		class laser {
-#ifdef FLIR_PYLONS_4
-			condition = "1 - pylonSelected1 - pylonSelected2 - pylonSelected3 - pylonSelected4 - mgun";
-#else
 			condition = "1 - pylonSelected1 - pylonSelected2 - mgun";
-#endif
 			class poly {
 				type = "polygon";
 				points[] = {
@@ -141,34 +131,6 @@ class pylonsBackground {
 				};
 			};
 		}; // sta2
-#ifdef FLIR_PYLONS_4
-		class sta3L {
-			condition = "pylonSelected3";
-			class poly {
-				type = "polygon";
-				points[] = {
-					{
-						{{0.33 + -0.015, 0.74 + 0.00},1},
-						{{0.33 +  0.000, 0.74 + 0.02},1},
-						{{0.33 +  0.015, 0.74 + 0.00},1}
-					}
-				};
-			};
-		}; // sta3L
-		class sta4R {
-			condition = "pylonSelected4";
-			class poly {
-				type = "polygon";
-				points[] = {
-					{
-						{{0.67 + -0.015, 0.74 + 0.00},1},
-						{{0.67 +  0.000, 0.74 + 0.02},1},
-						{{0.67 +  0.015, 0.74 + 0.00},1}
-					}
-				};
-			};
-		}; // sta4R
-#endif
 	};
 };
 
