@@ -23,8 +23,23 @@ class MainTurret: MainTurret { //Left Doorgun
     memoryPointGunnerOptics="gunnerview_1";
     memoryPointsGetInGunner = "pos gunner L";
     memoryPointsGetInGunnerDir = "pos gunner L dir";
-    minElev=-70; maxElev=20; initElev=-50;
-    minTurn=-10; maxTurn=185; initTurn=90;
+    // M134 mount limits, real-world figures from Stanman (advisor), 2026-10-06:
+    //   elevation 1.5 up / 55 down; traverse 81 aft of abeam on both guns,
+    //   90 forward of abeam on the LEFT gun, 78 forward on the RIGHT gun.
+    // Turret azimuth is measured from the nose, positive to the LEFT, so the
+    // left gun sits abeam at +90 and the right gun at -90:
+    //   left : forward stop 90 - 90 =   0, aft stop   90 + 81  =  171
+    //   right: forward stop -(90 - 78) = -12, aft stop -(90 + 81) = -171
+    // These four numbers ARE the arc. There is deliberately no limits-array
+    // polygon (class TurnIn is emptied below): a pintle mount's traverse and
+    // elevation stops are independent, which is exactly a box, and a second
+    // layer of limits is how the old values drifted apart (the polygon said
+    // 90 down while the box stopped at 70). Add a polygon back only to cut a
+    // specific corner that is proven to clip the airframe in game.
+    // (The MH-60S pylon variants override these in MH60S doorguns_pylons.hpp
+    // to keep the guns off the wings.)
+    minElev=-55; maxElev=1.5; initElev=-50;
+    minTurn=0; maxTurn=171; initTurn=90;
     personTurretAction = "vehicle_turnout_1";
     proxyIndex = 6;
     selectionFireAnim="zasleh";
@@ -60,10 +75,7 @@ class MainTurret: MainTurret { //Left Doorgun
     };
     minOutElev=0; maxOutElev=0; initOutElev=0;
     minOutTurn=0; maxOutTurn=0; initOutTurn=0;
-    class TurnIn {
-        limitsArrayTop[] = {{1.5, 165}, {1.55, 10}};
-        limitsArrayBottom[] = {{-90, 165}, {-90, 10}};
-    };
+    class TurnIn {};            // no polygon - the min/max box above is the whole arc
     class TurnOut : TurnIn {};
     class ViewOptics {
         initAngleX=0; minAngleX=0; maxAngleX=0;
@@ -98,16 +110,12 @@ class RightDoorGun: MainTurret {
     memoryPointGunnerOptics="gunnerview_2";
     memoryPointsGetInGunner = "pos gunner R";
     memoryPointsGetInGunnerDir = "pos gunner R dir";
-    minElev=-70; maxElev=20; initElev=-50;
-    minTurn=-185; maxTurn=10; initTurn=-90;
+    // right gun: same elevation, 78 forward / 81 aft of abeam (see the left gun)
+    minElev=-55; maxElev=1.5; initElev=-50;
+    minTurn=-171; maxTurn=-12; initTurn=-90;
     personTurretAction = "vehicle_turnout_1";
     proxyIndex = 7;
     selectionFireAnim="zasleh_1";
-    class TurnIn {
-        limitsArrayTop[] = {{1.5, -10}, {1.5, -165}};
-        limitsArrayBottom[] = {{-90, -10}, {-90, -165}};
-    };
-  	class TurnOut : TurnIn {};
     weapons[]=
     {
         "vtx_wpn_m134_2nd"
