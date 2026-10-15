@@ -42,7 +42,7 @@ if (_success) then {
     private _timestamp = [daytime, "HH:MM"] call BIS_fnc_timeToString;
     _this set [6, [[_timestamp, _sender, "SENT", player]]];
     ["vtx_uh60_jvmf_messageSent", _this] call CBA_fnc_globalEvent;
-    if (vtx_uh60_ui_showDebugMessages) then {diag_log "attemptSend";};
+    if (vtx_uh60_devMode) then {diag_log "attemptSend";};
 };
 
 _success

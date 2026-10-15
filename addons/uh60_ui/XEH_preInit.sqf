@@ -5,6 +5,5 @@ ADDON = false;
 vtx_uh60_ui_isViewInternal = false;
 
 #include "XEH_PREP.hpp"
-#include "initSettings.inc.sqf"
 
 ADDON = true;

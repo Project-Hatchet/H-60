@@ -1,6 +1,7 @@
 **0.8.0**
 
  - Fix the cabin, kneeling, DAP passenger, S-70i and MH-60S GAU-21 cabin seat firing arcs never applying - the limits were written in a form the game read as text, so those seats had no arc limits at all
+ - Automatic Engine Startup rebuilt for HeliSim and moved behind a new Developer Mode setting (UH-60M > Developer). Developer Mode also shows a panel with live HeliSim state whenever you are in an H-60 and turns on script debug messages. The start now waits on the APU, bleed air, engine and generator state instead of fixed delays and is not a supported way to start the aircraft. Replaces the Simple Startup and Enable Debug Messages settings
 
 **0.7.10**
 

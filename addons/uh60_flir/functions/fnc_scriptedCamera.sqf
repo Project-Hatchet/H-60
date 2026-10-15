@@ -14,7 +14,7 @@
 
 params ["_show"];
 
-if (vtx_uh60_ui_showDebugMessages) then {systemChat "OPENING SCRIPTED CAMERA";};
+if (vtx_uh60_devMode) then {systemChat "OPENING SCRIPTED CAMERA";};
 
 if (_show) then {
   if (isNil "vtx_uh60_flir_camera") then {
@@ -55,7 +55,7 @@ if (_show) then {
     vtx_uh60_flir_fullscreenKeyEH = (findDisplay 46) displayAddEventHandler ["KeyDown", {
       params ["", "_key"];
       if (!vtx_uh60_flir_isInScriptedCamera) exitWith {false};
-      if (missionNamespace getVariable ["vtx_uh60_ui_showDebugMessages", false]) then {
+      if (missionNamespace getVariable ["vtx_uh60_devMode", false]) then {
         systemChat format ["FS KeyDown %1 (lock keys %2)", _key, actionKeys "vehLockTurretView"];
       };
       if (_key in (actionKeys "vehLockTurretView")) then {call vtx_uh60_flir_fullscreenLockFire; true} else {false};
@@ -63,12 +63,12 @@ if (_show) then {
     vtx_uh60_flir_fullscreenMouseEH = (findDisplay 46) displayAddEventHandler ["MouseButtonDown", {
       params ["", "_button"];
       if (!vtx_uh60_flir_isInScriptedCamera) exitWith {false};
-      if (missionNamespace getVariable ["vtx_uh60_ui_showDebugMessages", false]) then {
+      if (missionNamespace getVariable ["vtx_uh60_devMode", false]) then {
         systemChat format ["FS MouseDown %1 -> %2 (lock keys %3)", _button, 65536 + _button, actionKeys "vehLockTurretView"];
       };
       if ((65536 + _button) in (actionKeys "vehLockTurretView")) then {call vtx_uh60_flir_fullscreenLockFire; true} else {false};
     }];
-    if (missionNamespace getVariable ["vtx_uh60_ui_showDebugMessages", false]) then {
+    if (missionNamespace getVariable ["vtx_uh60_devMode", false]) then {
       systemChat format ["FS lock hooks installed: key EH %1, mouse EH %2, lock keys %3",
         vtx_uh60_flir_fullscreenKeyEH, vtx_uh60_flir_fullscreenMouseEH, actionKeys "vehLockTurretView"];
     };

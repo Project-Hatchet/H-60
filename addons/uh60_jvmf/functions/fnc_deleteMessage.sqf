@@ -23,7 +23,7 @@ if (VTX_JVMF_SELECTED_IDX != 0) then {
 	VTX_JVMF_SELECTED_IDX = 0; 
 };
 
-if(vtx_uh60_ui_showDebugMessages) then {
+if(vtx_uh60_devMode) then {
 	systemChat format ["Deleted Message at index: %1 and new index is %2.", VTX_JVMF_SELECTED_IDX, VTX_JVMF_SELECTED_IDX];
 };
 
