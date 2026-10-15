@@ -20,6 +20,7 @@ PREP(moveToCabin);
 PREP(moveToCockpit);
 PREP(perFrame);
 PREP(quickstart);
+PREP(devPanel);
 PREP(removeCustomization);
 PREP(setDoorNumbers);
 PREP(setup);

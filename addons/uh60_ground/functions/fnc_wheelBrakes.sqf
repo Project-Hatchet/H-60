@@ -9,7 +9,7 @@ private _isEnabled = false;
 if (count _this > 2) then {
     params ["_vehicle", "_animation", "_animationTargetLabel", "_animationTarget"];
     private _state = if (_this # 2 == "OFF") then [{0},{1}];
-    if (vtx_uh60_ui_showDebugMessages) then {diag_log "brakes exec";};
+    if (vtx_uh60_devMode) then {diag_log "brakes exec";};
     _isEnabled = (_this # 2 == "ON");
 } else {
     params ["_vehicle"];

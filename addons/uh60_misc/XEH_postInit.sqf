@@ -315,3 +315,10 @@ _action = ["vtx_fold_blades", "Fold", "", {[_target, 1] call vtx_uh60_misc_fnc_f
     [_veh, true] call vtx_uh60_misc_fnc_ccLockSeats;
   }, true, [], true] call CBA_fnc_addClassEventHandler;
 } forEach ["vtx_MH60M_DAP", "vtx_MH60M_DAP_MLASS"];
+
+// Developer panel (CBA setting vtx_uh60_devMode, UH-60M > Developer): HeliSim's state on
+// screen whenever the player is in an H-60, plus the automatic start's progress while one
+// runs. One cheap check per quarter second when the setting is off.
+if (hasInterface) then {
+    [{[vehicle player] call vtx_uh60_misc_fnc_devPanel}, 0.25, []] call CBA_fnc_addPerFrameHandler;
+};

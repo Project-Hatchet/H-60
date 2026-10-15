@@ -52,7 +52,7 @@ private _unlock = [];
     };
 } forEach _turrets;
 
-private _debug = missionNamespace getVariable ["vtx_uh60_ui_showDebugMessages", false];
+private _debug = missionNamespace getVariable ["vtx_uh60_devMode", false];
 {_veh lockTurret [_x, false]} forEach _unlock;
 if (_toggle) then {
     {_veh lockTurret [_x, false]} forEach _lock;

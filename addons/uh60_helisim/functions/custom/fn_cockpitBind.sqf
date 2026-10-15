@@ -41,4 +41,9 @@ if (_labels isEqualTo []) then {
     };
 };
 
-missionNamespace setVariable ["hct_interaction_currentButton", _prev];
+//Nothing under the cursor is nil, which setVariable cannot be handed through a local
+if (isNil "_prev") then {
+    missionNamespace setVariable ["hct_interaction_currentButton", nil];
+} else {
+    missionNamespace setVariable ["hct_interaction_currentButton", _prev];
+};
