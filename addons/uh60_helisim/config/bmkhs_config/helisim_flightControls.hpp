@@ -134,6 +134,20 @@
     };
 
 /////////////////////////////////////////////////////////////////////////////////////////////
+// Trim             /////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+//Field reference: \bmkhs_helisim\trim.hpp. The trim actuators are electric.
+    class Trim {
+        forceTrim   = 1;
+        class Beep {
+            gate[]  = {"bmkhs_dcBusOn"};
+            rate[]  = {0.10, 0.10};         //{pitch, roll} trim travel per second
+            lag     = 0.1;                  //s, press to movement
+            moves[] = {"stick", "stick"};
+        };
+    };
+
+/////////////////////////////////////////////////////////////////////////////////////////////
 // FMC              /////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
 //Field reference: \bmkhs_helisim\fmc.hpp. PID gains {kp, ki, kd, ki_clamp}, the AH-64D's - retune.
@@ -149,6 +163,8 @@
         };
         class AttitudeHold {
             gate[]      = {{"UTIL_HYD", 1260}, "bmkhs_dcBusOn"};
+            subModes[]  = {"att"};
+            alwaysOn    = 1;
             posBelowKts = 5;
             velBelowKts = 40;               //accelerating
             attBelowKts = 30;               //decelerating
@@ -157,6 +173,7 @@
             posRoll[]   = {0.0330, 0.0070, 0.0540, 0.0070};
             attPitch[]  = {0.0925, 0.0025, 0.0450, 0.0025};
             attRoll[]   = {0.0400, 0.0015, 0.0180, 0.0015};
+            trimGain[]    = {10, 10};       //deg per unit of beep trim
         };
         class AltitudeHold {
             gate[]      = {{"UTIL_HYD", 1260}, "bmkhs_dcBusOn"};
@@ -170,6 +187,7 @@
         };
         class HeadingHold {
             gate[]      = {{"UTIL_HYD", 1260}, "bmkhs_dcBusOn"};
+            subModes[]  = {"hdg", "trn"};
             hdgBelowKts = 5;
             blendToKts  = 40;
             breakout[]  = {0.05, 0.10, 0.20};   //pedal, by attitude hold sub-mode: pos / vel / att
@@ -187,6 +205,13 @@
                 altp[] = {0, 20000, 100}; //ft
                 ias[]  = {0, 200, 10};    //kt
                 hdg[]  = {0, 360, 1, 1};  //deg
+            };
+            class Floors {                //{engage, drop} KTAS
+                alt[]  = {50, 48};
+                altp[] = {50, 48};
+                ias[]  = {50, 48};
+                hdg[]  = {50, 48};
+                nav[]  = {50, 48};
             };
             altGain       = 10;
             vsMaxFpm      = 1000;
