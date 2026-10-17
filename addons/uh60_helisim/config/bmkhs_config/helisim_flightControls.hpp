@@ -136,14 +136,11 @@
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Trim             /////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
-//Field reference: \bmkhs_helisim\trim.hpp. The trim actuators are electric.
+//Field reference: \bmkhs_helisim\fmc.hpp. The trim actuators are electric.
     class Trim {
-        forceTrim   = 1;
         class Beep {
             gate[]  = {"bmkhs_dcBusOn"};
             rate[]  = {0.10, 0.10};         //{pitch, roll} trim travel per second
-            lag     = 0.1;                  //s, press to movement
-            moves[] = {"stick", "stick"};
         };
     };
 
@@ -156,42 +153,30 @@
     class FMC {
         class Sas {
             gate[]      = {{"UTIL_HYD", 1260}, "bmkhs_dcBusOn"};
-            authority[] = {0.2, 0.1, 0.1};   //pitch, roll, yaw
-            pitch[]     = {0.1500, 0.0000, 0.0020, 0.0000};
-            roll[]      = {0.1000, 0.0000, 0.0020, 0.0000};
-            yaw[]       = {0.3000, 0.0500, 0.0250, 0.0500};
+            pitch[]     = {0.0026, 0.0000, 0.000035, 0.00};
+            roll[]      = {0.0017, 0.0000, 0.000035, 0.00};
+            yaw[]       = {0.0052, 0.00087, 0.00044, 2.9};
         };
         class AttitudeHold {
             gate[]      = {{"UTIL_HYD", 1260}, "bmkhs_dcBusOn"};
-            subModes[]  = {"att"};
+            subModes[]  = {"att", "spd"};
             alwaysOn    = 1;
-            posBelowKts = 5;
-            velBelowKts = 40;               //accelerating
-            attBelowKts = 30;               //decelerating
-            authority   = 0.1;
-            posPitch[]  = {0.0900, 0.0070, 0.0720, 0.0070};   //0.6x - it went unstable climbing at high power
-            posRoll[]   = {0.0330, 0.0070, 0.0540, 0.0070};
+            spdAboveKts = 50;
+            posPitch[]  = {0.046, 0.0036, 0.037, 0.014};   //FD HVR. 0.6x - it went unstable climbing at high power
+            posRoll[]   = {0.017, 0.0036, 0.028, 0.014};
             attPitch[]  = {0.0925, 0.0025, 0.0450, 0.0025};
             attRoll[]   = {0.0400, 0.0015, 0.0180, 0.0015};
-            trimGain[]    = {10, 10};       //deg per unit of beep trim
+            spdPitch[]  = {0.5000, 0.0500, 0.0000, 10};      //airspeed hold - retune
+            trimGain[]  = {10, 10};         //deg per unit of beep trim
         };
         class AltitudeHold {
             gate[]      = {{"UTIL_HYD", 1260}, "bmkhs_dcBusOn"};
-            radBelowFt  = 1428;
-            radBelowKts = 40;
-            engageFpm   = 200;
-            collBand    = 0.05;
-            dropAboveTq = 0.98;
-            rad[]       = {0.0500, 0.0001, 0.0050, 0.0001};
-            bar[]       = {0.0010, 0.0000, 0.0008, 0.0000};
+            rad[]       = {0.015, 0.00003, 0.0015, 0.00033};
+            bar[]       = {0.0003, 0.0000, 0.00024, 0.00};
         };
         class HeadingHold {
             gate[]      = {{"UTIL_HYD", 1260}, "bmkhs_dcBusOn"};
             subModes[]  = {"hdg", "trn"};
-            hdgBelowKts = 5;
-            blendToKts  = 40;
-            breakout[]  = {0.05, 0.10, 0.20};   //pedal, by attitude hold sub-mode: pos / vel / att
-            authority   = 0.1;
             hdg[]       = {0.0750, 0.0200, 0.0050, 0.0200};
             trn[]       = {0.2500, 0.0600, 0.3000, 1.0000};   //integral holds the pedal that centres the ball
         };
@@ -206,35 +191,15 @@
                 ias[]  = {0, 200, 10};    //kt
                 hdg[]  = {0, 360, 1, 1};  //deg
             };
-            class Floors {                //{engage, drop} KTAS
-                alt[]  = {50, 48};
-                altp[] = {50, 48};
-                ias[]  = {50, 48};
-                hdg[]  = {50, 48};
-                nav[]  = {50, 48};
-            };
-            altGain       = 10;
-            vsMaxFpm      = 1000;
-            vsAccelFpm    = 200;
-            captureFt     = 50;
-            iasAccelKts   = 2;
-            maxPitchDeg   = 15;
-            pitchRateDps  = 3;
-            maxBankDeg    = 30;
-            bankPerDeg    = 1;
-            rollRateDps   = 5;
-            bankAboveKts  = 20;
-            hvrDecelKts   = 2;
-            collAuthority = 1.0;            //full travel - continuous torque is the limit
+            floorKts      = 50;           //KIAS
             cycAuthority  = 0.8;
-            pedAuthority  = 0.1;
-            vs[]          = {0.0394, 0.0197,  0.0000, 50.8};    //m/s; integral reaches full collective
-            ias[]         = {0.9720, 0.0972,  0.0000, 51.4};    //m/s to deg
+            vs[]          = {0.0002, 0.0001, 0.0000, 10000};    //fpm; integral reaches full collective
+            ias[]         = {0.5000, 0.0500, 0.0000, 100};    //kt to deg
             pitch[]       = {0.0925, 0.0025,  0.0450, 0.0025};
             roll[]        = {0.0400, 0.0015,  0.0180, 20.0};    //integral trims out a standing bank
             yaw[]         = {0.0750, 0.0200,  0.0050, 0.0200};
-            hvrPitch[]    = {0.0900, 0.0070,  0.0720, 0.0070};  //the attitude hold's pos / vel gains
-            hvrRoll[]     = {0.0330, 0.0070,  0.0540, 0.0070};
+            hvrPitch[]    = {0.046, 0.0036, 0.037, 0.014};  //the attitude hold's pos / vel gains
+            hvrRoll[]     = {0.017, 0.0036, 0.028, 0.014};
         };
     };
 
