@@ -147,7 +147,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////
 // FMC              /////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
-//Field reference: \bmkhs_helisim\fmc.hpp. PID gains {kp, ki, kd, ki_clamp}, the AH-64D's - retune.
+//Field reference: \bmkhs_helisim\fmc.hpp. PID gains {kp, ki, kd, limit}, the AH-64D's - retune.
 //Every feature works through the pilot-assist servos on the No. 2 (utility) system, and the
 //computer needs DC.
     class FMC {
@@ -155,30 +155,30 @@
             gate[]      = {{"UTIL_HYD", 1260}, "bmkhs_dcBusOn"};
             pitch[]     = {0.0026, 0.0000, 0.000035, 0.00};
             roll[]      = {0.0017, 0.0000, 0.000035, 0.00};
-            yaw[]       = {0.0052, 0.00087, 0.00044, 2.9};
+            yaw[]       = {0.0052, 0.00087, 0.00044, 0.002523};
         };
         class AttitudeHold {
             gate[]      = {{"UTIL_HYD", 1260}, "bmkhs_dcBusOn"};
             subModes[]  = {"att", "spd"};
             alwaysOn    = 1;
             spdAboveKts = 50;
-            posPitch[]  = {0.046, 0.0036, 0.037, 0.014};   //FD HVR. 0.6x - it went unstable climbing at high power
-            posRoll[]   = {0.017, 0.0036, 0.028, 0.014};
-            attPitch[]  = {0.0925, 0.0025, 0.0450, 0.0025};
-            attRoll[]   = {0.0400, 0.0015, 0.0180, 0.0015};
+            posPitch[]  = {0.046, 0.0036, 0.037, 0.1};     //FD HVR. 0.6x - it went unstable climbing at high power
+            posRoll[]   = {0.017, 0.0036, 0.028, 0.1};
+            attPitch[]  = {0.0925, 0.0025, 0.0450, 0.1};
+            attRoll[]   = {0.0400, 0.0015, 0.0180, 0.1};
             spdPitch[]  = {0.5000, 0.0500, 0.0000, 10};      //airspeed hold - retune
             trimGain[]  = {10, 10};         //deg per unit of beep trim
         };
         class AltitudeHold {
             gate[]      = {{"UTIL_HYD", 1260}, "bmkhs_dcBusOn"};
-            rad[]       = {0.015, 0.00003, 0.0015, 0.00033};
+            rad[]       = {0.015, 0.00003, 0.0015, 0.05};
             bar[]       = {0.0003, 0.0000, 0.00024, 0.00};
         };
         class HeadingHold {
             gate[]      = {{"UTIL_HYD", 1260}, "bmkhs_dcBusOn"};
             subModes[]  = {"hdg", "trn"};
-            hdg[]       = {0.0750, 0.0200, 0.0050, 0.0200};
-            trn[]       = {0.2500, 0.0600, 0.3000, 1.0000};   //integral holds the pedal that centres the ball
+            hdg[]       = {0.0750, 0.0200, 0.0050, 0.1};
+            trn[]       = {0.2500, 0.0600, 0.3000, 0.06};     //integral holds the pedal that centres the ball
         };
         //The FD panel: RALT, ALTP, ALT, IAS, HDG, FMS (nav) and HVR. Gains are a first cut - tune.
         class FlightDirector {
@@ -192,20 +192,21 @@
                 hdg[]  = {0, 360, 1, 1};  //deg
             };
             floorKts      = 50;           //KIAS
+            hvrDecelKts   = 4;            //kt/s
             cycAuthority  = 0.8;
-            vs[]          = {0.0002, 0.0001, 0.0000, 10000};    //fpm; integral reaches full collective
-            ias[]         = {0.5000, 0.0500, 0.0000, 100};    //kt to deg
-            pitch[]       = {0.0925, 0.0025,  0.0450, 0.0025};
-            roll[]        = {0.0400, 0.0015,  0.0180, 20.0};    //integral trims out a standing bank
-            yaw[]         = {0.0750, 0.0200,  0.0050, 0.0200};
-            hvrPitch[]    = {0.046, 0.0036, 0.037, 0.014};  //the attitude hold's pos / vel gains
-            hvrRoll[]     = {0.017, 0.0036, 0.028, 0.014};
+            vs[]          = {0.0002, 0.0001, 0.0000, 1.0};      //fpm; integral reaches full collective
+            ias[]         = {0.5000, 0.0500, 0.0000, 5};      //kt to deg
+            pitch[]       = {0.0925, 0.0025,  0.0450, 0.1};
+            roll[]        = {0.0400, 0.0015,  0.0180, 0.03};    //integral trims out a standing bank
+            yaw[]         = {0.0750, 0.0200,  0.0050, 0.1};
+            hvrPitch[]    = {1.0000, 0.2000, 0.0000, 5};      //kt to deg
+            hvrRoll[]     = {1.0000, 0.2000, 0.0000, 5};
         };
     };
 
     //Auto-pedal
-    pidAutoAttPitch[]   = {0.0925, 0.0025, 0.0220, 0.0025};
-    pidAutoAttRoll[]    = {0.0400, 0.0015, 0.0250, 0.0015};
-    pidAutoPedalHdg[]   = {0.1000, 0.0050, 0.0500, 30.000};
-    pidAutoPedalNtt[]   = {0.0300, 0.0080, 0.0100, 18.750};
-    pidAutoPedalAero[]  = {0.6000, 0.5000, 0.4000, 0.2000};
+    pidAutoAttPitch[]   = {0.0925, 0.0025, 0.0220, 0.1};
+    pidAutoAttRoll[]    = {0.0400, 0.0015, 0.0250, 0.1};
+    pidAutoPedalHdg[]   = {0.1000, 0.0050, 0.0500, 0.15};
+    pidAutoPedalNtt[]   = {0.0300, 0.0080, 0.0100, 0.15};
+    pidAutoPedalAero[]  = {0.6000, 0.5000, 0.4000, 0.1};
