@@ -17,7 +17,7 @@
             damageRole       = "mainRotor";
             numBlades        = 4;
             pivot[]          = {0.00, 1.81, 1.50};
-            rotation[]       = {-3.00, 0.00, 0.00};
+            rotation[]       = {-3.00, 0.00, 0.00};   //3 deg forward
             mastLength       = 0.00;      //m
             gearRatio        = 80.99;
             torqueTau        = 0.10;      //s
@@ -36,8 +36,8 @@
             coneAngle        = 12.0;  //deg at full collective
             flapBackRollMax  = 15.0;  //deg per unit advance ratio
             flapBackPitchMax =  9.0;  //deg per unit advance ratio
-            rollLiftCoef     = 0.19;
-            pitchLiftCoef    = 0.72;
+            rollLiftCoef     = 0.14;      //0.19 x0.75 - rates 25% high
+            pitchLiftCoef    = 0.60;      //0.72 x0.75, then +11%
             gndEffValue      = 1.225;
             reacTqScalar     = 0.50;
             autoTorque       = 80.0;

@@ -97,22 +97,23 @@
                 { 1.0,  0.120}
             };
         };
-        //Left cyclic as tail rotor pitch increases (left pedal) - tail rotor side thrust above the CG
+        //Left cyclic as tail rotor pitch increases (left pedal) - tail rotor side thrust above the CG.
+        //Rig x0.25 - full rig rolled it over.
         class YawToRoll {
             source  = "pedal";
             target  = "roll";
             table[] = {
-                {-1.0,  0.251},
-                {-0.8,  0.228},
-                {-0.6,  0.183},
-                {-0.4,  0.121},
-                {-0.2,  0.054},
+                {-1.0,  0.063},
+                {-0.8,  0.057},
+                {-0.6,  0.046},
+                {-0.4,  0.030},
+                {-0.2,  0.014},
                 { 0.0,  0.000},
-                { 0.2, -0.055},
-                { 0.4, -0.102},
-                { 0.6, -0.137},
-                { 0.8, -0.161},
-                { 1.0, -0.177}
+                { 0.2, -0.014},
+                { 0.4, -0.026},
+                { 0.6, -0.034},
+                { 0.8, -0.040},
+                { 1.0, -0.044}
             };
         };
         //No.2 FCC through the yaw trim actuator, on top of collective to yaw. Full mixing
@@ -208,5 +209,5 @@
     pidAutoAttPitch[]   = {0.0925, 0.0025, 0.0220, 0.1};
     pidAutoAttRoll[]    = {0.0400, 0.0015, 0.0250, 0.1};
     pidAutoPedalHdg[]   = {0.1000, 0.0050, 0.0500, 0.15};
-    pidAutoPedalNtt[]   = {0.0300, 0.0080, 0.0100, 0.15};
+    pidAutoPedalNtt[]   = {0.0150, 0.0080, 0.0100, 0.15};   //kp half the AH-64D's - hitched into NTT
     pidAutoPedalAero[]  = {0.6000, 0.5000, 0.4000, 0.1};
