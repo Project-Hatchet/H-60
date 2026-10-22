@@ -178,8 +178,11 @@
         class HeadingHold {
             gate[]      = {{"UTIL_HYD", 1260}, "bmkhs_dcBusOn"};
             subModes[]  = {"hdg", "trn"};
+            blendToKts  = 50;
+            trnEnterBankDeg = 0;
+            trnExit[]   = {2, 2, 2};
             hdg[]       = {0.0750, 0.0200, 0.0050, 0.1};
-            trn[]       = {0.2500, 0.0600, 0.3000, 0.06};     //integral holds the pedal that centres the ball
+            trn[]       = {0.2500, 0.0600, 0.3000, 0.1};      //integral holds the pedal that centres the ball
         };
         //The FD panel: RALT, ALTP, ALT, IAS, HDG, FMS (nav) and HVR. Gains are a first cut - tune.
         class FlightDirector {
