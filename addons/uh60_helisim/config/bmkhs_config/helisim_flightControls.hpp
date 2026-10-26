@@ -173,7 +173,7 @@
         class AltitudeHold {
             gate[]      = {{"UTIL_HYD", 1260}, "bmkhs_dcBusOn"};
             rad[]       = {0.015, 0.00003, 0.0015, 0.05};
-            bar[]       = {0.0003, 0.0000, 0.00024, 0.00};
+            bar[]       = {0.015, 0.00003, 0.0015, 0.05};
         };
         class HeadingHold {
             gate[]      = {{"UTIL_HYD", 1260}, "bmkhs_dcBusOn"};
