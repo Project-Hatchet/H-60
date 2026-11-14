@@ -17,7 +17,7 @@
 
 params ["_vehicle", "_unit", "_turret"];
 
-if !(_turret in [[1], [2]] && {_vehicle isKindOf "vtx_h60_base"}) exitWith {};
+if !(_turret in [[1], [2]] && {_vehicle isKindOf QBASE_CLASS}) exitWith {};
 
 [
   ["", ""],

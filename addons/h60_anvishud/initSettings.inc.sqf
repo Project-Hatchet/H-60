@@ -21,7 +21,7 @@
     false, // isGlobal
     {
       private _vehicle = vehicle player;
-      If !(_vehicle iskindOf "vtx_h60_base") exitWith {};
+      If !(_vehicle iskindOf QBASE_CLASS) exitWith {};
       [_vehicle] call vtx_uh60_anvishud_fnc_configureHMD;
     },
     false
@@ -36,7 +36,7 @@
     false, // "_isGlobal"
     {
         private _vehicle = vehicle player;
-        If !(_vehicle iskindOf "vtx_h60_base") exitWith {};
+        If !(_vehicle iskindOf QBASE_CLASS) exitWith {};
         [_vehicle] call vtx_uh60_anvishud_fnc_configureHMD;
     }
 ] call CBA_fnc_addSetting;

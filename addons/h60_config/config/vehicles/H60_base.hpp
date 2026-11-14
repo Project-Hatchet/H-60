@@ -16,6 +16,14 @@ class vtx_H60_base: Heli_Transport_01_base_F {
     };
     driverDoor = "Door_RF";
     scope=1;
+
+    // Variant traits: what SQF asks instead of listing variant classnames
+    // (read via vtx_main_fnc_getTrait / GET_TRAIT). Defaults here, variants
+    // set their own; subclasses inherit them like isKindOf would.
+    vtx_trait_flirTurretAnimated = 0;  // FLIR ball follows the pilot camera (FLIR_DIRECTION/ELEVATION)
+    vtx_trait_irLaser = 0;             // fixed-forward IZLID keybind
+    vtx_trait_erfsService = 0;         // ERFS tank attach/remove ACE actions
+    vtx_trait_crewChiefTurnOut = 0;    // crew chief turn-in/turn-out seat swap (DAP)
     editorSubcategory = "vtx_h60";
     side = 1;
     faction = "BLU_F";

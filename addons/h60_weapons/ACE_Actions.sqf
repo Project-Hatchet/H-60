@@ -12,7 +12,7 @@ private _action = [
   0,
   "pylonLeft"
 ] call ace_interact_menu_fnc_createAction;
-["vtx_H60_base", 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
+[QBASE_CLASS, 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
 // Right Pylon
 _action = [
   "vtx_pylonPositionR",
@@ -25,4 +25,4 @@ _action = [
   "pylonRight"
   //[2.16147,0.33224,-0.557818]
 ] call ace_interact_menu_fnc_createAction;
-["vtx_H60_base", 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
+[QBASE_CLASS, 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;

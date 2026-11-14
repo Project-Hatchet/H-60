@@ -71,6 +71,9 @@ class CfgVehicles {
         };
     }; // vtx_H60_base
     class vtx_MH60M: vtx_H60_base {
+        vtx_trait_flirTurretAnimated = 1;
+        vtx_trait_irLaser = 1;
+        vtx_trait_erfsService = 1;
         class pilotCamera: vtx_templateFLIR {};
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         scope = 2;
@@ -162,6 +165,10 @@ class CfgVehicles {
         class BMKHS_HeliSim: BMKHS_HeliSim { SEATS_MH60M };
     }; // vtx_MH60M
     class vtx_MH60M_DAP : vtx_H60_base {
+        vtx_trait_flirTurretAnimated = 1;
+        vtx_trait_irLaser = 1;
+        vtx_trait_erfsService = 1;
+        vtx_trait_crewChiefTurnOut = 1;
         class pilotCamera: vtx_templateFLIR {};
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         scope = 2;
@@ -275,6 +282,10 @@ class CfgVehicles {
         class BMKHS_HeliSim: BMKHS_HeliSim { SEATS_DAP };
     }; // vtx_MH60M_DAP
     class vtx_MH60M_DAP_MLASS: vtx_H60_base {
+        vtx_trait_flirTurretAnimated = 1;
+        vtx_trait_irLaser = 1;
+        vtx_trait_erfsService = 1;
+        vtx_trait_crewChiefTurnOut = 1;
         displayName = "MH-60M DAP MLASS";
         class pilotCamera: vtx_templateFLIR {};
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";

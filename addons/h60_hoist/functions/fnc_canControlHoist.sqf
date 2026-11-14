@@ -1,3 +1,4 @@
+#include "..\script_component.hpp"
 /*
  * Author: Ampersand
  * check if player is able to control the hoist
@@ -15,7 +16,7 @@
 params ["_unit"];
 
 private _vehicle = vehicle _unit;
-if !(typeOf _vehicle isKindOf "vtx_H60_base") exitWith { false };
+if !(typeOf _vehicle isKindOf QBASE_CLASS) exitWith { false };
 if (_unit == driver _vehicle) exitWith { true }; // driver can control
 
 private _turretIndex = [_unit] call ace_common_fnc_getTurretIndex;

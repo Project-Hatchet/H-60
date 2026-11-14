@@ -1,7 +1,8 @@
+#include "..\script_component.hpp"
 params ["_vehicle", "_direction"];
 private _availablePlayers = [player];
 {
-	private _isIn60 = (vehicle _x) isKindOf "vtx_h60_base";
+	private _isIn60 = (vehicle _x) isKindOf QBASE_CLASS;
 	private _copilotTurretIndex = [_vehicle] call ace_common_fnc_getTurretCopilot;
 	private _isDriver = _x == driver (vehicle _x);
 	private _isCopilot = (_vehicle unitTurret _x) isEqualTo _copilotTurretIndex;

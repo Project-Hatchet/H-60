@@ -1,9 +1,10 @@
+#include "..\script_component.hpp"
 /*
  * vtx_uh60_misc_fnc_attachCRRC
  */
 params ["_boat"];
 
-private _helicopters = nearestObjects [_target, ["vtx_H60_base"], 10];
+private _helicopters = nearestObjects [_target, [QBASE_CLASS], 10];
 private _helicopter = _helicopters # 0;
 
 private _attachedBoat = _helicopter getVariable ["vtx_crrc_attached", nil];

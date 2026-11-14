@@ -1,9 +1,10 @@
+#include "..\script_component.hpp"
 /*
  * vtx_uh60_mfd_fnc_interaction_slew
  */
 params ["_action", "_value"];
 private _vehicle = vehicle player;
-if (!([_vehicle, "mfd", "vtx_H60_base"] call hct_core_fnc_hasModule)) exitWith {};
+if (!([_vehicle, "mfd", QBASE_CLASS] call hct_core_fnc_hasModule)) exitWith {};
 
 private _mfdState = (getUserMFDValue _vehicle) # 39;
 if (_action == "slewX" || _action == "slewY") exitWith {

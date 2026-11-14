@@ -47,8 +47,8 @@ GVAR(unloadActionCargo) = [ // create action
 ] call ace_interact_menu_fnc_createAction;
 ["All", 0, ["ACE_MainActions"], GVAR(unloadActionCargo), true] call ace_interact_menu_fnc_addActionToClass;
 
-["vtx_H60_base", "GetIn", {call FUNC(onGetInOut)}, true, [], true] call CBA_fnc_addClassEventHandler;
-["vtx_H60_base", "GetOut", {call FUNC(onGetInOut)}, true, [], true] call CBA_fnc_addClassEventHandler;
+[QBASE_CLASS, "GetIn", {call FUNC(onGetInOut)}, true, [], true] call CBA_fnc_addClassEventHandler;
+[QBASE_CLASS, "GetOut", {call FUNC(onGetInOut)}, true, [], true] call CBA_fnc_addClassEventHandler;
 
 [QGVAR(setVehicleCargo), {
     params ["_carrier", "_cargo"];

@@ -9,12 +9,20 @@ class name { \
 
 #define ANIM_INIT(name,init) class name : name {initPhase = init;}
 
+// The common base every H-60 variant derives from (owned by uh60_config).
+// Use these instead of the literal so the base name lives in one place.
+#define BASE_CLASS vtx_H60_base
+#define QBASE_CLASS "vtx_H60_base"
+// Variant trait lookup: config vtx_trait_<name> on the vehicle class, cached.
+#define GET_TRAIT(veh,name) ([veh, name] call vtx_main_fnc_getTrait)
+#define HAS_TRAIT(veh,name) (GET_TRAIT(veh,name) isEqualTo 1)
+
 #define POS_MOVE_CABIN_COCKPIT {0.023875,4.2461,-0.577079}
 #define IS_NOT_ZEUS if !(isNull curatorCamera) exitWith {false}
 #define IS_IN_H60 IS_NOT_ZEUS; \
   private _unit = call CBA_fnc_currentUnit; \
   private _vehicle = vehicle _unit; \
-  if !(_vehicle isKindOf "vtx_H60_base") exitWith {false}
+  if !(_vehicle isKindOf QBASE_CLASS) exitWith {false}
 
 #define IS_EITHER_PILOT IS_IN_H60; \
 if (_unit isNotEqualTo (driver _vehicle) && {(_vehicle unitTurret _unit) isNotEqualTo [0]}) exitWith {false}

@@ -1,3 +1,4 @@
+#include "..\script_component.hpp"
 /*
  * Author: Ampersand
  * Animate the FLIR turret model
@@ -14,12 +15,9 @@
 
 params ["_vehicle", ["_instant", false]];
 
-// Pavehawk and Seahawk FLIR turrets don't animate properly yet
-if !(
-  _vehicle isKindOf "vtx_MH60M" ||
-  {_vehicle isKindOf "vtx_MH60M_DAP"} ||
-  {_vehicle isKindOf "vtx_MH60M_DAP_MLASS"}
-) exitWith {};
+// Pavehawk and Seahawk FLIR turrets don't animate properly yet: only airframes
+// with the flirTurretAnimated trait (MH-60M family) drive the ball.
+if (isNull _vehicle || {!HAS_TRAIT(_vehicle,"flirTurretAnimated")}) exitWith {};
 
 private _rotation = getPilotCameraRotation _vehicle;
 if (_rotation isNotEqualTo [

@@ -19,11 +19,7 @@
 
 params [["_state", -1]];
 
-if !(
-  hct_vehicle isKindOf "vtx_MH60M" ||
-  {hct_vehicle isKindOf "vtx_MH60M_DAP"} ||
-  {hct_vehicle isKindOf "vtx_MH60M_DAP_MLASS"}
-) exitWith {};
+if (isNil "hct_vehicle" || {isNull hct_vehicle} || {!HAS_TRAIT(hct_vehicle,"irLaser")}) exitWith {};
 
 switch (hct_vehicle unitTurret hct_player) do {
   case [-1]: {

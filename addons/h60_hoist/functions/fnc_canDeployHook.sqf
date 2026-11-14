@@ -1,3 +1,4 @@
+#include "..\script_component.hpp"
 /*
  * Author: Ampersand
  * check if heli is able to deploy hook
@@ -14,7 +15,7 @@
 
 params ["_heli"];
 
-if !(_heli isKindOf "vtx_h60_base") exitWith {false};
+if !(_heli isKindOf QBASE_CLASS) exitWith {false};
 private _hoist_vars = _heli getVariable ["vtx_uh60_hoist_vars", []];
 if (_hoist_vars isNotEqualTo []) exitWith {false};
 if (
