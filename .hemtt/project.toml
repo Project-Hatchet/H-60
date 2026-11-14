@@ -26,6 +26,9 @@ exclude = [
     "*.tga",
     "*.md",
     "texHeaders.bin",
+    # DEV ONLY - un-comment so -filePatching picks up loose .sqf edits (Arma prefers
+    # a packed .sqfc). hooks/pre_release/guard_sqfc.rhai blocks a release while it is on.
+    # "**/*.sqfc",
 ]
 
 [hemtt.release]

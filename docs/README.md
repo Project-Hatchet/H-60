@@ -2,6 +2,7 @@
 
 | Path | What it is |
 |---|---|
+| `ARCHITECTURE.md` | **This fork's layout:** common base + one PBO per airframe family, the layering rules `tools/validate_tree.py` enforces, variant traits, how to add a variant, how to verify a change. |
 | `IMPROVEMENT_PLAN.md` | The master plan: what the AH-64D and MH-47G reference projects teach, phases 0–6 (correctness fixes → base-class consolidation → deletions → HEMTT/CI → conventions → systems architecture → process), the cross-check against the public issue tracker, and sequencing/risk. Start here. |
 | `H60_Improvement_Plan_Plain_English.pdf` | The master plan in plain English. |
 | `phase-0/` | Correctness fixes. Phase 0 ships as one `fix/<slug>` branch and PR per bug, so the technical detail and verification live in the PR descriptions; the folder holds the plain-English summary PDF. |
