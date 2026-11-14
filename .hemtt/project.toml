@@ -6,9 +6,8 @@ mainprefix = "z"
 author = "Project Hatchet"
 
 [version]
-# addons/main/script_version.hpp is HEMTT's default location; MAJOR/MINOR/PATCHLVL/BUILD
-# are read from it. When the folder becomes h60_main (WP2d) set:
-# path = "addons/h60_main/script_version.hpp"
+# MAJOR/MINOR/PATCHLVL/BUILD are read from the main addon's script_version.hpp.
+path = "addons/h60_main/script_version.hpp"
 git_hash = 0
 
 [files]

@@ -13,7 +13,7 @@ What it does, in order:
   1. refuses to run on a dirty working tree
   2. checks out <ref> (and returns to the previous checkout afterwards)
   3. with --bump/--version: stamps the new version into
-     addons/main/script_version.hpp, retitles the **Unreleased** block at
+     addons/h60_main/script_version.hpp, retitles the **Unreleased** block at
      the top of CHANGELOG-DEV.md to that version, and commits both on <ref>
      - so the in-game version, the changelog and the Workshop note agree
   4. refuses to build a branch whose local copy differs from origin (the
@@ -49,7 +49,7 @@ ISSUE_URL = "https://github.com/Project-Hatchet/H-60/issues/"
 MOD_FOLDER = Path("release") / "@H-60"
 PBO_PREFIX = "hct_"  # HEMTT names PBOs <project prefix>_<addon folder>.pbo
 HEMTT_OUT = Path(".hemttout") / "build"
-VERSION_FILE = "addons/main/script_version.hpp"
+VERSION_FILE = "addons/h60_main/script_version.hpp"
 CHANGELOG = "CHANGELOG-DEV.md"
 TESTING_LABEL = "Ready for Testing"  # the devbuild branch = Main + PRs wearing this label
 DEV_MOD_CPP = """name = "H-60 pack - Development branch";

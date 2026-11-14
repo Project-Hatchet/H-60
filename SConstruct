@@ -52,7 +52,7 @@ def getPboInfo(settings):
         pboInfo.folder = os.path.join(settings["addonsFolder"], name)
         pboInfo.outputPath = pboInfo.folder + ".pbo"
         pboInfo.builtpath = os.path.join(settings["outputFolder"], name + ".pbo")
-        pboInfo.filename = "hct_h60_" + name + ".pbo"
+        pboInfo.filename = "hct_" + name + ".pbo"
         pboInfo.filepath = os.path.join(settings["outputFolder"], pboInfo.filename)
         with open(os.path.join(pboInfo.folder,"$PBOPREFIX$"), "r") as file:
             pboInfo.pboPrefix = file.readline().strip()

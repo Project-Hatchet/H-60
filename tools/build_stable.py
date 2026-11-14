@@ -10,7 +10,7 @@ What it does, in order:
      differs from origin (same guard as push_dev.py)
   2. checks out <ref> (and returns to the previous checkout afterwards)
   3. runs `hemtt release` - unsigned and archived per .hemtt/project.toml;
-     the version is read from addons/main/script_version.hpp at <ref>, so a
+     the version is read from addons/h60_main/script_version.hpp at <ref>, so a
      Stable build needs the release PR merged first (BUILD must be 0)
   4. verifies: 25 fresh PBOs, every PBO header stamped with that version,
      no .bisign (signing is done by hand), the repo-root Stable mod.cpp
@@ -32,7 +32,7 @@ import time
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-VERSION_FILE = "addons/main/script_version.hpp"
+VERSION_FILE = "addons/h60_main/script_version.hpp"
 HEMTT_OUT = REPO / ".hemttout" / "release"
 ZIPS = REPO / "releases"
 DEFAULT_DEST_ROOT = Path(os.environ.get("USERPROFILE", "")) / "OneDrive" / "Documents" / "Hatchet" / "H-60" / "Releases" / "Stable Branch"

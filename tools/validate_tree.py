@@ -71,13 +71,32 @@ def read(path):
         return fh.read()
 
 
+_prefix_map = None
+
+
+def prefix_map():
+    """{lower-case $PBOPREFIX$ parts tuple: addon folder}. Folder names are decoupled
+    from the shipped prefix (z\\vtx\\addons\\<x>), so includes resolve through it."""
+    global _prefix_map
+    if _prefix_map is None:
+        _prefix_map = {}
+        for addon in os.listdir(ADDONS):
+            pf = os.path.join(ADDONS, addon, "$PBOPREFIX$")
+            if os.path.isfile(pf):
+                val = read(pf).decode("utf-8", "replace").strip().strip("\\")
+                _prefix_map[tuple(p.lower() for p in val.split("\\") if p)] = addon
+    return _prefix_map
+
+
 def resolve_include(src_dir, target):
     # Arma paths are written with backslashes; on Linux they must become real separators
     t = target.replace("\\", os.sep).replace("/", os.sep)
     if t.startswith(os.sep):
         parts = t.strip(os.sep).split(os.sep)
-        if len(parts) > 3 and parts[0].lower() == "z" and parts[1].lower() == "vtx" and parts[2].lower() == "addons":
-            return os.path.join(ADDONS, *parts[3:])
+        low = tuple(p.lower() for p in parts)
+        for pre, addon in prefix_map().items():
+            if low[:len(pre)] == pre:
+                return os.path.join(ADDONS, addon, *parts[len(pre):])
         return os.path.join(INCLUDE_DIR, *parts)
     cand = os.path.join(src_dir, t)
     if not os.path.exists(cand) and os.path.exists(os.path.join(INCLUDE_DIR, t)):

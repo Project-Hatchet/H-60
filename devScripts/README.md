@@ -5,10 +5,10 @@ These are **functional testing helpers** used during development. They are inten
 Run them from the in-game debug console while in or near a helicopter, e.g.:
 
 ```
-call compile preprocessFileLineNumbers "<repo>\devScripts\uh60_misc\fnc_instantStart.sqf"
+call compile preprocessFileLineNumbers "<repo>\devScripts\h60_misc\fnc_instantStart.sqf"
 ```
 
-## uh60_misc
+## h60_misc
 
 | Script | What it does |
 |---|---|

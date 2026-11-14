@@ -2,14 +2,14 @@
     "addonsFolder": "addons",
     "excludePboSymlinks": [],
     "noBinarize":
-        [ "stretcher"
-        , "UH60"
-        , "uh60_aar"
-        , "uh60_flir"
-        , "uh60_fms"
-        , "uh60_hoist"
-        , "uh60_misc"
-        , "uh60_weapons"
+        [ "h60_stretcher"
+        , "uh60"
+        , "h60_aar"
+        , "h60_flir"
+        , "h60_fms"
+        , "h60_hoist"
+        , "h60_misc"
+        , "h60_weapons"
         ],
     "outputFolder": "release/@H-60/addons",
     "devNextVersion": "0.8.0.2"

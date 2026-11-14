@@ -129,7 +129,7 @@ jobs:
           # the stamp from Main plus the previous devbuild tip. push_dev.py
           # picks the version up from the branch, so devbuild Workshop pushes
           # no longer need --version/--bump.
-          VERSION_FILE=addons/main/script_version.hpp
+          VERSION_FILE=addons/h60_main/script_version.hpp
           parse_ver() { tr -d '\r' | awk '/#define (MAJOR|MINOR|PATCHLVL|BUILD) /{v[$2]=$3} END{print v["MAJOR"], v["MINOR"], v["PATCHLVL"], v["BUILD"]}'; }
           read -r main_major main_minor main_patch _ < <(git show "$base_sha:$VERSION_FILE" | parse_ver)
           dev_major=$main_major; dev_minor=$main_minor; dev_patch=$((main_patch + 1)); min_build=1
