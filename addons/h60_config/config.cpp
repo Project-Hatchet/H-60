@@ -43,8 +43,6 @@ class CfgFontFamilies {
 #define mag_xx(a,b) class _xx_##a {magazine = QUOTE(a); count = b;}
 #define weap_xx(a,b) class _xx_##a {weapon = a; count = b;}
 
-#include "config\cfgWeapons.hpp"
-#include "config\cfgMagazines.hpp"
 #include "config\cfgVehicles.hpp"
 #include "config\cfgSounds.hpp"
 

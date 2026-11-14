@@ -70,7 +70,7 @@ class hct_turret_1 {
             }; // safetyCover
         }; // coverDown
 
-        #include "hct_window_l.hpp"
+        #include "\z\vtx\addons\uh60_config\config\hct_window_l.hpp"
     }; // interaction
 }; // hct_gunner
 class hct_turret_2 {
@@ -145,6 +145,6 @@ class hct_turret_2 {
             }; // safetyCover
         }; // coverDown
 
-        #include "hct_window_r.hpp"
+        #include "\z\vtx\addons\uh60_config\config\hct_window_r.hpp"
     }; // interaction
 }; // hct_gunner

@@ -1,7 +1,7 @@
 // vtx_H60_base — sole full declaration (Phase 1 PR C).
 // Body order preserves the former two-unit merge: vtx_UH60's members first
 // (in their original order), then the members this addon used to add via its
-// delta re-open (TextureSources, Armory, MFD, hct_minigun, hct_turret_3).
+// delta re-open (TextureSources, Armory, MFD, hct_turret_3).
 // AnimationSources is the merged single owner in ..\CfgAnimationSources.hpp.
 class vtx_H60_base: Heli_Transport_01_base_F {
     #include "..\cfgUVAnimations.hpp"
@@ -411,7 +411,7 @@ class vtx_H60_base: Heli_Transport_01_base_F {
       description = ""; // Remove Ghosthawk text
     };
     class MFD;
-    #include "..\hct_minigun.hpp"
+    // hct_turret_1/2 (door-gun seats) are added by uh60_doorguns
     class hct_turret_3 {
     projectPrefix = "vtx_uh60";
       class modules {
