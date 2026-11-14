@@ -12,21 +12,22 @@
  * [_unit] call vtx_uh60_hoist_fnc_moveHookToHeli
  */
 
-params ["_unit"];
+params [["_unit", objNull, [objNull]]];
+if (isNull _unit) exitWith {false};
 if !(local _unit) exitWith {[_unit] remoteExecCall ["vtx_uh60_hoist_fnc_moveHookToHeli", _unit]};
 
-private _hook = vehicle _unit;
-if (_hook == _unit) exitWith {false};
+private _hook = objectParent _unit;
+if (isNull _hook) exitWith {false};
 
 private _heli = _hook getVariable ["vtx_uh60_hoist_heli", objNull];
-if (_heli == objNull) exitWith {false};
+if (isNull _heli) exitWith {false}; // `== objNull` is never true
 
 _unit leaveVehicle _hook;
 moveOut _unit;
 
 [{
 	params ["_unit"];
-	vehicle _unit == _unit
+	isNull objectParent _unit
 }, {
 	params ["_unit", "_heli"];
     _unit assignAsCargo _heli;

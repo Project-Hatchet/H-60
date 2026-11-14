@@ -24,20 +24,19 @@ if (!isNull (_unit getVariable ["vtx_attachedHook", objNull])) exitWith {false};
 if (!isNull (_unit getVariable ["vtx_attachedHelper", objNull])) exitWith {false};
 if (!isNull (_hook getVariable ["vtx_attachedUnit", objNull])) exitWith {false};
 
-private _heli = _hook getVariable "vtx_uh60_hoist_heli";
-if (isNil "_heli") exitWith { false };
+private _heli = _hook getVariable ["vtx_uh60_hoist_heli", objNull];
+if (isNull _heli) exitWith { false };
 
 private _hoist_vars = _heli getVariable ["vtx_uh60_hoist_vars", []];
 if (_hoist_vars isEqualTo []) exitWith{ false };
 _hoist_vars params ["_rope", "_helper"];
 
-if (vehicle _unit == _unit) then {
+if (isNull objectParent _unit) then {
   _helper attachTo [_unit, [0,0.15,0.2], "pelvis"];
 };
 _unit setVariable ["vtx_detachHookActionID", _unit addAction [
   localize LSTRING(DetachHook),
   {
-    vtx_uh60_hoist_pfhID = -1;
     detach (_this # 3)
   },
   _helper, // Args

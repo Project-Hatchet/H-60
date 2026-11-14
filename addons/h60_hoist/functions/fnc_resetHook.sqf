@@ -28,4 +28,11 @@ if (!isNull _hook) then {
 };
 _heli setVariable ["vtx_uh60_hoist_vars", [], true];
 
+// the deploy's RopeBreak handler (deployHook) goes with the rope
+private _ropeBreakEH = _heli getVariable ["vtx_uh60_hoist_ropeBreakEH", -1];
+if (_ropeBreakEH != -1) then {
+  _heli removeEventHandler ["RopeBreak", _ropeBreakEH];
+  _heli setVariable ["vtx_uh60_hoist_ropeBreakEH", -1];
+};
+
 true
