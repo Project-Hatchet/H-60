@@ -136,6 +136,10 @@ private _editNumbersRight = ["vtx_uh60_paintNumbersRight" + (str random 1), "Cha
 ["vtx_h60_base",0,[],(_editNumbersLeft call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
 ["vtx_h60_base",0,[],(_editNumbersRight call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
 
+// The progress bars allow carrying/dragging: removing a part hands it to the
+// player as an ACE carry, and without the exceptions ACE cancels the bar on
+// its first frame - attaching the part you are holding did nothing at all
+// (test report 2026-10-06)
 #define CUSTOMIZATION_ACTION_TIME 5
 #define WRAP_PROGRESS(FNC) { \
 	params ["_target", "_player", "_params"]; \
@@ -143,7 +147,7 @@ private _editNumbersRight = ["vtx_uh60_paintNumbersRight" + (str random 1), "Cha
 		params ["_args"]; \
 		_args params ["_target", "_player", "_params"]; \
 		[_target, _player, _params] call FNC; \
-	}] call ace_common_fnc_progressBar; \
+	}, {}, "", {true}, ["isNotCarrying", "isNotDragging"]] call ace_common_fnc_progressBar; \
 }
 
 private _customizationOptions = [
@@ -193,7 +197,7 @@ private _erfsAddOption = [
 			[_target, _player, _params] call vtx_uh60_misc_fnc_addCustomization;
 			_target animateSource ["CabinSeats_3_Hide", 1];
 			{ _target lockCargo [_x, true] } forEach [0, 1, 2, 3];
-		}] call ace_common_fnc_progressBar;
+		}, {}, "", {true}, ["isNotCarrying", "isNotDragging"]] call ace_common_fnc_progressBar;
 	},
 	vtx_uh60_misc_fnc_canCustomizeVariant,
 	nil,
@@ -254,29 +258,32 @@ private _modifierFunc = {
 _action = ["vtx_fold_blades", "Fold", "", {[_target, 1] call vtx_uh60_misc_fnc_fold;}, {[_target, ACE_player] call vtx_uh60_misc_fnc_canFold}, nil, [], "velka osa", 3, [false, false, false, false, false], _modifierFunc] call ace_interact_menu_fnc_createAction;
 ["vtx_H60_base", 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
 
-// DAP crew-chief Turn In / Turn Out (the aft MFOS turn-out replacement,
-// Riverman rulings 2026-09-17/18): CONTEXTUAL entries in the VEHICLE menu -
-// vehicle-class self actions at the ACE_SelfActions root, which is the same
-// tree ACE's own "Change Seats" lives in, so the entry shows up beside it,
-// not under it and not in the soldier's personal self-interact menu. The
-// direction filter in the condition means exactly one of the two labels
-// ("Turn Out" / "Turn In") is visible at a time.
+// Crew-chief seat swaps (fnc_ccSwap, pair table in XEH_preInit): CONTEXTUAL
+// entries in the VEHICLE menu - vehicle-class self actions at the
+// ACE_SelfActions root, which is the same tree ACE's own "Change Seats" lives
+// in, so the entry shows up beside it, not under it and not in the soldier's
+// personal self-interact menu. Each action's condition is a dry-run swap of
+// its kind, so a label is only visible from a seat that has that swap
+// available right now (DAP: Turn Out / Turn In; hoist birds: Enter Hoist
+// Operator from the right crew seat with the right door open and a hoist
+// fitted, Exit Hoist Operator from the pendant seat). Registered once on the base class with
+// inheritance - the dry-run fails cheaply on variants without the seats.
 {
-  private _turnOut = [
-    "vtx_ccTurnOut", "Turn Out", "",
-    {[_player, false, "out"] call vtx_uh60_misc_fnc_ccSwap;},
-    {[_player, true, "out"] call vtx_uh60_misc_fnc_ccSwap;}
+  _x params ["_id", "_label", "_kind"];
+  private _action = [
+    _id, _label, "",
+    compile format ["[_player, false, '%1'] call vtx_uh60_misc_fnc_ccSwap;", _kind],
+    compile format ["[_player, true, '%1'] call vtx_uh60_misc_fnc_ccSwap;", _kind]
   ] call ace_interact_menu_fnc_createAction;
-  private _turnIn = [
-    "vtx_ccTurnIn", "Turn In", "",
-    {[_player, false, "in"] call vtx_uh60_misc_fnc_ccSwap;},
-    {[_player, true, "in"] call vtx_uh60_misc_fnc_ccSwap;}
-  ] call ace_interact_menu_fnc_createAction;
-  [_x, 1, ["ACE_SelfActions"], _turnOut, true] call ace_interact_menu_fnc_addActionToClass;
-  [_x, 1, ["ACE_SelfActions"], _turnIn, true] call ace_interact_menu_fnc_addActionToClass;
-} forEach ["vtx_MH60M_DAP", "vtx_MH60M_DAP_MLASS"];
+  ["vtx_H60_base", 1, ["ACE_SelfActions"], _action, true] call ace_interact_menu_fnc_addActionToClass;
+} forEach [
+  ["vtx_ccTurnOut", "Turn Out", "out"],
+  ["vtx_ccTurnIn", "Turn In", "in"],
+  ["vtx_ccEnterHoistOp", "Enter Hoist Operator", "hoist"],
+  ["vtx_ccExitHoistOp", "Exit Hoist Operator", "unhoist"]
+];
 
-// The turned-out spots are swap-only: locked where the vehicle is local, so
+// Swap-only and reserved seats are locked where the vehicle is local, so
 // they never appear in the door get-in menu, the scroll-wheel seat change,
 // or ACE's Change Seats list (ACE skips lockedTurret seats). Event is "init",
 // NOT "initPost": CBA only applies "initPost" retroactively after postInit
@@ -288,30 +295,64 @@ _action = ["vtx_fold_blades", "Fold", "", {[_target, 1] call vtx_uh60_misc_fnc_f
 // TRANSITION refreshes it, so every boarding re-toggles the locks (see
 // fnc_ccLockSeats). fnc_ccSwap unlocks the target for the one scripted
 // move, then relocks.
+// init: PLAIN lock immediately (a toggle here leaves the seats unlocked at
+// mission start - the next-frame relock doesn't fire reliably in the init
+// window; field-tested 2026-09-20, turned-out seats were enterable until
+// the first get-out), then a delayed toggle at +1s for the menu rebuild
+// (the first ACE action-list build only refreshes on a lock TRANSITION -
+// the "Door Left 1 unreachable until a crew cycle" report)
+["vtx_H60_base", "init", {
+  params ["_veh"];
+  if (!local _veh) exitWith {};
+  [_veh] call vtx_uh60_misc_fnc_ccLockSeats;
+  [{_this call vtx_uh60_misc_fnc_ccLockSeats}, [_veh, true], 1] call CBA_fnc_waitAndExecute;
+}, true, [], true] call CBA_fnc_addClassEventHandler;
+// GetIn/GetOut/SeatSwitched keep the reserved-seat rules honest: a crew
+// chief who dismounts entirely from the turned-out spot or the pendant seat
+// (instead of swapping back) frees their crew seat on the reconcile, and a
+// hoist operator who leaves the pendant seat by any route loses the
+// designation there. SeatSwitched is the in-vehicle seat change (scroll
+// menu / ACE Change Seats), which fires neither GetIn nor GetOut.
 {
-  // init: PLAIN lock immediately (a toggle here leaves the seats unlocked at
-  // mission start - the next-frame relock doesn't fire reliably in the init
-  // window; field-tested 2026-09-20, turned-out seats were enterable until
-  // the first get-out), then a delayed toggle at +1s for the menu rebuild
-  // (the first ACE action-list build only refreshes on a lock TRANSITION -
-  // the "Door Left 1 unreachable until a crew cycle" report)
-  [_x, "init", {
-    params ["_veh"];
-    if (!local _veh) exitWith {};
-    [_veh] call vtx_uh60_misc_fnc_ccLockSeats;
-    [{_this call vtx_uh60_misc_fnc_ccLockSeats}, [_veh, true], 1] call CBA_fnc_waitAndExecute;
-  }, true, [], true] call CBA_fnc_addClassEventHandler;
-  [_x, "GetIn", {
+  ["vtx_H60_base", _x, {
     params ["_veh"];
     if (!local _veh) exitWith {};
     [_veh, true] call vtx_uh60_misc_fnc_ccLockSeats;
   }, true, [], true] call CBA_fnc_addClassEventHandler;
-  // GetOut keeps the reserved-seat rule honest: a crew chief who dismounts
-  // entirely from the turned-out spot (instead of turning back in) frees
-  // their crew-chief seat on the reconcile
-  [_x, "GetOut", {
-    params ["_veh"];
-    if (!local _veh) exitWith {};
-    [_veh, true] call vtx_uh60_misc_fnc_ccLockSeats;
-  }, true, [], true] call CBA_fnc_addClassEventHandler;
-} forEach ["vtx_MH60M_DAP", "vtx_MH60M_DAP_MLASS"];
+} forEach ["GetIn", "GetOut", "SeatSwitched"];
+
+// Window / crew-chief seats start TURNED IN (Riverman ruling 2026-10-06:
+// "it doesn't make sense to get into the seat and already be leaning out of
+// the window"). The engine boards a unit into these seats turned out and has
+// no config switch for the starting state, so this is the MH-47G hoist-seat
+// pattern: a short defer so the seat entry completes, then the unit-local
+// TurnIn action. Player-side CBA events cover every way into the seat -
+// boarding, in-vehicle seat changes, the scripted swaps, and starting a
+// mission already seated (retroactive "vehicle"). Scope is by config, not
+// by name: person turrets that can turn out (isPersonTurret 1 +
+// canHideGunner 1) - the MEDEVAC window seats and the S-70i crew chief
+// seats. The minigun door gunners are weapon turrets (turned out IS the gun
+// position) and are deliberately left alone.
+if (hasInterface) then {
+  private _startTurnedIn = {
+    params ["_unit"];
+    private _veh = objectParent _unit;
+    if (isNull _veh || {!(_veh isKindOf "vtx_H60_base")}) exitWith {};
+    [{
+      params ["_unit", "_veh"];
+      if !(objectParent _unit isEqualTo _veh) exitWith {};
+      private _turret = _veh unitTurret _unit;
+      if (_turret isEqualTo [] || {_turret isEqualTo [-1]}) exitWith {};
+      private _cfg = [_veh, _turret] call BIS_fnc_turretConfig;
+      if (
+        getNumber (_cfg >> "isPersonTurret") == 1
+        && {getNumber (_cfg >> "canHideGunner") == 1}
+        && {isTurnedOut _unit}
+      ) then {
+        _unit action ["TurnIn", _veh];
+      };
+    }, [_unit, _veh], 0.3] call CBA_fnc_waitAndExecute;
+  };
+  ["vehicle", _startTurnedIn, true] call CBA_fnc_addPlayerEventHandler;
+  ["turret", _startTurnedIn] call CBA_fnc_addPlayerEventHandler;
+};
