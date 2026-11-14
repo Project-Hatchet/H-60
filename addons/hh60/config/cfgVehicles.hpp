@@ -108,7 +108,7 @@ class CfgVehicles {
       class MainTurret: MainTurret {};
       class RightDoorGun: RightDoorGun {};
       #include "\z\vtx\addons\uh60_config\config\turrets\cargoTurrets.hpp"
-      #include "\z\vtx\addons\MH60M\config\turrets\troopCommander.hpp"
+      #include "\z\vtx\addons\uh60_config\config\turrets\troopCommander_mh60.hpp"
     };
 
     transportSoldier=0;

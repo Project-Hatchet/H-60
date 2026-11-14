@@ -3,11 +3,9 @@
 class CfgPatches {
     class ADDON {
         name = COMPONENT_NAME;
+        // Common base: vtx_H60_base + crew. Variants are in their own PBOs;
+        // this CfgPatches name stays so missions that list it keep loading.
         units[] = {
-          "vtx_UH60M",
-          "vtx_UH60M_Slick",
-          "vtx_UH60M_MEDEVAC",
-          "vtx_S70i",
           "vtx_uh60_doorgunner",
           "vtx_uh60_pilot"
         };

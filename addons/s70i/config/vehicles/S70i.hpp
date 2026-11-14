@@ -41,7 +41,7 @@ class vtx_S70i: vtx_H60_base {
     }; // AnimationSources
     class Turrets: Turrets {
       class CopilotTurret: CopilotTurret {};
-      #include "..\turrets\crewSeatsFFV.hpp"
+      #include "\z\vtx\addons\uh60_config\config\turrets\crewSeatsFFV.hpp"
       // Pendant seat — same "Door Right 1 (hoist controls)" as the military
       // variants (copy of cargoTurretsDoor.hpp CargoTurret_01), so the S-70i
       // gains hoist-operator capability when fix/hoist-control-gate lands.
@@ -98,5 +98,5 @@ class vtx_S70i: vtx_H60_base {
       class VTX_FMS_R: VTX_FMS_R {};
       class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
     };
-    #include "..\vehicleTransportSlick.hpp"
+    #include "\z\vtx\addons\uh60_config\config\vehicleTransportSlick.hpp"
 }; // vtx_S70i

@@ -51,8 +51,8 @@ class CfgVehicles {
         };
         class Components: Components {
           #include "Pylons.hpp"
-          #include "\z\vtx\addons\MH60M\config\sensors.hpp"
-          #include "\z\vtx\addons\MH60M\config\missileCam.hpp"
+          #include "\z\vtx\addons\uh60_config\config\cfgVehiclesParts\sensors.hpp"
+          #include "\z\vtx\addons\uh60_config\config\cfgVehiclesParts\missileCam.hpp"
         }; // Components
         class AnimationSources: AnimationSources {
           ANIM_INIT(CabinSeats_1_Hide,1);
@@ -128,8 +128,8 @@ class CfgVehicles {
         };
         class Components: Components {
           #include "Pylons.hpp"
-          #include "\z\vtx\addons\MH60M\config\sensors.hpp"
-          #include "\z\vtx\addons\MH60M\config\missileCam.hpp"
+          #include "\z\vtx\addons\uh60_config\config\cfgVehiclesParts\sensors.hpp"
+          #include "\z\vtx\addons\uh60_config\config\cfgVehiclesParts\missileCam.hpp"
         }; // Components
         class AnimationSources: AnimationSources {
           ANIM_INIT(CabinSeats_1_Hide,1);

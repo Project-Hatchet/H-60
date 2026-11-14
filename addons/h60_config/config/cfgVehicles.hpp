@@ -69,14 +69,8 @@ class CfgVehicles {
   // propagates to every variant across all H-60 addons.
   #include "vehicles\H60_base.hpp"
 
-  // Sole full declarations of the Army family + civilian bird (Phase 1 PR A):
-  // one vehicle per file, all deriving from vtx_H60_base.
-  #include "vehicles\UH60M.hpp"
-  #include "vehicles\UH60M_MEDEVAC.hpp"
-  #include "vehicles\S70i.hpp"
-  #include "vehicles\UH60M_SLICK.hpp"
-
-  // vtx_HH60: sole full declaration moved to addons/HH60 (Phase 1 PR B).
+  // Variants live in their own PBOs (leaves of the dependency graph):
+  // uh60m (UH60M, SLICK, MEDEVAC), s70i, hh60, mh60m, mh60s.
 }; // CfgVehicles
 
 class CfgNonAIVehicles {

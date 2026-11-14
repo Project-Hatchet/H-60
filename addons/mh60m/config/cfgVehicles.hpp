@@ -84,7 +84,7 @@ class CfgVehicles {
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
         class Components: Components {
-            #include "sensors.hpp"
+            #include "\z\vtx\addons\uh60_config\config\cfgVehiclesParts\sensors.hpp"
         }; // Components
         class AnimationSources: AnimationSources {
             ANIM_INIT(CabinSeats_1_Hide,1);
@@ -114,7 +114,7 @@ class CfgVehicles {
             class MainTurret: MainTurret {};
             class RightDoorGun: RightDoorGun {};
             #include "\z\vtx\addons\uh60_config\config\turrets\cargoTurrets.hpp"
-            #include "\z\vtx\addons\MH60M\config\turrets\troopCommander.hpp"
+            #include "\z\vtx\addons\uh60_config\config\turrets\troopCommander_mh60.hpp"
             // (base MH-60M keeps the cabin cargo turrets; the DAP variants below
             // carry no passengers and mount the MFOS aft gunners instead)
         };
@@ -169,7 +169,7 @@ class CfgVehicles {
         cargoAction[] = {};
         class Components: Components {
           #include "Pylons.hpp"
-          #include "sensors.hpp"
+          #include "\z\vtx\addons\uh60_config\config\cfgVehiclesParts\sensors.hpp"
         }; // Components
         class AnimationSources: AnimationSources {
             class Gatling_1
@@ -280,7 +280,7 @@ class CfgVehicles {
         cargoAction[] = {};
         class Components: Components {
           #include "PylonsMLASS.hpp"
-          #include "sensors.hpp"
+          #include "\z\vtx\addons\uh60_config\config\cfgVehiclesParts\sensors.hpp"
         }; // Components
         class AnimationSources: AnimationSources {
             class Gatling_1

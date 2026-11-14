@@ -50,18 +50,18 @@ class vtx_UH60M_MEDEVAC: vtx_H60_base {
       //Door guns not fitted - no ammunition aboard
       class MainTurret: MainTurret { magazines[] = {}; };
       class RightDoorGun: RightDoorGun { magazines[] = {}; };
-      #include "..\turrets\doorgunsFFV.hpp"
-      #include "..\turrets\cargoTurrets.hpp"
+      #include "\z\vtx\addons\uh60_config\config\turrets\doorgunsFFV.hpp"
+      #include "\z\vtx\addons\uh60_config\config\turrets\cargoTurrets.hpp"
     };
-    #include "..\vehicleTransport.hpp"
+    #include "\z\vtx\addons\uh60_config\config\vehicleTransport.hpp"
     class hct_turret_1 {
       class interaction {
-        #include "..\hct_window_l.hpp"
+        #include "\z\vtx\addons\uh60_config\config\hct_window_l.hpp"
       };
     };
     class hct_turret_2 {
       class interaction {
-        #include "..\hct_window_r.hpp"
+        #include "\z\vtx\addons\uh60_config\config\hct_window_r.hpp"
       };
     };
     class MFD: MFD {
