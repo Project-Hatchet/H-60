@@ -45,7 +45,7 @@ private _doorOpenRight = [
     private _state = ["Closed", "Open"] select _anim;
     [_target, "CabinDoor_R", _state] call vtx_uh60_misc_fnc_interactedCabinDoor;
   },
-  {private _animPhase = _target animationPhase "cabinDoor_L";
+  {private _animPhase = _target animationPhase "cabinDoor_R";
  [_target, "cabinDoor_R", _animPhase] call vtx_uh60_misc_fnc_canInteractCabinDoor;},
   nil,
   [],
@@ -69,7 +69,7 @@ private _doorOpenRightCpt = ["vtx_uh60_cptDoorRight", "Open/Close cockpit door",
   [[_target, "CustomSoundController8", ((1 - (_target animationSourcePhase 'Door_RF')) + (_target animationSourcePhase 'Door_LF')) / 2]] remoteExecCall ["setCustomSoundController", crew _target];
 
 }, {true}, nil, [], {_target selectionPosition "cockpitdoor_right"}, 2, [false,false,false,false,false], {} ];
-private _doorOpenLefttCpt = ["vtx_uh60_cptDoorRight", "Open/Close cockpit door", "", {
+private _doorOpenLeftCpt = ["vtx_uh60_cptDoorLeft", "Open/Close cockpit door", "", {
   private _condition = (_target doorPhase "Door_LF") > 0;
   _target animateDoor ["Door_LF", [1,0] select _condition];
   playSound3D [
@@ -86,7 +86,7 @@ private _doorOpenLefttCpt = ["vtx_uh60_cptDoorRight", "Open/Close cockpit door",
 
 {
     [QBASE_CLASS,0,[],(_x call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
-} forEach [_doorOpenLeft, _doorOpenRight, _doorOpenRightCpt, _doorOpenLefttCpt];
+} forEach [_doorOpenLeft, _doorOpenRight, _doorOpenRightCpt, _doorOpenLeftCpt];
 
 _digitOptionsCode = {
     params ["_target", "_player", "_params"];

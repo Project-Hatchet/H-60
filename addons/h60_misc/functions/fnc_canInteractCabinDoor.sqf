@@ -15,7 +15,7 @@
 params ["_caller", "_animName", "_animPhase", "_interactionName"];
 // for ace interact from outside
 // [_target, "cabinDoor_L", _animPhase] call vtx_uh60_misc_fnc_canInteractCabinDoor;},
-private _isHCT = _caller == hct_player;
+private _isHCT = !isNil "hct_player" && {_caller == hct_player};
 private _vehicle = [_caller, vehicle _caller] select _isHCT;
 
 private _side = str _animName select [count _animName, 1]; // Match "L" or "R"
@@ -26,19 +26,29 @@ if (_vehicle animationPhase format ["GAU21_%1_Hide", _side] == 0) exitWith {
   false
 };
 
-private _doorSeats = [];
-{
-    private _gunnerName = getText (_x >> "gunnerName");
-    if (_gunnerName select [0, 5] == "Door " && {
-        (_gunnerName select [5, 1]) == _side // Match "L" or "R"
-    }) then {
-        _doorSeats pushBack [_forEachIndex];
-    };
-} forEach ("true" configClasses (configOf _vehicle >> "Turrets"));
+// Door seats per class and side, from config once (this runs every frame while
+// an ACE menu is open, and on every Hatchet hover)
+if (isNil "vtx_uh60_misc_doorSeatCache") then { vtx_uh60_misc_doorSeatCache = createHashMap; };
+private _cacheKey = typeOf _vehicle + _side;
+private _doorSeats = vtx_uh60_misc_doorSeatCache get _cacheKey;
+if (isNil "_doorSeats") then {
+    _doorSeats = [];
+    {
+        private _gunnerName = getText (_x >> "gunnerName");
+        if (_gunnerName select [0, 5] == "Door " && {
+            (_gunnerName select [5, 1]) == _side // Match "L" or "R"
+        }) then {
+            _doorSeats pushBack [_forEachIndex];
+        };
+    } forEach ("true" configClasses (configOf _vehicle >> "Turrets"));
+    vtx_uh60_misc_doorSeatCache set [_cacheKey, _doorSeats];
+};
 
-private _result = true;
-if (_animPhase < 0.9) then {
-    if (_vehicle getVariable ["ace_fastroping_deploymentStage", 0] > 0) exitWith {
+// An open door (phase < 0.9; 1 = closed) cannot be shut onto deployed FRIES ropes.
+// This block used to only hint - its `false` was discarded - and it hinted every
+// frame for anyone with the ACE menu open.
+if (_animPhase < 0.9 && {_vehicle getVariable ["ace_fastroping_deploymentStage", 0] > 0}) exitWith {
+    if (_isHCT) then {
         hint "Door is blocked by FRIES";
     };
     false

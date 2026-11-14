@@ -8,8 +8,8 @@ if (!local _vehicle) exitWith {};
 
 if (inputAction "headlights" > 0 && !vtx_uh60_misc_btn_hold) then {
     vtx_uh60_misc_btn_hold = true;
-    vtx_uh60_misc_landingLightOn = !vtx_uh60_misc_landingLightOn;
-    _this spawn {sleep 0.01;_this call vtx_uh60_misc_fnc_toggleLights;};
+    // next frame, as the old spawn+sleep did - without a script per key press
+    [vtx_uh60_misc_fnc_toggleLights, [_vehicle, "landing"]] call CBA_fnc_execNextFrame;
 } else {
     if (inputAction "headlights" == 0) then {
         vtx_uh60_misc_btn_hold = false;

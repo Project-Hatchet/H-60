@@ -23,7 +23,7 @@ class landinglight {
         dragStart="";
         dragging="";
         dragStop="";
-        buttonUp="vtx_uh60_misc_landingLightOn = !vtx_uh60_misc_landingLightOn; _this call vtx_uh60_misc_fnc_toggleLights;";
+        buttonUp="[_this # 0, ""landing""] call vtx_uh60_misc_fnc_toggleLights;";
     }; // landinglight_elev
 };
 class searchlight {
@@ -42,6 +42,6 @@ class searchlight {
         dragStart="";
         dragging="";
         dragStop="";
-        buttonUp="vtx_uh60_misc_searchLightOn = !vtx_uh60_misc_searchLightOn; _this call vtx_uh60_misc_fnc_toggleLights;";
+        buttonUp="[_this # 0, ""search""] call vtx_uh60_misc_fnc_toggleLights;";
     }; // searchlight
 };

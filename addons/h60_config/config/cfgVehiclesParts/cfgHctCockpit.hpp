@@ -53,7 +53,7 @@ class interaction {
       animSpeed=0;
       animStates[] = {0.5, 1};
       animLabels[] = {"OFF", "ON"};
-      animEnd="_this call vtx_uh60_misc_fnc_toggleLights";
+      animEnd="[_this # 0] call vtx_uh60_misc_fnc_toggleLights";
       clickSound="hct_Switch_Sound";
     }; // Lights_position
     class Lights_cockpit {
@@ -65,7 +65,7 @@ class interaction {
       animSpeed=0;
       animStates[] = {0.5, 1};
       animLabels[] = {"OFF", "ON"};
-      animEnd="_this call vtx_uh60_misc_fnc_toggleLights";
+      animEnd="[_this # 0] call vtx_uh60_misc_fnc_toggleLights";
       clickSound="hct_Switch_Sound";
     }; // Lights_position
     class fuelPump {

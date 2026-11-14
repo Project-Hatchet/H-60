@@ -1,6 +1,5 @@
 params ["_vehicle"];
-vtx_uh60_misc_landingLightOn = false;
-vtx_uh60_misc_searchLightOn = false;
+// Landing/search light state lives on the aircraft (fnc_toggleLights), not here.
 vtx_uh60_misc_btn_hold = false;
 
 

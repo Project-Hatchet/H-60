@@ -28,4 +28,7 @@ ADDON = false;
     [_veh, _paths, false] call vtx_uh60_misc_fnc_ccSwapLocks;
 }] call CBA_fnc_addEventHandler;
 
+// Light toggles from a seat whose machine does not own the aircraft
+["vtx_uh60_misc_toggleLights", {_this call vtx_uh60_misc_fnc_toggleLights}] call CBA_fnc_addEventHandler;
+
 ADDON = true;
