@@ -125,8 +125,6 @@ class vtx_H60_base: Heli_Transport_01_base_F {
     model = "\z\vtx\addons\UH60\vtx_UH60.p3d";
     displayName = "$STR_VTX_UH60_UHMBlackhawk";
 
-
-
     icon = "z\vtx\addons\UH60\Data\UI\Map_vtx_UH60_CA.paa";	/// icon in map/editor
     picture = "z\vtx\addons\UH60\Data\UI\vtx_UH60_CA.paa";	/// small picture in command menu
 
@@ -395,13 +393,6 @@ class vtx_H60_base: Heli_Transport_01_base_F {
     forceHideDriver = 1;
     // viewGunnerInExternal = 0;
     canHideDriver = 1;
-    // precisegetinout = 0;
-    // type = VAir;
-    // crewVulnerable = 1;
-    // crewCrashProtection = 0.25;
-    // visualTarget = 1;
-    // visualTargetSize = 1.0;
-    ///damageResistance = 0.002;
 
     // --- Members this addon formerly added via its delta re-open (Phase 1
     // pre-PR-C). Kept at the tail in the delta's declaration order so the

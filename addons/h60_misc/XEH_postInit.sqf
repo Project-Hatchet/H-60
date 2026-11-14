@@ -9,7 +9,6 @@ private _action = [
 ] call ace_interact_menu_fnc_createAction;
 ["Rubber_duck_base_F",0,["ACE_MainActions"],_action, true] call ace_interact_menu_fnc_addActionToClass;
 
-
 private _doorOpenLeft = [
  "vtx_uh60_cabinDoorLeft", // * 0: Action name <STRING>
  "Open/Close cabin door",  // * 1: Name of the action shown in the menu <STRING>
@@ -103,14 +102,6 @@ _digitOptionsCode = {
     };
     _returns
 };
-// _editNumbersOptionsCode = {
-//     params ["_target", "_player", "_params"];
-//     private _first = (["vtx_uh60_firstNumber", "First digit", "", {hint "yessssss"}, {true}, _digitOptionsCode, [0], {}, 2] call ace_interact_menu_fnc_createAction);
-//     private _second = (["vtx_uh60_secondNumber", "Second digit", "", {hint "yessssss"}, {true}, _digitOptionsCode, [1], {}, 2] call ace_interact_menu_fnc_createAction);
-//     [[_first, [], _target], [_second, [], _target]]
-// };
-
-
 
 vtx_uh60_markings_options = ("true" configClasses (configFile >> "CfgVehicles" >> QBASE_CLASS >> "Attributes" >> "vtx_uh60_Markings" >> "values")) apply {[getText (_x >> "name"), getText (_x >> "value")]};
 _markingsOptions = {
@@ -125,7 +116,6 @@ private _editMarkingsLeft = ["vtx_uh60_editMarkingsLeft", "Change Markings", "",
 private _editMarkingsRight = ["vtx_uh60_editMarkingsRight", "Change Markings", "", {}, {!(_target getVariable ["vtx_autostarted", false])}, _markingsOptions, [], {[1,1,0.5]}, 2];
 [QBASE_CLASS,0,[],(_editMarkingsLeft call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
 [QBASE_CLASS,0,[],(_editMarkingsRight call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
-
 
 private _editNumbersLeftFirst = ["vtx_uh60_paintNumbersLeftFirst" + (str random 1), "Change number tape", "", {}, {true}, _digitOptionsCode, [21,23], {(_target selectionPosition "cabindoor_L_handle") vectorAdd [0,-1.2,0.5]}, 1.5];
 private _editNumbersRightFirst = ["vtx_uh60_paintNumbersRightFirst" + (str random 1), "Change number tape", "", {}, {true}, _digitOptionsCode, [20,22], {(_target selectionPosition "cabindoor_R_handle") vectorAdd [0,-1.2,0.5]}, 1.5];

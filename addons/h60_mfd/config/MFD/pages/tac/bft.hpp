@@ -20,8 +20,6 @@
             }; \
         };
 
-
-
 #define BOX_CONTENT_START(COLOR) \
     class Blue { \
         color[] = COLOR; \
@@ -41,7 +39,6 @@
             }; \
         }; \
 	};
-
 
 #define RECTANGLE_POINTS \
 	{{BFT_ICON_W*-0.02, BFT_ICON_H*0.02}, 1}, \
@@ -142,12 +139,6 @@
 class BFT
 {
     type = "sensor";
-    // #define SENSOR_SIZE(numb)\
-    //     pos[]	= {{0,0}, 1};\
-    //     down[]	= {{1,1}, 1};
-    // SENSOR_SIZE(-0.01)
-	//pos[]	= {{0,-0.15}, 1};
-	//down[]	= {{1, 1.15}, 1};
 	pos[]	= {"TAC_SELF_DIST", 1, "TAC_SELF_DIR", 1, {-30,-30*4/3}, 1};
 	down[]	= {"TAC_SELF_DIST", 1, "TAC_SELF_DIR", 1, { 30, 30*4/3}, 1};
 

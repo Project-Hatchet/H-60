@@ -26,7 +26,6 @@ class mfd_any {
     };
 };
 
-
 class pfd {
     condition = MAINPAGE(MFD_PAGE_INDEX,MFD_PAGE_PFD);
     class SUBPAGE_HSI {
@@ -183,13 +182,6 @@ class flir {
         MFD_BTN(MFD_8,QUOTE(Laser Spot Tracker Mode)) buttonUp="[hct_vehicle,'LST_MODE'] call vtx_uh60_flir_fnc_interaction"; };
         MFD_BTN(MFD_24,QUOTE(Laser Designator Channel)) buttonUp="[hct_vehicle,'LRFD_CHAN'] call vtx_uh60_flir_fnc_interaction"; };
     };
-    // MFD_BTN(MFD_1,QUOTE(LASE)) buttonUp="[hct_vehicle,'LASER'] call vtx_uh60_weapons_fnc_interaction"; };
-    // MFD_BTN(MFD_7,QUOTE(CHAN)) buttonUp="[hct_vehicle,'HF_CHAN'] call vtx_uh60_weapons_fnc_interaction"; };
-    // MFD_BTN(MFD_8,QUOTE(TRAJ)) buttonUp="[hct_vehicle,'HF_TRAJ'] call vtx_uh60_weapons_fnc_interaction"; };
-    // // MFD_BTN(MFD_4,QUOTE(WPT)) buttonUp="[hct_vehicle] call vtx_uh60_flir_fnc_mfdWaypoint"; };
-    // // MFD_BTN(MFD_5,QUOTE(NAV)) buttonUp="[hct_vehicle] call vtx_uh60_flir_fnc_mfdNav"; };
-    // // MFD_BTN(MFD_6,QUOTE(SLG)) buttonUp="[hct_vehicle] call vtx_uh60_mfd_fnc_slingCam"; };
-    // MFD_BTN(MFD_15,QUOTE(IVHMS)) buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage); };
 
     // MFD_BTN(MFD_20,QUOTE(MSL)) buttonUp="[hct_vehicle,'SEL_MSL'] call vtx_uh60_weapons_fnc_interaction"; };
     // MFD_BTN(MFD_23,QUOTE(RKT)) buttonUp="[hct_vehicle,'SEL_RKT'] call vtx_uh60_weapons_fnc_interaction"; };
@@ -266,7 +258,6 @@ class ccfs_game {
         buttonUp= QUOTE([ARR_4((_this select 0), MFD_PAGE_INDEX, MFD_PAGE_IVHMS, true)] call vtx_uh60_mfd_fnc_switchPage);
     };
 };
-
 
 class ivhms {
     condition= USERVAL_EQ(MFD_PAGE_INDEX,MFD_PAGE_IVHMS);

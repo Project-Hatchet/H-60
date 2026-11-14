@@ -34,7 +34,6 @@ PREP(ccfs_play);
 PREP(ccfs_exit);
 PREP(ccfs_changeGameState);
 PREP(setRemoteVariable);
-PREP(ccfs_Menu);
 PREP(ccfs_renderCCFS);
 PREP(ccfs_syncCCFS);
 PREP(ccfs_slewCCFS);

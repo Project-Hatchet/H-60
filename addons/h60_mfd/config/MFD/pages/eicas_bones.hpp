@@ -7,58 +7,6 @@
 #endif
 #define BARBOTTOM 0.417
 
-/*
-#define RANDOMPERC(BASE,RAND) __EXEC(BASE + random RAND)
-__EXEC(vtx_t1 = 1.45 + random 0.05;)
-__EXEC(vtx_t2 = 1.45 + random 0.05;)
-
-__EXEC(vtx_ng1 = 0.95 + random 0.05;)
-__EXEC(vtx_ng2 = 0.95 + random 0.05;)
-
-__EXEC(vtx_tgt1 = 7.85 + random 0.15;)
-__EXEC(vtx_tgt2 = 7.85 + random 0.15;)
-
-__EXEC(vtx_Q1 = 0.95 + random 0.05;)
-__EXEC(vtx_Q2 = 0.95 + random 0.05;)
-class EICAS_RPM1
-{
-    type="linear";
-    source="user";
-    sourceIndex=21;
-    sourceScale=1;
-    min=0;
-    max=130;
-    minPos[]={0,BARTOP};
-    maxPos[]={0,BARBOTTOM};
-};
-class RPM2: EICAS_RPM1 {
-    source="user";
-    sourceIndex=22;
-};
-class T1: EICAS_RPM1 {
-    source="user";
-    sourceScale=1;
-    sourceIndex=21;
-    max=160;
-};
-class T2: EICAS_RPM1 {
-    sourceIndex=22;
-    sourceScale=1;
-    max=160;
-};
-class NG1: T1 {max=120;sourceScale=1;};
-class NG2: T2 {max=120;sourceScale=1;};
-class TGT1: T1 {max=900;sourceScale=1;};
-class TGT2: T2 {max=900;sourceScale=1;};
-class Q1: T1 {max=120;sourceScale=1;};
-class Q2: T2 {max=120;sourceScale=1;};
-
-class RPM: EICAS_RPM1 {
-    min=0;
-    max=10;
-    source="rpm"
-};
-*/
 //Main Rotor
 class EICAS_RPM { //Good
     type        ="linear";
@@ -129,40 +77,6 @@ class Q2: Q1 {
 };
 
 //Miscellaneous
-/*
-class T1 {
-    type        ="linear";
-    source      = "user";
-    //sourceIndex=21;
-    sourceIndex = 17;
-    min         = 0;
-    max         = 160;
-    sourceScale = 1;
-    minPos[]    = {0,BARTOP};
-    maxPos[]    = {0,BARBOTTOM};
-};
-class T2 {
-    type        ="linear";
-    source      = "user";
-    //sourceIndex=22;
-    sourceIndex = 17;
-    min         = 0;
-    max         = 160;
-    sourceScale = 1;
-    minPos[]    = {0,BARTOP};
-    maxPos[]    = {0,BARBOTTOM};
-};
-class TRQ: EICAS_RPM1 {
-        source = "user";
-        //sourceIndex = 47;
-        max=0.1;
-};
-class COLL: EICAS_RPM1 {
-        min=0;
-        max=1;
-        sourceScale=1;
-};*/
-
 
 #ifdef FUEL_BARS_Y1
     #undef FUEL_BARS_Y1

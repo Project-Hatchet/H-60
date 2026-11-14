@@ -235,29 +235,6 @@ class PFD_Q2 {
 	minPos[]={0,BARTOP};
 	maxPos[]={0,BARBOTTOM};
 };
-/*
-class PFD_TRQ { 
-	type="linear";
-	source="user";
-	sourceIndex=22;
-	sourceScale=1;
-	min=0;
-	max=120;
-	minPos[]={0,BARTOP};
-	maxPos[]={0,BARBOTTOM};
-};
-
-class PFD_COLL {
-	type="linear";
-	source="user";
-	sourceIndex=48;
-	sourceScale=1;
-	min=0;
-	max=120;
-	minPos[]={0,BARTOP};
-	maxPos[]={0,BARBOTTOM};
-};
-*/
 
 class PFD_RPM {
     type="linear";
@@ -334,7 +311,6 @@ class PFD_WP_DIST {
 	minPos[]={0,-0.155};
 	maxPos[]={0,0};
 };
-
 
 class PFD_ARC_CENTER {
 	type="fixed";

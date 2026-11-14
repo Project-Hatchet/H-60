@@ -60,13 +60,6 @@ class CfgVehicles {
         category = "Air";
         side = 1;
         editorSubcategory = "vtx_h60";
-        /*
-        class HitPoints: HitPoints {
-            class HitBody: HitBody {
-                name = "sling_point";
-            };
-        };
-        */
         hullDamageCauseExplosion = 0;
         icon = "z\vtx\addons\uh60_hoist\data\ui\iconHook.paa";
         picture = "z\vtx\addons\uh60_hoist\data\ui\vtx_hook_ca.paa";

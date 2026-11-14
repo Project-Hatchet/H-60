@@ -19,13 +19,6 @@ topLeft = ""; // not used because HMD, but still needed
 topRight = ""; // not used because HMD, but still needed
 bottomLeft = ""; // not used because HMD, but still needed
 font="RobotoCondensedLight";
-/*
-class material {
-	ambient[] = {1, 1, 1, 1};
-	diffuse[] = {0.5, 0.5, 0.5, 1};
-	emissive[] = {100, 100, 100, 50};
-};
-*/
 class Bones {
 	#define POS10X 0.80
 	#define POS10Y 0.80

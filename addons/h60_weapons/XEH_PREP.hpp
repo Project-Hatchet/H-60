@@ -10,7 +10,6 @@ PREP(fireAndResetWeapon);
 PREP(interaction);
 PREP(getLaserCode);
 PREP(hellfireGuidanceInit);
-PREP(updatePylonAssignment);
 PREP(jettisonAll);
 PREP(commandFireMissile);
 PREP(ehFireSelected);
