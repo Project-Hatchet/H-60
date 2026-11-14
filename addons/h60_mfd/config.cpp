@@ -17,6 +17,7 @@ class CfgPatches
 
 #include "CfgEventHandlers.hpp"
 
+#include "config\pedestal\pedestal.hpp"
 #include "config\mfdDefines.hpp"
 #include "config\cfgVehicles.hpp"
 #include "Armakeybinds.hpp"

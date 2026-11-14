@@ -7,7 +7,7 @@ class VTX_CLOCK
 	borderRight=0;
 	borderTop=0;
 	borderBottom=0;
-	color[]=common_white;
+	color[]=PED_common_white;
 	enableParallax=0;
 	class material
 	{

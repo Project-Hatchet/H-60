@@ -7,7 +7,7 @@ class VTX_FDRight
 	borderRight=0;
 	borderTop=0;
 	borderBottom=0;
-	color[]=common_green;
+	color[]=PED_common_green;
 	enableParallax=0;
 	font="VTX_UH60M_Font";
 	class material

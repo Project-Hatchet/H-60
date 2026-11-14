@@ -11,9 +11,8 @@ class SensorTemplateLaser;
 class SensorTemplateNV;
 class SensorTemplateDataLink;
 
-// legacy pedestal screens (VTX_ESIS_*, VTX_CLOCK, VTX_FDRight/Left) — full
-// declarations, owned here since Phase 1 PR C
-#include "MFD\MFDConfig.hpp"
+// pedestal screens (VTX_ESIS_*, VTX_CLOCK, VTX_FDRight/Left) are owned by uh60_mfd;
+// the variants mount them by name
 
 // externs for screen templates owned by the screen addons, which may load
 // after us — the MFD mounts below resolve by name when the config is read

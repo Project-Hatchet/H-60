@@ -7,7 +7,7 @@ class VTX_ESIS_Horizon
     borderRight=-0.5;
     borderTop=-0.1;
     borderBottom=-0.9;
-    color[]= common_white;
+    color[]= PED_common_white;
     enableParallax=0;
     class material
     {
@@ -17,28 +17,28 @@ class VTX_ESIS_Horizon
     };
     class Bones
     {
-        PITCH_BONES(0.5,0.6,0.3,0.4)
+        PED_PITCH_BONES(0.5,0.6,0.3,0.4)
     };
     class Draw { 
         condition = "user49 < 0.1";
         class clip1{
             clipTL[] = {0.25, 0.02};
             clipBR[] = {0.75, 0.55};
-    		LEVEL_BACKGROUND(pitch_att_blue,pitch_esis_grey,0.5)
+    		PED_LEVEL_BACKGROUND(PED_pitch_att_blue,PED_pitch_esis_grey,0.5)
         };//clip1
         class clip2 {
             clipTL[] = {0.25, 0.15};
             clipBR[] = {0.75, 0.47};
-    		LEVEL0(0.23)
-            LEVEL_SET(5,10,0.02,0.05,0.08)
-            LEVEL_SET(15,20,0.02,0.05,0.08)
-            LEVEL_SET(25,30,0.02,0.05,0.08)
-            LEVEL_SET(35,40,0.02,0.05,0.08)
-            LEVEL_SET(45,50,0.02,0.05,0.08)
-            LEVEL_SET(55,60,0.02,0.05,0.08)
-            LEVEL_SET(65,70,0.02,0.05,0.08)
-            LEVEL_SET(75,80,0.02,0.05,0.08)
-            LEVEL_SET(85,90,0.02,0.05,0.08)
+    		PED_LEVEL0(0.23)
+            PED_LEVEL_SET(5,10,0.02,0.05,0.08)
+            PED_LEVEL_SET(15,20,0.02,0.05,0.08)
+            PED_LEVEL_SET(25,30,0.02,0.05,0.08)
+            PED_LEVEL_SET(35,40,0.02,0.05,0.08)
+            PED_LEVEL_SET(45,50,0.02,0.05,0.08)
+            PED_LEVEL_SET(55,60,0.02,0.05,0.08)
+            PED_LEVEL_SET(65,70,0.02,0.05,0.08)
+            PED_LEVEL_SET(75,80,0.02,0.05,0.08)
+            PED_LEVEL_SET(85,90,0.02,0.05,0.08)
         }; // clip2
     }; // Draw
 };
@@ -54,7 +54,7 @@ class VTX_ESIS_Misc
     borderRight=0.0;
     borderTop=-0.0;
     borderBottom=0.0;
-    color[]= common_white;
+    color[]= PED_common_white;
     enableParallax=0;
     class material
     {
@@ -251,7 +251,7 @@ class VTX_ESIS_Misc
                 };//VSpeed_scale
                 class AircraftSymbolCenter{
                     class White{
-                        color[]    = common_white;
+                        color[]    = PED_common_white;
                         class P1 {
                             type        = "polygon";
                             points[] ={{{{0.22, 0.480},1},{{0.30, 0.480},1},{{0.30, 0.52},1},{{0.22, 0.52},1}}};
