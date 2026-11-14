@@ -68,7 +68,7 @@ private _intersectResult = if (_camPosASL isNotEqualTo []) then {
     };
 } else {
     private _slewOrigin = (_cameraVectorWorld) call CBA_fnc_vect2Polar;
-    [_originPos, _slewOrigin # 1, _slewOrigin # 2] call vtx_uh60_flir_fnc_intersectAtPolar
+    [_originPos, _slewOrigin # 1, _slewOrigin # 2, hct_vehicle] call vtx_uh60_flir_fnc_intersectAtPolar
 };
 
 if (isNil "_intersectResult") exitWith {};

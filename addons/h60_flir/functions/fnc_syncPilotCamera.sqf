@@ -31,8 +31,33 @@ params ["_rot_dir", "_target", ["_targetObject", objNull], ["_immediate", false]
 // were stomped as "rogue" next frame, the copilot's own view never followed,
 // and the lock toggle could not release. Only ever exercised with an AI or
 // empty other seat before (#538 MP follow-up)
+//
+// Slewing and laser tracking call this every frame, which was one network
+// message per frame to the other pilot. Forwarding is now at most 10 Hz:
+// skipped frames are coalesced and the LATEST state is sent at the next slot,
+// so the other pilot always ends on the final position (<= 0.1 s late).
+// _immediate syncs still go out at once.
 if (_propagate && vtx_uh60_flir_otherPilotIsPlayer) then {
-  [_rot_dir, _target, _targetObject, _immediate, false] remoteExecCall ["vtx_uh60_flir_fnc_syncPilotCamera", vtx_uh60_flir_otherPilot, false];
+  private _args = [_rot_dir, _target, _targetObject, _immediate, false];
+  private _next = missionNamespace getVariable ["vtx_uh60_flir_nextPropagate", 0];
+  if (_immediate || {diag_tickTime >= _next}) then {
+    vtx_uh60_flir_nextPropagate = diag_tickTime + 0.1;
+    vtx_uh60_flir_pendingPropagate = nil;
+    _args remoteExecCall ["vtx_uh60_flir_fnc_syncPilotCamera", vtx_uh60_flir_otherPilot, false];
+  } else {
+    if (isNil "vtx_uh60_flir_pendingPropagate") then {
+      [{
+        if (isNil "vtx_uh60_flir_pendingPropagate") exitWith {};
+        private _pending = vtx_uh60_flir_pendingPropagate;
+        vtx_uh60_flir_pendingPropagate = nil;
+        vtx_uh60_flir_nextPropagate = diag_tickTime + 0.1;
+        if (vtx_uh60_flir_otherPilotIsPlayer) then {
+          _pending remoteExecCall ["vtx_uh60_flir_fnc_syncPilotCamera", vtx_uh60_flir_otherPilot, false];
+        };
+      }, [], (_next - diag_tickTime) max 0] call CBA_fnc_waitAndExecute;
+    };
+    vtx_uh60_flir_pendingPropagate = _args;
+  };
 };
 
 switch (count _rot_dir) do {

@@ -8,15 +8,13 @@
 params ["_vehicle", "_frameTime"];
 
 private _inFullScreenCam = (vtx_uh60_flir_isInScriptedCamera || cameraView == "GUNNER");
-if (
-    _inFullScreenCam &&
-    (_vehicle getHitPointDamage "FlirHit") > 0.5
-  ) then {
-  vtx_uh60_flir_fnc_grain ppEffectEnable true;
-} else {
-  vtx_uh60_flir_fnc_grain ppEffectEnable false;
+// post-process effects are switched only when their state changes
+private _grainOn = _inFullScreenCam && {(_vehicle getHitPointDamage "FlirHit") > 0.5};
+if (isNil "vtx_uh60_flir_grainOn" || {vtx_uh60_flir_grainOn isNotEqualTo _grainOn}) then {
+  vtx_uh60_flir_grainOn = _grainOn;
+  vtx_uh60_flir_fnc_grain ppEffectEnable _grainOn;
+  vtx_uh60_flir_fnc_grain ppEffectCommit 0;
 };
-vtx_uh60_flir_fnc_grain ppEffectCommit 0;
 
 if (!vtx_uh60_flir_isPipHidden || {_inFullScreenCam}) then {
   [_vehicle] call vtx_uh60_flir_fnc_handleKeyInputs;
@@ -28,10 +26,20 @@ if (getUserMFDValue _vehicle select USERMFDV_LST_MODE > 0) then {
 };
 
 private _flirStowed = _vehicle getVariable ["vtx_uh60_flir_stowed", true];
-vtx_uh60_flir_blackColor ppEffectEnable (_flirStowed && _inFullScreenCam);
-vtx_uh60_flir_blackColor ppEffectCommit 0;
-if (_inFullScreenCam && _flirStowed) then {
+private _blackOn = _flirStowed && _inFullScreenCam;
+if (isNil "vtx_uh60_flir_blackOn" || {vtx_uh60_flir_blackOn isNotEqualTo _blackOn}) then {
+  vtx_uh60_flir_blackOn = _blackOn;
+  vtx_uh60_flir_blackColor ppEffectEnable _blackOn;
+  vtx_uh60_flir_blackColor ppEffectCommit 0;
+};
+// tell the player once per entry into stowed fullscreen (was a hint every frame)
+if (_blackOn) then {
+  if !(missionNamespace getVariable ["vtx_uh60_flir_stowedHintShown", false]) then {
+    vtx_uh60_flir_stowedHintShown = true;
     hint "Your FLIR payload is stowed, use the MFD to enable your FLIR payload.";
+  };
+} else {
+  vtx_uh60_flir_stowedHintShown = false;
 };
 
 if (_vehicle getVariable ["vtx_uh60_flir_stowed", true]) then {

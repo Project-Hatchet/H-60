@@ -46,7 +46,12 @@ if (isNil "vtx_uh60_taxiMaxKmh") then {
     vtx_uh60_taxiMinNR     = 0.85;  // rotorSpeed controller floor for the drive
 };
 
+// The drive only ever acts for this machine's player in the pilot seat, so the
+// chain ends when that stops being true (it used to re-arm at 10 Hz for the rest
+// of the mission on every parked H-60 a client had flown). fnc_pbArm re-arms it
+// from the crew's perSecond within a second of a pilot taking the seat.
 if (isNull _vehicle || {!alive _vehicle} || {!local _vehicle}
+    || {!((driver _vehicle) isEqualTo player)}
     || {!([_vehicle] call bmkhs_fnc_stateOnGround)}) exitWith {
     _vehicle setVariable ["vtx_uh60_ground_taxiOn", false];
 };
