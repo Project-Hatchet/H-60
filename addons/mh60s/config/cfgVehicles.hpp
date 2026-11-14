@@ -16,6 +16,7 @@ class CfgVehicles {
     };
     class Heli_Transport_01_base_F: Helicopter_Base_H {
         class AnimationSources;
+        class CargoTurret;
         class Turrets: Turrets {
             class CopilotTurret;
         };
@@ -157,6 +158,8 @@ class CfgVehicles {
           class CopilotTurret: CopilotTurret {};
           class MainTurret: MainTurret {};
           class RightDoorGun: RightDoorGun {};
+          // was patched in by H60_SFX Compat.hpp; the only entry there with any effect
+          class CargoTurret_01: CargoTurret {};
         };
         class AnimationSources: AnimationSources {
           ANIM_INIT(MAWS_Tubes_Show,1);

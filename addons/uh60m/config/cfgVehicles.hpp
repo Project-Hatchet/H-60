@@ -6,4 +6,5 @@ class CfgVehicles {
   #include "vehicles\UH60M.hpp"
   #include "vehicles\UH60M_MEDEVAC.hpp"
   #include "vehicles\UH60M_SLICK.hpp"
+
 }; // CfgVehicles

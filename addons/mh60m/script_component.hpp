@@ -16,3 +16,4 @@
 #endif
 
 #include "\z\vtx\addons\main\script_macros.hpp"
+#include "\z\vtx\addons\uh60_helisim\config\bmkhs_config\helisim_seats.hpp"

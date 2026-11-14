@@ -66,6 +66,9 @@ class CfgVehicles {
             class RightDoorGun;
         };
         class MFD;
+        class BMKHS_HeliSim {
+            class Seats;
+        };
     }; // vtx_H60_base
     class vtx_MH60M: vtx_H60_base {
         class pilotCamera: vtx_templateFLIR {};
@@ -155,6 +158,8 @@ class CfgVehicles {
             class VTX_FMS_R: VTX_FMS_R {};
             class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
         };
+        // HeliSim seats (SEATS_* in uh60_helisim bmkhs_config/helisim_seats.hpp)
+        class BMKHS_HeliSim: BMKHS_HeliSim { SEATS_MH60M };
     }; // vtx_MH60M
     class vtx_MH60M_DAP : vtx_H60_base {
         class pilotCamera: vtx_templateFLIR {};
@@ -266,7 +271,9 @@ class CfgVehicles {
             class VTX_FMS_R2: VTX_FMS_R2 {};
             class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
         };
-    }; // vtx_H60_base
+        // HeliSim seats (SEATS_* in uh60_helisim bmkhs_config/helisim_seats.hpp)
+        class BMKHS_HeliSim: BMKHS_HeliSim { SEATS_DAP };
+    }; // vtx_MH60M_DAP
     class vtx_MH60M_DAP_MLASS: vtx_H60_base {
         displayName = "MH-60M DAP MLASS";
         class pilotCamera: vtx_templateFLIR {};
@@ -380,7 +387,10 @@ class CfgVehicles {
             class VTX_FMS_R4: VTX_FMS_R4 {};
             class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
         };
+        // HeliSim seats (SEATS_* in uh60_helisim bmkhs_config/helisim_seats.hpp)
+        class BMKHS_HeliSim: BMKHS_HeliSim { SEATS_DAP };
     }; // vtx_MH60M_DAP_MLASS
+
 }; // CfgVehicles
 
 class CfgNonAIVehicles {

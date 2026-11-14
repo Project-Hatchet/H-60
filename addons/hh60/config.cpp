@@ -10,7 +10,7 @@ class CfgPatches {
         units[] = {"vtx_HH60"};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"vtx_UH60", "vtx_UH60_config"};
+        requiredAddons[] = {"vtx_UH60", "vtx_UH60_config", "vtx_uh60_helisim"};
         author = "";
         authors[] = {""};
         VERSION_CONFIG;

@@ -99,4 +99,6 @@ class vtx_S70i: vtx_H60_base {
       class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
     };
     #include "\z\vtx\addons\uh60_config\config\vehicleTransportSlick.hpp"
+  // HeliSim seats (SEATS_* in uh60_helisim bmkhs_config/helisim_seats.hpp)
+  class BMKHS_HeliSim: BMKHS_HeliSim { SEATS_S70I };
 }; // vtx_S70i

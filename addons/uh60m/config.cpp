@@ -9,7 +9,7 @@ class CfgPatches {
         units[] = {"vtx_UH60M", "vtx_UH60M_SLICK", "vtx_UH60M_MEDEVAC"};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"vtx_UH60", "vtx_UH60_config"};
+        requiredAddons[] = {"vtx_UH60", "vtx_UH60_config", "vtx_uh60_helisim"};
         author = "";
         authors[] = {""};
         VERSION_CONFIG;

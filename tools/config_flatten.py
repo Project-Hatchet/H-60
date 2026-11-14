@@ -9,7 +9,8 @@ does (case-insensitive names, parent looked up in the enclosing class, then its
 base chain, then outer scopes), and writes one file per class with every
 effective property, name-sorted, plus a `classOrder` line in merge order.
 
-Only content the mod itself ships is resolved. A base class that lives in
+Class and property names are written lower-case (config names are
+case-insensitive), values verbatim. Only content the mod itself ships is resolved. A base class that lives in
 vanilla/CBA/ACE/HeliSim shows up as `__base = <name> (external)` and contributes
 nothing. That is identical on both sides of a restructure, so diffs stay
 meaningful.
@@ -208,18 +209,18 @@ def dump_node(node, path, out, stack=None):
     stack = stack | {id(node)}
     base = resolve_base(node)
     if node.base:
-        out.append(f"{path} __base = {node.base}{'' if base is not None else ' (external)'}")
+        out.append(f"{path} __base = {node.base.lower()}{'' if base is not None else ' (external)'}")
     if not node.defined and base is None:
         out.append(f"{path} __extern")
     eff = effective(node)
     leaves = sorted(((e[1], e[2]) for e in eff.values() if not isinstance(e, Node)), key=lambda t: t[0].lower())
     for name, val in leaves:
-        out.append(f"{path}>>{name} = {fmt(val)}")
+        out.append(f"{path}>>{name.lower()} = {fmt(val)}")
     kids = [e for e in eff.values() if isinstance(e, Node)]
     if kids:
-        out.append(f"{path} classOrder = {fmt([k.name for k in kids])}")
+        out.append(f"{path} classOrder = {fmt([k.name.lower() for k in kids])}")
     for k in sorted(kids, key=lambda n: n.name.lower()):
-        dump_node(k, f"{path}>>{k.name}", out, stack)
+        dump_node(k, f"{path}>>{k.name.lower()}", out, stack)
 
 
 def is_root(name):
@@ -251,15 +252,15 @@ def cmd_dump(args):
             for cls in top.entries.values():
                 if isinstance(cls, Node) and cls.defined:
                     lines = []
-                    dump_node(cls, f"{top.name}>>{cls.name}", lines)
+                    dump_node(cls, f"{top.name.lower()}>>{cls.name.lower()}", lines)
                     write(args.out_dir, f"{safe(top.name)}.{safe(cls.name)}.txt", lines)
                     count += 1
-            leaves = [f"{top.name}>>{e[1]} = {fmt(e[2])}" for e in top.entries.values() if not isinstance(e, Node)]
+            leaves = [f"{top.name.lower()}>>{e[1].lower()} = {fmt(e[2])}" for e in top.entries.values() if not isinstance(e, Node)]
             if leaves:
                 write(args.out_dir, f"{safe(top.name)}._leaves.txt", sorted(leaves, key=str.lower))
         else:
             lines = []
-            dump_node(top, top.name, lines)
+            dump_node(top, top.name.lower(), lines)
             write(args.out_dir, f"_top.{safe(top.name)}.txt", lines)
             count += 1
     print(f"{len(order)} configs merged, {count} class files written to {args.out_dir}")

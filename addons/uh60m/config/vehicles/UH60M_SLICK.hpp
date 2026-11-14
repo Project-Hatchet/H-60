@@ -81,4 +81,6 @@ class vtx_UH60M_SLICK: vtx_H60_base {
     class VTX_FMS_R: VTX_FMS_R {};
     class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
   };
+  // HeliSim seats (SEATS_* in uh60_helisim bmkhs_config/helisim_seats.hpp)
+  class BMKHS_HeliSim: BMKHS_HeliSim { SEATS_SLICK };
 }; // vtx_UH60M_SLICK
