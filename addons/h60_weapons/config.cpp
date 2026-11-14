@@ -10,7 +10,10 @@ class CfgPatches {
           "vtx_UH60",
           "vtx_UH60_config",
           "ace_hellfire",
-          "ace_missileguidance"
+          "ace_missileguidance",
+          "vtx_uh60_mfd",
+          "ace_laser",
+          "ace_pylons"
         };
         author = "";
         authors[] = {""};

@@ -3,7 +3,7 @@
 vtx_uh60_flir_tdcWaypointNum = 99;
 
 if (hasInterface) then {
-    #include "initKeybinds.sqf"
+    #include "initKeybinds.inc.sqf"
 };
 
 ["vtx_uh60_flir_syncPilots", {

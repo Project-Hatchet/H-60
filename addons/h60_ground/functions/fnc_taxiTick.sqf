@@ -67,7 +67,7 @@ if ((driver _vehicle) isEqualTo player) then {
         diag_log format ["VTXTAXI nr=%1 brake=%2 heliUp=%3 rawF=%4 rawP=%5 base=%6 touching=%7 spd=%8",
             _nr, _vehicle animationPhase "handle_wheelbrake", _vehicle getVariable ["bmkhs_kbHeliCollectiveRaiseOut", 0],
             _rawF, _rawP, _vehicle getVariable ["vtx_uh60_taxiBase", [0,0]],
-            [_vehicle] call bmkhs_fnc_stateOnGround, _vehicle getVariable "bmkhs_gndSpeed"];
+            [_vehicle] call bmkhs_fnc_stateOnGround, _vehicle getVariable ["bmkhs_gndSpeed", 0]];
     };
 
     if (_nr < vtx_uh60_taxiMinNR
@@ -93,7 +93,7 @@ if ((driver _vehicle) isEqualTo player) then {
         if (abs _fwd < vtx_uh60_taxiDeadband) then { _fwd = 0 };
         if (abs _ped < vtx_uh60_taxiDeadband) then { _ped = 0 };
         if (_fwd != 0 || {_ped != 0}) then {
-            private _vel = _vehicle getVariable "bmkhs_velModelSpaceNoWind";
+            private _vel = _vehicle getVariable ["bmkhs_velModelSpaceNoWind", [0, 0, 0]];
             // stick fraction -> commanded taxi speed; full speed well
             // below full stick so taxi never needs hull-pitching throws
             private _tgt = (((_fwd / vtx_uh60_taxiStickFull) max -1) min 1)
@@ -140,9 +140,9 @@ if ((driver _vehicle) isEqualTo player) then {
         };
         // ground pivot governor: yaw <= v/R for a real turn radius,
         // floored so slow pedal pivots stay alive
-        private _cap = (((abs ((_vehicle getVariable "bmkhs_velModelSpaceNoWind") # 1)) / vtx_uh60_taxiTurnR)
+        private _cap = (((abs ((_vehicle getVariable ["bmkhs_velModelSpaceNoWind", [0, 0, 0]]) # 1)) / vtx_uh60_taxiTurnR)
             max vtx_uh60_taxiYawFloor) min vtx_uh60_taxiYawCap;
-        private _av = _vehicle getVariable "bmkhs_angVelModelSpace";
+        private _av = _vehicle getVariable ["bmkhs_angVelModelSpace", [0, 0, 0]];
         if (abs (_av # 2) > _cap) then {
             _vehicle setAngularVelocityModelSpace [_av # 0, _av # 1,
                 _cap * ((_av # 2) / abs (_av # 2))];

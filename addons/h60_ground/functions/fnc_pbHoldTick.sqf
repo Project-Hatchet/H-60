@@ -38,9 +38,9 @@ if (isNull _vehicle || {!alive _vehicle} || {!local _vehicle}) exitWith {
 // per-tick gates just skip the damp (no chain churn on brake taps)
 if ((_vehicle animationPhase "handle_wheelbrake") > 0.5
     && {[_vehicle] call bmkhs_fnc_stateOnGround}
-    && {((_vehicle getVariable "bmkhs_gndSpeed") * MPS_TO_KNOTS) < vtx_uh60_pbHoldMaxKts}
+    && {((_vehicle getVariable ["bmkhs_gndSpeed", 0]) * MPS_TO_KNOTS) < vtx_uh60_pbHoldMaxKts}
     && {acos ((surfaceNormal (getPosASL _vehicle)) # 2) < vtx_uh60_pbHoldMaxSlope}) then {
-    private _vel = _vehicle getVariable "bmkhs_velWorldSpaceNoWind";
+    private _vel = _vehicle getVariable ["bmkhs_velWorldSpaceNoWind", [0, 0, 0]];
     // horizontal exponential damp; vertical untouched so the suspension
     // settles instead of being pinned mid-droop
     _vehicle setVelocity [(_vel # 0) * vtx_uh60_pbHoldDamp, (_vel # 1) * vtx_uh60_pbHoldDamp, _vel # 2];

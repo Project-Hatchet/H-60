@@ -9,7 +9,7 @@ class CfgPatches
         weapons[] = {};
         requiredVersion = 2.10;
         //HeliSim Core, and the H-60 - this pack modifies vtx_H60_base, which lives in uh60_config.
-        requiredAddons[] = {"bmkhs_helisim", "vtx_UH60", "vtx_UH60_config"};
+        requiredAddons[] = {"bmkhs_helisim", "vtx_UH60", "vtx_UH60_config", "vtx_uh60_SFX", "vtx_uh60_mfd"};
         //The airframe this pack drives. Its preInit reads this to know what to schedule,
         //so a pack for another aircraft changes one line and touches no SQF.
         bmkhsBaseClass   = "vtx_H60_base";

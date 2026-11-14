@@ -28,7 +28,7 @@ if (_index < 0) exitWith {};
 if (_control in ["eng1PwrLvr", "eng2PwrLvr"] && {_index == 2} && {isNil "vtx_uh60_helisim_linking"}) then {
     private _otherIdx = [1, 0] select (_control == "eng2PwrLvr");
     private _other    = ["eng1PwrLvr", "eng2PwrLvr"] select _otherIdx;
-    if (((_heli getVariable "bmkhs_engState") # _otherIdx) == "ON" && {(_heli getVariable format ["bmkhs_%1Idx", _other]) == 1}) then {
+    if (((_heli getVariable ["bmkhs_engState", ["OFF", "OFF"]]) # _otherIdx) == "ON" && {(_heli getVariable [format ["bmkhs_%1Idx", _other], 0]) == 1}) then {
         vtx_uh60_helisim_linking = true;
         [_heli, _other, 2] call vtx_uh60_helisim_fnc_cockpitBind;
         vtx_uh60_helisim_linking = nil;

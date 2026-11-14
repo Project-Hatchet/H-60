@@ -6,6 +6,9 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
+        // Runtime-only calls into uh60_mfd, uh60_misc and HeliSim (bmkhs_*) need no edge:
+        // every function is compiled at preInit. An edge here would load cas after mfd
+        // and reorder the Hatchet interaction list (first match wins on overlap).
         requiredAddons[] = {"vtx_UH60", "vtx_UH60_config"};
         author = "";
         authors[] = {""};

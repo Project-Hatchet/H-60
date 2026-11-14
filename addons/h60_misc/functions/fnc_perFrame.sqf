@@ -25,7 +25,7 @@ if (!isNil "_attachedBoat") then {
         _attachedBoat attachTo [_vehicle, [0,1.5,-1.5]];
         detach _attachedBoat;
         _attachedBoat lock false;
-        _attachedBoat setVelocity (_vehicle getVariable "bmkhs_velWorldSpaceNoWind");
+        _attachedBoat setVelocity (_vehicle getVariable ["bmkhs_velWorldSpaceNoWind", velocity _vehicle]);
         _vehicle setVariable ["vtx_crrc_attached", nil, true];
         _attachedBoat enableRopeAttach true;
     };

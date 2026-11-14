@@ -74,16 +74,16 @@ private _utilLow = _hydExpected && {(_vehicle getVariable ["bmkhs_utilHydPsi", 0
 [USERMFDV_R01, _utilLow] call _setPylonFn;
 
 // FUEL LOW
-[USERMFDV_L02, (_vehicle getVariable "bmkhs_no1TankMass") < (_vehicle getVariable "bmkhs_no1TankLow")] call _setPylonFn;
-[USERMFDV_R02, (_vehicle getVariable "bmkhs_no2TankMass") < (_vehicle getVariable "bmkhs_no2TankLow")] call _setPylonFn;
+[USERMFDV_L02, (_vehicle getVariable ["bmkhs_no1TankMass", 0]) < (_vehicle getVariable ["bmkhs_no1TankLow", 0])] call _setPylonFn;
+[USERMFDV_R02, (_vehicle getVariable ["bmkhs_no2TankMass", 0]) < (_vehicle getVariable ["bmkhs_no2TankLow", 0])] call _setPylonFn;
 
 // ENG OIL PRESS
-(_vehicle getVariable "bmkhs_engOilPsiLow") params ["_oil1", "_oil2"];
+(_vehicle getVariable ["bmkhs_engOilPsiLow", [false, false]]) params ["_oil1", "_oil2"];
 [USERMFDV_L20, _oil1] call _setPylonFn;
 [USERMFDV_L21, _oil2] call _setPylonFn;
 
 // ROTOR BRAKE ON
-[USERMFDV_L22, _vehicle getVariable "bmkhs_rotorBrakeOn"] call _setPylonFn;
+[USERMFDV_L22, _vehicle getVariable ["bmkhs_rotorBrakeOn", false]] call _setPylonFn;
 
 // CHIP ENG
 (_vehicle getVariable ["bmkhs_engChips", [false, false]]) params ["_chip1", "_chip2"];

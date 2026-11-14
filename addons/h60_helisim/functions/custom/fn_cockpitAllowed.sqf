@@ -29,7 +29,7 @@ if !([_heli, _control, _index] call bmkhs_fnc_controlAllowed) exitWith {false};
 
 //A power lever cannot go to FLY while the other engine is starting
 if (_control in ["eng1PwrLvr", "eng2PwrLvr"] && {_index == 2}) exitWith {
-    ((_heli getVariable "bmkhs_engState") # ([1, 0] select (_control == "eng2PwrLvr"))) != "STARTING"
+    ((_heli getVariable ["bmkhs_engState", ["OFF", "OFF"]]) # ([1, 0] select (_control == "eng2PwrLvr"))) != "STARTING"
 };
 
 true

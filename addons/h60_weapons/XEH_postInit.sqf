@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 
 if (hasInterface) then {
-  #include "ACE_Actions.sqf"
+  #include "ACE_Actions.inc.sqf"
 
   GVAR(irLaserPFH) = -1;
   [QGVAR(irLaser), LINKFUNC(onIRLaserOn)] call CBA_fnc_addEventHandler;
