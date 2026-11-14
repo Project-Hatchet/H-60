@@ -24,3 +24,4 @@ PREP(recoverPerson);
 PREP(resetHook);
 PREP(secureHook);
 PREP(stabilizeHook);
+PREP(winchTick);
