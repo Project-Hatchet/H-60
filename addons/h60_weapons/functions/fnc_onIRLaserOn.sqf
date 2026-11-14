@@ -19,7 +19,8 @@
  * Public: No
  */
 
-params ["_vehicle", "_begSel", "_endSel", ["_state", -1]];
+params [["_vehicle", objNull, [objNull]], "_begSel", "_endSel", ["_state", -1]];
+if (isNull _vehicle) exitWith {};
 private _emitter = [_vehicle, _begSel, _endSel];
 private _isOn = _emitter in GVAR(laserEmitters);
 private _turnOn = if (_state == -1) then { !_isOn } else { _state == 1 };

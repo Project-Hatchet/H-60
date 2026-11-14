@@ -6,7 +6,7 @@ params ["_ctrl"];
 private _display = ctrlParent _ctrl;
 private _ctrl = _display displayCtrl 1337;
 private _curSel = lbCurSel _ctrl;
-private _message = VTX_JVMF_MESSAGES # _curSel;
+private _message = vtx_jvmf_messages # _curSel;
 _message params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
 closeDialog 2;
 switch (_type) do {

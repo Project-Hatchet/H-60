@@ -5,13 +5,13 @@
  */
 params ["_replySender", "_ID", "_reply", "_timestamp", "_senderObject"];
 
-private _messageIndex = VTX_JVMF_MESSAGES findIf {_x # 0 == _ID};
+private _messageIndex = vtx_jvmf_messages findIf {_x # 0 == _ID};
 if (_messageIndex == -1) exitWith {};
-private _message = VTX_JVMF_MESSAGES # _messageIndex;
+private _message = vtx_jvmf_messages # _messageIndex;
 private _replies = _message # 6;
 _replies pushBack [_timestamp, _replySender, _reply];
 _message set [6, _replies];
-VTX_JVMF_MESSAGES set [_messageIndex, _message];
+vtx_jvmf_messages set [_messageIndex, _message];
 
 
 if (_senderObject != player) then {

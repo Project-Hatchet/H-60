@@ -16,6 +16,11 @@
 
 #define LASER_MAX 3000
 
+// emitters of aircraft deleted since they lased (they were never dropped)
+if (GVAR(laserEmitters) findIf {isNull (_x # 0)} != -1) then {
+  GVAR(laserEmitters) = GVAR(laserEmitters) select {!isNull (_x # 0)};
+};
+
 if (GVAR(laserEmitters) isEqualTo []) exitWith {
   GVAR(irLaserPFH) call CBA_fnc_removePerFrameHandler;
   GVAR(irLaserPFH) = -1;

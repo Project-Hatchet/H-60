@@ -1,3 +1,4 @@
+PREP(blurWatch);
 PREP(coverSwitch);
 PREP(fired);
 PREP(perFrame);

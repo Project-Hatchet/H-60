@@ -7,7 +7,6 @@
  */
 
 params ["_vehicle"];
-if (!isNil "test_fnc_perSec") exitWith {_this call test_fnc_perSec};
 
 private _stabAnim = _vehicle animationPhase "Stabilator_rotate";
 private _stabAngle = ceil (80 - (_stabAnim * 1.1111111 + 13));

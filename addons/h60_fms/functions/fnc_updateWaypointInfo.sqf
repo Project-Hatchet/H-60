@@ -7,7 +7,6 @@
  * params (array)[(object) vehicle]
  */
 
-if (!isNil "test_fnc_waypts") exitWith {_this call test_fnc_waypts};
 params ["_vehicle"];
 
 private _selIndex = missionNamespace getVariable ["vtx_uh60_fms_wpSelection", currentWaypoint group player];
@@ -32,19 +31,23 @@ private _staticMap = getUserMFDValue _vehicle select USERMFDV_TAC_MOVE > 0;
 private _center = [_vehicle] call vtx_uh60_mfd_fnc_tac_getMapCenter;
 private _rotation = if (_selfAligned) then {getDir _vehicle} else {0};
 
-//The active waypoint, for HeliSim's flight director NAV mode
+//The active waypoint, for HeliSim's flight director NAV mode. Published by the
+//aircraft's owner only (where Core flies it): both pilots used to publish from
+//their own selection, so differing selections overwrote each other every frame.
 private _fdWpt = [[], _position] select (_position isNotEqualTo [0,0,0]);
-if ((_vehicle getVariable ["bmkhs_fdWaypoint", []]) isNotEqualTo _fdWpt) then {
+if (local _vehicle && {(_vehicle getVariable ["bmkhs_fdWaypoint", []]) isNotEqualTo _fdWpt}) then {
     _vehicle setVariable ["bmkhs_fdWaypoint", _fdWpt, true];
 };
 
 private _waypointDirection = (_center getDir _position) - _rotation;
 _vehicle setUserMFDvalue [0, (_vehicle getDir _position)];
-_vehicle setUserMFDvalue [1, _center distance2D _position];
+// distance from the aircraft (fnc_perFrame used to overwrite this same frame with
+// the aircraft distance after it was written as the map-centre distance)
+_vehicle setUserMFDvalue [1, _vehicle distance2D _position];
 
 private _zoomLevel = _vehicle getVariable ["MAP_ZoomMult", 1];
 private ["_waypointPosition"];
-private _worldSize = [] call BIS_fnc_mapSize;
+private _worldSize = missionNamespace getVariable ["vtx_uh60_fms_mapSize", worldSize]; // cached in fnc_setup
 
 private _positionToMfd = {
     params ["_pos", "_i1", "_i2"];
@@ -53,7 +56,7 @@ private _positionToMfd = {
     // _vehicle setUserMFDvalue [_i2, ((_center distance2D _pos) * _zoomLevel) / (vtx_uh60_fms_mapSize / 2)];
 
 	private _diff = _pos vectordiff (getpos _vehicle);
-	private _dir = direction player;
+	private _dir = getDir _vehicle; // the aircraft's heading (was the player's)
 	private _rotated = [_diff, _dir] call BIS_fnc_rotateVector2D;
     _vehicle setUserMFDvalue [_i1, -1 * ((_rotated # 0) / (_worldSize/2)) * _zoomLevel];
     _vehicle setUserMFDvalue [_i2, (_rotated # 1)/ (_worldSize/2) * _zoomLevel];
@@ -91,9 +94,9 @@ if (vtx_uh60_fms_renderWaypointsOnTAC) then {
 
     //
     //43 44
-    if (count VTX_JVMF_MESSAGES > 0) then {
-        if (!isNil {VTX_JVMF_MESSAGES # VTX_JVMF_SELECTED_IDX}) then {
-            (VTX_JVMF_MESSAGES # VTX_JVMF_SELECTED_IDX) params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
+    if (count vtx_jvmf_messages > 0) then {
+        if (!isNil {vtx_jvmf_messages # vtx_jvmf_selected_idx}) then {
+            (vtx_jvmf_messages # vtx_jvmf_selected_idx) params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
             if (_type == 2) then {
                 _data params ["_position"];
                 [_position, 43, 44] call _positionToMfd;

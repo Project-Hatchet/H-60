@@ -80,16 +80,20 @@ if (_movingCursor) then {
 };
 
 if (local _vehicle) then {
-	private _gridPosX = [_center # 0,0] call BIS_fnc_parseNumber;
-	private _gridPosY = [_center # 1,0] call BIS_fnc_parseNumber;
-
-	private _map_anim_x = (_gridPosX/_worldSize);
-	private _map_anim_y = (_gridPosY/_worldSize);
-
-	_vehicle animateSource ["MAP_X", _map_anim_x, true];
-	_vehicle animateSource ["MAP_Y", _map_anim_y, true];
+	// animateSource is global where the aircraft is local: only send a change
+	// (deadband ~0.3 m of map / 0.05 deg), not three updates every frame
+	private _map_anim_x = (_center # 0) / _worldSize;
+	private _map_anim_y = (_center # 1) / _worldSize;
+	if (abs ((_vehicle animationSourcePhase "MAP_X") - _map_anim_x) > 0.00001) then {
+		_vehicle animateSource ["MAP_X", _map_anim_x, true];
+	};
+	if (abs ((_vehicle animationSourcePhase "MAP_Y") - _map_anim_y) > 0.00001) then {
+		_vehicle animateSource ["MAP_Y", _map_anim_y, true];
+	};
 	private _rotation = if (_selfAligned) then {getDirVisual _vehicle} else {0};
-	_vehicle animateSource ["MAP_Rotation", _rotation, true];
+	if (abs ((_vehicle animationSourcePhase "MAP_Rotation") - _rotation) > 0.05) then {
+		_vehicle animateSource ["MAP_Rotation", _rotation, true];
+	};
 };
 
 _vehicle setUserMFDvalue [29, vtx_uh60_mfd_tac_cursorPos # 0];
@@ -104,7 +108,7 @@ private _positionToMfd = {
 	// _vehicle setUserMFDvalue [_i2, ((_center distance2D _pos) * _zoomLevel) / (vtx_uh60_fms_mapSize / 2)];
 
 	private _diff = _pos vectordiff _center;
-	private _dir = direction player;
+	private _dir = getDir _vehicle; // the aircraft's heading (was the player's)
 	private _rotated = [_diff, _dir] call BIS_fnc_rotateVector2D;
 	_vehicle setUserMFDvalue [_i1, -1 * ((_rotated # 0) / (_worldSize/2)) * _zoomLevel];
 	_vehicle setUserMFDvalue [_i2, (_rotated # 1)/ (_worldSize/2) * _zoomLevel];

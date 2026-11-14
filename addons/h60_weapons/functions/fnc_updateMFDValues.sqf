@@ -66,7 +66,10 @@ private _launchNum = switch (_launchMode) do {
 	case "hellfire_lo": {0};
 	case "hellfire": {1};
 	case "hellfire_hi": {2};
+	default {-1}; // another mod's attack profile: leave the readout as it is
 };
 
 //[_vehicle, 41, _launchNum] call vtx_uh60_mfd_fnc_setPylonValue;
-_vehicle setUserMFDValue [USERMFDV_HELLFIRE_TRA, _launchNum];
+if (_launchNum >= 0) then {
+	_vehicle setUserMFDValue [USERMFDV_HELLFIRE_TRA, _launchNum];
+};

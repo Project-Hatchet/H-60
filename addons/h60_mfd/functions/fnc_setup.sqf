@@ -20,10 +20,17 @@ _vehicle setUserMFDvalue [25,0];
 _vehicle setUserMFDvalue [26,1];
 
 
-_vehicle setVariable ["MAP_Zoom", 1, true];
-_vehicle setVariable ["MAP_ZoomMult", 1, true];
-_vehicle animateSource ["MAP1_Scale", 1/1, 1];
-_vehicle setUserMFDValue [40, worldSize / 1 / 2];
+// Keep the zoom the aircraft already has: every crew member boarding used to
+// reset it to 1 (and broadcast that) for everyone aboard. Defaults are broadcast
+// once, by the first to set up.
+private _zoom = _vehicle getVariable ["MAP_Zoom", -1];
+if (_zoom < 0) then {
+    _zoom = 1;
+    _vehicle setVariable ["MAP_Zoom", 1, true];
+    _vehicle setVariable ["MAP_ZoomMult", 1, true];
+};
+_vehicle animateSource ["MAP1_Scale", 1/_zoom, 1];
+_vehicle setUserMFDValue [40, worldSize / _zoom / 2];
 
 vtx_uh60_mfd_tac_mapPos = [0,0,0];
 vtx_uh60_mfd_tac_cursorPos = [0.5,0.5];
@@ -32,10 +39,13 @@ vtx_uh60_mfd_slewY = 0;
 vtx_uh60_mfd_allowText = true;
 vtx_uh60_tac_hookedObject = nil;
 
-_vehicle setVariable ["vtx_uh60_mfd_23_mapTextureMode", "topo", true];
-_vehicle setVariable ["vtx_uh60_mfd_24_mapTextureMode", "topo", true];
-_vehicle setVariable ["vtx_uh60_mfd_25_mapTextureMode", "topo", true];
-_vehicle setVariable ["vtx_uh60_mfd_26_mapTextureMode", "topo", true];
+// likewise each screen's map texture: default once, never reset on boarding
+{
+    private _var = format ["vtx_uh60_mfd_%1_mapTextureMode", _x];
+    if (isNil {_vehicle getVariable _var}) then {
+        _vehicle setVariable [_var, "topo", true];
+    };
+} forEach [23, 24, 25, 26];
 
 vtx_uh60_mfd_mfsc_focussedMFD = 25;
 if (player != driver _vehicle) then {

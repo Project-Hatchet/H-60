@@ -7,7 +7,7 @@
 params ["_vehicle"];
 
 //Do not draw JVMF is there are no JVMF Messages
-if (count VTX_JVMF_MESSAGES == 0) exitWith {
+if (count vtx_jvmf_messages == 0) exitWith {
     _vehicle setUserMFDValue [16, -1];  //-1 sets as empty
 };
 
@@ -35,12 +35,13 @@ private _strings = [
     _x params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
     private _str = "";
     //_str = _str + (if (count _replies < 2) then [{">"}, {" "}]);
-    _str = _str + (if (_forEachIndex == VTX_JVMF_SELECTED_IDX) then [{"-"}, {" "}]);
+    _str = _str + (if (_forEachIndex == vtx_jvmf_selected_idx) then [{"-"}, {" "}]);
     private _typeText = switch (_type) do {
         case 0: {"FRTXT "};
         case 1: {"CASREQ"};
         case 2: {"POSRPT"};
         case 3: {"MEDEVC"};
+        default {"??????"}; // unknown type: no nil in the string build
     };
     _str = _str + _typeText + " ";
     _str = _str + ([_sender, 5] call _fixString) + " ";
@@ -48,9 +49,11 @@ private _strings = [
         _str = _str + ((_replies # 0) # 0);
     };
     _strings set [_foreachIndex, [_str, 20+3] call _fixString];
-} forEach VTX_JVMF_MESSAGES;
+} forEach vtx_jvmf_messages;
 
-private _message = VTX_JVMF_MESSAGES # VTX_JVMF_SELECTED_IDX;
+// a stale selection (message deleted) must not index past the end
+vtx_jvmf_selected_idx = (vtx_jvmf_selected_idx max 0) min (count vtx_jvmf_messages - 1);
+private _message = vtx_jvmf_messages # vtx_jvmf_selected_idx;
 _message params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
 
 _vehicle setUserMFDValue [16, _type];
@@ -82,5 +85,5 @@ if (count _replies > 0) then {
     [_vehicle, 41, [_lastReply # 0, _lastReply # 1, _lastReply # 2] joinString " "] call vtx_uh60_mfd_fnc_setUserText;
 };
 
-private _messageCount = count VTX_JVMF_MESSAGES;
-[_vehicle, 42, format["%1/%2", VTX_JVMF_SELECTED_IDX + 1, count VTX_JVMF_MESSAGES]] call vtx_uh60_mfd_fnc_setUserText;
+private _messageCount = count vtx_jvmf_messages;
+[_vehicle, 42, format["%1/%2", vtx_jvmf_selected_idx + 1, count vtx_jvmf_messages]] call vtx_uh60_mfd_fnc_setUserText;

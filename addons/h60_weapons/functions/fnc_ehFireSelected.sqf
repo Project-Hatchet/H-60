@@ -33,7 +33,12 @@ if !(
 
 if (!isNil "vtx_uh60_weapons_fireSelectedPFH") exitWith {};
 
-private _reloadTime = getNumber (configFile >> "CfgWeapons" >> _currentWeapon >> "_reloadTime");
+// Every frame on purpose: fireAtTarget only fires once the weapon is ready, so
+// polling each frame keeps the full rate of fire. (This read a non-existent
+// "_reloadTime" property, which is 0 - i.e. every frame. A real reloadTime delay
+// would add up to a frame per shot, ~15% fewer rounds on the M230.) Runs only
+// while the trigger is held, capped by FORCE_FIRE_TIMEOUT.
+private _reloadTime = 0;
 vtx_uh60_weapons_fireSelectedPFH = [{
     params ["_args", "_pfhID"];
     _args params ["_vehicle", "_currentWeapon", "_endTime"];

@@ -67,14 +67,5 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
 };
 
 
-if ((count customWaypointPosition) > 0) then {
-    _vehicle setUserMFDvalue [1, _vehicle distance2D customWaypointPosition];
-} else {
-    private _selIndex = missionNamespace getVariable ["vtx_uh60_fms_wpSelection", currentWaypoint group player];
-    private _position = if (_selIndex > -1 && {_selIndex < count (waypoints group player)}) then {
-        waypointPosition [group player, _selIndex]
-    } else {
-        [0,0,0]
-    };
-    _vehicle setUserMFDvalue [1, _vehicle distance2D _position];
-};
+// MFD slot 1 (distance to the active waypoint) is written once, by
+// fnc_updateWaypointInfo above.

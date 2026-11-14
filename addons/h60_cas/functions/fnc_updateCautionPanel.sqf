@@ -28,20 +28,26 @@ private _engOut = [0, 0];
 } forEach _ran;
 _vehicle setVariable ["vtx_uh60_cas_engRan", _ran];
 
-_vehicle animate ["CautionEng1Out", _engOut # 0];
-_vehicle animate ["CautionEng2Out", _engOut # 1];
+// caution lamps change rarely: animate (network traffic where the aircraft is
+// local) only when the lamp is not already at that phase
+private _animateIfChanged = {
+    params ["_veh", "_anim", "_phase"];
+    if ((_veh animationPhase _anim) != _phase) then { _veh animate [_anim, _phase]; };
+};
+[_vehicle, "CautionEng1Out", _engOut # 0] call _animateIfChanged;
+[_vehicle, "CautionEng2Out", _engOut # 1] call _animateIfChanged;
 
 // LOW ROTOR RPM
 private _nr      = _vehicle getVariable ["bmkhs_rtrRpm", 0];
 private _nrLow   = (_vehicle getVariable ["bmkhs_nrLimits", [0.95]]) # 0;
 private _rpmWarn = parseNumber (_nr > 0.01 && {_nr < _nrLow});
-_vehicle animate ["CautionLowRpm", _rpmWarn];
+[_vehicle, "CautionLowRpm", _rpmWarn] call _animateIfChanged;
 
 // APU panel
 private _apuFail = ([_vehicle, "apu"] call bmkhs_fnc_damageGet) > 0.85
     || {(_vehicle getVariable ["bmkhs_apuBtnOn", false]) && {!(_vehicle getVariable ["bmkhs_apuFuelAvail", false])}};
-_vehicle animate ["APUFail", parseNumber _apuFail];
-_vehicle animate ["ACCLow", parseNumber ((_vehicle getVariable ["bmkhs_accHydPsi", 0]) < 2600)];
+[_vehicle, "APUFail", parseNumber _apuFail] call _animateIfChanged;
+[_vehicle, "ACCLow", parseNumber ((_vehicle getVariable ["bmkhs_accHydPsi", 0]) < 2600)] call _animateIfChanged;
 
 // Tones - airborne, battery bus powered
 if (_vehicle != vehicle player) exitWith {};

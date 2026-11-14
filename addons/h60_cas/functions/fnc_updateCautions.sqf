@@ -7,38 +7,43 @@
  * params (array)[(object) vehicle]
  */
 
-private _pylonLabels = createHashMapFromArray [
-    [USERMFDV_L00, "GEN 1 FAIL"],
-    [USERMFDV_L01, "HYD PUMP 1 FAIL"],
-    [USERMFDV_L02, "FUEL 1 LOW"],
-    [USERMFDV_L10, "CHIP ENG 1"],
-    [USERMFDV_L11, "CHIP MAIN MDL SUMP"],
-    [USERMFDV_L12, "MAIN XMSN PRES"],
-    [USERMFDV_L13, "HULL INTEGRITY CRIT"],
-    [USERMFDV_L14, "LEFT STN HANG"],
-    [USERMFDV_L15, "ENG 1 STARTER ON"],
-    [USERMFDV_L20, "ENG 1 OIL PRESS"],
-    [USERMFDV_L21, "ENG 2 OIL PRESS"],
-    [USERMFDV_L22, "ROTOR BRAKE ON"],
-    [USERMFDV_R00, "GEN 2 FAIL"],
-    [USERMFDV_R01, "HYD PUMP 2"],
-    [USERMFDV_R02, "FUEL 2 LOW"],
-    [USERMFDV_R10, "CHIP ENG 2"],
-    [USERMFDV_R11, "T/R SERVO 1 FAIL"],
-    [USERMFDV_R12, "T/R QUAD FAIL"],
-    [USERMFDV_R13, "APU FAIL"],
-    [USERMFDV_R14, "RIGHT STN HANG"],
-    [USERMFDV_R15, "ENG 2 STARTER ON"],
-    [USERMFDV_R20, "STBY INST NOT ARMD"],
-    [USERMFDV_R21, "STAB FAIL"],
-    [USERMFDV_R22, "CMWS FAIL"],
-    [USERMFDV_R23, "FLIR FAIL"],
-    [USERMFDV_R24, "MFD BUS ERR"],
-    [USERMFDV_R25, "EGI FAIL"]
-];
-
 params ["_vehicle"];
 if (!local _vehicle || missionNamespace getVariable ["vtx_uh60_mfd_eicas_testing", false]) exitWith {};
+
+// Caution labels by MFD slot: built once, not on every call (each second and
+// on every hit)
+if (isNil "vtx_uh60_cas_pylonLabels") then {
+    vtx_uh60_cas_pylonLabels = createHashMapFromArray [
+        [USERMFDV_L00, "GEN 1 FAIL"],
+        [USERMFDV_L01, "HYD PUMP 1 FAIL"],
+        [USERMFDV_L02, "FUEL 1 LOW"],
+        [USERMFDV_L10, "CHIP ENG 1"],
+        [USERMFDV_L11, "CHIP MAIN MDL SUMP"],
+        [USERMFDV_L12, "MAIN XMSN PRES"],
+        [USERMFDV_L13, "HULL INTEGRITY CRIT"],
+        [USERMFDV_L14, "LEFT STN HANG"],
+        [USERMFDV_L15, "ENG 1 STARTER ON"],
+        [USERMFDV_L20, "ENG 1 OIL PRESS"],
+        [USERMFDV_L21, "ENG 2 OIL PRESS"],
+        [USERMFDV_L22, "ROTOR BRAKE ON"],
+        [USERMFDV_R00, "GEN 2 FAIL"],
+        [USERMFDV_R01, "HYD PUMP 2"],
+        [USERMFDV_R02, "FUEL 2 LOW"],
+        [USERMFDV_R10, "CHIP ENG 2"],
+        [USERMFDV_R11, "T/R SERVO 1 FAIL"],
+        [USERMFDV_R12, "T/R QUAD FAIL"],
+        [USERMFDV_R13, "APU FAIL"],
+        [USERMFDV_R14, "RIGHT STN HANG"],
+        [USERMFDV_R15, "ENG 2 STARTER ON"],
+        [USERMFDV_R20, "STBY INST NOT ARMD"],
+        [USERMFDV_R21, "STAB FAIL"],
+        [USERMFDV_R22, "CMWS FAIL"],
+        [USERMFDV_R23, "FLIR FAIL"],
+        [USERMFDV_R24, "MFD BUS ERR"],
+        [USERMFDV_R25, "EGI FAIL"]
+    ];
+};
+private _pylonLabels = vtx_uh60_cas_pylonLabels;
 
 private _setPylonFn = {
     params ["_index", "_enable"];

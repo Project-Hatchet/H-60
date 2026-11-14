@@ -18,7 +18,7 @@ ADDON = false;
 ] call CBA_fnc_addSetting;
 
 vtx_uh60_jvmf_importedCtabMarkersList = [];
-VTX_JVMF_MESSAGES = [
+vtx_jvmf_messages = [
    [
        "WELCOME", // TITLE
        "SYSTEM", // SENDER
@@ -121,6 +121,6 @@ VTX_JVMF_MESSAGES = [
     ]
     */
 ];
-VTX_JVMF_SELECTED_IDX = 0;
+vtx_jvmf_selected_idx = 0;
 
 ADDON = true;

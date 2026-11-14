@@ -32,5 +32,5 @@ private _fixString = {
 	};
 	if(vtx_uh60_ui_showDebugMessages) then {systemChat _str;};
 	_ctrl lbAdd _str;
-} forEach VTX_JVMF_MESSAGES;
+} forEach vtx_jvmf_messages;
 
