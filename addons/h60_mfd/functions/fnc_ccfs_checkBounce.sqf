@@ -1,3 +1,13 @@
+/*
+ * vtx_uh60_mfd_fnc_ccfs_checkBounce
+ *
+ * CCFS: bounces the ball off whichever paddle it reached.
+ *
+ * params none
+ *
+ * returns (bool) bounced
+ */
+
 vtx_uh60_ccfs_ballPos params ["_x", "_y"];
 vtx_uh60_ccfs_paddlePositions params ["_right", "_left"];
 private _paddleHeight = 0.1;

@@ -1,3 +1,11 @@
+/*
+ * vtx_uh60_flir_fnc_shutDown
+ *
+ * Hatchet module hook: turns the FLIR effects off and removes this seat's FLIR event handlers.
+ *
+ * params [(object) vehicle]
+ */
+
 params ["_vehicle"];
 
 // setup exits before creating these on airframes without a pilot camera

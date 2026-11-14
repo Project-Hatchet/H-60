@@ -1,3 +1,11 @@
+/*
+ * vtx_uh60_mfd_fnc_ccfs_join
+ *
+ * CCFS: joins the selected player's lobby, or starts a game against the aircraft AI if that is the selection.
+ *
+ * params [(object) vehicle]
+ */
+
 params ["_vehicle"];
 if (isNull vtx_uh60_ccfs_playerSelected) exitWith {hint "No player selected"};
 if (vtx_uh60_ccfs_playerSelected == player) exitWith {

@@ -1,3 +1,11 @@
+/*
+ * vtx_uh60_mfd_fnc_tac_getHookInfo
+ *
+ * TAC page: text and position for a hooked object or waypoint.
+ *
+ * params [(object|group|array) hooked, (string) type "ground"|"waypoint", (side) side]
+ */
+
 params ["_object", "_type", "_side"];
 private _position = switch (_this # 1) do {
 	case "ground": {

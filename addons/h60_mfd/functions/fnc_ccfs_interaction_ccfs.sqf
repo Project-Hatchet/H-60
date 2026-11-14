@@ -1,3 +1,11 @@
+/*
+ * vtx_uh60_mfd_fnc_ccfs_interaction_ccfs
+ *
+ * CCFS: handles the game page's MFD buttons (join, next/previous player, host, play/pause, exit).
+ *
+ * params [(object) vehicle, (number) action, (any) value]
+ */
+
 params ["_vehicle", "_action", "_value"];
 
 switch (_action) do {

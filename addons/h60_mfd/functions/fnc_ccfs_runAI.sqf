@@ -1,3 +1,11 @@
+/*
+ * vtx_uh60_mfd_fnc_ccfs_runAI
+ *
+ * CCFS: moves the AI opponent's paddle towards the ball.
+ *
+ * params none
+ */
+
 vtx_uh60_ccfs_ballPos params ["_x", "_y"];
 vtx_uh60_ccfs_paddlePositions params ["_left", "_right"];
 private _maxMoveSpeed = (_y - _right) * 0.05;

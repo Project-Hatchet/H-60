@@ -1,3 +1,11 @@
+/*
+ * vtx_uh60_mfd_fnc_shutDown
+ *
+ * Hatchet module hook: clears this seat's MFD screen textures.
+ *
+ * params [(object) vehicle]
+ */
+
 params ["_vehicle"];
 
 _vehicle setObjectTexture [8, ""];

@@ -1,3 +1,11 @@
+/*
+ * vtx_uh60_mfd_fnc_ccfs_updateBall
+ *
+ * CCFS: moves the ball, bounces it and scores when it leaves the field.
+ *
+ * params none
+ */
+
 vtx_uh60_ccfs_ballPos = vtx_uh60_ccfs_ballPos vectorAdd vtx_uh60_ccfs_ballVelocity;
 vtx_uh60_ccfs_ballPos params ["_x", "_y"];
 vtx_uh60_ccfs_ballVelocity params ["_xVelocity", "_yVelocity"];

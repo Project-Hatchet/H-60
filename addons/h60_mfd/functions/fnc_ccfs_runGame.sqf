@@ -1,3 +1,11 @@
+/*
+ * vtx_uh60_mfd_fnc_ccfs_runGame
+ *
+ * CCFS, per frame: advances the ball and AI while PLAYING, handles scoring.
+ *
+ * params none
+ */
+
 switch (vtx_uh60_ccfs_gameState) do {
 	case "PLAYING": {
 		[] call vtx_uh60_mfd_fnc_ccfs_updateBall;

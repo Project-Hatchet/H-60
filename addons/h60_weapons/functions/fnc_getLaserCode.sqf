@@ -1,4 +1,13 @@
 #include "script_component.hpp"
+/*
+ * vtx_uh60_weapons_fnc_getLaserCode
+ *
+ * The laser code set for a channel (PRI CHAN, ALT CHAN, LRFD, LST) on the weapons page.
+ *
+ * params [(object) vehicle, (string) channel]
+ *
+ * returns (number) laser code
+ */
 
 params ["_vehicle", "_type"];
 private _pylon = switch (_type) do {

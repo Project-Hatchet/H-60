@@ -1,3 +1,11 @@
+/*
+ * vtx_uh60_doorguns_fnc_perFrame
+ *
+ * Hatchet module hook: draws the door-gun help labels for the gunner when help is enabled.
+ *
+ * params [(object) vehicle]
+ */
+
 params ["_vehicle"];
 
 #define HELP_LABEL(MEMPOINT,LABEL) drawIcon3D ["\a3\ui_f\data\IGUI\Cfg\Cursors\selected_ca.paa",[0,1,0,1],_vehicle modelToWorldVisual (_vehicle selectionPosition MEMPOINT),1,1,0,LABEL,2,0.045,"RobotoCondensed","center",true];

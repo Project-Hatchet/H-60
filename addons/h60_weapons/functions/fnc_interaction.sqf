@@ -1,4 +1,12 @@
 #include "script_component.hpp"
+/*
+ * vtx_uh60_weapons_fnc_interaction
+ *
+ * Handles the weapons page's MFD buttons (weapon cycling, laser channels, trajectory, master arm, ...).
+ *
+ * params [(object) vehicle, (string) button, (any) value]
+ */
+
 params ["_vehicle", "_button", "_var"];
 
 private _cycleWeapon = {

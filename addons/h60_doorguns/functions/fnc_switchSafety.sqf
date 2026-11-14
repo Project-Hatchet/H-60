@@ -1,3 +1,11 @@
+/*
+ * vtx_uh60_doorguns_fnc_switchSafety
+ *
+ * Swaps a door gun between the live weapon and the SAFE dummy weapon on its turret.
+ *
+ * params [(object) vehicle, (string) side "l"|"r", (bool) safe]
+ */
+
 params ["_vehicle", "_side", "_on"];
 private _weapon = if (_side == "l") then [{"vtx_wpn_m134"}, {"vtx_wpn_m134_2nd"}];
 private _turret = if (_side == "l") then [{[1]}, {[2]}];

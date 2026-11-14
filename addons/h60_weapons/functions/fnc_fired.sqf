@@ -1,3 +1,11 @@
+/*
+ * vtx_uh60_weapons_fnc_fired
+ *
+ * Fired (Hellfire): camera shake, launch time for the MFD constraints box, impact-time estimate.
+ *
+ * params Fired event handler arguments
+ */
+
 params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
 if (vtx_uh60_ui_showDebugMessages) then {systemchat "HELLFIRE LAUNCHED";};
 

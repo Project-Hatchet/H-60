@@ -1,4 +1,11 @@
 #include "script_component.hpp"
+/*
+ * vtx_uh60_mfd_fnc_tac_getHook
+ *
+ * TAC page: hooks the sensor target or waypoint nearest the cursor and shows its info.
+ *
+ * params [(object) vehicle]
+ */
 
 _getHookableObjects = {
 	private _hookableObjects = getSensorTargets vehicle player;

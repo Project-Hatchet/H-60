@@ -1,9 +1,13 @@
 #include "script_component.hpp"
-// pilotCamera
-// zoomIn, zoomOut
-// cameraVisionMode
-// AimDown, AimLeft, AimRight, AimUp
-// vtx_uh60_flir_fnc_perFrame
+/*
+ * vtx_uh60_flir_fnc_perFrame
+ *
+ * Hatchet module hook: FLIR per-frame - damage grain, stowed blackout, key input and slew, laser tracking, boot slew.
+ *
+ * params [(object) vehicle, (number) frame time]
+ *
+ * Inputs read: pilotCamera, zoomIn/zoomOut, cameraVisionMode, AimDown/Left/Right/Up
+ */
 
 params ["_vehicle", "_frameTime"];
 

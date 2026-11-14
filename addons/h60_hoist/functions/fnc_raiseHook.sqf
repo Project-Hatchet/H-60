@@ -1,4 +1,11 @@
 #include "script_component.hpp"
+/*
+ * vtx_uh60_hoist_fnc_raiseHook
+ *
+ * Hoist UP key: while held, reels the cable in (on the helicopter's owner, via fnc_winchTick).
+ *
+ * params [(object) helicopter, (bool) key held (default true)]
+ */
 
 params ["_heli", ["_active", true]];
 

@@ -1,4 +1,12 @@
 #include "..\script_component.hpp"
+/*
+ * vtx_uh60_mfd_fnc_ccfs_CyclePlayer
+ *
+ * CCFS (MFD pong) lobby: steps the selected opponent through the H-60 pilots in the mission.
+ *
+ * params [(object) vehicle, (number) direction]
+ */
+
 params ["_vehicle", "_direction"];
 private _availablePlayers = [player];
 {

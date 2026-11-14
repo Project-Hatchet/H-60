@@ -1,3 +1,11 @@
+/*
+ * vtx_uh60_mfd_fnc_ccfs_syncCCFS
+ *
+ * CCFS: keeps the game in step with a human opponent; drops to DISCONNECTED if they leave.
+ *
+ * params [(object) vehicle]
+ */
+
 params ["_vehicle"];
 if (isNull vtx_uh60_ccfs_playerSelected) exitWith {};
 if (!isPlayer vtx_uh60_ccfs_playerSelected) exitWith {};

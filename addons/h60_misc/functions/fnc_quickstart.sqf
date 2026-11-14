@@ -1,3 +1,11 @@
+/*
+ * vtx_uh60_misc_fnc_quickstart
+ *
+ * Instant start (user action, spawned): runs the cold-start checklist through the real cockpit interactions, so HeliSim's state machine is fast-forwarded rather than bypassed.
+ *
+ * params [(object) vehicle]
+ */
+
 params ["_vehicle"];
 
 [_vehicle, ["startup", "b_gen1"], "ON"] call hct_interaction_fnc_scriptedInteract;  sleep 0.5;

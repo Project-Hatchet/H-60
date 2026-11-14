@@ -1,3 +1,11 @@
+/*
+ * vtx_uh60_mfd_fnc_ccfs_renderCCFS
+ *
+ * CCFS: draws the menu or the game (paddles, ball, score) into the MFD values.
+ *
+ * params [(object) vehicle, (number) frame time]
+ */
+
 params ["_vehicle", "_frametime"];
 if (vtx_uh60_ccfs_gameState == "MENU") exitWith {
 	private _text = switch (true) do {

@@ -1,4 +1,12 @@
 #include "script_component.hpp"
+/*
+ * vtx_uh60_weapons_fnc_updateMFDValues
+ *
+ * Weapons/FLIR MFD readouts: target range and grid, LOBL/LOAL constraints box, attack profile.
+ *
+ * params [(object) vehicle]
+ */
+
 params ["_vehicle"];
 
 if (!([] call vtx_uh60_mfd_fnc_isAnyFlirOpened)) exitWith {};

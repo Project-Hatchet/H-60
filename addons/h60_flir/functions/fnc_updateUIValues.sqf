@@ -1,3 +1,11 @@
+/*
+ * vtx_uh60_flir_fnc_updateUIValues
+ *
+ * Fills the fullscreen FLIR overlay readouts (direction, range, grid, time, ...).
+ *
+ * params [(object) vehicle, (number) frame time]
+ */
+
 params ["_vehicle", "_frameTime"];
 #include "\bmkhs_helisim\functions\core\core.hpp"
 private _ui = uiNamespace getVariable "vtx_uh60_flir_ui";

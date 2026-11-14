@@ -1,4 +1,12 @@
 #include "script_component.hpp"
+/*
+ * vtx_uh60_flir_fnc_laserTrack
+ *
+ * LST mode, per frame: auto-scans or locks the FLIR onto a laser spot of the selected code.
+ *
+ * params [(object) vehicle, (number) frame time]
+ */
+
 params ["_vehicle"];
 if (getUserMFDValue _vehicle select USERMFDV_LST_MODE == 2) then {
 	_this call vtx_uh60_flir_fnc_autoScanPattern;

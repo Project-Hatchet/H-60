@@ -1,4 +1,12 @@
 #include "script_component.hpp"
+/*
+ * vtx_uh60_flir_fnc_interaction
+ *
+ * Handles the FLIR page's MFD buttons (waypoint slew/create, stabilisation, laser channels, ...).
+ *
+ * params [(object) vehicle, (string) button, (any) value]
+ */
+
 params ["_vehicle", "_button", "_var"];
 	// systemchat str _this;
 switch (_button) do {

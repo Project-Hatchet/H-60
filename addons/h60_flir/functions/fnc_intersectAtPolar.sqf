@@ -1,4 +1,13 @@
-// Returns [intersect position ASL, hit object (objNull for terrain)] or nil on no hit
+/*
+ * vtx_uh60_flir_fnc_intersectAtPolar
+ *
+ * Ray-casts from a point along a polar direction in 1 km segments (lineIntersectsSurfaces is range-limited).
+ *
+ * params [(array) origin ASL, (number) azimuth, (number) elevation, (object) object to ignore (default: vehicle player)]
+ *
+ * returns [(array) position ASL, (object) hit object or objNull for terrain] or nil on no hit
+ */
+
 params ["_origin","_angleX","_angleY", ["_ignore", objNull, [objNull]]];
 if (isNull _ignore) then { _ignore = vehicle player; }; // old behaviour for callers that pass none
 

@@ -1,4 +1,12 @@
 #include "script_component.hpp"
+/*
+ * vtx_uh60_weapons_fnc_setup
+ *
+ * Hatchet module hook: weapons-system defaults on the vehicle and its MFD slots.
+ *
+ * params [(object) vehicle]
+ */
+
 params ["_vehicle"];
 
 _vehicle setVariable ["vtx_uh60_hellfire_laserCodeIndex", _vehicle getVariable ["vtx_uh60_hellfire_laserCodeIndex", 0], true];

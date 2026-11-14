@@ -1,3 +1,11 @@
+/*
+ * vtx_uh60_flir_fnc_autoScanPattern
+ *
+ * Drives the FLIR through the LST auto-scan bar pattern while laser-spot tracking searches.
+ *
+ * params [(object) vehicle, (number) frame time]
+ */
+
 params ["_vehicle", "_frameTime"];
 _vehicle setPilotCameraTarget objNull;
 private _barTime = 3;

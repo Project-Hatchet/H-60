@@ -1,3 +1,11 @@
+/*
+ * vtx_uh60_weapons_fnc_perSecond
+ *
+ * Hatchet module hook: weapons page values and the master-arm firing block.
+ *
+ * params [(object) vehicle]
+ */
+
 params ["_vehicle"];
 
 [_vehicle] call vtx_uh60_weapons_fnc_updateMFDValues;

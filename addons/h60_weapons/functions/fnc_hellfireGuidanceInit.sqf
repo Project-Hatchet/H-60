@@ -1,3 +1,11 @@
+/*
+ * vtx_uh60_weapons_fnc_hellfireGuidanceInit
+ *
+ * Fired (Hellfire): starts ACE missile guidance with the H-60's seeker and attack-profile setup.
+ *
+ * params Fired event handler arguments
+ */
+
 params ["_shooter","_weapon","","_mode","_ammo","","_projectile"];
 
 if (!(_ammo isKindOf "MissileBase")) exitWith {};

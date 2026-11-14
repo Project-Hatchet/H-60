@@ -1,3 +1,11 @@
+/*
+ * vtx_uh60_jvmf_fnc_setup
+ *
+ * Hatchet module hook: registers the JVMF message and reply event handlers (removing any left over first).
+ *
+ * params [(object) vehicle]
+ */
+
 if (!vtx_uh60m_enabled_jvmf) exitWith {false};
 // remove handlers a setup without a shutdown left behind (they were set to nil
 // here first, so a second setup made them unremovable and doubled every message)

@@ -1,3 +1,11 @@
+/*
+ * vtx_uh60_mfd_fnc_ccfs_exit
+ *
+ * CCFS: leaves the game, telling the opponent and closing a hosted lobby.
+ *
+ * params [(object) vehicle]
+ */
+
 params ["_vehicle"];
 vtx_uh60_ccfs_gameState = "MENU";
 if (!isNull vtx_uh60_ccfs_playerSelected && vtx_uh60_ccfs_gameState != "DISCONNECTED") then {

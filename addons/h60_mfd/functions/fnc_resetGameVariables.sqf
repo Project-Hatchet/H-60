@@ -1,3 +1,11 @@
+/*
+ * vtx_uh60_mfd_fnc_resetGameVariables
+ *
+ * CCFS: resets score, paddles and ball for a new game.
+ *
+ * params none
+ */
+
 vtx_uh60_ccfs_score = [0,0];
 vtx_uh60_ccfs_paddleMoved = false;
 vtx_uh60_ccfs_paddlePositions = [0.5,0.5];
