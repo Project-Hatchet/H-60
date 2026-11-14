@@ -39,28 +39,6 @@ class VTX_FMS_L2
 }; // FMS_L2
 #undef FMS_PYLONS_2
 
-#define FMS_PYLONS_4
-#undef FMS_PAGE_INDEX
-#define FMS_PAGE_INDEX FMS_R_PAGE_INDEX
-class VTX_FMS_R4
-{
-  topLeft="FMS_ScreenR_LH";
-  topRight="FMS_ScreenR_RH";
-  bottomLeft="FMS_ScreenR_LD";
-  #include "MFD\FMS.hpp"
-}; // FMS_R4
-#undef FMS_PAGE_INDEX
-#define FMS_PAGE_INDEX FMS_L_PAGE_INDEX
-class VTX_FMS_L4
-{
-  topLeft="FMS_ScreenL_LH";
-  topRight="FMS_ScreenL_RH";
-  bottomLeft="FMS_ScreenL_LD";
-  #include "MFD\FMS.hpp"
-}; // FMS_L4
-#undef FMS_PYLONS_4
-
-
 class CfgVehicles {
   class Helicopter_Base_F;
   class Helicopter_Base_H: Helicopter_Base_F {

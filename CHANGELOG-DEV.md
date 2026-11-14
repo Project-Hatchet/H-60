@@ -1,3 +1,7 @@
+**Unreleased**
+
+ - Retire the MH-60M DAP MLASS variant. It no longer appears in the editor, Zeus or the Virtual Garage. Missions that already placed one keep working: the old classname now spawns a regular MH-60M DAP. Saved MLASS pylon loadouts are ignored (the game log may show harmless unknown-magazine warnings)
+
 **0.8.0**
 
  - Fix the cabin, kneeling, DAP passenger, S-70i and MH-60S GAU-21 cabin seat firing arcs never applying - the limits were written in a form the game read as text, so those seats had no arc limits at all

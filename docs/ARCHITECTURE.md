@@ -23,7 +23,7 @@ systems             h60_helisim, h60_mfd, h60_fms, h60_flir, h60_weapons, h60_ca
 variants (leaves)   uh60m   vtx_UH60M, vtx_UH60M_SLICK, vtx_UH60M_MEDEVAC
    │                s70i    vtx_S70i
    │                hh60    vtx_HH60              (+ HH-60G liveries)
-   │                mh60m   vtx_MH60M, _DAP, _DAP_MLASS (+ textures the p3d bakes in)
+   │                mh60m   vtx_MH60M, _DAP (+ textures the p3d bakes in; vtx_MH60M_DAP_MLASS is a hidden compat stub of the DAP)
    │                mh60s   4 hidden vtx_MH60S classes
    │
 optional compat     h60_acre, h60_aar, h60_air_control (skipWhenMissingDependencies)
@@ -74,7 +74,7 @@ These are declared on `vtx_H60_base` (all default to 0) and set by variants:
 | `vtx_trait_flirTurretAnimated` | FLIR ball follows the pilot camera | MH-60M family |
 | `vtx_trait_irLaser` | fixed-forward IZLID keybind | MH-60M family |
 | `vtx_trait_erfsService` | ERFS attach/remove ACE actions | MH-60M family |
-| `vtx_trait_crewChiefTurnOut` | crew-chief turn-in/out seat swap | DAP, DAP MLASS |
+| `vtx_trait_crewChiefTurnOut` | crew-chief turn-in/out seat swap | DAP |
 
 To add a trait, give it a default on the base, set it in the variants that have it,
 and read it with `GET_TRAIT`/`HAS_TRAIT`.

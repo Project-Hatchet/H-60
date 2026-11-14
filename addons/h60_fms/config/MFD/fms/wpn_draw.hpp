@@ -17,11 +17,6 @@ class STORES {
   #include "wpn_draw_pylons_in.hpp"
 #endif
 
-#ifdef FMS_PYLONS_4
-  #include "wpn_draw_pylons_in.hpp"
-  #include "wpn_draw_pylons_out.hpp"
-#endif
-
 #define FMS_X_AMMO 0.6
 TEXT_FMS_R(CM_LBL,0.5,FMS_Y32)
 	source = "cmWeapon";
@@ -51,9 +46,6 @@ TEXT_FMS_L(CM_2_AMMO,FMS_X_AMMO,FMS_Y4)
 class CMW2_sel {
   #ifdef FMS_PYLONS_2
     condition = "1 - pylonSelected1 - pylonSelected2 - mgun";
-  #endif
-  #ifdef FMS_PYLONS_4
-    condition = "1 - pylonSelected1 - pylonSelected2 - pylonSelected3 - pylonSelected4 - mgun";
   #endif
   #ifdef FMS_PYLONS_0
     condition = "0";
@@ -88,9 +80,6 @@ TEXT_FMS_L(CM_3_AMMO,FMS_X_AMMO,FMS_Y42)
 class CMW3_sel {
   #ifdef FMS_PYLONS_2
     condition = "1 - pylonSelected1 - pylonSelected2 - mgun";
-  #endif
-  #ifdef FMS_PYLONS_4
-    condition = "1 - pylonSelected1 - pylonSelected2 - pylonSelected3 - pylonSelected4 - mgun";
   #endif
   #ifdef FMS_PYLONS_0
     condition = "0";
