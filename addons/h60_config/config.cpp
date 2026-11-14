@@ -44,6 +44,3 @@ class CfgFontFamilies {
 #define weap_xx(a,b) class _xx_##a {weapon = a; count = b;}
 
 #include "config\cfgVehicles.hpp"
-#include "config\cfgSounds.hpp"
-
-#include "config\UI\baseClasses.hpp"
