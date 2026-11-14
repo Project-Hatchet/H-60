@@ -10,7 +10,11 @@ Parameters:
 Returns:
     Nothing
 ---------------------------------------------------------------------------- */
-params ["_heli"];
+params [["_heli", objNull, [objNull]]];
+if (isNull _heli) exitWith {};
+
+//Known to this machine's frame handler, whoever owns it now or later
+vtx_uh60_helisim_aircraft pushBackUnique _heli;
 
 if (_heli getVariable ["bmkhs_initialised", false]) exitWith {};
 

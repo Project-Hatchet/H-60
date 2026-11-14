@@ -19,7 +19,7 @@ params ["_heli", "_control", "_index"];
 private _hct = _heli getVariable ["hct_config", configNull];
 if (isNull _hct) exitWith {};
 
-private _cfg  = ("getText (_x >> 'variableName') == _control" configClasses (configOf _heli >> "BMKHS_HeliSim" >> "Controls")) param [0, configNull];
+([_heli, _control] call vtx_uh60_helisim_fnc_controlConfig) params ["_cfg", "_positions"];
 private _path = getArray (_cfg >> "hctInteraction");
 private _item = _hct >> "interaction";
 {_item = _item >> _x} forEach _path;
@@ -34,7 +34,7 @@ if (_labels isEqualTo []) then {
         [_heli, _path] call hct_interaction_fnc_scriptedInteract;
     };
 } else {
-    private _posName = toLower configName (("true" configClasses (_cfg >> "Positions")) # _index);
+    private _posName = _positions param [_index, ""];
     private _label   = _labels param [_labels findIf {toLower ((_x splitString " ") joinString "") == _posName}, ""];
     if (_label != "") then {
         [_heli, _path, _label] call hct_interaction_fnc_scriptedInteract;

@@ -14,16 +14,29 @@ Returns:
 params ["_heli"];
 #include "\bmkhs_helisim\functions\core\core.hpp"
 
-private _cfg = configOf _heli >> "BMKHS_HeliSim";
+//Config tables are fixed for the mission: read once per class, not every frame
+private _type = typeOf _heli;
+private _limits = vtx_uh60_helisim_limitCache get _type;
+if (isNil "_limits") then {
+    private _cfg = configOf _heli >> "BMKHS_HeliSim";
+    _limits = [
+        ("true" configClasses (_cfg >> "Engines")) apply {[getArray (_x >> "tqLimitsSlow"), getArray (_x >> "tqLimitsFast")]},
+        getArray (_cfg >> "nrLimitsPowerOff"),
+        getArray (_cfg >> "nrLimitsPowerOn")
+    ];
+    vtx_uh60_helisim_limitCache set [_type, _limits];
+};
+_limits params ["_engLimits", "_nrOff", "_nrOn"];
 
 //Dual engine torque, below / above 80 kt
 private _ias     = ((_heli getVariable ["bmkhs_vel2D", 0]) * MPS_TO_KNOTS) > 80;
 private _engines = _heli getVariable ["bmkhs_engines", []];
 private _changed = false;
 {
-    private _tq = getArray ((("true" configClasses (_cfg >> "Engines")) # _forEachIndex) >> (["tqLimitsSlow", "tqLimitsFast"] select _ias));
+    //an engine the config does not list keeps whatever limits it has
+    private _tq = (_engLimits param [_forEachIndex, [_x get "tqLimits", _x get "tqLimits"]]) select _ias;
     if ((_x get "tqLimits") isNotEqualTo _tq) then {
-        _x set ["tqLimits", _tq];
+        _x set ["tqLimits", +_tq]; //copy: never hand Core the cached array
         _changed = true;
     };
 } forEach _engines;
@@ -31,9 +44,9 @@ if (_changed) then { _heli setVariable ["bmkhs_engines", _engines, true] };
 
 //Nr, power on with an engine running
 private _powerOn = "ON" in (_heli getVariable ["bmkhs_engState", ["OFF", "OFF"]]);
-private _nr = getArray (_cfg >> (["nrLimitsPowerOff", "nrLimitsPowerOn"] select _powerOn));
+private _nr = [_nrOff, _nrOn] select _powerOn;
 if ((_heli getVariable ["bmkhs_nrLimits", []]) isNotEqualTo _nr) then {
-    _heli setVariable ["bmkhs_nrLimits", _nr, true];
+    _heli setVariable ["bmkhs_nrLimits", +_nr, true];
 };
 
 //For the gauges - the continuous torque limit in force, and power on / off

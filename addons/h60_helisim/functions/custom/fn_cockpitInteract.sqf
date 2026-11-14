@@ -18,8 +18,7 @@ params ["_heli", "_control", "_position"];
 private _index = _position;
 if (_position isEqualType "") then {
     private _wanted = toLower ((_position splitString " ") joinString "");
-    private _cfg = ("getText (_x >> 'variableName') == _control" configClasses (configOf _heli >> "BMKHS_HeliSim" >> "Controls")) param [0, configNull];
-    _index = ("true" configClasses (_cfg >> "Positions")) findIf {toLower configName _x == _wanted};
+    _index = (([_heli, _control] call vtx_uh60_helisim_fnc_controlConfig) # 1) find _wanted;
 };
 if (_index < 0) exitWith {};
 

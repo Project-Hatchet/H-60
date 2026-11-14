@@ -20,9 +20,8 @@ params ["_args", "_control"];
 if !(_args isEqualType []) exitWith {true};
 _args params ["_heli", "", "", "_label"];
 
-private _cfg    = ("getText (_x >> 'variableName') == _control" configClasses (configOf _heli >> "BMKHS_HeliSim" >> "Controls")) param [0, configNull];
 private _wanted = toLower ((_label splitString " ") joinString "");
-private _index  = ("true" configClasses (_cfg >> "Positions")) findIf {toLower configName _x == _wanted};
+private _index  = (([_heli, _control] call vtx_uh60_helisim_fnc_controlConfig) # 1) find _wanted;
 if (_index < 0) exitWith {true};
 
 if !([_heli, _control, _index] call bmkhs_fnc_controlAllowed) exitWith {false};

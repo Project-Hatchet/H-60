@@ -1,4 +1,11 @@
+#include "\bmkhs_helisim\functions\core\core.hpp"
 vtx_uh60_helisim_baseClass = getText (configFile >> "CfgPatches" >> "vtx_uh60_helisim" >> "bmkhsBaseClass");
+
+//Every H-60 this machine knows of, filled by setup (Init XEH) and compacted as they are
+//deleted. The frame handler walks this instead of filtering all `vehicles` every frame.
+vtx_uh60_helisim_aircraft = [];
+//Per-class config reads that never change in a mission (see fnc_updateLimits)
+vtx_uh60_helisim_limitCache = createHashMap;
 
 //Control moves and FMC input from a machine that doesn't own the aircraft
 ["vtx_uh60_helisim_controlSet", {_this call bmkhs_fnc_controlSet}] call CBA_fnc_addEventHandler;
@@ -13,6 +20,10 @@ vtx_uh60_helisim_fdKnobs = createHashMapFromArray [
     ["hdg",  ["FD_5_ROT", 36,   360,   "bmkhs_fdHdgTarget", 1]]
 ];
 //FD mode lights - the panel's texture selection for each mode
+//FD readout units - Core's targets are m, m/s and deg; the panel is ft, kt and deg
+vtx_uh60_helisim_fdUnits = createHashMapFromArray [
+    ["ralt", METERS_TO_FEET], ["alt", METERS_TO_FEET], ["altp", METERS_TO_FEET], ["ias", MPS_TO_KNOTS], ["hdg", 1]
+];
 vtx_uh60_helisim_fdLights = createHashMapFromArray [
     ["ralt", 3], ["altp", 4], ["alt", 5], ["ias", 6], ["hdg", 7], ["nav", "emmisive_fms"], ["hvr", "emmisive_hvr"]
 ];
@@ -55,11 +66,14 @@ vtx_uh60_helisim_fdLights = createHashMapFromArray [
 
 //Core runs every local H-60, crewed or not.
 vtx_uh60_helisim_frameHandler = addMissionEventHandler ["EachFrame", {
+    if (vtx_uh60_helisim_aircraft findIf {isNull _x} != -1) then {
+        vtx_uh60_helisim_aircraft = vtx_uh60_helisim_aircraft select {!isNull _x};
+    };
     {
-        if (alive _x && {_x getVariable ["bmkhs_initialised", false]}) then {
+        if (local _x && {alive _x} && {_x getVariable ["bmkhs_initialised", false]}) then {
             [_x] call vtx_uh60_helisim_fnc_perFrame;
         };
-    } forEach (vehicles select {local _x && {_x isKindOf vtx_uh60_helisim_baseClass}});
+    } forEach vtx_uh60_helisim_aircraft;
 
     //Cockpit displays for the player's own H-60, local or not
     private _heli = vehicle player;

@@ -74,8 +74,8 @@ if (_engineOn && {!(_heli getVariable ["vtx_uh60_helisim_engineWasOn", false])})
 _heli setVariable ["vtx_uh60_helisim_engineWasOn", _engineOn];
 
 //Flight director - Core's targets are m, m/s and deg; the panel is ft, kt and deg
-private _fdUnits = createHashMapFromArray [["ralt", METERS_TO_FEET], ["alt", METERS_TO_FEET], ["altp", METERS_TO_FEET], ["ias", MPS_TO_KNOTS], ["hdg", 1]];
-private _fdTgt   = { round ((_heli getVariable ["bmkhs_fdTgt_" + _this, 0]) * (_fdUnits get _this)) };
+//(unit map built once in XEH_preInit)
+private _fdTgt   = { round ((_heli getVariable ["bmkhs_fdTgt_" + _this, 0]) * (vtx_uh60_helisim_fdUnits get _this)) };
 //The panel knobs follow the targets
 {
     _y params ["_source", "_perPhase", "_range", "", "_step"];

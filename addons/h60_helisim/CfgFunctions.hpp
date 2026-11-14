@@ -23,6 +23,7 @@ class CfgFunctions
             class updateCockpit   {R;};
             class updateVisuals   {R;};
             class updateLimits    {R;};
+            class controlConfig   {R;};
         };
     };
 };
