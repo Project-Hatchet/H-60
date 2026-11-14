@@ -17,7 +17,7 @@ h60_config          the common base: vtx_H60_base, crew, shared turrets/parts/an
    │
 systems             h60_helisim, h60_mfd, h60_fms, h60_flir, h60_weapons, h60_cas, h60_misc,
    │                h60_ground, h60_hoist, h60_doorguns, h60_anvishud, h60_jvmf, h60_ui,
-   │                h60_sfx, h60_ace_viv, h60_stretcher
+   │                h60_sounds, h60_ace_viv, h60_stretcher
    │                → extend vtx_H60_base only
    │
 variants (leaves)   uh60m   vtx_UH60M, vtx_UH60M_SLICK, vtx_UH60M_MEDEVAC
