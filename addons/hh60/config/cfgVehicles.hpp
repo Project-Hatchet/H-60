@@ -3,7 +3,8 @@
 // half and uh60_config's systems half, 2026-09-05. Member order preserved from
 // the pre-merge engine result (config-dump proven). The cabin seats are the
 // three row sources, CabinSeats_1/2/3_Hide.
-// Assets stay in UH60 — path references need no dependency edge.
+// Liveries (data\, data\fire\) and the editor preview ship in this PBO; the
+// airframe model and baked textures stay in UH60.
 
 // screen templates (owned by uh60_mfd / uh60_fms / uh60_anvishud; resolve by
 // name at config read time)
@@ -81,21 +82,21 @@ class CfgVehicles {
   class vtx_HH60: vtx_H60_base {
     scope = 2;
     forceInGarage = 1;
-    editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_HH60.jpg";
+    editorPreview = "z\vtx\addons\hh60\data\preview\vtx_HH60.jpg";
     displayName = "$STR_VTX_UH60_HHGMPavehawk";
     memoryPointDriverOptics = "pilotcamera_flir_pos";
 
     hiddenSelectionsTextures[] = {
       "","","","","","","","","","","","","","","","",
-      "z\vtx\addons\UH60\Data\HH60\Hull_Main_co.paa",
-      "z\vtx\addons\UH60\Data\HH60\Misc_co.paa",
-      "z\vtx\addons\UH60\Data\HH60\Hull_Tail_co.paa",
+      "z\vtx\addons\hh60\data\Hull_Main_co.paa",
+      "z\vtx\addons\hh60\data\Misc_co.paa",
+      "z\vtx\addons\hh60\data\Hull_Tail_co.paa",
       "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa", // "markings",
       "", // "left_num_1",
       "", // "left_num_2",
       "", // "right_num_1",
       "", // "right_num_2",
-      "z\vtx\addons\UH60\Data\HH60\Fuel_probe_co.paa",
+      "z\vtx\addons\hh60\data\Fuel_probe_co.paa",
       "z\vtx\addons\mh60m\data\mlass_co.paa"
     };
     memoryPointCM[] = {"flare_launcher1","flare_launcher2","flare_launcher_3","flare_launcher_4"};

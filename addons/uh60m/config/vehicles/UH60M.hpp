@@ -3,7 +3,7 @@
 // Member order preserved from the pre-merge engine result (config-dump proven).
 class vtx_UH60M: vtx_H60_base {
     scope = 2;
-    editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_UH60M.jpg";
+    editorPreview = "z\vtx\addons\uh60m\data\preview\vtx_UH60M.jpg";
     ace_medical_treatment_patientSeats[] = {0, 1, 2, 3};
     hiddenSelectionsTextures[] = {
         "",

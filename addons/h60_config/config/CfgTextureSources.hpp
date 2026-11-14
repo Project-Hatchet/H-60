@@ -4,12 +4,12 @@ class TextureSources {
     author = "Xovolovo";
     textures[] = {
       "","","","","","","","","","","","","","","","",
-      "z\vtx\addons\UH60\Data\HH60\Hull_Main_co.paa",
-      "z\vtx\addons\UH60\Data\HH60\Misc_co.paa",
-      "z\vtx\addons\UH60\Data\HH60\Hull_Tail_co.paa",
+      "z\vtx\addons\hh60\data\Hull_Main_co.paa",
+      "z\vtx\addons\hh60\data\Misc_co.paa",
+      "z\vtx\addons\hh60\data\Hull_Tail_co.paa",
       "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa", // Markings: no overlay - never leave this "", the Garage then renders the markings mesh untextured (white text)
       "","","","", // door numbers L1, L2, R1, R2
-      "z\vtx\addons\UH60\Data\HH60\Fuel_probe_co.paa"
+      "z\vtx\addons\hh60\data\Fuel_probe_co.paa"
     };
   };
   class hh60g_fire {
@@ -17,12 +17,12 @@ class TextureSources {
     author = "Xovolovo";
     textures[] = {
       "","","","","","","","","","","","","","","","",
-      "z\vtx\addons\UH60\Data\HH60_Fire\Hull_Main_co.paa",
-      "z\vtx\addons\UH60\Data\HH60_Fire\Misc_co.paa",
-      "z\vtx\addons\UH60\Data\HH60_Fire\Hull_Tail_co.paa",
+      "z\vtx\addons\hh60\data\fire\Hull_Main_co.paa",
+      "z\vtx\addons\hh60\data\fire\Misc_co.paa",
+      "z\vtx\addons\hh60\data\fire\Hull_Tail_co.paa",
       "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa", // Markings: no overlay - never leave this "", the Garage then renders the markings mesh untextured (white text)
       "","","","", // door numbers L1, L2, R1, R2
-      "z\vtx\addons\UH60\Data\HH60\Fuel_probe_co.paa"
+      "z\vtx\addons\hh60\data\Fuel_probe_co.paa"
     };
   };
   class mh60m {

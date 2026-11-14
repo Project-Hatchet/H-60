@@ -4,7 +4,7 @@
 // stub; civilian variant, mission breakage accepted).
 class vtx_S70i: vtx_H60_base {
     displayName = "S-70i";
-    editorPreview = "z\vtx\addons\UH60\Data\Preview\vtx_S70i.jpg";
+    editorPreview = "z\vtx\addons\s70i\data\preview\vtx_S70i.jpg";
     crew = "C_man_pilot_F";
     side = 3;
     faction = "CIV_F";
