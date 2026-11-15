@@ -14,9 +14,9 @@ addUserActionEventHandler ["vehLockTurretView", "Activate", {
     [
         AGLToASL positionCameraToWorld [0, 0, 0],
         AGLToASL positionCameraToWorld [0, 0, 5000]
-    ] call hct_h60_flir_fnc_setStabilization;
+    ] call hct_h60_flir_fnc_lockPress;
   } else {
-    [] call hct_h60_flir_fnc_setStabilization;
+    [] call hct_h60_flir_fnc_lockPress;
   };
 }];
 
@@ -27,12 +27,9 @@ addUserActionEventHandler ["vehLockTurretView", "Activate", {
 // camera away (tester report, #559). Consume the key/button at display level
 // there and route it through setStabilization only. Mouse buttons appear in
 // actionKeys as 65536 + button, same as the scripted-camera hooks (#538)
-hct_h60_flir_lastLockPress = 0;
+// (fnc_lockPress debounces this against the other paths reporting the same press)
 hct_h60_flir_nativeLockFire = {
-  if (diag_tickTime > hct_h60_flir_lastLockPress + 0.3) then {
-    hct_h60_flir_lastLockPress = diag_tickTime;
-    [] call hct_h60_flir_fnc_setStabilization;
-  };
+  [] call hct_h60_flir_fnc_lockPress;
 };
 hct_h60_flir_nativeLockCondition = {
   cameraView == "GUNNER"

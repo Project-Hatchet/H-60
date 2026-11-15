@@ -36,7 +36,7 @@ if (hct_h60_flir_isInScriptedCamera) then {
       [
          AGLToASL positionCameraToWorld [0, 0, 0],
          AGLToASL positionCameraToWorld [0, 0, 5000]
-      ] call hct_h60_flir_fnc_setStabilization;
+      ] call hct_h60_flir_fnc_lockPress;
     };
   } else {
     hct_h60_flir_inputStabilize = 0;

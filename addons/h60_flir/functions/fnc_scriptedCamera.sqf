@@ -41,15 +41,12 @@ if (_show) then {
   // the player's actual binding for the lock action. Mouse buttons appear in
   // actionKeys as 65536 + button, so both device paths are needed (#538)
   if (isNil "hct_h60_flir_fullscreenKeyEH") then {
-    hct_h60_flir_lastLockPress = 0;
+    // (fnc_lockPress debounces this against the per-frame poll in fnc_handleKeyInputs)
     private _fire = {
-      if (diag_tickTime > hct_h60_flir_lastLockPress + 0.3) then {
-        hct_h60_flir_lastLockPress = diag_tickTime;
-        [
-          AGLToASL positionCameraToWorld [0, 0, 0],
-          AGLToASL positionCameraToWorld [0, 0, 5000]
-        ] call hct_h60_flir_fnc_setStabilization;
-      };
+      [
+        AGLToASL positionCameraToWorld [0, 0, 0],
+        AGLToASL positionCameraToWorld [0, 0, 5000]
+      ] call hct_h60_flir_fnc_lockPress;
     };
     hct_h60_flir_fullscreenLockFire = _fire;
     hct_h60_flir_fullscreenKeyEH = (findDisplay 46) displayAddEventHandler ["KeyDown", {

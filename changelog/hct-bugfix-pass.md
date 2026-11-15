@@ -9,3 +9,5 @@
 - Fix script errors in the game log from the ACRE comm pages and knobs before the radios are ready, the FLIR in gunner view with no FLIR page open, an empty JVMF inbox, the hoist hook repair check, and every module start-up (CAS, FMS, MFD, JVMF, ground)
 - Fix diagonal streaks across the MFDs (TAC map, FLIR and every other page) that turned with your view - the screen glass was mirroring a photo of a grass field
 - The FLIR and sling-camera picture on the MFDs now keeps its proportions on any monitor - it was squeezed sideways, badly on ultrawide (21:9, 32:9) screens
+- Fix the FLIR lock grabbing a vehicle far off that you were not looking at (behind a hill, a building or past your aim point). A narrowly missed target is still caught, but only one in front of what you are aiming at, close to the aim line, inside a window that narrows as you zoom, and in line of sight; aircraft against open sky can now be locked the same way
+- Fix one press of the FLIR lock key sometimes locking and releasing at once

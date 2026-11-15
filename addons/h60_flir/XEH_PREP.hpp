@@ -21,6 +21,7 @@ PREP(pipStop);
 PREP(scriptedCamera);
 PREP(setFOV);
 PREP(setIsPipHidden);
+PREP(lockPress);
 PREP(setStabilization);
 PREP(setVisionMode);
 PREP(syncAnimation);
