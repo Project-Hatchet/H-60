@@ -118,11 +118,26 @@ jobs:
           # the stamp from Main plus the previous devbuild tip. push_dev.py
           # picks the version up from the branch, so devbuild Workshop pushes
           # no longer need --version/--bump.
-          VERSION_FILE=addons/h60_main/script_version.hpp
+          # The main addon folder is "main" before the h60_* renames (#668) and "h60_main"
+          # after; a labeled PR can rename it, so resolve the path per tree instead of
+          # hardcoding it: in a commit (first arg) or the merged working tree (no arg).
+          version_file() {
+            local f
+            for f in addons/h60_main/script_version.hpp addons/main/script_version.hpp; do
+              if [ -n "${1:-}" ]; then git cat-file -e "$1:$f" 2>/dev/null && { echo "$f"; return; }
+              else [ -f "$f" ] && { echo "$f"; return; }; fi
+            done
+            echo "no script_version.hpp under addons/main or addons/h60_main${1:+ in $1}" >&2; return 1
+          }
+          VERSION_FILE=$(version_file)
           parse_ver() { tr -d '\r' | awk '/#define (MAJOR|MINOR|PATCHLVL|BUILD) /{v[$2]=$3} END{print v["MAJOR"], v["MINOR"], v["PATCHLVL"], v["BUILD"]}'; }
-          read -r main_major main_minor main_patch _ < <(git show "$base_sha:$VERSION_FILE" | parse_ver)
+          read -r main_major main_minor main_patch _ < <(git show "$base_sha:$(version_file "$base_sha")" | parse_ver)
           dev_major=$main_major; dev_minor=$main_minor; dev_patch=$((main_patch + 1)); min_build=1
-          next=$(git show "$base_sha:tools/devbuild.json" | jq -r '.devNextVersion // empty')
+          # devNextVersion lives in tools/devbuild.json after #668, tools/build.json before
+          next=""
+          for f in tools/devbuild.json tools/build.json; do
+            if git cat-file -e "$base_sha:$f" 2>/dev/null; then next=$(git show "$base_sha:$f" | jq -r ".devNextVersion // empty"); break; fi
+          done
           if [ -n "$next" ]; then
             IFS=. read -r n_major n_minor n_patch n_build <<< "$next"
             main_ver="$main_major.$main_minor.$main_patch"; next_ver="$n_major.$n_minor.$n_patch"
@@ -130,12 +145,12 @@ jobs:
               dev_major=$n_major; dev_minor=$n_minor; dev_patch=$n_patch; min_build=${n_build:-1}
               echo "devNextVersion $next: dev builds stamp $next_ver.N"
             else
-              echo "devNextVersion $next is not ahead of $BASE ($main_ver) - ignored, remove it from tools/devbuild.json"
+              echo "devNextVersion $next is not ahead of $BASE ($main_ver) - ignored, remove it from tools/devbuild.json (tools/build.json before #668)"
             fi
           fi
           build=1
           if git fetch -q origin devbuild 2>/dev/null; then
-            read -r p_major p_minor p_patch p_build < <(git show FETCH_HEAD:"$VERSION_FILE" 2>/dev/null | parse_ver)
+            read -r p_major p_minor p_patch p_build < <(git show "FETCH_HEAD:$(version_file FETCH_HEAD 2>/dev/null || echo "$VERSION_FILE")" 2>/dev/null | parse_ver)
             if [ "${p_major:-}" = "$dev_major" ] && [ "${p_minor:-}" = "$dev_minor" ] && [ "${p_patch:-}" = "$dev_patch" ]; then
               build=$((p_build + 1))
             fi
