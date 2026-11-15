@@ -13,7 +13,7 @@ ADDON = false;
 // 	diag_log str ["LOADING", _x];
 // 	private _veh = _x createVehicleLocal [0,0,0];
 // 	deleteVehicle _veh;
-// } forEach ["VTX_UH60M", "VTX_MH60M", "vtx_MH60M_DAP", "vtx_MH60M_DAP_MLASS"];
+// } forEach ["VTX_UH60M", "VTX_MH60M", "vtx_MH60M_DAP"];
 // diag_log str ["FINISHED PRE-LOADING of H-60", systemTime];
 
 // Crew-chief seat swaps (fnc_ccSwap / fnc_ccLockSeats): ONE table for every
