@@ -1,0 +1,8 @@
+# CHANGELOG-DEV.md: every PR inserts its bullets at the top of the same block, and
+# git cannot merge two insertions at the same spot - so any two open PRs conflicted
+# there. The union driver keeps both sides' lines instead. Limits: GitHub's own
+# merge check ignores this (the PR page can still say "conflicting" - a local
+# `git merge Main` then resolves it with no editing), the version header above the
+# bullets must still match Main's, and a merge that brought the same bullet in from
+# both sides leaves it twice - delete the copy.
+CHANGELOG-DEV.md merge=union
