@@ -1,3 +1,4 @@
+#ifndef LINE_AND_WAYPT
 #define LINE_AND_WAYPT(CNAME,CONDITION,DIST1,DIR1,DIST2,DIR2,COL) \
 class CNAME { \
     condition =CONDITION; \
@@ -24,6 +25,7 @@ class CNAME { \
         }; \
     }; \
 };
+#endif
 
 class waypoints {
 	class WP1_Star {

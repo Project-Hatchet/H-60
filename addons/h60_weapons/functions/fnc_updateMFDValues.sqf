@@ -68,7 +68,7 @@ if (cba_missionTime < (_vehicle getVariable ["hct_h60_hellfire_lastLaunchTime", 
 //[_vehicle, 40, _constraintsBoxType] call hct_h60_mfd_fnc_setPylonValue;
 _vehicle setUserMFDValue [USERMFDV_HELLFIRE_BOX, _constraintsBoxType];
 
-private _launchMode = _vehicle getvariable ["ace_missileguidance_attackProfile", "hellfire"];
+private _launchMode = _vehicle getVariable ["ace_missileguidance_attackProfile", "hellfire"];
 private _launchNum = switch (_launchMode) do {
 	case "hellfire_lo": {0};
 	case "hellfire": {1};

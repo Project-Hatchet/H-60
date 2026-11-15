@@ -13,7 +13,10 @@ class modules {
   };
 };
 
+#ifndef BTN_RADIUS_SWITCH
 #define BTN_RADIUS_SWITCH 0.015
+#endif
+#ifndef SIMPLE_SWITCH
 #define SIMPLE_SWITCH(CLASS,POSITION,LABEL,ANIMATION,OFFSTATE,ONSTATE,ANIMEND) \
   class CLASS { \
     positionType="static"; \
@@ -27,6 +30,7 @@ class modules {
     animEnd=ANIMEND; \
     clickSound="hct_Switch_Sound_3"; \
   };
+#endif
 
 class interaction {
   crossHair=0;

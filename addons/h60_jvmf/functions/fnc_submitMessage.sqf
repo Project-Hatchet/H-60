@@ -7,7 +7,7 @@
 params ["", "_type"];
 
 private _sender = profileName;
-private _timestamp = [daytime, "HH:MM"] call BIS_fnc_timeToString;
+private _timestamp = [dayTime, "HH:MM"] call BIS_fnc_timeToString;
 private _recipient = ctrlText 1400;
 private _id = _sender + "/" + (str time);
 private _messageContent = [];

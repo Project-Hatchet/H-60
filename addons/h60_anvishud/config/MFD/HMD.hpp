@@ -133,7 +133,9 @@ class Bones {
 		minPos[]={0,-0.3};
 		maxPos[]={0,0.3};
 	};
+	#ifndef HSI_HVR_10KTS
 	#define HSI_HVR_10KTS 0.04
+	#endif
 	class PFD_HOVER_VEL_X {
 		type="linear";
 		source="user";
@@ -244,7 +246,9 @@ class Draw {
 			{{0, 0}, 1}
 		}; // points
 	}; // WP_Point_Square
+	#ifndef WP_BOX_SIZE
 	#define WP_BOX_SIZE 0.03
+	#endif
 	class WP_Point_Square {
 		type="line";
 		width = 3;
@@ -282,8 +286,12 @@ class Draw {
 		}; // VelocityLineDraw
 	}; // VelocityLine
 
+	#ifndef POWER_X
 	#define POWER_X 0.1
+	#endif
+	#ifndef POWER_OFFSET
 	#define POWER_OFFSET 0.05
+	#endif
 	class SLIP_DCLT_HIDE {
 		condition=COND_FULL_ONLY;
 		class Slip_bars

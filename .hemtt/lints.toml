@@ -1,6 +1,13 @@
 # Baseline copied from HeliSim Core (ruled 2026-10-09: start permissive, tighten per PR).
 [config]
 math_could_be_unquoted = false
+# L-C14 off: the "unused" external classes are load-bearing. A forward declaration
+# fixes where a class sits in its parent's class order - removing the 86 that were
+# reported moved MainTurret ahead of CopilotTurret, re-indexing every turret path
+# (proved with tools/config_flatten.py, 2026-11-15). The shared extern headers
+# (variantExterns, variantBaseInherit, CfgAnimationSourcesInherit) also serve
+# variants that each use only part of them, by design.
+unused_external = false
 
 [sqf]
 select_parse_number = false
@@ -10,4 +17,13 @@ options.ignore = [
     "ACE_DEFAULT_LASER_WAVELENGTH",
     "P", "Y", "R",
     "PSI", "INPUT",
+]
+
+# L-S29: the Hatchet Interaction Framework shares the hct prefix, so HEMTT takes its
+# functions for this project's. They are the framework's (hct_core, hct_interaction).
+[sqf.function_undefined]
+options.ignore = [
+    "hct_core_fnc_handleVehicleChanged",
+    "hct_core_fnc_hasModule",
+    "hct_interaction_fnc_scriptedInteract",
 ]

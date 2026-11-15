@@ -51,7 +51,7 @@ if (isNil "hct_h60_taxiMaxKmh") then {
 // of the mission on every parked H-60 a client had flown). fnc_pbArm re-arms it
 // from the crew's perSecond within a second of a pilot taking the seat.
 if (isNull _vehicle || {!alive _vehicle} || {!local _vehicle}
-    || {!((driver _vehicle) isEqualTo player)}
+    || {(driver _vehicle) isNotEqualTo player}
     || {!([_vehicle] call bmkhs_fnc_stateOnGround)}) exitWith {
     _vehicle setVariable ["hct_h60_ground_taxiOn", false];
 };

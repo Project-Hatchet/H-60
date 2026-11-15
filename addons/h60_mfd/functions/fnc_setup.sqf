@@ -6,10 +6,10 @@
  * params (array)[(object) vehicle]
  */
 params ["_vehicle"];
-_vehicle setUserMFDvalue [23,1];
-_vehicle setUserMFDvalue [24,0];
-_vehicle setUserMFDvalue [25,0];
-_vehicle setUserMFDvalue [26,1];
+_vehicle setUserMFDValue [23,1];
+_vehicle setUserMFDValue [24,0];
+_vehicle setUserMFDValue [25,0];
+_vehicle setUserMFDValue [26,1];
 
 
 // Keep the zoom the aircraft already has: every crew member boarding used to

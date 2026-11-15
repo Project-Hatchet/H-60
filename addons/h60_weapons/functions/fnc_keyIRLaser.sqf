@@ -19,7 +19,7 @@
 
 params [["_state", -1]];
 
-if (isNil "hct_vehicle" || {isNull hct_vehicle} || {!HAS_TRAIT(hct_vehicle,"irLaser")}) exitWith {};
+if (isNil "hct_vehicle" || {isNull hct_vehicle} || {LACKS_TRAIT(hct_vehicle,"irLaser")}) exitWith {};
 
 switch (hct_vehicle unitTurret hct_player) do {
   case [-1]: {

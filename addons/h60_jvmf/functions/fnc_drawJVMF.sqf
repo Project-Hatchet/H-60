@@ -66,7 +66,7 @@ switch (_type) do {
         } forEach _text;
     };
     case 2: {
-        for [{_i = 0}, {_i < 8}, {_i = _i + 1}] do {
+        for "_i" from 0 to 7 do {
             _str = _strings # _i;
             if (_i < 4) then {
                 _str = _str + "         ";
@@ -81,7 +81,7 @@ switch (_type) do {
 } forEach _strings;
 
 if (count _replies > 0) then {
-    private _lastReply = _replies # ((count _replies) - 1);
+    private _lastReply = _replies select -1;
     [_vehicle, 41, [_lastReply # 0, _lastReply # 1, _lastReply # 2] joinString " "] call hct_h60_mfd_fnc_setUserText;
 };
 

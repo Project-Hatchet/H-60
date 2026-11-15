@@ -16,7 +16,9 @@ class Bones {
 };
 
 class Draw {
+  #ifndef JVMF_LINE_SCALING
   #define JVMF_LINE_SCALING 0.04
+  #endif
 	class JVMF {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_JVMF);
 		TEXT_LEFT_SCALED_USERTEXT(freetext01,0.13,0.21+(JVMF_LINE_SCALING*0),31,0.04)
@@ -50,15 +52,29 @@ class Draw {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_IVHMS);
 		#include "ivhms_draw.hpp"
 	}; // ivhms
+	#ifndef EICAS_LINE_SPACING
 	#define EICAS_LINE_SPACING 0.035
+	#endif
+	#ifndef EICAS_LINE_HEIGHT
 	#define EICAS_LINE_HEIGHT 0.04
+	#endif
 
+	#ifndef LX
 	#define LX 0.05
+	#endif
+	#ifndef RX
 	#define RX 0.69
+	#endif
 
+	#ifndef Y0
 	#define Y0 0.02
+	#endif
+	#ifndef Y1
 	#define Y1 0.45
+	#endif
+	#ifndef Y2
 	#define Y2 0.70
+	#endif
 
 	class eicas {
 		color[] = common_yellow;

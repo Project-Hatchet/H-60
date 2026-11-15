@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="HCT">
     <Package name="H60_MFD">
-        <Key ID="STR_hct_h60_mfd_SlewCursorUp">
-            <English>Slew Cursor Up</English>
-        </Key>
-        <Key ID="STR_hct_h60_mfd_MovesTheMFDCursorUp">
-            <English>Moves the MFD Cursor Up</English>
-        </Key>
-        <Key ID="STR_hct_h60_mfd_SlewCursorDown">
-            <English>Slew Cursor Down</English>
-        </Key>
-        <Key ID="STR_hct_h60_mfd_MovesTheMFDCursorDown">
-            <English>Moves the MFD Cursor Down</English>
-        </Key>
-        <Key ID="STR_hct_h60_mfd_SlewCursorLeft">
-            <English>Slew Cursor Left</English>
-        </Key>
-        <Key ID="STR_hct_h60_mfd_MovesTheMFDCursorLeft">
-            <English>Moves the MFD Cursor Left</English>
-        </Key>
-        <Key ID="STR_hct_h60_mfd_SlewCursorRight">
-            <English>Slew Cursor Right</English>
-        </Key>
-        <Key ID="STR_hct_h60_mfd_MovesTheMFDCursorRight">
-            <English>Moves the MFD Cursor Right</English>
+        <Key ID="STR_hct_h60_mfd_CCFSOnlyOnMFD23">
+            <English>Warning\nThe CCFS can only be opened on MFD 2 and 3</English>
         </Key>
         <Key ID="STR_hct_h60_mfd_CursorSelect">
             <English>Cursor Select</English>
         </Key>
-        <Key ID="STR_hct_h60_mfd_OpensTheActionMenuOnASelectedItem">
-            <English>Opens the Action Menu on a selected item</English>
+        <Key ID="STR_hct_h60_mfd_MovesTheMFDCursorDown">
+            <English>Moves the MFD Cursor Down</English>
         </Key>
-        <Key ID="STR_hct_h60_mfd_OpenIVHMS">
-            <English>Open IVHMS</English>
+        <Key ID="STR_hct_h60_mfd_MovesTheMFDCursorLeft">
+            <English>Moves the MFD Cursor Left</English>
+        </Key>
+        <Key ID="STR_hct_h60_mfd_MovesTheMFDCursorRight">
+            <English>Moves the MFD Cursor Right</English>
+        </Key>
+        <Key ID="STR_hct_h60_mfd_MovesTheMFDCursorUp">
+            <English>Moves the MFD Cursor Up</English>
         </Key>
         <Key ID="STR_hct_h60_mfd_NoPlayerSelected">
             <English>No player selected</English>
         </Key>
-        <Key ID="STR_hct_h60_mfd_CCFSOnlyOnMFD23">
-            <English>Warning\nThe CCFS can only be opened on MFD 2 and 3</English>
+        <Key ID="STR_hct_h60_mfd_OpenIVHMS">
+            <English>Open IVHMS</English>
+        </Key>
+        <Key ID="STR_hct_h60_mfd_OpensTheActionMenuOnASelectedItem">
+            <English>Opens the Action Menu on a selected item</English>
+        </Key>
+        <Key ID="STR_hct_h60_mfd_SlewCursorDown">
+            <English>Slew Cursor Down</English>
+        </Key>
+        <Key ID="STR_hct_h60_mfd_SlewCursorLeft">
+            <English>Slew Cursor Left</English>
+        </Key>
+        <Key ID="STR_hct_h60_mfd_SlewCursorRight">
+            <English>Slew Cursor Right</English>
+        </Key>
+        <Key ID="STR_hct_h60_mfd_SlewCursorUp">
+            <English>Slew Cursor Up</English>
         </Key>
     </Package>
 </Project>

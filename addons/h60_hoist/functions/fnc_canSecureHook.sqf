@@ -23,7 +23,7 @@ if (_ropeLength > 1.5) exitWith {false};
 
 private _hoistPos = [1.405, 2.03, 0.45];
 if ((_hook distance (_heli modelToWorld _hoistPos)) > 1.5) exitWith {false};
-if !(crew _hook isEqualTo []) exitWith {false};
+if (crew _hook isNotEqualTo []) exitWith {false};
 if !(_dummy in (ropeAttachedObjects _heli)) exitWith {false};
 
 true

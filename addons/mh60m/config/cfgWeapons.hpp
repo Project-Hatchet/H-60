@@ -1,4 +1,4 @@
-class cfgWeapons {
+class CfgWeapons {
     class MGunCore;
     class M134_minigun: MGunCore {
         class LowROF;

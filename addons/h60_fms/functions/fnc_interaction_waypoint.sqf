@@ -38,7 +38,7 @@ switch (_action) do {
             };
             [group player, _forEachIndex] setWaypointVisible false;
         } forEach _microDagrWaypoints;
-        _vehicle setUserMFDvalue _value;
+        _vehicle setUserMFDValue _value;
     };
     case "flir": {
         getPilotCameraTarget _vehicle params ["_isTracking", "_tgtPosASL", ""];
@@ -62,7 +62,7 @@ switch (_action) do {
         private _index = fms_locations_page_index * 4 + _value;
         if (_index < count fms_locations_page_list) then {
             fms_locations_selected = fms_locations_page_list # _index # 1;
-            _vehicle setUserMFDvalue _pageData;
+            _vehicle setUserMFDValue _pageData;
         };
     };
     case "store_save_waypoint": {
@@ -79,14 +79,14 @@ switch (_action) do {
         if (!_autoNext) then {
             _wp setWaypointStatements ["false", ""];
         };
-        _vehicle setUserMFDvalue _pageData;
+        _vehicle setUserMFDValue _pageData;
     };
     case "send": {
         private _wayPoint = [group player, currentWaypoint group player];
         private _position = waypointPosition _wayPoint;
 
         private _sender = profileName;
-        private _timestamp = [daytime, "HH:MM"] call BIS_fnc_timeToString;
+        private _timestamp = [dayTime, "HH:MM"] call BIS_fnc_timeToString;
         private _recipient = "ALL";
         private _id = "XMIT WAYPT";
         private _messageContent = [
@@ -107,14 +107,14 @@ switch (_action) do {
     case "slew_flir_waypt": {
         private _wayPoint = [group player, currentWaypoint group player];
         private _position = waypointPosition _wayPoint;
-        _vehicle setPilotCameraTarget (AGLtoASL (_position));
-        [getPilotCameraDirection _vehicle, AGLtoASL _position] call hct_h60_flir_fnc_syncPilotCamera;
+        _vehicle setPilotCameraTarget (AGLToASL (_position));
+        [getPilotCameraDirection _vehicle, AGLToASL _position] call hct_h60_flir_fnc_syncPilotCamera;
     };
     case "slew_flir": {
         if (isNil "fms_locations_selected") exitWith {};
         private _location = fms_locations_selected;
-        _vehicle setPilotCameraTarget (AGLtoASL (locationPosition _location));
-        [getPilotCameraDirection _vehicle, AGLtoASL (locationPosition _location)] call hct_h60_flir_fnc_syncPilotCamera;
+        _vehicle setPilotCameraTarget (AGLToASL (locationPosition _location));
+        [getPilotCameraDirection _vehicle, AGLToASL (locationPosition _location)] call hct_h60_flir_fnc_syncPilotCamera;
     };
 };
 

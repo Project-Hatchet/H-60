@@ -1,3 +1,4 @@
+#ifndef KEYPAD_BTN
 #define KEYPAD_BTN(NAME,X,Y,Z,LABEL) \
   class NAME { \
     positionType = "coordinates"; \
@@ -5,6 +6,7 @@
     label = LABEL; \
     radius = 0.025; \
   };
+#endif
 
 class FMS_Keypad {
   condition = "true";

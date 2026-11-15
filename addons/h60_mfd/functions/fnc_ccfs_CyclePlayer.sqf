@@ -22,7 +22,7 @@ private _availablePlayers = [player];
 } forEach allPlayers;
 private _curIndex = _availablePlayers find hct_h60_ccfs_playerSelected;
 if (_curIndex == -1) exitWith {hct_h60_ccfs_playerSelected = _availablePlayers # 0; hct_h60_ccfs_playerSelected};
-if (_curIndex + _direction < 0) exitWith {hct_h60_ccfs_playerSelected = _availablePlayers # ((count _availablePlayers) - 1); hct_h60_ccfs_playerSelected};
+if (_curIndex + _direction < 0) exitWith {hct_h60_ccfs_playerSelected = _availablePlayers select -1; hct_h60_ccfs_playerSelected};
 if (_curIndex + _direction == count _availablePlayers) exitWith {hct_h60_ccfs_playerSelected = _availablePlayers # 0; hct_h60_ccfs_playerSelected};
 hct_h60_ccfs_playerSelected = _availablePlayers # (_curIndex + _direction);
 hct_h60_ccfs_playerSelected

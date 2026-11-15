@@ -1,4 +1,4 @@
-class cfgSoundShaders {
+class CfgSoundShaders {
 	class hct_m230_close_soundshader 
 	{
 		samples[] = {{"z\vtx\addons\UH60_weapons\Data\Audio\Close_1.ogg", 1}};

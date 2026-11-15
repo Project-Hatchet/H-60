@@ -9,11 +9,11 @@
 params ["_vehicle","_Vars","_rotorspeed"];
 
 //-Engine Start
-if ((_Vars find "STARTING" > -1) && (_rotorspeed < 0.6)) then {
+if (("STARTING" in _Vars) && (_rotorspeed < 0.6)) then {
   [_vehicle,"Startup",40] call hct_h60_sounds_fnc_EngineEH;
 };
 
 //-Engine Off
-if ((_Vars find "OFF" > -1) && (_rotorspeed != 0)) then {
+if (("OFF" in _Vars) && (_rotorspeed != 0)) then {
   [_vehicle,"Shutdown",18] call hct_h60_sounds_fnc_EngineEH;
 };

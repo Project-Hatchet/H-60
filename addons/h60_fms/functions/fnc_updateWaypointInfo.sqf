@@ -43,10 +43,10 @@ if (local _vehicle && {(_vehicle getVariable ["bmkhs_fdWaypoint", []]) isNotEqua
 };
 
 private _waypointDirection = (_center getDir _position) - _rotation;
-_vehicle setUserMFDvalue [0, (_vehicle getDir _position)];
+_vehicle setUserMFDValue [0, (_vehicle getDir _position)];
 // distance from the aircraft (fnc_perFrame used to overwrite this same frame with
 // the aircraft distance after it was written as the map-centre distance)
-_vehicle setUserMFDvalue [1, _vehicle distance2D _position];
+_vehicle setUserMFDValue [1, _vehicle distance2D _position];
 
 private _zoomLevel = _vehicle getVariable ["MAP_ZoomMult", 1];
 private ["_waypointPosition"];
@@ -58,16 +58,16 @@ private _positionToMfd = {
     // _vehicle setUserMFDvalue [_i1, if(_direction < 0) then {_direction + 360} else {_direction}];
     // _vehicle setUserMFDvalue [_i2, ((_center distance2D _pos) * _zoomLevel) / (hct_h60_fms_mapSize / 2)];
 
-	private _diff = _pos vectordiff (getpos _vehicle);
+	private _diff = _pos vectorDiff (getPos _vehicle);
 	private _dir = getDir _vehicle; // the aircraft's heading (was the player's)
 	private _rotated = [_diff, _dir] call BIS_fnc_rotateVector2D;
-    _vehicle setUserMFDvalue [_i1, -1 * ((_rotated # 0) / (_worldSize/2)) * _zoomLevel];
-    _vehicle setUserMFDvalue [_i2, (_rotated # 1)/ (_worldSize/2) * _zoomLevel];
+    _vehicle setUserMFDValue [_i1, -1 * ((_rotated # 0) / (_worldSize/2)) * _zoomLevel];
+    _vehicle setUserMFDValue [_i2, (_rotated # 1)/ (_worldSize/2) * _zoomLevel];
 
 };
 private _clearPos = {
-    _vehicle setUserMFDvalue [_this # 0, -1];
-    _vehicle setUserMFDvalue [_this # 1, -1];
+    _vehicle setUserMFDValue [_this # 0, -1];
+    _vehicle setUserMFDValue [_this # 1, -1];
 };
 
 if (hct_h60_fms_renderWaypointsOnTAC) then {
@@ -81,7 +81,7 @@ if (hct_h60_fms_renderWaypointsOnTAC) then {
         if (_wpSlotIndex == _selIndex && (count customWaypointPosition) > 0) then {
             _waypointPosition = customWaypointPosition;
         };
-        if (!(_waypointPosition isEqualTo [0,0,0])) then {
+        if (_waypointPosition isNotEqualTo [0,0,0]) then {
             [_waypointPosition, _x # 0, _x # 1] call _positionToMfd;
         } else {
             _x call _clearPos;

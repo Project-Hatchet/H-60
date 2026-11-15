@@ -14,7 +14,7 @@ params ["_vehicle"];
 // broadcasts). This used to broadcast the list - code conditions included - on
 // every seat entry, overwriting the other crew's lists with this client's.
 SET_DEFAULT("hct_cas_list",[])
-SET_DEFAULT("hct_cas_queue", 0)
+SET_DEFAULT("hct_cas_queue",0)
 
 // one Hit handler per vehicle: replace any left by a setup without a shutdown
 private _oldEH = _vehicle getVariable ["hct_h60_cas_hitEH", -1];
@@ -25,7 +25,7 @@ hct_h60_cas_cautionsUnacked = 0;
 hct_h60_cas_firstAdvisory = 0;
 
 [_vehicle] call hct_h60_cas_fnc_updateCautionsList;
-SET_DEFAULT("hct_cas_rotorIgnored", false);
+SET_DEFAULT("hct_cas_rotorIgnored",false);
 
 for "_i" from USERMFDV_CAS to (USERMFDV_HELLFIRE_BOX - 1) do {
   _vehicle setUserMFDValue [_i, 0];

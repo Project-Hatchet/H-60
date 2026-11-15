@@ -18,5 +18,5 @@
 
 params ["_carrier"];
 
-private _blocked = !(getVehicleCargo _carrier isEqualTo []);
+private _blocked = (getVehicleCargo _carrier) isNotEqualTo [];
 [_carrier, _blocked] call FUNC(lockSeats);

@@ -47,8 +47,12 @@ class rangeRings {
 			}; // textBackground
 			class white {
 				color[] = common_white;
+				#ifndef NM_SCALE
 				#define NM_SCALE(SCALE) (1*0.75*0.000539957*SCALE)
+				#endif
+				#ifndef KM_SCALE
 				#define KM_SCALE(SCALE) (1*0.75*0.001*SCALE)
+				#endif
 
 				TEXT_MID_SCALED_SOURCE(InnerLblText,0.67,0.475,0.05,"user",40,KM_SCALE(0.225),1)
 				TEXT_MID_SCALED_SOURCE(OuterLblText,0.85,0.475,0.05,"user",40,KM_SCALE(0.45),1)

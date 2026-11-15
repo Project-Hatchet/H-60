@@ -2,9 +2,12 @@ class Bones
 {
 };
 
+#ifndef HELLFIREANGLE
 #define HELLFIREANGLE(X,Y,SCALE,DEG,RADIUS) \
 	{{QUOTE((X*SCALE) + ANGLEX_EXPR(DEG,RADIUS * SCALE)), QUOTE((Y*SCALE) + ANGLEY_EXPR(DEG,RADIUS * SCALE)) }, 1}
+#endif
 
+#ifndef HELLFIREPOINTS
 #define HELLFIREPOINTS(X,Y,SCALE) \
 	{{(X + -0.1) * SCALE, (Y + -0.30) * SCALE}, 1}, \
 	{{(X +  0.1) * SCALE, (Y + -0.30) * SCALE}, 1}, \
@@ -29,12 +32,17 @@ class Bones
 	HELLFIREANGLE(X,(Y+-0.43),SCALE,(90+(15*10)),0.1), \
 	HELLFIREANGLE(X,(Y+-0.43),SCALE,(90+(15*11)),0.1), \
 	HELLFIREANGLE(X,(Y+-0.38),SCALE,(90+(15*12)),0.1)
+#endif
 
+#ifndef HELLFIRE_BG
 #define HELLFIRE_BG(X,Y,SCALE) \
 	COLORED_POLYGON(BG,((X - 0.1) * SCALE),((Y - 0.53) * SCALE),0.02,(0.8*SCALE),common_black)
+#endif
 
+#ifndef EMPTY_BG
 #define EMPTY_BG(X,Y,SCALE) \
 	COLORED_POLYGON(BG,((X - (0.1/2)) * SCALE),((Y - (0.53/2)) * SCALE),0.01,(0.4*SCALE),common_white)
+#endif
 
 class Draw
 {

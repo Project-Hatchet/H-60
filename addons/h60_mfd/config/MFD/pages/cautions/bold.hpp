@@ -1,3 +1,4 @@
+#ifndef EICAS_LINE_USERTEXT
 #define EICAS_LINE_USERTEXT(CNAME,X,Y,INDEX,SHOWNUM) \
 	class CNAME { \
 		class inverted { \
@@ -12,6 +13,7 @@
 			}; \
 		}; \
 	};
+#endif
 
 class cautions_overlay {
 	color[] = common_yellow;

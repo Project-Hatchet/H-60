@@ -50,7 +50,9 @@ class flirPage {
 		
 		BOXEDTEXT(CREATE,0.93,BEZEL_Y6-0.02,0.1,0.04,"CREATE")
 		BOXEDTEXT(WAYPT2,0.93,BEZEL_Y6+0.02,0.1,0.04,"WAYPT")
+		#ifndef BOTTOM_TEXT_Y
 		#define BOTTOM_TEXT_Y 0.96
+		#endif
 
 		#include "laserinfo.hpp"
 		#include "headingElevationTape.hpp"

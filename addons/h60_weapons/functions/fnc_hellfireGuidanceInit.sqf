@@ -28,6 +28,7 @@ if ((getNumber (configFile >> "CfgAmmo" >> _ammo >> "ace_missileguidance" >> "us
     _attackProfile = getText (configFile >> "CfgWeapons" >> _weapon >> _mode >> "ace_missileguidance_attackProfile")
 };
 private _lockMode = _shooter getVariable ["ace_missileguidance_lockMode", nil];
+private _navigationType = ""; // was never assigned before its checks: they fall back to the config default
 
 private _laserCode = [vehicle player, "PRI CHAN"] call hct_h60_weapons_fnc_getLaserCode;
 private _laserInfo = [_laserCode, ACE_DEFAULT_LASER_WAVELENGTH, ACE_DEFAULT_LASER_WAVELENGTH];

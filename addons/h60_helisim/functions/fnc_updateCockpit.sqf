@@ -19,15 +19,15 @@ private _engNp  = _heli getVariable ["bmkhs_engPctNp", [0, 0]];
 private _engTq  = _heli getVariable ["bmkhs_engPctTq", [0, 0]];
 private _engTgt = _heli getVariable ["bmkhs_engTgt",   [0, 0]];
 
-_heli setUserMFDvalue [19, (_engNg # 0) * 100];
-_heli setUserMFDvalue [45, (_engNg # 1) * 100];
-_heli setUserMFDvalue [20, (_engNp # 0) * 100];
-_heli setUserMFDvalue [46, (_engNp # 1) * 100];
-_heli setUserMFDvalue [21, _engTgt # 0];
-_heli setUserMFDvalue [47, _engTgt # 1];
-_heli setUserMFDvalue [22, (_engTq # 0) * 100];
-_heli setUserMFDvalue [48, (_engTq # 1) * 100];
-_heli setUserMFDvalue [17, (_heli getVariable ["bmkhs_rtrRpm", 0]) * 100];
+_heli setUserMFDValue [19, (_engNg # 0) * 100];
+_heli setUserMFDValue [45, (_engNg # 1) * 100];
+_heli setUserMFDValue [20, (_engNp # 0) * 100];
+_heli setUserMFDValue [46, (_engNp # 1) * 100];
+_heli setUserMFDValue [21, _engTgt # 0];
+_heli setUserMFDValue [47, _engTgt # 1];
+_heli setUserMFDValue [22, (_engTq # 0) * 100];
+_heli setUserMFDValue [48, (_engTq # 1) * 100];
+_heli setUserMFDValue [17, (_heli getVariable ["bmkhs_rtrRpm", 0]) * 100];
 
 //Fuel, lb, from HeliSim's tanks - they live where the aircraft is local
 if (local _heli) then {
@@ -36,33 +36,33 @@ if (local _heli) then {
     private _no2  = (_heli getVariable ["bmkhs_no2TankMass", 0]) * _lb;
     private _erfs = (_heli getVariable ["bmkhs_erfsTankMass", 0]) * _lb;
     private _erfsIn = _heli getVariable ["bmkhs_erfsTankInstalled", false];
-    _heli setUserMFDvalue [50, parseNumber _erfsIn];
-    _heli setUserMFDvalue [51, _no1];
-    _heli setUserMFDvalue [52, _no2];
-    _heli setUserMFDvalue [98, [0, _erfs] select _erfsIn];
-    _heli setUserMFDvalue [99, _no1 + _no2 + ([0, _erfs] select _erfsIn)];
+    _heli setUserMFDValue [50, parseNumber _erfsIn];
+    _heli setUserMFDValue [51, _no1];
+    _heli setUserMFDValue [52, _no2];
+    _heli setUserMFDValue [98, [0, _erfs] select _erfsIn];
+    _heli setUserMFDValue [99, _no1 + _no2 + ([0, _erfs] select _erfsIn)];
 };
 
 //HeliSim's state for the pages, in m, m/s, deg and g - each page scales it to what it shows.
 //Where the aircraft is local, like the fuel. Slots: main\script_macros.hpp, USERMFDV_*.
 if (local _heli) then {
     (_heli getVariable ["bmkhs_velModelSpaceNoWind", [0, 0, 0]]) params ["_velX", "_velY"];
-    _heli setUserMFDvalue [37,  _velX];                                                    //VELOCITYX
-    _heli setUserMFDvalue [38,  _velY];                                                    //VELOCITYY
+    _heli setUserMFDValue [37,  _velX];                                                    //VELOCITYX
+    _heli setUserMFDValue [38,  _velY];                                                    //VELOCITYY
     //The altimeters' own steps and range: baro in 10 ft, 0-20000 ft; radar in 10 ft above 50 ft,
     //to its 1420 ft ceiling. Core's values are exact.
     private _baro  = ((round ((_heli getVariable ["bmkhs_barAlt", 0]) / 10) * 10) max 0) min 20000;
     private _radFt = (_heli getVariable ["bmkhs_radAlt", 0]) * METERS_TO_FEET;
     if (_radFt > 50) then { _radFt = round (_radFt / 10) * 10 };
     _radFt = (_radFt max 0) min 1420;
-    _heli setUserMFDvalue [100, _baro * FEET_TO_METERS];                                   //BARALT
-    _heli setUserMFDvalue [101, _radFt * FEET_TO_METERS];                                  //RADALT
-    _heli setUserMFDvalue [102, _heli getVariable ["bmkhs_vel2D", 0]];                     //IAS
-    _heli setUserMFDvalue [103, _heli getVariable ["bmkhs_gndSpeed", 0]];                  //GS
+    _heli setUserMFDValue [100, _baro * FEET_TO_METERS];                                   //BARALT
+    _heli setUserMFDValue [101, _radFt * FEET_TO_METERS];                                  //RADALT
+    _heli setUserMFDValue [102, _heli getVariable ["bmkhs_vel2D", 0]];                     //IAS
+    _heli setUserMFDValue [103, _heli getVariable ["bmkhs_gndSpeed", 0]];                  //GS
     //The wind arrows point the way it blows; Core's is where it comes from
-    _heli setUserMFDvalue [104, ((_heli getVariable ["bmkhs_windDirFrom", 0]) + 180) mod 360]; //WINDDIR
-    _heli setUserMFDvalue [105, parseNumber ([_heli] call bmkhs_fnc_stateOnGround)];       //ONGROUND
-    _heli setUserMFDvalue [106, _heli getVariable ["bmkhs_aero_beta_g", 0]];               //BALL
+    _heli setUserMFDValue [104, ((_heli getVariable ["bmkhs_windDirFrom", 0]) + 180) mod 360]; //WINDDIR
+    _heli setUserMFDValue [105, parseNumber ([_heli] call bmkhs_fnc_stateOnGround)];       //ONGROUND
+    _heli setUserMFDValue [106, _heli getVariable ["bmkhs_aero_beta_g", 0]];               //BALL
 };
 
 //Door sound controllers, as the engine comes on

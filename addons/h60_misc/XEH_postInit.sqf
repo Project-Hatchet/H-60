@@ -332,7 +332,7 @@ if (hasInterface) then {
     if (isNull _veh || {!(_veh isKindOf QBASE_CLASS)}) exitWith {};
     [{
       params ["_unit", "_veh"];
-      if !(objectParent _unit isEqualTo _veh) exitWith {};
+      if (objectParent _unit isNotEqualTo _veh) exitWith {};
       private _turret = _veh unitTurret _unit;
       if (_turret isEqualTo [] || {_turret isEqualTo [-1]}) exitWith {};
       private _cfg = [_veh, _turret] call BIS_fnc_turretConfig;

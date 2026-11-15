@@ -48,7 +48,7 @@ private _pathOf = {
 private _operator = _veh getVariable ["hct_hoistOperator", objNull];
 if (!isNull _operator) then {
     private _pendant = [hct_h60_misc_ccHoistSeat] call _pathOf;
-    if (_pendant isEqualTo [] || {!((_veh turretUnit _pendant) isEqualTo _operator)}) then {
+    if (_pendant isEqualTo [] || {(_veh turretUnit _pendant) isNotEqualTo _operator}) then {
         _veh setVariable ["hct_hoistOperator", nil, true];
         _operator = objNull;
     };
@@ -60,7 +60,7 @@ private _unlock = [];
     _x params ["_from", "_to", "_kind"];
     private _fromPath = [_from] call _pathOf;
     private _toPath = [_to] call _pathOf;
-    if (!(_fromPath isEqualTo []) && {!(_toPath isEqualTo [])}) then {
+    if (_fromPath isNotEqualTo [] && {_toPath isNotEqualTo []}) then {
         switch (_kind) do {
             case "out": {
                 _lock pushBackUnique _toPath;

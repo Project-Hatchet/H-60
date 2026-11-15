@@ -1,4 +1,4 @@
-class cfgVehicles {
+class CfgVehicles {
 	class Heli_Transport_01_base_F;
 	class hct_H60_base: Heli_Transport_01_base_F
 	{

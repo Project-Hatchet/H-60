@@ -17,7 +17,7 @@ params ["_vehicle", ["_instant", false]];
 
 // Pavehawk and Seahawk FLIR turrets don't animate properly yet: only airframes
 // with the flirTurretAnimated trait (MH-60M family) drive the ball.
-if (isNull _vehicle || {!HAS_TRAIT(_vehicle,"flirTurretAnimated")}) exitWith {};
+if (isNull _vehicle || {LACKS_TRAIT(_vehicle,"flirTurretAnimated")}) exitWith {};
 
 private _rotation = getPilotCameraRotation _vehicle;
 if (_rotation isNotEqualTo [

@@ -17,11 +17,13 @@ class backgroundWrapper {
 
 
 
+#ifndef CCFS_POLYGON
 #define CCFS_POLYGON(X,Y) \
     {X, 1, Y, 1,{0.75*-0.015, -0.015},1}, \
     {X, 1, Y, 1,{0.75*0.015, -0.015},1}, \
     {X, 1, Y, 1,{0.75*0.015, 0.015},1}, \
     {X, 1, Y, 1,{0.75*-0.015, 0.015},1}
+#endif
 
 
 TEXT_MID_SCALED_USERTEXT(ANNOUNCETEXT,0.5,0.05,49,0.05)
@@ -92,7 +94,9 @@ class BORDER_LINE {
   };
 }; // HEADER_BARS_BOTTOM
 
+#ifndef BOTTOM_TEXT_Y
 #define BOTTOM_TEXT_Y 0.96
+#endif
 // TEXT_LEFT_SMALL(B1,0.095,BOTTOM_TEXT_Y,"PFD")
 // TEXT_LEFT_SMALL(B2,0.2,BOTTOM_TEXT_Y,"ND")
 // TEXT_LEFT_SMALL(B3,0.325,BOTTOM_TEXT_Y,"EICAS")

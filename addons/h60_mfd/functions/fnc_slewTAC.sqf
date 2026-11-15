@@ -96,8 +96,8 @@ if (local _vehicle) then {
 	};
 };
 
-_vehicle setUserMFDvalue [29, hct_h60_mfd_tac_cursorPos # 0];
-_vehicle setUserMFDvalue [30, hct_h60_mfd_tac_cursorPos # 1];
+_vehicle setUserMFDValue [29, hct_h60_mfd_tac_cursorPos # 0];
+_vehicle setUserMFDValue [30, hct_h60_mfd_tac_cursorPos # 1];
 
 
 
@@ -107,11 +107,11 @@ private _positionToMfd = {
 	// _vehicle setUserMFDvalue [_i1, if(_direction < 0) then {_direction + 360} else {_direction}];
 	// _vehicle setUserMFDvalue [_i2, ((_center distance2D _pos) * _zoomLevel) / (hct_h60_fms_mapSize / 2)];
 
-	private _diff = _pos vectordiff _center;
+	private _diff = _pos vectorDiff _center;
 	private _dir = getDir _vehicle; // the aircraft's heading (was the player's)
 	private _rotated = [_diff, _dir] call BIS_fnc_rotateVector2D;
-	_vehicle setUserMFDvalue [_i1, -1 * ((_rotated # 0) / (_worldSize/2)) * _zoomLevel];
-	_vehicle setUserMFDvalue [_i2, (_rotated # 1)/ (_worldSize/2) * _zoomLevel];
+	_vehicle setUserMFDValue [_i1, -1 * ((_rotated # 0) / (_worldSize/2)) * _zoomLevel];
+	_vehicle setUserMFDValue [_i2, (_rotated # 1)/ (_worldSize/2) * _zoomLevel];
 
 };
 

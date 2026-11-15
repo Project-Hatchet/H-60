@@ -29,6 +29,7 @@ class name { \
 // Variant trait lookup: config hct_trait_<name> on the vehicle class, cached.
 #define GET_TRAIT(veh,name) ([veh, name] call hct_h60_main_fnc_getTrait)
 #define HAS_TRAIT(veh,name) (GET_TRAIT(veh,name) isEqualTo 1)
+#define LACKS_TRAIT(veh,name) (GET_TRAIT(veh,name) isNotEqualTo 1)
 
 #define POS_MOVE_CABIN_COCKPIT {0.023875,4.2461,-0.577079}
 #define IS_NOT_ZEUS if !(isNull curatorCamera) exitWith {false}

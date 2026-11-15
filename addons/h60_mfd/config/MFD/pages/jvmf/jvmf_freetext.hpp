@@ -1,5 +1,7 @@
 
+#ifndef FREETEXT_LINE_SCALING
 #define FREETEXT_LINE_SCALING 0.04
+#endif
 class jvmf_border {
     color[] = common_blue;
     TEXT_MID_SCALED(receive_text,0.28,0.1,"RECEIVE QUEUE",0.04)

@@ -15,7 +15,7 @@
 
 params ["_vehicle"];
 
-private _allTurrets = allturrets [_vehicle, true];
+private _allTurrets = allTurrets [_vehicle, true];
 _allTurrets deleteAt 0; // Remove copilot seat
 
 0 < ({

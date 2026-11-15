@@ -1,6 +1,6 @@
 class RscText;
 class RscFrame;
-class RscListbox;
+class RscListBox;
 class RscListNBox;
 class RscPicture;
 class RscControlsGroup;

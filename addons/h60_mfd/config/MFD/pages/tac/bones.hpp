@@ -1,5 +1,9 @@
+#ifndef YMOD
 #define YMOD (1/0.75)
+#endif
+#ifndef YMIN
 #define YMIN 0.25*(YMOD/2)
+#endif
 
 class TAC_CENTER {
     type="linear";

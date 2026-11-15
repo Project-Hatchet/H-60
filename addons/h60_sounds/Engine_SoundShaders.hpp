@@ -6,7 +6,7 @@ class hct_APUSoundLoop_Ext_SoundShader
 	{
 
 		{
-			"\z\vtx\addons\H60_SFX\Sounds\share\apu_ext_loop",
+			"\z\vtx\addons\H60_SFX\Sounds\share\apu_ext_loop.wss",
 			1
 		}
 	};
@@ -26,7 +26,7 @@ class hct_Rotor_Distance_SoundShader
 	{
 
 		{
-			"\z\vtx\addons\H60_SFX\Sounds\Ext\Distant_Rotor",
+			"\z\vtx\addons\H60_SFX\Sounds\Ext\Distant_Rotor.wss",
 			1
 		}
 	};
@@ -48,7 +48,7 @@ class hct_Engine_Distance_SoundShader
 	{
 
 		{
-			"\z\vtx\addons\H60_SFX\Sounds\Ext\Distant_Engine",
+			"\z\vtx\addons\H60_SFX\Sounds\Ext\Distant_Engine.wss",
 			1
 		}
 	};
@@ -69,7 +69,7 @@ class hct_EngineExt_SoundShader
 	{
 
 		{
-			"\z\vtx\addons\H60_SFX\Sounds\Ext\Engine_Ext",
+			"\z\vtx\addons\H60_SFX\Sounds\Ext\Engine_Ext.wss",
 			1
 		}
 	};
@@ -90,7 +90,7 @@ class hct_RotorExt_SoundShader: hct_EngineExt_SoundShader
 	{
 
 		{
-			"\z\vtx\addons\H60_SFX\Sounds\Ext\Rotor_Ext",
+			"\z\vtx\addons\H60_SFX\Sounds\Ext\Rotor_Ext.wss",
 			1
 		}
 	};
@@ -111,7 +111,7 @@ class hct_Turbine_Ext_SoundShader
 	{
 
 		{
-			"\z\vtx\addons\H60_SFX\Sounds\Ext\Turbine_Ext",
+			"\z\vtx\addons\H60_SFX\Sounds\Ext\Turbine_Ext.wss",
 			1
 		}
 	};
@@ -133,7 +133,7 @@ class hct_H60_Startup_Ext_SoundShader
 	{
 
 		{
-			"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Start",
+			"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Start.wss",
 			1
 		}
 	};
@@ -154,7 +154,7 @@ class hct_H60_Shutdown_Ext_SoundShader: hct_H60_Startup_Ext_SoundShader
 	{
 
 		{
-			"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown",
+			"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown.wss",
 			1
 		}
 	};
@@ -166,7 +166,7 @@ class hct_H60_APU_Start_Ext_SoundShader: hct_H60_Startup_Ext_SoundShader
 	{
 
 		{
-			"\z\vtx\addons\H60_SFX\Sounds\Share\APU_Start_Int",
+			"\z\vtx\addons\H60_SFX\Sounds\Share\APU_Start_Int.wss",
 			1
 		}
 	};
@@ -182,7 +182,7 @@ class hct_H60_Startup_Int_SoundShader: hct_H60_Startup_Ext_SoundShader
 	{
 
 		{
-			"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Start_Int",
+			"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Start_Int.wss",
 			1
 		}
 	};
@@ -194,7 +194,7 @@ class hct_H60_Shutdown_Int_SoundShader: hct_H60_Startup_Int_SoundShader
 	{
 
 		{
-			"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown_Int",
+			"\z\vtx\addons\H60_SFX\Sounds\Share\Engine_Shutdown_Int.wss",
 			1
 		}
 	};
@@ -206,7 +206,7 @@ class hct_H60_APU_Start_Int_SoundShader: hct_H60_Startup_Int_SoundShader
 	{
 
 		{
-			"\z\vtx\addons\H60_SFX\Sounds\Share\APU_Start_Int",
+			"\z\vtx\addons\H60_SFX\Sounds\Share\APU_Start_Int.wss",
 			1
 		}
 	};
@@ -220,7 +220,7 @@ class hct_ApuSoundLoop_Int_SoundShader: hct_APUSoundLoop_Ext_SoundShader
 	{
 
 		{
-			"\z\vtx\addons\H60_SFX\Sounds\share\apu_int_loop",
+			"\z\vtx\addons\H60_SFX\Sounds\share\apu_int_loop.wss",
 			1
 		}
 	};
@@ -233,7 +233,7 @@ class hct_EngineInt_SoundShader
 	{
 
 		{
-			"\z\vtx\addons\H60_SFX\Sounds\Int\Engine_Int",
+			"\z\vtx\addons\H60_SFX\Sounds\Int\Engine_Int.wss",
 			1
 		}
 	};
@@ -246,7 +246,7 @@ class hct_RotorInt_SoundShader
 	{
 
 		{
-			"\z\vtx\addons\H60_SFX\Sounds\Int\Rotor_Int",
+			"\z\vtx\addons\H60_SFX\Sounds\Int\Rotor_Int.wss",
 			1
 		}
 	};
@@ -259,7 +259,7 @@ class hct_Engine_Transport_SoundShader_Base
 	{
 
 		{
-			"\z\vtx\addons\H60_SFX\Sounds\Int\Engine_Transport",
+			"\z\vtx\addons\H60_SFX\Sounds\Int\Engine_Transport.wss",
 			1
 		}
 	};

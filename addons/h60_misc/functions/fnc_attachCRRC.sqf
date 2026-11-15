@@ -13,7 +13,7 @@ if (!isNil "_attachedBoat") exitWith {
 };
 
 
-if (count (crew _boat) > 0) exitWith {hint (localize "STR_hct_h60_misc_BoatIsNotEmpty")};
+if (crew _boat isNotEqualTo []) exitWith {hint (localize "STR_hct_h60_misc_BoatIsNotEmpty")};
 _boat lock true;
 _boat attachTo [_helicopter, [0,1.5,-0.85]];
 _boat enableRopeAttach false;

@@ -15,9 +15,15 @@ class overlayWrapper {
 	};
 }; // overlayWrapper
 
+#ifndef TITLEHEIGHT
 #define TITLEHEIGHT 0.08
+#endif
+#ifndef LABELHEIGHT
 #define LABELHEIGHT 0.12
+#endif
+#ifndef VALUEHEIGHT
 #define VALUEHEIGHT 0.16
+#endif
 
 #undef BARTOP
 #define BARTOP 0.209
@@ -29,12 +35,14 @@ class overlayWrapper {
 #undef FUEL_BARS_Y2
 #define FUEL_BARS_Y2 0.775
 
+#ifndef EICAS_LABEL_VAL
 #define EICAS_LABEL_VAL(CLASS,X,LABEL,USERVAL) \
     TEXT_MID_SMALL(CLASS,X,LABELHEIGHT,LABEL) \
 	TEXT_MID_MID_SRC(DOUBLES(CLASS,V),X,VALUEHEIGHT) \
 		source="user"; \
 		sourceIndex=USERVAL; \
 
+#endif
 //static left
 //EICAS_LABEL_VAL(T1,0.04,"",21)
 //	sourceScale = 1;
@@ -93,7 +101,9 @@ TEXT_MID_MID_SRC(NP2_V,0.58,VALUEHEIGHT)
 
 class barsWrapper {
     color[] = common_green;
+	#ifndef BAR_WIDTH
 	#define BAR_WIDTH 0.012
+	#endif
 
     //BAR(T1BAR,   "T1",0.042,BARBOTTOM,BAR_WIDTH)
     //BAR(RPM1BAR, "EICAS_RPM1",0.11,BARBOTTOM,BAR_WIDTH)
@@ -117,7 +127,9 @@ class limitBars {
 	BAR_LIMITS(NG2BAR,  "NG2",       0.813, BARBOTTOM,BAR_WIDTH,LIM_NG_G(45), LIM_NG_Y(45), LIM_NG_R(45))
 };
 
+#ifndef TOP_TEXT_Y
 #define TOP_TEXT_Y 0.03
+#endif
 
 class eng1_out {
 	condition = "user19<55";
@@ -211,9 +223,15 @@ class SHOW_CCFS_CONDITION {
 
 TEXT_LEFT_SMALL(TEST,0.38,0.02,"TEST")
 
+#ifndef BOTTOM_TEXT_Y
 #define BOTTOM_TEXT_Y 0.96
+#endif
+#ifndef TOP_TEXT_Y
 #define TOP_TEXT_Y 0.03
+#endif
+#ifndef DEFAULT_TEXT_SIZE
 #define DEFAULT_TEXT_SIZE 0.65
+#endif
 // TEXT_LEFT_SMALL(B1,0.095,BOTTOM_TEXT_Y,"PFD")
 // TEXT_LEFT_SMALL(B2,0.2,BOTTOM_TEXT_Y,"ND")
 // TEXT_LEFT_SMALL(B3,0.325,BOTTOM_TEXT_Y,"EICAS")

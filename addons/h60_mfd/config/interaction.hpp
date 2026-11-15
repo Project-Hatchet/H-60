@@ -1,3 +1,4 @@
+#ifndef MFD_BTN
 #define MFD_BTN(BTN_VAL,LABEL) \
     class BTN_VAL { \
         positionType="static"; \
@@ -5,8 +6,11 @@
         label=LABEL; \
         radius=0.025; \
         clickSound="hct_Switch_Sound_2";
+#endif
 
+#ifndef MAINPAGE
 #define MAINPAGE(INDEX,VAL) QUOTE((((getUserMFDValue _this) select INDEX) > (VAL - 0.01)) && (((getUserMFDValue _this) select INDEX) < (VAL + 0.99)))
+#endif
 
 class mfd_any {
     MFD_BTN(MFD_13,QUOTE(JVMF))

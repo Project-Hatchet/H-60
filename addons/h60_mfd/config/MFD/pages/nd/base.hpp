@@ -1,4 +1,6 @@
+#ifndef HVR_CONDITION_PAGES
 #define HVR_CONDITION_PAGES QUOTE(((COND_SUBPAGE_EXPR(MFD_PAGE_INDEX,ND_MODE_ALL)*(user103<10)*(user101 > 2))+COND_SUBPAGE_EXPR(MFD_PAGE_INDEX,ND_MODE_HOVER)))
+#endif
 
 alpha = BACKGROUND_ALPHA;
 class overlayWrapper {
@@ -179,7 +181,9 @@ TEXT_MID_MID_SRC(HDG_TXT,0.396,0.05)
 	sourceScale = 1;
 	source="heading";
 };
+#ifndef ND_HSI_SIZE
 #define ND_HSI_SIZE 0.28
+#endif
 class PolygonHeading {
 	type        = "polygon";
 	texture = "z\vtx\addons\uh60_mfd\data\HSI.paa";
@@ -265,8 +269,12 @@ class windArrow {
 	};
 }; // windArrow
 
+#ifndef MOVE_X
 #define MOVE_X 0.087
+#endif
+#ifndef MOVE_Y
 #define MOVE_Y -0.276
+#endif
 //FMS stuff
 TEXT_MID_MID(NAV_FMS_LABEL,MOVE_X+0.72,MOVE_Y+0.72,"FMS1")
 TEXT_LEFT_MID_SRC(NAV_FMS_WP_LABEL,MOVE_X+0.685,MOVE_Y+0.76)
@@ -326,6 +334,7 @@ class AIRCRAFT_CENTERED {
     	condition = COND_SUBPAGE_OR_SUBPAGE(MFD_PAGE_INDEX,ND_MODE_ALL,ND_MODE_NAV);
 		#include "waypoints.hpp"
 
+		#ifndef SHAPE_WAYPT
 		#define SHAPE_WAYPT(DIST,DIR) \
 			{DIST, 1, DIR, 1, { 0   , -0.001},1}, \
 			{DIST, 1, DIR, 1, { 0   ,  0.001},1},{}, \
@@ -335,13 +344,16 @@ class AIRCRAFT_CENTERED {
 			{DIST, 1, DIR, 1, {-0.015, 0.015},1}, \
 			{DIST, 1, DIR, 1, {-0.025, 0.0},1}, \
 			{DIST, 1, DIR, 1, { 0   , -0.025},1}
+		#endif
 
+		#ifndef SHAPE_SQUARE
 		#define SHAPE_SQUARE(DIST,DIR) \
 			{DIST, 1, DIR, 1,{-0.015, -0.015},1}, \
 			{DIST, 1, DIR, 1,{0.015, -0.015},1}, \
 			{DIST, 1, DIR, 1,{0.015, 0.015},1}, \
 			{DIST, 1, DIR, 1,{-0.015, 0.015},1}, \
 			{DIST, 1, DIR, 1,{-0.015, -0.015},1}
+		#endif
 
 		class JVMF_STABILIZED {
 			condition = "(user43 > -1)";
@@ -372,7 +384,9 @@ class AIRCRAFT_CENTERED {
 	class HVR_COND {
 		condition= HVR_CONDITION_PAGES;
 		color[] = common_blue;
+		#ifndef HSI_HVR_10KTS
 		#define HSI_HVR_10KTS 0.04
+		#endif
 
 		class HVR_VEL_LINE_DRAW {
 			type="line";
@@ -398,7 +412,9 @@ class AIRCRAFT_CENTERED {
 		}; // HVR_VEL_LINE_DRAW
 		class HVR_WP_VALID {
 			condition="WPvalid";
+			#ifndef HVR_WP_SPACING
 			#define HVR_WP_SPACING 0.01
+			#endif
 			class HVR_WP_DRAW {
 				type="line";
 				width=4;
@@ -466,7 +482,9 @@ class SUBPAGE_HOVER {
 	TEXT_MID_MID(MODE_SELECTOR,0.25,0.05,"HOVER")
 };
 
+#ifndef VERT_TEXT_SPACING
 #define VERT_TEXT_SPACING 0.035
+#endif
 class caution {
 	condition = USER_GT(USERMFDV_CAS,0);
 	color[] = common_black;
@@ -505,7 +523,9 @@ class caution {
 };
 
 
+#ifndef BOTTOM_TEXT_Y
 #define BOTTOM_TEXT_Y 0.96
+#endif
 // TEXT_LEFT_SMALL(B1,0.095,BOTTOM_TEXT_Y,"PFD")
 // TEXT_LEFT_SMALL(B2,0.2,BOTTOM_TEXT_Y,"ND")
 // TEXT_LEFT_SMALL(B3,0.325,BOTTOM_TEXT_Y,"EICAS")

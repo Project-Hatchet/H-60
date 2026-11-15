@@ -9,13 +9,13 @@ private _fallbackMap = getText (configFile >> "CfgWorlds" >> worldName >> "pictu
 private _texture = switch (_mode) do {
 	case "topo": {
         private _mapName = format ["z\vtx\addons\uh60_mfd\data\maps\%1_co.paa", worldName];
-		if (fileExists _mapName) then {_mapName} else {""};
+		["", _mapName] select (fileExists _mapName)
 	};
 	case "sat": {
 		_fallbackMap
 	};
 	case "cust": {
-		if (fileExists "tac.paa") then {"tac.paa"} else {"#(rgb,8,8,3)color(0,0,0,1)"};
+		["#(rgb,8,8,3)color(0,0,0,1)", "tac.paa"] select (fileExists "tac.paa")
 	};
 	case "off": {
 		"#(rgb,8,8,3)color(0,0,0,1)"

@@ -1,4 +1,4 @@
-class cfgVehicles {
+class CfgVehicles {
     class Helicopter_Base_F;
     class Helicopter_Base_H: Helicopter_Base_F {
         class hct_cargo;

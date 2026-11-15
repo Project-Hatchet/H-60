@@ -7,7 +7,7 @@
  */
 
 params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
-if (hct_h60_devMode) then {systemchat "HELLFIRE LAUNCHED";};
+if (hct_h60_devMode) then {systemChat "HELLFIRE LAUNCHED";};
 
 private _vehicle = vehicle player;
 if (vehicle _gunner == _vehicle) then {
@@ -15,7 +15,7 @@ if (vehicle _gunner == _vehicle) then {
 	_vehicle setVariable ["hct_h60_hellfire_lastLaunchTime", cba_missionTime, true];
 
 	private _targetPoint = ([_vehicle] call hct_h60_weapons_fnc_isLOBL) # 1;
-	if (!(_targetPoint isEqualTo [0,0,0])) then {
+	if (_targetPoint isNotEqualTo [0,0,0]) then {
 		_vehicle setVariable ["hct_h60_hellfire_impactTime", cba_missionTime + ceil ((_vehicle distance _targetPoint) / 250), true];
 	};
 };

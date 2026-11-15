@@ -1,63 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="HCT">
     <Package name="H60_WEAPONS">
-        <Key ID="STR_hct_h60_weapons_FireLaserTOGGLE">
-            <English>Fire Laser [TOGGLE]</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_HitThisKeyToToggleTheLaserDesignatorOnOff">
-            <English>Hit this key to toggle the laser designator on/off.</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_FireLaserHOLD">
-            <English>Fire Laser [HOLD]</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_HoldThisKeyToActivateTheLaserDesignatorReleaseTo">
-            <English>Hold this key to activate the laser designator, release to deactivate.</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_MasterArm">
-            <English>Master Arm</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_ToggleBetweenSafeAndArm">
-            <English>Toggle between Safe and Arm</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_NextWeapon">
-            <English>Next Weapon</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_ChangeTheWeaponSelectedByThePilot">
-            <English>Change the weapon selected by the pilot.</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_FireSelectedWeapon">
-            <English>Fire Selected Weapon</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_FireTheWeaponCurrentlySelectedByThePilot">
-            <English>Fire the weapon currently selected by the pilot.</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_FireRockets">
-            <English>Fire Rockets</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_HitThisKeyToFireMentionedWeapon">
-            <English>Hit this key to fire mentioned weapon.</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_FireAPKWS">
-            <English>Fire APKWS</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_FireMissile">
-            <English>Fire Missile</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_HitThisButtonToFireAMissilePriority114K114NAPKWS">
-            <English>Hit this button to fire a missile, priority - 114K, 114N, APKWS.</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_IZLID">
-            <English>IZLID</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_HitThisButtonToToggleTheIZLIDIRLaser">
-            <English>Hit this button to toggle the IZLID IR laser.</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_IZLIDHOLD">
-            <English>IZLID [HOLD]</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_HoldThisButtonToActivateTheIZLIDIRLaserReleaseTo">
-            <English>Hold this button to activate the IZLID IR laser, release to deactivate.</English>
-        </Key>
         <Key ID="STR_hct_h60_weapons_AGM114KHellfire">
             <English>AGM-114K Hellfire</English>
         </Key>
@@ -67,50 +10,80 @@
         <Key ID="STR_hct_h60_weapons_AGR20APKWS">
             <English>AGR-20 APKWS</English>
         </Key>
-        <Key ID="STR_hct_h60_weapons_APKWS">
-            <English>APKWS</English>
+        <Key ID="STR_hct_h60_weapons_AGR20APKWSGuidedRocket">
+            <English>AGR-20 APKWS Guided Rocket</English>
         </Key>
         <Key ID="STR_hct_h60_weapons_AGR20AdvancedPrecisionKillWeaponSystemLaserGuide">
             <English>AGR-20 Advanced Precision Kill Weapon System Laser Guided Rocket</English>
         </Key>
-        <Key ID="STR_hct_h60_weapons_AGR20APKWSGuidedRocket">
-            <English>AGR-20 APKWS Guided Rocket</English>
+        <Key ID="STR_hct_h60_weapons_APKWS">
+            <English>APKWS</English>
         </Key>
-        <Key ID="STR_hct_h60_weapons_N4xAGM114KH60">
-            <English>4x AGM-114K [H60]</English>
+        <Key ID="STR_hct_h60_weapons_AdjustPylonPosition">
+            <English>Adjust Pylon Position</English>
         </Key>
-        <Key ID="STR_hct_h60_weapons_N4xAGM114NH60">
-            <English>4x AGM-114N [H60]</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_SingleBarrelChainDrivenAutocannonFiring30x113MmM">
-            <English>Single-barrel chain-driven autocannon firing 30x113 mm M789 High Explosive Dual Purpose (HEDP) rounds.</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_M230HEDPH60">
-            <English>M230 HEDP [H60]</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_M230HEDP">
-            <English>M230 HEDP</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_N19xHydra70M229H60">
-            <English>19x Hydra 70 M229 [H60]</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_Hydra70M229">
-            <English>Hydra 70 M229</English>
-        </Key>
-        <Key ID="STR_hct_h60_weapons_N19xDAGRH60">
-            <English>19x DAGR [H60]</English>
+        <Key ID="STR_hct_h60_weapons_ChangeTheWeaponSelectedByThePilot">
+            <English>Change the weapon selected by the pilot.</English>
         </Key>
         <Key ID="STR_hct_h60_weapons_DAGR">
             <English>DAGR</English>
         </Key>
-        <Key ID="STR_hct_h60_weapons_N19xAPKWSH60">
-            <English>19x APKWS [H60]</English>
+        <Key ID="STR_hct_h60_weapons_FireAPKWS">
+            <English>Fire APKWS</English>
         </Key>
-        <Key ID="STR_hct_h60_weapons_Pylon">
-            <English>Pylon</English>
+        <Key ID="STR_hct_h60_weapons_FireLaserHOLD">
+            <English>Fire Laser [HOLD]</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_FireLaserTOGGLE">
+            <English>Fire Laser [TOGGLE]</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_FireMissile">
+            <English>Fire Missile</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_FireRockets">
+            <English>Fire Rockets</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_FireSelectedWeapon">
+            <English>Fire Selected Weapon</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_FireTheWeaponCurrentlySelectedByThePilot">
+            <English>Fire the weapon currently selected by the pilot.</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_HitThisButtonToFireAMissilePriority114K114NAPKWS">
+            <English>Hit this button to fire a missile, priority - 114K, 114N, APKWS.</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_HitThisButtonToToggleTheIZLIDIRLaser">
+            <English>Hit this button to toggle the IZLID IR laser.</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_HitThisKeyToFireMentionedWeapon">
+            <English>Hit this key to fire mentioned weapon.</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_HitThisKeyToToggleTheLaserDesignatorOnOff">
+            <English>Hit this key to toggle the laser designator on/off.</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_HoldThisButtonToActivateTheIZLIDIRLaserReleaseTo">
+            <English>Hold this button to activate the IZLID IR laser, release to deactivate.</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_HoldThisKeyToActivateTheLaserDesignatorReleaseTo">
+            <English>Hold this key to activate the laser designator, release to deactivate.</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_Hydra70M229">
+            <English>Hydra 70 M229</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_IZLID">
+            <English>IZLID</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_IZLIDHOLD">
+            <English>IZLID [HOLD]</English>
         </Key>
         <Key ID="STR_hct_h60_weapons_M230Chaingun">
             <English>M230 Chaingun</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_M230HEDP">
+            <English>M230 HEDP</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_M230HEDPH60">
+            <English>M230 HEDP [H60]</English>
         </Key>
         <Key ID="STR_hct_h60_weapons_M299">
             <English>M299</English>
@@ -121,11 +94,38 @@
         <Key ID="STR_hct_h60_weapons_M299Single">
             <English>M299/Single</English>
         </Key>
-        <Key ID="STR_hct_h60_weapons_AdjustPylonPosition">
-            <English>Adjust Pylon Position</English>
+        <Key ID="STR_hct_h60_weapons_MasterArm">
+            <English>Master Arm</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_N19xAPKWSH60">
+            <English>19x APKWS [H60]</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_N19xDAGRH60">
+            <English>19x DAGR [H60]</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_N19xHydra70M229H60">
+            <English>19x Hydra 70 M229 [H60]</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_N4xAGM114KH60">
+            <English>4x AGM-114K [H60]</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_N4xAGM114NH60">
+            <English>4x AGM-114N [H60]</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_NextWeapon">
+            <English>Next Weapon</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_Pylon">
+            <English>Pylon</English>
         </Key>
         <Key ID="STR_hct_h60_weapons_PylonPosition">
             <English>Pylon Position: %1 m</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_SingleBarrelChainDrivenAutocannonFiring30x113MmM">
+            <English>Single-barrel chain-driven autocannon firing 30x113 mm M789 High Explosive Dual Purpose (HEDP) rounds.</English>
+        </Key>
+        <Key ID="STR_hct_h60_weapons_ToggleBetweenSafeAndArm">
+            <English>Toggle between Safe and Arm</English>
         </Key>
     </Package>
 </Project>

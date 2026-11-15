@@ -1,3 +1,4 @@
+#pragma hemtt suppress pw3_padded_arg config
 #include "script_component.hpp"
 
 // Phase 1 PR C: hct_UH60 is the asset PBO — models, textures, sounds, crew

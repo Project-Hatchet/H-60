@@ -15,6 +15,7 @@ TRIANGLE(FUELUP,0.90,0.28,0.8,-1)
 TRIANGLE(FUELDN,0.90,0.39,0.8,1)
 
 
+#ifndef PERF_TABLE_POINTS
 #define PERF_TABLE_POINTS(X,Y,W,H) \
   {{X - (W/2), Y - (H/2)},1},{{X + (W/2), Y - (H/2)},1},{}, \
   {{X - (W/2), Y + (H/2)},1},{{X + (W/2), Y + (H/2)},1},{}, \
@@ -24,8 +25,10 @@ TRIANGLE(FUELDN,0.90,0.39,0.8,1)
   {{X - (W/2) + (W/4*2), Y - (H/2)},1},{{X - (W/2) + (W/4*2), Y + (H*1.5)},1},{}, \
   {{X - (W/2) + (W/4*3), Y - (H/2)},1},{{X - (W/2) + (W/4*3), Y + (H*1.5)},1},{}, \
   {{X - (W/2) + (W/4*4), Y - (H/2)},1},{{X - (W/2) + (W/4*4), Y + (H*1.5)},1}
+#endif
 
 
+#ifndef PERF_TABLE_POINTS_HALF
 #define PERF_TABLE_POINTS_HALF(X,Y,W,H) \
   {{X - (W/2), Y - (H/2)},1},{{X + (W/2), Y - (H/2)},1},{}, \
   {{X - (W/2), Y + (H/2)},1},{{X + (W/2), Y + (H/2)},1},{}, \
@@ -34,17 +37,22 @@ TRIANGLE(FUELDN,0.90,0.39,0.8,1)
   {{X - (W/2) + (W/4*2), Y - (H/2)},1},{{X - (W/2) + (W/4*2), Y + (H/2)},1},{}, \
   {{X - (W/2) + (W/4*3), Y - (H/2)},1},{{X - (W/2) + (W/4*3), Y + (H/2)},1},{}, \
   {{X - (W/2) + (W/4*4), Y - (H/2)},1},{{X - (W/2) + (W/4*4), Y + (H/2)},1}
+#endif
 
 
+#ifndef TABLE_POINTS_TWO
 #define TABLE_POINTS_TWO(X,Y,W,H) \
   {{X - (W/2), Y - (H/2)},1},{{X + (W/2), Y - (H/2)},1},{}, \
   {{X - (W/2), Y + (H/2)},1},{{X + (W/2), Y + (H/2)},1},{}, \
   {{X - (W/2) + (W/2*0), Y - (H/2)},1},{{X - (W/2) + (W/2*0), Y + (H/2)},1},{}, \
   {{X - (W/2) + (W/2*1), Y - (H/2)},1},{{X - (W/2) + (W/2*1), Y + (H/2)},1},{}, \
   {{X - (W/2) + (W/2*2), Y - (H/2)},1},{{X - (W/2) + (W/2*2), Y + (H/2)},1},{}
+#endif
 
 
+#ifndef PERF_OUTPUT_OFFSET
 #define PERF_OUTPUT_OFFSET 0.05
+#endif
 
 TEXT_FMS_C_STATIC_SCALE(EMPTY_AMMO,0.5,0.25-0.025,"EMPTY   AMMO  ",0.05)
 TEXT_FMS_C_STATIC_SCALE(EMPTY_AMMO_VAL,0.5,0.30-0.025,"12345 lb  1234 lb   ",0.05)

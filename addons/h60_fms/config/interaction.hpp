@@ -1,5 +1,10 @@
+#ifndef FMS_BTN_STR_
 #define FMS_BTN_STR_(x) #x
+#endif
+#ifndef FMS_BTN_STR
 #define FMS_BTN_STR(x) FMS_BTN_STR_(x)
+#endif
+#ifndef FMS_BTN
 #define FMS_BTN(BTN_VAL,LABEL) \
   class BTN_VAL { \
     positionType="static"; \
@@ -7,6 +12,7 @@
     label=LABEL; \
     radius=0.025; \
     clickSound="hct_Switch_Sound_2";
+#endif
 
 class menu {
   condition= USERVAL_EQ(FMS_PAGE_INDEX,FMS_PAGE_MENU);

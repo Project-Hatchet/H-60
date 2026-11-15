@@ -14,9 +14,15 @@ class backgroundWrapper {
 	};
 }; // backgroundWrapper
 
+#ifndef JVMF_LINE_HEIGHT
 #define JVMF_LINE_HEIGHT 0.06
+#endif
+#ifndef JVMF_LEFT_ALIGN
 #define JVMF_LEFT_ALIGN 0.1
+#endif
+#ifndef JVMF_TOP_MARGIN
 #define JVMF_TOP_MARGIN 0.16
+#endif
 
 TEXT_LEFT_SCALED(JVMF_MESSAGE_NEW,0.01,0.17,"NEW",0.04)
 TEXT_LEFT_SCALED(JVMF_MESSAGE_NEW2,0.01,0.17+0.04,"MSG",0.04)
@@ -39,8 +45,13 @@ class cantco_wrap {
     TEXT_MID_SCALED(JVMF_REPLY_CANTCO,0.86,JVMF_LINE_HEIGHT * 0.3,"CANTCO",0.04)
 };
 
+#ifndef JVMF_BORDER_MARGIN
 #define JVMF_BORDER_MARGIN 0.02
+#endif
+#ifndef JVMF_BOTTOM_MARGIN
 #define JVMF_BOTTOM_MARGIN 0.14
+#endif
+#ifndef JVMF_LINE
 #define JVMF_LINE(CLASS,X1,Y1,X2,Y2) \
     class CLASS { \
         type="line"; \
@@ -50,6 +61,7 @@ class cantco_wrap {
             {{X2, Y2}, 1} \
         }; \
     };
+#endif
 
 class jvmf_type_empty {
 	condition=COND_ISNUMBER(JVMF_TYPE,-1);
@@ -72,7 +84,9 @@ class jvmf_position {
 };
 
 
+#ifndef BOTTOM_TEXT_Y
 #define BOTTOM_TEXT_Y 0.96
+#endif
 
 TEXT_LEFT_SMALL(B6,0.75,BOTTOM_TEXT_Y,"IVHMS")
 

@@ -140,7 +140,9 @@ class VSI_R_Polygon : VSI_R
 	minPos[]={0.99,0.152952381};
 	maxPos[]={0.99,0.421047619};
 };
+#ifndef FUEL_BARS_X
 #define FUEL_BARS_X 0.2864
+#endif
 #undef FUEL_BARS_Y1
 #define FUEL_BARS_Y1 0.68
 #undef FUEL_BARS_Y2
@@ -259,7 +261,9 @@ class PFD_HSI_CENTER {
 	pos[]={0.502,0.788};
 };
 
+#ifndef HSI_HVR_10KTS
 #define HSI_HVR_10KTS 0.04
+#endif
 class PFD_HOVER_VEL_X {
 	type="linear";
 	source="user";

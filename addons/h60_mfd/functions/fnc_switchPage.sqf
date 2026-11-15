@@ -38,7 +38,7 @@ switch (true) do {
         _vehicle setObjectMaterialGlobal [MFD_OVERLAY(_mfdIndex), SCREEN_MATERIAL];
     };
     case (_pageIndex > MFD_PAGE_FLIR - 0.99 && _pageIndex < MFD_PAGE_FLIR + 0.99): {
-      if ((_vehicle animationsourcephase "FLIR_HIDE") == 1 && {(_vehicle animationsourcephase "HH60GFlir_show") == 0}) exitWith {
+      if ((_vehicle animationSourcePhase "FLIR_HIDE") == 1 && {(_vehicle animationSourcePhase "HH60GFlir_show") == 0}) exitWith {
         _slingCam = true;
         _vehicle setObjectTextureGlobal [MFD_OVERLAY(_mfdIndex), ["texture"] call hct_h60_mfd_fnc_flirVideo];
         _vehicle setObjectMaterialGlobal [MFD_OVERLAY(_mfdIndex), SCREEN_MATERIAL];
@@ -79,7 +79,7 @@ if (!(_pageIndex in [MFD_PAGE_IVHMS,MFD_PAGE_IVHMS_NUMS])) then {
     hct_h60_mfd_allowText = true;
     {
         if ((getUserMFDValue _vehicle) # _x == MFD_PAGE_IVHMS) then {
-            _vehicle setUserMFDvalue [_x,[1,0,0,1] # _forEachIndex];
+            _vehicle setUserMFDValue [_x,[1,0,0,1] # _forEachIndex];
         };
     } forEach [MFD_1_PAGE_INDEX, MFD_2_PAGE_INDEX, MFD_3_PAGE_INDEX, MFD_4_PAGE_INDEX];
 };

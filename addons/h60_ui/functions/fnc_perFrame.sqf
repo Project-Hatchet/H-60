@@ -40,7 +40,7 @@ if (hct_h60_ui_helpEnabled) then {
     };
 };
 
-if !(getUserMFDValue _vehicle # 15 > -1) exitWith {
+if ((getUserMFDValue _vehicle # 15) <= -1) exitWith {
     CTRL(4001123) ctrlSetText "";
     CTRL(4001123) ctrlCommit 0;
 };

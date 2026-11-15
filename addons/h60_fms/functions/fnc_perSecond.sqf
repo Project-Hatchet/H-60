@@ -65,7 +65,7 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
                 if (text _x != "") then {
                     _places pushBack [(text _x), _x];
                 };
-            } foreach (nearestLocations [getpos player, _locationTypes, 15000]);
+            } forEach (nearestLocations [getPos player, _locationTypes, 15000]);
             _places sort true;
             fms_locations_page_list = _places;
         };

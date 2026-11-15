@@ -54,7 +54,7 @@ class CfgVehicles {
       class CopilotTurret;
     };
     class Attributes;
-    class Eventhandlers;
+    class EventHandlers;
     class Viewoptics;
     class ViewPilot;
     class CargoTurret;

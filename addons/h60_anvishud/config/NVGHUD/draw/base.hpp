@@ -12,7 +12,9 @@ class FOVCenter {
 	}; // points
 }; // FOVCenter
 
+#ifndef VEL_DIA_SIZE
 #define VEL_DIA_SIZE 0.01
+#endif
 class Velocity {
 	type="line";
 	width = 4;

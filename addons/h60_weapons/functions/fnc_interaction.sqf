@@ -16,7 +16,7 @@ private _cycleWeapon = {
 	if (_currentIdx == -1) exitWith {
 		private _allWeapons = _vehicle weaponsTurret _turret;
 		private _common = _allWeapons arrayIntersect _options;
-		if (count _common > 0) then {
+		if (_common isNotEqualTo []) then {
 			_vehicle selectWeaponTurret [_common # 0, _turret];
 		};
 	};

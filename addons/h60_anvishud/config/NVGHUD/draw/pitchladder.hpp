@@ -1,4 +1,6 @@
+#ifndef PITCH_LINE
 #define PITCH_LINE(BONE,X) {BONE, {X-0.04, 0}, 1},{BONE, {X+0.04, 0}, 1},{}
+#endif
 class PitchLadder {
 	type="line";
 	width = 4;

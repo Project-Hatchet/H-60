@@ -26,7 +26,7 @@ if (local _vehicle) then {
 
 if (isNil "hct_h60_cas_cautionsUnacked") then {hct_h60_cas_cautionsUnacked = 0};
 if (isNil "hct_h60_cas_cautionsLog") then {hct_h60_cas_cautionsLog = []};
-hct_h60_cas_cautionsLog = hct_h60_cas_cautionsLog + [_text];
+hct_h60_cas_cautionsLog pushBack _text;
 [_vehicle,true] call hct_h60_cas_fnc_updateOverlayList;
 
 _casList pushBack [_text, _clearCondition, _autoClear];

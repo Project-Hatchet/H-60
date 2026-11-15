@@ -20,7 +20,7 @@ private _apuGenOn = (_vehicle getVariable ["bmkhs_apuGen", 0]) >= 1;
 private _engState = _vehicle getVariable ["bmkhs_engState", ["OFF", "OFF"]];
 
 private _fms = if (player == driver _vehicle) then [{ FMS_R_PAGE_INDEX }, { FMS_L_PAGE_INDEX }];
-private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
+switch ((getUserMFDValue _vehicle) # _fms) do { // draws only: the cases return nothing
     case FMS_LISTS_STARTUP_1: {
         HELP_LABEL_COND("b_gen1","1",(_vehicle animationPhase "Switch_gen1" < 0.1))
         HELP_LABEL_COND("b_gen2","1",(_vehicle animationPhase "Switch_gen2" < 0.1))

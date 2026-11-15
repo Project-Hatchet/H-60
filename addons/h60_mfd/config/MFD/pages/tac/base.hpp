@@ -1,7 +1,9 @@
 #include "rings.hpp"
 
 // left side
+#ifndef TAC_LINE_HEIGHT
 #define TAC_LINE_HEIGHT 0.04
+#endif
 
 COLORED_POLYGON(ORIENT_POLY,0.015,(BEZEL_Y1-0.02),0.08,0.08,common_black)
 COLORED_POLYGON(SCALE_POLY,0.015,(BEZEL_Y2+0.05),0.07,0.08,common_black)
@@ -9,6 +11,7 @@ COLORED_POLYGON(NM_POLY,0.015,(BEZEL_Y3+0.04),0.07,0.04,common_black)
 COLORED_POLYGON(ZOOM_POLY,0.015,(BEZEL_Y4+0.03),0.07,0.08,common_black)
 COLORED_POLYGON(THRT_POLY,0.015,(BEZEL_Y6-0.02),0.06,0.08,common_black)
 
+#ifndef ARROW_DN
 #define ARROW_DN(CNAME,X,Y) \
 	class CNAME { \
 		COLORED_POLYGON(background,X,Y,0.04*(3/4),0.04,common_black) \
@@ -24,7 +27,9 @@ COLORED_POLYGON(THRT_POLY,0.015,(BEZEL_Y6-0.02),0.06,0.08,common_black)
 			}; \
 		}; \
 	};
+#endif
 
+#ifndef ARROW_UP
 #define ARROW_UP(CNAME,X,Y) \
 	class CNAME { \
 		COLORED_POLYGON(background,X,Y,0.04*(3/4),0.04,common_black) \
@@ -40,6 +45,7 @@ COLORED_POLYGON(THRT_POLY,0.015,(BEZEL_Y6-0.02),0.06,0.08,common_black)
 			}; \
 		}; \
 	};
+#endif
 
 ARROW_UP(SCALE_UP,0.02,(BEZEL_Y2-0.01))
 ARROW_DN(SCALE_DN,0.02,(BEZEL_Y3-0.01))
@@ -139,7 +145,9 @@ class noSubPage {
 		};
 	};
 
+	#ifndef VERT_TEXT_SPACING
 	#define VERT_TEXT_SPACING 0.035
+	#endif
 	class caution {
 		condition = USER_GT(USERMFDV_CAS,0);
 		color[] = common_black;

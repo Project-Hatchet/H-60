@@ -1,3 +1,4 @@
+#pragma hemtt suppress pw3_padded_arg config
 #include "script_component.hpp"
 
 class CfgPatches
@@ -149,7 +150,7 @@ class CfgSound3DProcessors
 		range=15;
 	};
 };
-class cfgDistanceFilters
+class CfgDistanceFilters
 {
 	class hct_Close_Engine_Filter
 	{
@@ -237,10 +238,10 @@ class CfgVehicles
 	};
 	class hct_H60_base: Heli_Transport_01_base_F
 	{
-		soundEngineOnInt[] = {"a3\sounds_f\dummysound",2,1};
-		soundEngineOffInt[] = {"a3\sounds_f\dummysound",1,1};
-		soundEngineOnExt[] = {"a3\sounds_f\dummysound",2,1,600};
-		soundEngineOffExt[] = {"a3\sounds_f\dummysound",2,1,600};
+		soundEngineOnInt[] = {"a3\sounds_f\dummysound.wss",2,1};
+		soundEngineOffInt[] = {"a3\sounds_f\dummysound.wss",1,1};
+		soundEngineOnExt[] = {"a3\sounds_f\dummysound.wss",2,1,600};
+		soundEngineOffExt[] = {"a3\sounds_f\dummysound.wss",2,1,600};
 
     // hct_Sound_ShutDelay = 40;
 		class sounds
@@ -342,19 +343,19 @@ class CfgSounds
 	class hct_Key_Sound
 	{
 		name = "hct_Key_Sound";
-		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Key",1,1};
+		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Key.wss",1,1};
 		titles[] = {};
 	};
 	class hct_CabinDoor_Sound
 	{
 		name = "hct_CabinDoor_Sound";
-		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Door",3,1};
+		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\Door.wss",3,1};
 		titles[] = {};
 	};
 	class hct_RotorBrake_Sound
 	{
 		name = "hct_RotorBrake_Sound";
-		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\RotorBrake",3,1};
+		sound[] = {"\z\vtx\addons\H60_SFX\Sounds\Share\RotorBrake.wss",3,1};
 		titles[] = {};
 	};
 };

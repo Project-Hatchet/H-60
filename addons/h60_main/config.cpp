@@ -1,3 +1,4 @@
+#pragma hemtt suppress pw3_padded_arg config
 #include "basicDefines_A3.hpp"
 #include "script_component.hpp"
 

@@ -9,15 +9,14 @@
 params ["_index", "_vehicle", "_value"];
 
 _value = _value * (1/0.75); // changes it to a 0-1 range
-private ["_activeRadios", "_wiredRacks", "_selectedRack", "_workPos"];
 
 private _radio = [_vehicle, _index] call hct_h60_acre_fnc_getRadio;
 if (_radio isEqualTo "") exitWith {}; // rack or radio not there yet
-_activeRadios = [] call acre_api_fnc_getCurrentRadioList;
-_wiredRacks = [_vehicle, acre_player, 0, "wiredRacks"] call acre_sys_intercom_fnc_getStationConfiguration;
-_selectedRack = _wiredRacks param [_index, []];
+private _activeRadios = [] call acre_api_fnc_getCurrentRadioList;
+private _wiredRacks = [_vehicle, acre_player, 0, "wiredRacks"] call acre_sys_intercom_fnc_getStationConfiguration;
+private _selectedRack = _wiredRacks param [_index, []];
 if (_selectedRack isEqualTo []) exitWith {};
-_workPos = [_vehicle, acre_player, 0, "workKnob"] call acre_sys_intercom_fnc_getStationConfiguration;
+private _workPos = [_vehicle, acre_player, 0, "workKnob"] call acre_sys_intercom_fnc_getStationConfiguration;
 
 
 if(hct_h60_devMode) then {

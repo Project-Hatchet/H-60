@@ -16,7 +16,7 @@ params ["_heli"];
 if !(local _heli) exitWith {[_heli] remoteExecCall ["hct_h60_hoist_fnc_deployHook", _heli]};
 
 private _hoist_vars = _heli getVariable ["hct_h60_hoist_vars", []];
-if !(_hoist_vars isEqualTo []) exitWith {};
+if (_hoist_vars isNotEqualTo []) exitWith {};
 
 _heli animateSource ["hoist_hook_hide", 1];
 private _hoistPos = [1.405, 2.03, 0.45]; // this memorypoint needs to be set in UH60 model

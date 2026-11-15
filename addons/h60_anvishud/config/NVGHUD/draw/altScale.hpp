@@ -1,6 +1,10 @@
 class altScale {
+	#ifndef AGL_TICK_50
 	#define AGL_TICK_50 (0.52/4)
+	#endif
+	#ifndef AGL_TICK_10
 	#define AGL_TICK_10 (0.52/4/5)
+	#endif
 	class altTicks {
 		type="line";
 		width = 4;

@@ -56,7 +56,9 @@ class HEADINGTAPE_DCLT {
             {"AltitudeEdge", {-0.015, 0.015}, 1}
         }; // points
     }; // altitude_caret
+    #ifndef ALT_INTERVAL
     #define ALT_INTERVAL 0.03
+    #endif
     LINE(ALT_CARET_0,5,0.97,0.5+(ALT_INTERVAL*0),1,0.5+(ALT_INTERVAL*0))
     LINE(ALT_CARET_1,5,0.98,0.5+(ALT_INTERVAL*1),1,0.5+(ALT_INTERVAL*1))
     LINE(ALT_CARET_2,5,0.98,0.5+(ALT_INTERVAL*2),1,0.5+(ALT_INTERVAL*2))

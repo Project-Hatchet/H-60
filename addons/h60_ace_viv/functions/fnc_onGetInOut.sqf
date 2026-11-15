@@ -29,7 +29,7 @@ private _seats = getArray (configOf _vehicle >> QGVAR(lockSeats));
 } forEach fullCrew [_vehicle, ""];
 
 private _cargoList = getVehicleCargo _vehicle;
-if (!_enableViV && {!(_cargoList isEqualTo [])}) then {
+if (!_enableViV && {_cargoList isNotEqualTo []}) then {
     _vehicle enableVehicleCargo true;
     {
         objNull setVehicleCargo _x;

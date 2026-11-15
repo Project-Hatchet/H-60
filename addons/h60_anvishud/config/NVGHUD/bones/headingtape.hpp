@@ -1,4 +1,6 @@
+#ifndef CARET_SCALE
 #define CARET_SCALE 1.1
+#endif
 class WaypointDirectionBase
 {
 	type="linear";

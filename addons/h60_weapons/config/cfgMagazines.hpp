@@ -1,4 +1,4 @@
-class cfgMagazines {
+class CfgMagazines {
   class VehicleMagazine;
   class PylonRack_4Rnd_ACE_Hellfire_AGM114K;
   class PylonRack_4Rnd_ACE_Hellfire_AGM114N;

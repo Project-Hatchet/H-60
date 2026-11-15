@@ -1,3 +1,4 @@
+#ifndef LINE_AND_WAYPT_PFD
 #define LINE_AND_WAYPT_PFD(CNAME,CONDITION,DIST1,DIR1,DIST2,DIR2,COL) \
 class CNAME { \
     condition =CONDITION; \
@@ -24,6 +25,7 @@ class CNAME { \
         }; \
     }; \
 };
+#endif
 
 class waypoints {
 	LINE_AND_WAYPT_PFD(WP12,"((user2 > -1) * (user4  > -1))","TAC_WP1_DIST","TAC_WP1_DIR","TAC_WP2_DIST","TAC_WP2_DIR",common_purple)

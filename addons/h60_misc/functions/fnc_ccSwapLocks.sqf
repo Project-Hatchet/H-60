@@ -42,14 +42,14 @@ if (_open) then {
         private _onPendant = false;
         if (objectParent _unit isEqualTo _veh) then {
             private _seat = (fullCrew [_veh, "", true]) select {(_x # 0) isEqualTo _unit};
-            if !(_seat isEqualTo []) then {
+            if (_seat isNotEqualTo []) then {
                 private _name = ([_veh] call hct_h60_misc_fnc_turretNames) getOrDefault [(_seat # 0) # 3, ""];
                 _onPendant = _name == hct_h60_misc_ccHoistSeat;
             };
         };
         private _operator = _veh getVariable ["hct_hoistOperator", objNull];
         if (_onPendant) then {
-            if !(_operator isEqualTo _unit) then {_veh setVariable ["hct_hoistOperator", _unit, true];};
+            if (_operator isNotEqualTo _unit) then {_veh setVariable ["hct_hoistOperator", _unit, true];};
         } else {
             if (_operator isEqualTo _unit) then {_veh setVariable ["hct_hoistOperator", nil, true];};
         };

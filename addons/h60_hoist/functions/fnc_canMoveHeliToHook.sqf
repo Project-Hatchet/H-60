@@ -27,6 +27,6 @@ _hoist_vars params ["_rope", "_dummy", "_hook"];
 private _hoistPos = [1.405, 2.03, 0.45];
 if ((_hook distance (_heli modelToWorld _hoistPos)) > 1.5) exitWith {false};
 
-if !(crew _hook isEqualTo []) exitWith {false};
+if (crew _hook isNotEqualTo []) exitWith {false};
 
 true

@@ -13,11 +13,11 @@
         <Key ID="STR_hct_h60_acre_Comm4ANARC201">
             <English>Comm 4 - AN/ARC-201</English>
         </Key>
-        <Key ID="STR_hct_h60_acre_TCCoax">
-            <English>TC Coax</English>
-        </Key>
         <Key ID="STR_hct_h60_acre_IntercommunicationsSystem">
             <English>Intercommunications system</English>
+        </Key>
+        <Key ID="STR_hct_h60_acre_TCCoax">
+            <English>TC Coax</English>
         </Key>
     </Package>
 </Project>

@@ -66,7 +66,7 @@ private _pairKind = "";
     if (_fromName == _myName && {_kind == "" || {_rowKind == _kind}} && {[_veh, _unit] call _condition}) then {
         _tgt = _crew findIf {
             isNull (_x # 0)
-            && {!((_x # 3) isEqualTo [])}
+            && {(_x # 3) isNotEqualTo []}
             && {(_names getOrDefault [_x # 3, ""]) == _tgtName}
         };
         if (_tgt > -1) then {_pairKind = _rowKind;};
@@ -114,7 +114,7 @@ if (_debug) then {
 //     hosted MP (2026-09-29).
 private _swap = {
     params ["_unit", "_veh", "_from", "_path", "_pairKind", "_debug"];
-    if !(objectParent _unit isEqualTo _veh) exitWith {};
+    if (objectParent _unit isNotEqualTo _veh) exitWith {};
     ["hct_h60_misc_ccSwapOpen", [_veh, [_from, _path]], _veh] call CBA_fnc_targetEvent;
 
     [{
@@ -123,7 +123,7 @@ private _swap = {
      },
      {
         params ["_unit", "_veh", "_from", "_path", "_pairKind", "_debug"];
-        if !(objectParent _unit isEqualTo _veh) exitWith {
+        if (objectParent _unit isNotEqualTo _veh) exitWith {
             ["hct_h60_misc_ccSwapClose", [_veh, [_from, _path], _unit, _pairKind], _veh] call CBA_fnc_targetEvent;
         };
         _unit action ["MoveToTurret", _veh, _path];
@@ -154,7 +154,7 @@ private _swap = {
                     if (_out) then {
                         // target first; back to the seat the unit came from
                         // if it keeps refusing
-                        _unit moveInTurret [_veh, if (_elapsed < 1.5) then {_path} else {_from}];
+                        _unit moveInTurret [_veh, [_from, _path] select (_elapsed < 1.5)];
                     };
                 };
             };

@@ -1,5 +1,5 @@
 
-class cfgCloudlets {
+class CfgCloudlets {
   class Default;
 	class hct_h60_explosionCloud: Default
 	{

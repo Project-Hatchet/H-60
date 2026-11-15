@@ -1,5 +1,6 @@
 
 // SRC
+#ifndef TEXT_LEFT_SCALED_SRC
 #define TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
 	class CLASS { \
 		type = "text"; \
@@ -8,7 +9,9 @@
 		pos[] = {{X, Y}, 1}; \
 		right[] = {{X + (SCALE*1), Y}, 1}; \
 		down[] = {{X, Y + SCALE}, 1};
+#endif
 
+#ifndef TEXT_MID_SCALED_SRC
 #define TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
 	class CLASS { \
 		type = "text"; \
@@ -17,7 +20,9 @@
 		pos[] = {{X, Y}, 1}; \
 		right[] = {{X + (SCALE*1), Y}, 1}; \
 		down[] = {{X, Y + SCALE}, 1};
+#endif
 
+#ifndef TEXT_RIGHT_SCALED_SRC
 #define TEXT_RIGHT_SCALED_SRC(CLASS,X,Y,SCALE) \
 	class CLASS { \
 		type = "text"; \
@@ -26,8 +31,10 @@
 		pos[] = {{X, Y}, 1}; \
 		right[] = {{X + (SCALE*1), Y}, 1}; \
 		down[] = {{X, Y + SCALE}, 1};
+#endif
 
 // USERTEXT
+#ifndef TEXT_LEFT_SCALED_USERTEXT
 #define TEXT_LEFT_SCALED_USERTEXT(CLASS,X,Y,IDX,SCALE) \
 	TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
 		source = "userText"; \
@@ -35,7 +42,9 @@
         sourceScale = 1; \
 		text = ""; \
 	};
+#endif
 
+#ifndef TEXT_MID_SCALED_USERTEXT
 #define TEXT_MID_SCALED_USERTEXT(CLASS,X,Y,IDX,SCALE) \
 	TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
 		source = "userText"; \
@@ -43,7 +52,9 @@
         sourceScale = 1; \
 		text = ""; \
 	};
+#endif
 
+#ifndef TEXT_RIGHT_SCALED_USERTEXT
 #define TEXT_RIGHT_SCALED_USERTEXT(CLASS,X,Y,IDX,SCALE) \
 	TEXT_RIGHT_SCALED_SRC(CLASS,X,Y,SCALE) \
 		source = "userText"; \
@@ -51,28 +62,36 @@
         sourceScale = 1; \
 		text = ""; \
 	};
+#endif
 
 // STATIC
+#ifndef TEXT_RIGHT_SCALED
 #define TEXT_RIGHT_SCALED(CLASS,X,Y,TEXT,SCALE) \
 	TEXT_RIGHT_SCALED_SRC(CLASS,X,Y,SCALE) \
 		source = "static"; \
 		text = TEXT; \
 	};
+#endif
 
 
+#ifndef TEXT_MID_SCALED
 #define TEXT_MID_SCALED(CLASS,X,Y,TEXT,SCALE) \
 	TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
 		source = "static"; \
 		text = TEXT; \
 	};
+#endif
 
+#ifndef TEXT_LEFT_SCALED
 #define TEXT_LEFT_SCALED(CLASS,X,Y,TEXT,SCALE) \
 	TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
 		source = "static"; \
 		text = TEXT; \
 	};
+#endif
 
 // SOURCE
+#ifndef TEXT_LEFT_SCALED_SOURCE
 #define TEXT_LEFT_SCALED_SOURCE(CLASS,X,Y,SCALE,SOURCE,SOURCEINDEX,SOURCESCALE,DECIMALS) \
 	TEXT_LEFT_SCALED_SRC(CLASS,X,Y,SCALE) \
 		source = SOURCE; \
@@ -80,7 +99,9 @@
 		sourceScale = SOURCESCALE; \
         sourcePrecision = DECIMALS; \
 	};
+#endif
 
+#ifndef TEXT_MID_SCALED_SOURCE
 #define TEXT_MID_SCALED_SOURCE(CLASS,X,Y,SCALE,SOURCE,SOURCEINDEX,SOURCESCALE,DECIMALS) \
 	TEXT_MID_SCALED_SRC(CLASS,X,Y,SCALE) \
 		source = SOURCE; \
@@ -88,8 +109,10 @@
 		sourceScale = SOURCESCALE; \
         sourcePrecision = DECIMALS; \
 	};
+#endif
 
 
+#ifndef TEXT_RIGHT_SCALED_SOURCE
 #define TEXT_RIGHT_SCALED_SOURCE(CLASS,X,Y,SCALE,SOURCE,SOURCEINDEX,SOURCESCALE,DECIMALS) \
 	TEXT_RIGHT_SCALED_SRC(CLASS,X,Y,SCALE) \
 		source = SOURCE; \
@@ -97,10 +120,12 @@
 		sourceScale = SOURCESCALE; \
         sourcePrecision = DECIMALS; \
 	};
+#endif
 
 
 // pitch
 
+#ifndef PITCH_BASE
 #define PITCH_BASE(X1,X2,Y1,Y2) \
     class Level0 \
     { \
@@ -109,10 +134,13 @@
         type = "horizon"; \
         angle = 0; \
     };
+#endif
 
+#ifndef PITCH_LEVEL
 #define PITCH_LEVEL(CNAME,ANG) \
     class CNAME##_pos: Level0 {angle=ANG;}; \
     class CNAME##_neg: Level0 {angle=-ANG;};
+#endif
 
 // angles
 
@@ -121,21 +149,44 @@
 // degrees, function before multiply). CfgConvert always stored them that way; HEMTT would
 // otherwise evaluate them at build time with radians and the wrong precedence (WP3 finding).
 // _EXPR variants stay bare for composition inside a QUOTE().
+#ifndef ANGLEX_EXPR
 #define ANGLEX_EXPR(DEG,RADIUS) (sin DEG * (RADIUS))
+#endif
+#ifndef ANGLEX
 #define ANGLEX(DEG,RADIUS) QUOTE(ANGLEX_EXPR(DEG,RADIUS))
+#endif
+#ifndef ANGLEY_EXPR
 #define ANGLEY_EXPR(DEG,RADIUS) (cos DEG * (RADIUS))
+#endif
+#ifndef ANGLEY
 #define ANGLEY(DEG,RADIUS) QUOTE(ANGLEY_EXPR(DEG,RADIUS))
+#endif
+#ifndef ANGLE
 #define ANGLE(DEG,RADIUS) {ANGLEX(DEG,RADIUS), ANGLEY(DEG,RADIUS)}
+#endif
 
+#ifndef KMH_TO_KMH
 #define KMH_TO_KMH 1
+#endif
+#ifndef KMH_TO_KTS
 #define KMH_TO_KTS 1.8519
+#endif
 
+#ifndef M_TO_NM
 #define M_TO_NM 0.000539957
+#endif
+#ifndef M_TO_KM
 #define M_TO_KM 0.001
+#endif
 
+#ifndef M_TO_FT
 #define M_TO_FT 3.28084
+#endif
+#ifndef M_TO_M
 #define M_TO_M 1
+#endif
 
+#ifndef CIRCLE36
 #define CIRCLE36(BONE,RADIUS) \
 {BONE, ANGLE(000,RADIUS), 1}, \
 {BONE, ANGLE(030,RADIUS), 1}, \
@@ -150,3 +201,4 @@
 {BONE, ANGLE(300,RADIUS), 1}, \
 {BONE, ANGLE(330,RADIUS), 1}, \
 {BONE, ANGLE(360,RADIUS), 1}
+#endif

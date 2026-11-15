@@ -725,13 +725,19 @@
 #define MID_LINE_HEIGHT 0.06
 #define SMALL_LINE_HEIGHT 0.03
 
+#ifndef NM_SCALE
 #define NM_SCALE(SCALE) (1*0.75*0.000539957*SCALE)
+#endif
 
 #define PT34(X,Y) X*0.75,Y
 
 
+#ifndef EICAS_LINE_SPACING
 #define EICAS_LINE_SPACING 0.035
+#endif
+#ifndef EICAS_LINE_HEIGHT
 #define EICAS_LINE_HEIGHT 0.04
+#endif
 #define EICAS_LINE_TEXT(CNAME,X,Y,INDEX,TEXT) \
     class CNAME { \
         condition = USER_BT(INDEX,0,2); \

@@ -1,4 +1,6 @@
+#ifndef LOBL_BOX_SIZE
 #define LOBL_BOX_SIZE 0.05
+#endif
 
 class LOBL_Good {
 	condition = COND_ISNUMBER(USERMFDV_TAC_MOVE,0);

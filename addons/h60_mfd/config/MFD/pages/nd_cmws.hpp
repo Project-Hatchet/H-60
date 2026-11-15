@@ -19,7 +19,10 @@ class Bones {
         };
 };
 
+#ifndef SQUARE_SCALE
 #define SQUARE_SCALE 1.3
+#endif
+#ifndef BLACK_BACKGROUND
 #define BLACK_BACKGROUND \
     class BlackOverlay { \
         color[] = {0.05,0.05,0.05,1}; \
@@ -36,20 +39,26 @@ class Bones {
                 } \
             }; \
         };
+#endif
 
+#ifndef SQUARE_POINTS
 #define SQUARE_POINTS \
     {{SQUARE_SCALE*-0.02, SQUARE_SCALE*0.02}, 1}, \
     {{SQUARE_SCALE*0.02,  SQUARE_SCALE*0.02}, 1}, \
     {{SQUARE_SCALE*0.02,  SQUARE_SCALE*-0.02}, 1}, \
     {{SQUARE_SCALE*-0.02, SQUARE_SCALE*-0.02}, 1}, \
     {{SQUARE_SCALE*-0.02, SQUARE_SCALE*0.02}, 1},{}
+#endif
 
+#ifndef TRIANGLE_POINTS
 #define TRIANGLE_POINTS \
     {{0.8* 0.00, 0.8*-0.02}, 1}, \
     {{0.8*-0.02, 0.8* 0.02}, 1}, \
     {{0.8* 0.02, 0.8* 0.02}, 1}, \
     {{0.8* 0.00, 0.8*-0.02}, 1}
+#endif
 
+#ifndef BLACK_BACKGROUND_RADAR
 #define BLACK_BACKGROUND_RADAR \
     BLACK_BACKGROUND \
         class white { \
@@ -68,6 +77,7 @@ class Bones {
             }; \
         }; \
     };
+#endif
 
 class Draw {
     condition = COND_SUBPAGE_OR_SUBPAGE(MFD_PAGE_INDEX,ND_MODE_ALL,ND_MODE_CMWS);

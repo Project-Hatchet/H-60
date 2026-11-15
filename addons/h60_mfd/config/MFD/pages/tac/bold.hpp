@@ -1,5 +1,9 @@
+#ifndef DTS_BOT
 #define DTS_BOT 0.85
+#endif
+#ifndef DTS_WID
 #define DTS_WID 0.17
+#endif
 class dts {
     condition = DTS_LOAD_FAIL;
 	COLORED_POLYGON(background,(0.5-(DTS_WID/2)),DTS_BOT-0.04,DTS_WID,0.04,common_yellow)
@@ -20,8 +24,12 @@ class dts {
 	};
 };
 
+#ifndef RAL_BOT
 #define RAL_BOT 0.8
+#endif
+#ifndef RAL_WID
 #define RAL_WID 0.21
+#endif
 class ralt {
     condition = RAD_ALT_FAIL;
 	COLORED_POLYGON(background,(0.5-(RAL_WID/2)),RAL_BOT-0.04,RAL_WID,0.04,common_yellow)
@@ -45,7 +53,9 @@ class ralt {
 
 class context_menu {
 	condition = "(user39>-1)";
+    #ifndef INTERACT_LINE_HEIGHT
     #define INTERACT_LINE_HEIGHT 0.04
+    #endif
     class sel_1 {
         condition = COND_ISNUMBER(39,0);
         INVERTED_VIDEO_LINE(SEL1,0.40,0.25+(INTERACT_LINE_HEIGHT*0),0.2,0.04,"CREATE WAYPT",common_white)

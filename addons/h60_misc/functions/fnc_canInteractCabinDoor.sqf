@@ -53,8 +53,8 @@ if (_animPhase < 0.9 && {_vehicle getVariable ["ace_fastroping_deploymentStage",
     };
     false
 };
-if (!(_doorSeats isEqualTo []) && {
-  !((_doorSeats apply {_vehicle turretUnit _x}) isEqualTo [objNull, objNull])
+if (_doorSeats isNotEqualTo [] && {
+  (_doorSeats apply {_vehicle turretUnit _x}) isNotEqualTo [objNull, objNull]
 }) exitWith {
     if (_isHCT) then {
         hint (localize "STR_hct_h60_misc_DoorIsBlocked");

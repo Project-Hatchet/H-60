@@ -1,7 +1,14 @@
+#ifndef ICON_SCALE
 #define ICON_SCALE 1
+#endif
+#ifndef BFT_ICON_W
 #define BFT_ICON_W 1
+#endif
+#ifndef BFT_ICON_H
 #define BFT_ICON_H (BFT_ICON_W * 0.75)
+#endif
 
+#ifndef BACKGROUND_RECTANGLE
 #define BACKGROUND_RECTANGLE \
     class BlackOverlay { \
         color[] = {0.05,0.05,0.05,0.5}; \
@@ -19,7 +26,9 @@
                 } \
             }; \
         };
+#endif
 
+#ifndef BOX_CONTENT_START
 #define BOX_CONTENT_START(COLOR) \
     class Blue { \
         color[] = COLOR; \
@@ -34,31 +43,41 @@
 				{{1.0*BFT_ICON_W*0.02,  1.0*BFT_ICON_H*-0.02}, 1}, \
 				{{1.0*BFT_ICON_W*-0.02, 1.0*BFT_ICON_H*-0.02}, 1}, \
 				{{1.0*BFT_ICON_W*-0.02, 1.0*BFT_ICON_H*0.02}, 1},{},
+#endif
 
+#ifndef BOX_CONTENT_END
 #define BOX_CONTENT_END \
             }; \
         }; \
 	};
+#endif
 
+#ifndef RECTANGLE_POINTS
 #define RECTANGLE_POINTS \
 	{{BFT_ICON_W*-0.02, BFT_ICON_H*0.02}, 1}, \
 	{{BFT_ICON_W*0.02,  BFT_ICON_H*0.02}, 1}, \
 	{{BFT_ICON_W*0.02,  BFT_ICON_H*-0.02}, 1}, \
 	{{BFT_ICON_W*-0.02, BFT_ICON_H*-0.02}, 1} \
 
+#endif
+#ifndef AIRCRAFT_POINTS
 #define AIRCRAFT_POINTS \
 	{{0.6*BFT_ICON_W*-0.02, 0.6*BFT_ICON_H*-0.02}, 1}, \
 	{{0.6*BFT_ICON_W* 0.02, 0.6*BFT_ICON_H* 0.02}, 1}, \
 	{{0.6*BFT_ICON_W* 0.02, 0.6*BFT_ICON_H*-0.02}, 1}, \
 	{{0.6*BFT_ICON_W*-0.02, 0.6*BFT_ICON_H* 0.02}, 1}, \
 	{{0.6*BFT_ICON_W*-0.02, 0.6*BFT_ICON_H*-0.02}, 1}
+#endif
 
+#ifndef INFANTRY_POINTS
 #define INFANTRY_POINTS \
 	{{BFT_ICON_W*-0.02, BFT_ICON_H*-0.02}, 1}, \
 	{{BFT_ICON_W* 0.02, BFT_ICON_H* 0.02}, 1},{}, \
 	{{BFT_ICON_W* 0.02, BFT_ICON_H*-0.02}, 1}, \
 	{{BFT_ICON_W*-0.02, BFT_ICON_H* 0.02}, 1}
+#endif
 
+#ifndef AMORED_POINTS
 #define AMORED_POINTS \
    {BFT_ANGLE(0,0.013), 1}, \
   {BFT_ANGLE(30,0.013), 1}, \
@@ -73,27 +92,35 @@
  {BFT_ANGLE(300,0.013), 1}, \
  {BFT_ANGLE(330,0.013), 1}, \
    {BFT_ANGLE(0,0.013), 1}
+#endif
 
+#ifndef ARMORED
 #define ARMORED(COLOR) \
 	BACKGROUND_RECTANGLE \
 		BOX_CONTENT_START(COLOR) \
 			AMORED_POINTS \
 		BOX_CONTENT_END \
 	};
+#endif
 
+#ifndef AIRCAFT
 #define AIRCAFT(COLOR) \
 	BACKGROUND_RECTANGLE \
 		BOX_CONTENT_START(COLOR) \
 			AIRCRAFT_POINTS \
 		BOX_CONTENT_END \
 	};
+#endif
 
+#ifndef UNKNOWN
 #define UNKNOWN(COLOR) \
 	BACKGROUND_RECTANGLE \
 		BOX_CONTENT_START(COLOR) \
 		BOX_CONTENT_END \
 	};
+#endif
 
+#ifndef INFANTRY
 #define INFANTRY(COLOR) \
 	BACKGROUND_RECTANGLE \
 		BOX_CONTENT_START(COLOR) \
@@ -101,7 +128,9 @@
 		BOX_CONTENT_END \
 		TEXT_MID_SCALED(MYTEXT,0,-0.025,"",0.05) \
 	};
+#endif
 
+#ifndef LINE_VERT
 #define LINE_VERT(COLOR,SIZE) \
  	class verticalLine { \
         color[] = COLOR; \
@@ -116,9 +145,13 @@
 			}; \
 		}; \
  	};
+#endif
 	
 
+#ifndef POI_SQUARE_SCALE
 #define POI_SQUARE_SCALE 0.75
+#endif
+#ifndef POI_BLACK_BACKGROUND
 #define POI_BLACK_BACKGROUND \
     class BlackOverlay { \
         color[] = {0.05,0.05,0.05,0.5}; \
@@ -135,6 +168,7 @@
                 } \
             }; \
         };
+#endif
 
 class BFT
 {

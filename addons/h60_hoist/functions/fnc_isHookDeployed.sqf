@@ -15,4 +15,4 @@
 params ["_heli"];
 
 private _hoist_vars = _heli getVariable ["hct_h60_hoist_vars", []];
-!(_hoist_vars isEqualTo [])
+_hoist_vars isNotEqualTo []

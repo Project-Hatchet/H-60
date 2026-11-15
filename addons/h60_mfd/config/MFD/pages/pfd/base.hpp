@@ -177,6 +177,7 @@ class overlayWrapper {
 		}; // CoveringText
 	}; // RaltEnabledGroup
 }; // overlayWrapper
+#ifndef TEXT_DEFAULT_PFD
 #define TEXT_DEFAULT_PFD(CLASS,X,Y) \
 	class CLASS { \
 		type = "text"; \
@@ -186,11 +187,18 @@ class overlayWrapper {
 		right[] = {{X + 0.0386, Y}, 1}; \
 		down[] = {{X, Y + 0.0442}, 1}; \
 
+#endif
 
 
+#ifndef BOTTOM_TEXT_Y
 #define BOTTOM_TEXT_Y 0.96
+#endif
+#ifndef TOP_TEXT_Y
 #define TOP_TEXT_Y 0.03
+#endif
+#ifndef DEFAULT_TEXT_SIZE
 #define DEFAULT_TEXT_SIZE 0.65
+#endif
 // TEXT_LEFT_SMALL(B1,0.095,BOTTOM_TEXT_Y,"PFD")
 // TEXT_LEFT_SMALL(B2,0.2,BOTTOM_TEXT_Y,"ND")
 // TEXT_LEFT_SMALL(B3,0.325,BOTTOM_TEXT_Y,"EICAS")
@@ -351,7 +359,9 @@ TEXT_LEFT_MID_SRC(NAV_FMS_WP_TOF,0.75,0.87)
 	sourceIndex=8;
 };
 
+#ifndef FUEL_BAR_WIDTH
 #define FUEL_BAR_WIDTH 0.004
+#endif
 class fuelBarsWrapper {
 	color[] = common_green;
 	class fuelBar1 {
@@ -444,7 +454,9 @@ TEXT_MID_MID_SRC(VSPEED,0.94,0.05)
 class pitchLadderWrapper {
 	clipTL[] = {0.345, 0.0};
 	clipBR[] = {0.657, 0.49};
+	#ifndef PFD_BANK_SCALE
 	#define PFD_BANK_SCALE 0.5
+	#endif
 	class pitchBackground {
 		clipTL[] = {0, 0.05};
 		clipBR[] = {1, 1};
@@ -573,7 +585,9 @@ class ADICenterBlack {
 				{"PFD_LEVEL_MIDDLE", ANGLE(360,0.013), 1}
 			};
 		};
+		#ifndef ROLL_INDICATOR_START
 		#define ROLL_INDICATOR_START 0.20
+		#endif
 		class Roll_indicator {
 			type="line";
 			width=2;
@@ -674,7 +688,9 @@ class pitchLadderLevelBackgroundWhite {
 			}
 		};
 	};
+	#ifndef LEVEL_SHRINK
 	#define LEVEL_SHRINK 0.005
+	#endif
 	class pitchLadderLevelBlack {
 		color[] = {0,0,0,1};
 		class HorizonLeftHoriz {
@@ -755,7 +771,9 @@ class powerPodBarWrap {
 
 class HSIPage {
 	condition = COND_SUBPAGE(MFD_PAGE_INDEX,PFD_MODE_HSI);
+	#ifndef HSI_SIZE
 	#define HSI_SIZE 0.155
+	#endif
 	class PolygonHeading {
 		type        = "polygon";
 		texture = "z\vtx\addons\uh60_mfd\data\HSI.paa";
@@ -820,7 +838,9 @@ class ARCPageText {
 	TEXT_LEFT_SMALL(B6,0.75,BOTTOM_TEXT_Y,"HOVER")
 };
 
+#ifndef PFD_ARC_RADIUS
 #define PFD_ARC_RADIUS 0.31
+#endif
 class ARCPage {
 	clipTL[] = {0.347,0.581};
 	clipBR[] = {0.657,1.000};

@@ -1,5 +1,7 @@
 class Bones {};
+#ifndef OFFSET_Y
 #define OFFSET_Y -0.01
+#endif
 
 
 class Draw

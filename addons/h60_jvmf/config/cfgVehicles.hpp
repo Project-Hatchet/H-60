@@ -9,7 +9,7 @@
     exceptions[] = {"isNotInside","isNotSitting"}; \
   };
 
-class cfgVehicles {
+class CfgVehicles {
   class Man;
   class CAManBase: Man {
     class ACE_SelfActions {

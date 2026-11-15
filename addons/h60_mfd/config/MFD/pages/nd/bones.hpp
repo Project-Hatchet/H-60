@@ -222,7 +222,9 @@ class ND_WP_DIST {
 	minPos[]={0,-0.5};
 	maxPos[]={0,0};
 };
+#ifndef HSI_HVR_10KTS
 #define HSI_HVR_10KTS 0.04
+#endif
 class ND_HOVER_VEL_X {
 	type="linear";
 	source="user";

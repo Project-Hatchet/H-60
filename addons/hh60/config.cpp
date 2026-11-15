@@ -1,3 +1,4 @@
+#pragma hemtt suppress pw3_padded_arg config
 #include "script_component.hpp"
 
 // The Air Force bird: sole owner of hct_HH60 (Phase 1 PR B). Config-only —

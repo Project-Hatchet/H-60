@@ -39,7 +39,7 @@ private _success = switch (_type) do {
 };
 
 if (_success) then {
-    private _timestamp = [daytime, "HH:MM"] call BIS_fnc_timeToString;
+    private _timestamp = [dayTime, "HH:MM"] call BIS_fnc_timeToString;
     _this set [6, [[_timestamp, _sender, "SENT", player]]];
     ["hct_h60_jvmf_messageSent", _this] call CBA_fnc_globalEvent;
     if (hct_h60_devMode) then {diag_log "attemptSend";};

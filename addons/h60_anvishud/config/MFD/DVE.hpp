@@ -9,7 +9,9 @@ class DVE_DCLT {
 	class HVR_COND {
 		condition="(user103 < 10) * (user101 > 2)";
 		color[] = common_blue;
+		#ifndef HSI_HVR_10KTS
 		#define HSI_HVR_10KTS 0.04
+		#endif
 		TEXT_FMS_C(HOVER_ANNOUNCE,0.5,0.15)
 			source = "static";
 			sourceScale = 1;
@@ -40,7 +42,9 @@ class DVE_DCLT {
 		}; // HVR_VEL_LINE_DRAW
 		class HVR_WP_VALID {
         	condition="WPvalid";
+			#ifndef HVR_WP_SPACING
 			#define HVR_WP_SPACING 0.01
+			#endif
 			class HVR_WP_DRAW {
 				type="line";
 				width=2;

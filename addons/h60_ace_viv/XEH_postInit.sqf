@@ -30,7 +30,7 @@ GVAR(unloadActionCarrier) = [ // create action
     {
         [QGVAR(setVehicleCargo), [_target, objNull]] call CBA_fnc_localEvent;
         [_target, false] call hct_h60_ace_viv_fnc_lockSeats},
-    {!((getVehicleCargo  _target) isEqualTo [])}
+    {(getVehicleCargo _target) isNotEqualTo []}
 ] call ace_interact_menu_fnc_createAction;
 ["All", 0, ["ACE_MainActions"], GVAR(unloadActionCarrier), true] call ace_interact_menu_fnc_addActionToClass;
 

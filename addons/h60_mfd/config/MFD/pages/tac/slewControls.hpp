@@ -28,8 +28,12 @@ class cursor_background {
 	}; // purple
 }; // black
 
+#ifndef HOOKED_SCALE
 #define HOOKED_SCALE 0.03
+#endif
+#ifndef HOOKED_PT
 #define HOOKED_PT(X,Y) {"TAC_CURSOR_X", 1, "TAC_CURSOR_Y", 1, {PT34(X*HOOKED_SCALE,Y*HOOKED_SCALE)},1}
+#endif
 
 class cursor_background_selected {
 	condition = COND_ISNUMBER(USERMFDV_TAC_MOVE,2);
@@ -94,7 +98,9 @@ class context_menu {
 		}; // BackgroundBorder
 		class text {
 			condition = "(user39>-1)";
+			#ifndef INTERACT_LINE_HEIGHT
 			#define INTERACT_LINE_HEIGHT 0.04
+			#endif
 			TEXT_LEFT_SCALED(SEL1,0.41,0.25+(INTERACT_LINE_HEIGHT*0),"CREATE WAYPT",INTERACT_LINE_HEIGHT)
 			TEXT_LEFT_SCALED(SEL2,0.41,0.25+(INTERACT_LINE_HEIGHT*1),"SLEW FLIR",INTERACT_LINE_HEIGHT)
 			TEXT_LEFT_SCALED(SEL3,0.41,0.25+(INTERACT_LINE_HEIGHT*2),"ZOOM IN",INTERACT_LINE_HEIGHT)

@@ -1,8 +1,12 @@
 class torqueWrapper {
 	condition = "1";
 	//color[] = {0.082,0.608,0.039,1};
+	#ifndef COLLECTIVE_X
 	#define COLLECTIVE_X 0.95
+	#endif
+	#ifndef COLLECTIVE_OFFSET
 	#define COLLECTIVE_OFFSET 0.05
+	#endif
 	class TORQUE {
 			TEXT_HMD_L(TORQUE1_LBL,0.015,0.81-SMALL_LINEHEIGHT)
 				source = "static";

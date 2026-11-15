@@ -1,3 +1,4 @@
+#pragma hemtt suppress pw3_padded_arg config
 #include "script_component.hpp"
 
 // The Army UH-60M family: baseline, Slick and MEDEVAC.

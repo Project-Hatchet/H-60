@@ -6,7 +6,9 @@ class hct_driver: hct_driver {
   };
   class interaction: interaction {
     class FMS {
+      #ifdef FMS_PAGE_INDEX
       #undef FMS_PAGE_INDEX
+      #endif
       #define FMS_PAGE_INDEX FMS_R_PAGE_INDEX
       class FMS_Keypad {
         class FMS_BTN_COM {

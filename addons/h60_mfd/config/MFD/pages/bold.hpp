@@ -17,9 +17,16 @@ class Bones {
 
 
 class Draw {
+	#ifndef EICAS_LINE_SPACING
 	#define EICAS_LINE_SPACING 0.035
+	#endif
+	#ifndef EICAS_LINE_HEIGHT
 	#define EICAS_LINE_HEIGHT 0.04
+	#endif
+	#ifndef EICAS_LINE_EXPAND
 	#define EICAS_LINE_EXPAND 0.003
+	#endif
+	#ifndef EICAS_LINE_TAPE
 	#define EICAS_LINE_TAPE(CNAME,X,Y) \
 		class CNAME { \
 			color[] = common_yellow; \
@@ -35,7 +42,9 @@ class Draw {
 				}; \
 			}; \
 		};
+	#endif
 
+	#ifndef EICAS_LINE
 	#define EICAS_LINE(CNAME,X,Y,INDEX,TEXT) \
 		class CNAME { \
 			class inverted { \
@@ -50,9 +59,13 @@ class Draw {
 				}; \
 			}; \
 		};
+	#endif
 
 
+	#ifndef BOLD_LINE_EXPAND
 	#define BOLD_LINE_EXPAND 0.003
+	#endif
+	#ifndef BOLD_LINE_TAPE
 	#define BOLD_LINE_TAPE(CNAME,X,Y,W,H,COLOR) \
 		class CNAME { \
 			color[] = COLOR; \
@@ -68,7 +81,9 @@ class Draw {
 				}; \
 			}; \
 		};
+	#endif
 
+	#ifndef INVERTED_VIDEO_LINE
 	#define INVERTED_VIDEO_LINE(CNAME,X,Y,W,H,TEXT,COLOR) \
 		class CNAME { \
 			color[] = COLOR; \
@@ -78,6 +93,7 @@ class Draw {
 				TEXT_LEFT_SCALED(Left_0_0,X+0.01,Y,TEXT,H) \
 			}; \
 		};
+	#endif
 
 	class eicas {
 		condition = COND_ISNUMBER(MFD_PAGE_INDEX,MFD_PAGE_EICAS);

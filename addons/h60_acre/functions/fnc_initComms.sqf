@@ -10,7 +10,7 @@ params ["_vehicle"];
 private _monitorPos = [_vehicle, acre_player, 0, "monitorKnob"] call acre_sys_intercom_fnc_getStationConfiguration;
 
 [_vehicle, acre_player, 0, "workKnob", 0] call acre_sys_intercom_fnc_setStationConfiguration;
-if(!(_monitorPos == 7)) then {
+if (_monitorPos != 7) then {
     [_vehicle, acre_player, 0, "monitorKnob", 7] call acre_sys_intercom_fnc_setStationConfiguration;
 };
 

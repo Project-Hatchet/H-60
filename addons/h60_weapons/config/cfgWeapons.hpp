@@ -1,11 +1,11 @@
-class cfgWeapons {
+class CfgWeapons {
     class ace_hellfire_launcher;
     class ace_hellfire_launcher_L;
     class ace_hellfire_launcher_N;
     class hct_hellfire_launcher: ace_hellfire_launcher {
       ace_laser_showHud = 0;
       magazines[] = {"HCT_4Rnd_ACE_Hellfire_AGM114K"};
-      class Eventhandlers {
+      class EventHandlers {
         class hct_hellfire {
           fired = "_this call hct_h60_weapons_fnc_fired";
         };
@@ -14,7 +14,7 @@ class cfgWeapons {
     class hct_hellfire_launcher_N: ace_hellfire_launcher_N {
       ace_laser_showHud = 0;
       magazines[] = {"HCT_4Rnd_ACE_Hellfire_AGM114N"};
-      class Eventhandlers {
+      class EventHandlers {
         class hct_hellfire {
           fired = "_this call hct_h60_weapons_fnc_fired";
         };
@@ -53,7 +53,7 @@ class cfgWeapons {
               effectName = "MachineGun1";
           };
       };
-      class Eventhandlers {
+      class EventHandlers {
         class hct_chaingun {
           fired = "_this call hct_h60_weapons_fnc_firedChaingun";
         };

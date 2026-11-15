@@ -29,7 +29,7 @@ switch (hct_h60_flir_slewAim) do
 		hct_h60_flir_slewAim = true; 
 		if (hct_h60_flir_setting_AimSlewBlockMouse && {!ace_interact_menu_keyDown}) then {
 		(findDisplay 46) createDisplay 'hct_h60_flir_mouseBlocker'; 
-		(finddisplay 86005) displayAddEventHandler ['KeyUp', {[_this,'keyup'] call CBA_events_fnc_keyHandler}];
+		(findDisplay 86005) displayAddEventHandler ['KeyUp', {[_this,'keyup'] call CBA_events_fnc_keyHandler}];
 		};
 	};
 };
