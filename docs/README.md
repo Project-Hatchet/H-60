@@ -19,4 +19,3 @@
 - File names in `SCREAMING_SNAKE_CASE.md` are the in-repo references; the matching `*.pdf` is the rendered plain-English or reader copy. When one changes, re-render the other.
 - Each phase plan follows the same structure: Objective · Target end-state · Work packages (WP0 is always the verification harness) · Branch & PR strategy · Verification & acceptance · Do-NOT list · Risks & mitigations · Open items for Riverman.
 - Design authority for systems work (Phase 5) is TM 1-1520-280-10 (UH-60M operator's manual). The TM and its digest are maintained outside the repo — ask Riverman for access.
-- Generated API documentation (the `scons docs` NaturalDocs target) goes to `apidocs/`, which is gitignored — this folder is for written references only.

@@ -31,8 +31,6 @@ hemtt build    # build the mod into .hemttout/build
 
 No Arma 3 Tools are needed: every model and animation in the tree is already binarized, and HEMTT rapifies configs itself. The full build takes under a minute. `docs/RELEASE.md` covers versioning, Dev pushes and Stable releases.
 
-The older SCons build (`SConstruct`) is still in the tree for the transition and is still exercised by CI, but new work should use HEMTT; it is retired once a Stable has shipped from HEMTT.
-
 **Other errors**
 If you find any other errors, please ask the dev team in the Project Hatchet discord server.
 

@@ -19,8 +19,8 @@ include = [
     "LICENSE",
     "README.md",
 ]
-# Addon Builder packs only the extensions in tools/buildExtIncludes.txt; HEMTT packs
-# everything. These keep the PBO manifests identical to the scons build.
+# HEMTT packs everything under addons/ unless excluded: source images, notes and
+# generated texture headers stay out of the PBOs.
 exclude = [
     "*.png",
     "*.tga",

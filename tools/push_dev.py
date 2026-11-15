@@ -317,7 +317,7 @@ def build():
         print(r.stdout[-3000:])
         die(f"hemtt build failed:\n{r.stderr[-2000:]}")
 
-    # Replace the mod folder wholesale: the old scons flow wrote into it and never
+    # Replace the mod folder wholesale: the old Addon Builder flow wrote into it and never
     # removed PBOs of addons that no longer exist, which then shipped.
     mod = REPO / MOD_FOLDER
     shutil.rmtree(mod, ignore_errors=True)

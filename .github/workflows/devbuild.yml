@@ -107,7 +107,7 @@ jobs:
           # Stamp the dev version: the NEXT Stable's number (dev builds always
           # work toward the next release) and a BUILD counter that increments
           # on every rebuild and resets to 1 when the number changes. The next
-          # Stable is Main's version with PATCHLVL+1 unless tools/build.json
+          # Stable is Main's version with PATCHLVL+1 unless tools/devbuild.json
           # names it in "devNextVersion" - a minor/major cycle (0.7.10 -> 0.8.0)
           # cannot be derived. "0.8.0" names the number; "0.8.0.3" also sets
           # the lowest BUILD to hand out, for a cycle that began with hand-
@@ -122,7 +122,7 @@ jobs:
           parse_ver() { tr -d '\r' | awk '/#define (MAJOR|MINOR|PATCHLVL|BUILD) /{v[$2]=$3} END{print v["MAJOR"], v["MINOR"], v["PATCHLVL"], v["BUILD"]}'; }
           read -r main_major main_minor main_patch _ < <(git show "$base_sha:$VERSION_FILE" | parse_ver)
           dev_major=$main_major; dev_minor=$main_minor; dev_patch=$((main_patch + 1)); min_build=1
-          next=$(git show "$base_sha:tools/build.json" | jq -r '.devNextVersion // empty')
+          next=$(git show "$base_sha:tools/devbuild.json" | jq -r '.devNextVersion // empty')
           if [ -n "$next" ]; then
             IFS=. read -r n_major n_minor n_patch n_build <<< "$next"
             main_ver="$main_major.$main_minor.$main_patch"; next_ver="$n_major.$n_minor.$n_patch"
@@ -130,7 +130,7 @@ jobs:
               dev_major=$n_major; dev_minor=$n_minor; dev_patch=$n_patch; min_build=${n_build:-1}
               echo "devNextVersion $next: dev builds stamp $next_ver.N"
             else
-              echo "devNextVersion $next is not ahead of $BASE ($main_ver) - ignored, remove it from tools/build.json"
+              echo "devNextVersion $next is not ahead of $BASE ($main_ver) - ignored, remove it from tools/devbuild.json"
             fi
           fi
           build=1

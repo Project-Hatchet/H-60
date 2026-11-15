@@ -10,9 +10,7 @@ texHeaders.bin
 *.swp
 *.swo
 *.biprivatekey
-build/
 Thumbs.db
-.sconsign.dblite
+__pycache__/
 *.wav
 *.pkf
-apidocs/

@@ -14,17 +14,16 @@ on:
 # devbuild branch: it is machine-generated (Main + labeled PRs, force-pushed
 # on every label change), so labeling several PRs in a burst force-pushes it
 # repeatedly and only the LAST regeneration's build is meaningful - without
-# cancellation a 9-PR labeling session queues 9 full Windows builds, 8 of
-# them stale before they start. Main push builds are never cancelled.
+# cancellation a 9-PR labeling session queues 9 full builds, 8 of them
+# stale before they start. Main push builds are never cancelled.
 concurrency:
   group: validate-build-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' || github.ref == 'refs/heads/devbuild' }}
 
 jobs:
-  # Phase 3 WP4d: structural checks a Linux runner can enforce - include case,
-  # empty files, BOMs, PREP/file parity, addon layout and the HEMTT portability
-  # rules. SQF syntax and lints are the hemtt job's business (hemtt check);
-  # tools/sqf_validator.py stays unwired until the tree passes its tab rule.
+  # Structural checks a Linux runner can enforce - include case, empty files,
+  # BOMs, PREP/file parity, addon layout and the HEMTT portability rules. SQF
+  # syntax and lints are the hemtt job's business (hemtt check).
   validate:
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -49,42 +48,9 @@ jobs:
           PR: ${{ github.event.pull_request.number }}
           ALLOW: ${{ contains(github.event.pull_request.labels.*.name, 'Release Notes: Ignore') && '--allow' || '' }}
         run: gh pr diff "$PR" --repo "$GITHUB_REPOSITORY" --name-only | python tools/changelog.py check --changed-files - $ALLOW
-  build:
-    # PRs from forks cannot build: the Arma 3 Tools download secret is
-    # withheld from fork-triggered runs, so their build always fails at
-    # setup. Skip instead of showing outside contributors a guaranteed
-    # red X - fork PRs get built via the devbuild branch once labeled
-    # "Ready for Testing".
-    if: github.event_name != 'pull_request' || !github.event.pull_request.head.repo.fork
-    runs-on: windows-2022
-    steps:
-      - name: Checkout the source code
-        uses: actions/checkout@v4.2.0
-        with:
-          fetch-depth: 1
-      - name: Set up A3Tools
-        uses: arma-actions/arma3-tools@master
-        with:
-          toolsUrl: ${{ secrets.A3TOOLS_S3_URL }}
-      - name: Set up scons
-        run: python -m pip install scons
-      - name: Build with Scons
-        run: scons
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4.4.0
-        with:
-          name: hatchet-${{ github.sha }}-nobin
-          path: release
-
-  # Phase 3 (HEMTT migration, WP4a): the HEMTT build runs beside the SCons build
-  # until the equivalence proof and a tester wave have cleared it, then SCons
-  # retires (WP4e). Needs no Arma 3 Tools and no secrets, so it also runs for
-  # PRs from forks - the first CI signal outside contributors get.
-  # Models are pre-binarized (ODOL) and HEMTT rapifies configs itself, hence
-  # --no-bin. `hemtt check --pedantic` fails only on errors; the ~2,400 known
-  # warnings (macro redefinitions in the MFD page headers, padded macro
-  # arguments) are catalogued in docs/phase-3/proof/scouting.md and are
-  # Phase 4 material.
+  # The build. Needs no Arma 3 Tools and no secrets, so it also runs for PRs
+  # from forks. Models are pre-binarized (ODOL) and HEMTT rapifies configs
+  # itself, hence --no-bin. `hemtt check --pedantic` fails on errors only.
   hemtt:
     runs-on: ubuntu-latest
     timeout-minutes: 15

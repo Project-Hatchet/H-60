@@ -5,7 +5,7 @@ rapifiers may legitimately serialise the same value (Phase 3 · WP0).
 
     python tools/config_dump/compare_dumps.py <dumpDirA> <dumpDirB> [--verbose]
 
-Phase 1 compared dumps with `git diff --no-index`, which is exact. The scons -> HEMTT
+Phase 1 compared dumps with `git diff --no-index`, which is exact. The Addon Builder -> HEMTT
 migration needs a value comparison instead, because the two toolchains store the same
 config differently and the engine resolves both to the same thing:
 

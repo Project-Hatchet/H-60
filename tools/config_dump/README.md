@@ -70,14 +70,14 @@ keeps unquoted arithmetic as a string (`"160/256"`) where HEMTT stores the numbe
 differently inside code strings. The engine resolves all of these to the same thing.
 
 ```
-python tools/config_dump/compare_dumps.py tools/config_dump/dumps/<scons-capture> tools/config_dump/dumps/<hemtt-capture>
+python tools/config_dump/compare_dumps.py tools/config_dump/dumps/<capture-A> tools/config_dump/dumps/<capture-B>
 ```
 
 compares by **value**: numbers as floats, strings whitespace-insensitively, pure
 arithmetic evaluated, expressions over `userN` variables evaluated at a fixed set of
 sample values, arrays element by element. Whatever still differs is listed as `DIFF`
-and is a real content difference; the exit code is 1 if any exist. Run it on two scons
-captures first — it must report everything identical. A full capture (575k values)
+and is a real content difference; the exit code is 1 if any exist. Run it on two captures of
+the same build first — it must report everything identical. A full capture (575k values)
 takes a couple of minutes.
 
 Acceptance per PHASE_1_PLAN.md: empty diff, except the deliberate changes the
