@@ -1,60 +1,60 @@
 class CfgUserActions
 {
   class hct_weapons_fireLaser {
-    displayName = "Fire Laser [TOGGLE]";
-    tooltip = "Hit this key to toggle the laser designator on/off.";
+    displayName = "$STR_hct_h60_weapons_FireLaserTOGGLE";
+    tooltip = "$STR_hct_h60_weapons_HitThisKeyToToggleTheLaserDesignatorOnOff";
     onActivate = "[] call hct_h60_weapons_fnc_keyLaserDesignator;";		// _this is always true.
     onDeactivate = "";		// _this is always false.
     onAnalog = "";	// _this is the scalar analog value.
     analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
   };
   class hct_weapons_fireLaserHold : hct_weapons_fireLaser {
-    displayName = "Fire Laser [HOLD]";
-    tooltip = "Hold this key to activate the laser designator, release to deactivate.";
+    displayName = "$STR_hct_h60_weapons_FireLaserHOLD";
+    tooltip = "$STR_hct_h60_weapons_HoldThisKeyToActivateTheLaserDesignatorReleaseTo";
     onActivate = "[1] call hct_h60_weapons_fnc_keyLaserDesignator;";		// _this is always true.
     onDeactivate = "[0] call hct_h60_weapons_fnc_keyLaserDesignator;";		// _this is always false.
   };
   class hct_weapons_masterArm: hct_weapons_fireLaser {
-    displayName = "Master Arm";
-    tooltip = "Toggle between Safe and Arm";
+    displayName = "$STR_hct_h60_weapons_MasterArm";
+    tooltip = "$STR_hct_h60_weapons_ToggleBetweenSafeAndArm";
     onActivate = "call hct_h60_weapons_fnc_keyMasterArm;";		// _this is always true.
   };
   class hct_weapons_nextWeapon: hct_weapons_fireLaser {
-    displayName = "Next Weapon";
-    tooltip = "Change the weapon selected by the pilot.";
+    displayName = "$STR_hct_h60_weapons_NextWeapon";
+    tooltip = "$STR_hct_h60_weapons_ChangeTheWeaponSelectedByThePilot";
     onActivate = "call hct_h60_weapons_fnc_keyNextWeapon;";		// _this is always true.
   };
   class hct_weapons_fireSelected {
-    displayName = "Fire Selected Weapon";
-    tooltip = "Fire the weapon currently selected by the pilot.";
+    displayName = "$STR_hct_h60_weapons_FireSelectedWeapon";
+    tooltip = "$STR_hct_h60_weapons_FireTheWeaponCurrentlySelectedByThePilot";
     onActivate = "[true] call hct_h60_weapons_fnc_keyFireSelected;";		// _this is always true.
     onDeactivate = "[false] call hct_h60_weapons_fnc_keyFireSelected;";		// _this is always false.
     onAnalog = "";	// _this is the scalar analog value.
     analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
   };
   class hct_weapons_fireRocket : hct_weapons_fireLaser {
-    displayName = "Fire Rockets";
-    tooltip = "Hit this key to fire mentioned weapon.";
+    displayName = "$STR_hct_h60_weapons_FireRockets";
+    tooltip = "$STR_hct_h60_weapons_HitThisKeyToFireMentionedWeapon";
     onActivate = "[hct_vehicle, 'hct_hydra', 'single'] call hct_h60_weapons_fnc_fireAndResetWeapon;";
   };
   class hct_weapons_fireAPKWS : hct_weapons_fireLaser {
-    displayName = "Fire APKWS";
-    tooltip = "Hit this key to fire mentioned weapon.";
+    displayName = "$STR_hct_h60_weapons_FireAPKWS";
+    tooltip = "$STR_hct_h60_weapons_HitThisKeyToFireMentionedWeapon";
     onActivate = "[hct_vehicle, 'hct_apkws', 'Medium_AI'] call hct_h60_weapons_fnc_fireAndResetWeapon;";
   };
   class hct_weapons_fireMissile : hct_weapons_fireLaser {
-    displayName = "Fire Missile";
-    tooltip = "Hit this button to fire a missile, priority - 114K, 114N, APKWS.";
+    displayName = "$STR_hct_h60_weapons_FireMissile";
+    tooltip = "$STR_hct_h60_weapons_HitThisButtonToFireAMissilePriority114K114NAPKWS";
     onActivate = "[hct_vehicle, 'MISSILE'] call hct_h60_weapons_fnc_fireAndResetWeapon;";
   };
   class hct_weapons_irLaser : hct_weapons_fireLaser {
-    displayName = "IZLID";
-    tooltip = "Hit this button to toggle the IZLID IR laser.";
+    displayName = "$STR_hct_h60_weapons_IZLID";
+    tooltip = "$STR_hct_h60_weapons_HitThisButtonToToggleTheIZLIDIRLaser";
     onActivate = "[] call hct_h60_weapons_fnc_keyIRLaser;";
   };
   class hct_weapons_irLaserHold : hct_weapons_fireLaser {
-    displayName = "IZLID [HOLD]";
-    tooltip = "Hold this button to activate the IZLID IR laser, release to deactivate.";
+    displayName = "$STR_hct_h60_weapons_IZLIDHOLD";
+    tooltip = "$STR_hct_h60_weapons_HoldThisButtonToActivateTheIZLIDIRLaserReleaseTo";
     onActivate = "[1] call hct_h60_weapons_fnc_keyIRLaser;";		// _this is always true.
     onDeactivate = "[0] call hct_h60_weapons_fnc_keyIRLaser;";		// _this is always false.
   };

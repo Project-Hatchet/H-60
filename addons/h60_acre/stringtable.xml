@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="HCT">
+    <Package name="H60_ACRE">
+        <Key ID="STR_hct_h60_acre_Comm1ANARC201">
+            <English>Comm 1 - AN/ARC-201</English>
+        </Key>
+        <Key ID="STR_hct_h60_acre_Comm2ANARC231">
+            <English>Comm 2 - AN/ARC-231</English>
+        </Key>
+        <Key ID="STR_hct_h60_acre_Comm3ANARC231">
+            <English>Comm 3 - AN/ARC-231</English>
+        </Key>
+        <Key ID="STR_hct_h60_acre_Comm4ANARC201">
+            <English>Comm 4 - AN/ARC-201</English>
+        </Key>
+        <Key ID="STR_hct_h60_acre_TCCoax">
+            <English>TC Coax</English>
+        </Key>
+        <Key ID="STR_hct_h60_acre_IntercommunicationsSystem">
+            <English>Intercommunications system</English>
+        </Key>
+    </Package>
+</Project>

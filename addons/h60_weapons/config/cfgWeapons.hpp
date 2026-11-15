@@ -26,11 +26,11 @@ class cfgWeapons {
       class manual;
     };
     class hct_chaingun_hedp: autocannon_30mm_RCWS {
-      displayName = "M230 Chaingun";
-      displayNameShort = "M230 HEDP";
+      displayName = "$STR_hct_h60_weapons_M230Chaingun";
+      displayNameShort = "$STR_hct_h60_weapons_M230HEDP";
       magazines[] = {"HCT_M230_Chaingun_L", "HCT_M230_Chaingun_R"};
       class player: player {
-        displayName = "M230 HEDP";
+        displayName = "$STR_hct_h60_weapons_M230HEDP";
         reloadTime = 0.109;
 			  dispersion = 0.006;
       class StandardSound 
@@ -66,14 +66,14 @@ class cfgWeapons {
     class Medium_AI;
   };
   class hct_hydra: missiles_DAR{
-    displayName = "M299";
-    displayNameShort = "M299";
+    displayName = "$STR_hct_h60_weapons_M299";
+    displayNameShort = "$STR_hct_h60_weapons_M299";
     magazines[] = {"HCT_PylonRack_M261_M229"};
     class Burst: Burst {
-      displayName = "M299/Ripple";
+      displayName = "$STR_hct_h60_weapons_M299Ripple";
     };
     class Single: Burst {
-      displayName = "M299/Single";
+      displayName = "$STR_hct_h60_weapons_M299Single";
       autoFire = 0;
     };
     modes[] = {"Far_AI","Medium_AI", "Single", "Burst"};
@@ -87,11 +87,11 @@ class cfgWeapons {
     class Medium_AI;
   };
 	class hct_apkws: hct_dagr {
-    displayName = "APKWS";
-    displayNameShort = "APKWS";
+    displayName = "$STR_hct_h60_weapons_APKWS";
+    displayNameShort = "$STR_hct_h60_weapons_APKWS";
     magazines[] = {"HCT_PylonRack_M261_APKWS"};
     class Burst: Burst {
-      displayName = "APKWS";
+      displayName = "$STR_hct_h60_weapons_APKWS";
     };
     class Far_AI: Far_AI {displayName = "APKWS";};
     class Medium_AI: Medium_AI {displayName = "APKWS";};

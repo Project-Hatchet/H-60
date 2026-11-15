@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="HCT">
+    <Package name="MH60S">
+        <Key ID="STR_hct_mh60s_MH60SKnighthawkPylonsGAU21L">
+            <English>MH-60S Knighthawk - Pylons, GAU-21(L)</English>
+        </Key>
+        <Key ID="STR_hct_mh60s_MH60SKnighthawkGAU21L">
+            <English>MH-60S Knighthawk - GAU-21(L)</English>
+        </Key>
+        <Key ID="STR_hct_mh60s_MH60SKnighthawkPylons">
+            <English>MH-60S Knighthawk - Pylons</English>
+        </Key>
+        <Key ID="STR_hct_mh60s_MH60SKnighthawk">
+            <English>MH-60S Knighthawk</English>
+        </Key>
+        <Key ID="STR_hct_mh60s_GAU21">
+            <English>GAU-21</English>
+        </Key>
+        <Key ID="STR_hct_mh60s_Empty">
+            <English>Empty</English>
+        </Key>
+        <Key ID="STR_hct_mh60s_Default">
+            <English>Default</English>
+        </Key>
+        <Key ID="STR_hct_mh60s_N20mmDAGR">
+            <English>20mm + DAGR</English>
+        </Key>
+        <Key ID="STR_hct_mh60s_Rocket">
+            <English>Rocket</English>
+        </Key>
+        <Key ID="STR_hct_mh60s_APKWS">
+            <English>APKWS</English>
+        </Key>
+        <Key ID="STR_hct_mh60s_Hellfire">
+            <English>Hellfire</English>
+        </Key>
+        <Key ID="STR_hct_mh60s_N20mmRocket">
+            <English>20mm + Rocket</English>
+        </Key>
+    </Package>
+</Project>

@@ -20,7 +20,7 @@ class CfgVehicles {
         class UserActions: UserActions {
             class OpenIVHMS
 			{
-				displayName = "Open IVHMS";
+				displayName = "$STR_hct_h60_mfd_OpenIVHMS";
 				displayNameDefault = "Open IVHMS";
 				priority = 0;
 				radius = 10; // A too small radius might cause the action to not be visible

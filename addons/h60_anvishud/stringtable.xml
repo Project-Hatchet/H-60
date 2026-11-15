@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project name="VTX">
+<Project name="HCT">
     <Package name="UH60_ANVISHUD">
         <Key ID="STR_hct_h60_ANVISHUD_HMDDefaultMode">
             <English>HMD Default Mode</English>
@@ -40,6 +40,9 @@
         <Key ID="STR_hct_h60_ANVISHUD_Brightness_Description">
             <English>HMD Brightness</English>
             <Chinesesimp>HMD亮度</Chinesesimp>
+        </Key>
+        <Key ID="STR_hct_h60_anvishud_SettingsCategory">
+            <English>HMD</English>
         </Key>
     </Package>
 </Project>

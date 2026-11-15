@@ -1,7 +1,7 @@
 
 class AcreRacks {
     class Comm_1 {
-        displayName = "Comm 1 - AN/ARC-201";            // Name displayed in the interaction menu
+        displayName = "$STR_hct_h60_acre_Comm1ANARC201";            // Name displayed in the interaction menu
         shortName = "COMM1";                                     // Short name displayed on the HUD. Maximum of 5 characters
         componentName = "ACRE_VRC103";                // Able to mount a PRC152
         allowedPositions[] = {"driver", {"turret", {0}}}; // Who can configure the radio and open the radio GUI. Same wildcards as the intercom. It also allows transmitting/receiving
@@ -12,19 +12,19 @@ class AcreRacks {
         intercom[] = {"Intercom_1"};                                            // Radio not wired to any intercom. All units in intercom can receive/send transmittions (ACE3 interaction menu) but they cannot manipulate the radio (GUI interface)
     };
     class Comm_2: Comm_1 {
-        displayName = "Comm 2 - AN/ARC-231";            // Name displayed in the interaction menu
+        displayName = "$STR_hct_h60_acre_Comm2ANARC231";            // Name displayed in the interaction menu
         shortName = "COMM2";                                     // Short name displayed on the HUD. Maximum of 5 characters
     };
     class Comm_3: Comm_1 {
-        displayName = "Comm 3 - AN/ARC-231";            // Name displayed in the interaction menu
+        displayName = "$STR_hct_h60_acre_Comm3ANARC231";            // Name displayed in the interaction menu
         shortName = "COMM3";                                     // Short name displayed on the HUD. Maximum of 5 characters
     };
     class Comm_4: Comm_1 {
-        displayName = "Comm 4 - AN/ARC-201";            // Name displayed in the interaction menu
+        displayName = "$STR_hct_h60_acre_Comm4ANARC201";            // Name displayed in the interaction menu
         shortName = "COMM4";                                     // Short name displayed on the HUD. Maximum of 5 characters
     };
     class Rack_TC {
-        displayName = "TC Coax";            // Name displayed in the interaction menu
+        displayName = "$STR_hct_h60_acre_TCCoax";            // Name displayed in the interaction menu
         shortName = "TC";                                     // Short name displayed on the HUD. Maximum of 5 characters
         componentName = "ACRE_VRC111";                // Able to mount a PRC152
         allowedPositions[] = {{"turret", {3}}}; // Who can configure the radio and open the radio GUI. Same wildcards as the intercom. It also allows transmitting/receiving
@@ -37,7 +37,7 @@ class AcreRacks {
 };
 class AcreIntercoms {
     class Intercom_1 {                                                         // Each entry defines a network
-        displayName = "Intercommunications system";                         // Name of the intercom network displayed to the players
+        displayName = "$STR_hct_h60_acre_IntercommunicationsSystem";                         // Name of the intercom network displayed to the players
         shortName = "ICS";
         // "all" is a wildcard that selects, in this case, all turrets (not including ffv)
         allowedPositions[] = {"crew", {"turret", "all"}};

@@ -8,8 +8,8 @@ class CfgMagazines {
 	class hct_h60_safe: VehicleMagazine
 	{
 		scope=2;
-		displayName="SAFE";
-		descriptionShort="SAFE";
+		displayName="$STR_hct_h60_doorguns_SAFE";
+		descriptionShort="$STR_hct_h60_doorguns_SAFE";
 		count=1;
 		initSpeed=0;
 		tracersEvery=0;

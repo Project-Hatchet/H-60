@@ -1,56 +1,56 @@
 class CfgUserActions
 {
 	class hct_HOOK_DEPLOY {
-		displayName = "Deploy Hook";
-		tooltip = "Deploys the Hoist Hook";
+		displayName = "$STR_hct_h60_hoist_DeployHook";
+		tooltip = "$STR_hct_h60_hoist_DeploysTheHoistHook";
 		onActivate = "_canDeploy = [player] call hct_h60_hoist_fnc_canControlHoist && {[vehicle player] call hct_h60_hoist_fnc_canDeployHook}; if (_canDeploy) then {[vehicle player] call hct_h60_hoist_fnc_deployHook;}";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
 	};
 	class hct_HOOK_STOW {
-		displayName = "Stow Hook";
-		tooltip = "Secures the Hoist Hook";
+		displayName = "$STR_hct_h60_hoist_StowHook";
+		tooltip = "$STR_hct_h60_hoist_SecuresTheHoistHook";
 		onActivate = "if ([player] call hct_h60_hoist_fnc_canControlHoist) then {[vehicle player] call hct_h60_hoist_fnc_secureHook;};";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
 	};
 	class hct_HOOK_LOWER_GROUND {
-		displayName = "Cable Extend";
-		tooltip = "Lowers the hook to the ground";
+		displayName = "$STR_hct_h60_hoist_CableExtend";
+		tooltip = "$STR_hct_h60_hoist_LowersTheHookToTheGround";
 		onActivate = "if ([player] call hct_h60_hoist_fnc_canControlHoist) then {[vehicle player] call hct_h60_hoist_fnc_lowerHookToGround;};";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
 	};
 	class hct_HOOK_RAISE_HELI {
-		displayName = "Cable Retract";
-		tooltip = "Raises the hook to the helicopter";
+		displayName = "$STR_hct_h60_hoist_CableRetract";
+		tooltip = "$STR_hct_h60_hoist_RaisesTheHookToTheHelicopter";
 		onActivate = "if ([player] call hct_h60_hoist_fnc_canControlHoist) then {[vehicle player] call hct_h60_hoist_fnc_raiseHookToHeli;};";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
 	};
 	class hct_HOOK_LOWER {
-		displayName = "Cable Extend (Analog)";
-		tooltip = "Progressively lowers the hook";
+		displayName = "$STR_hct_h60_hoist_CableExtendAnalog";
+		tooltip = "$STR_hct_h60_hoist_ProgressivelyLowersTheHook";
 		onActivate = "[vehicle player, true] call hct_h60_hoist_fnc_lowerHook;";		// _this is always true.
 		onDeactivate = "[vehicle player, false] call hct_h60_hoist_fnc_lowerHook;";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
 	};
 	class hct_HOOK_RAISE {
-		displayName = "Cable Retract (Analog)";
-		tooltip = "Progressively raises the hook";
+		displayName = "$STR_hct_h60_hoist_CableRetractAnalog";
+		tooltip = "$STR_hct_h60_hoist_ProgressivelyRaisesTheHook";
 		onActivate = "[vehicle player, true] call hct_h60_hoist_fnc_raiseHook;";		// _this is always true.
 		onDeactivate = "[vehicle player, false] call hct_h60_hoist_fnc_raiseHook;";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
 	};
   class hct_HOOK_STABILIZE {
-		displayName = "Stabilize Hoist Hook";
-		tooltip = "Stabilizes the Hoist Hook from swinging excessively";
+		displayName = "$STR_hct_h60_hoist_StabilizeHoistHook";
+		tooltip = "$STR_hct_h60_hoist_StabilizesTheHoistHookFromSwingingExcessively";
 		onActivate = "_canControl = [player] call hct_h60_hoist_fnc_canControlHoist; if (_canControl) then {[vehicle player] call hct_h60_hoist_fnc_stabilizeHook;}";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.

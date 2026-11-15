@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="HCT">
+    <Package name="H60_MAIN">
+        <Key ID="STR_hct_h60_main_HatchetH60">
+            <English>Hatchet H-60</English>
+        </Key>
+        <Key ID="STR_hct_h60_main_HatchetH60Vehicles">
+            <English>Hatchet H-60 Vehicles</English>
+        </Key>
+        <Key ID="STR_hct_h60_main_Category">
+            <English>Hatchet H-60</English>
+        </Key>
+    </Package>
+</Project>

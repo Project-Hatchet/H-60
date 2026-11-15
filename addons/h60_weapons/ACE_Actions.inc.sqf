@@ -1,4 +1,4 @@
-private _displayName = "Adjust Pylon Position";
+private _displayName = (localize "STR_hct_h60_weapons_AdjustPylonPosition");
 private _condition = {_this call hct_h60_weapons_fnc_canAdjustPylonPosition};
 private _statement = {_this call hct_h60_weapons_fnc_adjustPylonPosition};
 // Left Pylon

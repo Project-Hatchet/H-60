@@ -32,7 +32,7 @@ class HCT_FMS_L;
 class HCT_FMS_R;
 class HCT_ESIS_BOOT;
 
-// pedestal screens (owned by uh60_config/config/MFD/MFDConfig.hpp)
+// pedestal screens (owned by h60_mfd/config/pedestal/pedestal.hpp)
 class HCT_CLOCK;
 class HCT_ESIS_Horizon;
 class HCT_ESIS_Misc;

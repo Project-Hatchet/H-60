@@ -7,7 +7,7 @@
  */
 
 params ["_vehicle"];
-if (isNull hct_h60_ccfs_playerSelected) exitWith {hint "No player selected"};
+if (isNull hct_h60_ccfs_playerSelected) exitWith {hint (localize "STR_hct_h60_mfd_NoPlayerSelected")};
 if (hct_h60_ccfs_playerSelected == player) exitWith {
 	_this call hct_h60_mfd_fnc_startAIGame;
 };

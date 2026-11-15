@@ -3,7 +3,7 @@ class CfgAmmo {
   class ACE_Hellfire_AGM114K: M_Scalpel_AT {class ace_missileguidance;};
   class ACE_Hellfire_AGM114N: M_Scalpel_AT {class ace_missileguidance;};
   class HCT_Hellfire_AGM114K: ACE_Hellfire_AGM114K {
-    displayName = "AGM-114K Hellfire";
+    displayName = "$STR_hct_h60_weapons_AGM114KHellfire";
     model = "z\vtx\addons\uh60_weapons\fza_agm114l.p3d";
     proxyShape = "z\vtx\addons\uh60_weapons\fza_agm114l.p3d";
     class ace_missileguidance: ace_missileguidance {
@@ -47,7 +47,7 @@ class CfgAmmo {
   };
   hit = 400;
   class HCT_Hellfire_AGM114N: ACE_Hellfire_AGM114N {
-    displayName = "AGM-114N Hellfire";
+    displayName = "$STR_hct_h60_weapons_AGM114NHellfire";
     model = "z\vtx\addons\uh60_weapons\fza_agm114l.p3d";
     proxyShape = "z\vtx\addons\uh60_weapons\fza_agm114l.p3d";
     class ace_missileguidance: ace_missileguidance {
@@ -96,10 +96,10 @@ class CfgAmmo {
   class M_PG_AT;
   class HCT_APKWS: M_PG_AT
   {
-  	displayName = "AGR-20 APKWS";
-  	displayNameShort = "APKWS";
-  	description = "AGR-20 Advanced Precision Kill Weapon System Laser Guided Rocket";
-  	descriptionShort = "AGR-20 APKWS Guided Rocket";
+  	displayName = "$STR_hct_h60_weapons_AGR20APKWS";
+  	displayNameShort = "$STR_hct_h60_weapons_APKWS";
+  	description = "$STR_hct_h60_weapons_AGR20AdvancedPrecisionKillWeaponSystemLaserGuide";
+  	descriptionShort = "$STR_hct_h60_weapons_AGR20APKWSGuidedRocket";
   	irLock = 0;
   	laserLock = 0;
   	manualControl = 0;

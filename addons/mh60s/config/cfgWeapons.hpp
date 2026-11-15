@@ -4,7 +4,7 @@ class cfgWeapons {
         class manual;
     };
     class HCT_HMG_M3M: HMG_M2 {
-        displayName = "GAU-21";
+        displayName = "$STR_hct_mh60s_GAU21";
         magazines[] = {"HCT_600Rnd_127x99_mag_Tracer_Red"};
         class manual: manual {
             reloadTime = 0.0545;

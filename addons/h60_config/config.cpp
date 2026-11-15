@@ -30,7 +30,7 @@ class CfgPatches {
 
 class CfgEditorSubcategories {
     class hct_h60 {
-        displayName = "Hatchet H-60 Pack";
+        displayName = "$STR_hct_h60_config_HatchetH60Pack";
     };
 };
 

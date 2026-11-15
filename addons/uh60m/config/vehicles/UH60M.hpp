@@ -40,7 +40,7 @@ class hct_UH60M: hct_H60_base {
       ANIM_INIT(cabindoor_L,1);
       ANIM_INIT(cabindoor_R,1);
       class CabinSeats_1_Hide {
-        displayName = "Hide Cabin Seats (Front)";
+        displayName = "$STR_hct_uh60m_HideCabinSeatsFront";
         source="user";
         animPeriod=1;
         initPhase=0;
@@ -49,7 +49,7 @@ class hct_UH60M: hct_H60_base {
         lockCargo[] = { 8, 9, 10 };
       };
       class CabinSeats_2_Hide {
-        displayName = "Hide Cabin Seats (Middle)";
+        displayName = "$STR_hct_uh60m_HideCabinSeatsMiddle";
         source="user";
         animPeriod=1;
         initPhase=0;
@@ -63,7 +63,7 @@ class hct_UH60M: hct_H60_base {
         };
       };
       class CabinSeats_3_Hide {
-        displayName = "Hide Cabin Seats (Rear)";
+        displayName = "$STR_hct_uh60m_HideCabinSeatsRear";
         source="user";
         animPeriod=1;
         initPhase=0;

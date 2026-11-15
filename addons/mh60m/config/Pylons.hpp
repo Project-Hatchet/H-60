@@ -20,31 +20,31 @@ class TransportPylonsComponent {
     };
     class Presets {
         class Empty {
-            displayName = "Empty";
+            displayName = "$STR_hct_mh60m_Empty";
             attachment[] = {};
         };
         class Default {
-            displayName = "Default";
+            displayName = "$STR_hct_mh60m_Default";
             attachment[] = {"HCT_M230_Chaingun_L", "HCT_PylonRack_M261_M229", ""};
         };
         class Interdiction {
-            displayName = "30mm + APKWS";
+            displayName = "$STR_hct_mh60m_N30mmAPKWS";
             attachment[] = {"HCT_M230_Chaingun_L", "HCT_PylonRack_M261_APKWS", ""};
         };
         class Rocket {
-            displayName = "Rocket";
+            displayName = "$STR_hct_mh60m_Rocket";
             attachment[] = {"HCT_PylonRack_M261_M229", "HCT_PylonRack_M261_M229", ""};
         };
         class APKWS {
-            displayName = "APKWS";
+            displayName = "$STR_hct_mh60m_APKWS";
             attachment[] = {"HCT_PylonRack_M261_APKWS", "HCT_PylonRack_M261_APKWS", ""};
         };
         class Hellfire {
-            displayName = "Hellfire";
+            displayName = "$STR_hct_mh60m_Hellfire";
             attachment[] = {"HCT_4Rnd_ACE_Hellfire_AGM114K", "HCT_4Rnd_ACE_Hellfire_AGM114K", ""};
         };
         class MixedGuided {
-            displayName = "APKWS + Hellfire";
+            displayName = "$STR_hct_mh60m_APKWSHellfire";
             attachment[] = {"HCT_PylonRack_M261_APKWS", "HCT_4Rnd_ACE_Hellfire_AGM114K", ""};
         };
     };

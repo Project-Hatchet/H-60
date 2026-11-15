@@ -2,7 +2,7 @@
     "hct_h60_simpleStartup",
     "CHECKBOX",
     localize LSTRING(SimpleStartup),
-    "UH-60M",
+    "STR_hct_h60_main_Category",
     [false],
     nil,
     {}

@@ -9,7 +9,7 @@ class CfgVehicles
     class CAManBase: Man {
         class ACE_SelfActions {
             class hct_detachHook {
-                displayName = "Detach Hook";
+                displayName = "$STR_hct_h60_hoist_DetachHook";
                 condition = "[player] call hct_h60_hoist_fnc_isAttachedHook";
                 statement = "[player] call hct_h60_hoist_fnc_detachHook";
                 icon = "z\vtx\addons\uh60_hoist\data\ui\iconHook.paa";
@@ -49,7 +49,7 @@ class CfgVehicles
 
     };
     class hct_hook_helper: hct_hook_base {
-        displayName = "Rescue Hoist Hook Helper";
+        displayName = "$STR_hct_h60_hoist_RescueHoistHookHelper";
         author = "Project Hatchet Studios";
         model = "z\vtx\addons\uh60_hoist\data\vtx_hook_helper.p3d";
         slingLoadCargoMemoryPoints[] = {"sling_point"};
@@ -62,7 +62,7 @@ class CfgVehicles
         };
         class ACE_SelfActions {
             class HCT_GetInHeli {
-                displayName = "Get In Helicopter";
+                displayName = "$STR_hct_h60_hoist_GetInHelicopter";
                 condition = "[_player] call hct_h60_hoist_fnc_canMoveHookToHeli";
                 statement = "[_player] call hct_h60_hoist_fnc_moveHookToHeli";
                 selection = "sling_point";
@@ -77,7 +77,7 @@ class CfgVehicles
         memoryPointsGetInCargoDir = "pos cargo dir";
         preciseGetInOut = 1;
         cost = 0;
-        displayName = "Rescue Hoist Hook";
+        displayName = "$STR_hct_h60_hoist_RescueHoistHook";
         hullDamageCauseExplosion = 0;
         icon = "z\vtx\addons\uh60_hoist\data\ui\iconHook.paa";
         picture = "z\vtx\addons\uh60_hoist\data\ui\vtx_hook_ca.paa";

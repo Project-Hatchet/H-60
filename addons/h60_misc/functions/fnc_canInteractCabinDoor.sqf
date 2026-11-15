@@ -21,7 +21,7 @@ private _vehicle = [_caller, vehicle _caller] select _isHCT;
 private _side = str _animName select [count _animName, 1]; // Match "L" or "R"
 if (_vehicle animationPhase format ["GAU21_%1_Hide", _side] == 0) exitWith {
   if (_isHCT) then {
-    hint "Door is blocked";
+    hint (localize "STR_hct_h60_misc_DoorIsBlocked");
   };
   false
 };
@@ -49,7 +49,7 @@ if (isNil "_doorSeats") then {
 // frame for anyone with the ACE menu open.
 if (_animPhase < 0.9 && {_vehicle getVariable ["ace_fastroping_deploymentStage", 0] > 0}) exitWith {
     if (_isHCT) then {
-        hint "Door is blocked by FRIES";
+        hint (localize "STR_hct_h60_misc_DoorIsBlockedByFRIES");
     };
     false
 };
@@ -57,7 +57,7 @@ if (!(_doorSeats isEqualTo []) && {
   !((_doorSeats apply {_vehicle turretUnit _x}) isEqualTo [objNull, objNull])
 }) exitWith {
     if (_isHCT) then {
-        hint "Door is blocked";
+        hint (localize "STR_hct_h60_misc_DoorIsBlocked");
     };
     false;
 };

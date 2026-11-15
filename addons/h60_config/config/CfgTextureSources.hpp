@@ -1,6 +1,6 @@
 class TextureSources {
   class hh60g {
-    displayName = "HH-60W Pavehawk";
+    displayName = "$STR_hct_h60_config_HH60WPavehawk";
     author = "Xovolovo";
     textures[] = {
       "","","","","","","","","","","","","","","","",
@@ -13,7 +13,7 @@ class TextureSources {
     };
   };
   class hh60g_fire {
-    displayName = "HH-60W Pavehawk (Firefighting)";
+    displayName = "$STR_hct_h60_config_HH60WPavehawkFirefighting";
     author = "Xovolovo";
     textures[] = {
       "","","","","","","","","","","","","","","","",
@@ -26,7 +26,7 @@ class TextureSources {
     };
   };
   class mh60m {
-    displayName = "MH-60M Blackhawk";
+    displayName = "$STR_hct_h60_config_MH60MBlackhawk";
     author = "Lost/Xovolovo";
     textures[] = {
       "","","","","","","","","","","","","","","","",
@@ -39,7 +39,7 @@ class TextureSources {
     };
   };
   class mh60s {
-    displayName = "MH-60S Seahawk";
+    displayName = "$STR_hct_h60_config_MH60SSeahawk";
     author = "RiverX";
     textures[] = {
       "","","","","","","","","","","","","","","","",
@@ -52,7 +52,7 @@ class TextureSources {
     };
   };
   class s70a9_aus {
-    displayName = "S-70A-9 (Australia)";
+    displayName = "$STR_hct_h60_config_S70A9Australia";
     author = "seven10";
     textures[] = {
       "","","","","","","","","","","","","","","","",
@@ -65,7 +65,7 @@ class TextureSources {
     };
   };
   class s70a9_aus_med {
-    displayName = "S-70A-9 MEDEVAC (Australia)";
+    displayName = "$STR_hct_h60_config_S70A9MEDEVACAustralia";
     author = "seven10";
     textures[] = {
       "","","","","","","","","","","","","","","","",
@@ -78,7 +78,7 @@ class TextureSources {
     };
   };
   class mh60m_aus {
-    displayName = "MH-60M (Australia)";
+    displayName = "$STR_hct_h60_config_MH60MAustralia";
     author = "seven10";
     textures[] = {
       "","","","","","","","","","","","","","","","",
@@ -91,7 +91,7 @@ class TextureSources {
     };
   };
   class uh60_swe {
-    displayName = "UH-60 (Sweden)";
+    displayName = "$STR_hct_h60_config_UH60Sweden";
     author = "seven10";
     textures[] = {
       "","","","","","","","","","","","","","","","",
@@ -104,7 +104,7 @@ class TextureSources {
     };
   };
   class uh60_swe_med {
-    displayName = "UH-60 MEDEVAC (Sweden)";
+    displayName = "$STR_hct_h60_config_UH60MEDEVACSweden";
     author = "seven10";
     textures[] = {
       "","","","","","","","","","","","","","","","",
@@ -117,7 +117,7 @@ class TextureSources {
     };
   };
   class uh60m_usa {
-    displayName = "UH-60M (US Army)";
+    displayName = "$STR_hct_h60_config_UH60MUSArmy";
     author = "seven10";
     textures[] = {
       "","","","","","","","","","","","","","","","",
@@ -130,7 +130,7 @@ class TextureSources {
     };
   };
   class uh60m_usa_med {
-    displayName = "UH-60M MEDEVAC (US Army)";
+    displayName = "$STR_hct_h60_config_UH60MMEDEVACUSArmy";
     author = "seven10";
     textures[] = {
       "","","","","","","","","","","","","","","","",

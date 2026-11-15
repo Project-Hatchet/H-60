@@ -3,15 +3,15 @@ class Attributes: Attributes {
     condition = "objectVehicle";
     control = "Checkbox";
     defaultValue = "(false)";
-    displayName = "Equip helicopter with FRIES";
+    displayName = "$STR_hct_h60_config_EquipHelicopterWithFRIES";
     expression = "if (_value) then {[_this] call ace_fastroping_fnc_equipFRIES}";
     property = "ace_fastroping_equipFRIES";
-    tooltip = "Equips the selected helicopter with a Fast Rope Insertion Extraction System";
+    tooltip = "$STR_hct_h60_config_EquipsTheSelectedHelicopterWithAFastRopeInsertio";
     typeName = "BOOL";
   };
   class hct_h60_DoorNumbers {
-    displayName = "Door Numbers";
-    tooltip = "2-digit number marked with white tape in the aft windows of the doors. Enter SPACE for blank.";
+    displayName = "$STR_hct_h60_config_DoorNumbers";
+    tooltip = "$STR_hct_h60_config_N2DigitNumberMarkedWithWhiteTapeInTheAftWindowsOf";
     property = "vtx_attribute_doorNumbers";
     control = "EditShort";
     expression = "[_this, _value] call hct_h60_misc_fnc_setDoorNumbers;";
@@ -21,7 +21,7 @@ class Attributes: Attributes {
   class hct_h60_Markings {
     control = "combo";
     property = "vtx_attribute_markings";
-    displayName = "Engine Cover Markings";
+    displayName = "$STR_hct_h60_config_EngineCoverMarkings";
     tooltip = "";
     expression = "_this setObjectTextureGlobal [19, _value];";
     defaultValue = "";
@@ -82,20 +82,20 @@ class Attributes: Attributes {
     condition = "objectVehicle";
     control = "Checkbox";
     defaultValue = "(false)";
-    displayName = "Fold Rotor Blades";
+    displayName = "$STR_hct_h60_config_FoldRotorBlades";
     expression = "[_this, parseNumber _value, true] call hct_h60_misc_fnc_fold;";
     property = "vtx_uh60_FoldRotorBlades";
-    tooltip = "Fold the rotor blades to reduce footprint.";
+    tooltip = "$STR_hct_h60_config_FoldTheRotorBladesToReduceFootprint";
     typeName = "BOOL";
   };
   class hct_h60_RemoveFuelProbe {
     condition = "objectVehicle";
     control = "Checkbox";
     defaultValue = "(false)";
-    displayName = "Remove Fuel Probe";
+    displayName = "$STR_hct_h60_config_RemoveFuelProbe";
     expression = "_this animateSource ['FuelProbe_show', [getNumber (configOf _this >> 'AnimationSources' >> 'FuelProbe_show' >> 'initPhase'), 0] select _value, true];";
     property = "vtx_uh60_RemoveFuelProbe";
-    tooltip = "Remove the fuel probe.";
+    tooltip = "$STR_hct_h60_config_RemoveTheFuelProbe";
     typeName = "BOOL";
   };
 }; // Attributes

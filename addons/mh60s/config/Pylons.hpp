@@ -20,31 +20,31 @@ class TransportPylonsComponent {
     };
     class Presets {
         class Empty {
-            displayName = "Empty";
+            displayName = "$STR_hct_mh60s_Empty";
             attachment[] = {};
         };
         class Default {
-            displayName = "Default";
+            displayName = "$STR_hct_mh60s_Default";
             attachment[] = {"HCT_PylonRack_M261_APKWS", "HCT_4Rnd_ACE_Hellfire_AGM114K", ""};
         };
         class Interdiction {
-            displayName = "20mm + DAGR";
+            displayName = "$STR_hct_mh60s_N20mmDAGR";
             attachment[] = {"PylonWeapon_300Rnd_20mm_shells", "HCT_PylonRack_M261_APKWS", ""};
         };
         class Rocket {
-            displayName = "Rocket";
+            displayName = "$STR_hct_mh60s_Rocket";
             attachment[] = {"HCT_PylonRack_M261_M229", "HCT_PylonRack_M261_M229", ""};
         };
         class APKWS {
-            displayName = "APKWS";
+            displayName = "$STR_hct_mh60s_APKWS";
             attachment[] = {"HCT_PylonRack_M261_APKWS", "HCT_PylonRack_M261_APKWS", ""};
         };
         class Hellfire {
-            displayName = "Hellfire";
+            displayName = "$STR_hct_mh60s_Hellfire";
             attachment[] = {"HCT_4Rnd_ACE_Hellfire_AGM114K", "HCT_4Rnd_ACE_Hellfire_AGM114K", ""};
         };
         class Unguided {
-            displayName = "20mm + Rocket";
+            displayName = "$STR_hct_mh60s_N20mmRocket";
             attachment[] = {"PylonWeapon_300Rnd_20mm_shells", "HCT_PylonRack_M261_M229", ""};
         };
     };

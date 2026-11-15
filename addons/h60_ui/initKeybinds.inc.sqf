@@ -1,5 +1,5 @@
 [
-    "UH-60M Blackhawk",
+    "STR_hct_h60_main_Category",
     "hct_h60_c_help",
     LSTRING(HelpMode),
     {},{

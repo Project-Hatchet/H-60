@@ -1,7 +1,7 @@
 [
     "hct_h60_anvishud_defaultMode", "LIST",
     [localize LSTRING(HMDDefaultMode), LSTRING(HMDDefaultMode_Description)],
-    ["UH-60M", "HMD"],
+    ["STR_hct_h60_main_Category", "STR_hct_h60_anvishud_SettingsCategory"],
     [[-1, 1, 2, 3, 4], [
         "STR_3DEN_Attributes_Radar_RadarOff_text",
         LSTRING(ImperialFull),
@@ -16,7 +16,7 @@
     "hct_h60_anvishud_settingColor",
     "COLOR",
     [localize LSTRING(Color), LSTRING(Color_Description)],
-    ["UH-60M", "HMD"],
+    ["STR_hct_h60_main_Category", "STR_hct_h60_anvishud_SettingsCategory"],
     [0.082, 0.608, 0.039],
     false, // isGlobal
     {
@@ -31,7 +31,7 @@
     "hct_h60_anvishud_settingBrightness",
     "SLIDER",
     [localize LSTRING(Brightness), LSTRING(Brightness_Description)],
-    ["UH-60M", "HMD"],
+    ["STR_hct_h60_main_Category", "STR_hct_h60_anvishud_SettingsCategory"],
     [0, 1, 0.6, 2, true], //4th parameter (boolean) expresses slider value as % in settings
     false, // "_isGlobal"
     {

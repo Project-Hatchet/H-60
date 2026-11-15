@@ -69,7 +69,7 @@ addUserActionEventHandler ["hideMap", "Activate", {
 }];
 
 [
-    "UH-60M Blackhawk","hct_h60_flir_copilotCamera","Copilot Camera", // Control + Right click
+    "STR_hct_h60_main_Category","hct_h60_flir_copilotCamera","STR_hct_h60_flir_CopilotCamera", // Control + Right click
     {
       IS_EITHER_PILOT;
       if (

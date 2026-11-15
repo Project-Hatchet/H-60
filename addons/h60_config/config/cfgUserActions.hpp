@@ -2,7 +2,7 @@ class UserActions: UserActions
 {
   class HMDs_Kimi_UserAction_0_ON
   {
-    displayName = "<t color='#26ff00'>HMD ON</t>";
+    displayName = "$STR_hct_h60_config_HMDON";
     condition = "false"; // Set
     statement = "this SetUserMFDvalue [0,1]";
     position = "pilotcontrol";
@@ -14,7 +14,7 @@ class UserActions: UserActions
   };
   class HMDs_Kimi_UserAction_0_OFF
   {
-    displayName = "<t color='#ffff00'>HMD OFF</t>";
+    displayName = "$STR_hct_h60_config_HMDOFF";
     condition = "false";
     statement = "this SetUserMFDvalue [0,0]";
     position = "pilotcontrol";
@@ -26,7 +26,7 @@ class UserActions: UserActions
   };
   class HMDs_Kimi_UserAction_1_IMPERIAL
   {
-    displayName = "<t color='#26ff00'>HMD IMPERIAL</t>";
+    displayName = "$STR_hct_h60_config_HMDIMPERIAL";
     condition = "false";
     statement = "this SetUserMFDvalue [1,1]";
     position = "pilotcontrol";
@@ -38,7 +38,7 @@ class UserActions: UserActions
   };
   class HMDs_Kimi_UserAction_1_METRIC
   {
-    displayName = "<t color='#ffff00'>HMD METRIC</t>";
+    displayName = "$STR_hct_h60_config_HMDMETRIC";
     condition = "false";
     statement = "this SetUserMFDvalue [1,0]";
     position = "pilotcontrol";
@@ -50,7 +50,7 @@ class UserActions: UserActions
   };
   class HMDs_Kimi_UserAction_2_FULL
   {
-    displayName = "<t color='#26ff00'>HMD FULL</t>";
+    displayName = "$STR_hct_h60_config_HMDFULL";
     condition = "false";
     statement = "this SetUserMFDvalue [2,0]";
     position = "pilotcontrol";
@@ -62,7 +62,7 @@ class UserActions: UserActions
   };
   class HMDs_Kimi_UserAction_2_DECLUTTER
   {
-    displayName = "<t color='#ffff00'>HMD DECLUTTER</t>";
+    displayName = "$STR_hct_h60_config_HMDDECLUTTER";
     condition = "false";
     statement = "this SetUserMFDvalue [2,1]";
     position = "pilotcontrol";
@@ -74,7 +74,7 @@ class UserActions: UserActions
   };
   class HMDs_Kimi_UserAction_345_COLOR_GREEN
   {
-    displayName = "<t color='#00ff00'>HMD GREEN</t>";
+    displayName = "$STR_hct_h60_config_HMDGREEN";
     condition = "false";
     statement = "this SetUserMFDvalue [3,0];this SetUserMFDvalue [4,1];this SetUserMFDvalue [5,0];";
     position = "pilotcontrol";
@@ -86,7 +86,7 @@ class UserActions: UserActions
   };
   class HMDs_Kimi_UserAction_345_COLOR_YELLOW
   {
-    displayName = "<t color='#ffff00'>HMD YELLOW</t>";
+    displayName = "$STR_hct_h60_config_HMDYELLOW";
     condition = "false";
     statement = "this SetUserMFDvalue [3,1];this SetUserMFDvalue [4,0.65];this SetUserMFDvalue [5,0];";
     position = "pilotcontrol";
@@ -98,7 +98,7 @@ class UserActions: UserActions
   };
   class HMDs_Kimi_UserAction_6_ALPHA_HIGH
   {
-    displayName = "HMD BRT HIGH";
+    displayName = "$STR_hct_h60_config_HMDBRTHIGH";
     condition = "false";
     statement = "this SetUserMFDvalue [6,0.5]";
     position = "pilotcontrol";
@@ -110,7 +110,7 @@ class UserActions: UserActions
   };
   class HMDs_Kimi_UserAction_6_ALPHA_MED
   {
-    displayName = "HMD BRT MED";
+    displayName = "$STR_hct_h60_config_HMDBRTMED";
     condition = "false";
     statement = "this SetUserMFDvalue [6,0.2]";
     position = "pilotcontrol";
@@ -122,7 +122,7 @@ class UserActions: UserActions
   };
   class HMDs_Kimi_UserAction_6_ALPHA_LOW
   {
-    displayName = "HMD BRT LOW";
+    displayName = "$STR_hct_h60_config_HMDBRTLOW";
     condition = "false";
     statement = "this SetUserMFDvalue [6,0.05]";
     position = "pilotcontrol";

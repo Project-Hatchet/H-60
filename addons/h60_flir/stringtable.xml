@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project name="VTX">
+<Project name="HCT">
     <Package name="UH60_FLIR">
         <Key ID="STR_hct_h60_FLIR_AimSlewBlockMouse">
             <English>FLIR Aim Slew Block Mouse</English>
@@ -48,6 +48,69 @@
         </Key>
         <Key ID="STR_hct_h60_FLIR_AnimateTurret_Tooltip">
             <English>Animate the FLIR pod model when using Scripted Camera. Small performance savings if unchecked.</English>
+        </Key>
+        <Key ID="STR_hct_h60_flir_FLIRZoomIn">
+            <English>FLIR Zoom In</English>
+        </Key>
+        <Key ID="STR_hct_h60_flir_HitThisKeyToZoomTheFlirMfdIn">
+            <English>Hit this key to zoom the flir mfd in</English>
+        </Key>
+        <Key ID="STR_hct_h60_flir_FLIRZoomOut">
+            <English>FLIR Zoom Out</English>
+        </Key>
+        <Key ID="STR_hct_h60_flir_HitThisKeyToZoomTheFlirMfdOut">
+            <English>Hit this key to zoom the flir mfd out</English>
+        </Key>
+        <Key ID="STR_hct_h60_flir_FLIRSlewAim">
+            <English>FLIR Slew Aim</English>
+        </Key>
+        <Key ID="STR_hct_h60_flir_HoldThisKeyAndUseMouseOrAim">
+            <English>Hold this key and use mouse or 'Aim &lt;Up|Down|Left|Right&gt;</English>
+        </Key>
+        <Key ID="STR_hct_h60_flir_FLIRSlewUp">
+            <English>FLIR Slew Up</English>
+        </Key>
+        <Key ID="STR_hct_h60_flir_HitThisKeyToZoomTheFlirMfdUp">
+            <English>Hit this key to zoom the flir mfd up</English>
+        </Key>
+        <Key ID="STR_hct_h60_flir_FLIRSlewDown">
+            <English>FLIR Slew Down</English>
+        </Key>
+        <Key ID="STR_hct_h60_flir_HitThisKeyToZoomTheFlirMfdDown">
+            <English>Hit this key to zoom the flir mfd down</English>
+        </Key>
+        <Key ID="STR_hct_h60_flir_FLIRSlewLeft">
+            <English>FLIR Slew Left</English>
+        </Key>
+        <Key ID="STR_hct_h60_flir_HitThisKeyToZoomTheFlirMfdLeft">
+            <English>Hit this key to zoom the flir mfd left</English>
+        </Key>
+        <Key ID="STR_hct_h60_flir_FLIRSlewRight">
+            <English>FLIR Slew Right</English>
+        </Key>
+        <Key ID="STR_hct_h60_flir_HitThisKeyToZoomTheFlirMfdRight">
+            <English>Hit this key to zoom the flir mfd right</English>
+        </Key>
+        <Key ID="STR_hct_h60_flir_TDCWaypointSet">
+            <English>TDC Waypoint Set</English>
+        </Key>
+        <Key ID="STR_hct_h60_flir_MarkAWaypointAtWhereverFLIRIsCurrentlyDesignatin">
+            <English>Mark a waypoint at wherever FLIR is currently designating.</English>
+        </Key>
+        <Key ID="STR_hct_h60_flir_TDCSlewWaypoint">
+            <English>TDC Slew Waypoint</English>
+        </Key>
+        <Key ID="STR_hct_h60_flir_SlewFLIRToTheCurrentGroupWaypoint">
+            <English>Slew FLIR to the current group waypoint.</English>
+        </Key>
+        <Key ID="STR_hct_h60_flir_SettingsCategory">
+            <English>FLIR</English>
+        </Key>
+        <Key ID="STR_hct_h60_flir_CopilotCamera">
+            <English>Copilot Camera</English>
+        </Key>
+        <Key ID="STR_hct_h60_flir_PayloadStowed">
+            <English>Your FLIR payload is stowed, use the MFD to enable your FLIR payload.</English>
         </Key>
     </Package>
 </Project>

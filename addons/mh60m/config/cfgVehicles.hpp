@@ -72,7 +72,7 @@ class CfgVehicles {
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         scope = 2;
         forceInGarage = 1;
-        displayName = "MH-60M";
+        displayName = "$STR_hct_mh60m_MH60M";
         editorPreview = "z\vtx\addons\MH60M\Data\Preview\vtx_MH60M.jpg";
         memoryPointDriverOptics = "pilotcamera_flir_pos";
 
@@ -167,7 +167,7 @@ class CfgVehicles {
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         scope = 2;
         forceInGarage = 1;
-        displayName = "MH-60M DAP";
+        displayName = "$STR_hct_mh60m_MH60MDAP";
         editorPreview = "z\vtx\addons\MH60M\Data\Preview\vtx_MH60M_DAP.jpg";
         memoryPointDriverOptics = "pilotcamera_flir_pos";
         transportSoldier=0;

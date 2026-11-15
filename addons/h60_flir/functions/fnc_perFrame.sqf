@@ -40,7 +40,7 @@ if (isNil "hct_h60_flir_blackOn" || {hct_h60_flir_blackOn isNotEqualTo _blackOn}
 if (_blackOn) then {
   if !(missionNamespace getVariable ["hct_h60_flir_stowedHintShown", false]) then {
     hct_h60_flir_stowedHintShown = true;
-    hint "Your FLIR payload is stowed, use the MFD to enable your FLIR payload.";
+    hint (localize "STR_hct_h60_flir_PayloadStowed");
   };
 } else {
   hct_h60_flir_stowedHintShown = false;

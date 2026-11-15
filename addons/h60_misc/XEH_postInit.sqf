@@ -2,7 +2,7 @@
 
 private _action = [
     "hct_h60_attach",
-    "Attach to Blackhawk",
+    (localize "STR_hct_h60_misc_AttachToBlackhawk"),
     "",
     {[_target] call hct_h60_misc_fnc_attachCRRC;},
     {(count (nearestObjects [_target, [QBASE_CLASS], 10])) > 0}
@@ -11,7 +11,7 @@ private _action = [
 
 private _doorOpenLeft = [
  "hct_h60_cabinDoorLeft", // * 0: Action name <STRING>
- "Open/Close cabin door",  // * 1: Name of the action shown in the menu <STRING>
+ (localize "STR_hct_h60_misc_OpenCloseCabinDoor"),  // * 1: Name of the action shown in the menu <STRING>
  "", // * 2: Icon <STRING>
  {
    private _anim = _target animationPhase "cabinDoor_L";
@@ -33,7 +33,7 @@ private _doorOpenLeft = [
 ];
 private _doorOpenRight = [
   "hct_h60_cabinDoorRight",
-  "Open/Close cabin door",
+  (localize "STR_hct_h60_misc_OpenCloseCabinDoor"),
   "",
   {
     private _anim = _target animationPhase "cabinDoor_R";
@@ -54,7 +54,7 @@ private _doorOpenRight = [
   {}
 ];
 
-private _doorOpenRightCpt = ["hct_h60_cptDoorRight", "Open/Close cockpit door", "", {
+private _doorOpenRightCpt = ["hct_h60_cptDoorRight", (localize "STR_hct_h60_misc_OpenCloseCockpitDoor"), "", {
   private _condition = (_target doorPhase "Door_RF") > 0;
   _target animateDoor ["Door_RF", [1,0] select _condition];
   playSound3D [
@@ -68,7 +68,7 @@ private _doorOpenRightCpt = ["hct_h60_cptDoorRight", "Open/Close cockpit door", 
   [[_target, "CustomSoundController8", ((1 - (_target animationSourcePhase 'Door_RF')) + (_target animationSourcePhase 'Door_LF')) / 2]] remoteExecCall ["setCustomSoundController", crew _target];
 
 }, {true}, nil, [], {_target selectionPosition "cockpitdoor_right"}, 2, [false,false,false,false,false], {} ];
-private _doorOpenLeftCpt = ["hct_h60_cptDoorLeft", "Open/Close cockpit door", "", {
+private _doorOpenLeftCpt = ["hct_h60_cptDoorLeft", (localize "STR_hct_h60_misc_OpenCloseCockpitDoor"), "", {
   private _condition = (_target doorPhase "Door_LF") > 0;
   _target animateDoor ["Door_LF", [1,0] select _condition];
   playSound3D [
@@ -97,7 +97,7 @@ _digitOptionsCode = {
             _target setObjectTextureGlobal [_params # 1, format ["\z\vtx\addons\uh60_misc\data\VTX_Door_Numbers\Num_%1_ca.paa", _params # 0]];
             _target setObjectTextureGlobal [_params # 2, format ["\z\vtx\addons\uh60_misc\data\VTX_Door_Numbers\Num_%1_ca.paa", _params # 0]];
         };
-        private _action = ["hct_h60_firstNumber", format ["Set to %1", _i], "", _statement, {true}, nil, [_i, _first, _second], {}, 2] call ace_interact_menu_fnc_createAction;
+        private _action = ["hct_h60_firstNumber", format [(localize "STR_hct_h60_misc_SetTo"), _i], "", _statement, {true}, nil, [_i, _first, _second], {}, 2] call ace_interact_menu_fnc_createAction;
         _returns pushBack [_action, [], _target]
     };
     _returns
@@ -112,15 +112,15 @@ _markingsOptions = {
         [_action, [], _target]
     }
 };
-private _editMarkingsLeft = ["hct_h60_editMarkingsLeft", "Change Markings", "", {}, {!(_target getVariable ["hct_autostarted", false])}, _markingsOptions, [], {[-1,1,0.5]}, 2];
-private _editMarkingsRight = ["hct_h60_editMarkingsRight", "Change Markings", "", {}, {!(_target getVariable ["hct_autostarted", false])}, _markingsOptions, [], {[1,1,0.5]}, 2];
+private _editMarkingsLeft = ["hct_h60_editMarkingsLeft", (localize "STR_hct_h60_misc_ChangeMarkings"), "", {}, {!(_target getVariable ["hct_autostarted", false])}, _markingsOptions, [], {[-1,1,0.5]}, 2];
+private _editMarkingsRight = ["hct_h60_editMarkingsRight", (localize "STR_hct_h60_misc_ChangeMarkings"), "", {}, {!(_target getVariable ["hct_autostarted", false])}, _markingsOptions, [], {[1,1,0.5]}, 2];
 [QBASE_CLASS,0,[],(_editMarkingsLeft call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
 [QBASE_CLASS,0,[],(_editMarkingsRight call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
 
-private _editNumbersLeftFirst = ["hct_h60_paintNumbersLeftFirst" + (str random 1), "Change number tape", "", {}, {true}, _digitOptionsCode, [21,23], {(_target selectionPosition "cabindoor_L_handle") vectorAdd [0,-1.2,0.5]}, 1.5];
-private _editNumbersRightFirst = ["hct_h60_paintNumbersRightFirst" + (str random 1), "Change number tape", "", {}, {true}, _digitOptionsCode, [20,22], {(_target selectionPosition "cabindoor_R_handle") vectorAdd [0,-1.2,0.5]}, 1.5];
-private _editNumbersLeft = ["hct_h60_paintNumbersLeft" + (str random 1), "Change number tape", "", {}, {true}, _digitOptionsCode, [20,22], {(_target selectionPosition "cabindoor_L_handle") vectorAdd [0,-0.9,0.5]}, 1.5];
-private _editNumbersRight = ["hct_h60_paintNumbersRight" + (str random 1), "Change number tape", "", {}, {true}, _digitOptionsCode, [21,23], {(_target selectionPosition "cabindoor_R_handle") vectorAdd [0,-0.9,0.5]}, 1.5];
+private _editNumbersLeftFirst = ["hct_h60_paintNumbersLeftFirst" + (str random 1), (localize "STR_hct_h60_misc_ChangeNumberTape"), "", {}, {true}, _digitOptionsCode, [21,23], {(_target selectionPosition "cabindoor_L_handle") vectorAdd [0,-1.2,0.5]}, 1.5];
+private _editNumbersRightFirst = ["hct_h60_paintNumbersRightFirst" + (str random 1), (localize "STR_hct_h60_misc_ChangeNumberTape"), "", {}, {true}, _digitOptionsCode, [20,22], {(_target selectionPosition "cabindoor_R_handle") vectorAdd [0,-1.2,0.5]}, 1.5];
+private _editNumbersLeft = ["hct_h60_paintNumbersLeft" + (str random 1), (localize "STR_hct_h60_misc_ChangeNumberTape"), "", {}, {true}, _digitOptionsCode, [20,22], {(_target selectionPosition "cabindoor_L_handle") vectorAdd [0,-0.9,0.5]}, 1.5];
+private _editNumbersRight = ["hct_h60_paintNumbersRight" + (str random 1), (localize "STR_hct_h60_misc_ChangeNumberTape"), "", {}, {true}, _digitOptionsCode, [21,23], {(_target selectionPosition "cabindoor_R_handle") vectorAdd [0,-0.9,0.5]}, 1.5];
 [QBASE_CLASS,0,[],(_editNumbersLeftFirst call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
 [QBASE_CLASS,0,[],(_editNumbersRightFirst call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
 [QBASE_CLASS,0,[],(_editNumbersLeft call ace_interact_menu_fnc_createAction), true] call ace_interact_menu_fnc_addActionToClass;
@@ -137,16 +137,16 @@ private _editNumbersRight = ["hct_h60_paintNumbersRight" + (str random 1), "Chan
 }
 
 private _customizationOptions = [
-	["hct_fuelprobe", "Fuel Probe", ["hct_fuelProbe", "fuelProbe_show", 1, 0, 7], {[1.3,4.1,-1.2]}],
-	["hct_hoist", "Rescue Hoist", ["hct_hoist", "Hoist_hide", 0, 1, 3], {[1.1,1.9,0.35]}],
-	["hct_cockpitdoors", "Cockpit Doors", ["hct_cockpitdoors", "Cockpitdoors_Hide", 0, 1, 3], {[1.1,5.1,-0.7]}]
+	["hct_fuelprobe", (localize "STR_hct_h60_misc_FuelProbe"), ["hct_fuelProbe", "fuelProbe_show", 1, 0, 7], {[1.3,4.1,-1.2]}],
+	["hct_hoist", (localize "STR_hct_h60_misc_RescueHoist"), ["hct_hoist", "Hoist_hide", 0, 1, 3], {[1.1,1.9,0.35]}],
+	["hct_cockpitdoors", (localize "STR_hct_h60_misc_CockpitDoors"), ["hct_cockpitdoors", "Cockpitdoors_Hide", 0, 1, 3], {[1.1,5.1,-0.7]}]
 ];
 
 {
 	_x params ["_className", "_description", "_addParams", "_position", ["_range", 2]];
 	private _addOption = [
 		(_className + "_attach"),
-		("Attach " + _description),
+		format [(localize "STR_hct_h60_misc_AttachPart"), _description],
 		"",
 		WRAP_PROGRESS(hct_h60_misc_fnc_addCustomization),
 		hct_h60_misc_fnc_canCustomizeVariant,
@@ -159,7 +159,7 @@ private _customizationOptions = [
 	];
 	private _removeOption = [
 		(_className + "_remove"),
-		("Remove " + _description),
+		format [(localize "STR_hct_h60_misc_RemovePart"), _description],
 		"",
 		WRAP_PROGRESS(hct_h60_misc_fnc_removeCustomization),
 		hct_h60_misc_fnc_canRemoveCustomization, nil, _addParams, _position, _range, [false,false,false,false,false], {}
@@ -173,7 +173,7 @@ private _erfsAddParams = ["hct_erfs", "ERFS_show", 1, 0, 3];
 private _erfsPosition = {[-0.046875,0.672591,-0.272467]};
 private _erfsAddOption = [
 	"hct_erfs_attach",
-	"Attach ERFS Tank",
+	(localize "STR_hct_h60_misc_AttachERFSTank"),
 	"",
 	{
 		params ["_target", "_player", "_params"];
@@ -195,7 +195,7 @@ private _erfsAddOption = [
 ];
 private _erfsRemoveOption = [
 	"hct_erfs_remove",
-	"Remove ERFS Tank",
+	(localize "STR_hct_h60_misc_RemoveERFSTank"),
 	"",
 	WRAP_PROGRESS(hct_h60_misc_fnc_removeCustomization),
 	hct_h60_misc_fnc_canRemoveCustomization,
@@ -228,20 +228,20 @@ private _erfsRemoveOption = [
 	};
 }] call CBA_fnc_addEventHandler;
 
-_action = ["hct_skis_add","Install Skis", "", {(_target) animateSource ["skis_show", 1];}, {((_target) animationSourcePhase "skis_show") < 0.1}, nil, [parameters], [1.33319,2.8541,-1.6735]] call ace_interact_menu_fnc_createAction;
+_action = ["hct_skis_add",(localize "STR_hct_h60_misc_InstallSkis"), "", {(_target) animateSource ["skis_show", 1];}, {((_target) animationSourcePhase "skis_show") < 0.1}, nil, [parameters], [1.33319,2.8541,-1.6735]] call ace_interact_menu_fnc_createAction;
 [QBASE_CLASS, 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
-_action = ["hct_skis_remove","Uninstall Skis", "", {(_target) animateSource ["skis_show", 0];}, {((_target) animationSourcePhase "skis_show") > 0.9}, nil, [parameters], [1.33319,2.8541,-1.6735]] call ace_interact_menu_fnc_createAction;
+_action = ["hct_skis_remove",(localize "STR_hct_h60_misc_UninstallSkis"), "", {(_target) animateSource ["skis_show", 0];}, {((_target) animationSourcePhase "skis_show") > 0.9}, nil, [parameters], [1.33319,2.8541,-1.6735]] call ace_interact_menu_fnc_createAction;
 [QBASE_CLASS, 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
 
 private _modifierFunc = {
   params ["_target", "_player", "_params", "_actionData"];
   if ([_target, ACE_player] call hct_h60_misc_fnc_canUnfold) then {
 
-    _actionData set [1, "Unfold"];
+    _actionData set [1, (localize "STR_hct_h60_misc_Unfold")];
     _actionData set [3, {[_target, 0] call hct_h60_misc_fnc_fold;}];
   };
 };
-_action = ["hct_fold_blades", "Fold", "", {[_target, 1] call hct_h60_misc_fnc_fold;}, {[_target, ACE_player] call hct_h60_misc_fnc_canFold}, nil, [], "velka osa", 3, [false, false, false, false, false], _modifierFunc] call ace_interact_menu_fnc_createAction;
+_action = ["hct_fold_blades", (localize "STR_hct_h60_misc_Fold"), "", {[_target, 1] call hct_h60_misc_fnc_fold;}, {[_target, ACE_player] call hct_h60_misc_fnc_canFold}, nil, [], "velka osa", 3, [false, false, false, false, false], _modifierFunc] call ace_interact_menu_fnc_createAction;
 [QBASE_CLASS, 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
 
 // DAP crew-chief Turn In / Turn Out (the aft MFOS turn-out replacement,
@@ -253,12 +253,12 @@ _action = ["hct_fold_blades", "Fold", "", {[_target, 1] call hct_h60_misc_fnc_fo
 // ("Turn Out" / "Turn In") is visible at a time.
 {
   private _turnOut = [
-    "hct_ccTurnOut", "Turn Out", "",
+    "hct_ccTurnOut", (localize "STR_hct_h60_misc_TurnOut"), "",
     {[_player, false, "out"] call hct_h60_misc_fnc_ccSwap;},
     {[_player, true, "out"] call hct_h60_misc_fnc_ccSwap;}
   ] call ace_interact_menu_fnc_createAction;
   private _turnIn = [
-    "hct_ccTurnIn", "Turn In", "",
+    "hct_ccTurnIn", (localize "STR_hct_h60_misc_TurnIn"), "",
     {[_player, false, "in"] call hct_h60_misc_fnc_ccSwap;},
     {[_player, true, "in"] call hct_h60_misc_fnc_ccSwap;}
   ] call ace_interact_menu_fnc_createAction;

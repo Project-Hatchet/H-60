@@ -1,9 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project name="VTX">
+<Project name="HCT">
     <Package name="UH60_GROUND">
         <Key ID="STR_hct_h60_GROUND_SimpleStartup">
             <English>Simple Startup</English>
             <Chinesesimp>简单启动</Chinesesimp>
+        </Key>
+        <Key ID="STR_hct_h60_ground_ParkingBrake">
+            <English>Parking Brake</English>
+        </Key>
+        <Key ID="STR_hct_h60_ground_TogglesTheParkingBrakeLeverWorksUnderSFMWhereThe">
+            <English>Toggles the parking brake lever (works under SFM, where the vanilla brake key does nothing).</English>
+        </Key>
+        <Key ID="STR_hct_h60_ground_LandingLightUp">
+            <English>Landing Light Up</English>
+        </Key>
+        <Key ID="STR_hct_h60_ground_RotateTheLandingLightForward">
+            <English>Rotate the landing light forward.</English>
+        </Key>
+        <Key ID="STR_hct_h60_ground_LandingLightDown">
+            <English>Landing Light Down</English>
+        </Key>
+        <Key ID="STR_hct_h60_ground_RotateTheLandingLightRearward">
+            <English>Rotate the landing light rearward.</English>
+        </Key>
+        <Key ID="STR_hct_h60_ground_SearchLightUp">
+            <English>Search Light Up</English>
+        </Key>
+        <Key ID="STR_hct_h60_ground_RotateTheSearchLightForward">
+            <English>Rotate the Search light forward.</English>
+        </Key>
+        <Key ID="STR_hct_h60_ground_SearchLightDown">
+            <English>Search Light Down</English>
+        </Key>
+        <Key ID="STR_hct_h60_ground_RotateTheSearchLightRearward">
+            <English>Rotate the Search light rearward.</English>
+        </Key>
+        <Key ID="STR_hct_h60_ground_SearchLightRight">
+            <English>Search Light Right</English>
+        </Key>
+        <Key ID="STR_hct_h60_ground_RotateTheSearchLightLight">
+            <English>Rotate the Search light light.</English>
+        </Key>
+        <Key ID="STR_hct_h60_ground_SearchLightLeft">
+            <English>Search Light Left</English>
+        </Key>
+        <Key ID="STR_hct_h60_ground_RotateTheSearchLightLeft">
+            <English>Rotate the Search light left.</English>
         </Key>
     </Package>
 </Project>

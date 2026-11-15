@@ -51,7 +51,7 @@ class CfgVehicles {
         memoryPointsGetInCargoDir = "pos cargo dir";
         preciseGetInOut = 1;
         cost = 0;
-        displayName = "Pylon";
+        displayName = "$STR_hct_h60_weapons_Pylon";
         fuelCapacity = 0;
         hasDriver = "false";
         hasGunner = "false";

@@ -13,7 +13,7 @@ class hct_UH60M_MEDEVAC: hct_H60_base {
     };
     cargoProxyIndexes[] = {1, 2, 3, 4, 24, 25, 6, 7, 12, 13, 14, 15, 16, 17, 20, 21, 22, 23};
     ace_medical_treatment_patientSeats[] = {11, 12, 13, 14};
-    displayName = "HH-60M MEDEVAC";
+    displayName = "$STR_hct_uh60m_HH60MMEDEVAC";
     hiddenSelectionsTextures[] = {
       "","","","","","","","","","","","","","","","",
       "z\vtx\addons\uh60_misc\data\textures\UH-60M_US_Army_Medevac\main_co.paa",

@@ -6,11 +6,11 @@ class cfgWeapons {
         class HighROF;
     };
     class hct_MH60M_M134_minigun: M134_minigun {
-        displayName = "2x M134";
-        displayNameShort = "2x M134";
+        displayName = "$STR_hct_mh60m_N2xM134";
+        displayNameShort = "$STR_hct_mh60m_N2xM134";
         class LowROF: LowROF {
-            displayName = "M134 LO";
-            displayNameShort = "M134 LO";
+            displayName = "$STR_hct_mh60m_M134LO";
+            displayNameShort = "$STR_hct_mh60m_M134LO";
             sounds[]=
             {
                 "StandardSound"
@@ -77,8 +77,8 @@ class cfgWeapons {
             };
         };
         class HighROF : HighROF {
-            displayName = "2x M134";
-            displayNameShort = "2x M134";
+            displayName = "$STR_hct_mh60m_N2xM134";
+            displayNameShort = "$STR_hct_mh60m_N2xM134";
 
             sounds[]=
             {

@@ -1,7 +1,7 @@
 [
 	"hct_h60_jvmf_defaults"
 	,"CHECKBOX"
-	,["Enable JVMF Default Messages", "The JVMF Default messages provide an example of usage of the JVMF"]
-	,["UH-60M", "JVMF"]
+	,["STR_hct_h60_jvmf_EnableJVMFDefaultMessages", "STR_hct_h60_jvmf_EnableDefaultMessages_Tooltip"]
+	,["STR_hct_h60_main_Category", "STR_hct_h60_jvmf_SettingsCategory"]
 	,true
 ] call CBA_fnc_addSetting;

@@ -17,7 +17,7 @@ class cfgVehicles {
         class UserActions: UserActions {
             class QuickStart
 			{
-				displayName = "Automatic Engine Startup";
+				displayName = "$STR_hct_h60_misc_AutomaticEngineStartup";
 				displayNameDefault = "Automatic Engine Startup";
 				priority = 0;
 				radius = 10; // A too small radius might cause the action to not be visible
@@ -76,11 +76,11 @@ class cfgVehicles {
     class Land_MobileScafolding_01_F;
     class hct_serviceplatform: Land_MobileScafolding_01_F {
         author = "Project Hatchet Studios";
-        displayName = "Blackhawk Service Platform";
+        displayName = "$STR_hct_h60_misc_BlackhawkServicePlatform";
         model = "\z\vtx\addons\uh60_misc\data\serviceplatform\Yax_service_test.p3d";
     };
     class hct_erfs: hct_serviceplatform {
-        displayName = "Blackhawk ERFS Tank";
+        displayName = "$STR_hct_h60_misc_BlackhawkERFSTank";
         model = "\A3\Supplies_F_Heli\CargoNets\CargoNet_01_box_F.p3d"; // Placeholder model
         ace_cargo_canLoad = 1;
         ace_dragging_canCarry = 1;
@@ -89,7 +89,7 @@ class cfgVehicles {
         ace_dragging_carryDirection = -90;
     };
     class hct_fuelProbe: hct_serviceplatform {
-        displayName = "Blackhawk Fuel Probe";
+        displayName = "$STR_hct_h60_misc_BlackhawkFuelProbe";
         model = "\z\vtx\addons\uh60_misc\data\partialModels\refuelingProbe.p3d";
         ace_cargo_canLoad = 1;
         ace_dragging_canCarry = 1;
@@ -98,7 +98,7 @@ class cfgVehicles {
         ace_dragging_carryDirection = -90;
     };
     class hct_hoist: hct_serviceplatform {
-        displayName = "Blackhawk Hoist";
+        displayName = "$STR_hct_h60_misc_BlackhawkHoist";
         model = "\z\vtx\addons\uh60_misc\data\partialModels\hoist.p3d";
         ace_cargo_canLoad = 1;
         ace_dragging_canCarry = 1;
@@ -107,7 +107,7 @@ class cfgVehicles {
         ace_dragging_carryDirection = -90;
     };
     class hct_cockpitdoors: hct_serviceplatform {
-        displayName = "Blackhawk Cockpit Doors";
+        displayName = "$STR_hct_h60_misc_BlackhawkCockpitDoors";
         model = "\z\vtx\addons\uh60_misc\data\partialModels\cockpitDoors.p3d";
         ace_cargo_canLoad = 1;
         ace_dragging_canCarry = 1;

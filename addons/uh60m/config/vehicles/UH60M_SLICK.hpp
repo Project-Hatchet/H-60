@@ -8,7 +8,7 @@ class hct_UH60M_SLICK: hct_H60_base {
   scope = 2;
   editorPreview = "z\vtx\addons\uh60m\data\preview\vtx_UH60M_SLICK.jpg"; // dev tester report 2026-09-07: never had one (verified back to 0.7.9)
   forceInGarage = 1;
-  displayName = "UH-60M Slick";
+  displayName = "$STR_hct_uh60m_UH60MSlick";
   transportSoldier=0;
   cargoProxyIndexes[] = {};
   cargoAction[] = {};

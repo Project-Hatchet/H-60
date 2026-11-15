@@ -14,7 +14,7 @@ class AnimationSources {
   ANIMSRC(Door_LF,door,0.5,0);
   ANIMSRC(Door_RF,door,0.5,0);
   class Hoist_hide {
-    displayName = "Hide Hoist";
+    displayName = "$STR_hct_h60_config_HideHoist";
     source="user";
     animPeriod=1;
     initPhase=0;
@@ -76,7 +76,7 @@ class AnimationSources {
     };
   };
   class Skis_show {
-    displayName = "Show Skis";
+    displayName = "$STR_hct_h60_config_ShowSkis";
     source="user";
     animPeriod=1;
     initPhase=0;
@@ -110,13 +110,13 @@ class AnimationSources {
   };
   class MITAS_show: Fuelprobe_show {};
   class Door_LF_Hide {
-    displayName = "Hide Left Cockpit Door";
+    displayName = "$STR_hct_h60_config_HideLeftCockpitDoor";
     source = "user";
     animPeriod=1;
     initPhase=0;
   };
   class Door_RF_Hide {
-    displayName = "Hide Right Cockpit Door";
+    displayName = "$STR_hct_h60_config_HideRightCockpitDoor";
     source = "user";
     animPeriod=1;
     initPhase=0;
@@ -160,7 +160,7 @@ class AnimationSources {
     initPhase="rad 80";
   };
   class ERFS_show {
-    displayName = "Show ERFS";
+    displayName = "$STR_hct_h60_config_ShowERFS";
     source="user";
     animPeriod=1;
     initPhase=0;
@@ -226,7 +226,7 @@ class AnimationSources {
     source="user";
     animPeriod=1;
     initPhase=0;
-    displayName = "Hide Gunner Seats";
+    displayName = "$STR_hct_h60_config_HideGunnerSeats";
     mass = -MASS_GUNNERSEATS;
     onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[1], [2]] ;";
   };
@@ -304,13 +304,13 @@ class AnimationSources {
     initPhase=0;
   };
   class cabindoor_L: LandingLight_Show {
-    displayName = "Close L Cabin Door";
+    displayName = "$STR_hct_h60_config_CloseLCabinDoor";
     source="user";
     animPeriod=1;
     initPhase=0;
   };
   class cabindoor_R: LandingLight_Show {
-    displayName = "Close R Cabin Door";
+    displayName = "$STR_hct_h60_config_CloseRCabinDoor";
     source="user";
     animPeriod=1;
     initPhase=0;

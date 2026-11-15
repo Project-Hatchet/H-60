@@ -1,56 +1,56 @@
 class CfgUserActions
 {
  class hct_ParkingBrake_Toggle {
-    displayName = "Parking Brake";
-		tooltip = "Toggles the parking brake lever (works under SFM, where the vanilla brake key does nothing).";
+    displayName = "$STR_hct_h60_ground_ParkingBrake";
+		tooltip = "$STR_hct_h60_ground_TogglesTheParkingBrakeLeverWorksUnderSFMWhereThe";
 		onActivate = "[hct_vehicle] call hct_h60_ground_fnc_pbToggle;";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
  };
  class hct_LandingLight_Up {
-    displayName = "Landing Light Up";
-		tooltip = "Rotate the landing light forward.";
+    displayName = "$STR_hct_h60_ground_LandingLightUp";
+		tooltip = "$STR_hct_h60_ground_RotateTheLandingLightForward";
 		onActivate = "[hct_vehicle, 'landinglight_elev', rad 5] call hct_h60_misc_fnc_animateIncrement";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
  };
  class hct_LandingLight_Down {
-    displayName = "Landing Light Down";
-		tooltip = "Rotate the landing light rearward.";
+    displayName = "$STR_hct_h60_ground_LandingLightDown";
+		tooltip = "$STR_hct_h60_ground_RotateTheLandingLightRearward";
 		onActivate = "[hct_vehicle, 'landinglight_elev', rad -5] call hct_h60_misc_fnc_animateIncrement";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
  };
  class hct_SearchLight_Up {
-    displayName = "Search Light Up";
-		tooltip = "Rotate the Search light forward.";
+    displayName = "$STR_hct_h60_ground_SearchLightUp";
+		tooltip = "$STR_hct_h60_ground_RotateTheSearchLightForward";
 		onActivate = "[hct_vehicle, 'searchlight_elev', rad 5] call hct_h60_misc_fnc_animateIncrement";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
  };
  class hct_SearchLight_Down {
-    displayName = "Search Light Down";
-		tooltip = "Rotate the Search light rearward.";
+    displayName = "$STR_hct_h60_ground_SearchLightDown";
+		tooltip = "$STR_hct_h60_ground_RotateTheSearchLightRearward";
 		onActivate = "[hct_vehicle, 'searchlight_elev', rad -5] call hct_h60_misc_fnc_animateIncrement";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
  };
  class hct_SearchLight_Right {
-    displayName = "Search Light Right";
-		tooltip = "Rotate the Search light light.";
+    displayName = "$STR_hct_h60_ground_SearchLightRight";
+		tooltip = "$STR_hct_h60_ground_RotateTheSearchLightLight";
 		onActivate = "[hct_vehicle, 'searchlight_turn', rad -5] call hct_h60_misc_fnc_animateIncrement";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
  };
  class hct_SearchLight_Left {
-    displayName = "Search Light Left";
-		tooltip = "Rotate the Search light left.";
+    displayName = "$STR_hct_h60_ground_SearchLightLeft";
+		tooltip = "$STR_hct_h60_ground_RotateTheSearchLightLeft";
 		onActivate = "[hct_vehicle, 'searchlight_turn', rad 5] call hct_h60_misc_fnc_animateIncrement";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.

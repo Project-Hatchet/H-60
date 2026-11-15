@@ -3,7 +3,7 @@
 // (dev tester report, Riverman flat-rename ruling 2026-09-07 - no compat
 // stub; civilian variant, mission breakage accepted).
 class hct_S70i: hct_H60_base {
-    displayName = "S-70i";
+    displayName = "$STR_hct_s70i_S70i";
     editorPreview = "z\vtx\addons\s70i\data\preview\vtx_S70i.jpg";
     crew = "C_man_pilot_F";
     side = 3;

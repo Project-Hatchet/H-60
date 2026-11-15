@@ -41,11 +41,11 @@ _unit setVariable [QGVAR(Load), [
         private _vehName = {
             getText (configOf _this >> "displayName")
         };
-        if (cursorObject isKindOf "CAManBase") exitWith {hint format ["Cannot load cargo %1 into carrier %2", cursorObject call _vehName, GVAR(carrier) call _vehName]};
-        if !(_canVehicleCargo # 1) exitWith {hint format ["Cannot load cargo %1 into carrier %2", cursorObject call _vehName, GVAR(carrier) call _vehName]};
-        if !(_canVehicleCargo # 0) exitWith {hint format ["Carrier %2 is too full to fit cargo %1", cursorObject call _vehName, GVAR(carrier) call _vehName]};
-        if ((cursorObject distance GVAR(carrier)) > GVAR(loadDistance)) exitWith {hint format ["Cargo %1 is too far from carrier %2", cursorObject call _vehName, GVAR(carrier) call _vehName]};
-        if (cursorObject getVariable [QGVAR(isLoading), false]) exitWith {hint format ["Cargo %1 is already being loaded by %2", cursorObject call _vehName, cursorObject getVariable [QGVAR(loader), "Unknown Unit"]]};
+        if (cursorObject isKindOf "CAManBase") exitWith {hint format [(localize "STR_hct_h60_ace_viv_CannotLoad"), cursorObject call _vehName, GVAR(carrier) call _vehName]};
+        if !(_canVehicleCargo # 1) exitWith {hint format [(localize "STR_hct_h60_ace_viv_CannotLoad"), cursorObject call _vehName, GVAR(carrier) call _vehName]};
+        if !(_canVehicleCargo # 0) exitWith {hint format [(localize "STR_hct_h60_ace_viv_CarrierFull"), cursorObject call _vehName, GVAR(carrier) call _vehName]};
+        if ((cursorObject distance GVAR(carrier)) > GVAR(loadDistance)) exitWith {hint format [(localize "STR_hct_h60_ace_viv_CargoTooFar"), cursorObject call _vehName, GVAR(carrier) call _vehName]};
+        if (cursorObject getVariable [QGVAR(isLoading), false]) exitWith {hint format [(localize "STR_hct_h60_ace_viv_CargoBeingLoaded"), cursorObject call _vehName, cursorObject getVariable [QGVAR(loader), "Unknown Unit"]]};
 
         // Start loading
         GVAR(cargo) = cursorObject;
