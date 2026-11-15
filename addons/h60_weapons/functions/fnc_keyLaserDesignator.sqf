@@ -11,8 +11,8 @@
  * None
  *
  * Example:
- * [] call vtx_uh60_weapons_fnc_keyLaserDesignator
- * [1] call vtx_uh60_weapons_fnc_keyLaserDesignator
+ * [] call hct_h60_weapons_fnc_keyLaserDesignator
+ * [1] call hct_h60_weapons_fnc_keyLaserDesignator
  */
 
 params [["_state", -1]];

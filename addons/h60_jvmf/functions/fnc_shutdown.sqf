@@ -1,16 +1,16 @@
 /*
- * vtx_uh60_jvmf_fnc_shutdown
+ * hct_h60_jvmf_fnc_shutdown
  *
  * Removes the JVMF message/reply CBA handlers. Safe to call when they are not
  * registered (setup calls it first so a repeated setup cannot leak them).
  */
 
-if (!isNil "vtx_uh60_jvmfMessageEventPFHID") then {
-    ["vtx_uh60_jvmf_messageSent", vtx_uh60_jvmfMessageEventPFHID] call CBA_fnc_removeEventHandler;
-    vtx_uh60_jvmfMessageEventPFHID = nil;
+if (!isNil "hct_h60_jvmfMessageEventPFHID") then {
+    ["hct_h60_jvmf_messageSent", hct_h60_jvmfMessageEventPFHID] call CBA_fnc_removeEventHandler;
+    hct_h60_jvmfMessageEventPFHID = nil;
 };
-if (!isNil "vtx_uh60_jvmfReplyEventPFHID") then {
-    ["vtx_uh60_jvmf_replySent", vtx_uh60_jvmfReplyEventPFHID] call CBA_fnc_removeEventHandler;
-    vtx_uh60_jvmfReplyEventPFHID = nil;
+if (!isNil "hct_h60_jvmfReplyEventPFHID") then {
+    ["hct_h60_jvmf_replySent", hct_h60_jvmfReplyEventPFHID] call CBA_fnc_removeEventHandler;
+    hct_h60_jvmfReplyEventPFHID = nil;
 };
 true

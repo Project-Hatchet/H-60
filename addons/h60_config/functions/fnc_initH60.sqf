@@ -10,12 +10,12 @@
  * None
  *
  * Example:
- * [_vehicle] call vtx_uh60_config_fnc_initH60
+ * [_vehicle] call hct_h60_config_fnc_initH60
  */
 
 params ["_vehicle"];
 
 if !(local _vehicle) exitWith {};
 
-[_vehicle, "l", 1, true] call vtx_uh60_config_fnc_setWindow;
-[_vehicle, "r", 1, true] call vtx_uh60_config_fnc_setWindow;
+[_vehicle, "l", 1, true] call hct_h60_config_fnc_setWindow;
+[_vehicle, "r", 1, true] call hct_h60_config_fnc_setWindow;

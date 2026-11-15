@@ -29,7 +29,7 @@ GVAR(unloadActionCarrier) = [ // create action
     "\a3\ui_f\data\IGUI\Cfg\VehicleToggles\VehicleCargoIconOn2_ca.paa",
     {
         [QGVAR(setVehicleCargo), [_target, objNull]] call CBA_fnc_localEvent;
-        [_target, false] call vtx_ace_viv_fnc_lockSeats},
+        [_target, false] call hct_h60_ace_viv_fnc_lockSeats},
     {!((getVehicleCargo  _target) isEqualTo [])}
 ] call ace_interact_menu_fnc_createAction;
 ["All", 0, ["ACE_MainActions"], GVAR(unloadActionCarrier), true] call ace_interact_menu_fnc_addActionToClass;
@@ -42,7 +42,7 @@ GVAR(unloadActionCargo) = [ // create action
         [QGVAR(setVehicleCargo), [objNull, _target]] call CBA_fnc_localEvent;
         _carrier = isVehicleCargo _target;
         _cargoList = getVehicleCargo _carrier;
-        if (count _cargoList < 0) then {[_carrier, false] call vtx_ace_viv_fnc_lockSeats};},
+        if (count _cargoList < 0) then {[_carrier, false] call hct_h60_ace_viv_fnc_lockSeats};},
     {!isNull (isVehicleCargo _target)}
 ] call ace_interact_menu_fnc_createAction;
 ["All", 0, ["ACE_MainActions"], GVAR(unloadActionCargo), true] call ace_interact_menu_fnc_addActionToClass;

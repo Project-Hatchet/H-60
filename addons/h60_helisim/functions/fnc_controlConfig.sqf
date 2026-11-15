@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_uh60_helisim_fnc_controlConfig
+Function: hct_h60_helisim_fnc_controlConfig
 
 Description:
     A HeliSim control's config class and its position names, by the control's
@@ -15,10 +15,10 @@ Returns:
 ---------------------------------------------------------------------------- */
 params [["_heli", objNull, [objNull]], ["_control", "", [""]]];
 
-if (isNil "vtx_uh60_helisim_controlCache") then { vtx_uh60_helisim_controlCache = createHashMap; };
+if (isNil "hct_h60_helisim_controlCache") then { hct_h60_helisim_controlCache = createHashMap; };
 
 private _type = typeOf _heli;
-private _byControl = vtx_uh60_helisim_controlCache get _type;
+private _byControl = hct_h60_helisim_controlCache get _type;
 if (isNil "_byControl") then {
     _byControl = createHashMap;
     {
@@ -29,7 +29,7 @@ if (isNil "_byControl") then {
             _byControl set [_key, [_x, ("true" configClasses (_x >> "Positions")) apply {toLower configName _x}]];
         };
     } forEach ("true" configClasses (configOf _heli >> "BMKHS_HeliSim" >> "Controls"));
-    vtx_uh60_helisim_controlCache set [_type, _byControl];
+    hct_h60_helisim_controlCache set [_type, _byControl];
 };
 
 _byControl getOrDefault [toLower _control, [configNull, []]]

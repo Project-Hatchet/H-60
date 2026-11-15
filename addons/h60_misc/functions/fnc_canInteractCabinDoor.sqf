@@ -9,12 +9,12 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_this] call vtx_uh60_misc_fnc_canInteractCabinDoor
+ * [_this] call hct_h60_misc_fnc_canInteractCabinDoor
  */
 
 params ["_caller", "_animName", "_animPhase", "_interactionName"];
 // for ace interact from outside
-// [_target, "cabinDoor_L", _animPhase] call vtx_uh60_misc_fnc_canInteractCabinDoor;},
+// [_target, "cabinDoor_L", _animPhase] call hct_h60_misc_fnc_canInteractCabinDoor;},
 private _isHCT = !isNil "hct_player" && {_caller == hct_player};
 private _vehicle = [_caller, vehicle _caller] select _isHCT;
 
@@ -28,9 +28,9 @@ if (_vehicle animationPhase format ["GAU21_%1_Hide", _side] == 0) exitWith {
 
 // Door seats per class and side, from config once (this runs every frame while
 // an ACE menu is open, and on every Hatchet hover)
-if (isNil "vtx_uh60_misc_doorSeatCache") then { vtx_uh60_misc_doorSeatCache = createHashMap; };
+if (isNil "hct_h60_misc_doorSeatCache") then { hct_h60_misc_doorSeatCache = createHashMap; };
 private _cacheKey = typeOf _vehicle + _side;
-private _doorSeats = vtx_uh60_misc_doorSeatCache get _cacheKey;
+private _doorSeats = hct_h60_misc_doorSeatCache get _cacheKey;
 if (isNil "_doorSeats") then {
     _doorSeats = [];
     {
@@ -41,7 +41,7 @@ if (isNil "_doorSeats") then {
             _doorSeats pushBack [_forEachIndex];
         };
     } forEach ("true" configClasses (configOf _vehicle >> "Turrets"));
-    vtx_uh60_misc_doorSeatCache set [_cacheKey, _doorSeats];
+    hct_h60_misc_doorSeatCache set [_cacheKey, _doorSeats];
 };
 
 // An open door (phase < 0.9; 1 = closed) cannot be shut onto deployed FRIES ropes.
@@ -83,7 +83,7 @@ true
         "Right Door",
         0.1,
         "",
-        "_this call vtx_uh60_misc_fnc_canInteractCabinDoor",
+        "_this call hct_h60_misc_fnc_canInteractCabinDoor",
         [],
         [
             "cabindoor_R",
@@ -98,6 +98,6 @@ true
     ]
 ]
 [B Alpha 2-4:1 (CW2 Ampers),"cabindoor_R",1,"Closed",1,{},{},
-    ["r_door","",[],"anim","cabindoor_R_handle","Right Door",0.1,"","_this call vtx_uh60_misc_fnc_canInteractCabinDoor",[],["cabindoor_R",1,false,[0,1],["Open","Closed"],{},{}],[]]
+    ["r_door","",[],"anim","cabindoor_R_handle","Right Door",0.1,"","_this call hct_h60_misc_fnc_canInteractCabinDoor",[],["cabindoor_R",1,false,[0,1],["Open","Closed"],{},{}],[]]
 ]
 */

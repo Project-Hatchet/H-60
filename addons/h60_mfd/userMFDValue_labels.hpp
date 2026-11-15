@@ -1,4 +1,4 @@
-vtx_uh60_mfd_userMFDValue_labels = ["TAC_WPCUS_Dir","TAC_WPCUS_DIST", // 0, 1 if is3DEN exitWith {}; [15] apply {[vtx_uh60_mfd_userMFDValue_labels # _x,getUserMFDValue cameraOn # _x]}
+hct_h60_mfd_userMFDValue_labels = ["TAC_WPCUS_Dir","TAC_WPCUS_DIST", // 0, 1 if is3DEN exitWith {}; [15] apply {[hct_h60_mfd_userMFDValue_labels # _x,getUserMFDValue cameraOn # _x]}
 "TAC_WP1_Dir",
 "TAC_WP1_DIST",
 "TAC_WP2_Dir",

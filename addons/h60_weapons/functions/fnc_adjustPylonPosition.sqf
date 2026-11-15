@@ -12,7 +12,7 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_heli, _player, 0] call vtx_uh60_weapons_fnc_adjustPylonPosition
+ * [_heli, _player, 0] call hct_h60_weapons_fnc_adjustPylonPosition
  */
 
 params ["_heli", "", "_side"];
@@ -29,7 +29,7 @@ private _slider = (findDisplay 7777) displayCtrl 1900;
 _slider sliderSetPosition _currentPos;
 _slider ctrlAddEventHandler ["SliderPosChanged", {
     params ["_control", "_newValue"];
-    (missionNamespace getVariable 'vtx_uh60_weapons_pylonPositionParams') params ['_v', '_a'];
+    (missionNamespace getVariable 'hct_h60_weapons_pylonPositionParams') params ['_v', '_a'];
     _v animateSource [_a, _newValue, true];
     private _okButton = (findDisplay 7777) displayCtrl 1;
     _okButton ctrlSetText format ["Pylon Position: %1 m", _newValue];

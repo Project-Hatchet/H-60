@@ -13,7 +13,7 @@
  * Unit can configure the aircraft's pylons <BOOL>
  *
  * Example:
- * [_heli] call vtx_ace_viv_fnc_onGetInOut
+ * [_heli] call hct_h60_ace_viv_fnc_onGetInOut
  *
  * Public: No
  */

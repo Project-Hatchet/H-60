@@ -10,7 +10,7 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [cursorObject, ACE_player] call vtx_uh60_misc_fnc_canUnfold
+ * [cursorObject, ACE_player] call hct_h60_misc_fnc_canUnfold
  */
 
 params ["_heli", "_unit"];

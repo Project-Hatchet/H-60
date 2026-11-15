@@ -9,14 +9,14 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_heli] call vtx_uh60_hoist_fnc_canRecoverPerson
+ * [_heli] call hct_h60_hoist_fnc_canRecoverPerson
  */
 
 params ["_heli"];
 
 if (_heli animationPhase "cabindoor_R" == 1) exitWith {false};
 
-private _hoist_vars = _heli getVariable ["vtx_uh60_hoist_vars", []];
+private _hoist_vars = _heli getVariable ["hct_h60_hoist_vars", []];
 if (_hoist_vars isEqualTo []) exitWith{false};
 _hoist_vars params ["_rope", "_dummy", "_hook"];
 

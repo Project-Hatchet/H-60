@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_ground_fnc_pbArm
+ * hct_h60_ground_fnc_pbArm
  *
  * Arms the SFM ground-handling chains for this machine when they are not
  * already running: the slope-hold and taxi drive, both on the vehicle
@@ -11,16 +11,16 @@
  * params (array)[(object) vehicle]
  */
 params ["_vehicle"];
-if (local _vehicle && {!(_vehicle getVariable ["vtx_uh60_ground_pbHoldOn", false])}) then {
-    _vehicle setVariable ["vtx_uh60_ground_pbHoldOn", true];
-    [_vehicle] call vtx_uh60_ground_fnc_pbHoldTick;
+if (local _vehicle && {!(_vehicle getVariable ["hct_h60_ground_pbHoldOn", false])}) then {
+    _vehicle setVariable ["hct_h60_ground_pbHoldOn", true];
+    [_vehicle] call hct_h60_ground_fnc_pbHoldTick;
 };
-if (local _vehicle && {!(_vehicle getVariable ["vtx_uh60_ground_taxiOn", false])}
+if (local _vehicle && {!(_vehicle getVariable ["hct_h60_ground_taxiOn", false])}
     && {(driver _vehicle) isEqualTo player}
     && {[_vehicle] call bmkhs_fnc_stateOnGround}) then {
-    _vehicle setVariable ["vtx_uh60_ground_taxiOn", true];
+    _vehicle setVariable ["hct_h60_ground_taxiOn", true];
     // unconditional breadcrumb: proves in the RPT that the chain armed,
-    // independent of the vtx_uh60_taxiDebug console flag
+    // independent of the hct_h60_taxiDebug console flag
     diag_log format ["VTXTAXI armed on %1", typeOf _vehicle];
-    [_vehicle] call vtx_uh60_ground_fnc_taxiTick;
+    [_vehicle] call hct_h60_ground_fnc_taxiTick;
 };

@@ -3,10 +3,10 @@
 class CfgPatches {
     class ADDON {
         name = COMPONENT_NAME;
-        units[] = {"vtx_MH60S_Pylons_GAU21L", "vtx_MH60S_GAU21L", "vtx_MH60S_Pylons", "vtx_MH60S"};
+        units[] = {"hct_MH60S_Pylons_GAU21L", "hct_MH60S_GAU21L", "hct_MH60S_Pylons", "hct_MH60S"};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"vtx_UH60_weapons", "vtx_UH60_config"};
+        requiredAddons[] = {"hct_h60_weapons", "hct_h60_config"};
         author = "";
         authors[] = {""};
         VERSION_CONFIG;

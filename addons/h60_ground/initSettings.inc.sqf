@@ -1,5 +1,5 @@
 [
-    "vtx_uh60m_simpleStartup",
+    "hct_h60_simpleStartup",
     "CHECKBOX",
     localize LSTRING(SimpleStartup),
     "UH-60M",

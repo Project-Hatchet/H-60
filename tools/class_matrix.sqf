@@ -1,4 +1,4 @@
-private _classes = ("(getNumber (_x >> 'scope') >= 1) && {configName _x isKindOf ['vtx_H60_base', configFile >> 'CfgVehicles']}" configClasses (configFile >> "CfgVehicles")) apply {configName _x};
+private _classes = ("(getNumber (_x >> 'scope') >= 1) && {configName _x isKindOf ['hct_H60_base', configFile >> 'CfgVehicles']}" configClasses (configFile >> "CfgVehicles")) apply {configName _x};
 private _origin = (getPosATL player) vectorAdd [0, 60, 0];
 private _results = [];
 diag_log "VTX class matrix: start";

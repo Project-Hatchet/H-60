@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_cas_fnc_registerCautionAdvisory
+ * hct_h60_cas_fnc_registerCautionAdvisory
  *
  * registers a caution/advisory in the cas system
  * this gets run on all clients when a caution happens, to synchronize the cautions list
@@ -9,7 +9,7 @@
 
 params ["_vehicle", "_text", "_clearCondition", ["_caution", false], ["_autoClear", false]];
 
-private _casList = (_vehicle getVariable ["vtx_cas_list",[]]);
+private _casList = (_vehicle getVariable ["hct_cas_list",[]]);
 private _exists = false;
 { // forEach _casList
     if (_text == _x # 0) exitWith {
@@ -21,21 +21,21 @@ if (_exists) exitWith {};
 
 // if you are the pilot, make the event run for the crew
 if (local _vehicle) then {
-    //_this remoteExecCall ["vtx_uh60_cas_fnc_registerCautionAdvisory", ((crew _vehicle) - [player])];
+    //_this remoteExecCall ["hct_h60_cas_fnc_registerCautionAdvisory", ((crew _vehicle) - [player])];
 };
 
-if (isNil "vtx_uh60_cas_cautionsUnacked") then {vtx_uh60_cas_cautionsUnacked = 0};
-if (isNil "vtx_uh60_cas_cautionsLog") then {vtx_uh60_cas_cautionsLog = []};
-vtx_uh60_cas_cautionsLog = vtx_uh60_cas_cautionsLog + [_text];
-[_vehicle,true] call vtx_uh60_cas_fnc_updateOverlayList;
+if (isNil "hct_h60_cas_cautionsUnacked") then {hct_h60_cas_cautionsUnacked = 0};
+if (isNil "hct_h60_cas_cautionsLog") then {hct_h60_cas_cautionsLog = []};
+hct_h60_cas_cautionsLog = hct_h60_cas_cautionsLog + [_text];
+[_vehicle,true] call hct_h60_cas_fnc_updateOverlayList;
 
 _casList pushBack [_text, _clearCondition, _autoClear];
-_vehicle setVariable ["vtx_cas_list", _casList];
+_vehicle setVariable ["hct_cas_list", _casList];
 
 if (_vehicle == vehicle player) then {
-    [_vehicle] call vtx_uh60_cas_fnc_updateCautionsList;
+    [_vehicle] call hct_h60_cas_fnc_updateCautionsList;
 };
-_vehicle setVariable ["vtx_cas_queue", (_vehicle getVariable ["vtx_cas_queue",0]) + 1];
+_vehicle setVariable ["hct_cas_queue", (_vehicle getVariable ["hct_cas_queue",0]) + 1];
 
 if (_caution) then {
     _vehicle animate ["CautionMasterCaution",1];

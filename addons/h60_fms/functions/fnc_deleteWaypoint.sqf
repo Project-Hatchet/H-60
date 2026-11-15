@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_fms_fnc_deleteWaypoint
+ * hct_h60_fms_fnc_deleteWaypoint
  *
  * Delete a waypoint both in to the player's waypoint list and the MicroDAGR
  * params (array)[(object) player]
@@ -32,4 +32,4 @@ ACE_player setVariable ["ace_microdagr_waypoints", _microDagrWaypoints];
 
 //handle group waypoints
 deleteWaypoint [_grp, _idx];
-[_player, "", _idx - 1] call vtx_uh60_fms_fnc_selectWaypoint; //Select new WP 
+[_player, "", _idx - 1] call hct_h60_fms_fnc_selectWaypoint; //Select new WP 

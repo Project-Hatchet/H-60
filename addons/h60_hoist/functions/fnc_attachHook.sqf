@@ -11,30 +11,30 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_hook, _unit] call vtx_uh60_hoist_fnc_attachHook
+ * [_hook, _unit] call hct_h60_hoist_fnc_attachHook
  */
 
 params ["_hook", "_unit"];
 
 if (!local _unit) exitWith {[QGVAR(attachHook), _this, _unit] call CBA_fnc_targetEvent;};
 
-if (!vtx_uh60_hoist_setting_useAttachScript) exitWith {false};
+if (!hct_h60_hoist_setting_useAttachScript) exitWith {false};
 if (_unit getVariable [QGVAR(pfhID), -1] != -1) exitWith {false};
-if (!isNull (_unit getVariable ["vtx_attachedHook", objNull])) exitWith {false};
-if (!isNull (_unit getVariable ["vtx_attachedHelper", objNull])) exitWith {false};
-if (!isNull (_hook getVariable ["vtx_attachedUnit", objNull])) exitWith {false};
+if (!isNull (_unit getVariable ["hct_attachedHook", objNull])) exitWith {false};
+if (!isNull (_unit getVariable ["hct_attachedHelper", objNull])) exitWith {false};
+if (!isNull (_hook getVariable ["hct_attachedUnit", objNull])) exitWith {false};
 
-private _heli = _hook getVariable ["vtx_uh60_hoist_heli", objNull];
+private _heli = _hook getVariable ["hct_h60_hoist_heli", objNull];
 if (isNull _heli) exitWith { false };
 
-private _hoist_vars = _heli getVariable ["vtx_uh60_hoist_vars", []];
+private _hoist_vars = _heli getVariable ["hct_h60_hoist_vars", []];
 if (_hoist_vars isEqualTo []) exitWith{ false };
 _hoist_vars params ["_rope", "_helper"];
 
 if (isNull objectParent _unit) then {
   _helper attachTo [_unit, [0,0.15,0.2], "pelvis"];
 };
-_unit setVariable ["vtx_detachHookActionID", _unit addAction [
+_unit setVariable ["hct_detachHookActionID", _unit addAction [
   localize LSTRING(DetachHook),
   {
     detach (_this # 3)
@@ -46,9 +46,9 @@ _unit setVariable ["vtx_detachHookActionID", _unit addAction [
   "GetOut", // Shortcut
   "vehicle player == player"
 ]];
-_unit setVariable ["vtx_attachedHook", _hook, true];
-_unit setVariable ["vtx_attachedHelper", _helper, true];
-_hook setVariable ["vtx_attachedUnit", _unit, true];
+_unit setVariable ["hct_attachedHook", _hook, true];
+_unit setVariable ["hct_attachedHelper", _helper, true];
+_hook setVariable ["hct_attachedUnit", _unit, true];
 
 _unit setVariable [QGVAR(pfhID), [{
   params ["_args", "_pfhID"];
@@ -61,26 +61,26 @@ _unit setVariable [QGVAR(pfhID), [{
   // Exit checks
   {
     if (isNull _x) then {
-      if (vtx_uh60_ui_showDebugMessages) then {diag_log _args;};
+      if (hct_h60_ui_showDebugMessages) then {diag_log _args;};
       _unit setVariable [QGVAR(pfhID), -1, true];
     };
   } forEach _args;
 
   // Unit in other vehicle
   if (_vehicleUnit != _unit && {_vehicleUnit != _hook}) then {
-    if (vtx_uh60_ui_showDebugMessages) then {diag_log "in other vic";};
+    if (hct_h60_ui_showDebugMessages) then {diag_log "in other vic";};
     _unit setVariable [QGVAR(pfhID), -1, true];
   };
 
   // Unit exited/detached hook
   if (!_isUnitInHook && {!_hookAttachedToUnit}) then {
-    if (vtx_uh60_ui_showDebugMessages) then {diag_log "manual";};
+    if (hct_h60_ui_showDebugMessages) then {diag_log "manual";};
     _unit setVariable [QGVAR(pfhID), -1, true];
   };
 
   // Exit
   if (_pfhID != (_unit getVariable [QGVAR(pfhID), -1])) exitWith {
-    if (vtx_uh60_ui_showDebugMessages) then {diag_log "vtx_uh60_hoist_fnc_attachHook";};
+    if (hct_h60_ui_showDebugMessages) then {diag_log "hct_h60_hoist_fnc_attachHook";};
     [_pfhID] call CBA_fnc_removePerFrameHandler;
     if (_isUnitInHook) then {
       moveOut _unit;
@@ -89,14 +89,14 @@ _unit setVariable [QGVAR(pfhID), [{
       detach _helper;
       _hook lockCargo [1, false];
     };
-    _hook setVariable ["vtx_attachedUnit", objNull, true];
-    _unit setVariable ["vtx_attachedHook", objNull, true];
-    _unit setVariable ["vtx_attachedHelper", objNull, true];
-    private _actionID = _unit getVariable ["vtx_detachHookActionID", -1];
+    _hook setVariable ["hct_attachedUnit", objNull, true];
+    _unit setVariable ["hct_attachedHook", objNull, true];
+    _unit setVariable ["hct_attachedHelper", objNull, true];
+    private _actionID = _unit getVariable ["hct_detachHookActionID", -1];
     if (_actionID > -1) then {
       _unit removeAction _actionID;
     };
-    _unit setVariable ["vtx_detachHookActionID", -1];
+    _unit setVariable ["hct_detachHookActionID", -1];
     _unit setVariable [QGVAR(pfhID), -1, true];
   }; // Exit
 
@@ -111,7 +111,7 @@ _unit setVariable [QGVAR(pfhID), [{
   // ground (cabin deploy - the rope can never go taut, which left attached
   // riders pinned at the cabin door while the cable reeled out)
   private _isLoweringOut = !_canStand
-    && {_heli getVariable ["vtx_uh60_hoist_extending", false]}
+    && {_heli getVariable ["hct_h60_hoist_extending", false]}
     && {_length > _distance};
   if (_isRopeStretched || _isLoweringOut) then {
     if (!_isUnitInHook) then {

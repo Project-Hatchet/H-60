@@ -11,37 +11,37 @@ class SensorTemplateLaser;
 class SensorTemplateNV;
 class SensorTemplateDataLink;
 
-// pedestal screens (VTX_ESIS_*, VTX_CLOCK, VTX_FDRight/Left) are owned by uh60_mfd;
+// pedestal screens (HCT_ESIS_*, HCT_CLOCK, HCT_FDRight/Left) are owned by uh60_mfd;
 // the variants mount them by name
 
 // externs for screen templates owned by the screen addons, which may load
 // after us — the MFD mounts below resolve by name when the config is read
 // (load-order experiment, 2026-09-05)
-class VTX_MFD_1_NOFLIR;
-class VTX_MFD_1_CMWS;
-class VTX_MFD_1_Monospace;
-class VTX_MFD_1_Bold;
-class VTX_MFD_2_NOFLIR;
-class VTX_MFD_2_CMWS;
-class VTX_MFD_2_Monospace;
-class VTX_MFD_2_Bold;
-class VTX_MFD_3_NOFLIR;
-class VTX_MFD_3_CMWS;
-class VTX_MFD_3_Monospace;
-class VTX_MFD_3_Bold;
-class VTX_MFD_4_NOFLIR;
-class VTX_MFD_4_CMWS;
-class VTX_MFD_4_Monospace;
-class VTX_MFD_4_Bold;
-class VTX_MFD_1;
-class VTX_MFD_2;
-class VTX_MFD_3;
-class VTX_MFD_4;
+class HCT_MFD_1_NOFLIR;
+class HCT_MFD_1_CMWS;
+class HCT_MFD_1_Monospace;
+class HCT_MFD_1_Bold;
+class HCT_MFD_2_NOFLIR;
+class HCT_MFD_2_CMWS;
+class HCT_MFD_2_Monospace;
+class HCT_MFD_2_Bold;
+class HCT_MFD_3_NOFLIR;
+class HCT_MFD_3_CMWS;
+class HCT_MFD_3_Monospace;
+class HCT_MFD_3_Bold;
+class HCT_MFD_4_NOFLIR;
+class HCT_MFD_4_CMWS;
+class HCT_MFD_4_Monospace;
+class HCT_MFD_4_Bold;
+class HCT_MFD_1;
+class HCT_MFD_2;
+class HCT_MFD_3;
+class HCT_MFD_4;
 class NVGHUD;
 class NVGHUD_COPILOT;
-class VTX_FMS_L;
-class VTX_FMS_R;
-class VTX_ESIS_BOOT;
+class HCT_FMS_L;
+class HCT_FMS_R;
+class HCT_ESIS_BOOT;
 
 class CfgVehicles {
   #include "crew.hpp"

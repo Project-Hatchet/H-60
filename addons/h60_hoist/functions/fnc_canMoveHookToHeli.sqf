@@ -9,15 +9,15 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_unit] call vtx_uh60_hoist_fnc_canMoveHookToHeli
+ * [_unit] call hct_h60_hoist_fnc_canMoveHookToHeli
  */
 
 params ["_unit"];
 
-if !(local _unit) exitWith {[_unit] remoteExecCall ["vtx_uh60_hoist_fnc_canMoveHookToHeli", _unit]};
+if !(local _unit) exitWith {[_unit] remoteExecCall ["hct_h60_hoist_fnc_canMoveHookToHeli", _unit]};
 
 private _hook = vehicle _unit;
-private _heli = _hook getVariable ["vtx_uh60_hoist_heli", objNull];
+private _heli = _hook getVariable ["hct_h60_hoist_heli", objNull];
 if (_heli == objNull || {_heli animationPhase "cabindoor_R" == 1}) exitWith {false};
 
 private _hoistPos = [1.405, 2.03, 0.45];

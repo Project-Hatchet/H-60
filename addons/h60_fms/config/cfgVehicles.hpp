@@ -1,6 +1,6 @@
 #define FMS_PYLONS_0
 #define FMS_PAGE_INDEX FMS_R_PAGE_INDEX
-class VTX_FMS_R
+class HCT_FMS_R
 {
   topLeft="FMS_ScreenR_LH";
   topRight="FMS_ScreenR_RH";
@@ -9,7 +9,7 @@ class VTX_FMS_R
 }; // FMS_R
 #undef FMS_PAGE_INDEX
 #define FMS_PAGE_INDEX FMS_L_PAGE_INDEX
-class VTX_FMS_L
+class HCT_FMS_L
 {
   topLeft="FMS_ScreenL_LH";
   topRight="FMS_ScreenL_RH";
@@ -21,7 +21,7 @@ class VTX_FMS_L
 #define FMS_PYLONS_2
 #undef FMS_PAGE_INDEX
 #define FMS_PAGE_INDEX FMS_R_PAGE_INDEX
-class VTX_FMS_R2
+class HCT_FMS_R2
 {
   topLeft="FMS_ScreenR_LH";
   topRight="FMS_ScreenR_RH";
@@ -30,7 +30,7 @@ class VTX_FMS_R2
 }; // FMS_R2
 #undef FMS_PAGE_INDEX
 #define FMS_PAGE_INDEX FMS_L_PAGE_INDEX
-class VTX_FMS_L2
+class HCT_FMS_L2
 {
   topLeft="FMS_ScreenL_LH";
   topRight="FMS_ScreenL_RH";
@@ -56,7 +56,7 @@ class CfgVehicles {
     }; // hct_copilot
     class MFD;
   }; // Heli_Transport_01_base_F
-  class vtx_H60_base: Heli_Transport_01_base_F {
+  class hct_H60_base: Heli_Transport_01_base_F {
     class hct_driver: hct_driver {
       class modules: modules {
         class fms {
@@ -117,5 +117,5 @@ class CfgVehicles {
         }; // FMS
       }; // interaction
     }; // hct_copilot
-  }; // vtx_H60_base
+  }; // hct_H60_base
 }; // CfgVehicles

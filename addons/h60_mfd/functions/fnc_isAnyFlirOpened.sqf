@@ -9,7 +9,7 @@
  * 0: FLIR on any MFD <BOOLEAN>
  *
  * Example:
- * [] call vtx_uh60_mfd_fnc_isAnyFlirOpened
+ * [] call hct_h60_mfd_fnc_isAnyFlirOpened
  */
 
 #include "..\config\mfdDefines.hpp"

@@ -1,5 +1,5 @@
 // Rapify scaffold, not config content: content-free forward declarations of
-// vtx_H60_base's AnimationSources members (owned by CfgAnimationSources.hpp
+// hct_H60_base's AnimationSources members (owned by CfgAnimationSources.hpp
 // in this addon). MH60M/MH60S include this at the top of their variant
 // declarations so their `class X: X` re-opens resolve inside their own
 // translation units at build time. Adds nothing at runtime; keep it in sync

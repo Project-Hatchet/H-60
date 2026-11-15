@@ -10,10 +10,10 @@
  * None
  *
  * Example:
- * [true] call vtx_uh60_weapons_fnc_keyMasterArm
+ * [true] call hct_h60_weapons_fnc_keyMasterArm
  */
 
 IS_EITHER_PILOT; // Sets _unit and _vehicle
 
-private _isSafe = hct_vehicle getVariable ["vtx_uh60_weapons_masterArm_isSafe", true];
-hct_vehicle setVariable ["vtx_uh60_weapons_masterArm_isSafe", !_isSafe, true];
+private _isSafe = hct_vehicle getVariable ["hct_h60_weapons_masterArm_isSafe", true];
+hct_vehicle setVariable ["hct_h60_weapons_masterArm_isSafe", !_isSafe, true];

@@ -1,8 +1,8 @@
 /*
- * vtx_uh60_mfd_fnc_ivhms
+ * hct_h60_mfd_fnc_ivhms
  */
 params ["_vehicle"];
-vtx_uh60_mfd_allowText = false;
+hct_h60_mfd_allowText = false;
 {_vehicle setUserMFDValue [_x, 6]} forEach [23, 24, 25, 26];
 [_vehicle, ["startup", "b_batt1"], "ON"] call hct_interaction_fnc_scriptedInteract;
 

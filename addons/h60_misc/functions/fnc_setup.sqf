@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_misc_fnc_setup
+ * hct_h60_misc_fnc_setup
  *
  * Hatchet module hook: hides the vanilla info-panel pages the H-60's own displays replace.
  *
@@ -8,7 +8,7 @@
 
 params ["_vehicle"];
 // Landing/search light state lives on the aircraft (fnc_toggleLights), not here.
-vtx_uh60_misc_btn_hold = false;
+hct_h60_misc_btn_hold = false;
 
 
 _vehicle enableInfoPanelComponent ["left", "MinimapDisplayComponent", false];

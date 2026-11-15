@@ -7,8 +7,8 @@ class CfgWeapons {
         class close;
         class short;
     };
-    class vtx_wpn_m134 : LMG_Minigun_Transport {
-        magazines[] = {"vtx_2000Rnd_65x39_Belt_Tracer_Red"};
+    class hct_wpn_m134 : LMG_Minigun_Transport {
+        magazines[] = {"hct_2000Rnd_65x39_Belt_Tracer_Red"};
 	class gunParticles
     {
         class effect1
@@ -168,7 +168,7 @@ class CfgWeapons {
     };
 
     };
-    class vtx_wpn_m134_2nd : vtx_wpn_m134 {
+    class hct_wpn_m134_2nd : hct_wpn_m134 {
 	    class gunParticles
         {
             class effect1
@@ -187,7 +187,7 @@ class CfgWeapons {
     };
 
     // SAFE: the door gun with the safety on (fnc_switchSafety)
-    class vtx_wpn_m134_safe: vtx_wpn_m134 {
-        magazines[] = {"vtx_uh60_safe"};
+    class hct_wpn_m134_safe: hct_wpn_m134 {
+        magazines[] = {"hct_h60_safe"};
     };
 };

@@ -6,7 +6,7 @@
 class bmkhs_ctrl_##cname##_##ptok {\
     displayName = vdisplayName;\
     tooltip     = vdisplayName;\
-    onActivate  = QUOTE(if (vehicle player isKindOf 'vtx_H60_base') then {[ARR_3(vehicle player,'cname',pnum)] call vtx_uh60_helisim_fnc_cockpitBind});\
+    onActivate  = QUOTE(if (vehicle player isKindOf 'hct_H60_base') then {[ARR_3(vehicle player,'cname',pnum)] call hct_h60_helisim_fnc_cockpitBind});\
 }
 
 class CfgUserActions {
@@ -22,7 +22,7 @@ class CfgUserActions {
 #define BMKHS_CONTROL_SEP() ,
 
 class UserActionGroups {
-    class vtx_uh60_cockpit_helisim {
+    class hct_h60_cockpit_helisim {
         name = "UH-60 HeliSim Cockpit Controls";
         group[] = {
             #include "..\headers\bmkhs_controls.hpp"

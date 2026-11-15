@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_uh60_helisim_fnc_setup
+Function: hct_h60_helisim_fnc_setup
 
 Description:
     Initialises HeliSim Core for the H-60. Once per aircraft.
@@ -14,7 +14,7 @@ params [["_heli", objNull, [objNull]]];
 if (isNull _heli) exitWith {};
 
 //Known to this machine's frame handler, whoever owns it now or later
-vtx_uh60_helisim_aircraft pushBackUnique _heli;
+hct_h60_helisim_aircraft pushBackUnique _heli;
 
 if (_heli getVariable ["bmkhs_initialised", false]) exitWith {};
 

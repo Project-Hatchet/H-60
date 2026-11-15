@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_mfd_fnc_ccfs_exit
+ * hct_h60_mfd_fnc_ccfs_exit
  *
  * CCFS: leaves the game, telling the opponent and closing a hosted lobby.
  *
@@ -7,12 +7,12 @@
  */
 
 params ["_vehicle"];
-vtx_uh60_ccfs_gameState = "MENU";
-if (!isNull vtx_uh60_ccfs_playerSelected && vtx_uh60_ccfs_gameState != "DISCONNECTED") then {
-	["vtx_uh60_ccfs_playerSelected", objNull] call vtx_uh60_mfd_fnc_setRemoteVariable;
-	["vtx_uh60_ccfs_gameState", "DISCONNECTED"] call vtx_uh60_mfd_fnc_setRemoteVariable;
+hct_h60_ccfs_gameState = "MENU";
+if (!isNull hct_h60_ccfs_playerSelected && hct_h60_ccfs_gameState != "DISCONNECTED") then {
+	["hct_h60_ccfs_playerSelected", objNull] call hct_h60_mfd_fnc_setRemoteVariable;
+	["hct_h60_ccfs_gameState", "DISCONNECTED"] call hct_h60_mfd_fnc_setRemoteVariable;
 };
-if (vtx_uh60_ccfs_isHost) then {
-	player setVariable ["vtx_uh60_openLobby", false, true];
+if (hct_h60_ccfs_isHost) then {
+	player setVariable ["hct_h60_openLobby", false, true];
 };
-vtx_uh60_ccfs_playerSelected = objNull;
+hct_h60_ccfs_playerSelected = objNull;

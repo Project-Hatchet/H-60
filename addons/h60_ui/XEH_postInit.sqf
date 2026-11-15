@@ -12,8 +12,8 @@ if !(hasInterface) exitWith {};
     [vehicle ACE_player, GVAR(helpEnabled)] call FUNC(showHelp);
 }, true] call CBA_fnc_addPlayerEventHandler;
 
-#include "initKeybinds.sqf"
+#include "initKeybinds.inc.sqf"
 
-call vtx_uh60_ui_fnc_toggleCursor;
-["cameraView", vtx_uh60_ui_fnc_toggleCursor] call CBA_fnc_addPlayerEventHandler;
-["featureCamera", vtx_uh60_ui_fnc_toggleCursor] call CBA_fnc_addPlayerEventHandler;
+call hct_h60_ui_fnc_toggleCursor;
+["cameraView", hct_h60_ui_fnc_toggleCursor] call CBA_fnc_addPlayerEventHandler;
+["featureCamera", hct_h60_ui_fnc_toggleCursor] call CBA_fnc_addPlayerEventHandler;

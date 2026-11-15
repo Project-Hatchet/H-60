@@ -12,10 +12,10 @@ class Heli_Transport_01_base_F: Helicopter_Base_H {
   class ViewPilot;
   class Components;
 };
-class vtx_H60_base: Heli_Transport_01_base_F {
+class hct_H60_base: Heli_Transport_01_base_F {
   #include "CfgAnimationSourcesInherit.hpp"
   class ViewPilot;
-  class vtx_templateFLIR;
+  class hct_templateFLIR;
   class Components;
   class MFD;
   class hct_turret_1;

@@ -10,7 +10,7 @@
  * None
  *
  * Example:
- * [ACE_player] call vtx_ace_viv_fnc_stopLoading
+ * [ACE_player] call hct_h60_ace_viv_fnc_stopLoading
  *
  * Public: No
  */
@@ -19,14 +19,14 @@ params ["_unit"];
 
 if (!GVAR(isReady)) exitWith {};
 
-[GVAR(carrier)] call vtx_ace_viv_fnc_checkBlockedSeats;
+[GVAR(carrier)] call hct_h60_ace_viv_fnc_checkBlockedSeats;
 GVAR(isReady) = false;
 GVAR(carrier) = objNull;
 GVAR(cargo) = objNull;
 
 // enable running again
-[_unit, "forceWalk", "VTX_ACE_VIV", false] call ace_common_fnc_statusEffect_set;
-[_unit, "blockThrow", "VTX_ACE_VIV", false] call ace_common_fnc_statusEffect_set;
+[_unit, "forceWalk", "hct_h60_ace_viv", false] call ace_common_fnc_statusEffect_set;
+[_unit, "blockThrow", "hct_h60_ace_viv", false] call ace_common_fnc_statusEffect_set;
 
 // add mouse button action and hint
 [] call ace_interaction_fnc_hideMouseHint;

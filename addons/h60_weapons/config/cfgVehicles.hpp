@@ -15,7 +15,7 @@ class CfgVehicles {
         }; // hct_copilot
         class MFD;
     }; // Heli_Transport_01_base_F
-    class vtx_H60_base: Heli_Transport_01_base_F {
+    class hct_H60_base: Heli_Transport_01_base_F {
         class hct_driver: hct_driver {
             class modules: modules {
                 class weapons {
@@ -30,9 +30,9 @@ class CfgVehicles {
                 }; // weapons
             }; // modules
         }; // hct_driver
-    }; // vtx_H60_base
+    }; // hct_H60_base
     class Boat_F;
-    class vtx_pylon: Boat_F {
+    class hct_pylon: Boat_F {
         //simulation = "car";
         scope = 1;
         simulation = "shipX";
@@ -59,7 +59,7 @@ class CfgVehicles {
         faction = "BLU_F";
         category = "Air";
         side = 1;
-        editorSubcategory = "vtx_h60";
+        editorSubcategory = "hct_h60";
         hullDamageCauseExplosion = 0;
         icon = "z\vtx\addons\uh60_hoist\data\ui\iconHook.paa";
         picture = "z\vtx\addons\uh60_hoist\data\ui\vtx_hook_ca.paa";
@@ -79,7 +79,7 @@ class CfgVehicles {
                     class pylons1 {
                         attachment = "";
                         bay = -1;
-                        hardpoints[] = {"VTX_ST_L", "VTX_ST_R", "VTX_ST_OUTBOARD"};
+                        hardpoints[] = {"HCT_ST_L", "HCT_ST_R", "HCT_ST_OUTBOARD"};
                         maxweight = 1000;
                         mirroredMissilePos = 0;
                         priority = 1;

@@ -6,7 +6,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"RF_Data_Loadorder", "vtx_MH60M"};
+        requiredAddons[] = {"RF_Data_Loadorder", "hct_MH60M"};
         skipWhenMissingDependencies = 1;
         author = "";
         authors[] = {""};
@@ -17,8 +17,8 @@ class CfgPatches {
 class CfgSettings_RF {
   class mission_AC {
     Units_List[] += {
-      {"vtx_MH60M",300,"AIR","MP"},
-      {"vtx_MH60M_DAP",450,"AIR","MP"}
+      {"hct_MH60M",300,"AIR","MP"},
+      {"hct_MH60M_DAP",450,"AIR","MP"}
     };
   };
 };

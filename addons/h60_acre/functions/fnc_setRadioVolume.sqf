@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_acre_fnc_setRadioVolume
+ * hct_h60_acre_fnc_setRadioVolume
  *
  * sets up the acre module
  *
@@ -19,7 +19,7 @@ _selectedRack = _wiredRacks # _index;
 _workPos = [_vehicle, acre_player, 0, "workKnob"] call acre_sys_intercom_fnc_getStationConfiguration;
 
 
-if(vtx_uh60_ui_showDebugMessages) then {
+if(hct_h60_ui_showDebugMessages) then {
     systemChat str [
         [_radio, player] call acre_sys_rack_fnc_isRadioAccessible,
         [_radio, player] call acre_sys_rack_fnc_isRadioHearable

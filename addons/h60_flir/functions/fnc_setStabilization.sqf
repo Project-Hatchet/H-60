@@ -12,7 +12,7 @@
  * Success
  *
  * Example:
- * [] call vtx_uh60_flir_fnc_setStabilization
+ * [] call hct_h60_flir_fnc_setStabilization
  */
 
 params [
@@ -21,9 +21,9 @@ params [
   ["_sync", true]
 ];
 
-//if (vtx_uh60_flir_playerIsPilot && {vtx_uh60_flir_isCopilotInGunnerView}) exitWith {false};
+//if (hct_h60_flir_playerIsPilot && {hct_h60_flir_isCopilotInGunnerView}) exitWith {false};
 
-private _trackObj = vtx_uh60_flir_pilotCameraTarget param [2, objNull];
+private _trackObj = hct_h60_flir_pilotCameraTarget param [2, objNull];
 
 private _originPos = hct_vehicle modelToWorldVisualWorld (getPilotCameraPosition hct_vehicle);
 private _cameraVectorWorld = hct_vehicle vectorModelToWorld (getPilotCameraDirection hct_vehicle);
@@ -40,7 +40,7 @@ if (!isNull _trackObj) exitWith {
       ATLtoASL positionCameraToWorld [0,0,0]
       vectorFromTo
       ATLtoASL positionCameraToWorld [0,0,1000]
-    ] select vtx_uh60_flir_isInScriptedCamera
+    ] select hct_h60_flir_isInScriptedCamera
   );
   hct_vehicle setPilotCameraTarget objNull;
   hct_vehicle setPilotCameraDirection _dir;
@@ -48,10 +48,10 @@ if (!isNull _trackObj) exitWith {
   // us on the same press (its toggle state is desynced; HOTAS bindings bypass
   // the display-level consume hooks), the per-frame authority in fnc_handleSlew
   // stomps the rogue lock and restores this direction
-  vtx_uh60_flir_lastReleaseDir = _dir;
-  vtx_uh60_flir_lastReleaseTime = diag_tickTime;
-  [[], objNull] call vtx_uh60_flir_fnc_syncPilotCamera;
-  if (missionNamespace getVariable ["vtx_uh60_ui_showDebugMessages", false]) then {
+  hct_h60_flir_lastReleaseDir = _dir;
+  hct_h60_flir_lastReleaseTime = diag_tickTime;
+  [[], objNull] call hct_h60_flir_fnc_syncPilotCamera;
+  if (missionNamespace getVariable ["hct_h60_ui_showDebugMessages", false]) then {
     systemChat format ["FLIR lock: released %1", typeOf _trackObj];
   };
   true
@@ -68,7 +68,7 @@ private _intersectResult = if (_camPosASL isNotEqualTo []) then {
     };
 } else {
     private _slewOrigin = (_cameraVectorWorld) call CBA_fnc_vect2Polar;
-    [_originPos, _slewOrigin # 1, _slewOrigin # 2, hct_vehicle] call vtx_uh60_flir_fnc_intersectAtPolar
+    [_originPos, _slewOrigin # 1, _slewOrigin # 2, hct_vehicle] call hct_h60_flir_fnc_intersectAtPolar
 };
 
 if (isNil "_intersectResult") exitWith {};
@@ -100,13 +100,13 @@ if (isNull _trackTarget) then {
     };
   } forEach (hct_vehicle nearEntities [["LandVehicle", "Air", "Ship"], 5000]);
 };
-if (missionNamespace getVariable ["vtx_uh60_ui_showDebugMessages", false]) then {
+if (missionNamespace getVariable ["hct_h60_ui_showDebugMessages", false]) then {
   systemChat format ["FLIR lock: rayHit=%1 target=%2", typeOf _hitObject, typeOf _trackTarget];
 };
 
 if (!isNull _trackTarget) then {
   hct_vehicle setPilotCameraTarget _trackTarget;
-  [[], _intersect, _trackTarget] call vtx_uh60_flir_fnc_syncPilotCamera;
+  [[], _intersect, _trackTarget] call hct_h60_flir_fnc_syncPilotCamera;
 } else {
   if ((getPilotCameraTarget hct_vehicle) # 0) then {
 
@@ -116,19 +116,19 @@ if (!isNull _trackTarget) then {
         ATLtoASL positionCameraToWorld [0,0,0]
         vectorFromTo
         ATLtoASL positionCameraToWorld [0,0,1000]
-      ] select vtx_uh60_flir_isInScriptedCamera
+      ] select hct_h60_flir_isInScriptedCamera
     );
 
 
     hct_vehicle setPilotCameraTarget objNull;
     hct_vehicle setPilotCameraDirection _dir;
-    vtx_uh60_flir_lastReleaseDir = _dir;
-    vtx_uh60_flir_lastReleaseTime = diag_tickTime;
-    [[], objNull] call vtx_uh60_flir_fnc_syncPilotCamera;
+    hct_h60_flir_lastReleaseDir = _dir;
+    hct_h60_flir_lastReleaseTime = diag_tickTime;
+    [[], objNull] call hct_h60_flir_fnc_syncPilotCamera;
 
   } else {
     hct_vehicle setPilotCameraTarget _intersect;
-    [[], _intersect] call vtx_uh60_flir_fnc_syncPilotCamera;
+    [[], _intersect] call hct_h60_flir_fnc_syncPilotCamera;
   };
 };
 

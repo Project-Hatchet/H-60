@@ -9,7 +9,7 @@
  * None
  *
  * Example:
- * [cursorObject] call vtx_uh60_misc_fnc_foldFreeze;
+ * [cursorObject] call hct_h60_misc_fnc_foldFreeze;
  */
 
 params ["_heli"];

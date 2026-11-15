@@ -20,7 +20,7 @@ class troop_commander: CargoTurret {
   isPersonTurret = 0;
   selectionFireAnim = "";
   disableSoundAttenuation = 0;
-  soundAttenuationTurret = "VTX_H60_CabinAttenuation"; // #510: was unfiltered - this seat is camera-external like all CargoTurret children
+  soundAttenuationTurret = "HCT_H60_CabinAttenuation"; // #510: was unfiltered - this seat is camera-external like all CargoTurret children
   // 1200 = View Cargo (47G MP-MFD law: point at a LOD that EXISTS); the =0
   // vanilla-parity probe (build 7) had no acoustic effect either way
   LODTurnedIn = 1200;

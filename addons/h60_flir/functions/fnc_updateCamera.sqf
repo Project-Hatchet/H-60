@@ -9,37 +9,37 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_vehicle] call vtx_uh60_flir_fnc_updateCamera
+ * [_vehicle] call hct_h60_flir_fnc_updateCamera
  */
 
 params ["_vehicle"];
 
-private _camPosASL = hct_vehicle modelToWorldVisualWorld vtx_uh60_flir_camPos;
-vtx_uh60_flir_camera setPosASL _camPosASL;
+private _camPosASL = hct_vehicle modelToWorldVisualWorld hct_h60_flir_camPos;
+hct_h60_flir_camera setPosASL _camPosASL;
 getPilotCameraTarget _vehicle params ["_isTracking", "_tgtPosASL", ""];
 // Object follow: the engine's target position is a static snapshot for
 // script-set object locks - aim at the live object from the mod's own state
 // variable instead (element 2, patched in fnc_syncPilotCamera) (#538)
-private _trackedObj = vtx_uh60_flir_pilotCameraTarget param [2, objNull];
+private _trackedObj = hct_h60_flir_pilotCameraTarget param [2, objNull];
 if (!isNull _trackedObj) then {
   _isTracking = true;
   _tgtPosASL = getPosASLVisual _trackedObj;
 };
 if (_isTracking) then {
-  if (vtx_uh60_flir_isInScriptedCamera) then { // Fix laser target wandering off
+  if (hct_h60_flir_isInScriptedCamera) then { // Fix laser target wandering off
     private _laserTarget = laserTarget hct_vehicle;
     if (!isNull _laserTarget) then {
       _laserTarget setPosASL _tgtPosASL;
     };
   };
   private _dir = _camPosASL vectorFromTo _tgtPosASL;
-  vtx_uh60_flir_camera setVectorDirAndUp [
+  hct_h60_flir_camera setVectorDirAndUp [
     _dir,
     _dir vectorCrossProduct (_dir vectorCrossProduct (_vehicle vectorModelToWorldVisual [0, 0, -1]))
   ];
 } else {
   private _dir = getPilotCameraDirection _vehicle;
-  vtx_uh60_flir_camera setVectorDirAndUp [
+  hct_h60_flir_camera setVectorDirAndUp [
     _vehicle vectorModelToWorldVisual _dir,
     _vehicle vectorModelToWorldVisual (_dir vectorCrossProduct (_dir vectorCrossProduct [0, 0, -1]))
   ];

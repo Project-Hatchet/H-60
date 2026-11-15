@@ -1,27 +1,27 @@
 #include "script_component.hpp"
 
-vtx_uh60_flir_tdcWaypointNum = 99;
+hct_h60_flir_tdcWaypointNum = 99;
 
 if (hasInterface) then {
     #include "initKeybinds.inc.sqf"
 };
 
-["vtx_uh60_flir_syncPilots", {
+["hct_h60_flir_syncPilots", {
   params ["_vehicle"];
-  [_vehicle, false] call vtx_uh60_flir_fnc_syncPilots;
+  [_vehicle, false] call hct_h60_flir_fnc_syncPilots;
 }] call CBA_fnc_addEventHandler;
 
-["vtx_uh60_flir_syncFOV", {
+["hct_h60_flir_syncFOV", {
   params ["_fov"];
-  [_fov, false] call vtx_uh60_flir_fnc_setFOV;
+  [_fov, false] call hct_h60_flir_fnc_setFOV;
 }] call CBA_fnc_addEventHandler;
 
-["vtx_uh60_flir_syncVisionMode", {
+["hct_h60_flir_syncVisionMode", {
   params ["_effect"];
-  [_effect, false] call vtx_uh60_flir_fnc_setVisionMode;
+  [_effect, false] call hct_h60_flir_fnc_setVisionMode;
 }] call CBA_fnc_addEventHandler;
 
-["vtx_uh60_flir_syncCopilotView", {
-  vtx_uh60_flir_isCopilotInGunnerView = _this;
+["hct_h60_flir_syncCopilotView", {
+  hct_h60_flir_isCopilotInGunnerView = _this;
 }] call CBA_fnc_addEventHandler;
 

@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_fms_fnc_setMarkPoint
+ * hct_h60_fms_fnc_setMarkPoint
  *
  * set the markpoint, is remotely called
  *

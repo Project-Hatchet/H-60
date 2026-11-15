@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_misc_fnc_canRemoveCustomization
+ * hct_h60_misc_fnc_canRemoveCustomization
  *
  * ACE condition: a toolkit and the part fitted.
  *

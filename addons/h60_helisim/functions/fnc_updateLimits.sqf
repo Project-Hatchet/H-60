@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_uh60_helisim_fnc_updateLimits
+Function: hct_h60_helisim_fnc_updateLimits
 
 Description:
     Swaps Core's dual engine torque limits by airspeed and its Nr limits by engine state,
@@ -16,7 +16,7 @@ params ["_heli"];
 
 //Config tables are fixed for the mission: read once per class, not every frame
 private _type = typeOf _heli;
-private _limits = vtx_uh60_helisim_limitCache get _type;
+private _limits = hct_h60_helisim_limitCache get _type;
 if (isNil "_limits") then {
     private _cfg = configOf _heli >> "BMKHS_HeliSim";
     _limits = [
@@ -24,7 +24,7 @@ if (isNil "_limits") then {
         getArray (_cfg >> "nrLimitsPowerOff"),
         getArray (_cfg >> "nrLimitsPowerOn")
     ];
-    vtx_uh60_helisim_limitCache set [_type, _limits];
+    hct_h60_helisim_limitCache set [_type, _limits];
 };
 _limits params ["_engLimits", "_nrOff", "_nrOn"];
 

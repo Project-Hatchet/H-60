@@ -1,4 +1,4 @@
-class VTX_ESIS_Horizon
+class HCT_ESIS_Horizon
 {
     topLeft="ESIS_LH";
     topRight="ESIS_RH";
@@ -45,7 +45,7 @@ class VTX_ESIS_Horizon
 
 
 
-class VTX_ESIS_Misc
+class HCT_ESIS_Misc
 {
     topLeft="ESIS_LH";
     topRight="ESIS_RH";

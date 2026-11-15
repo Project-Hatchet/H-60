@@ -7,7 +7,7 @@
 // weapon turret. Arcs start as a copy of doorgunsFFV; expect a tune pass from
 // tester feedback like the MFOS aft seats got.
 class LeftCrewSeat: CargoTurret {
-  soundAttenuationTurret = "VTX_H60_CabinAttenuation"; // #510: same station as the MEDEVAC window seats (#617)
+  soundAttenuationTurret = "HCT_H60_CabinAttenuation"; // #510: same station as the MEDEVAC window seats (#617)
   disableSoundAttenuation = 0;
   animationSourceHatch = "gunner_ffv_l";
   canHideGunner = 1;

@@ -10,9 +10,9 @@
  * Return Value: nil
  *
  * Example:
- * [_hook, "", _unit] call vtx_uh60_hoist_fnc_handleGetIn
+ * [_hook, "", _unit] call hct_h60_hoist_fnc_handleGetIn
  */
 
 params ["_hook", "", "_unit"];
 
-[_hook, _unit] call vtx_uh60_hoist_fnc_attachHook;
+[_hook, _unit] call hct_h60_hoist_fnc_attachHook;

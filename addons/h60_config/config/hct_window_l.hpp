@@ -8,7 +8,7 @@ class window_l {
       animation="window_l_2";
       animStates[] = {1, 0};
       animLabels[] = {"Open", "Closed"};
-      animStart = "[hct_vehicle, 'l', -1] call vtx_uh60_config_fnc_setWindow";
+      animStart = "[hct_vehicle, 'l', -1] call hct_h60_config_fnc_setWindow";
       radius=0.1;
       animSpeed=1;
   }; // window_l

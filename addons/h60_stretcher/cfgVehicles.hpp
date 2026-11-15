@@ -5,7 +5,7 @@ class CfgVehicles {
       class ACE_Equipment {
         class GVAR(1) {
           displayName = CSTRING(Unfold);
-          condition = QUOTE('vtx_stretcher_item' in items _player);
+          condition = QUOTE('hct_h60_stretcher_item' in items _player);
           exceptions[] = {"isNotSwimming", "isNotInside", "isNotSitting"};
           statement = QUOTE([_player] call FUNC(unfold));
           showDisabled = 0;

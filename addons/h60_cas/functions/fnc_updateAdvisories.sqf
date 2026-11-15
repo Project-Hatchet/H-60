@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_cas_fnc_updateAdvisories
+ * hct_h60_cas_fnc_updateAdvisories
  *
  * handles occasional updates of the caution system
  *
@@ -10,7 +10,7 @@ params ["_vehicle"];
 
 #define ADVISORY(MESSAGE,CONDITION) \
     if(CONDITION) then { \
-        [_vehicle, MESSAGE, {CONDITION}, false, true] call vtx_uh60_cas_fnc_registerCautionAdvisory; \
+        [_vehicle, MESSAGE, {CONDITION}, false, true] call hct_h60_cas_fnc_registerCautionAdvisory; \
     };
 
 //HeliSim on-ground, from the owner (USERMFDV_ONGROUND 105)
@@ -18,24 +18,24 @@ ADVISORY("WOW",(((getUserMFDValue (_this # 0)) # 105) > 0.5))
 
 // Written out - the comma in getVariable's default would split the macro arguments
 if (_vehicle getVariable ["bmkhs_apuOn", false]) then {
-    [_vehicle, "APU ON", {(_this # 0) getVariable ["bmkhs_apuOn", false]}, false, true] call vtx_uh60_cas_fnc_registerCautionAdvisory;
+    [_vehicle, "APU ON", {(_this # 0) getVariable ["bmkhs_apuOn", false]}, false, true] call hct_h60_cas_fnc_registerCautionAdvisory;
 };
 if ((_vehicle getVariable ["bmkhs_apuGen", 0]) >= 1) then {
-    [_vehicle, "APU GEN ON", {((_this # 0) getVariable ["bmkhs_apuGen", 0]) >= 1}, false, true] call vtx_uh60_cas_fnc_registerCautionAdvisory;
+    [_vehicle, "APU GEN ON", {((_this # 0) getVariable ["bmkhs_apuGen", 0]) >= 1}, false, true] call hct_h60_cas_fnc_registerCautionAdvisory;
 };
 
 ADVISORY("BOOST PUMP 1 ON",((_this # 0) animationPhase "Switch_fuelboostpump1" == 0))
 ADVISORY("BOOST PUMP 2 ON",((_this # 0) animationPhase "Switch_fuelboostpump2" == 0))
 
 if ((_this # 0) magazineTurretAmmo ["60Rnd_CMFlareMagazine",[-1]] < 30 && (_this # 0) magazineTurretAmmo ["60Rnd_CMFlareMagazine",[-1]] > 0) then {
-    [_vehicle, "FLARE LOW", {((_this # 0) magazineTurretAmmo ["60Rnd_CMFlareMagazine",[-1]] < 30 && (_this # 0) magazineTurretAmmo ["60Rnd_CMFlareMagazine",[-1]] > 0)}, false, true] call vtx_uh60_cas_fnc_registerCautionAdvisory;
+    [_vehicle, "FLARE LOW", {((_this # 0) magazineTurretAmmo ["60Rnd_CMFlareMagazine",[-1]] < 30 && (_this # 0) magazineTurretAmmo ["60Rnd_CMFlareMagazine",[-1]] > 0)}, false, true] call hct_h60_cas_fnc_registerCautionAdvisory;
 };
 if ((_this # 0) magazineTurretAmmo ["60Rnd_CMFlareMagazine",[-1]] == 0) then {
-    [_vehicle, "FLARE OUT", {((_this # 0) magazineTurretAmmo ["60Rnd_CMFlareMagazine",[-1]] == 0)}, false, true] call vtx_uh60_cas_fnc_registerCautionAdvisory;
+    [_vehicle, "FLARE OUT", {((_this # 0) magazineTurretAmmo ["60Rnd_CMFlareMagazine",[-1]] == 0)}, false, true] call hct_h60_cas_fnc_registerCautionAdvisory;
 };
 
 ADVISORY("LANDING LIGHT ON",(((_this # 0) animationSourcePhase "LandingLight_Show") > 0.5))
 
 ADVISORY("LRD LASE DES",(!(isNull (laserTarget _vehicle))))
 
-[_vehicle, true] call vtx_uh60_cas_fnc_clearCautionsList;
+[_vehicle, true] call hct_h60_cas_fnc_clearCautionsList;

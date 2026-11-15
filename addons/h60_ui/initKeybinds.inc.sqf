@@ -1,14 +1,12 @@
-#include "script_component.hpp"
-
 [
     "UH-60M Blackhawk",
-    "vtx_uh60m_c_help",
+    "hct_h60_c_help",
     LSTRING(HelpMode),
     {},{
         private _vehicle = vehicle player;
         if ([_vehicle, "ui", QBASE_CLASS] call hct_core_fnc_hasModule) then {
-            vtx_uh60_ui_helpEnabled = !vtx_uh60_ui_helpEnabled;
-            [_vehicle, vtx_uh60_ui_helpEnabled] call vtx_uh60_ui_fnc_showHelp;
+            hct_h60_ui_helpEnabled = !hct_h60_ui_helpEnabled;
+            [_vehicle, hct_h60_ui_helpEnabled] call hct_h60_ui_fnc_showHelp;
         };
     },
     [35, [false, true, false]],

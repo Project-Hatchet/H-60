@@ -1,6 +1,6 @@
-unitInfoType = "vtx_uh60_rscUnitInfoMinimal";
-unitInfoTypeLite = "vtx_uh60_rscUnitInfoMinimal";
-unitInfoTypeRTD = "vtx_uh60_rscUnitInfoMinimal";
+unitInfoType = "hct_h60_rscUnitInfoMinimal";
+unitInfoTypeLite = "hct_h60_rscUnitInfoMinimal";
+unitInfoTypeRTD = "hct_h60_rscUnitInfoMinimal";
 
 // unitInfoType = "RscUnitInfoAir";
 // unitInfoTypeLite = "RscUnitInfoAirRTDBasic";

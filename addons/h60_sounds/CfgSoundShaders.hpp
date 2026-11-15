@@ -1,7 +1,7 @@
 //External
 
 // -Empty
-class vtx_Empty_SoundShader
+class hct_Empty_SoundShader
 {
 	samples[]=
 	{
@@ -22,7 +22,7 @@ class vtx_Empty_SoundShader
 };
 
 // -Alarm
-class vtx_Alarm_Damage_Ext_SoundShader_Base
+class hct_Alarm_Damage_Ext_SoundShader_Base
 {
 	samples[]=
 	{
@@ -37,7 +37,7 @@ class vtx_Alarm_Damage_Ext_SoundShader_Base
 	//volume="engineOn*(1 - ((transmissionDamage factor [0.61, 0.60])*(motorDamage factor [0.61, 0.60])*(rotorDamage factor [0.70, 0.50])))*(rotorSpeed factor [0, 0.001])";
 	range=20;
 };
-class vtx_Alarm_RotorLow_Ext_SoundShader_Base: vtx_Alarm_Damage_Ext_SoundShader_Base
+class hct_Alarm_RotorLow_Ext_SoundShader_Base: hct_Alarm_Damage_Ext_SoundShader_Base
 {
 	samples[]=
 	{
@@ -53,7 +53,7 @@ class vtx_Alarm_RotorLow_Ext_SoundShader_Base: vtx_Alarm_Damage_Ext_SoundShader_
 };
 
 // -Scrub Sound
-class vtx_ScrubTree_Ext_SoundShader_Base: vtx_Alarm_Damage_Ext_SoundShader_Base
+class hct_ScrubTree_Ext_SoundShader_Base: hct_Alarm_Damage_Ext_SoundShader_Base
 {
 	samples[]=
 	{
@@ -68,7 +68,7 @@ class vtx_ScrubTree_Ext_SoundShader_Base: vtx_Alarm_Damage_Ext_SoundShader_Base
 };
 
 // -Damage
-class vtx_TransmissionDamage_Ext_phase1_SoundShader_Base
+class hct_TransmissionDamage_Ext_phase1_SoundShader_Base
 {
 	samples[]=
 	{
@@ -82,7 +82,7 @@ class vtx_TransmissionDamage_Ext_phase1_SoundShader_Base
 	volume="(transmissiondamage factor [0.3, 0.35])*(transmissiondamage factor [0.5, 0.45])*(rotorspeed factor [0.2, 0.5])*(CustomSoundController14+1)";
 	range=100;
 };
-class vtx_TransmissionDamage_Ext_phase2_SoundShader_Base: vtx_TransmissionDamage_Ext_phase1_SoundShader_Base
+class hct_TransmissionDamage_Ext_phase2_SoundShader_Base: hct_TransmissionDamage_Ext_phase1_SoundShader_Base
 {
 	samples[]=
 	{
@@ -96,7 +96,7 @@ class vtx_TransmissionDamage_Ext_phase2_SoundShader_Base: vtx_TransmissionDamage
 };
 
 //-SlingLoad
-class vtx_SlingLoadDown_Ext_SoundShader_Base
+class hct_SlingLoadDown_Ext_SoundShader_Base
 {
 	samples[]=
 	{
@@ -110,7 +110,7 @@ class vtx_SlingLoadDown_Ext_SoundShader_Base
 	volume="camPos*(slingLoadActive factor [0,-1])*(CustomSoundController14+1)";
 	range=500;
 };
-class vtx_SlingLoadUp_Ext_SoundShader_Base: vtx_SlingLoadDown_Ext_SoundShader_Base
+class hct_SlingLoadUp_Ext_SoundShader_Base: hct_SlingLoadDown_Ext_SoundShader_Base
 {
 	samples[]=
 	{
@@ -124,7 +124,7 @@ class vtx_SlingLoadUp_Ext_SoundShader_Base: vtx_SlingLoadDown_Ext_SoundShader_Ba
 	volume="camPos*(slingLoadActive factor [0,1])*(CustomSoundController14+1)";
 };
 //-Noise
-class vtx_Rain_Ext_SoundShader_Base
+class hct_Rain_Ext_SoundShader_Base
 {
 	samples[]=
 	{
@@ -144,7 +144,7 @@ class vtx_Rain_Ext_SoundShader_Base
 		{100,0}
 	};
 };
-class vtx_Wind_Close_Ext_SoundShader_Base
+class hct_Wind_Close_Ext_SoundShader_Base
 {
 	samples[]=
 	{
@@ -163,7 +163,7 @@ class vtx_Wind_Close_Ext_SoundShader_Base
 		{20,0}
 	};
 };
-class vtx_Rotor_Stress_Ext_SoundShader_Base
+class hct_Rotor_Stress_Ext_SoundShader_Base
 {
 	samples[]=
 	{
@@ -187,7 +187,7 @@ class vtx_Rotor_Stress_Ext_SoundShader_Base
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Internal
 // -Alarm
-class vtx_Alarm_Damage_Int_SoundShader_Base
+class hct_Alarm_Damage_Int_SoundShader_Base
 {
 	samples[]=
 	{
@@ -202,7 +202,7 @@ class vtx_Alarm_Damage_Int_SoundShader_Base
 	//volume="CustomSoundController7*engineOn*camInt*( 1 - ((motorDamage factor [0.61, 0.60])*(rotorDamage factor [0.51, 0.50])))*(rotorSpeed factor [0.0, 0.001])";
 	volume="CustomSoundController7*camInt*(CustomSoundController16+1)";
 };
-class vtx_Alarm_RotorLow_Int_SoundShader_Base: vtx_Alarm_Damage_Int_SoundShader_Base
+class hct_Alarm_RotorLow_Int_SoundShader_Base: hct_Alarm_Damage_Int_SoundShader_Base
 {
 	samples[]=
 	{
@@ -218,7 +218,7 @@ class vtx_Alarm_RotorLow_Int_SoundShader_Base: vtx_Alarm_Damage_Int_SoundShader_
 };
 
 // -Scrub Sound
-class vtx_ScrubLand_Int_SoundShader_Base: vtx_Alarm_Damage_Int_SoundShader_Base
+class hct_ScrubLand_Int_SoundShader_Base: hct_Alarm_Damage_Int_SoundShader_Base
 {
 	samples[]=
 	{
@@ -230,11 +230,11 @@ class vtx_ScrubLand_Int_SoundShader_Base: vtx_Alarm_Damage_Int_SoundShader_Base
 	};
 	volume="2*camInt*(scrubLand factor[0.02, 0.05])*(1 - (lateralMovement factor [0.7,1]))*(CustomSoundController16+1)";
 };
-class vtx_ScrubBuilding_Int_SoundShader_Base: vtx_ScrubLand_Int_SoundShader_Base
+class hct_ScrubBuilding_Int_SoundShader_Base: hct_ScrubLand_Int_SoundShader_Base
 {
 	volume="camInt*(scrubBuilding factor[0.02, 0.05])*(1 - (lateralMovement factor [0.7,1]))*(CustomSoundController16+1)";
 };
-class vtx_ScrubTree_Int_SoundShader_Base: vtx_ScrubLand_Int_SoundShader_Base
+class hct_ScrubTree_Int_SoundShader_Base: hct_ScrubLand_Int_SoundShader_Base
 {
 	samples[]=
 	{
@@ -248,7 +248,7 @@ class vtx_ScrubTree_Int_SoundShader_Base: vtx_ScrubLand_Int_SoundShader_Base
 };
 
 // -Damage
-class vtx_TransmissionDamage_Int_phase1_SoundShader_Base
+class hct_TransmissionDamage_Int_phase1_SoundShader_Base
 {
 	samples[]=
 	{
@@ -264,7 +264,7 @@ class vtx_TransmissionDamage_Int_phase1_SoundShader_Base
 	//frequency="0.66 + rotorspeed / 3";
 	//volume="camInt*(transmissiondamage factor [0.3, 0.35])*(transmissiondamage factor [0.5, 0.45])*(rotorspeed factor [0.2, 0.5])";
 };
-class vtx_TransmissionDamage_Int_phase2_SoundShader_Base
+class hct_TransmissionDamage_Int_phase2_SoundShader_Base
 {
 	samples[]=
 	{
@@ -280,7 +280,7 @@ class vtx_TransmissionDamage_Int_phase2_SoundShader_Base
 	//frequency="0.66 + rotorspeed / 3";
 	//volume="camInt*(transmissiondamage factor [0.45, 0.5])*(rotorspeed factor [0.2, 0.5])";
 };
-class vtx_TransmissionDamage_Int_phase3_SoundShader_Base
+class hct_TransmissionDamage_Int_phase3_SoundShader_Base
 {
 	samples[]=
 	{
@@ -296,7 +296,7 @@ class vtx_TransmissionDamage_Int_phase3_SoundShader_Base
 };
 
 //-SlingLoad
-class vtx_SlingLoadDown_Int_SoundShader_Base
+class hct_SlingLoadDown_Int_SoundShader_Base
 {
 	samples[]=
 	{
@@ -310,7 +310,7 @@ class vtx_SlingLoadDown_Int_SoundShader_Base
 	volume="camInt*(slingLoadActive factor [0,-1])*(CustomSoundController16+1)";
 	range=500;
 };
-class vtx_SlingLoadUp_Int_SoundShader_Base: vtx_SlingLoadDown_Int_SoundShader_Base
+class hct_SlingLoadUp_Int_SoundShader_Base: hct_SlingLoadDown_Int_SoundShader_Base
 {
 	samples[]=
 	{
@@ -325,7 +325,7 @@ class vtx_SlingLoadUp_Int_SoundShader_Base: vtx_SlingLoadDown_Int_SoundShader_Ba
 };
 
 //-Noise
-class vtx_Rain_Int_SoundShader_Base: vtx_Rain_Ext_SoundShader_Base
+class hct_Rain_Int_SoundShader_Base: hct_Rain_Ext_SoundShader_Base
 {
 	samples[]=
 	{
@@ -338,7 +338,7 @@ class vtx_Rain_Int_SoundShader_Base: vtx_Rain_Ext_SoundShader_Base
 	volume="camInt*(rain - rotorSpeed/2)*2*(CustomSoundController16+1)";
 };
 
-class vtx_Wind_Int_SoundShader_Base
+class hct_Wind_Int_SoundShader_Base
 {
 	samples[]=
 	{
@@ -352,7 +352,7 @@ class vtx_Wind_Int_SoundShader_Base
 	frequency=1;
 	volume="camInt*(speed factor[5, 60])*(speed factor[5, 60])*(CustomSoundController16+1)";
 };
-class vtx_WindWash_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
+class hct_WindWash_Int_SoundShader_Base: hct_Wind_Int_SoundShader_Base
 {
 	samples[]=
 	{
@@ -364,11 +364,11 @@ class vtx_WindWash_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
 	};
 	volume="engineOn*camInt*CustomSoundController8*(-playerPos + 1)*(CustomSoundController16+1)*((rotorSpeed factor [0.3, 0.5])+((lateralMovement*((speed factor [5,40])+(speed factor [-5,-40])) max 0) min 1.5))";
 };
-class vtx_WindWash_Int_Transport_SoundShader_Base: vtx_WindWash_Int_SoundShader_Base
+class hct_WindWash_Int_Transport_SoundShader_Base: hct_WindWash_Int_SoundShader_Base
 {
 	volume="camInt*CustomSoundController9*(playerPos envelope [0,1,1.5,3])*(CustomSoundController16+1)*((rotorSpeed factor [0.3, 0.5])+((lateralMovement*((speed factor [5,40])+(speed factor [-5,-40])) max 0) min 1.5))";
 };
-class vtx_FrameStress_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
+class hct_FrameStress_Int_SoundShader_Base: hct_Wind_Int_SoundShader_Base
 {
 	samples[]=
 	{
@@ -379,7 +379,7 @@ class vtx_FrameStress_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
 	};
 	volume="engineOn*camInt*(gmeterZ factor[1.0, 2.5])*(CustomSoundController16+1)";
 };
-class vtx_GStress_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
+class hct_GStress_Int_SoundShader_Base: hct_Wind_Int_SoundShader_Base
 {
 	samples[]=
 	{
@@ -392,7 +392,7 @@ class vtx_GStress_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
 	frequency="rotorSpeed*2";
 	volume="engineOn*camInt*((gmeterZ factor[1.5, 2.5]) + (gmeterZ factor[0.5, -0.5]))*(CustomSoundController16+1)";
 };
-class vtx_SpeedStress_Int_SoundShader_Base: vtx_Wind_Int_SoundShader_Base
+class hct_SpeedStress_Int_SoundShader_Base: hct_Wind_Int_SoundShader_Base
 {
 	samples[]=
 	{

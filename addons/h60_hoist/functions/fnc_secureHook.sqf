@@ -9,25 +9,25 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_heli] call vtx_uh60_hoist_fnc_secureHook
+ * [_heli] call hct_h60_hoist_fnc_secureHook
  */
  
 params ["_heli"];
-if !(local _heli) exitWith {[_heli] remoteExecCall ["vtx_uh60_hoist_fnc_secureHook", _heli]};
+if !(local _heli) exitWith {[_heli] remoteExecCall ["hct_h60_hoist_fnc_secureHook", _heli]};
 
-if !([_heli] call vtx_uh60_hoist_fnc_canSecureHook) exitWith {false};
+if !([_heli] call hct_h60_hoist_fnc_canSecureHook) exitWith {false};
 
-private _hoist_vars = _heli getVariable ["vtx_uh60_hoist_vars", []];
+private _hoist_vars = _heli getVariable ["hct_h60_hoist_vars", []];
 if (_hoist_vars isEqualTo []) exitWith{};
 _hoist_vars params ["_rope", "_dummy", "_hook"];
 
 
 detach _hook;
-_hook setVariable ["vtx_uh60_hoist_heli", nil, true];
+_hook setVariable ["hct_h60_hoist_heli", nil, true];
 deleteVehicle _hook;
 deleteVehicle _dummy;
 ropeDestroy    _rope;
 _heli animateSource ["hoist_hook_hide", 0];
-_heli setVariable ["vtx_uh60_hoist_vars", [], true];
+_heli setVariable ["hct_h60_hoist_vars", [], true];
 
 true

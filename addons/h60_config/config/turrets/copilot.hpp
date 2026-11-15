@@ -12,7 +12,7 @@ class CopilotTurret: CopilotTurret {
   // reintroduce this property in either polarity.
   viewGunnerInExternal = 1; // vanilla CargoTurret value; 0-flip tested 2026-09-07, no effect on sound, don't touch
   gunnerUsesPilotView = 1;
-  soundAttenuationTurret = "VTX_H60_CabinAttenuation"; // #510: the stock SemiOpen profile was too mild - custom EQ profile in H60_SFX
+  soundAttenuationTurret = "HCT_H60_CabinAttenuation"; // #510: the stock SemiOpen profile was too mild - custom EQ profile in H60_SFX
   disableSoundAttenuation = 0;
   // 1100 = View - Pilot LOD; without these the turret defaults to the door-gunner
   // View - Gunner LOD and the copilot cockpit loses its upper console (#556)
@@ -61,7 +61,7 @@ class CopilotTurret: CopilotTurret {
   };
 #ifdef COPILOT_MOUNT_NVGHUD
   // Variant-level NVG HUD mount (uh60_config's vehicle files define the flag);
-  // the base include leaves it undefined so vtx_H60_base's copilot stays bare.
+  // the base include leaves it undefined so hct_H60_base's copilot stays bare.
   class MFD {
     class NVGHUD: NVGHUD_COPILOT {};
   };

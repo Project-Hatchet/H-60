@@ -1,9 +1,9 @@
 /*
- * vtx_uh60_mfd_fnc_tac_getMapTexture
+ * hct_h60_mfd_fnc_tac_getMapTexture
  */
 params ["_vehicle","_mfdIndex"];
 
-private _mode = _vehicle getVariable format["vtx_uh60_mfd_%1_mapTextureMode", _mfdIndex];
+private _mode = _vehicle getVariable format["hct_h60_mfd_%1_mapTextureMode", _mfdIndex];
 
 private _fallbackMap = getText (configFile >> "CfgWorlds" >> worldName >> "pictureMap");
 private _texture = switch (_mode) do {

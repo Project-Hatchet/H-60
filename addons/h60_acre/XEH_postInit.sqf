@@ -7,6 +7,6 @@
   private _fmsPageIndex = if (player == driver _vehicle) then {FMS_R_PAGE_INDEX} else {FMS_L_PAGE_INDEX};
   private _currentPage = (getUserMFDValue _vehicle) # _fmsPageIndex;
   if (_currentPage in [FMS_PAGE_COMM_ACRE, FMS_PAGE_COMM_INFO_ACRE]) then {
-    [_vehicle] call vtx_uh60_fms_fnc_perSecond;
+    [_vehicle] call hct_h60_fms_fnc_perSecond;
   };
 }] call CBA_fnc_addEventHandler;

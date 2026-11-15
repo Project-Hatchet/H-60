@@ -1,6 +1,6 @@
 #pragma hemtt flag pe23_ignore_has_include
 /*
- * vtx_uh60_jvmf_fnc_ctabToJvmf
+ * hct_h60_jvmf_fnc_ctabToJvmf
  *
  * Convert data into Jvmf format
  *

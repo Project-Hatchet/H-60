@@ -1,5 +1,6 @@
+#include "..\script_component.hpp"
 /*
- * vtx_uh60_Sound_fnc_EngineEH
+ * hct_h60_sounds_fnc_EngineEH
  *
  * engine power eventhandler for sound
  *

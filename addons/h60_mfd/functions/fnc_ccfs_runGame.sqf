@@ -1,27 +1,27 @@
 /*
- * vtx_uh60_mfd_fnc_ccfs_runGame
+ * hct_h60_mfd_fnc_ccfs_runGame
  *
  * CCFS, per frame: advances the ball and AI while PLAYING, handles scoring.
  *
  * params none
  */
 
-switch (vtx_uh60_ccfs_gameState) do {
+switch (hct_h60_ccfs_gameState) do {
 	case "PLAYING": {
-		[] call vtx_uh60_mfd_fnc_ccfs_updateBall;
-		if (!isPlayer vtx_uh60_ccfs_playerSelected) then {
-			[] call vtx_uh60_mfd_fnc_ccfs_runAI;
+		[] call hct_h60_mfd_fnc_ccfs_updateBall;
+		if (!isPlayer hct_h60_ccfs_playerSelected) then {
+			[] call hct_h60_mfd_fnc_ccfs_runAI;
 		};
 		{
-			if (_x >= vtx_uh60_ccfs_winningScore) then {
-				["ENDED"] call vtx_uh60_mfd_fnc_ccfs_changeGameState;
+			if (_x >= hct_h60_ccfs_winningScore) then {
+				["ENDED"] call hct_h60_mfd_fnc_ccfs_changeGameState;
 			};
-		} forEach vtx_uh60_ccfs_score;
+		} forEach hct_h60_ccfs_score;
 	};
 	case "SCORE": {
-		if (time > vtx_uh60_ccfs_lastScore + 1) then {
-			["PLAYING"] call vtx_uh60_mfd_fnc_ccfs_changeGameState;
-			[] call vtx_uh60_mfd_fnc_ccfs_serve;
+		if (time > hct_h60_ccfs_lastScore + 1) then {
+			["PLAYING"] call hct_h60_mfd_fnc_ccfs_changeGameState;
+			[] call hct_h60_mfd_fnc_ccfs_serve;
 		};
 	};
 };

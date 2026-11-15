@@ -5,7 +5,7 @@ class cfgWeapons {
         class manual;
         class HighROF;
     };
-    class vtx_MH60M_M134_minigun: M134_minigun {
+    class hct_MH60M_M134_minigun: M134_minigun {
         displayName = "2x M134";
         displayNameShort = "2x M134";
         class LowROF: LowROF {

@@ -2,7 +2,7 @@ class CfgAmmo {
   class M_Scalpel_AT;
   class ACE_Hellfire_AGM114K: M_Scalpel_AT {class ace_missileguidance;};
   class ACE_Hellfire_AGM114N: M_Scalpel_AT {class ace_missileguidance;};
-  class VTX_Hellfire_AGM114K: ACE_Hellfire_AGM114K {
+  class HCT_Hellfire_AGM114K: ACE_Hellfire_AGM114K {
     displayName = "AGM-114K Hellfire";
     model = "z\vtx\addons\uh60_weapons\fza_agm114l.p3d";
     proxyShape = "z\vtx\addons\uh60_weapons\fza_agm114l.p3d";
@@ -41,12 +41,12 @@ class CfgAmmo {
     thrust = 100;
     thrusttime = 5;
     effectsMissileInit = "RocketBackEffectsRPG";
-    effectsMissile = "vtx_agm114_trail";
-    ExplosionEffects = "vtx_agm114_explosion";
+    effectsMissile = "hct_agm114_trail";
+    ExplosionEffects = "hct_agm114_explosion";
     submunitionAmmo = "ammo_Penetrator_AGM_02";
   };
   hit = 400;
-  class VTX_Hellfire_AGM114N: ACE_Hellfire_AGM114N {
+  class HCT_Hellfire_AGM114N: ACE_Hellfire_AGM114N {
     displayName = "AGM-114N Hellfire";
     model = "z\vtx\addons\uh60_weapons\fza_agm114l.p3d";
     proxyShape = "z\vtx\addons\uh60_weapons\fza_agm114l.p3d";
@@ -90,11 +90,11 @@ class CfgAmmo {
     manualControl = 0;
   timeToLive = 40;
     effectsMissileInit = "RocketBackEffectsRPG";
-    effectsMissile = "vtx_agm114_trail";
+    effectsMissile = "hct_agm114_trail";
   };
 
   class M_PG_AT;
-  class VTX_APKWS: M_PG_AT
+  class HCT_APKWS: M_PG_AT
   {
   	displayName = "AGR-20 APKWS";
   	displayNameShort = "APKWS";
@@ -125,7 +125,7 @@ class CfgAmmo {
   	};
   };
   class B_30mm_HE;
-  class vtx_30mm_shells_hedp : B_30mm_HE
+  class hct_30mm_shells_hedp : B_30mm_HE
   {
    //Ace Cfg
         ACE_caliber = 30.00;

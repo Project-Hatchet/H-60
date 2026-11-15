@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_fms_fnc_hasWaypoint
+ * hct_h60_fms_fnc_hasWaypoint
  *
  * Check if a waypoint exists by its name
  *

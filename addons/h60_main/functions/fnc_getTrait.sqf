@@ -1,7 +1,7 @@
 #include "..\script_component.hpp"
 /*
  * Author: Snow
- * Reads a variant trait: the config property vtx_trait_<name> of a vehicle's
+ * Reads a variant trait: the config property hct_trait_<name> of a vehicle's
  * CfgVehicles class. Variant PBOs set traits; the common base declares the
  * defaults. Lets SQF ask "does this airframe have X" instead of listing
  * variant classnames, so variants can move or be added without touching code.
@@ -9,14 +9,14 @@
  *
  * Arguments:
  * 0: Vehicle or classname <OBJECT|STRING>
- * 1: Trait name, without the vtx_trait_ prefix <STRING>
+ * 1: Trait name, without the hct_trait_ prefix <STRING>
  * 2: Default when the class or property is missing <ANY> (default: 0)
  *
  * Return Value:
  * Number, text or array from config, else the default <ANY>
  *
  * Example:
- * [vehicle player, "irLaser"] call vtx_main_fnc_getTrait
+ * [vehicle player, "irLaser"] call hct_h60_main_fnc_getTrait
  *
  * Public: Yes
  */
@@ -30,7 +30,7 @@ if (isNil QGVAR(traitCache)) then { GVAR(traitCache) = createHashMap; };
 private _key = _type + ">" + _trait;
 private _value = GVAR(traitCache) get _key;
 if (isNil "_value") then {
-    private _cfg = configFile >> "CfgVehicles" >> _type >> ("vtx_trait_" + _trait);
+    private _cfg = configFile >> "CfgVehicles" >> _type >> ("hct_trait_" + _trait);
     _value = switch (true) do {
         case (isNumber _cfg): { getNumber _cfg };
         case (isText _cfg): { getText _cfg };

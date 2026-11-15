@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_anvishud_fnc_setup
+ * hct_h60_anvishud_fnc_setup
  *
  * initial setup of ANVIS/HUD-24T
  *
@@ -8,8 +8,8 @@
 
 params ["_vehicle"];
 
-_vehicle setUserMFDValue [15, vtx_uh60_anvishud_defaultMode];
+_vehicle setUserMFDValue [15, hct_h60_anvishud_defaultMode];
 
-[_vehicle] call vtx_uh60_anvishud_fnc_configureHMD;
+[_vehicle] call hct_h60_anvishud_fnc_configureHMD;
 
 true

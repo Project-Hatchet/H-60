@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * vtx_uh60_mfd_fnc_interaction_tac
+ * hct_h60_mfd_fnc_interaction_tac
  *
  * handles tac page interaction
  *
@@ -17,25 +17,24 @@ switch (_action) do {
         _vehicle setVariable ["MAP_ZoomMult", _newZoom, true];
         _vehicle animateSource ["MAP1_Scale", 1/_newZoom, 1];
         _vehicle setUserMFDValue [40, worldSize / _newZoom / 2];
-        //[_vehicle, 6, _newZoom] call vtx_uh60_mfd_fnc_setPylonValue;
+        //[_vehicle, 6, _newZoom] call hct_h60_mfd_fnc_setPylonValue;
         _vehicle setUserMFDValue [USERMFDV_TAC_ZOOM, _newZoom];
     };
     case "waypt": {
-        private _cursorPos = [] call vtx_uh60_mfd_fnc_tac_cursorToWorld;
+        private _cursorPos = [] call hct_h60_mfd_fnc_tac_cursorToWorld;
         [
-            format ["%1/%2", name player, vtx_uh60_mfd_marks],
+            format ["%1/%2", name player, hct_h60_mfd_marks],
             _cursorPos,
             ""
-        ] call vtx_uh60_fms_fnc_addWaypoint;
-        vtx_uh60_mfd_marks = vtx_uh60_mfd_marks + 1;
+        ] call hct_h60_fms_fnc_addWaypoint;
+        hct_h60_mfd_marks = hct_h60_mfd_marks + 1;
     };
     case "flir": {
-        private _cursorPos = [] call vtx_uh60_mfd_fnc_tac_cursorToWorld;
+        private _cursorPos = [] call hct_h60_mfd_fnc_tac_cursorToWorld;
         _vehicle setPilotCameraTarget _cursorPos;
-		// [true, _cursorPos] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", crew _vehicle];
-        [getPilotCameraDirection _vehicle, _cursorPos] call vtx_uh60_flir_fnc_syncPilotCamera;
+        [getPilotCameraDirection _vehicle, _cursorPos] call hct_h60_flir_fnc_syncPilotCamera;
     };
     case "centerMode": {
-        [_vehicle,USERMFDV_TAC_CENTER] call vtx_uh60_mfd_fnc_cycleUserMFDValue;
+        [_vehicle,USERMFDV_TAC_CENTER] call hct_h60_mfd_fnc_cycleUserMFDValue;
     };
 };

@@ -1,5 +1,18 @@
 #include "\z\ace\addons\main\script_macros.hpp"
 
+// Identifiers use PREFIX hct (hct_h60_<component>_...), but the files still ship
+// under the frozen $PBOPREFIX$ z\vtx\addons\<COMPONENT_PATH> (models bake those
+// paths in). CBA builds every PREP / COMPILE_FILE / QPATHTOF path from PREFIX and
+// COMPONENT, so the two path primitives are pointed at the real location; each
+// addon's script_component.hpp defines COMPONENT_PATH (its $PBOPREFIX$ leaf).
+// Only own-component paths are supported: PATHTOEF is removed so a use fails loudly.
+#undef PATHTO_SYS
+#define PATHTO_SYS(var1,var2,var3) \MAINPREFIX\vtx\SUBPREFIX\COMPONENT_PATH\var3.sqf
+#undef PATHTOF_SYS
+#define PATHTOF_SYS(var1,var2,var3) \MAINPREFIX\vtx\SUBPREFIX\COMPONENT_PATH\var3
+#undef PATHTOEF
+#undef QPATHTOEF
+
 #define ANIMSRC(name,src,per,init) \
 class name { \
   source=QUOTE(src); \
@@ -11,10 +24,10 @@ class name { \
 
 // The common base every H-60 variant derives from (owned by uh60_config).
 // Use these instead of the literal so the base name lives in one place.
-#define BASE_CLASS vtx_H60_base
-#define QBASE_CLASS "vtx_H60_base"
-// Variant trait lookup: config vtx_trait_<name> on the vehicle class, cached.
-#define GET_TRAIT(veh,name) ([veh, name] call vtx_main_fnc_getTrait)
+#define BASE_CLASS hct_H60_base
+#define QBASE_CLASS "hct_H60_base"
+// Variant trait lookup: config hct_trait_<name> on the vehicle class, cached.
+#define GET_TRAIT(veh,name) ([veh, name] call hct_h60_main_fnc_getTrait)
 #define HAS_TRAIT(veh,name) (GET_TRAIT(veh,name) isEqualTo 1)
 
 #define POS_MOVE_CABIN_COCKPIT {0.023875,4.2461,-0.577079}

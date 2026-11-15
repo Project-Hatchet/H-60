@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_doorguns_fnc_shutDown
+ * hct_h60_doorguns_fnc_shutDown
  *
  * Hatchet module hook: removes this vehicle's door-gun Fired handler.
  *
@@ -8,8 +8,8 @@
 
 params ["_vehicle"];
 
-private _firedEH = _vehicle getVariable ["vtx_uh60_doorguns_firedEH", -1];
+private _firedEH = _vehicle getVariable ["hct_h60_doorguns_firedEH", -1];
 if (_firedEH != -1) then {
     _vehicle removeEventHandler ["Fired", _firedEH];
-    _vehicle setVariable ["vtx_uh60_doorguns_firedEH", -1];
+    _vehicle setVariable ["hct_h60_doorguns_firedEH", -1];
 };

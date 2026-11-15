@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_Cas_fnc_perSecond
+ * hct_h60_Cas_fnc_perSecond
  *
  * handles occasional updates of the caution system
  *
@@ -7,6 +7,6 @@
  */
 params ["_vehicle"];
 
-[_vehicle] call vtx_uh60_cas_fnc_updateCautionPanel;
-[_vehicle] call vtx_uh60_cas_fnc_updateCautions;
-[_vehicle] call vtx_uh60_cas_fnc_updateAdvisories;
+[_vehicle] call hct_h60_cas_fnc_updateCautionPanel;
+[_vehicle] call hct_h60_cas_fnc_updateCautions;
+[_vehicle] call hct_h60_cas_fnc_updateAdvisories;

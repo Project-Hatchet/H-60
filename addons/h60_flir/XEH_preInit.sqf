@@ -4,10 +4,10 @@ ADDON = false;
 
 #include "XEH_PREP.hpp"
 #include "initSettings.inc.sqf"
-call vtx_uh60_flir_fnc_initVars;
+call hct_h60_flir_fnc_initVars;
 
-vtx_uh60_flir_aspectRatio = getResolution # 4;
-vtx_uh60_flir_pipEffectsHashMap = createHashMapFromArray [
+hct_h60_flir_aspectRatio = getResolution # 4;
+hct_h60_flir_pipEffectsHashMap = createHashMapFromArray [
   ["Normal", [0]],
   ["NVG", [1]],
   ["Ti", [2]],
@@ -20,7 +20,7 @@ vtx_uh60_flir_pipEffectsHashMap = createHashMapFromArray [
   [[8], 2] // thermalMode[] green-hot
 ];
 
-vtx_uh60_flir_visionModeNamesHashMap = createHashMapFromArray [
+hct_h60_flir_visionModeNamesHashMap = createHashMapFromArray [
   [[0], "DTV"],
   [[1], "NVG"],
   [[2], "WHOT"], // thermalMode[] white-hot
@@ -28,7 +28,7 @@ vtx_uh60_flir_visionModeNamesHashMap = createHashMapFromArray [
   [[8], "GHOT"] // thermalMode[] green-hot
 ];
 
-vtx_uh60_flir_visionModesHashMap = createHashMapFromArray [
+hct_h60_flir_visionModesHashMap = createHashMapFromArray [
   [[0, -1], [0]],
   [[1, -1], [1]],
   [[2, 0], [2]], // thermalMode[] white-hot

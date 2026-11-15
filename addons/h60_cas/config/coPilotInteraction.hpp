@@ -5,7 +5,7 @@ class cas_panel {
         label="Master Caution";
         radius=0.1;
         clickSound="hct_Switch_Sound";
-        buttonUp="_this call vtx_uh60_cas_fnc_clearCautionsList";
+        buttonUp="_this call hct_h60_cas_fnc_clearCautionsList";
     };
 };
 
@@ -23,7 +23,7 @@ class landinglight {
         dragStart="";
         dragging="";
         dragStop="";
-        buttonUp="[_this # 0, ""landing""] call vtx_uh60_misc_fnc_toggleLights;";
+        buttonUp="[_this # 0, ""landing""] call hct_h60_misc_fnc_toggleLights;";
     }; // landinglight_elev
 };
 class searchlight {
@@ -42,6 +42,6 @@ class searchlight {
         dragStart="";
         dragging="";
         dragStop="";
-        buttonUp="[_this # 0, ""search""] call vtx_uh60_misc_fnc_toggleLights;";
+        buttonUp="[_this # 0, ""search""] call hct_h60_misc_fnc_toggleLights;";
     }; // searchlight
 };

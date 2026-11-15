@@ -11,12 +11,12 @@
  * None
  *
  * Example:
- * [_vehicle] call vtx_uh60_weapons_fnc_ehNextWeapon
+ * [_vehicle] call hct_h60_weapons_fnc_ehNextWeapon
  */
 
 params ["_vehicle"];
 
-vtx_uh60_weapons_isKeyUp = !_isKeyDown;
+hct_h60_weapons_isKeyUp = !_isKeyDown;
 
 private _currentWeapon = currentWeapon _vehicle;
 

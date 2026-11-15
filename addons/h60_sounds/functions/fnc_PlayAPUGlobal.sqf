@@ -1,5 +1,6 @@
+#include "..\script_component.hpp"
 /*
- * vtx_uh60_Sound_fnc_PlayAPUGlobal
+ * hct_h60_sounds_fnc_PlayAPUGlobal
  *
  * APU sound, following HeliSim's APU RPM
  *
@@ -16,7 +17,7 @@ params ["_vehicle", "_on"];
 
     if (_on && {!(_this # 2)} && {_apuRPM_pct > 0.05}) then {
         _this set [2, true];
-        [_vehicle, "APU", 8] call vtx_uh60_Sound_fnc_EngineEH;
+        [_vehicle, "APU", 8] call hct_h60_sounds_fnc_EngineEH;
     };
 
     !(alive _vehicle)

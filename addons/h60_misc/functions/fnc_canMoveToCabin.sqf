@@ -10,7 +10,7 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [hct_vehicle] call vtx_uh60_misc_fnc_canMoveToCabin
+ * [hct_vehicle] call hct_h60_misc_fnc_canMoveToCabin
  */
 
 params ["_vehicle"];

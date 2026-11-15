@@ -3,7 +3,7 @@
   class CLASS { \
     displayName = NAME; \
     condition = QUOTE([ARR_2(_player,QUOTE(QUOTE(CLASS)))] call ace_common_fnc_hasItem); \
-    statement = STRINGIFY(createDialog ""vtx_uh60_jvmf_inboxDialog"";); \
+    statement = STRINGIFY(createDialog ""hct_h60_jvmf_inboxDialog"";); \
     priority = 2.6; \
     showDisabled = 1; \
     exceptions[] = {"isNotInside","isNotSitting"}; \

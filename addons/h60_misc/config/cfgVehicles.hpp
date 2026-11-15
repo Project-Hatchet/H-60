@@ -10,7 +10,7 @@ class cfgVehicles {
         };
         //class ACE_Actions;
     };
-    class vtx_H60_base: Heli_Transport_01_base_F {
+    class hct_H60_base: Heli_Transport_01_base_F {
         //class ACE_Actions: ACE_Actions {
         //    class ACE_MainActions;
         //};
@@ -26,8 +26,8 @@ class cfgVehicles {
 				hideOnUse = 1;
 				onlyForPlayer = 0;
 				shortcut = "";
-				condition = "player == driver this && vtx_uh60m_simpleStartup"; // Only show if the unit is alive and is not a player
-				statement = "[this] spawn vtx_uh60_misc_fnc_quickstart";
+				condition = "player == driver this && hct_h60_simpleStartup"; // Only show if the unit is alive and is not a player
+				statement = "[this] spawn hct_h60_misc_fnc_quickstart";
 			};
         };
         class hct_cargo: hct_cargo {
@@ -71,15 +71,15 @@ class cfgVehicles {
                 }; // hct_friesNotDeployed
             }; // interaction
         }; // hct_cargo
-    }; // vtx_H60_base
+    }; // hct_H60_base
 
     class Land_MobileScafolding_01_F;
-    class vtx_serviceplatform: Land_MobileScafolding_01_F {
+    class hct_serviceplatform: Land_MobileScafolding_01_F {
         author = "Project Hatchet Studios";
         displayName = "Blackhawk Service Platform";
         model = "\z\vtx\addons\uh60_misc\data\serviceplatform\Yax_service_test.p3d";
     };
-    class vtx_erfs: vtx_serviceplatform {
+    class hct_erfs: hct_serviceplatform {
         displayName = "Blackhawk ERFS Tank";
         model = "\A3\Supplies_F_Heli\CargoNets\CargoNet_01_box_F.p3d"; // Placeholder model
         ace_cargo_canLoad = 1;
@@ -88,7 +88,7 @@ class cfgVehicles {
         ace_cargo_noRename = 1;
         ace_dragging_carryDirection = -90;
     };
-    class vtx_fuelProbe: vtx_serviceplatform {
+    class hct_fuelProbe: hct_serviceplatform {
         displayName = "Blackhawk Fuel Probe";
         model = "\z\vtx\addons\uh60_misc\data\partialModels\refuelingProbe.p3d";
         ace_cargo_canLoad = 1;
@@ -97,7 +97,7 @@ class cfgVehicles {
         ace_cargo_noRename = 1;
         ace_dragging_carryDirection = -90;
     };
-    class vtx_hoist: vtx_serviceplatform {
+    class hct_hoist: hct_serviceplatform {
         displayName = "Blackhawk Hoist";
         model = "\z\vtx\addons\uh60_misc\data\partialModels\hoist.p3d";
         ace_cargo_canLoad = 1;
@@ -106,7 +106,7 @@ class cfgVehicles {
         ace_cargo_noRename = 1;
         ace_dragging_carryDirection = -90;
     };
-    class vtx_cockpitdoors: vtx_serviceplatform {
+    class hct_cockpitdoors: hct_serviceplatform {
         displayName = "Blackhawk Cockpit Doors";
         model = "\z\vtx\addons\uh60_misc\data\partialModels\cockpitDoors.p3d";
         ace_cargo_canLoad = 1;

@@ -6,38 +6,38 @@
 // the config is read (load-order experiment, 2026-09-05). Adds nothing at runtime.
 
 // screen templates (owned by uh60_mfd / uh60_fms / uh60_anvishud)
-class VTX_MFD_1;
-class VTX_MFD_1_NOFLIR;
-class VTX_MFD_1_CMWS;
-class VTX_MFD_1_Monospace;
-class VTX_MFD_1_Bold;
-class VTX_MFD_2;
-class VTX_MFD_2_NOFLIR;
-class VTX_MFD_2_CMWS;
-class VTX_MFD_2_Monospace;
-class VTX_MFD_2_Bold;
-class VTX_MFD_3;
-class VTX_MFD_3_NOFLIR;
-class VTX_MFD_3_CMWS;
-class VTX_MFD_3_Monospace;
-class VTX_MFD_3_Bold;
-class VTX_MFD_4;
-class VTX_MFD_4_NOFLIR;
-class VTX_MFD_4_CMWS;
-class VTX_MFD_4_Monospace;
-class VTX_MFD_4_Bold;
+class HCT_MFD_1;
+class HCT_MFD_1_NOFLIR;
+class HCT_MFD_1_CMWS;
+class HCT_MFD_1_Monospace;
+class HCT_MFD_1_Bold;
+class HCT_MFD_2;
+class HCT_MFD_2_NOFLIR;
+class HCT_MFD_2_CMWS;
+class HCT_MFD_2_Monospace;
+class HCT_MFD_2_Bold;
+class HCT_MFD_3;
+class HCT_MFD_3_NOFLIR;
+class HCT_MFD_3_CMWS;
+class HCT_MFD_3_Monospace;
+class HCT_MFD_3_Bold;
+class HCT_MFD_4;
+class HCT_MFD_4_NOFLIR;
+class HCT_MFD_4_CMWS;
+class HCT_MFD_4_Monospace;
+class HCT_MFD_4_Bold;
 class NVGHUD;
 class NVGHUD_COPILOT;
-class VTX_FMS_L;
-class VTX_FMS_R;
-class VTX_ESIS_BOOT;
+class HCT_FMS_L;
+class HCT_FMS_R;
+class HCT_ESIS_BOOT;
 
 // pedestal screens (owned by uh60_config/config/MFD/MFDConfig.hpp)
-class VTX_CLOCK;
-class VTX_ESIS_Horizon;
-class VTX_ESIS_Misc;
-class VTX_FDRight;
-class VTX_FDLeft;
+class HCT_CLOCK;
+class HCT_ESIS_Horizon;
+class HCT_ESIS_Misc;
+class HCT_FDRight;
+class HCT_FDLeft;
 
 // vanilla externs referenced by the shared turret/component includes
 class VehicleSystemsTemplateLeftPilot;

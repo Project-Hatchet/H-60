@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_uh60_helisim_fnc_updateCockpit
+Function: hct_h60_helisim_fnc_updateCockpit
 
 Description:
     MFD engine values, flight director knobs, door sound controllers and ESIS countdown, for
@@ -67,34 +67,34 @@ if (local _heli) then {
 
 //Door sound controllers, as the engine comes on
 private _engineOn = isEngineOn _heli;
-if (_engineOn && {!(_heli getVariable ["vtx_uh60_helisim_engineWasOn", false])}) then {
+if (_engineOn && {!(_heli getVariable ["hct_h60_helisim_engineWasOn", false])}) then {
     setCustomSoundController [_heli, "CustomSoundController9", ((1 - (_heli animationPhase "cabindoor_L")) / 2) + ((1 - (_heli animationPhase "cabindoor_R")) / 2)];
     setCustomSoundController [_heli, "CustomSoundController8", [((_heli animationSourcePhase "Door_RF") + (_heli animationSourcePhase "Door_LF")) / 2, 1] select ((_heli animationSourcePhase "Cockpitdoors_Hide") > 0)];
 };
-_heli setVariable ["vtx_uh60_helisim_engineWasOn", _engineOn];
+_heli setVariable ["hct_h60_helisim_engineWasOn", _engineOn];
 
 //Flight director - Core's targets are m, m/s and deg; the panel is ft, kt and deg
 //(unit map built once in XEH_preInit)
-private _fdTgt   = { round ((_heli getVariable ["bmkhs_fdTgt_" + _this, 0]) * (vtx_uh60_helisim_fdUnits get _this)) };
+private _fdTgt   = { round ((_heli getVariable ["bmkhs_fdTgt_" + _this, 0]) * (hct_h60_helisim_fdUnits get _this)) };
 //The panel knobs follow the targets
 {
     _y params ["_source", "_perPhase", "_range", "", "_step"];
     private _tgt  = _x call _fdTgt;
     private _diff = ((_heli animationSourcePhase _source) * _perPhase) - _tgt;
     if (_x == "hdg") then { _diff = [_diff] call CBA_fnc_simplifyAngle180 };
-    private _dragged = time < (_heli getVariable ["vtx_uh60_helisim_fdKnobAt_" + _x, -1]) + 1;
+    private _dragged = time < (_heli getVariable ["hct_h60_helisim_fdKnobAt_" + _x, -1]) + 1;
     if (!_dragged && {abs _diff > (_step * 0.5) + 0.001}) then { _heli animateSource [_source, _tgt / _perPhase, true] };
-} forEach vtx_uh60_helisim_fdKnobs;
+} forEach hct_h60_helisim_fdKnobs;
 //The FD panel readouts and the PFD / ND bugs: RALT, ALTP, ALT, IAS, HDG
 { _heli setUserMFDValue [_x select 0, (_x select 1) call _fdTgt] } forEach
     [[12, "ralt"], [13, "altp"], [14, "alt"], [41, "ias"], [42, "hdg"]];
 
-if (time < (_heli getVariable ["vtx_uh60_helisim_cockpitSecond", -1]) + 1) exitWith {};
-_heli setVariable ["vtx_uh60_helisim_cockpitSecond", time];
+if (time < (_heli getVariable ["hct_h60_helisim_cockpitSecond", -1]) + 1) exitWith {};
+_heli setVariable ["hct_h60_helisim_cockpitSecond", time];
 
 //Wind speed, from HeliSim, kt - the PFD / ND readout (its user text 9)
 if (local _heli) then {
-    [_heli, 9, str round ((_heli getVariable ["bmkhs_windSpeed", 0]) * MPS_TO_KNOTS)] call vtx_uh60_mfd_fnc_setUserText;
+    [_heli, 9, str round ((_heli getVariable ["bmkhs_windSpeed", 0]) * MPS_TO_KNOTS)] call hct_h60_mfd_fnc_setUserText;
 };
 
 //ESIS boot countdown.

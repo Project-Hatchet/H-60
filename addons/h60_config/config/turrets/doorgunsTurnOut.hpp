@@ -35,9 +35,9 @@ class MainTurret: MainTurret { //Left Doorgun
     // cabin audio while turned in, raw slipstream when turned out. =0 gives
     // that switching natively; =2 kills attenuation in BOTH states (tested -
     // it is not a turn-out-only switch, despite what the wiki implies)
-    soundAttenuationTurret = "VTX_H60_CabinAttenuation";
+    soundAttenuationTurret = "HCT_H60_CabinAttenuation";
     disableSoundAttenuation = 0;
-    gunnerType = "vtx_uh60_doorgunner";
+    gunnerType = "hct_h60_doorgunner";
     gunnerLeftHandAnimName = "";
     gunnerRightHandAnimName = "";
     gunnerLeftLegAnimName = "";
@@ -52,11 +52,11 @@ class MainTurret: MainTurret { //Left Doorgun
     hasGunner = 1;
     weapons[]=
     {
-        "vtx_wpn_m134"
+        "hct_wpn_m134"
     };
     magazines[]=
     {
-        "vtx_2000Rnd_65x39_Belt_Tracer_Red"
+        "hct_2000Rnd_65x39_Belt_Tracer_Red"
     };
     minOutElev=0; maxOutElev=0; initOutElev=0;
     minOutTurn=0; maxOutTurn=0; initOutTurn=0;
@@ -110,7 +110,7 @@ class RightDoorGun: MainTurret {
   	class TurnOut : TurnIn {};
     weapons[]=
     {
-        "vtx_wpn_m134_2nd"
+        "hct_wpn_m134_2nd"
     };
 };
 

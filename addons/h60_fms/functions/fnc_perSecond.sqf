@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_fms_fnc_perSecond
+ * hct_h60_fms_fnc_perSecond
  *
  * handles occasional updates of data for FMS
  *
@@ -41,7 +41,7 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
     };
     case FMS_PAGE_NAV_WAYPOINT: {
         private _waypoints = waypoints group player;
-        private _waypointIndex = missionNamespace getVariable ["vtx_uh60_fms_wpSelection", currentWaypoint group player];
+        private _waypointIndex = missionNamespace getVariable ["hct_h60_fms_wpSelection", currentWaypoint group player];
         if (_waypointIndex == -1 || {_waypointIndex >= count _waypoints}) then {
           ["", format["%1/%2", 0, count _waypoints], "", "",""]
         } else {
@@ -54,7 +54,7 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
         }
     };
     case FMS_PAGE_NAV_IMPORT: {
-        private _autoCycle = _vehicle getVariable ["vtx_uh60_fms_import_autoCycle", false];
+        private _autoCycle = _vehicle getVariable ["hct_h60_fms_import_autoCycle", false];
         [(if(_autoCycle)then[{"ON"},{"OFF"}]), "", "", "",""]
     };
     case FMS_PAGE_NAV_LOCATIONS_LIST: {
@@ -92,11 +92,11 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
     };
     case FMS_PAGE_COMM_ACRE: {
         private _strings = ["", "", "", "", ""];
-        private _status = missionNamespace getVariable (format ["vtx_uh60_radio_%1", fms_radio_index]);
+        private _status = missionNamespace getVariable (format ["hct_h60_radio_%1", fms_radio_index]);
         private _racks = [_vehicle] call acre_api_fnc_getVehicleRacks;
         _racks resize 4;
         {
-            private _status = _vehicle getVariable [(format ["vtx_uh60_radio_%1", _forEachIndex]), 0];
+            private _status = _vehicle getVariable [(format ["hct_h60_radio_%1", _forEachIndex]), 0];
             if (_status == 0) then {
                 _strings set [_forEachIndex, "--.---MHz     STBY"]
             } else {
@@ -112,7 +112,7 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
     };
     case FMS_PAGE_COMM_INFO_ACRE: {
         private _strings = ["", "", "", "", ""];
-        private _status = _vehicle getVariable [(format ["vtx_uh60_radio_%1", fms_radio_index]), 0];
+        private _status = _vehicle getVariable [(format ["hct_h60_radio_%1", fms_radio_index]), 0];
         if (_status == 0) then {
             _strings = [format ["COM %1 SETTINGS", fms_radio_index + 1], "STBY", "---", "CENTER", "---.---"]
         } else {
@@ -157,5 +157,5 @@ private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
 fms_locations_page_open = (((getUserMFDValue _vehicle) # _fms) == FMS_PAGE_NAV_LOCATIONS_LIST);
 
 { // forEach [20, 21, 22, 23,24];
-    [_vehicle, _x, _strings # _forEachIndex] call vtx_uh60_mfd_fnc_setUserText
+    [_vehicle, _x, _strings # _forEachIndex] call hct_h60_mfd_fnc_setUserText
 } forEach [20, 21, 22, 23,24];

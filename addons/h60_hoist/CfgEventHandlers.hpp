@@ -17,7 +17,7 @@ class Extended_PostInit_EventHandlers {
 };
 
 class Extended_GetIn_EventHandlers {
-    class vtx_hook {
+    class hct_hook {
         class ADDON {
             getIn = QUOTE(_this call FUNC(handleGetIn));
         };

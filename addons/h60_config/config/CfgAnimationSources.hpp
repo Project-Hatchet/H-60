@@ -1,5 +1,5 @@
-// vtx_H60_base AnimationSources — merged single owner (Phase 1 PR C).
-// Body order preserves the former two-unit merge: vtx_UH60's sources first
+// hct_H60_base AnimationSources — merged single owner (Phase 1 PR C).
+// Body order preserves the former two-unit merge: hct_UH60's sources first
 // (in their original order, each carrying the properties this addon used to
 // add via its delta re-open: MASS_* weight logic, forceAnimate wiring,
 // onPhaseChanged handlers), then the sources the delta added (pylons, EGMS,
@@ -584,19 +584,19 @@ class AnimationSources {
   };
   class Gatling_1 {
     source="revolving";
-    weapon="vtx_wpn_m134";
+    weapon="hct_wpn_m134";
   };
   class Gatling_2 {
     source="revolving";
-    weapon="vtx_wpn_m134_2nd";
+    weapon="hct_wpn_m134_2nd";
   };
   class Muzzle_Flash_M134_L {
     source="ammoRandom";
-    weapon="vtx_wpn_m134";
+    weapon="hct_wpn_m134";
   };
   class Muzzle_Flash_M134_R {
     source="ammoRandom";
-    weapon="vtx_wpn_m134_2nd";
+    weapon="hct_wpn_m134_2nd";
   };
 
   class searchlight_turn {

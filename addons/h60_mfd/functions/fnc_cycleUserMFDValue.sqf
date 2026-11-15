@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_mfd_fnc_cycleUserMFDValue
+ * hct_h60_mfd_fnc_cycleUserMFDValue
  */
 
 params ["_vehicle", "_index"];
@@ -12,4 +12,4 @@ if (_cur == 0) then {
 	_target = 1;
 };
 
-[_vehicle, _index, _target] call vtx_uh60_mfd_fnc_setPylonValue;
+[_vehicle, _index, _target] call hct_h60_mfd_fnc_setPylonValue;

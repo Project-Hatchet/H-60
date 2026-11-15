@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_mfd_fnc_ccfs_play
+ * hct_h60_mfd_fnc_ccfs_play
  *
  * CCFS: toggles PLAYING / PAUSED.
  *
@@ -7,9 +7,9 @@
  */
 
 params ["_vehicle"];
-if (vtx_uh60_ccfs_gameState =="PAUSED") exitWith {
-	["PLAYING"] call vtx_uh60_mfd_fnc_ccfs_changeGameState;
+if (hct_h60_ccfs_gameState =="PAUSED") exitWith {
+	["PLAYING"] call hct_h60_mfd_fnc_ccfs_changeGameState;
 };
-if (vtx_uh60_ccfs_gameState =="PLAYING") exitWith {
-	["PAUSED"] call vtx_uh60_mfd_fnc_ccfs_changeGameState;
+if (hct_h60_ccfs_gameState =="PLAYING") exitWith {
+	["PAUSED"] call hct_h60_mfd_fnc_ccfs_changeGameState;
 };

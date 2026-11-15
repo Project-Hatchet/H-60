@@ -11,7 +11,7 @@
  * Unit can configure the vehicle's viv cargo <BOOL>
  *
  * Example:
- * [ace_player, cursorObject] call vtx_ace_viv_fnc_canConfigureCargo
+ * [ace_player, cursorObject] call hct_h60_ace_viv_fnc_canConfigureCargo
  *
  * Public: No
  */

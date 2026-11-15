@@ -1,4 +1,4 @@
-// vtx_HH60 — the Air Force HH-60G-dressed airframe (long-term identity:
+// hct_HH60 — the Air Force HH-60G-dressed airframe (long-term identity:
 // HH-60W). Sole full declaration (Phase 1 PR B): merged from UH60's identity
 // half and uh60_config's systems half, 2026-09-05. Member order preserved from
 // the pre-merge engine result (config-dump proven). The cabin seats are the
@@ -8,32 +8,32 @@
 
 // screen templates (owned by uh60_mfd / uh60_fms / uh60_anvishud; resolve by
 // name at config read time)
-class VTX_MFD_1;
-class VTX_MFD_1_CMWS;
-class VTX_MFD_1_Monospace;
-class VTX_MFD_1_Bold;
-class VTX_MFD_2;
-class VTX_MFD_2_CMWS;
-class VTX_MFD_2_Monospace;
-class VTX_MFD_2_Bold;
-class VTX_MFD_3;
-class VTX_MFD_3_CMWS;
-class VTX_MFD_3_Monospace;
-class VTX_MFD_3_Bold;
-class VTX_MFD_4;
-class VTX_MFD_4_CMWS;
-class VTX_MFD_4_Monospace;
-class VTX_MFD_4_Bold;
+class HCT_MFD_1;
+class HCT_MFD_1_CMWS;
+class HCT_MFD_1_Monospace;
+class HCT_MFD_1_Bold;
+class HCT_MFD_2;
+class HCT_MFD_2_CMWS;
+class HCT_MFD_2_Monospace;
+class HCT_MFD_2_Bold;
+class HCT_MFD_3;
+class HCT_MFD_3_CMWS;
+class HCT_MFD_3_Monospace;
+class HCT_MFD_3_Bold;
+class HCT_MFD_4;
+class HCT_MFD_4_CMWS;
+class HCT_MFD_4_Monospace;
+class HCT_MFD_4_Bold;
 class NVGHUD;
 class NVGHUD_COPILOT;
-class VTX_CLOCK;
-class VTX_ESIS_Horizon;
-class VTX_ESIS_Misc;
-class VTX_FDRight;
-class VTX_FDLeft;
-class VTX_FMS_L;
-class VTX_FMS_R;
-class VTX_ESIS_BOOT;
+class HCT_CLOCK;
+class HCT_ESIS_Horizon;
+class HCT_ESIS_Misc;
+class HCT_FDRight;
+class HCT_FDLeft;
+class HCT_FMS_L;
+class HCT_FMS_R;
+class HCT_ESIS_BOOT;
 // vanilla externs referenced by the shared turret includes
 class SensorTemplatePassiveRadar;
 class SensorTemplateLaser;
@@ -50,8 +50,8 @@ class CfgVehicles {
 
   // content-free re-open: forward declarations only, so the merged variant
   // below resolves its parents at rapify time (owned by UH60/uh60_config)
-  class vtx_H60_base: Heli_Transport_01_base_F {
-    class vtx_templateFLIR;
+  class hct_H60_base: Heli_Transport_01_base_F {
+    class hct_templateFLIR;
     class MFD;
     class BMKHS_HeliSim {
       class Seats;
@@ -79,11 +79,11 @@ class CfgVehicles {
     };
   };
 
-  class vtx_HH60: vtx_H60_base {
+  class hct_HH60: hct_H60_base {
     scope = 2;
     forceInGarage = 1;
     editorPreview = "z\vtx\addons\hh60\data\preview\vtx_HH60.jpg";
-    displayName = "$STR_VTX_UH60_HHGMPavehawk";
+    displayName = "$STR_hct_h60_HHGMPavehawk";
     memoryPointDriverOptics = "pilotcamera_flir_pos";
 
     hiddenSelectionsTextures[] = {
@@ -101,7 +101,7 @@ class CfgVehicles {
     };
     memoryPointCM[] = {"flare_launcher1","flare_launcher2","flare_launcher_3","flare_launcher_4"};
     memoryPointCMDir[] = {"flare_launcher1_dir","flare_launcher2_dir","flare_launcher_3_dir","flare_launcher_4_dir"};
-    class pilotCamera: vtx_templateFLIR {};
+    class pilotCamera: hct_templateFLIR {};
     weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
     magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
     driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
@@ -145,34 +145,34 @@ class CfgVehicles {
     }; // AnimationSources
     #include "\z\vtx\addons\uh60_config\config\vehicleTransport.hpp"
     class MFD: MFD {
-      class VTX_MFD_1 :           VTX_MFD_1 {};
-      class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};
-      class VTX_MFD_1_Monospace : VTX_MFD_1_Monospace {};
-      class VTX_MFD_1_Bold :      VTX_MFD_1_Bold {};
-      class VTX_MFD_2 :           VTX_MFD_2 {};
-      class VTX_MFD_2_CMWS :      VTX_MFD_2_CMWS {};
-      class VTX_MFD_2_Monospace : VTX_MFD_2_Monospace {};
-      class VTX_MFD_2_Bold :      VTX_MFD_2_Bold {};
-      class VTX_MFD_3 :           VTX_MFD_3 {};
-      class VTX_MFD_3_CMWS :      VTX_MFD_3_CMWS {};
-      class VTX_MFD_3_Monospace : VTX_MFD_3_Monospace {};
-      class VTX_MFD_3_Bold :      VTX_MFD_3_Bold {};
-      class VTX_MFD_4 :           VTX_MFD_4 {};
-      class VTX_MFD_4_CMWS :      VTX_MFD_4_CMWS {};
-      class VTX_MFD_4_Monospace : VTX_MFD_4_Monospace {};
-      class VTX_MFD_4_Bold :      VTX_MFD_4_Bold {};
+      class HCT_MFD_1 :           HCT_MFD_1 {};
+      class HCT_MFD_1_CMWS :      HCT_MFD_1_CMWS {};
+      class HCT_MFD_1_Monospace : HCT_MFD_1_Monospace {};
+      class HCT_MFD_1_Bold :      HCT_MFD_1_Bold {};
+      class HCT_MFD_2 :           HCT_MFD_2 {};
+      class HCT_MFD_2_CMWS :      HCT_MFD_2_CMWS {};
+      class HCT_MFD_2_Monospace : HCT_MFD_2_Monospace {};
+      class HCT_MFD_2_Bold :      HCT_MFD_2_Bold {};
+      class HCT_MFD_3 :           HCT_MFD_3 {};
+      class HCT_MFD_3_CMWS :      HCT_MFD_3_CMWS {};
+      class HCT_MFD_3_Monospace : HCT_MFD_3_Monospace {};
+      class HCT_MFD_3_Bold :      HCT_MFD_3_Bold {};
+      class HCT_MFD_4 :           HCT_MFD_4 {};
+      class HCT_MFD_4_CMWS :      HCT_MFD_4_CMWS {};
+      class HCT_MFD_4_Monospace : HCT_MFD_4_Monospace {};
+      class HCT_MFD_4_Bold :      HCT_MFD_4_Bold {};
       class NVGHUD: NVGHUD {};
-      class VTX_CLOCK: VTX_CLOCK {};
-      class VTX_ESIS_Horizon: VTX_ESIS_Horizon {};
-      class VTX_ESIS_Misc: VTX_ESIS_Misc {};
-      class VTX_FDRight: VTX_FDRight {};
-      class VTX_FDLeft: VTX_FDLeft {};
-      class VTX_FMS_L: VTX_FMS_L {};
-      class VTX_FMS_R: VTX_FMS_R {};
-      class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
+      class HCT_CLOCK: HCT_CLOCK {};
+      class HCT_ESIS_Horizon: HCT_ESIS_Horizon {};
+      class HCT_ESIS_Misc: HCT_ESIS_Misc {};
+      class HCT_FDRight: HCT_FDRight {};
+      class HCT_FDLeft: HCT_FDLeft {};
+      class HCT_FMS_L: HCT_FMS_L {};
+      class HCT_FMS_R: HCT_FMS_R {};
+      class HCT_ESIS_BOOT: HCT_ESIS_BOOT {};
     };
     // HeliSim seats (SEATS_* in uh60_helisim bmkhs_config/helisim_seats.hpp)
     class BMKHS_HeliSim: BMKHS_HeliSim { SEATS_MH60M };
-  }; // vtx_HH60
+  }; // hct_HH60
 
 }; // CfgVehicles

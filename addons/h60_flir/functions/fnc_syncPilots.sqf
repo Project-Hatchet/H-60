@@ -11,7 +11,7 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_vehicle] call vtx_uh60_flir_fnc_syncPilots
+ * [_vehicle] call hct_h60_flir_fnc_syncPilots
  */
 
 params [["_vehicle", hct_vehicle], ["_sync", true]];
@@ -22,30 +22,30 @@ _copilot = _vehicle turretUnit [0];
 // only run for player pilot and copilot
 private _isNotInCockpit = switch (player) do {
     case _pilot: {
-        vtx_uh60_flir_playerIsPilot = true;
-        vtx_uh60_flir_playerIsCopilot = false;
-        vtx_uh60_flir_otherPilotIsPlayer = isPlayer _copilot;
-        vtx_uh60_flir_otherPilot = _copilot;
+        hct_h60_flir_playerIsPilot = true;
+        hct_h60_flir_playerIsCopilot = false;
+        hct_h60_flir_otherPilotIsPlayer = isPlayer _copilot;
+        hct_h60_flir_otherPilot = _copilot;
         false
     };
     case _copilot: {
-        vtx_uh60_flir_playerIsPilot = false;
-        vtx_uh60_flir_playerIsCopilot = true;
-        vtx_uh60_flir_otherPilotIsPlayer = isPlayer _pilot;
-        vtx_uh60_flir_otherPilot = _pilot;
+        hct_h60_flir_playerIsPilot = false;
+        hct_h60_flir_playerIsCopilot = true;
+        hct_h60_flir_otherPilotIsPlayer = isPlayer _pilot;
+        hct_h60_flir_otherPilot = _pilot;
         false
     };
     default {
-        vtx_uh60_flir_playerIsPilot = false;
-        vtx_uh60_flir_playerIsCopilot = false;
-        vtx_uh60_flir_otherPilot = objNull;
-        vtx_uh60_flir_otherPilotIsPlayer = false;
+        hct_h60_flir_playerIsPilot = false;
+        hct_h60_flir_playerIsCopilot = false;
+        hct_h60_flir_otherPilot = objNull;
+        hct_h60_flir_otherPilotIsPlayer = false;
         true
     };
 };
 
-if (vtx_uh60_flir_otherPilotIsPlayer && {_sync}) then {
-  ["vtx_uh60_flir_syncPilots", [_vehicle], [vtx_uh60_flir_otherPilot]] call CBA_fnc_targetEvent;
+if (hct_h60_flir_otherPilotIsPlayer && {_sync}) then {
+  ["hct_h60_flir_syncPilots", [_vehicle], [hct_h60_flir_otherPilot]] call CBA_fnc_targetEvent;
 };
 
 _isNotInCockpit

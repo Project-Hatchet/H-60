@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_weapons_fnc_isLOBL
+ * hct_h60_weapons_fnc_isLOBL
  */
 
 params ["_vehicle"];
@@ -7,8 +7,8 @@ params ["_vehicle"];
 private _origin = _vehicle selectionPosition "pilotcamera_flir_pos";
 private _direction = getPilotCameraDirection _vehicle;
 if (!((getPilotCameraTarget _vehicle) # 0)) exitWith {[false, ((getPilotCameraTarget _vehicle) # 1)]};
-private _laserCode = [_vehicle, "PRI CHAN"] call vtx_uh60_weapons_fnc_getLaserCode;
-private _fov = vtx_uh60_flir_FOV;
+private _laserCode = [_vehicle, "PRI CHAN"] call hct_h60_weapons_fnc_getLaserCode;
+private _fov = hct_h60_flir_FOV;
 private _laserResult = [
 	_vehicle modelToWorldVisualWorld _origin,
 	_vehicle vectorModelToWorldVisual _direction,

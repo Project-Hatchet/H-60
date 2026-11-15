@@ -9,14 +9,14 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_heli] call vtx_uh60_hoist_fnc_resetHook
+ * [_heli] call hct_h60_hoist_fnc_resetHook
  */
 
 params ["_heli"];
-if !(local _heli) exitWith {[_heli] remoteExecCall ["vtx_uh60_hoist_fnc_resetHook", _heli]};
+if !(local _heli) exitWith {[_heli] remoteExecCall ["hct_h60_hoist_fnc_resetHook", _heli]};
 
 _heli animateSource ["hoist_hook_hide", 0];
-(_heli getVariable ["vtx_uh60_hoist_vars", []]) params [
+(_heli getVariable ["hct_h60_hoist_vars", []]) params [
   ["_rope", objNull], ["_dummy", objNull], ["_hook", objNull]
 ];
 
@@ -26,13 +26,13 @@ if (!isNull _hook) then {
   {moveOut _x} count crew _hook;
   deleteVehicle _hook;
 };
-_heli setVariable ["vtx_uh60_hoist_vars", [], true];
+_heli setVariable ["hct_h60_hoist_vars", [], true];
 
 // the deploy's RopeBreak handler (deployHook) goes with the rope
-private _ropeBreakEH = _heli getVariable ["vtx_uh60_hoist_ropeBreakEH", -1];
+private _ropeBreakEH = _heli getVariable ["hct_h60_hoist_ropeBreakEH", -1];
 if (_ropeBreakEH != -1) then {
   _heli removeEventHandler ["RopeBreak", _ropeBreakEH];
-  _heli setVariable ["vtx_uh60_hoist_ropeBreakEH", -1];
+  _heli setVariable ["hct_h60_hoist_ropeBreakEH", -1];
 };
 
 true

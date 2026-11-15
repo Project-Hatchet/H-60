@@ -16,7 +16,7 @@ class CfgVehicles {
         class MFD;
         class UserActions;
     }; // Heli_Transport_01_base_F
-    class vtx_H60_base: Heli_Transport_01_base_F {
+    class hct_H60_base: Heli_Transport_01_base_F {
         class UserActions: UserActions {
             class OpenIVHMS
 			{
@@ -30,7 +30,7 @@ class CfgVehicles {
 				onlyForPlayer = 0;
 				shortcut = "";
 				condition = "player == driver this"; // Only show if the unit is alive and is not a player
-				statement = "[this] call vtx_uh60_mfd_fnc_ivhms";
+				statement = "[this] call hct_h60_mfd_fnc_ivhms";
 			};
         };
         class hct_driver: hct_driver {
@@ -270,7 +270,7 @@ class CfgVehicles {
             }; // interaction
         }; // hct_copilot
         // class MFD {}; // MFD
-    }; // vtx_H60_base
+    }; // hct_H60_base
 }; // CfgVehicles
 
 
@@ -278,7 +278,7 @@ class CfgVehicles {
 #define MFD_PAGE_INDEX MFD_1_PAGE_INDEX
 #undef SHOW_CCFS
 #define SHOW_CCFS 0
-class VTX_MFD_1
+class HCT_MFD_1
 {
     topLeft="MFD1_LH";
     topRight="MFD1_RH";
@@ -286,26 +286,26 @@ class VTX_MFD_1
     #include "MFD\MFD.hpp"
 }; // MFD_1
 //ok1
-class VTX_MFD_1_NOFLIR: VTX_MFD_1
+class HCT_MFD_1_NOFLIR: HCT_MFD_1
 {
     #include "MFD\MFD_NOFLIR.hpp"
 }; // MFD_1
 #define HAS_ATTACK_PAGE
-class VTX_MFD_1_ARMED: VTX_MFD_1
+class HCT_MFD_1_ARMED: HCT_MFD_1
 {
     #include "MFD\MFD.hpp"
 }; // MFD_1
 #undef HAS_ATTACK_PAGE
-class VTX_MFD_1_CMWS
+class HCT_MFD_1_CMWS
 {
         topLeft="MFD1_LH";topRight="MFD1_RH"; bottomLeft="MFD1_LD";
     #include "MFD\pages\nd_cmws.hpp"
 }; // MFD_1
-class VTX_MFD_1_Monospace {
+class HCT_MFD_1_Monospace {
     topLeft="MFD1_LH";topRight="MFD1_RH"; bottomLeft="MFD1_LD";
     #include "MFD\pages\monospace.hpp"
 }; // MFD_1
-class VTX_MFD_1_Bold {
+class HCT_MFD_1_Bold {
     topLeft="MFD1_LH";topRight="MFD1_RH"; bottomLeft="MFD1_LD";
     #include "MFD\pages\bold.hpp"
 }; // MFD_1
@@ -313,33 +313,33 @@ class VTX_MFD_1_Bold {
 #define MFD_PAGE_INDEX MFD_2_PAGE_INDEX
 #undef SHOW_CCFS
 #define SHOW_CCFS 1
-class VTX_MFD_2
+class HCT_MFD_2
 {
     topLeft="MFD2_LH";
     topRight="MFD2_RH";
     bottomLeft="MFD2_LD";
     #include "MFD\MFD.hpp"
 }; // MFD_2
-class VTX_MFD_2_NOFLIR: VTX_MFD_2
+class HCT_MFD_2_NOFLIR: HCT_MFD_2
 {
     #include "MFD\MFD_NOFLIR.hpp"
 }; // MFD_1
 #define HAS_ATTACK_PAGE
-class VTX_MFD_2_ARMED: VTX_MFD_2
+class HCT_MFD_2_ARMED: HCT_MFD_2
 {
     #include "MFD\MFD.hpp"
 }; // MFD_1
 #undef HAS_ATTACK_PAGE
-class VTX_MFD_2_CMWS
+class HCT_MFD_2_CMWS
 {
     topLeft="MFD2_LH"; topRight="MFD2_RH"; bottomLeft="MFD2_LD";
     #include "MFD\pages\nd_cmws.hpp"
 }; // MFD_2
-class VTX_MFD_2_Monospace {
+class HCT_MFD_2_Monospace {
     topLeft="MFD2_LH";topRight="MFD2_RH"; bottomLeft="MFD2_LD";
     #include "MFD\pages\monospace.hpp"
 }; // MFD_2
-class VTX_MFD_2_Bold {
+class HCT_MFD_2_Bold {
     topLeft="MFD2_LH";topRight="MFD2_RH"; bottomLeft="MFD2_LD";
     #include "MFD\pages\bold.hpp"
 }; // MFD_2
@@ -347,33 +347,33 @@ class VTX_MFD_2_Bold {
 #define MFD_PAGE_INDEX MFD_3_PAGE_INDEX
 #undef SHOW_CCFS
 #define SHOW_CCFS 1
-class VTX_MFD_3
+class HCT_MFD_3
 {
     topLeft="MFD3_LH";
     topRight="MFD3_RH";
     bottomLeft="MFD3_LD";
     #include "MFD\MFD.hpp"
 }; // MFD_3
-class VTX_MFD_3_NOFLIR: VTX_MFD_3
+class HCT_MFD_3_NOFLIR: HCT_MFD_3
 {
     #include "MFD\MFD_NOFLIR.hpp"
 }; // MFD_1
 #define HAS_ATTACK_PAGE
-class VTX_MFD_3_ARMED: VTX_MFD_3
+class HCT_MFD_3_ARMED: HCT_MFD_3
 {
     #include "MFD\MFD.hpp"
 }; // MFD_1
 #undef HAS_ATTACK_PAGE
-class VTX_MFD_3_CMWS
+class HCT_MFD_3_CMWS
 {
         topLeft="MFD3_LH";topRight="MFD3_RH";bottomLeft="MFD3_LD";
         #include "MFD\pages\nd_cmws.hpp"
 }; // MFD_3
-class VTX_MFD_3_Monospace {
+class HCT_MFD_3_Monospace {
     topLeft="MFD3_LH";topRight="MFD3_RH"; bottomLeft="MFD3_LD";
     #include "MFD\pages\monospace.hpp"
 }; // MFD_3
-class VTX_MFD_3_Bold {
+class HCT_MFD_3_Bold {
     topLeft="MFD3_LH";topRight="MFD3_RH"; bottomLeft="MFD3_LD";
     #include "MFD\pages\bold.hpp"
 }; // MFD_3
@@ -381,37 +381,37 @@ class VTX_MFD_3_Bold {
 #define MFD_PAGE_INDEX MFD_4_PAGE_INDEX
 #undef SHOW_CCFS
 #define SHOW_CCFS 0
-class VTX_MFD_4
+class HCT_MFD_4
 {
     topLeft="MFD4_LH";
     topRight="MFD4_RH";
     bottomLeft="MFD4_LD";
     #include "MFD\MFD.hpp"
 }; // MFD_4
-class VTX_MFD_4_NOFLIR: VTX_MFD_4
+class HCT_MFD_4_NOFLIR: HCT_MFD_4
 {
     #include "MFD\MFD_NOFLIR.hpp"
 }; // MFD_1
 #define HAS_ATTACK_PAGE
-class VTX_MFD_4_ARMED: VTX_MFD_4
+class HCT_MFD_4_ARMED: HCT_MFD_4
 {
     #include "MFD\MFD.hpp"
 }; // MFD_1
 #undef HAS_ATTACK_PAGE
-class VTX_MFD_4_CMWS
+class HCT_MFD_4_CMWS
 {
         topLeft="MFD4_LH";topRight="MFD4_RH";bottomLeft="MFD4_LD";
         #include "MFD\pages\nd_cmws.hpp"
 }; // MFD_4
-class VTX_MFD_4_Monospace {
+class HCT_MFD_4_Monospace {
     topLeft="MFD4_LH";topRight="MFD4_RH"; bottomLeft="MFD4_LD";
     #include "MFD\pages\monospace.hpp"
 }; // MFD_1
-class VTX_MFD_4_Bold {
+class HCT_MFD_4_Bold {
     topLeft="MFD4_LH";topRight="MFD4_RH"; bottomLeft="MFD4_LD";
     #include "MFD\pages\bold.hpp"
 }; // MFD_1
-class VTX_ESIS_BOOT
+class HCT_ESIS_BOOT
 {
     #include "MFD\ESIS_BOOT.hpp"
 };

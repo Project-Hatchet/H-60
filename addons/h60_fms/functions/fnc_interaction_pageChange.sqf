@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_fms_fnc_interaction_pageChange
+ * hct_h60_fms_fnc_interaction_pageChange
  *
  * handle page changes
  *
@@ -16,8 +16,8 @@ if (_newPage # 1 == 18) then {
 };
 
 if (_propagate) exitWith {
-    [_vehicle, _newPage, false] remoteExecCall ["vtx_uh60_fms_fnc_interaction_pageChange", crew _vehicle];
+    [_vehicle, _newPage, false] remoteExecCall ["hct_h60_fms_fnc_interaction_pageChange", crew _vehicle];
 };
 
 _vehicle setUserMFDValue _newPage;
-[_vehicle] call vtx_uh60_fms_fnc_perSecond;
+[_vehicle] call hct_h60_fms_fnc_perSecond;

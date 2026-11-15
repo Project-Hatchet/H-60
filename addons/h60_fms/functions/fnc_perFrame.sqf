@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_fms_fnc_perFrame
+ * hct_h60_fms_fnc_perFrame
  *
  * handles per frame updates of data for FMS
  *
@@ -12,7 +12,7 @@ params ["_vehicle", "_frameTime"];
 #define HELP_LABEL(MEMPOINT,LABEL) drawIcon3D ["\a3\ui_f\data\IGUI\Cfg\Cursors\selected_ca.paa",[0,1,0,1],_vehicle modelToWorldVisual (_vehicle selectionPosition MEMPOINT),1,1,0,LABEL,2,0.045];
 #define HELP_LABEL_COND(MEMPOINT,LABEL,COND) drawIcon3D ["\a3\ui_f\data\IGUI\Cfg\Cursors\selected_ca.paa",(if(COND)then{[0,1,0,1]}else{[1,0,0,1]}),_vehicle modelToWorldVisual (_vehicle selectionPosition MEMPOINT),1,1,0,LABEL,2,0.045,"RobotoCondensed","center",true];
 
-_this call vtx_uh60_fms_fnc_updateWaypointInfo;
+_this call hct_h60_fms_fnc_updateWaypointInfo;
 
 // Read first - a comma inside a macro argument splits it
 private _apuOn    = _vehicle getVariable ["bmkhs_apuOn", false];

@@ -6,10 +6,11 @@ class CfgPatches {
         units[] = {
           QGVAR(1),
           QGVAR(2),
-          QGVAR(3)
+          QGVAR(3),
+          QGVAR(item)
         };
         weapons[] = {
-          "vtx_stretcher_item"
+          "hct_h60_stretcher_item"
         };
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"ace_common"};

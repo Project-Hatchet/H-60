@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_uh60_helisim_fnc_cockpitAllowed
+Function: hct_h60_helisim_fnc_cockpitAllowed
 
 Description:
     Hatchet's interactionCondition for a HeliSim control: whether it may move to the
@@ -21,7 +21,7 @@ if !(_args isEqualType []) exitWith {true};
 _args params ["_heli", "", "", "_label"];
 
 private _wanted = toLower ((_label splitString " ") joinString "");
-private _index  = (([_heli, _control] call vtx_uh60_helisim_fnc_controlConfig) # 1) find _wanted;
+private _index  = (([_heli, _control] call hct_h60_helisim_fnc_controlConfig) # 1) find _wanted;
 if (_index < 0) exitWith {true};
 
 if !([_heli, _control, _index] call bmkhs_fnc_controlAllowed) exitWith {false};

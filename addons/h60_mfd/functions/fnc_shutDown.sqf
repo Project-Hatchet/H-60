@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_mfd_fnc_shutDown
+ * hct_h60_mfd_fnc_shutDown
  *
  * Hatchet module hook: clears this seat's MFD screen textures.
  *

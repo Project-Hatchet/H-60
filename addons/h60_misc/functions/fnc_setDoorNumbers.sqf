@@ -1,5 +1,5 @@
 /*
- * [_heli, "01"] call vtx_uh60_misc_fnc_setDoorNumbers
+ * [_heli, "01"] call hct_h60_misc_fnc_setDoorNumbers
  */
 params ["_heli", "_doorNumbers"];
 

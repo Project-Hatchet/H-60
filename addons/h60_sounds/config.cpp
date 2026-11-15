@@ -1,25 +1,29 @@
+#include "script_component.hpp"
+
 class CfgPatches
 {
-	class vtx_uh60_SFX
+	class ADDON
 	{
 		units[]={};
 		weapons[]={};
-		requiredVersion=0.1;
+		name = COMPONENT_NAME;
+		requiredVersion = REQUIRED_VERSION;
 		requiredAddons[]=
 		{
-			"vtx_uh60",
-			"vtx_uh60_config",
-			"vtx_uh60_doorguns",
-			"vtx_ace_viv"
+			"hct_uh60",
+			"hct_h60_config",
+			"hct_h60_doorguns",
+			"hct_h60_ace_viv"
 		};
+		VERSION_CONFIG;
 	};
 };
 
-#define vtx_Vol_Multi_Int(NUM) __EVAL(0.75*NUM)
+#define hct_Vol_Multi_Int(NUM) __EVAL(0.75*NUM)
 
 class CfgSoundShapes
 {
-	class vtx_Front_Shape
+	class hct_Front_Shape
 	{
 		type="cone";
 		innerVolume=1.0;
@@ -29,7 +33,7 @@ class CfgSoundShapes
 		azimuth=0;
 		elevation=0;
 	};
-  class vtx_Rear_Shape: vtx_Front_Shape
+  class hct_Rear_Shape: hct_Front_Shape
 	{
 		innerVolume=1.0;
 		outervolume=0.65;
@@ -37,7 +41,7 @@ class CfgSoundShapes
 		outerangle=240;
 		azimuth=180;
 	};
-  class vtx_Bottom_Shape
+  class hct_Bottom_Shape
 	{
 		innerVolume=1;
 		outervolume=0.8;
@@ -46,20 +50,20 @@ class CfgSoundShapes
 		azimuth=0;
     elevation=-90;
 	};
-  class vtx_BottomLess_Shape: vtx_Bottom_Shape
+  class hct_BottomLess_Shape: hct_Bottom_Shape
 	{
 		innerVolume=0;
 		outervolume=1;
 		innerangle=140;
 		outerangle=160;
 	};
-  class vtx_Turbine_Shape: vtx_Rear_Shape
+  class hct_Turbine_Shape: hct_Rear_Shape
 	{
     outervolume=0.8;
 		innerangle=130;
 		outerangle=210;
 	};
-	class vtx_Distance_Shape: vtx_Rear_Shape
+	class hct_Distance_Shape: hct_Rear_Shape
 	{
 		outervolume=0.45;
 		innerangle=65;
@@ -68,7 +72,7 @@ class CfgSoundShapes
 };
 class CfgSoundCurves
 {
-	class vtx_Ext_Base_Curve
+	class hct_Ext_Base_Curve
 	{
 		points[]=
 		{
@@ -79,7 +83,7 @@ class CfgSoundCurves
 			{1.0,0.0}
 		};
 	};
-  class vtx_Ext_Distant_Curve
+  class hct_Ext_Distant_Curve
 	{
 		points[]=
 		{
@@ -89,7 +93,7 @@ class CfgSoundCurves
 			{1.0,1.0}
 		};
 	};
-	class vtx_Tail_Rotor_Curve
+	class hct_Tail_Rotor_Curve
 	{
 		points[]=
 		{
@@ -106,39 +110,39 @@ class CfgSoundCurves
 };
 class CfgSound3DProcessors
 {
-	class vtx_Close_3DProcessor
+	class hct_Close_3DProcessor
 	{
 		type="panner";
 		rangeCurve="Smooth1Curve";
 		innerRange=100;
 		range=300;
 	};
-  class vtx_ENG_Trigger_3DProcessor: vtx_Close_3DProcessor
+  class hct_ENG_Trigger_3DProcessor: hct_Close_3DProcessor
 	{
 		innerRange=3;
 		range=20;
 	};
-	class vtx_WindWash_3DProcessor: vtx_Close_3DProcessor
+	class hct_WindWash_3DProcessor: hct_Close_3DProcessor
 	{
 		innerRange=5;
 		range=15;
 	};
-	class vtx_Distant_3DProcessor: vtx_Close_3DProcessor
+	class hct_Distant_3DProcessor: hct_Close_3DProcessor
 	{
 		innerrange = 100;
 		range = 800;
 	};
-	class vtx_TailRotor_3DProcessor: vtx_Close_3DProcessor
+	class hct_TailRotor_3DProcessor: hct_Close_3DProcessor
 	{
 		innerRange=10;
 		range=120;
 	};
-	class vtx_Rotor_3DProcessor: vtx_Close_3DProcessor
+	class hct_Rotor_3DProcessor: hct_Close_3DProcessor
 	{
 		innerRange=0;
 		range=50;
 	};
-	class vtx_Turbine_3DProcessor: vtx_TailRotor_3DProcessor
+	class hct_Turbine_3DProcessor: hct_TailRotor_3DProcessor
 	{
 		type="emitter";
 		innerRange=8;
@@ -147,7 +151,7 @@ class CfgSound3DProcessors
 };
 class cfgDistanceFilters
 {
-	class vtx_Close_Engine_Filter
+	class hct_Close_Engine_Filter
 	{
 		type="lowpassfilter";
 		mincutofffrequency=100;
@@ -156,7 +160,7 @@ class cfgDistanceFilters
 		range=1200;
 		powerfactor=10;
 	};
-	class vtx_Distant_Engine_Filter: vtx_Close_Engine_Filter
+	class hct_Distant_Engine_Filter: hct_Close_Engine_Filter
 	{
 		mincutofffrequency=200;
 		innerrange=800;
@@ -181,7 +185,7 @@ class AttenuationsEffects
 	// glareshield; open side band at the TC) and stay unfiltered. Config space
 	// is exhausted - the fix is model-side and lands with the new model's LOD
 	// rebuild (View Geometry must be airtight around every crew position).
-	class VTX_H60_CabinAttenuation
+	class HCT_H60_CabinAttenuation
 	{
 		class Equalizer0
 		{
@@ -226,109 +230,107 @@ class CfgVehicles
 	};
 	class Heli_Transport_01_base_F: Helicopter_Base_H
 	{
-		class Eventhandlers;
-		class ViewPilot;
 		class CargoTurret: CargoTurret
 		{
 			playerPosition = 1;
 		};
 	};
-	class vtx_H60_base: Heli_Transport_01_base_F
+	class hct_H60_base: Heli_Transport_01_base_F
 	{
 		soundEngineOnInt[] = {"a3\sounds_f\dummysound",2,1};
 		soundEngineOffInt[] = {"a3\sounds_f\dummysound",1,1};
 		soundEngineOnExt[] = {"a3\sounds_f\dummysound",2,1,600};
 		soundEngineOffExt[] = {"a3\sounds_f\dummysound",2,1,600};
 
-    // vtx_Sound_ShutDelay = 40;
+    // hct_Sound_ShutDelay = 40;
 		class sounds
 		{
 			Soundsets[] =
 			{
-				"vtx_Empty_SoundSet",
-				"vtx_APUSoundLoop_Ext_SoundSet",
-				"vtx_APUSoundLoop_Int_Soundet",
-				"vtx_EngineInt_SoundSet",
-				"vtx_RotorInt_SoundSet",
-				"vtx_TransmissionDamage_Int_phase1_SoundSet_Base",
-				"vtx_TransmissionDamage_Int_phase2_SoundSet_Base",
-				"vtx_TransmissionDamage_Int_phase3_SoundSet_Base",
-				"vtx_ScrubLand_Int_SoundSet_Base",
-				"vtx_ScrubBuilding_Int_SoundSet_Base",
-				"vtx_ScrubTree_Ext_SoundSet_Base",
-				"vtx_Rain_Int_SoundSet_Base",
-				"vtx_Wind_Int_SoundSet_Base",
-				"vtx_WindWash_Int_SoundSet_Base",
-				"vtx_WindWash_Int_Transport_SoundSet_Base",
-				"vtx_Engine_Transport_SoundSet_Base",
-				"vtx_GStress_Int_SoundSet_Base",
-				"vtx_FrameStress_Int_SoundSet_Base",
-				"vtx_SpeedStress_Int_SoundSet_Base",
-				"vtx_EngineExt_SoundSet",
-				"vtx_RotorExt_SoundSet",
+				"hct_Empty_SoundSet",
+				"hct_APUSoundLoop_Ext_SoundSet",
+				"hct_APUSoundLoop_Int_Soundet",
+				"hct_EngineInt_SoundSet",
+				"hct_RotorInt_SoundSet",
+				"hct_TransmissionDamage_Int_phase1_SoundSet_Base",
+				"hct_TransmissionDamage_Int_phase2_SoundSet_Base",
+				"hct_TransmissionDamage_Int_phase3_SoundSet_Base",
+				"hct_ScrubLand_Int_SoundSet_Base",
+				"hct_ScrubBuilding_Int_SoundSet_Base",
+				"hct_ScrubTree_Ext_SoundSet_Base",
+				"hct_Rain_Int_SoundSet_Base",
+				"hct_Wind_Int_SoundSet_Base",
+				"hct_WindWash_Int_SoundSet_Base",
+				"hct_WindWash_Int_Transport_SoundSet_Base",
+				"hct_Engine_Transport_SoundSet_Base",
+				"hct_GStress_Int_SoundSet_Base",
+				"hct_FrameStress_Int_SoundSet_Base",
+				"hct_SpeedStress_Int_SoundSet_Base",
+				"hct_EngineExt_SoundSet",
+				"hct_RotorExt_SoundSet",
 				//-Alarms
-				"vtx_Alarm_Damage_Int_SoundSet_Base",
-				"vtx_Alarm_RotorLow_Int_SoundSet_Base",
+				"hct_Alarm_Damage_Int_SoundSet_Base",
+				"hct_Alarm_RotorLow_Int_SoundSet_Base",
         //- Startup + Shutdown
-        "vtx_H60_Startup_Ext_SoundSet",
-        "vtx_H60_Shutdown_Ext_SoundSet",
-        "vtx_H60_APU_Start_Ext_SoundSet",
-        "vtx_H60_Startup_Int_SoundSet",
-        "vtx_H60_Shutdown_Int_SoundSet",
-        "vtx_H60_APU_Start_Int_SoundSet",
+        "hct_H60_Startup_Ext_SoundSet",
+        "hct_H60_Shutdown_Ext_SoundSet",
+        "hct_H60_APU_Start_Ext_SoundSet",
+        "hct_H60_Startup_Int_SoundSet",
+        "hct_H60_Shutdown_Int_SoundSet",
+        "hct_H60_APU_Start_Int_SoundSet",
 
-				"vtx_Rotor_Distance_SoundSet",
-				"vtx_Engine_Distance_SoundSet",
-				"vtx_Turbine_Ext_SoundSet",
-				"vtx_Rotor_Stress_Ext_SoundSet_Base",
-				"vtx_TransmissionDamage_Ext_phase1_SoundSet_Base",
-				"vtx_TransmissionDamage_Ext_phase2_SoundSet_Base",
-				"vtx_Rain_Ext_SoundSet_Base",
-				"vtx_Wind_Close_Ext_SoundSet_Base"
+				"hct_Rotor_Distance_SoundSet",
+				"hct_Engine_Distance_SoundSet",
+				"hct_Turbine_Ext_SoundSet",
+				"hct_Rotor_Stress_Ext_SoundSet_Base",
+				"hct_TransmissionDamage_Ext_phase1_SoundSet_Base",
+				"hct_TransmissionDamage_Ext_phase2_SoundSet_Base",
+				"hct_Rain_Ext_SoundSet_Base",
+				"hct_Wind_Close_Ext_SoundSet_Base"
 			};
 		};
 		class soundsext
 		{
-			class soundevents;
+			class soundevents; // materialises an empty soundevents class in the vehicle config - keep
 			class sounds
 			{
 				Soundsets[] =
 				{
-					"vtx_Empty_SoundSet",
-					"vtx_APUSoundLoop_Ext_SoundSet",
-					"vtx_APUSoundLoop_Int_Soundet",
-					"vtx_EngineInt_SoundSet",
-					"vtx_RotorInt_SoundSet",
-					"vtx_TransmissionDamage_Int_phase1_SoundSet_Base",
-					"vtx_TransmissionDamage_Int_phase2_SoundSet_Base",
-					"vtx_TransmissionDamage_Int_phase3_SoundSet_Base",
-					"vtx_ScrubLand_Int_SoundSet_Base",
-					"vtx_ScrubBuilding_Int_SoundSet_Base",
-					"vtx_ScrubTree_Ext_SoundSet_Base",
-					"vtx_Rain_Int_SoundSet_Base",
-					"vtx_Wind_Int_SoundSet_Base",
-					"vtx_WindWash_Int_SoundSet_Base",
-					"vtx_WindWash_Int_Transport_SoundSet_Base",
-					"vtx_Engine_Transport_SoundSet_Base",
-					"vtx_GStress_Int_SoundSet_Base",
-					"vtx_FrameStress_Int_SoundSet_Base",
-					"vtx_SpeedStress_Int_SoundSet_Base",
-					"vtx_EngineExt_SoundSet",
-					"vtx_RotorExt_SoundSet",
+					"hct_Empty_SoundSet",
+					"hct_APUSoundLoop_Ext_SoundSet",
+					"hct_APUSoundLoop_Int_Soundet",
+					"hct_EngineInt_SoundSet",
+					"hct_RotorInt_SoundSet",
+					"hct_TransmissionDamage_Int_phase1_SoundSet_Base",
+					"hct_TransmissionDamage_Int_phase2_SoundSet_Base",
+					"hct_TransmissionDamage_Int_phase3_SoundSet_Base",
+					"hct_ScrubLand_Int_SoundSet_Base",
+					"hct_ScrubBuilding_Int_SoundSet_Base",
+					"hct_ScrubTree_Ext_SoundSet_Base",
+					"hct_Rain_Int_SoundSet_Base",
+					"hct_Wind_Int_SoundSet_Base",
+					"hct_WindWash_Int_SoundSet_Base",
+					"hct_WindWash_Int_Transport_SoundSet_Base",
+					"hct_Engine_Transport_SoundSet_Base",
+					"hct_GStress_Int_SoundSet_Base",
+					"hct_FrameStress_Int_SoundSet_Base",
+					"hct_SpeedStress_Int_SoundSet_Base",
+					"hct_EngineExt_SoundSet",
+					"hct_RotorExt_SoundSet",
 					//-Alarms
-					//"vtx_Alarm_Damage_Ext_SoundSet_Base",
-					"vtx_Alarm_Damage_Int_SoundSet_Base",
-					//"vtx_Alarm_RotorLow_Ext_SoundSet_Base",
-					"vtx_Alarm_RotorLow_Int_SoundSet_Base",
+					//"hct_Alarm_Damage_Ext_SoundSet_Base",
+					"hct_Alarm_Damage_Int_SoundSet_Base",
+					//"hct_Alarm_RotorLow_Ext_SoundSet_Base",
+					"hct_Alarm_RotorLow_Int_SoundSet_Base",
 
-					"vtx_Rotor_Distance_SoundSet",
-					"vtx_Engine_Distance_SoundSet",
-					"vtx_Turbine_Ext_SoundSet",
-					"vtx_Rotor_Stress_Ext_SoundSet_Base",
-					"vtx_TransmissionDamage_Ext_phase1_SoundSet_Base",
-					"vtx_TransmissionDamage_Ext_phase2_SoundSet_Base",
-					"vtx_Rain_Ext_SoundSet_Base",
-					"vtx_Wind_Close_Ext_SoundSet_Base"
+					"hct_Rotor_Distance_SoundSet",
+					"hct_Engine_Distance_SoundSet",
+					"hct_Turbine_Ext_SoundSet",
+					"hct_Rotor_Stress_Ext_SoundSet_Base",
+					"hct_TransmissionDamage_Ext_phase1_SoundSet_Base",
+					"hct_TransmissionDamage_Ext_phase2_SoundSet_Base",
+					"hct_Rain_Ext_SoundSet_Base",
+					"hct_Wind_Close_Ext_SoundSet_Base"
 				};
 			};
 		};
@@ -356,16 +358,5 @@ class CfgSounds
 		titles[] = {};
 	};
 };
-class CfgFunctions
-{
-	class vtx_uh60_Sound
-	{
-		class Main
-		{
-			file="\z\vtx\addons\H60_SFX\functions";
-			class engineEH;
-			class PlayAPUGlobal;
-			class PlayEngineGlobal;
-		};
-	};
-};
+
+#include "CfgEventHandlers.hpp"

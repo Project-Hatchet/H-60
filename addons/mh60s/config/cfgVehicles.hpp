@@ -21,9 +21,9 @@ class CfgVehicles {
             class CopilotTurret;
         };
     }; // Helicopter_Base_H
-    class vtx_H60_base: Heli_Transport_01_base_F {
+    class hct_H60_base: Heli_Transport_01_base_F {
         #include "\z\vtx\addons\uh60_config\config\CfgAnimationSourcesInherit.hpp"
-        class vtx_templateFLIR;
+        class hct_templateFLIR;
         class Components;
         class Turrets: Turrets
         {
@@ -34,8 +34,8 @@ class CfgVehicles {
             class RightDoorGun: MainTurret {};
         };
     }; // Heli_Transport_01_base_F
-    class vtx_MH60S_Pylons_GAU21L: vtx_H60_base {
-        class pilotCamera: vtx_templateFLIR {};
+    class hct_MH60S_Pylons_GAU21L: hct_H60_base {
+        class pilotCamera: hct_templateFLIR {};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
@@ -65,7 +65,7 @@ class CfgVehicles {
           ANIM_INIT(FLIR_HIDE,0);
           class Muzzle_Flash_GAU21_L {
             source="ammoRandom";
-            weapon="VTX_HMG_M3M";
+            weapon="HCT_HMG_M3M";
           };
         }; // AnimationSources
         hiddenSelectionsTextures[] = {
@@ -73,9 +73,9 @@ class CfgVehicles {
           "", "", "", "", "", "", "", "",
           "z\vtx\addons\uh60\data\esss\uh60m_engine_mev_co.paa"
         };
-    }; // vtx_MH60S_Pylons_GAU21L
-    class vtx_MH60S_GAU21L: vtx_H60_base {
-        class pilotCamera: vtx_templateFLIR {};
+    }; // hct_MH60S_Pylons_GAU21L
+    class hct_MH60S_GAU21L: hct_H60_base {
+        class pilotCamera: hct_templateFLIR {};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
@@ -100,7 +100,7 @@ class CfgVehicles {
           ANIM_INIT(FLIR_HIDE,0);
           class Muzzle_Flash_GAU21_L {
             source="ammoRandom";
-            weapon="VTX_HMG_M3M";
+            weapon="HCT_HMG_M3M";
           };
         }; // AnimationSources
         hiddenSelectionsTextures[] = {
@@ -108,9 +108,9 @@ class CfgVehicles {
           "", "", "", "", "", "", "", "",
           "z\vtx\addons\uh60\data\esss\uh60m_engine_mev_co.paa"
         };
-    }; // vtx_MH60S_GAU21L
-    class vtx_MH60S_Pylons: vtx_H60_base {
-        class pilotCamera: vtx_templateFLIR {};
+    }; // hct_MH60S_GAU21L
+    class hct_MH60S_Pylons: hct_H60_base {
+        class pilotCamera: hct_templateFLIR {};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
@@ -144,9 +144,9 @@ class CfgVehicles {
         "","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa", "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa",
           "", "", "", "", "", "", "", "",
           "z\vtx\addons\uh60\data\esss\uh60m_engine_mev_co.paa"};
-    }; // vtx_MH60S_Pylons_GAU21L
-    class vtx_MH60S: vtx_H60_base {
-        class pilotCamera: vtx_templateFLIR {};
+    }; // hct_MH60S_Pylons_GAU21L
+    class hct_MH60S: hct_H60_base {
+        class pilotCamera: hct_templateFLIR {};
         weapons[]={"CMFlareLauncher", "Laserdesignator_pilotcamera"};
         magazines[]={"60Rnd_CMFlareMagazine", "Laserbatteries"};
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
@@ -166,5 +166,5 @@ class CfgVehicles {
           ANIM_INIT(FLIR_HIDE,0);
         }; // AnimationSources
         hiddenSelectionsTextures[] = {"","","","","","","","","","","","","","","","","z\vtx\addons\MH60S\data\mh60s_main_co.paa","z\vtx\addons\MH60S\data\mh60s_misc_co.paa","z\vtx\addons\MH60S\data\mh60s_tail_co.paa", "a3\ui_f\data\IGUI\Cfg\Targeting\Empty_ca.paa"};
-    }; // vtx_MH60S
+    }; // hct_MH60S
 }; // CfgVehicles

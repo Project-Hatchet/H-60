@@ -10,7 +10,7 @@
  * None
  *
  * Example:
- * [cursorObject, 1] call vtx_uh60_misc_fnc_foldInstant;
+ * [cursorObject, 1] call hct_h60_misc_fnc_foldInstant;
  */
 
 params ["_heli", "_phase"];

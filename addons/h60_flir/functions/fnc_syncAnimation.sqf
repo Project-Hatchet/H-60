@@ -10,7 +10,7 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_vehicle] call vtx_uh60_flir_fnc_syncAnimation
+ * [_vehicle] call hct_h60_flir_fnc_syncAnimation
  */
 
 params ["_vehicle", ["_instant", false]];

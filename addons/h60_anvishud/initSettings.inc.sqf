@@ -1,5 +1,5 @@
 [
-    "vtx_uh60_anvishud_defaultMode", "LIST",
+    "hct_h60_anvishud_defaultMode", "LIST",
     [localize LSTRING(HMDDefaultMode), LSTRING(HMDDefaultMode_Description)],
     ["UH-60M", "HMD"],
     [[-1, 1, 2, 3, 4], [
@@ -13,7 +13,7 @@
 ] call CBA_settings_fnc_init;
 
 [
-    "vtx_uh60_anvishud_settingColor",
+    "hct_h60_anvishud_settingColor",
     "COLOR",
     [localize LSTRING(Color), LSTRING(Color_Description)],
     ["UH-60M", "HMD"],
@@ -22,13 +22,13 @@
     {
       private _vehicle = vehicle player;
       If !(_vehicle iskindOf QBASE_CLASS) exitWith {};
-      [_vehicle] call vtx_uh60_anvishud_fnc_configureHMD;
+      [_vehicle] call hct_h60_anvishud_fnc_configureHMD;
     },
     false
 ] call CBA_settings_fnc_init;
 
 [
-    "vtx_uh60_anvishud_settingBrightness",
+    "hct_h60_anvishud_settingBrightness",
     "SLIDER",
     [localize LSTRING(Brightness), LSTRING(Brightness_Description)],
     ["UH-60M", "HMD"],
@@ -37,6 +37,6 @@
     {
         private _vehicle = vehicle player;
         If !(_vehicle iskindOf QBASE_CLASS) exitWith {};
-        [_vehicle] call vtx_uh60_anvishud_fnc_configureHMD;
+        [_vehicle] call hct_h60_anvishud_fnc_configureHMD;
     }
 ] call CBA_fnc_addSetting;

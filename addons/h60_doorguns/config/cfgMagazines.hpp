@@ -1,11 +1,11 @@
 class CfgMagazines {
     class 2000Rnd_65x39_Belt_Tracer_Red;
-    class vtx_2000Rnd_65x39_Belt_Tracer_Red: 2000Rnd_65x39_Belt_Tracer_Red {
+    class hct_2000Rnd_65x39_Belt_Tracer_Red: 2000Rnd_65x39_Belt_Tracer_Red {
         count = 4400;
         tracersEvery = 5;
     };
     class VehicleMagazine;
-	class vtx_uh60_safe: VehicleMagazine
+	class hct_h60_safe: VehicleMagazine
 	{
 		scope=2;
 		displayName="SAFE";

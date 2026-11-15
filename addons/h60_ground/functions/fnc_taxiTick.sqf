@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_ground_fnc_taxiTick
+ * hct_h60_ground_fnc_taxiTick
  *
  * SFM ground taxi - ported from the MH-47G (itself from the HWK CH-53E),
  * carrying their 12 documented tuning rounds: SFM helis have no wheel
@@ -30,20 +30,20 @@
 params ["_vehicle"];
 
 // tuning knobs (one-time init; tweak live from the console, e.g.
-// vtx_uh60_taxiMaxKmh = 15;)
-if (isNil "vtx_uh60_taxiMaxKmh") then {
-    vtx_uh60_taxiSeg       = 0.1;   // seconds per tick
-    vtx_uh60_taxiMaxKmh    = 20;    // top taxi speed (rearward taxi prohibited - see below)
-    vtx_uh60_taxiStickFull = 0.4;   // effective stick at/above this = full taxi speed
-    vtx_uh60_taxiDeadband  = 0.08;  // after the resting-position baseline
-    vtx_uh60_taxiAccel     = 0.35;  // m/s per tick breakaway punch (beats SFM static friction)
-    vtx_uh60_taxiBreakSpd  = 0.4;   // m/s: below = breakaway punch, above = cruise accel
-    vtx_uh60_taxiAccelCrz  = 0.15;  // m/s per tick once rolling (must clear SFM rolling drag)
-    vtx_uh60_taxiPedalBite = 0.1;   // near-stationary pivot starter, scaled by |pedal|
-    vtx_uh60_taxiYawCap    = 0.35;  // rad/s absolute ceiling on ground yaw
-    vtx_uh60_taxiYawFloor  = 0.15;  // rad/s pivot floor when (nearly) stationary
-    vtx_uh60_taxiTurnR     = 8;     // min turn radius (m); yaw cap scales as v/R
-    vtx_uh60_taxiMinNR     = 0.85;  // rotorSpeed controller floor for the drive
+// hct_h60_taxiMaxKmh = 15;)
+if (isNil "hct_h60_taxiMaxKmh") then {
+    hct_h60_taxiSeg       = 0.1;   // seconds per tick
+    hct_h60_taxiMaxKmh    = 20;    // top taxi speed (rearward taxi prohibited - see below)
+    hct_h60_taxiStickFull = 0.4;   // effective stick at/above this = full taxi speed
+    hct_h60_taxiDeadband  = 0.08;  // after the resting-position baseline
+    hct_h60_taxiAccel     = 0.35;  // m/s per tick breakaway punch (beats SFM static friction)
+    hct_h60_taxiBreakSpd  = 0.4;   // m/s: below = breakaway punch, above = cruise accel
+    hct_h60_taxiAccelCrz  = 0.15;  // m/s per tick once rolling (must clear SFM rolling drag)
+    hct_h60_taxiPedalBite = 0.1;   // near-stationary pivot starter, scaled by |pedal|
+    hct_h60_taxiYawCap    = 0.35;  // rad/s absolute ceiling on ground yaw
+    hct_h60_taxiYawFloor  = 0.15;  // rad/s pivot floor when (nearly) stationary
+    hct_h60_taxiTurnR     = 8;     // min turn radius (m); yaw cap scales as v/R
+    hct_h60_taxiMinNR     = 0.85;  // rotorSpeed controller floor for the drive
 };
 
 // The drive only ever acts for this machine's player in the pilot seat, so the
@@ -53,7 +53,7 @@ if (isNil "vtx_uh60_taxiMaxKmh") then {
 if (isNull _vehicle || {!alive _vehicle} || {!local _vehicle}
     || {!((driver _vehicle) isEqualTo player)}
     || {!([_vehicle] call bmkhs_fnc_stateOnGround)}) exitWith {
-    _vehicle setVariable ["vtx_uh60_ground_taxiOn", false];
+    _vehicle setVariable ["hct_h60_ground_taxiOn", false];
 };
 
 // per-tick gates skip the drive without killing the chain
@@ -64,18 +64,18 @@ if ((driver _vehicle) isEqualTo player) then {
     private _nr = _vehicle getVariable ["bmkhs_rtrRpm", 0];
 
     // gate-hunt diagnostic (the 47G ghost-hunt pattern): console
-    // `vtx_uh60_taxiDebug = true;` -> one RPT line per second naming
+    // `hct_h60_taxiDebug = true;` -> one RPT line per second naming
     // every gate value, so a dead drive convicts its blocker in one try
-    if (!isNil "vtx_uh60_taxiDebug" && {vtx_uh60_taxiDebug}
-        && {diag_tickTime - (_vehicle getVariable ["vtx_uh60_taxiDbgT", 0]) > 1}) then {
-        _vehicle setVariable ["vtx_uh60_taxiDbgT", diag_tickTime];
+    if (!isNil "hct_h60_taxiDebug" && {hct_h60_taxiDebug}
+        && {diag_tickTime - (_vehicle getVariable ["hct_h60_taxiDbgT", 0]) > 1}) then {
+        _vehicle setVariable ["hct_h60_taxiDbgT", diag_tickTime];
         diag_log format ["VTXTAXI nr=%1 brake=%2 heliUp=%3 rawF=%4 rawP=%5 base=%6 touching=%7 spd=%8",
             _nr, _vehicle animationPhase "handle_wheelbrake", _vehicle getVariable ["bmkhs_kbHeliCollectiveRaiseOut", 0],
-            _rawF, _rawP, _vehicle getVariable ["vtx_uh60_taxiBase", [0,0]],
+            _rawF, _rawP, _vehicle getVariable ["hct_h60_taxiBase", [0,0]],
             [_vehicle] call bmkhs_fnc_stateOnGround, _vehicle getVariable ["bmkhs_gndSpeed", 0]];
     };
 
-    if (_nr < vtx_uh60_taxiMinNR
+    if (_nr < hct_h60_taxiMinNR
         || {(_vehicle animationPhase "handle_wheelbrake") > 0.5}) then {
         // LEARN the stick's hands-off level whenever taxiing is
         // impossible (rotor low or brake set) - analog cyclics don't
@@ -83,8 +83,8 @@ if ((driver _vehicle) isEqualTo player) then {
         // ghost-creep saga). Slow low-pass; deflections past 0.3 are
         // real input and ignored. Brake ON for two seconds re-zeroes
         // a creeping baseline.
-        private _b = _vehicle getVariable ["vtx_uh60_taxiBase", [0, 0]];
-        _vehicle setVariable ["vtx_uh60_taxiBase", [
+        private _b = _vehicle getVariable ["hct_h60_taxiBase", [0, 0]];
+        _vehicle setVariable ["hct_h60_taxiBase", [
             (_b # 0) * 0.9 + ([_rawF, _b # 0] select (abs _rawF > 0.3)) * 0.1,
             (_b # 1) * 0.9 + ([_rawP, _b # 1] select (abs _rawP > 0.3)) * 0.1]];
     } else {
@@ -92,17 +92,17 @@ if ((driver _vehicle) isEqualTo player) then {
     // (collective input held = the pilot wants to fly - drive and
     // anti-liftoff clamp both stand down so a rolling takeoff works)
     if ((_vehicle getVariable ["bmkhs_kbHeliCollectiveRaiseOut", 0]) < 0.5) then {
-        private _base = _vehicle getVariable ["vtx_uh60_taxiBase", [0, 0]];
+        private _base = _vehicle getVariable ["hct_h60_taxiBase", [0, 0]];
         private _fwd = _rawF - (_base # 0);
         private _ped = _rawP - (_base # 1);
-        if (abs _fwd < vtx_uh60_taxiDeadband) then { _fwd = 0 };
-        if (abs _ped < vtx_uh60_taxiDeadband) then { _ped = 0 };
+        if (abs _fwd < hct_h60_taxiDeadband) then { _fwd = 0 };
+        if (abs _ped < hct_h60_taxiDeadband) then { _ped = 0 };
         if (_fwd != 0 || {_ped != 0}) then {
             private _vel = _vehicle getVariable ["bmkhs_velModelSpaceNoWind", [0, 0, 0]];
             // stick fraction -> commanded taxi speed; full speed well
             // below full stick so taxi never needs hull-pitching throws
-            private _tgt = (((_fwd / vtx_uh60_taxiStickFull) max -1) min 1)
-                * vtx_uh60_taxiMaxKmh / 3.6;
+            private _tgt = (((_fwd / hct_h60_taxiStickFull) max -1) min 1)
+                * hct_h60_taxiMaxKmh / 3.6;
             // NO rearward taxi (TM 1-1520-280-10 Ch.5 prohibition; Riverman
             // ruling 2026-09-08) - the 47G's gentle reverse is removed. Aft
             // cyclic commands target 0: it slows the roll to a stop and
@@ -128,8 +128,8 @@ if ((driver _vehicle) isEqualTo player) then {
             // and the neutral-stick stop are unchanged.
             if !(_fwd > 0 && {_mag >= _tgt}) then {
                 // breakaway punch only until rolling, then heavy buildup
-                private _acc = [vtx_uh60_taxiAccelCrz, vtx_uh60_taxiAccel]
-                    select (abs _mag < vtx_uh60_taxiBreakSpd);
+                private _acc = [hct_h60_taxiAccelCrz, hct_h60_taxiAccel]
+                    select (abs _mag < hct_h60_taxiBreakSpd);
                 private _vy = _mag + (((_tgt - _mag) max -_acc) min _acc);
                 // anti-liftoff (47G round 10): the push rides the hull's
                 // forward axis - clamp any upward leak while driving,
@@ -138,15 +138,15 @@ if ((driver _vehicle) isEqualTo player) then {
                 // pedal bite starts a stationary pivot only (47G round 12:
                 // stacked on the redirect it was free accel in turns)
                 if (_ped != 0 && {abs _mag < 1}) then {
-                    _vy = _vy + vtx_uh60_taxiPedalBite * (abs _ped);
+                    _vy = _vy + hct_h60_taxiPedalBite * (abs _ped);
                 };
                 _vehicle setVelocityModelSpace [(_vel # 0) * 0.5, _vy, _vz];
             };
         };
         // ground pivot governor: yaw <= v/R for a real turn radius,
         // floored so slow pedal pivots stay alive
-        private _cap = (((abs ((_vehicle getVariable ["bmkhs_velModelSpaceNoWind", [0, 0, 0]]) # 1)) / vtx_uh60_taxiTurnR)
-            max vtx_uh60_taxiYawFloor) min vtx_uh60_taxiYawCap;
+        private _cap = (((abs ((_vehicle getVariable ["bmkhs_velModelSpaceNoWind", [0, 0, 0]]) # 1)) / hct_h60_taxiTurnR)
+            max hct_h60_taxiYawFloor) min hct_h60_taxiYawCap;
         private _av = _vehicle getVariable ["bmkhs_angVelModelSpace", [0, 0, 0]];
         if (abs (_av # 2) > _cap) then {
             _vehicle setAngularVelocityModelSpace [_av # 0, _av # 1,
@@ -164,4 +164,4 @@ if ((driver _vehicle) isEqualTo player) then {
     };  // learn / drive split
 };  // human driver on this machine
 
-[vtx_uh60_ground_fnc_taxiTick, [_vehicle], vtx_uh60_taxiSeg] call CBA_fnc_waitAndExecute;
+[hct_h60_ground_fnc_taxiTick, [_vehicle], hct_h60_taxiSeg] call CBA_fnc_waitAndExecute;

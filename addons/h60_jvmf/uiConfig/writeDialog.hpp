@@ -1,7 +1,7 @@
-class vtx_uh60_jvmf_writeDialog {
+class hct_h60_jvmf_writeDialog {
     idd = 20001;
     movingEnable = "true";
-    onLoad = "uiNamespace setVariable [""vtx_uh60_jvmf_display"", _this # 0];";
+    onLoad = "uiNamespace setVariable [""hct_h60_jvmf_display"", _this # 0];";
     class Controls {
         class IGUIBack_2200: IGUIBack
         {
@@ -47,7 +47,7 @@ class vtx_uh60_jvmf_writeDialog {
         	y = "0.255 * safezoneH + safezoneY";
         	w = "0.04125 * safezoneW";
         	h = "0.022 * safezoneH";
-            onButtonClick="closeDialog 2;createDialog ""vtx_uh60_jvmf_positionDialog"";";
+            onButtonClick="closeDialog 2;createDialog ""hct_h60_jvmf_positionDialog"";";
         };
         class RscButton_1604: RscButton
         {
@@ -57,7 +57,7 @@ class vtx_uh60_jvmf_writeDialog {
         	y = "0.235 * safezoneH + safezoneY";
         	w = "0.054 * safezoneW";
         	h = "0.044 * safezoneH";
-            onButtonClick="closeDialog 2;createDialog ""vtx_uh60_jvmf_inboxDialog"";";
+            onButtonClick="closeDialog 2;createDialog ""hct_h60_jvmf_inboxDialog"";";
         };
         class RscText_1002: RscText
         {
@@ -158,7 +158,7 @@ class vtx_uh60_jvmf_writeDialog {
         	y = "0.665 * safezoneH + safezoneY";
         	w = "0.04125 * safezoneW";
         	h = "0.022 * safezoneH";
-            onButtonClick="[_this, 0] call vtx_uh60_jvmf_fnc_submitMessage";
+            onButtonClick="[_this, 0] call hct_h60_jvmf_fnc_submitMessage";
         };
         class RscButton_1601: RscButton
         {

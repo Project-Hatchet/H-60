@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_misc_fnc_toggleLights
+ * hct_h60_misc_fnc_toggleLights
  *
  * Applies the exterior/interior light state, optionally flipping the landing or
  * search light first. The aircraft's own animation sources (LandingLight_Show,
@@ -17,7 +17,7 @@ params [["_vehicle", objNull, [objNull]], ["_light", "", [""]]];
 if (isNull _vehicle) exitWith {};
 
 if (!local _vehicle) exitWith {
-    ["vtx_uh60_misc_toggleLights", [_vehicle, _light], _vehicle] call CBA_fnc_targetEvent;
+    ["hct_h60_misc_toggleLights", [_vehicle, _light], _vehicle] call CBA_fnc_targetEvent;
 };
 
 private _landing = (_vehicle animationSourcePhase "LandingLight_Show") > 0.5;

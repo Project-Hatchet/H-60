@@ -9,13 +9,13 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_vehicle] call vtx_uh60_flir_fnc_toggleLaser
+ * [_vehicle] call hct_h60_flir_fnc_toggleLaser
  */
 
 params ["_vehicle"];
 private _pilot = driver _vehicle;
 if (isNull _pilot) exitWith {
-  if (vtx_uh60_ui_showDebugMessages) then {systemChat "Cannot toggle laser if pilot seat is empty.";};
+  if (hct_h60_ui_showDebugMessages) then {systemChat "Cannot toggle laser if pilot seat is empty.";};
   false
 };
 

@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_jvmf_fnc_submitMessage
+ * hct_h60_jvmf_fnc_submitMessage
  *
  * Creates and sends a JVMF message from a creation dialog
  */
@@ -21,7 +21,7 @@ if (_type == 2) then {
 };
 
 private _message = [_id, _sender, _recipient, _type, _messageContent, _data, [[_timestamp, _sender, "SENT"]]];
-private _success = _message call vtx_uh60_jvmf_fnc_attemptSendMessage;
+private _success = _message call hct_h60_jvmf_fnc_attemptSendMessage;
 
 if (_success) then {
     closeDialog 2;

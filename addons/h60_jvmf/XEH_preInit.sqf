@@ -12,8 +12,8 @@ ADDON = false;
  * 1 - 5-line CAS
  * 2 - location
  */
-vtx_uh60_jvmf_importedCtabMarkersList = [];
-vtx_jvmf_messages = [
+hct_h60_jvmf_importedCtabMarkersList = [];
+hct_jvmf_messages = [
    [
        "WELCOME", // TITLE
        "SYSTEM", // SENDER
@@ -116,6 +116,6 @@ vtx_jvmf_messages = [
     ]
     */
 ];
-vtx_jvmf_selected_idx = 0;
+hct_jvmf_selected_idx = 0;
 
 ADDON = true;

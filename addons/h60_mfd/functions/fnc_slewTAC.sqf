@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * vtx_uh60_mfd_fnc_perFrame
+ * hct_h60_mfd_fnc_perFrame
  *
  * handles constant updates of data for MFDs
  *
@@ -27,56 +27,56 @@ private _center = if (_centered) then {
 	getPosVisual _vehicle vectorAdd [_cursorToMapRotated # 0, _cursorToMapRotated # 1, 0];
 };
 
-private _movingCursor = (vtx_uh60_mfd_slewX != 0) || (vtx_uh60_mfd_slewY != 0);
+private _movingCursor = (hct_h60_mfd_slewX != 0) || (hct_h60_mfd_slewY != 0);
 //private _staticMap = _vehicle ammoOnPylon 7 > 0;
 private _staticMap = getUserMFDValue _vehicle select USERMFDV_TAC_MOVE > 0;
 private _cursorLimits = [0.1,0.9];
 
 
 if (_staticMap) then {
-	_center = vtx_uh60_mfd_tac_mapPos
+	_center = hct_h60_mfd_tac_mapPos
 };
 
-if (!isNil "vtx_uh60_tac_hookedObject") then {
-	private _position = switch (vtx_uh60_tac_hookedObject # 1) do {
+if (!isNil "hct_h60_tac_hookedObject") then {
+	private _position = switch (hct_h60_tac_hookedObject # 1) do {
 		case "ground": {
-			if (typeName (vtx_uh60_tac_hookedObject # 0) == "GROUP") then [{getPosVisual leader (vtx_uh60_tac_hookedObject # 0)}, {getPosVisual (vtx_uh60_tac_hookedObject # 0)}];
+			if (typeName (hct_h60_tac_hookedObject # 0) == "GROUP") then [{getPosVisual leader (hct_h60_tac_hookedObject # 0)}, {getPosVisual (hct_h60_tac_hookedObject # 0)}];
 		};
-		case "waypoint": {waypointPosition (vtx_uh60_tac_hookedObject # 0)};
+		case "waypoint": {waypointPosition (hct_h60_tac_hookedObject # 0)};
 		default {[-10000,0,0]};
 	};
 
-	vtx_uh60_mfd_tac_cursorPos = [_position] call vtx_uh60_mfd_fnc_tac_worldToCursor;
+	hct_h60_mfd_tac_cursorPos = [_position] call hct_h60_mfd_fnc_tac_worldToCursor;
 };
 
 if (_movingCursor) then {
-	vtx_uh60_tac_hookedObject = nil;
+	hct_h60_tac_hookedObject = nil;
 	if (_staticMap) then {
-		private _movingHorizontal = (vtx_uh60_mfd_tac_cursorPos # 0 in _cursorLimits);
+		private _movingHorizontal = (hct_h60_mfd_tac_cursorPos # 0 in _cursorLimits);
 		private _moveVector = [0,0,0];
 		if (_movingHorizontal) then {
-			_moveVector = _moveVector vectorAdd [50 * (vtx_uh60_mfd_slewX / _zoomLevel),0,0];
+			_moveVector = _moveVector vectorAdd [50 * (hct_h60_mfd_slewX / _zoomLevel),0,0];
 		};
-		private _movingVertical = 	(vtx_uh60_mfd_tac_cursorPos # 1 in _cursorLimits);
+		private _movingVertical = 	(hct_h60_mfd_tac_cursorPos # 1 in _cursorLimits);
 		if (_movingVertical) then {
-			_moveVector = _moveVector vectorAdd [0,50 * (vtx_uh60_mfd_slewY / _zoomLevel),0];
+			_moveVector = _moveVector vectorAdd [0,50 * (hct_h60_mfd_slewY / _zoomLevel),0];
 		};
 		if (_selfAligned) then {
 			_moveVector = [_moveVector, -(getDirVisual _vehicle)] call BIS_fnc_rotateVector2D;
 		};
 		_center = _center vectorAdd _moveVector;
 
-		vtx_uh60_mfd_tac_cursorPos = [
-			((vtx_uh60_mfd_tac_cursorPos # 0) - (vtx_uh60_mfd_slewX * 0.010)) max (_cursorLimits # 0) min (_cursorLimits # 1),
-			((vtx_uh60_mfd_tac_cursorPos # 1) + (vtx_uh60_mfd_slewY * 0.010)) max (_cursorLimits # 0) min (_cursorLimits # 1)
+		hct_h60_mfd_tac_cursorPos = [
+			((hct_h60_mfd_tac_cursorPos # 0) - (hct_h60_mfd_slewX * 0.010)) max (_cursorLimits # 0) min (_cursorLimits # 1),
+			((hct_h60_mfd_tac_cursorPos # 1) + (hct_h60_mfd_slewY * 0.010)) max (_cursorLimits # 0) min (_cursorLimits # 1)
 		];
-		vtx_uh60_mfd_tac_mapPos = _center;
+		hct_h60_mfd_tac_mapPos = _center;
 	} else {
-		//[_vehicle, 7, 1] call vtx_uh60_mfd_fnc_setPylonValue;
+		//[_vehicle, 7, 1] call hct_h60_mfd_fnc_setPylonValue;
     _vehicle setUserMFDValue [USERMFDV_TAC_MOVE, 1];
-		vtx_uh60_mfd_tac_mapPos = getPos _vehicle;
+		hct_h60_mfd_tac_mapPos = getPos _vehicle;
 	};
-	[true] call vtx_uh60_mfd_fnc_tac_sync;
+	[true] call hct_h60_mfd_fnc_tac_sync;
 };
 
 if (local _vehicle) then {
@@ -96,8 +96,8 @@ if (local _vehicle) then {
 	};
 };
 
-_vehicle setUserMFDvalue [29, vtx_uh60_mfd_tac_cursorPos # 0];
-_vehicle setUserMFDvalue [30, vtx_uh60_mfd_tac_cursorPos # 1];
+_vehicle setUserMFDvalue [29, hct_h60_mfd_tac_cursorPos # 0];
+_vehicle setUserMFDvalue [30, hct_h60_mfd_tac_cursorPos # 1];
 
 
 
@@ -105,7 +105,7 @@ private _positionToMfd = {
 	params ["_pos", "_i1", "_i2"];
 	// private _direction = (_center getDir _pos) - _rotation;
 	// _vehicle setUserMFDvalue [_i1, if(_direction < 0) then {_direction + 360} else {_direction}];
-	// _vehicle setUserMFDvalue [_i2, ((_center distance2D _pos) * _zoomLevel) / (vtx_uh60_fms_mapSize / 2)];
+	// _vehicle setUserMFDvalue [_i2, ((_center distance2D _pos) * _zoomLevel) / (hct_h60_fms_mapSize / 2)];
 
 	private _diff = _pos vectordiff _center;
 	private _dir = getDir _vehicle; // the aircraft's heading (was the player's)

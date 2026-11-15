@@ -3,11 +3,11 @@
 class CfgPatches {
     class ADDON {
         name = COMPONENT_NAME;
-        // Common base: vtx_H60_base + crew. Variants are in their own PBOs;
+        // Common base: hct_H60_base + crew. Variants are in their own PBOs;
         // this CfgPatches name stays so missions that list it keep loading.
         units[] = {
-          "vtx_uh60_doorgunner",
-          "vtx_uh60_pilot"
+          "hct_h60_doorgunner",
+          "hct_h60_pilot"
         };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
@@ -16,9 +16,9 @@ class CfgPatches {
         // gone: the MFD template mounts below resolve by name when the config
         // is read, so the screen addons may load after us (load-order
         // experiment, 2026-09-05). Every addon that re-opens our classes now
-        // declares an edge on vtx_UH60_config instead. vtx_UH60 remains the
+        // declares an edge on hct_h60_config instead. hct_UH60 remains the
         // asset PBO (models, textures, sounds, anims, fonts).
-        requiredAddons[] = {"vtx_UH60"};
+        requiredAddons[] = {"hct_UH60"};
         author = "";
         authors[] = {""};
         VERSION_CONFIG;
@@ -29,13 +29,13 @@ class CfgPatches {
 #include "CfgMoves.hpp"
 
 class CfgEditorSubcategories {
-    class vtx_h60 {
+    class hct_h60 {
         displayName = "Hatchet H-60 Pack";
     };
 };
 
 class CfgFontFamilies {
-    class VTX_UH60M_Font {
+    class hct_h60_Font {
         fonts[] = {"\z\vtx\addons\UH60\config\Font\font46"};
     };
 };

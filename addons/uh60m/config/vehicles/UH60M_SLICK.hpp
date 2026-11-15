@@ -1,10 +1,10 @@
-// vtx_UH60M_SLICK — the armed ViV-cargo variant (miniguns SHOWN for
+// hct_UH60M_SLICK — the armed ViV-cargo variant (miniguns SHOWN for
 // self-defense; Riverman's 2026-08-17 armament ruling). Sole full declaration
 // (Phase 1 PR A): merged from UH60's identity half and uh60_config's systems
 // half. UH60's five overridden hide-lines (GunnerSeats/Minigun/Mount = 1) were
 // dead values the later loader always beat — the live 0s below are the ruling.
 // Member order preserved from the pre-merge engine result (config-dump proven).
-class vtx_UH60M_SLICK: vtx_H60_base {
+class hct_UH60M_SLICK: hct_H60_base {
   scope = 2;
   editorPreview = "z\vtx\addons\uh60m\data\preview\vtx_UH60M_SLICK.jpg"; // dev tester report 2026-09-07: never had one (verified back to 0.7.9)
   forceInGarage = 1;
@@ -55,32 +55,32 @@ class vtx_UH60M_SLICK: vtx_H60_base {
   };
   #include "\z\vtx\addons\uh60_config\config\vehicleTransportSlick.hpp"
   class MFD: MFD {
-    class VTX_MFD_1_NOFLIR :           VTX_MFD_1_NOFLIR {};
-    class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};
-    class VTX_MFD_1_Monospace : VTX_MFD_1_Monospace {};
-    class VTX_MFD_1_Bold :      VTX_MFD_1_Bold {};
-    class VTX_MFD_2_NOFLIR :           VTX_MFD_2_NOFLIR {};
-    class VTX_MFD_2_CMWS :      VTX_MFD_2_CMWS {};
-    class VTX_MFD_2_Monospace : VTX_MFD_2_Monospace {};
-    class VTX_MFD_2_Bold :      VTX_MFD_2_Bold {};
-    class VTX_MFD_3_NOFLIR :           VTX_MFD_3_NOFLIR {};
-    class VTX_MFD_3_CMWS :      VTX_MFD_3_CMWS {};
-    class VTX_MFD_3_Monospace : VTX_MFD_3_Monospace {};
-    class VTX_MFD_3_Bold :      VTX_MFD_3_Bold {};
-    class VTX_MFD_4_NOFLIR :           VTX_MFD_4_NOFLIR {};
-    class VTX_MFD_4_CMWS :      VTX_MFD_4_CMWS {};
-    class VTX_MFD_4_Monospace : VTX_MFD_4_Monospace {};
-    class VTX_MFD_4_Bold :      VTX_MFD_4_Bold {};
+    class HCT_MFD_1_NOFLIR :           HCT_MFD_1_NOFLIR {};
+    class HCT_MFD_1_CMWS :      HCT_MFD_1_CMWS {};
+    class HCT_MFD_1_Monospace : HCT_MFD_1_Monospace {};
+    class HCT_MFD_1_Bold :      HCT_MFD_1_Bold {};
+    class HCT_MFD_2_NOFLIR :           HCT_MFD_2_NOFLIR {};
+    class HCT_MFD_2_CMWS :      HCT_MFD_2_CMWS {};
+    class HCT_MFD_2_Monospace : HCT_MFD_2_Monospace {};
+    class HCT_MFD_2_Bold :      HCT_MFD_2_Bold {};
+    class HCT_MFD_3_NOFLIR :           HCT_MFD_3_NOFLIR {};
+    class HCT_MFD_3_CMWS :      HCT_MFD_3_CMWS {};
+    class HCT_MFD_3_Monospace : HCT_MFD_3_Monospace {};
+    class HCT_MFD_3_Bold :      HCT_MFD_3_Bold {};
+    class HCT_MFD_4_NOFLIR :           HCT_MFD_4_NOFLIR {};
+    class HCT_MFD_4_CMWS :      HCT_MFD_4_CMWS {};
+    class HCT_MFD_4_Monospace : HCT_MFD_4_Monospace {};
+    class HCT_MFD_4_Bold :      HCT_MFD_4_Bold {};
     class NVGHUD: NVGHUD {};
-    class VTX_CLOCK: VTX_CLOCK {};
-    class VTX_ESIS_Horizon: VTX_ESIS_Horizon {};
-    class VTX_ESIS_Misc: VTX_ESIS_Misc {};
-    class VTX_FDRight: VTX_FDRight {};
-    class VTX_FDLeft: VTX_FDLeft {};
-    class VTX_FMS_L: VTX_FMS_L {};
-    class VTX_FMS_R: VTX_FMS_R {};
-    class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
+    class HCT_CLOCK: HCT_CLOCK {};
+    class HCT_ESIS_Horizon: HCT_ESIS_Horizon {};
+    class HCT_ESIS_Misc: HCT_ESIS_Misc {};
+    class HCT_FDRight: HCT_FDRight {};
+    class HCT_FDLeft: HCT_FDLeft {};
+    class HCT_FMS_L: HCT_FMS_L {};
+    class HCT_FMS_R: HCT_FMS_R {};
+    class HCT_ESIS_BOOT: HCT_ESIS_BOOT {};
   };
   // HeliSim seats (SEATS_* in uh60_helisim bmkhs_config/helisim_seats.hpp)
   class BMKHS_HeliSim: BMKHS_HeliSim { SEATS_SLICK };
-}; // vtx_UH60M_SLICK
+}; // hct_UH60M_SLICK

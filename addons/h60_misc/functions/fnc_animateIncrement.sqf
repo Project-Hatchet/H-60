@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_misc_fnc_animateIncrement
+ * hct_h60_misc_fnc_animateIncrement
  */
 
 params ["_vehicle", "_animation", "_increment"];
@@ -16,7 +16,7 @@ if (_animation in animationNames _vehicle) exitWith {
 
 #ifdef DEBUG_MODE_FULL
   diag_log [
-    "vtx_uh60_misc_fnc_animateIncrement: Animation does not exist",
+    "hct_h60_misc_fnc_animateIncrement: Animation does not exist",
     typeOf _vehicle,
     _animation
   ];

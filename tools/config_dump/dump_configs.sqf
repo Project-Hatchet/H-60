@@ -44,14 +44,14 @@ VTXDUMP_fnc_walk = {
 private _t0 = diag_tickTime;
 
 ("META|BEGIN|game=" + str productVersion) call VTXDUMP_fnc_emit;
-("META|modVersion|" + getText (configFile >> "CfgPatches" >> "vtx_main" >> "versionStr")) call VTXDUMP_fnc_emit;
+("META|modVersion|" + getText (configFile >> "CfgPatches" >> "hct_h60_main" >> "versionStr")) call VTXDUMP_fnc_emit;
 
 private _vehicles = [
-    "vtx_H60_base",
-    "vtx_UH60M", "vtx_UH60M_SLICK", "vtx_UH60M_MEDEVAC",
-    "vtx_HH60", "vtx_S70i",
-    "vtx_MH60M", "vtx_MH60M_DAP",
-    "vtx_MH60S", "vtx_MH60S_Pylons", "vtx_MH60S_GAU21L", "vtx_MH60S_Pylons_GAU21L"
+    "hct_H60_base",
+    "hct_UH60M", "hct_UH60M_SLICK", "hct_UH60M_MEDEVAC",
+    "hct_HH60", "hct_S70i",
+    "hct_MH60M", "hct_MH60M_DAP",
+    "hct_MH60S", "hct_MH60S_Pylons", "hct_MH60S_GAU21L", "hct_MH60S_Pylons_GAU21L"
 ];
 {
     private _cfg = configFile >> "CfgVehicles" >> _x;
@@ -71,7 +71,7 @@ private _vehicles = [
         {
             private _kid = _root >> _x;
             private _srcs = (configSourceAddonList _kid) apply { toLower _x };
-            if (_srcs findIf { (_x select [0, 4]) == "vtx_" } > -1) then {
+            if (_srcs findIf { (_x select [0, 4]) == "hct_" } > -1) then {
                 [_kid, _rootName, _rootName + " >> " + configName _kid, 0] call VTXDUMP_fnc_walk;
             };
         } forEach _kidNames;

@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * vtx_uh60_flir_fnc_perFrame
+ * hct_h60_flir_fnc_perFrame
  *
  * Hatchet module hook: FLIR per-frame - damage grain, stowed blackout, key input and slew, laser tracking, boot slew.
  *
@@ -11,42 +11,42 @@
 
 params ["_vehicle", "_frameTime"];
 
-private _inFullScreenCam = (vtx_uh60_flir_isInScriptedCamera || cameraView == "GUNNER");
+private _inFullScreenCam = (hct_h60_flir_isInScriptedCamera || cameraView == "GUNNER");
 // post-process effects are switched only when their state changes
 private _grainOn = _inFullScreenCam && {(_vehicle getHitPointDamage "FlirHit") > 0.5};
-if (isNil "vtx_uh60_flir_grainOn" || {vtx_uh60_flir_grainOn isNotEqualTo _grainOn}) then {
-  vtx_uh60_flir_grainOn = _grainOn;
-  vtx_uh60_flir_fnc_grain ppEffectEnable _grainOn;
-  vtx_uh60_flir_fnc_grain ppEffectCommit 0;
+if (isNil "hct_h60_flir_grainOn" || {hct_h60_flir_grainOn isNotEqualTo _grainOn}) then {
+  hct_h60_flir_grainOn = _grainOn;
+  hct_h60_flir_grainEffect ppEffectEnable _grainOn;
+  hct_h60_flir_grainEffect ppEffectCommit 0;
 };
 
-if (!vtx_uh60_flir_isPipHidden || {_inFullScreenCam}) then {
-  [_vehicle] call vtx_uh60_flir_fnc_handleKeyInputs;
-  [_vehicle] call vtx_uh60_flir_fnc_handleSlew;
+if (!hct_h60_flir_isPipHidden || {_inFullScreenCam}) then {
+  [_vehicle] call hct_h60_flir_fnc_handleKeyInputs;
+  [_vehicle] call hct_h60_flir_fnc_handleSlew;
 };
 
 if (getUserMFDValue _vehicle select USERMFDV_LST_MODE > 0) then {
-  _this call vtx_uh60_flir_fnc_laserTrack;
+  _this call hct_h60_flir_fnc_laserTrack;
 };
 
-private _flirStowed = _vehicle getVariable ["vtx_uh60_flir_stowed", true];
+private _flirStowed = _vehicle getVariable ["hct_h60_flir_stowed", true];
 private _blackOn = _flirStowed && _inFullScreenCam;
-if (isNil "vtx_uh60_flir_blackOn" || {vtx_uh60_flir_blackOn isNotEqualTo _blackOn}) then {
-  vtx_uh60_flir_blackOn = _blackOn;
-  vtx_uh60_flir_blackColor ppEffectEnable _blackOn;
-  vtx_uh60_flir_blackColor ppEffectCommit 0;
+if (isNil "hct_h60_flir_blackOn" || {hct_h60_flir_blackOn isNotEqualTo _blackOn}) then {
+  hct_h60_flir_blackOn = _blackOn;
+  hct_h60_flir_blackColor ppEffectEnable _blackOn;
+  hct_h60_flir_blackColor ppEffectCommit 0;
 };
 // tell the player once per entry into stowed fullscreen (was a hint every frame)
 if (_blackOn) then {
-  if !(missionNamespace getVariable ["vtx_uh60_flir_stowedHintShown", false]) then {
-    vtx_uh60_flir_stowedHintShown = true;
+  if !(missionNamespace getVariable ["hct_h60_flir_stowedHintShown", false]) then {
+    hct_h60_flir_stowedHintShown = true;
     hint "Your FLIR payload is stowed, use the MFD to enable your FLIR payload.";
   };
 } else {
-  vtx_uh60_flir_stowedHintShown = false;
+  hct_h60_flir_stowedHintShown = false;
 };
 
-if (_vehicle getVariable ["vtx_uh60_flir_stowed", true]) then {
+if (_vehicle getVariable ["hct_h60_flir_stowed", true]) then {
     _vehicle setPilotCameraTarget objNull;
     _vehicle setPilotCameraRotation [
       rad (180),
@@ -54,7 +54,7 @@ if (_vehicle getVariable ["vtx_uh60_flir_stowed", true]) then {
     ];
 };
 
-private _bootTime = _vehicle getVariable ["vtx_uh60_flir_boot_time", -1];
+private _bootTime = _vehicle getVariable ["hct_h60_flir_boot_time", -1];
 if (_bootTime > -1) then {
   private _timeRemaining = (_bootTime + 25) - cba_missionTime;
   if (_timeRemaining > 0) then {
@@ -69,8 +69,8 @@ if (_bootTime > -1) then {
 };
 
 // Skip the camera/overlay updates only when NO FLIR view is on screen.
-if (vtx_uh60_flir_isPipHidden && {!_inFullScreenCam}) exitWith {};
+if (hct_h60_flir_isPipHidden && {!_inFullScreenCam}) exitWith {};
 
-[_vehicle] call vtx_uh60_flir_fnc_updateCamera;
-_this call vtx_uh60_flir_fnc_updateUIValues;
+[_vehicle] call hct_h60_flir_fnc_updateCamera;
+_this call hct_h60_flir_fnc_updateUIValues;
 

@@ -1,7 +1,7 @@
-class vtx_uh60_jvmf_inboxDialog {
+class hct_h60_jvmf_inboxDialog {
     idd = 20001;
     movingEnable = "true";
-    onLoad = "_this call vtx_uh60_jvmf_fnc_prepareInboxDialog;";
+    onLoad = "_this call hct_h60_jvmf_fnc_prepareInboxDialog;";
     class Controls {
         class IGUIBack_2200: IGUIBack
         {
@@ -37,7 +37,7 @@ class vtx_uh60_jvmf_inboxDialog {
         	y = "0.255 * safezoneH + safezoneY";
         	w = "0.04125 * safezoneW";
         	h = "0.022 * safezoneH";
-            onButtonClick="closeDialog 2;createDialog ""vtx_uh60_jvmf_writeDialog"";";
+            onButtonClick="closeDialog 2;createDialog ""hct_h60_jvmf_writeDialog"";";
         };
         class RscButton_1603: RscButton
         {
@@ -47,7 +47,7 @@ class vtx_uh60_jvmf_inboxDialog {
         	y = "0.255 * safezoneH + safezoneY";
         	w = "0.04125 * safezoneW";
         	h = "0.022 * safezoneH";
-            onButtonClick="closeDialog 2;createDialog ""vtx_uh60_jvmf_positionDialog"";";
+            onButtonClick="closeDialog 2;createDialog ""hct_h60_jvmf_positionDialog"";";
         };
         class RscButton_1604: RscButton
         {
@@ -76,7 +76,7 @@ class vtx_uh60_jvmf_inboxDialog {
         	y = "0.67 * safezoneH + safezoneY";
         	w = "0.04125 * safezoneW";
         	h = "0.022 * safezoneH";
-            onButtonClick="_this spawn vtx_uh60_jvmf_fnc_openMessage";
+            onButtonClick="_this spawn hct_h60_jvmf_fnc_openMessage";
         };
     };
 };

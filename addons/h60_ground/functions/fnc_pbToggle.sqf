@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_ground_fnc_pbToggle
+ * hct_h60_ground_fnc_pbToggle
  *
  * Toggles the parking brake lever - the one entry point every input
  * converges on: the Armakeybinds "Parking Brake" bind and the SFM
@@ -20,4 +20,4 @@ params ["_vehicle"];
 if (isNull _vehicle || {!alive _vehicle} || {!local _vehicle}) exitWith {};
 private _new = [1, 0] select ((_vehicle animationPhase "handle_wheelbrake") > 0.5);
 _vehicle animateSource ["Handle_wheelbrake", _new, true];
-[_vehicle, true, ["OFF", "ON"] select (_new > 0.5)] call vtx_uh60_ground_fnc_wheelBrakes;
+[_vehicle, true, ["OFF", "ON"] select (_new > 0.5)] call hct_h60_ground_fnc_wheelBrakes;

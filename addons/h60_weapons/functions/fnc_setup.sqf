@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * vtx_uh60_weapons_fnc_setup
+ * hct_h60_weapons_fnc_setup
  *
  * Hatchet module hook: weapons-system defaults on the vehicle and its MFD slots.
  *
@@ -9,10 +9,10 @@
 
 params ["_vehicle"];
 
-_vehicle setVariable ["vtx_uh60_hellfire_laserCodeIndex", _vehicle getVariable ["vtx_uh60_hellfire_laserCodeIndex", 0], true];
+_vehicle setVariable ["hct_h60_hellfire_laserCodeIndex", _vehicle getVariable ["hct_h60_hellfire_laserCodeIndex", 0], true];
 
-_vehicle setVariable ["vtx_uh60_hellfire_lastLaunchTime", 0];
-_vehicle setVariable ["vtx_uh60_hellfire_impactTime", -1];
+_vehicle setVariable ["hct_h60_hellfire_lastLaunchTime", 0];
+_vehicle setVariable ["hct_h60_hellfire_impactTime", -1];
 
 {
   _vehicle setUserMFDValue [_x, 0];
@@ -27,7 +27,7 @@ _vehicle setVariable ["vtx_uh60_hellfire_impactTime", -1];
   USERMFDV_LST_MODE
 ];
 
-_lrfdCode = [_vehicle, "LRFD"] call vtx_uh60_weapons_fnc_getLaserCode;
+_lrfdCode = [_vehicle, "LRFD"] call hct_h60_weapons_fnc_getLaserCode;
 _vehicle setVariable ["ace_laser_code", _lrfdCode, true];
 
 true

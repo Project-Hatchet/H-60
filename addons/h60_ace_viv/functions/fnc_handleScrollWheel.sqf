@@ -10,7 +10,7 @@
  * Handled or not. <BOOL>
  *
  * Example:
- * [0.1] call vtx_ace_viv_fnc_handleScrollWheel;
+ * [0.1] call hct_h60_ace_viv_fnc_handleScrollWheel;
  *
  * Public: No
  */

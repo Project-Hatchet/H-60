@@ -1,7 +1,7 @@
-// vtx_UH60M_MEDEVAC (HH-60M) — the only unarmed military variant.
+// hct_UH60M_MEDEVAC (HH-60M) — the only unarmed military variant.
 // Lifted verbatim from cfgVehicles.hpp into its own file (Phase 1 PR A);
 // include paths adjusted one level for the vehicles\ folder.
-class vtx_UH60M_MEDEVAC: vtx_H60_base {
+class hct_UH60M_MEDEVAC: hct_H60_base {
     scope = 2;
     editorPreview = "z\vtx\addons\uh60m\data\preview\vtx_UH60M_MEDEVAC.jpg"; // dev tester report 2026-09-07: never had one (verified back to 0.7.9)
     forceInGarage = 1;
@@ -65,32 +65,32 @@ class vtx_UH60M_MEDEVAC: vtx_H60_base {
       };
     };
     class MFD: MFD {
-      class VTX_MFD_1_NOFLIR :           VTX_MFD_1_NOFLIR {};
-      class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};
-      class VTX_MFD_1_Monospace : VTX_MFD_1_Monospace {};
-      class VTX_MFD_1_Bold :      VTX_MFD_1_Bold {};
-      class VTX_MFD_2_NOFLIR :           VTX_MFD_2_NOFLIR {};
-      class VTX_MFD_2_CMWS :      VTX_MFD_2_CMWS {};
-      class VTX_MFD_2_Monospace : VTX_MFD_2_Monospace {};
-      class VTX_MFD_2_Bold :      VTX_MFD_2_Bold {};
-      class VTX_MFD_3_NOFLIR :           VTX_MFD_3_NOFLIR {};
-      class VTX_MFD_3_CMWS :      VTX_MFD_3_CMWS {};
-      class VTX_MFD_3_Monospace : VTX_MFD_3_Monospace {};
-      class VTX_MFD_3_Bold :      VTX_MFD_3_Bold {};
-      class VTX_MFD_4_NOFLIR :           VTX_MFD_4_NOFLIR {};
-      class VTX_MFD_4_CMWS :      VTX_MFD_4_CMWS {};
-      class VTX_MFD_4_Monospace : VTX_MFD_4_Monospace {};
-      class VTX_MFD_4_Bold :      VTX_MFD_4_Bold {};
+      class HCT_MFD_1_NOFLIR :           HCT_MFD_1_NOFLIR {};
+      class HCT_MFD_1_CMWS :      HCT_MFD_1_CMWS {};
+      class HCT_MFD_1_Monospace : HCT_MFD_1_Monospace {};
+      class HCT_MFD_1_Bold :      HCT_MFD_1_Bold {};
+      class HCT_MFD_2_NOFLIR :           HCT_MFD_2_NOFLIR {};
+      class HCT_MFD_2_CMWS :      HCT_MFD_2_CMWS {};
+      class HCT_MFD_2_Monospace : HCT_MFD_2_Monospace {};
+      class HCT_MFD_2_Bold :      HCT_MFD_2_Bold {};
+      class HCT_MFD_3_NOFLIR :           HCT_MFD_3_NOFLIR {};
+      class HCT_MFD_3_CMWS :      HCT_MFD_3_CMWS {};
+      class HCT_MFD_3_Monospace : HCT_MFD_3_Monospace {};
+      class HCT_MFD_3_Bold :      HCT_MFD_3_Bold {};
+      class HCT_MFD_4_NOFLIR :           HCT_MFD_4_NOFLIR {};
+      class HCT_MFD_4_CMWS :      HCT_MFD_4_CMWS {};
+      class HCT_MFD_4_Monospace : HCT_MFD_4_Monospace {};
+      class HCT_MFD_4_Bold :      HCT_MFD_4_Bold {};
       class NVGHUD: NVGHUD {};
-      class VTX_CLOCK: VTX_CLOCK {};
-      class VTX_ESIS_Horizon: VTX_ESIS_Horizon {};
-      class VTX_ESIS_Misc: VTX_ESIS_Misc {};
-      class VTX_FDRight: VTX_FDRight {};
-      class VTX_FDLeft: VTX_FDLeft {};
-      class VTX_FMS_L: VTX_FMS_L {};
-      class VTX_FMS_R: VTX_FMS_R {};
-      class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
+      class HCT_CLOCK: HCT_CLOCK {};
+      class HCT_ESIS_Horizon: HCT_ESIS_Horizon {};
+      class HCT_ESIS_Misc: HCT_ESIS_Misc {};
+      class HCT_FDRight: HCT_FDRight {};
+      class HCT_FDLeft: HCT_FDLeft {};
+      class HCT_FMS_L: HCT_FMS_L {};
+      class HCT_FMS_R: HCT_FMS_R {};
+      class HCT_ESIS_BOOT: HCT_ESIS_BOOT {};
     };
   // HeliSim seats (SEATS_* in uh60_helisim bmkhs_config/helisim_seats.hpp)
   class BMKHS_HeliSim: BMKHS_HeliSim { SEATS_MEDEVAC };
-}; // vtx_UH60M_MEDEVAC
+}; // hct_UH60M_MEDEVAC

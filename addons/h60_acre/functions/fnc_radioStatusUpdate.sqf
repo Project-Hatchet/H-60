@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_acre_fnc_radioStatusUpdate
+ * hct_h60_acre_fnc_radioStatusUpdate
  *
  * turns radio on/off
  *
@@ -8,7 +8,7 @@
 
 params ["_vehicle", "_index"];
 
-private _status = _vehicle getVariable [(format ["vtx_uh60_radio_%1", _index]),0];
+private _status = _vehicle getVariable [(format ["hct_h60_radio_%1", _index]),0];
 
 private _wiredRacks = [_vehicle, acre_player, 0, "wiredRacks"] call acre_sys_intercom_fnc_getStationConfiguration;
 private _selectedRack = _wiredRacks select (_index);
@@ -16,11 +16,11 @@ private _selectedRack = _wiredRacks select (_index);
 
 if (_status == 0) then {
 	_selectedRack set [1, 3];
-	_vehicle setVariable [(format ["vtx_uh60_radio_%1", _index]), 1, true];
+	_vehicle setVariable [(format ["hct_h60_radio_%1", _index]), 1, true];
 } else {
 	private _selectedRack = _wiredRacks select (_index);
  	_selectedRack set [1,0];
-		_vehicle setVariable [(format ["vtx_uh60_radio_%1", _index]), 0, true];
+		_vehicle setVariable [(format ["hct_h60_radio_%1", _index]), 0, true];
 };
-[_vehicle] call vtx_uh60_fms_fnc_perSecond;
-[_vehicle] call vtx_uh60_acre_fnc_notifyOtherSeat;
+[_vehicle] call hct_h60_fms_fnc_perSecond;
+[_vehicle] call hct_h60_acre_fnc_notifyOtherSeat;

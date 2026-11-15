@@ -2,21 +2,21 @@ class cfgWeapons {
     class ace_hellfire_launcher;
     class ace_hellfire_launcher_L;
     class ace_hellfire_launcher_N;
-    class vtx_hellfire_launcher: ace_hellfire_launcher {
+    class hct_hellfire_launcher: ace_hellfire_launcher {
       ace_laser_showHud = 0;
-      magazines[] = {"VTX_4Rnd_ACE_Hellfire_AGM114K"};
+      magazines[] = {"HCT_4Rnd_ACE_Hellfire_AGM114K"};
       class Eventhandlers {
-        class vtx_hellfire {
-          fired = "_this call vtx_uh60_weapons_fnc_fired";
+        class hct_hellfire {
+          fired = "_this call hct_h60_weapons_fnc_fired";
         };
       };
     };
-    class vtx_hellfire_launcher_N: ace_hellfire_launcher_N {
+    class hct_hellfire_launcher_N: ace_hellfire_launcher_N {
       ace_laser_showHud = 0;
-      magazines[] = {"VTX_4Rnd_ACE_Hellfire_AGM114N"};
+      magazines[] = {"HCT_4Rnd_ACE_Hellfire_AGM114N"};
       class Eventhandlers {
-        class vtx_hellfire {
-          fired = "_this call vtx_uh60_weapons_fnc_fired";
+        class hct_hellfire {
+          fired = "_this call hct_h60_weapons_fnc_fired";
         };
       };
     };
@@ -25,17 +25,17 @@ class cfgWeapons {
       class player;
       class manual;
     };
-    class vtx_chaingun_hedp: autocannon_30mm_RCWS {
+    class hct_chaingun_hedp: autocannon_30mm_RCWS {
       displayName = "M230 Chaingun";
       displayNameShort = "M230 HEDP";
-      magazines[] = {"VTX_M230_Chaingun_L", "VTX_M230_Chaingun_R"};
+      magazines[] = {"HCT_M230_Chaingun_L", "HCT_M230_Chaingun_R"};
       class player: player {
         displayName = "M230 HEDP";
         reloadTime = 0.109;
 			  dispersion = 0.006;
       class StandardSound 
       {
-          soundSetShot[] = {"vtx_m230_soundset"};
+          soundSetShot[] = {"hct_m230_soundset"};
       };	
       };
       class gunParticles
@@ -54,8 +54,8 @@ class cfgWeapons {
           };
       };
       class Eventhandlers {
-        class vtx_chaingun {
-          fired = "_this call vtx_uh60_weapons_fnc_firedChaingun";
+        class hct_chaingun {
+          fired = "_this call hct_h60_weapons_fnc_firedChaingun";
         };
       };
     };
@@ -65,10 +65,10 @@ class cfgWeapons {
     class Far_AI;
     class Medium_AI;
   };
-  class vtx_hydra: missiles_DAR{
+  class hct_hydra: missiles_DAR{
     displayName = "M299";
     displayNameShort = "M299";
-    magazines[] = {"VTX_PylonRack_M261_M229"};
+    magazines[] = {"HCT_PylonRack_M261_M229"};
     class Burst: Burst {
       displayName = "M299/Ripple";
     };
@@ -80,16 +80,16 @@ class cfgWeapons {
   };
 
   class ace_missileguidance_dagr;
-  class vtx_dagr: ace_missileguidance_dagr {
-    magazines[] = {"VTX_PylonRack_M261_DAGR"};
+  class hct_dagr: ace_missileguidance_dagr {
+    magazines[] = {"HCT_PylonRack_M261_DAGR"};
     class Burst;
     class Far_AI;
     class Medium_AI;
   };
-	class vtx_apkws: vtx_dagr {
+	class hct_apkws: hct_dagr {
     displayName = "APKWS";
     displayNameShort = "APKWS";
-    magazines[] = {"VTX_PylonRack_M261_APKWS"};
+    magazines[] = {"HCT_PylonRack_M261_APKWS"};
     class Burst: Burst {
       displayName = "APKWS";
     };

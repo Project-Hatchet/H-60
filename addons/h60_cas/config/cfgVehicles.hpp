@@ -14,7 +14,7 @@ class CfgVehicles {
             class modules;
         }; // hct_copilot
     }; // Heli_Transport_01_base_F
-    class vtx_H60_base: Heli_Transport_01_base_F {
+    class hct_H60_base: Heli_Transport_01_base_F {
         class hct_driver: hct_driver {
             class modules: modules {
                 //class cas {
@@ -39,5 +39,5 @@ class CfgVehicles {
                 }; // FMS
             }; // interaction
         }; // hct_copilot
-    }; // vtx_H60_base
+    }; // hct_H60_base
 }; // CfgVehicles

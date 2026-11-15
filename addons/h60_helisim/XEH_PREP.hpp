@@ -1,0 +1,12 @@
+PREP(cockpitAllowed);
+PREP(cockpitBind);
+PREP(cockpitInteract);
+PREP(controlConfig);
+PREP(fdKnob);
+PREP(fmcInput);
+PREP(leverSpeed);
+PREP(perFrame);
+PREP(setup);
+PREP(updateCockpit);
+PREP(updateLimits);
+PREP(updateVisuals);

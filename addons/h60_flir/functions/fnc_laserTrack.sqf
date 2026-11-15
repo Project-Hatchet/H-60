@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * vtx_uh60_flir_fnc_laserTrack
+ * hct_h60_flir_fnc_laserTrack
  *
  * LST mode, per frame: auto-scans or locks the FLIR onto a laser spot of the selected code.
  *
@@ -9,12 +9,12 @@
 
 params ["_vehicle"];
 if (getUserMFDValue _vehicle select USERMFDV_LST_MODE == 2) then {
-	_this call vtx_uh60_flir_fnc_autoScanPattern;
+	_this call hct_h60_flir_fnc_autoScanPattern;
 };
 
 if (!local _vehicle) exitWith {};
 
-private _laserCode = [_vehicle, "LST"] call vtx_uh60_weapons_fnc_getLaserCode;
+private _laserCode = [_vehicle, "LST"] call hct_h60_weapons_fnc_getLaserCode;
 private _origin = _vehicle selectionPosition "pilotcamera_flir_pos";
 private _direction = getPilotCameraDirection _vehicle;
 private _fov = 8;
@@ -28,6 +28,6 @@ private _laserResult = [
 ] call ace_laser_fnc_seekerFindLaserSpot;
 if (isNil "_laserResult" || {isNull (_laserResult # 1)}) exitWith {};
 _vehicle setPilotCameraTarget (_laserResult # 0);
-[[], (_laserResult # 0)] call vtx_uh60_flir_fnc_syncPilotCamera;
+[[], (_laserResult # 0)] call hct_h60_flir_fnc_syncPilotCamera;
 
 _vehicle setUserMFDValue [USERMFDV_LST_MODE, 0];

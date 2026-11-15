@@ -14,10 +14,10 @@ class hct_cargo {
             positionType="anim";
             label="Left Door";
             animation="cabindoor_L";
-            interactionCondition="_this call vtx_uh60_misc_fnc_canInteractCabinDoor";
+            interactionCondition="_this call hct_h60_misc_fnc_canInteractCabinDoor";
             animStates[] = {0, 1};
             animLabels[] = {"Open", "Closed"};
-            animEnd = "_this call vtx_uh60_misc_fnc_interactedCabinDoor;";
+            animEnd = "_this call hct_h60_misc_fnc_interactedCabinDoor;";
             radius=0.1;
             animSpeed=1;
         }; // l_door
@@ -27,10 +27,10 @@ class hct_cargo {
             positionType="anim";
             label="Right Door";
             animation="cabindoor_R";
-            interactionCondition="_this call vtx_uh60_misc_fnc_canInteractCabinDoor";
+            interactionCondition="_this call hct_h60_misc_fnc_canInteractCabinDoor";
             animStates[] = {0, 1};
             animLabels[] = {"Open", "Closed"};
-            animEnd = "_this call vtx_uh60_misc_fnc_interactedCabinDoor;";
+            animEnd = "_this call hct_h60_misc_fnc_interactedCabinDoor;";
             radius=0.1;
             animSpeed=1;
         }; // r_door
@@ -40,7 +40,7 @@ class hct_cargo {
           position[] = POS_MOVE_CABIN_COCKPIT;
           label = "Move To Cockpit";
           radius = 0.1;
-          buttonDown = "call vtx_uh60_misc_fnc_moveToCockpit";
+          buttonDown = "call hct_h60_misc_fnc_moveToCockpit";
         }; // toCockpit
     };
 };

@@ -2,16 +2,16 @@ class CfgVehicles
 {
     // Hoist self-actions are registered script-side in ACE_Actions.sqf
     // (ace_interact_menu_fnc_addActionToClass): a config ACE_SelfActions
-    // block on vtx_H60_base would overwrite inherited actions instead of
+    // block on hct_H60_base would overwrite inherited actions instead of
     // merging with them.
 
     class Man;
     class CAManBase: Man {
         class ACE_SelfActions {
-            class vtx_detachHook {
+            class hct_detachHook {
                 displayName = "Detach Hook";
-                condition = "[player] call vtx_uh60_hoist_fnc_isAttachedHook";
-                statement = "[player] call vtx_uh60_hoist_fnc_detachHook";
+                condition = "[player] call hct_h60_hoist_fnc_isAttachedHook";
+                statement = "[player] call hct_h60_hoist_fnc_detachHook";
                 icon = "z\vtx\addons\uh60_hoist\data\ui\iconHook.paa";
                 priority = 2.6;
                 showDisabled = 1;
@@ -23,7 +23,7 @@ class CfgVehicles
     class Boat_F: Ship_F {
         class Turrets;
     };
-    class vtx_hook_base: Boat_F {
+    class hct_hook_base: Boat_F {
         scope = 1;
         //simulation = "car";
         simulation = "shipX";
@@ -48,23 +48,23 @@ class CfgVehicles
         class Turrets {};
 
     };
-    class vtx_hook_helper: vtx_hook_base {
+    class hct_hook_helper: hct_hook_base {
         displayName = "Rescue Hoist Hook Helper";
         author = "Project Hatchet Studios";
         model = "z\vtx\addons\uh60_hoist\data\vtx_hook_helper.p3d";
         slingLoadCargoMemoryPoints[] = {"sling_point"};
     };
 
-    class vtx_hook: vtx_hook_base {
-        _generalMacro = "vtx_hook";
+    class hct_hook: hct_hook_base {
+        _generalMacro = "hct_hook";
         class ACE_Actions {
           class ACE_MainActions {};
         };
         class ACE_SelfActions {
-            class VTX_GetInHeli {
+            class HCT_GetInHeli {
                 displayName = "Get In Helicopter";
-                condition = "[_player] call vtx_uh60_hoist_fnc_canMoveHookToHeli";
-                statement = "[_player] call vtx_uh60_hoist_fnc_moveHookToHeli";
+                condition = "[_player] call hct_h60_hoist_fnc_canMoveHookToHeli";
+                statement = "[_player] call hct_h60_hoist_fnc_moveHookToHeli";
                 selection = "sling_point";
                 exceptions[] = {};
             };

@@ -14,7 +14,7 @@
  * None
  *
  * Example:
- * [] call vtx_uh60_weapons_fnc_onIRLaserOn
+ * [] call hct_h60_weapons_fnc_onIRLaserOn
  *
  * Public: No
  */

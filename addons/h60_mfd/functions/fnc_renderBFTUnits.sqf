@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_mfd_fnc_renderBFTUnits
+ * hct_h60_mfd_fnc_renderBFTUnits
  *
  * Shows cTab's blue-force-tracking contacts (and the aircraft's laser spot) as
  * BLUFOR-reported sensor targets for the TAC page. Runs each second while cTab
@@ -15,7 +15,7 @@
 params ["_vehicle"];
 if (isNil "cTabBFTmembers") exitWith {};
 
-private _objects = (missionNamespace getVariable ["vtx_uh60_mfd_ctab_markers", []])
+private _objects = (missionNamespace getVariable ["hct_h60_mfd_ctab_markers", []])
     + (cTabBFTmembers apply {_x # 0})
     + (cTabBFTgroups apply {_x # 0})
     + (cTabBFTvehicles apply {_x # 0})
@@ -30,11 +30,11 @@ _objects = _objects select {_x isEqualType objNull && {!isNull _x}};
 {
     blufor reportRemoteTarget [_x, -1];
     _x confirmSensorTarget [west, false];
-} forEach ((missionNamespace getVariable ["vtx_uh60_mfd_bftReported", []]) - _objects);
+} forEach ((missionNamespace getVariable ["hct_h60_mfd_bftReported", []]) - _objects);
 
 {
     blufor reportRemoteTarget [_x, 2];
     _x confirmSensorTarget [west, true];
 } forEach _objects;
 
-vtx_uh60_mfd_bftReported = _objects;
+hct_h60_mfd_bftReported = _objects;

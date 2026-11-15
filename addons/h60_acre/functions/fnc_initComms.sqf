@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_acre_fnc_initComms
+ * hct_h60_acre_fnc_initComms
  *
  * initializes acre comms systems once BUS is on
  *

@@ -7,15 +7,15 @@ changes each work package logs (see `docs/phase-1/PHASE_1_PLAN.md` §3/§5).
 
 ## What it captures
 
-- **CfgVehicles spawn matrix + `vtx_H60_base`**: `vtx_UH60M`, `vtx_UH60M_SLICK`,
-  `vtx_UH60M_MEDEVAC`, `vtx_HH60`, `vtx_S70i`, `vtx_MH60M`, `vtx_MH60M_DAP`,
-  `vtx_MH60S`, `vtx_MH60S_Pylons`, `vtx_MH60S_GAU21L`,
-  `vtx_MH60S_Pylons_GAU21L` — full recursive tree, inherited members included
+- **CfgVehicles spawn matrix + `hct_H60_base`**: `hct_UH60M`, `hct_UH60M_SLICK`,
+  `hct_UH60M_MEDEVAC`, `hct_HH60`, `hct_S70i`, `hct_MH60M`, `hct_MH60M_DAP`,
+  `hct_MH60S`, `hct_MH60S_Pylons`, `hct_MH60S_GAU21L`,
+  `hct_MH60S_Pylons_GAU21L` — full recursive tree, inherited members included
   (so a shadowed merge that silently drops inherited content shows up, the #510
   failure mode).
 - **Sound/function roots**: every class under `CfgSoundShapes`, `CfgSoundCurves`,
   `CfgSound3DProcessors`, `cfgDistanceFilters`, `CfgSoundSets`, `CfgSoundShaders`,
-  `CfgSounds`, `CfgSFX`, `CfgMusic`, `CfgFunctions` that any `vtx_*` addon
+  `CfgSounds`, `CfgSFX`, `CfgMusic`, `CfgFunctions` that any `hct_*` addon
   contributes (via `configSourceAddonList`) — this is the coverage for the
   H60_SFX demotion in WP1.
 

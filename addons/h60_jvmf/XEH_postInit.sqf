@@ -1,5 +1,5 @@
 #include "script_component.hpp"
 
-if (!vtx_uh60_jvmf_defaults) then {
-    vtx_jvmf_messages = [];
+if (!hct_h60_jvmf_defaults) then {
+    hct_jvmf_messages = [];
 };

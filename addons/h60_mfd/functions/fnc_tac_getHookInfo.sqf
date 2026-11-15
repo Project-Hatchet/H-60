@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_mfd_fnc_tac_getHookInfo
+ * hct_h60_mfd_fnc_tac_getHookInfo
  *
  * TAC page: text and position for a hooked object or waypoint.
  *

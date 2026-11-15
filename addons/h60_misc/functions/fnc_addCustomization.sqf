@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_misc_fnc_addCustomization
+ * hct_h60_misc_fnc_addCustomization
  *
  * ACE action: fits a carried part (e.g. an ERFS tank) to the aircraft, consuming the object.
  *

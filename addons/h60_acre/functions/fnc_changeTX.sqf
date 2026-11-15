@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_acre_fnc_changeTX
+ * hct_h60_acre_fnc_changeTX
  *
  * changes active radio with TX knob
  *
@@ -10,7 +10,7 @@ params ["_vehicle"];
 
 private _value = round ((_vehicle animationSourcePhase "TX_ROT") * 10); //changes it to 1-4 range
 
-if(vtx_uh60_ui_showDebugMessages) then {
+if(hct_h60_ui_showDebugMessages) then {
     systemChat str [
         _value
     ];

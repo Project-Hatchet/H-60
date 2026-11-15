@@ -10,25 +10,25 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_effect] call vtx_uh60_flir_fnc_setVisionMode
+ * [_effect] call hct_h60_flir_fnc_setVisionMode
  */
 
 params ["_effect", ["_sync", true]];
 
-vtx_uh60_flir_pipEffect = _effect;
-"vtx_uh60_flir_feed" setPiPEffect vtx_uh60_flir_pipEffect;
+hct_h60_flir_pipEffect = _effect;
+"hct_h60_flir_feed" setPiPEffect hct_h60_flir_pipEffect;
 
-if (vtx_uh60_flir_isInScriptedCamera) then {
-  camUseNVG (vtx_uh60_flir_pipEffect isEqualTo [1]);
-  if (vtx_uh60_flir_pipEffect in [[2], [7]]) then {
-    true setCamUseTI (vtx_uh60_flir_pipEffectsHashMap get vtx_uh60_flir_pipEffect);
+if (hct_h60_flir_isInScriptedCamera) then {
+  camUseNVG (hct_h60_flir_pipEffect isEqualTo [1]);
+  if (hct_h60_flir_pipEffect in [[2], [7]]) then {
+    true setCamUseTI (hct_h60_flir_pipEffectsHashMap get hct_h60_flir_pipEffect);
   } else {
     false setCamUseTI 0
   };
 };
 
-if (_sync && vtx_uh60_flir_otherPilotIsPlayer) then {
-  ["vtx_uh60_flir_syncVisionMode", [_effect], [vtx_uh60_flir_otherPilot]] call CBA_fnc_targetEvent;
+if (_sync && hct_h60_flir_otherPilotIsPlayer) then {
+  ["hct_h60_flir_syncVisionMode", [_effect], [hct_h60_flir_otherPilot]] call CBA_fnc_targetEvent;
 };
 
 true

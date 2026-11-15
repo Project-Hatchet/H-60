@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_weapons_fnc_jettisonAll
+ * hct_h60_weapons_fnc_jettisonAll
  *
  * Jettisons every store on pylons 1-4 (not the M230 chain guns): each is moved to
  * a falling dummy that drops after a short random delay. Called from the cockpit
@@ -16,9 +16,9 @@ private _magazines = getPylonMagazines _vehicle;
 	_x params ["_pylon", "_position", "_damageThreshold"];
 	// airframes with fewer pylons simply have nothing at the higher indices
 	private _magazine = _magazines param [_pylon - 1, ""];
-	if (_magazine != "" && {!(_magazine in ["VTX_M230_Chaingun_R", "VTX_M230_Chaingun_L"])}) then {
+	if (_magazine != "" && {!(_magazine in ["HCT_M230_Chaingun_R", "HCT_M230_Chaingun_L"])}) then {
 		private _ammo = _vehicle ammoOnPylon _pylon;
-		private _pylonDummy = "vtx_pylon" createVehicle [0,0,0];
+		private _pylonDummy = "hct_pylon" createVehicle [0,0,0];
 		_pylonDummy setPylonLoadout [1, _magazine, false, []];
 		_pylonDummy setAmmoOnPylon [1, _ammo];
 		_pylonDummy attachTo [_vehicle, _position];

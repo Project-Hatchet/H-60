@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_fms_fnc_addWaypoint
+ * hct_h60_fms_fnc_addWaypoint
  *
  * Insert a waypoint both in to the player's waypoint list and the MicroDAGR
  *

@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_weapons_fnc_hellfireGuidanceInit
+ * hct_h60_weapons_fnc_hellfireGuidanceInit
  *
  * Fired (Hellfire): starts ACE missile guidance with the H-60's seeker and attack-profile setup.
  *
@@ -29,7 +29,7 @@ if ((getNumber (configFile >> "CfgAmmo" >> _ammo >> "ace_missileguidance" >> "us
 };
 private _lockMode = _shooter getVariable ["ace_missileguidance_lockMode", nil];
 
-private _laserCode = [vehicle player, "PRI CHAN"] call vtx_uh60_weapons_fnc_getLaserCode;
+private _laserCode = [vehicle player, "PRI CHAN"] call hct_h60_weapons_fnc_getLaserCode;
 private _laserInfo = [_laserCode, ACE_DEFAULT_LASER_WAVELENGTH, ACE_DEFAULT_LASER_WAVELENGTH];
 
 private _launchPos = getPosASL (vehicle _shooter);
@@ -170,5 +170,5 @@ _onFiredFunc = getText (_config >> "onFired");
 if (_onFiredFunc != "") then {
     _args call (missionNamespace getVariable _onFiredFunc);
 };
-if (vtx_uh60_ui_showDebugMessages) then {systemChat format ["vtx hellfire init called with args: %1", _args];};
+if (hct_h60_ui_showDebugMessages) then {systemChat format ["vtx hellfire init called with args: %1", _args];};
 [ace_missileguidance_fnc_guidancePFH, 0, _args ] call CBA_fnc_addPerFrameHandler;

@@ -1,30 +1,30 @@
-// vtx_H60_base — sole full declaration (Phase 1 PR C).
-// Body order preserves the former two-unit merge: vtx_UH60's members first
+// hct_H60_base — sole full declaration (Phase 1 PR C).
+// Body order preserves the former two-unit merge: hct_UH60's members first
 // (in their original order), then the members this addon used to add via its
 // delta re-open (TextureSources, Armory, MFD, hct_turret_3).
 // AnimationSources is the merged single owner in ..\CfgAnimationSources.hpp.
-class vtx_H60_base: Heli_Transport_01_base_F {
+class hct_H60_base: Heli_Transport_01_base_F {
     #include "..\cfgUVAnimations.hpp"
     #include "..\cfgUserActions.hpp"
     #include "..\edenAttributes.hpp"
     author = "Project Hatchet Studios";
-    class VTX_H60_HDTS_Copilot;
+    class HCT_H60_HDTS_Copilot;
     #include "..\cfgHct.hpp"
     memoryPointDriverOptics = "slingcam";
-    class vtx_templateFLIR {
+    class hct_templateFLIR {
         #include "..\turrets\pilotCamera.hpp"
     };
     driverDoor = "Door_RF";
     scope=1;
 
     // Variant traits: what SQF asks instead of listing variant classnames
-    // (read via vtx_main_fnc_getTrait / GET_TRAIT). Defaults here, variants
+    // (read via hct_h60_main_fnc_getTrait / GET_TRAIT). Defaults here, variants
     // set their own; subclasses inherit them like isKindOf would.
-    vtx_trait_flirTurretAnimated = 0;  // FLIR ball follows the pilot camera (FLIR_DIRECTION/ELEVATION)
-    vtx_trait_irLaser = 0;             // fixed-forward IZLID keybind
-    vtx_trait_erfsService = 0;         // ERFS tank attach/remove ACE actions
-    vtx_trait_crewChiefTurnOut = 0;    // crew chief turn-in/turn-out seat swap (DAP)
-    editorSubcategory = "vtx_h60";
+    hct_trait_flirTurretAnimated = 0;  // FLIR ball follows the pilot camera (FLIR_DIRECTION/ELEVATION)
+    hct_trait_irLaser = 0;             // fixed-forward IZLID keybind
+    hct_trait_erfsService = 0;         // ERFS tank attach/remove ACE actions
+    hct_trait_crewChiefTurnOut = 0;    // crew chief turn-in/turn-out seat swap (DAP)
+    editorSubcategory = "hct_h60";
     side = 1;
     faction = "BLU_F";
     features = "";
@@ -123,7 +123,7 @@ class vtx_H60_base: Heli_Transport_01_base_F {
     A3TI_ThermalSelections[] = {16, 17, 18};
     accuracy = 5;
     model = "\z\vtx\addons\UH60\vtx_UH60.p3d";
-    displayName = "$STR_VTX_UH60_UHMBlackhawk";
+    displayName = "$STR_hct_h60_UHMBlackhawk";
 
     icon = "z\vtx\addons\UH60\Data\UI\Map_vtx_UH60_CA.paa";	/// icon in map/editor
     picture = "z\vtx\addons\UH60\Data\UI\vtx_UH60_CA.paa";	/// small picture in command menu
@@ -136,7 +136,7 @@ class vtx_H60_base: Heli_Transport_01_base_F {
     driverRightLegAnimName="Pedal_Right_P";
     transportSoldier = 10;
 
-    crew = "vtx_uh60_pilot";
+    crew = "hct_h60_pilot";
     transportMaxBackpacks = 11;
     cargoAction[] = {"passenger_low01", "passenger_generic01_leanleft", "passenger_generic01_leanleft", "passenger_generic01_leanright", "passenger_generic01_foldhands", "passenger_mantisrear", "passenger_mantisrear", "passenger_generic01_foldhands"};
 
@@ -404,11 +404,11 @@ class vtx_H60_base: Heli_Transport_01_base_F {
     class MFD;
     // hct_turret_1/2 (door-gun seats) are added by uh60_doorguns
     class hct_turret_3 {
-    projectPrefix = "vtx_uh60";
+    projectPrefix = "hct_h60";
       class modules {
           class ui {
               startOnEnter = 0;
           };
       }; // modules
     }; //TC Seat
-}; // vtx_H60_base
+}; // hct_H60_base

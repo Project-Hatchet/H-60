@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_misc_fnc_removeCustomization
+ * hct_h60_misc_fnc_removeCustomization
  *
  * ACE action: removes a fitted part and puts it in the player's hands (ACE carry).
  *

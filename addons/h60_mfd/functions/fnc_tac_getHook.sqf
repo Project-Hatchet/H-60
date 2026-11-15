@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * vtx_uh60_mfd_fnc_tac_getHook
+ * hct_h60_mfd_fnc_tac_getHook
  *
  * TAC page: hooks the sensor target or waypoint nearest the cursor and shows its info.
  *
@@ -25,7 +25,7 @@ params ["_vehicle"];
 
 if (getUserMFDValue _vehicle select USERMFDV_TAC_MOVE == 0) exitWith {};
 
-if (isNil "vtx_uh60_tac_hookedObject") then {
+if (isNil "hct_h60_tac_hookedObject") then {
 	private _group = group player;
 	private _waypointIdx = currentWaypoint _group;
 	private _waypoints = (waypoints _group) select [_waypointIdx, 6];
@@ -36,7 +36,7 @@ if (isNil "vtx_uh60_tac_hookedObject") then {
 	};
 
 	// _hookableObjects
-	private _cursorPos = [] call vtx_uh60_mfd_fnc_tac_cursorToWorld;
+	private _cursorPos = [] call hct_h60_mfd_fnc_tac_cursorToWorld;
 	private _nearestObject = nil;
 	{
 		if (isNil "_nearestObject") then {
@@ -61,11 +61,11 @@ if (isNil "vtx_uh60_tac_hookedObject") then {
 	if (_cursorPos distance2D (_nearestObject call _getObjectPosition) > _hookDistance) exitWith {
     _vehicle setUserMFDValue [USERMFDV_TAC_MOVE, 1];
 	};
-	vtx_uh60_tac_hookedObject = _nearestObject;
+	hct_h60_tac_hookedObject = _nearestObject;
 };
 
-if (!isNil "vtx_uh60_tac_hookedObject") then {
-	private _hookInfo = vtx_uh60_tac_hookedObject call vtx_uh60_mfd_fnc_tac_getHookInfo;
+if (!isNil "hct_h60_tac_hookedObject") then {
+	private _hookInfo = hct_h60_tac_hookedObject call hct_h60_mfd_fnc_tac_getHookInfo;
 	_vehicle setUserMFDText [45, _hookInfo # 0];
 	_vehicle setUserMFDText [46, _hookInfo # 1];
 	_vehicle setUserMFDText [47, _hookInfo # 2];

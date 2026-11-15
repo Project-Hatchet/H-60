@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_doorguns_fnc_showHelp
+ * hct_h60_doorguns_fnc_showHelp
  *
  * toggles the help display for the ui module
  *

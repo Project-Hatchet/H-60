@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="VTX">
     <Package name="STRETCHER">
-        <Key ID="STR_VTX_STRETCHER_Unfold">
+        <Key ID="STR_hct_h60_stretcher_Unfold">
             <English>Unfold Stretcher</English>
             <Chinesesimp>展开担架</Chinesesimp>
         </Key>
-        <Key ID="STR_VTX_STRETCHER_Fold">
+        <Key ID="STR_hct_h60_stretcher_Fold">
             <English>Fold Stretcher</English>
             <Chinesesimp>折叠担架</Chinesesimp>
         </Key>

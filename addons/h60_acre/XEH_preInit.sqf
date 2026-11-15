@@ -3,6 +3,6 @@
 ADDON = false;
 
 #include "XEH_PREP.hpp"
-vtx_uh60_acre_enabled = isClass (configFile >> "cfgPatches" >> "acre_main");
+hct_h60_acre_enabled = isClass (configFile >> "cfgPatches" >> "acre_main");
 
 ADDON = true;

@@ -12,7 +12,7 @@
  * None
  *
  * Example:
- * [_vehicle, _unit, [1]] call vtx_uh60_config_fnc_handleTurnOut
+ * [_vehicle, _unit, [1]] call hct_h60_config_fnc_handleTurnOut
  */
 
 params ["_vehicle", "_unit", "_turret"];

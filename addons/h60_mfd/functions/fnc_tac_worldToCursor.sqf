@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * vtx_uh60_mfd_fnc_tac_worldToCursor
+ * hct_h60_mfd_fnc_tac_worldToCursor
  */
 params ["_position"];
 private _vehicle = vehicle player;
@@ -14,7 +14,7 @@ private _selfAligned = getUserMFDValue _vehicle select USERMFDV_TAC_ALIGN == 0;
 private _staticMap = getUserMFDValue _vehicle select USERMFDV_TAC_MOVE > 0;
 
 
-private _center = [_vehicle] call vtx_uh60_mfd_fnc_tac_getMapCenter;
+private _center = [_vehicle] call hct_h60_mfd_fnc_tac_getMapCenter;
 private _rotation = if (_selfAligned) then {getDir _vehicle} else {0};
 
 private _worldSize = [] call BIS_fnc_mapSize;

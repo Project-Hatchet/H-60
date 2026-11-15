@@ -1,12 +1,12 @@
 /*
- * vtx_uh60_misc_fnc_ccLockSeats
+ * hct_h60_misc_fnc_ccLockSeats
  *
  * Reconciles the DAP crew-chief seat locks to the desired state - the single
  * source of truth, recomputed from occupancy on every call (callers guard
  * vehicle locality):
  *  - "(Turned Out)" spots: ALWAYS locked - swap-only, fnc_ccSwap is the only
  *    way in or out (the owner opens both ends of the swap and marks them
- *    in the vtx_ccSwapBusy variable, which this function skips - see
+ *    in the hct_ccSwapBusy variable, which this function skips - see
  *    fnc_ccSwapLocks).
  *  - "L/R Crew Chief": locked while their "(Turned Out)" counterpart is
  *    OCCUPIED (Riverman ruling 2026-09-18: the vacated seat stays reserved
@@ -26,7 +26,7 @@
  */
 params ["_veh", ["_toggle", false]];
 
-private _busy = _veh getVariable ["vtx_ccSwapBusy", []];
+private _busy = _veh getVariable ["hct_ccSwapBusy", []];
 private _turrets = (allTurrets [_veh, true]) apply {
     [_x, getText (([_veh, _x] call BIS_fnc_turretConfig) >> "gunnerName")]
 };
@@ -52,14 +52,14 @@ private _unlock = [];
     };
 } forEach _turrets;
 
-private _debug = missionNamespace getVariable ["vtx_uh60_ui_showDebugMessages", false];
+private _debug = missionNamespace getVariable ["hct_h60_ui_showDebugMessages", false];
 {_veh lockTurret [_x, false]} forEach _unlock;
 if (_toggle) then {
     {_veh lockTurret [_x, false]} forEach _lock;
     [{
         params ["_veh", "_lock", "_unlock", "_debug"];
         // a swap may have opened one of these paths since they were computed
-        _lock = _lock - (_veh getVariable ["vtx_ccSwapBusy", []]);
+        _lock = _lock - (_veh getVariable ["hct_ccSwapBusy", []]);
         {_veh lockTurret [_x, true]} forEach _lock;
         if (_debug) then {diag_log format ["VTX CC RELOCK: %1 locked %2 open %3 readback %4", typeOf _veh, _lock, _unlock, _lock apply {_veh lockedTurret _x}];};
     }, [_veh, _lock, _unlock, _debug]] call CBA_fnc_execNextFrame;

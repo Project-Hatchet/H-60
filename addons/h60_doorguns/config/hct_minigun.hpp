@@ -1,5 +1,5 @@
 class hct_turret_1 {
-    projectPrefix = "vtx_uh60";
+    projectPrefix = "hct_h60";
     class modules {
         class doorguns {
             startOnEnter = 1;
@@ -14,7 +14,7 @@ class hct_turret_1 {
             position[] = {-0.8,3.8,-1};
             label = "";
             radius = 0.08;
-            buttonUp = "hint format[""%1 Rounds remaining"", (_this # 0) magazineTurretAmmo [""vtx_2000Rnd_65x39_Belt_Tracer_Red"", [1]]];";
+            buttonUp = "hint format[""%1 Rounds remaining"", (_this # 0) magazineTurretAmmo [""hct_2000Rnd_65x39_Belt_Tracer_Red"", [1]]];";
             clickSound = "hct_Switch_Sound";
         }; // ammoCan
         class toCockpit {
@@ -23,7 +23,7 @@ class hct_turret_1 {
           position[] = POS_MOVE_CABIN_COCKPIT;
           label = "Move To Cockpit";
           radius = 0.1;
-          buttonDown = "call vtx_uh60_misc_fnc_moveToCockpit";
+          buttonDown = "call hct_h60_misc_fnc_moveToCockpit";
         }; // toCockpit
         class coverUp {
             condition = "(_this animationPhase ""Switch_minigun_safe_cover_l"") > 0.5";
@@ -32,7 +32,7 @@ class hct_turret_1 {
                 position = "b_minigun_safe_cover_l";
                 label = "Safety on";
                 radius = 0.08;
-                buttonUp = "[(_this # 0), false, ""l""] call vtx_uh60_doorguns_fnc_coverSwitch;";
+                buttonUp = "[(_this # 0), false, ""l""] call hct_h60_doorguns_fnc_coverSwitch;";
                 clickSound = "hct_Switch_Sound";
             }; // safetyCover
             class powerOn {
@@ -42,7 +42,7 @@ class hct_turret_1 {
                     position = "b_minigun_safe_l";
                     label = "Power off";
                     radius = 0.08;
-                    buttonUp = "[(_this # 0), false, ""l""] call vtx_uh60_doorguns_fnc_powerSwitch;";
+                    buttonUp = "[(_this # 0), false, ""l""] call hct_h60_doorguns_fnc_powerSwitch;";
                     clickSound = "hct_Switch_Sound";
                 }; // powerButton
             }; // powerOn
@@ -53,7 +53,7 @@ class hct_turret_1 {
                     position = "b_minigun_safe_l";
                     label = "Power on";
                     radius = 0.08;
-                    buttonUp = "[(_this # 0), true, ""l""] call vtx_uh60_doorguns_fnc_powerSwitch;";
+                    buttonUp = "[(_this # 0), true, ""l""] call hct_h60_doorguns_fnc_powerSwitch;";
                     clickSound = "hct_Switch_Sound";
                 }; // powerButton
             }; // powerOff
@@ -65,7 +65,7 @@ class hct_turret_1 {
                 position = "b_minigun_safe_l";
                 label = "Safety cover up";
                 radius = 0.08;
-                buttonUp = "[(_this # 0), true, ""l""] call vtx_uh60_doorguns_fnc_coverSwitch;";
+                buttonUp = "[(_this # 0), true, ""l""] call hct_h60_doorguns_fnc_coverSwitch;";
                 clickSound = "hct_Switch_Sound";
             }; // safetyCover
         }; // coverDown
@@ -74,7 +74,7 @@ class hct_turret_1 {
     }; // interaction
 }; // hct_gunner
 class hct_turret_2 {
-    projectPrefix = "vtx_uh60";
+    projectPrefix = "hct_h60";
     class modules {
         class doorguns {
             startOnEnter = 1;
@@ -89,7 +89,7 @@ class hct_turret_2 {
             position[] = {0.8,3.8,-1};
             label = "";
             radius = 0.08;
-            buttonUp = "hint format[""%1 Rounds remaining"", (_this # 0) magazineTurretAmmo [""vtx_2000Rnd_65x39_Belt_Tracer_Red"", [2]]];";
+            buttonUp = "hint format[""%1 Rounds remaining"", (_this # 0) magazineTurretAmmo [""hct_2000Rnd_65x39_Belt_Tracer_Red"", [2]]];";
             clickSound = "hct_Switch_Sound";
         }; // ammoCan
         class toCockpit {
@@ -98,7 +98,7 @@ class hct_turret_2 {
           position[] = POS_MOVE_CABIN_COCKPIT;
           label = "Move To Cockpit";
           radius = 0.1;
-          buttonDown = "call vtx_uh60_misc_fnc_moveToCockpit";
+          buttonDown = "call hct_h60_misc_fnc_moveToCockpit";
         }; // toCockpit
         class coverUp {
             condition = "(_this animationPhase ""Switch_minigun_safe_cover_r"") > 0.5";
@@ -107,7 +107,7 @@ class hct_turret_2 {
                 position = "b_minigun_safe_cover_r";
                 label = "Safety on";
                 radius = 0.08;
-                buttonUp = "[(_this # 0), false, ""r""] call vtx_uh60_doorguns_fnc_coverSwitch;";
+                buttonUp = "[(_this # 0), false, ""r""] call hct_h60_doorguns_fnc_coverSwitch;";
                 clickSound = "hct_Switch_Sound";
             }; // safetyCover
             class powerOn {
@@ -117,7 +117,7 @@ class hct_turret_2 {
                     position = "b_minigun_safe_r";
                     label = "Power off";
                     radius = 0.08;
-                    buttonUp = "[(_this # 0), false, ""r""] call vtx_uh60_doorguns_fnc_powerSwitch;";
+                    buttonUp = "[(_this # 0), false, ""r""] call hct_h60_doorguns_fnc_powerSwitch;";
                     clickSound = "hct_Switch_Sound";
                 }; // powerButton
             }; // powerOn
@@ -128,7 +128,7 @@ class hct_turret_2 {
                     position = "b_minigun_safe_r";
                     label = "Power on";
                     radius = 0.08;
-                    buttonUp = "[(_this # 0), true, ""r""] call vtx_uh60_doorguns_fnc_powerSwitch;";
+                    buttonUp = "[(_this # 0), true, ""r""] call hct_h60_doorguns_fnc_powerSwitch;";
                     clickSound = "hct_Switch_Sound";
                 }; // powerButton
             }; // powerOff
@@ -140,7 +140,7 @@ class hct_turret_2 {
                 position = "b_minigun_safe_r";
                 label = "Safety cover up";
                 radius = 0.08;
-                buttonUp = "[(_this # 0), true, ""r""] call vtx_uh60_doorguns_fnc_coverSwitch;";
+                buttonUp = "[(_this # 0), true, ""r""] call hct_h60_doorguns_fnc_coverSwitch;";
                 clickSound = "hct_Switch_Sound";
             }; // safetyCover
         }; // coverDown

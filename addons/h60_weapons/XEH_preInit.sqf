@@ -8,7 +8,7 @@ GVAR(pylonPositionParams) = [];
 GVAR(irLaserPFH) = -1;
 GVAR(laserEmitters) = [];
 
-vtx_uh60_weapons_laserCodes = [
+hct_h60_weapons_laserCodes = [
 	1111,
 	1112,
 	1113,
@@ -16,7 +16,7 @@ vtx_uh60_weapons_laserCodes = [
 	1115,
 	1116
 ];
-vtx_uh60_weapons_laserCodeLetters = [
+hct_h60_weapons_laserCodeLetters = [
 	'A','B','C','D','E','F'
 ];
 

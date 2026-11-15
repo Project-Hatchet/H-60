@@ -1,6 +1,6 @@
 //External
 // -APU
-class vtx_APUSoundLoop_Ext_SoundShader
+class hct_APUSoundLoop_Ext_SoundShader
 {
 	samples[]=
 	{
@@ -20,7 +20,7 @@ class vtx_APUSoundLoop_Ext_SoundShader
 		{200,0}
 	};
 };
-class vtx_Rotor_Distance_SoundShader
+class hct_Rotor_Distance_SoundShader
 {
 	samples[]=
 	{
@@ -42,7 +42,7 @@ class vtx_Rotor_Distance_SoundShader
 		{3000,0}
 	};
 };
-class vtx_Engine_Distance_SoundShader
+class hct_Engine_Distance_SoundShader
 {
 	samples[]=
 	{
@@ -63,7 +63,7 @@ class vtx_Engine_Distance_SoundShader
 		{3000,0}
 	};
 };
-class vtx_EngineExt_SoundShader
+class hct_EngineExt_SoundShader
 {
 	samples[]=
 	{
@@ -84,7 +84,7 @@ class vtx_EngineExt_SoundShader
 		{1500,0}
 	};
 };
-class vtx_RotorExt_SoundShader: vtx_EngineExt_SoundShader
+class hct_RotorExt_SoundShader: hct_EngineExt_SoundShader
 {
 	samples[]=
 	{
@@ -105,7 +105,7 @@ class vtx_RotorExt_SoundShader: vtx_EngineExt_SoundShader
 		{1200,0}
 	};
 };
-class vtx_Turbine_Ext_SoundShader
+class hct_Turbine_Ext_SoundShader
 {
 	samples[]=
 	{
@@ -127,7 +127,7 @@ class vtx_Turbine_Ext_SoundShader
 };
 
 //-Startup + Shutdown
-class vtx_H60_Startup_Ext_SoundShader
+class hct_H60_Startup_Ext_SoundShader
 {
 	samples[]=
 	{
@@ -148,7 +148,7 @@ class vtx_H60_Startup_Ext_SoundShader
 		{600,0}
 	};
 };
-class vtx_H60_Shutdown_Ext_SoundShader: vtx_H60_Startup_Ext_SoundShader
+class hct_H60_Shutdown_Ext_SoundShader: hct_H60_Startup_Ext_SoundShader
 {
 	samples[]=
 	{
@@ -160,7 +160,7 @@ class vtx_H60_Shutdown_Ext_SoundShader: vtx_H60_Startup_Ext_SoundShader
 	};
 	volume="camext*(CustomSoundController14+1) * CustomSoundController11";
 };
-class vtx_H60_APU_Start_Ext_SoundShader: vtx_H60_Startup_Ext_SoundShader
+class hct_H60_APU_Start_Ext_SoundShader: hct_H60_Startup_Ext_SoundShader
 {
 	samples[]=
 	{
@@ -176,7 +176,7 @@ class vtx_H60_APU_Start_Ext_SoundShader: vtx_H60_Startup_Ext_SoundShader
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Internal
 
-class vtx_H60_Startup_Int_SoundShader: vtx_H60_Startup_Ext_SoundShader
+class hct_H60_Startup_Int_SoundShader: hct_H60_Startup_Ext_SoundShader
 {
 	samples[]=
 	{
@@ -188,7 +188,7 @@ class vtx_H60_Startup_Int_SoundShader: vtx_H60_Startup_Ext_SoundShader
 	};
 	volume="camInt*(CustomSoundController16+1) * CustomSoundController10";
 };
-class vtx_H60_Shutdown_Int_SoundShader: vtx_H60_Startup_Int_SoundShader
+class hct_H60_Shutdown_Int_SoundShader: hct_H60_Startup_Int_SoundShader
 {
 	samples[]=
 	{
@@ -200,7 +200,7 @@ class vtx_H60_Shutdown_Int_SoundShader: vtx_H60_Startup_Int_SoundShader
 	};
 	volume="camInt*(CustomSoundController16+1) * CustomSoundController11";
 };
-class vtx_H60_APU_Start_Int_SoundShader: vtx_H60_Startup_Int_SoundShader
+class hct_H60_APU_Start_Int_SoundShader: hct_H60_Startup_Int_SoundShader
 {
 	samples[]=
 	{
@@ -214,7 +214,7 @@ class vtx_H60_APU_Start_Int_SoundShader: vtx_H60_Startup_Int_SoundShader
 };
 
 // -APU
-class vtx_ApuSoundLoop_Int_SoundShader: vtx_APUSoundLoop_Ext_SoundShader
+class hct_ApuSoundLoop_Int_SoundShader: hct_APUSoundLoop_Ext_SoundShader
 {
 	samples[]=
 	{
@@ -227,7 +227,7 @@ class vtx_ApuSoundLoop_Int_SoundShader: vtx_APUSoundLoop_Ext_SoundShader
 	volume="camInt*CustomSoundController2*(CustomSoundController16+1)";
 };
 
-class vtx_EngineInt_SoundShader
+class hct_EngineInt_SoundShader
 {
 	samples[]=
 	{
@@ -240,7 +240,7 @@ class vtx_EngineInt_SoundShader
 	frequency="rotorSpeed*(1+rotorThrust/6)*0.8";
 	volume="camInt*(rotorSpeed factor [0.3, 1])*(CustomSoundController16+1)";
 };
-class vtx_RotorInt_SoundShader
+class hct_RotorInt_SoundShader
 {
 	samples[]=
 	{
@@ -253,7 +253,7 @@ class vtx_RotorInt_SoundShader
 	frequency="rotorSpeed*(1-rotorThrust/5)*1.2";
 	volume="camInt*(0 max (rotorSpeed-0.1))*(1 + rotorThrust)*(rotorSpeed factor [0.3, 1])*((playerPos interpolate [0,1,1,4]) max 1)*(CustomSoundController16+1)";
 };
-class vtx_Engine_Transport_SoundShader_Base
+class hct_Engine_Transport_SoundShader_Base
 {
 	samples[]=
 	{

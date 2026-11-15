@@ -6,11 +6,11 @@ class GAU21_Left: MainTurret
     animationSourceGun="GAU21L_Elev";
     weapons[]=
     {
-        "VTX_HMG_M3M"
+        "HCT_HMG_M3M"
     };
     magazines[]=
     {
-        "VTX_600Rnd_127x99_mag_Tracer_Red"
+        "HCT_600Rnd_127x99_mag_Tracer_Red"
     };
     stabilizedInAxes = 0;
     selectionFireAnim="zasleh_2";

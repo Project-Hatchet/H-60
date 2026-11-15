@@ -11,8 +11,8 @@
  * None
  *
  * Example:
- * [] call vtx_uh60_weapons_fnc_keyIRLaser
- * [1] call vtx_uh60_weapons_fnc_keyIRLaser
+ * [] call hct_h60_weapons_fnc_keyIRLaser
+ * [1] call hct_h60_weapons_fnc_keyIRLaser
  *
  * Public: No
  */
@@ -23,16 +23,16 @@ if (isNil "hct_vehicle" || {isNull hct_vehicle} || {!HAS_TRAIT(hct_vehicle,"irLa
 
 switch (hct_vehicle unitTurret hct_player) do {
   case [-1]: {
-    ["vtx_uh60_weapons_irLaser", [hct_vehicle, [0.085828,5.45809,-0.308074], 0, _state]] call CBA_fnc_globalEvent;
+    ["hct_h60_weapons_irLaser", [hct_vehicle, [0.085828,5.45809,-0.308074], 0, _state]] call CBA_fnc_globalEvent;
   };
   case [0]: {
-    ["vtx_uh60_weapons_irLaser", [hct_vehicle, [-0.0956328,5.45809,-0.308074], 0, _state]] call CBA_fnc_globalEvent;
+    ["hct_h60_weapons_irLaser", [hct_vehicle, [-0.0956328,5.45809,-0.308074], 0, _state]] call CBA_fnc_globalEvent;
   };
   case [1]: {
-    ["vtx_uh60_weapons_irLaser", [hct_vehicle, "chamber_1", "muzzle_1", _state]] call CBA_fnc_globalEvent;
+    ["hct_h60_weapons_irLaser", [hct_vehicle, "chamber_1", "muzzle_1", _state]] call CBA_fnc_globalEvent;
   };
   case [2]: {
-    ["vtx_uh60_weapons_irLaser", [hct_vehicle, "chamber_2", "muzzle_2", _state]] call CBA_fnc_globalEvent;
+    ["hct_h60_weapons_irLaser", [hct_vehicle, "chamber_2", "muzzle_2", _state]] call CBA_fnc_globalEvent;
   };
   default {};
 };

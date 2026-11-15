@@ -10,6 +10,6 @@ class RscStructuredText;
 class RscIGText;
 class IGUIBack;
 class RangeText: RscText{};
-class vtx_centerText : RscText {
+class hct_centerText : RscText {
     style = 2;
 };

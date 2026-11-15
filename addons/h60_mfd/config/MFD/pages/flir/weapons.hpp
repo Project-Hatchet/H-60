@@ -42,21 +42,21 @@ class pylonsBackground {
 			type = "pylonicon";
 			pos[] = {{0.33,0.87},1};
 			pylon = 3;
-			name = "VTX_H60";
+			name = "HCT_H60";
 		}; // Pylon3
 		class Pylon1
 		{
 			type = "pylonicon";
 			pos[] = {{0.4,0.87},1};
 			pylon = 1;
-			name = "VTX_H60";
+			name = "HCT_H60";
 		}; // Pylon1
 		class Pylon2
 		{
 			type = "pylonicon";
 			pos[] = {{0.6,0.87},1};
 			pylon = 2;
-			name = "VTX_H60";
+			name = "HCT_H60";
 		}; // Pylon2
 		class Pylon4
 		{
@@ -64,7 +64,7 @@ class pylonsBackground {
 			type = "pylonicon";
 			pos[] = {{0.67,0.87},1};
 			pylon = 4;
-			name = "VTX_H60";
+			name = "HCT_H60";
 		}; // Pylon4
 		TEXT_MID_SCALED(LSR,0.5,0.62+0.07,"LSR",0.05)
 

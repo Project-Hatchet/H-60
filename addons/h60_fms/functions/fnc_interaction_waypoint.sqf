@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_fms_fnc_interaction_waypoint
+ * hct_h60_fms_fnc_interaction_waypoint
  *
  * handle interaction of waypoint page
  *
@@ -13,13 +13,13 @@ switch (_action) do {
         private _group = group player;
         private _count = count (waypoints _group);
 
-        private _current = missionNamespace getVariable ["vtx_uh60_fms_wpSelection", currentWaypoint _group];
+        private _current = missionNamespace getVariable ["hct_h60_fms_wpSelection", currentWaypoint _group];
         private _new = _current + _value;
         if (_new < -1) then { _new = _count - 1 };
         if (_new >= _count) then { _new = -1 };
-        vtx_uh60_fms_wpSelection = _new;
+        hct_h60_fms_wpSelection = _new;
         if (_new > -1) then {
-            [player, "", _new] call vtx_uh60_fms_fnc_selectWaypoint;
+            [player, "", _new] call hct_h60_fms_fnc_selectWaypoint;
         };
     };
     case "import": {
@@ -27,7 +27,7 @@ switch (_action) do {
         { // forEach _wayPoints;
             deleteWaypoint [group player, 0];
         } forEach _wayPoints;
-        private _autoNext = _vehicle getVariable ["vtx_uh60_fms_import_autoCycle", false];
+        private _autoNext = _vehicle getVariable ["hct_h60_fms_import_autoCycle", false];
         private _microDagrWaypoints = [] call ace_microdagr_fnc_deviceGetWaypoints;
         { // forEach _microDagrWaypoints
             _x params ["_label","_position",["_name",""]];
@@ -75,7 +75,7 @@ switch (_action) do {
         ACE_player setVariable ["ace_microdagr_waypoints", _microDagrWaypoints];
         private _wp = group player addWaypoint [_newWP # 1, -1, (count waypoints group player), _newWP # 0];
         _wp setWaypointDescription (_newWP # 0);
-        private _autoNext = _vehicle getVariable ["vtx_uh60_fms_import_autoCycle", false];
+        private _autoNext = _vehicle getVariable ["hct_h60_fms_import_autoCycle", false];
         if (!_autoNext) then {
             _wp setWaypointStatements ["false", ""];
         };
@@ -101,20 +101,20 @@ switch (_action) do {
             ""
         ];
         private _message = [_id, _sender, _recipient, 2, _messageContent, [_position], [[_timestamp, _sender, "SENT"]]];
-        _message call vtx_uh60_jvmf_fnc_attemptSendMessage;
+        _message call hct_h60_jvmf_fnc_attemptSendMessage;
     };
     case "slew_flir_waypt": {
         private _wayPoint = [group player, currentWaypoint group player];
         private _position = waypointPosition _wayPoint;
         _vehicle setPilotCameraTarget (AGLtoASL (_position));
-        [getPilotCameraDirection _vehicle, AGLtoASL _position] call vtx_uh60_flir_fnc_syncPilotCamera;
+        [getPilotCameraDirection _vehicle, AGLtoASL _position] call hct_h60_flir_fnc_syncPilotCamera;
     };
     case "slew_flir": {
         if (isNil "fms_locations_selected") exitWith {};
         private _location = fms_locations_selected;
         _vehicle setPilotCameraTarget (AGLtoASL (locationPosition _location));
-        [getPilotCameraDirection _vehicle, AGLtoASL (locationPosition _location)] call vtx_uh60_flir_fnc_syncPilotCamera;
+        [getPilotCameraDirection _vehicle, AGLtoASL (locationPosition _location)] call hct_h60_flir_fnc_syncPilotCamera;
     };
 };
 
-[_vehicle] call vtx_uh60_fms_fnc_perSecond;
+[_vehicle] call hct_h60_fms_fnc_perSecond;

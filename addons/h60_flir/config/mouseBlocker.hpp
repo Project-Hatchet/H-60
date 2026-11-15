@@ -1,4 +1,4 @@
-class vtx_uh60_flir_mouseBlocker {
+class hct_h60_flir_mouseBlocker {
   idd = 86005;
   movingEnable = 0;
   //duration = 9999999;
@@ -6,7 +6,7 @@ class vtx_uh60_flir_mouseBlocker {
   //fadein = 0;
   //fadeout = 0;
   //hideCursor = 1;
-  onLoad = "uiNamespace setVariable [""vtx_uh60_flir_mouseBlocker"",true];";
-  onUnload = "uiNamespace setVariable [""vtx_uh60_flir_mouseBlocker"",false];";
+  onLoad = "uiNamespace setVariable [""hct_h60_flir_mouseBlocker"",true];";
+  onUnload = "uiNamespace setVariable [""hct_h60_flir_mouseBlocker"",false];";
   //class controls { };
 };

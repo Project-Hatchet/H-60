@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_uh60_helisim_fnc_fmcInput
+Function: hct_h60_helisim_fnc_fmcInput
 
 Description:
     A cockpit FMC button or knob, handed to Core's input on the aircraft's owner - the
@@ -16,7 +16,7 @@ Returns:
 params ["_heli", "_name", "_value"];
 
 if (!local _heli) exitWith {
-    ["vtx_uh60_helisim_fmcInput", _this, _heli] call CBA_fnc_targetEvent;
+    ["hct_h60_helisim_fmcInput", _this, _heli] call CBA_fnc_targetEvent;
 };
 
 if (_value isEqualType true) then {

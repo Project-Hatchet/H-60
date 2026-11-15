@@ -3,7 +3,7 @@ class RscButtonMenuOK;
 class RscButtonMenuCancel;
 class GVAR(pylonPosition) {
     idd = 7777;
-    onUnload = "missionNamespace setVariable ['vtx_uh60_weapons_pylonPositionParams', []]";
+    onUnload = "missionNamespace setVariable ['hct_h60_weapons_pylonPositionParams', []]";
     class controls {
         class GVAR(pylonPosition_Slider): RscSlider
         {
@@ -33,7 +33,7 @@ class GVAR(pylonPosition) {
         	w = "0.2 * safezoneW";
         	h = "0.055 * safezoneH";
         	text = "Reset";
-          action = "(missionNamespace getVariable 'vtx_uh60_weapons_pylonPositionParams') params ['_v', '_a']; _v animateSource [_a, 0, true];";
+          action = "(missionNamespace getVariable 'hct_h60_weapons_pylonPositionParams') params ['_v', '_a']; _v animateSource [_a, 0, true];";
         };
     };
 };

@@ -1,7 +1,7 @@
 // COMPONENT should be defined in the script_component.hpp and included BEFORE this hpp
 
 #define MAINPREFIX z
-#define PREFIX vtx
+#define PREFIX hct
 
 #include "script_version.hpp"
 
@@ -11,13 +11,13 @@
 // The H-60 version is four-part, and every shipped config.bin carries it as the string "0.7.10.0" - keep that.
 #define VERSION_CONFIG version = QUOTE(VERSION); versionStr = QUOTE(VERSION); versionAr[] = {VERSION_AR}
 
-#define VTX_TAG VTX
+#define HCT_TAG HCT
 
 // MINIMAL required version for the Mod. Components can specify others..
 #define REQUIRED_VERSION 2.12
 
 #ifdef COMPONENT_BEAUTIFIED
-    #define COMPONENT_NAME QUOTE(vtx - COMPONENT_BEAUTIFIED)
+    #define COMPONENT_NAME QUOTE(hct - COMPONENT_BEAUTIFIED)
 #else
-    #define COMPONENT_NAME QUOTE(vtx - COMPONENT)
+    #define COMPONENT_NAME QUOTE(hct - COMPONENT)
 #endif

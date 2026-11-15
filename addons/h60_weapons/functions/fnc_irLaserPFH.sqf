@@ -10,7 +10,7 @@
  * None
  *
  * Example:
- * [] call vtx_uh60_weapons_fnc_irLaserPFH
+ * [] call hct_h60_weapons_fnc_irLaserPFH
  *
  */
 

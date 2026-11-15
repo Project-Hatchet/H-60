@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_uh60_helisim_fnc_perFrame
+Function: hct_h60_helisim_fnc_perFrame
 
 Description:
     Per-frame tick for one local H-60.
@@ -12,7 +12,7 @@ Returns:
 ---------------------------------------------------------------------------- */
 params ["_heli"];
 
-[_heli] call vtx_uh60_helisim_fnc_updateLimits;
+[_heli] call hct_h60_helisim_fnc_updateLimits;
 [_heli] call bmkhs_fnc_coreUpdate;
 
 //ERFS tank follows ERFS_show
@@ -28,4 +28,4 @@ if (_erfs && {!(_heli getVariable ["bmkhs_erfsTankXferOn", false])} && {(_heli g
     _heli setVariable ["bmkhs_erfsTankXferOn", true, true];
 };
 
-[_heli] call vtx_uh60_helisim_fnc_updateVisuals;
+[_heli] call hct_h60_helisim_fnc_updateVisuals;

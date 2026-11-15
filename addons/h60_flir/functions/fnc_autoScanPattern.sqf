@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_flir_fnc_autoScanPattern
+ * hct_h60_flir_fnc_autoScanPattern
  *
  * Drives the FLIR through the LST auto-scan bar pattern while laser-spot tracking searches.
  *
@@ -16,7 +16,7 @@ private _barCount = 4;
 private _barHeight = 5;
 private _barWidth = 30;
 
-private _startTime = _vehicle getVariable ["vtx_uh60_flir_fnc_lstTrackStartTime", -6];
+private _startTime = _vehicle getVariable ["hct_h60_flir_lstTrackStartTime", -6];
 
 //track to start position
 if (_startTime > cba_missionTime) exitWith {

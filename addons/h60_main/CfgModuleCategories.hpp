@@ -8,7 +8,7 @@ class CfgFactionClasses {
 };
 
 class CfgVehicleClasses {
-    class VTX_Vehicles {
+    class HCT_Vehicles {
         displayName = "VTX Vehicles";
     };
 };

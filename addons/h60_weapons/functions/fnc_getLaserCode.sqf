@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * vtx_uh60_weapons_fnc_getLaserCode
+ * hct_h60_weapons_fnc_getLaserCode
  *
  * The laser code set for a channel (PRI CHAN, ALT CHAN, LRFD, LST) on the weapons page.
  *
@@ -21,6 +21,6 @@ if (_pylon == -1) exitWith {1111};
 
 // the MFD value is user-driven and can be outside the code table (#436)
 private _index = floor (getUserMFDValue _vehicle select _pylon);
-if (_index < 0 || {_index >= count vtx_uh60_weapons_laserCodes}) exitWith {1111};
+if (_index < 0 || {_index >= count hct_h60_weapons_laserCodes}) exitWith {1111};
 
-vtx_uh60_weapons_laserCodes # _index;
+hct_h60_weapons_laserCodes # _index;

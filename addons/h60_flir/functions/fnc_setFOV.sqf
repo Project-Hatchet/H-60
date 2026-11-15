@@ -9,19 +9,19 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_fov] call vtx_uh60_flir_fnc_setFOV
+ * [_fov] call hct_h60_flir_fnc_setFOV
  */
 
 params ["_fov", ["_sync", true]];
 // systemChat str ["SYNCING", _this];
-vtx_uh60_flir_FOV = _fov;
-vtx_uh60_flir_camera camSetFov _fov;
+hct_h60_flir_FOV = _fov;
+hct_h60_flir_camera camSetFov _fov;
 
 if (_sync) then {
-  // ["vtx_uh60_flir_syncFOV", [_fov], [vtx_uh60_flir_otherPilot]] call CBA_fnc_targetEvent;
+  // ["hct_h60_flir_syncFOV", [_fov], [hct_h60_flir_otherPilot]] call CBA_fnc_targetEvent;
   private _targets = (crew vehicle player) - [player];
   if (_targets isNotEqualTo []) then {
-    [_fov, false] remoteExecCall ["vtx_uh60_flir_fnc_setFOV", _targets, false];
+    [_fov, false] remoteExecCall ["hct_h60_flir_fnc_setFOV", _targets, false];
   };
 };
 

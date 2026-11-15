@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_ui_fnc_shutDown
+ * hct_h60_ui_fnc_shutDown
  *
  * stops the ui module, handling dialogs
  *
@@ -8,6 +8,6 @@
 
 params ["_vehicle"];
 
-["hct_unPause", vtx_uh60_ui_keybindUpdateEvent] call CBA_fnc_removeEventHandler;
+["hct_unPause", hct_h60_ui_keybindUpdateEvent] call CBA_fnc_removeEventHandler;
 
 player hideObject false;

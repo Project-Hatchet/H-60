@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * vtx_uh60_cas_fnc_setMasterCaution
+ * hct_h60_cas_fnc_setMasterCaution
  *
  */
 
@@ -18,10 +18,10 @@ if (_on) exitWith {
 // otherwise we're clearing it
 
 _vehicle animate ["CautionMasterCaution",0];
-vtx_uh60_cas_cautionsUnacked = 0;
-[_vehicle,false] call vtx_uh60_cas_fnc_updateOverlayList;
+hct_h60_cas_cautionsUnacked = 0;
+[_vehicle,false] call hct_h60_cas_fnc_updateOverlayList;
 if (_reset) exitWith {
-	vtx_uh60_cas_cautionsLog = [];
+	hct_h60_cas_cautionsLog = [];
 	{
     _vehicle setUserMFDValue [_x, 0];
 	} forEach _lines;

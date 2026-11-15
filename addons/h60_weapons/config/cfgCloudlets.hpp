@@ -1,7 +1,7 @@
 
 class cfgCloudlets {
   class Default;
-	class vtx_uh60_explosionCloud: Default
+	class hct_h60_explosionCloud: Default
 	{
 		interval = "0.02 * interval + 0.01";
 		circleRadius = 0;
@@ -37,7 +37,7 @@ class cfgCloudlets {
 		randomDirectionPeriodVar = 0;
 		randomDirectionIntensityVar = 0;
 	};
-	class vtx_uh60_explosionCloudCenter: Default
+	class hct_h60_explosionCloudCenter: Default
 	{
 		interval = 0.03;
 		circleRadius = 0;
@@ -73,7 +73,7 @@ class cfgCloudlets {
 		randomDirectionPeriodVar = 0;
 		randomDirectionIntensityVar = 0;
 	};
-	class vtx_uh60_missileTrail: Default
+	class hct_h60_missileTrail: Default
 	{
 		interval = 0.001;
 		circleRadius = 0;

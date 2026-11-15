@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_misc_fnc_quickstart
+ * hct_h60_misc_fnc_quickstart
  *
  * Instant start (user action, spawned): runs the cold-start checklist through the real cockpit interactions, so HeliSim's state machine is fast-forwarded rather than bypassed.
  *
@@ -37,6 +37,6 @@ sleep 5;
 sleep 15;
 [_vehicle, ["startup", "apucont"], "OFF"] call hct_interaction_fnc_scriptedInteract;
 _vehicle setObjectTextureGlobal ["markings","\z\vtx\addons\uh60_misc\data\markings\markings_studentdriver.paa"];
-_vehicle setVariable ["vtx_autostarted", true];
+_vehicle setVariable ["hct_autostarted", true];
 
-["vtx_uh60_misc_autoStarted", _vehicle] call CBA_fnc_localEvent;
+["hct_h60_misc_autoStarted", _vehicle] call CBA_fnc_localEvent;

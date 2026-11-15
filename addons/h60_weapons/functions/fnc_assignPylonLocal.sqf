@@ -14,7 +14,7 @@
  * None
  *
  * Example:
- * [vehicle, [0], "5000Rnd_762x51_Belt", 500, 1] call vtx_uh60_weapons_fnc_assignPylonLocal
+ * [vehicle, [0], "5000Rnd_762x51_Belt", 500, 1] call hct_h60_weapons_fnc_assignPylonLocal
  *
  * Public: No
  */

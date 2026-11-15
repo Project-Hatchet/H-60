@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * vtx_uh60_weapons_fnc_interaction
+ * hct_h60_weapons_fnc_interaction
  *
  * Handles the weapons page's MFD buttons (weapon cycling, laser channels, trajectory, master arm, ...).
  *
@@ -32,10 +32,10 @@ private _cycleLaserCodes = {
 	private _oldIndex = _laserCodeIndex;
   if (_laserCodeIndex < 5) then {_laserCodeIndex = _laserCodeIndex + 1} else {_laserCodeIndex = 0};
 
-	//if (_vehicle ammoOnPylon _alt == _laserCodeIndex) then {[_vehicle, _alt, _oldIndex] call vtx_uh60_mfd_fnc_setPylonValue;	};
+	//if (_vehicle ammoOnPylon _alt == _laserCodeIndex) then {[_vehicle, _alt, _oldIndex] call hct_h60_mfd_fnc_setPylonValue;	};
   if (getUserMFDValue _vehicle select _alt == _laserCodeIndex) then {_vehicle setUserMFDValue [_alt, _oldIndex]};
 
-	//[_vehicle, _code, _laserCodeIndex] call vtx_uh60_mfd_fnc_setPylonValue;
+	//[_vehicle, _code, _laserCodeIndex] call hct_h60_mfd_fnc_setPylonValue;
   _vehicle setUserMFDValue [_code, _laserCodeIndex];
 };
 
@@ -52,12 +52,12 @@ private _stationAssign = {
 	private _turret = [[0], [-1]] select (_targetOwner == "pilot");
   (getAllPylonsInfo _vehicle) # (_pylon - 1) params ["", "", "_currentTurret", "_magazine", "_ammo"];
   if (_turret isEqualTo [-1]) then {_turret = []};
-  [_vehicle, _turret, _magazine, _ammo, _pylon] call vtx_uh60_weapons_fnc_assignPylon;
+  [_vehicle, _turret, _magazine, _ammo, _pylon] call hct_h60_weapons_fnc_assignPylon;
 };
 
 switch (_button) do {
 	case "LASER": {
-		[_vehicle, "Laserdesignator_pilotCamera", "Laserdesignator_pilotCamera"] call vtx_uh60_weapons_fnc_fireAndResetWeapon;
+		[_vehicle, "Laserdesignator_pilotCamera", "Laserdesignator_pilotCamera"] call hct_h60_weapons_fnc_fireAndResetWeapon;
 	};
 	case "PRI_CHAN": {
 		[_vehicle, USERMFDV_PRI_CH, USERMFDV_ALT_CH] call _cycleLaserCodes;
@@ -75,13 +75,13 @@ switch (_button) do {
 		_vehicle setVariable ["ace_missileguidance_attackProfile", _nextMode, true];
 	};
 	case "SEL_GUN": {
-		[_vehicle, ["vtx_chaingun_hedp", "vtx_MH60M_M134_minigun"]] call _cycleWeapon;
+		[_vehicle, ["hct_chaingun_hedp", "hct_MH60M_M134_minigun"]] call _cycleWeapon;
 	};
 	case "SEL_RKT": {
-		[_vehicle, ["vtx_dagr", "vtx_apkws", "missiles_DAR"]] call _cycleWeapon;
+		[_vehicle, ["hct_dagr", "hct_apkws", "missiles_DAR"]] call _cycleWeapon;
 	};
 	case "SEL_MSL": {
-		[_vehicle, ["vtx_hellfire_launcher", "vtx_hellfire_launcher_N"]] call _cycleWeapon;
+		[_vehicle, ["hct_hellfire_launcher", "hct_hellfire_launcher_N"]] call _cycleWeapon;
 	};
 	case "RIB": {_this call _stationAssign};
 	case "ROB": {_this call _stationAssign};
@@ -89,4 +89,4 @@ switch (_button) do {
 	case "LOB": {_this call _stationAssign};
 };
 
-[_vehicle] call vtx_uh60_weapons_fnc_updateMFDValues;
+[_vehicle] call hct_h60_weapons_fnc_updateMFDValues;

@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_cas_fnc_updateCautionPanel
+ * hct_h60_cas_fnc_updateCautionPanel
  *
  * Warning panel lamps and tones, from HeliSim.
  *
@@ -15,7 +15,7 @@ private _ng      = _vehicle getVariable ["bmkhs_engPctNg", [0, 0]];
 private _levers  = _vehicle getVariable ["bmkhs_engPowerLeverState", ["OFF", "OFF"]];
 private _failed  = _vehicle getVariable ["bmkhs_engFailed", [false, false]];
 private _state   = _vehicle getVariable ["bmkhs_engState", ["OFF", "OFF"]];
-private _ran     = _vehicle getVariable ["vtx_uh60_cas_engRan", [false, false]];
+private _ran     = _vehicle getVariable ["hct_h60_cas_engRan", [false, false]];
 
 // ENG OUT - Ng below idle with the lever in FLY once the engine has run, or failed
 private _engOut = [0, 0];
@@ -26,7 +26,7 @@ private _engOut = [0, 0];
     if ((_state # _forEachIndex) == "ON" && {(_ng # _forEachIndex) >= _ngMin}) then {_ran set [_forEachIndex, true]};
     _engOut set [_forEachIndex, parseNumber ((_failed # _forEachIndex) || {(_ran # _forEachIndex) && {_lever == "FLY"} && {(_ng # _forEachIndex) < _ngMin}})];
 } forEach _ran;
-_vehicle setVariable ["vtx_uh60_cas_engRan", _ran];
+_vehicle setVariable ["hct_h60_cas_engRan", _ran];
 
 // caution lamps change rarely: animate (network traffic where the aircraft is
 // local) only when the lamp is not already at that phase

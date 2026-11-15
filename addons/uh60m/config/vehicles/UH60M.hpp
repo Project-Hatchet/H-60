@@ -1,7 +1,7 @@
-// vtx_UH60M — the baseline Army UH-60M. Sole full declaration (Phase 1 PR A):
+// hct_UH60M — the baseline Army UH-60M. Sole full declaration (Phase 1 PR A):
 // merged from UH60's identity half and uh60_config's systems half, 2026-09-05.
 // Member order preserved from the pre-merge engine result (config-dump proven).
-class vtx_UH60M: vtx_H60_base {
+class hct_UH60M: hct_H60_base {
     scope = 2;
     editorPreview = "z\vtx\addons\uh60m\data\preview\vtx_UH60M.jpg";
     ace_medical_treatment_patientSeats[] = {0, 1, 2, 3};
@@ -79,31 +79,31 @@ class vtx_UH60M: vtx_H60_base {
       };
     }; // AnimationSources
     class MFD: MFD {
-      class VTX_MFD_1_NOFLIR :    VTX_MFD_1_NOFLIR {};
-      class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};
-      class VTX_MFD_1_Monospace : VTX_MFD_1_Monospace {};
-      class VTX_MFD_1_Bold :      VTX_MFD_1_Bold {};
-      class VTX_MFD_2_NOFLIR :    VTX_MFD_2_NOFLIR {};
-      class VTX_MFD_2_CMWS :      VTX_MFD_2_CMWS {};
-      class VTX_MFD_2_Monospace : VTX_MFD_2_Monospace {};
-      class VTX_MFD_2_Bold :      VTX_MFD_2_Bold {};
-      class VTX_MFD_3_NOFLIR :    VTX_MFD_3_NOFLIR {};
-      class VTX_MFD_3_CMWS :      VTX_MFD_3_CMWS {};
-      class VTX_MFD_3_Monospace : VTX_MFD_3_Monospace {};
-      class VTX_MFD_3_Bold :      VTX_MFD_3_Bold {};
-      class VTX_MFD_4_NOFLIR :    VTX_MFD_4_NOFLIR {};
-      class VTX_MFD_4_CMWS :      VTX_MFD_4_CMWS {};
-      class VTX_MFD_4_Monospace : VTX_MFD_4_Monospace {};
-      class VTX_MFD_4_Bold :      VTX_MFD_4_Bold {};
+      class HCT_MFD_1_NOFLIR :    HCT_MFD_1_NOFLIR {};
+      class HCT_MFD_1_CMWS :      HCT_MFD_1_CMWS {};
+      class HCT_MFD_1_Monospace : HCT_MFD_1_Monospace {};
+      class HCT_MFD_1_Bold :      HCT_MFD_1_Bold {};
+      class HCT_MFD_2_NOFLIR :    HCT_MFD_2_NOFLIR {};
+      class HCT_MFD_2_CMWS :      HCT_MFD_2_CMWS {};
+      class HCT_MFD_2_Monospace : HCT_MFD_2_Monospace {};
+      class HCT_MFD_2_Bold :      HCT_MFD_2_Bold {};
+      class HCT_MFD_3_NOFLIR :    HCT_MFD_3_NOFLIR {};
+      class HCT_MFD_3_CMWS :      HCT_MFD_3_CMWS {};
+      class HCT_MFD_3_Monospace : HCT_MFD_3_Monospace {};
+      class HCT_MFD_3_Bold :      HCT_MFD_3_Bold {};
+      class HCT_MFD_4_NOFLIR :    HCT_MFD_4_NOFLIR {};
+      class HCT_MFD_4_CMWS :      HCT_MFD_4_CMWS {};
+      class HCT_MFD_4_Monospace : HCT_MFD_4_Monospace {};
+      class HCT_MFD_4_Bold :      HCT_MFD_4_Bold {};
       class NVGHUD: NVGHUD {};
-      class VTX_CLOCK: VTX_CLOCK {};
-      class VTX_ESIS_Horizon: VTX_ESIS_Horizon {};
-      class VTX_ESIS_Misc: VTX_ESIS_Misc {};
-      class VTX_FDRight: VTX_FDRight {};
-      class VTX_FDLeft: VTX_FDLeft {};
-      class VTX_FMS_L: VTX_FMS_L {};
-      class VTX_FMS_R: VTX_FMS_R {};
-      class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
+      class HCT_CLOCK: HCT_CLOCK {};
+      class HCT_ESIS_Horizon: HCT_ESIS_Horizon {};
+      class HCT_ESIS_Misc: HCT_ESIS_Misc {};
+      class HCT_FDRight: HCT_FDRight {};
+      class HCT_FDLeft: HCT_FDLeft {};
+      class HCT_FMS_L: HCT_FMS_L {};
+      class HCT_FMS_R: HCT_FMS_R {};
+      class HCT_ESIS_BOOT: HCT_ESIS_BOOT {};
     };
     class Turrets: Turrets {
       class CopilotTurret: CopilotTurret {
@@ -117,4 +117,4 @@ class vtx_UH60M: vtx_H60_base {
     };
   // HeliSim seats (SEATS_* in uh60_helisim bmkhs_config/helisim_seats.hpp)
   class BMKHS_HeliSim: BMKHS_HeliSim { SEATS_UH60M };
-}; // vtx_UH60M
+}; // hct_UH60M

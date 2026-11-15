@@ -12,16 +12,16 @@
  * None
  *
  * Example:
- * [true] call vtx_uh60_weapons_fnc_ehFireSelected
+ * [true] call hct_h60_weapons_fnc_ehFireSelected
  */
 
 #define FORCE_FIRE_TIMEOUT 10
 
 params ["_isKeyDown", "_vehicle"];
 
-vtx_uh60_weapons_isKeyUp = !_isKeyDown;
+hct_h60_weapons_isKeyUp = !_isKeyDown;
 
-if (vtx_uh60_weapons_isKeyUp) exitWith {};
+if (hct_h60_weapons_isKeyUp) exitWith {};
 
 private _currentWeapon = currentWeapon _vehicle;
 if !(
@@ -31,7 +31,7 @@ if !(
   _vehicle fireAtTarget [objNull];
 };
 
-if (!isNil "vtx_uh60_weapons_fireSelectedPFH") exitWith {};
+if (!isNil "hct_h60_weapons_fireSelectedPFH") exitWith {};
 
 // Every frame on purpose: fireAtTarget only fires once the weapon is ready, so
 // polling each frame keeps the full rate of fire. (This read a non-existent
@@ -39,13 +39,13 @@ if (!isNil "vtx_uh60_weapons_fireSelectedPFH") exitWith {};
 // would add up to a frame per shot, ~15% fewer rounds on the M230.) Runs only
 // while the trigger is held, capped by FORCE_FIRE_TIMEOUT.
 private _reloadTime = 0;
-vtx_uh60_weapons_fireSelectedPFH = [{
+hct_h60_weapons_fireSelectedPFH = [{
     params ["_args", "_pfhID"];
     _args params ["_vehicle", "_currentWeapon", "_endTime"];
 
-    if (vtx_uh60_weapons_isKeyUp || {CBA_missionTime >= _endTime}) exitWith {
+    if (hct_h60_weapons_isKeyUp || {CBA_missionTime >= _endTime}) exitWith {
         [_pfhID] call CBA_fnc_removePerFrameHandler;
-        vtx_uh60_weapons_fireSelectedPFH = nil;
+        hct_h60_weapons_fireSelectedPFH = nil;
     };
 
     _vehicle fireAtTarget [objNull];

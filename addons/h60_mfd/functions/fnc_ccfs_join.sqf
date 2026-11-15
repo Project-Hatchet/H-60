@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_mfd_fnc_ccfs_join
+ * hct_h60_mfd_fnc_ccfs_join
  *
  * CCFS: joins the selected player's lobby, or starts a game against the aircraft AI if that is the selection.
  *
@@ -7,14 +7,14 @@
  */
 
 params ["_vehicle"];
-if (isNull vtx_uh60_ccfs_playerSelected) exitWith {hint "No player selected"};
-if (vtx_uh60_ccfs_playerSelected == player) exitWith {
-	_this call vtx_uh60_mfd_fnc_startAIGame;
+if (isNull hct_h60_ccfs_playerSelected) exitWith {hint "No player selected"};
+if (hct_h60_ccfs_playerSelected == player) exitWith {
+	_this call hct_h60_mfd_fnc_startAIGame;
 };
-vtx_uh60_ccfs_isHost = false;
-vtx_uh60_ccfs_playerSelected setVariable ["vtx_uh60_opponent", player, true];
-player setVariable ["vtx_uh60_opponent", vtx_uh60_ccfs_playerSelected, true];
-["vtx_uh60_ccfs_playerSelected", player] call vtx_uh60_mfd_fnc_setRemoteVariable;
-[] call vtx_uh60_mfd_fnc_resetGameVariables;
-["PAUSED"] call vtx_uh60_mfd_fnc_ccfs_changeGameState;
-vtx_uh60_ccfs_playerSelected setVariable ["vtx_uh60_openLobby", false, true];
+hct_h60_ccfs_isHost = false;
+hct_h60_ccfs_playerSelected setVariable ["hct_h60_opponent", player, true];
+player setVariable ["hct_h60_opponent", hct_h60_ccfs_playerSelected, true];
+["hct_h60_ccfs_playerSelected", player] call hct_h60_mfd_fnc_setRemoteVariable;
+[] call hct_h60_mfd_fnc_resetGameVariables;
+["PAUSED"] call hct_h60_mfd_fnc_ccfs_changeGameState;
+hct_h60_ccfs_playerSelected setVariable ["hct_h60_openLobby", false, true];

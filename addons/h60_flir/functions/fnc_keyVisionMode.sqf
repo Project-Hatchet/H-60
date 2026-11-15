@@ -9,18 +9,18 @@
  * 0: New Effect <ARRAY>
  *
  * Example:
- * call vtx_uh60_flir_fnc_keyVisionMode
+ * call hct_h60_flir_fnc_keyVisionMode
  */
 
 // Get modes available at this FOV
 private _pipEffects = [];
-if (vtx_uh60_flir_pipIsFixed && {!vtx_uh60_flir_isInScriptedCamera}) then {
+if (hct_h60_flir_pipIsFixed && {!hct_h60_flir_isInScriptedCamera}) then {
   _pipEffects = [[0], [1]]; // Sling cam
 } else {
-  private _opticsInfo = vtx_uh60_flir_OpticsInfo get vtx_uh60_flir_FOV;
+  private _opticsInfo = hct_h60_flir_OpticsInfo get hct_h60_flir_FOV;
   _opticsInfo params ["_visionModes", "_thermalModes"];
   {
-    private _effect = (vtx_uh60_flir_pipEffectsHashMap get _x);
+    private _effect = (hct_h60_flir_pipEffectsHashMap get _x);
     if (!isNil "_effect") then {
       _pipEffects pushBackUnique _effect;
     };
@@ -28,10 +28,10 @@ if (vtx_uh60_flir_pipIsFixed && {!vtx_uh60_flir_isInScriptedCamera}) then {
 };
 
 // Increment
-private _currStep = _pipEffects findIf {_x isEqualTo vtx_uh60_flir_pipEffect};
+private _currStep = _pipEffects findIf {_x isEqualTo hct_h60_flir_pipEffect};
 private _newStep = if (_currStep == (count _pipEffects - 1) || {_currStep == -1}) then {0} else {_currStep + 1};
 
 // Set
-[_pipEffects # _newStep] call vtx_uh60_flir_fnc_setVisionMode;
+[_pipEffects # _newStep] call hct_h60_flir_fnc_setVisionMode;
 
 _pipEffects # _newStep

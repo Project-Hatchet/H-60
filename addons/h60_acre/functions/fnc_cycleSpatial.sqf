@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_acre_fnc_cycleSpatial
+ * hct_h60_acre_fnc_cycleSpatial
  *
  * handles changing Spatial output
  *
@@ -31,5 +31,5 @@ if (_cycle == 1) then {
 };
 
 _setSpatial = [_radio, _newSpatial] call acre_api_fnc_setRadioSpatial;
-[_vehicle] call vtx_uh60_acre_fnc_notifyOtherSeat;
+[_vehicle] call hct_h60_acre_fnc_notifyOtherSeat;
 true

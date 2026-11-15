@@ -1,4 +1,4 @@
-class VTX_FDRight
+class HCT_FDRight
 {
 	topLeft="FDRight_LT";
 	topRight="FDRight_RT";
@@ -9,7 +9,7 @@ class VTX_FDRight
 	borderBottom=0;
 	color[]=PED_common_green;
 	enableParallax=0;
-	font="VTX_UH60M_Font";
+	font="hct_h60_Font";
 	class material
 	{
 	 ambient[] = {0, 1, 0, 1};

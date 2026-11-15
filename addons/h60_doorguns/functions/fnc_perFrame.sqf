@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_doorguns_fnc_perFrame
+ * hct_h60_doorguns_fnc_perFrame
  *
  * Hatchet module hook: draws the door-gun help labels for the gunner when help is enabled.
  *
@@ -11,7 +11,7 @@ params ["_vehicle"];
 #define HELP_LABEL(MEMPOINT,LABEL) drawIcon3D ["\a3\ui_f\data\IGUI\Cfg\Cursors\selected_ca.paa",[0,1,0,1],_vehicle modelToWorldVisual (_vehicle selectionPosition MEMPOINT),1,1,0,LABEL,2,0.045,"RobotoCondensed","center",true];
 #define HELP_LABEL_COND(MEMPOINT,LABEL,COND) drawIcon3D ["\a3\ui_f\data\IGUI\Cfg\Cursors\selected_ca.paa",(if(COND)then{[0,1,0,1]}else{[1,0,0,1]}),_vehicle modelToWorldVisual (_vehicle selectionPosition MEMPOINT),1,1,0,LABEL,2,0.045,"RobotoCondensed","center",true];
 
-if (vtx_uh60_ui_helpEnabled) then {
+if (hct_h60_ui_helpEnabled) then {
     private _turretIndex = [player] call ace_common_fnc_getTurretIndex;
     if (_turretIndex # 0 == 1) then {
         drawIcon3D ["\a3\ui_f\data\IGUI\Cfg\Cursors\selected_ca.paa",[1,1,1,1],(_vehicle modelToWorldVisual [-0.8,3.8,-1]),1,1,0,"Ammo Count Check",2,0.045,"RobotoCondensed","right",true];

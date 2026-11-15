@@ -1,4 +1,5 @@
 #define COMPONENT hh60
+#define COMPONENT_PATH HH60
 #define COMPONENT_BEAUTIFIED HH60
 #include "\z\vtx\addons\main\script_mod.hpp"
 

@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_misc_fnc_ccSwap
+ * hct_h60_misc_fnc_ccSwap
  *
  * DAP crew-chief "turn out" replacement (Riverman rulings 2026-09-17/18): the
  * aft MFOS seats have no FFV turn-out (the out-pose clips through floor and
@@ -71,7 +71,7 @@ private _from = (_crew # _mine) # 3;
 // the close step releases them and reconciles, which computes every final
 // lock state from the new occupancy - including the fail paths, so a botched
 // move can't strand a seat locked or open.
-["vtx_uh60_misc_ccSwapOpen", [_veh, [_from, _path]], _veh] call CBA_fnc_targetEvent;
+["hct_h60_misc_ccSwapOpen", [_veh, [_from, _path]], _veh] call CBA_fnc_targetEvent;
 
 [{
     params ["", "_veh", "", "_path"];
@@ -80,7 +80,7 @@ private _from = (_crew # _mine) # 3;
  {
     params ["_unit", "_veh", "_from", "_path"];
     if !(objectParent _unit isEqualTo _veh) exitWith {
-        ["vtx_uh60_misc_ccSwapClose", [_veh, [_from, _path]], _veh] call CBA_fnc_targetEvent;
+        ["hct_h60_misc_ccSwapClose", [_veh, [_from, _path]], _veh] call CBA_fnc_targetEvent;
     };
     moveOut _unit;
     [{
@@ -91,7 +91,7 @@ private _from = (_crew # _mine) # 3;
         private _elapsed = CBA_missionTime - _start;
         if ((_wasOut && {!_out}) || {!alive _unit} || {_elapsed > 4}) exitWith {
             [_handle] call CBA_fnc_removePerFrameHandler;
-            ["vtx_uh60_misc_ccSwapClose", [_veh, [_from, _path]], _veh] call CBA_fnc_targetEvent;
+            ["hct_h60_misc_ccSwapClose", [_veh, [_from, _path]], _veh] call CBA_fnc_targetEvent;
         };
         if (_out) then {
             // target first; back to the seat the unit came from if it
@@ -104,6 +104,6 @@ private _from = (_crew # _mine) # 3;
  {
     // the unlock never read back: nobody was moved, just release the paths
     params ["", "_veh", "_from", "_path"];
-    ["vtx_uh60_misc_ccSwapClose", [_veh, [_from, _path]], _veh] call CBA_fnc_targetEvent;
+    ["hct_h60_misc_ccSwapClose", [_veh, [_from, _path]], _veh] call CBA_fnc_targetEvent;
  }] call CBA_fnc_waitUntilAndExecute;
 true

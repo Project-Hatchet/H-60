@@ -2,7 +2,7 @@ class RscInGameUI
 {
     #include "turretInfo.hpp"
     class RscUnitInfoAir;
-    class vtx_uh60_rscUnitInfoMinimal: RscUnitInfoAir
+    class hct_h60_rscUnitInfoMinimal: RscUnitInfoAir
     {
         onLoad="[(vehicle player), ""ui"", _this # 0] call hct_core_fnc_start;";
         controls[] = {

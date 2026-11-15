@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * vtx_uh60_anvishud_fnc_changeBrightness
+ * hct_h60_anvishud_fnc_changeBrightness
  *
  * Adjusts brightness of the HMD
  *

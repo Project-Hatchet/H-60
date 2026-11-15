@@ -9,7 +9,7 @@
  * Nothing
  *
  * Example:
- * [_vehicle, _anim] call vtx_uh60_misc_fnc_interactedCabinDoor
+ * [_vehicle, _anim] call hct_h60_misc_fnc_interactedCabinDoor
  */
 params ["_vehicle", "_animName", "_animPhase"];
 

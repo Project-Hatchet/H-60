@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_acre_fnc_cycleRadioChannel
+ * hct_h60_acre_fnc_cycleRadioChannel
  *
  * handles cycling radio channel
  *
@@ -22,5 +22,5 @@ if (_cycle == 1) then {
 };
 
 [_radio, _newChannel] call acre_api_fnc_setRadioChannel;
-[_vehicle] call vtx_uh60_acre_fnc_notifyOtherSeat;
+[_vehicle] call hct_h60_acre_fnc_notifyOtherSeat;
 true

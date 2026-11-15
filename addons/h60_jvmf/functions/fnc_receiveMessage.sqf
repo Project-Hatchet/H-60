@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_jvmf_fnc_receiveMessage
+ * hct_h60_jvmf_fnc_receiveMessage
  *
  * Receive a message and store it
  */
@@ -8,13 +8,13 @@ params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
 if (_id == "") exitWith {};
 
 
-vtx_jvmf_messages pushBack _this;
+hct_jvmf_messages pushBack _this;
 
-if(vtx_uh60_ui_showDebugMessages) then {systemChat format ["RECEIVED JVMF: %1", _this];};
+if(hct_h60_ui_showDebugMessages) then {systemChat format ["RECEIVED JVMF: %1", _this];};
 
 // systemChat str [_replySender, player];
 if ((_replies # 0 # 3) != player) then {
-	if(vtx_uh60_ui_showDebugMessages) then {systemChat "REGISTERING ADVISORY";};
-	[vehicle player,"NEW JVMF MSG",{},false,false] call vtx_uh60_cas_fnc_registerCautionAdvisory;
+	if(hct_h60_ui_showDebugMessages) then {systemChat "REGISTERING ADVISORY";};
+	[vehicle player,"NEW JVMF MSG",{},false,false] call hct_h60_cas_fnc_registerCautionAdvisory;
 };
-[vehicle player] call vtx_uh60_jvmf_fnc_drawJVMF;
+[vehicle player] call hct_h60_jvmf_fnc_drawJVMF;

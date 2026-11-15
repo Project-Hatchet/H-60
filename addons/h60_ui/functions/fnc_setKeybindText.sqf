@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_ui_fnc_setKeybindText
+ * hct_h60_ui_fnc_setKeybindText
  *
  * updates keybind related hints in the HUD
  *
@@ -9,7 +9,7 @@
 #include "uiDefines.hpp"
 params ["_vehicle"];
 
-private _keybindHelp = ((["UH-60M Blackhawk","vtx_uh60m_c_help"] call CBA_fnc_getKeybind)# 5) call CBA_fnc_localizeKey;
+private _keybindHelp = ((["UH-60M Blackhawk","hct_h60_c_help"] call CBA_fnc_getKeybind)# 5) call CBA_fnc_localizeKey;
 private _label = format ["Press %1 For Help", _keybindHelp];
 
 SETTEXT(4001119,_label);
@@ -26,6 +26,6 @@ SETTEXTGRP(HELP,2,_label);
 _label = format ["Lever prev & knob decrease: %1", _keybindPrev];
 SETTEXTGRP(HELP,3,_label);
 
-private _keybindRemoteStby = ((["UH-60M Blackhawk","vtx_uh60m_c_rmtsby"] call CBA_fnc_getKeybind)# 5) call CBA_fnc_localizeKey;
+private _keybindRemoteStby = ((["UH-60M Blackhawk","hct_h60_c_rmtsby"] call CBA_fnc_getKeybind)# 5) call CBA_fnc_localizeKey;
 _label = format ["Flight Director standby: %1", _keybindRemoteStby];
 SETTEXTGRP(HELP,4,_label);

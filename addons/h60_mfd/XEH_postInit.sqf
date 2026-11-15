@@ -1,3 +1,3 @@
 #include "script_component.hpp"
 
-vtx_uh60_mfd_marks = 0;
+hct_h60_mfd_marks = 0;

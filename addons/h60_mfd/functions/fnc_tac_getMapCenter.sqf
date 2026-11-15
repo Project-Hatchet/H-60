@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * vtx_uh60_mfd_fnc_tac_getMapCenter;
+ * hct_h60_mfd_fnc_tac_getMapCenter;
  */
 params ["_vehicle"];
 
@@ -18,7 +18,7 @@ private _center = if (_centered) then {
 	getPos _vehicle vectorAdd [_cursorToMapRotated # 0, _cursorToMapRotated # 1, 0];
 };
 if (_staticMap) then {
-	_center = vtx_uh60_mfd_tac_mapPos
+	_center = hct_h60_mfd_tac_mapPos
 };
 
 _center

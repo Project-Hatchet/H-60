@@ -1,5 +1,5 @@
 class help {
-    condition = "vtx_uh60_ui_helpEnabled";
+    condition = "hct_h60_ui_helpEnabled";
     class b_hidePlayer {
         positionType="coordinates";
         position[] = {0,5,-0.7};

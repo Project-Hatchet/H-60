@@ -2,9 +2,9 @@
 
 class CfgPatches
 {
-	class USAF_Hatchet_AAR
+	class hct_h60_aar
 	{
-		requiredAddons[]=	{"vtx_uh60_config"};
+		requiredAddons[]=	{"hct_h60_config"};
 		requiredVersion= 1.62;
 		version=1;
 		units[]={};

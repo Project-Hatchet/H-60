@@ -14,14 +14,14 @@ class CfgVehicles {
             class modules;
         };
     };
-    class vtx_H60_base: Heli_Transport_01_base_F {
+    class hct_H60_base: Heli_Transport_01_base_F {
         #include "acreRacks_base.hpp"
         #include "hct.hpp"
     };
-    class vtx_MH60M: vtx_H60_base {
+    class hct_MH60M: hct_H60_base {
         #include "acreRacks_mh60m.hpp"
     };
-    class vtx_UH60M : vtx_H60_base {
+    class hct_UH60M : hct_H60_base {
         #include "acreRacks_uh60m.hpp"
     };
 };

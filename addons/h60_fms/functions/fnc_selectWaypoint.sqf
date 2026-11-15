@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_fms_fnc_selectWaypoint
+ * hct_h60_fms_fnc_selectWaypoint
  *
  * Selects a waypoint
  * if a name is provided, it searches by name, alternatively it searches by index

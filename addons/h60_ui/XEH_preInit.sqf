@@ -2,7 +2,7 @@
 
 ADDON = false;
 
-vtx_uh60_ui_isViewInternal = false;
+hct_h60_ui_isViewInternal = false;
 
 #include "XEH_PREP.hpp"
 #include "initSettings.inc.sqf"

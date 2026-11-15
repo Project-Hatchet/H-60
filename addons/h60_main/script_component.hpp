@@ -1,4 +1,5 @@
-#define COMPONENT main
+#define COMPONENT h60_main
+#define COMPONENT_PATH main
 #include "\z\vtx\addons\main\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL
@@ -6,12 +7,12 @@
 // #define CBA_DEBUG_SYNCHRONOUS
 // #define ENABLE_PERFORMANCE_COUNTERS
 
-#ifdef DEBUG_ENABLED_MAIN
+#ifdef DEBUG_ENABLED_H60_MAIN
     #define DEBUG_MODE_FULL
 #endif
 
-#ifdef DEBUG_SETTINGS_MAIN
-    #define DEBUG_SETTINGS DEBUG_SETTINGS_MAIN
+#ifdef DEBUG_SETTINGS_H60_MAIN
+    #define DEBUG_SETTINGS DEBUG_SETTINGS_H60_MAIN
 #endif
 
 #include "\z\vtx\addons\main\script_macros.hpp"

@@ -37,7 +37,7 @@ class CfgVehicles {
         }; // hct_copilot
         class MFD;
     }; // Heli_Transport_01_base_F
-    class vtx_H60_base: Heli_Transport_01_base_F {
+    class hct_H60_base: Heli_Transport_01_base_F {
         mfdMaxUserValues = 109;   //0-99, then HeliSim's 100-108 (main/script_macros.hpp)
         class hct_driver: hct_driver {
             class modules: modules {
@@ -53,5 +53,5 @@ class CfgVehicles {
                 }; // anvishud
             }; // modules
         }; // hct_driver
-    }; // vtx_H60_base
+    }; // hct_H60_base
 }; // CfgVehicles

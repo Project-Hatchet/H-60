@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_uh60_helisim_fnc_leverSpeed
+Function: hct_h60_helisim_fnc_leverSpeed
 
 Description:
     Hatchet's animSpeedCode for a power lever: the speed of this move. IDLE to FLY takes

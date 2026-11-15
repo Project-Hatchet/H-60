@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_uh60_helisim_fnc_cockpitInteract
+Function: hct_h60_helisim_fnc_cockpitInteract
 
 Description:
     Hatchet's animStart (or buttonUp) for a HeliSim control. Hatchet is already moving
@@ -18,19 +18,19 @@ params ["_heli", "_control", "_position"];
 private _index = _position;
 if (_position isEqualType "") then {
     private _wanted = toLower ((_position splitString " ") joinString "");
-    _index = (([_heli, _control] call vtx_uh60_helisim_fnc_controlConfig) # 1) find _wanted;
+    _index = (([_heli, _control] call hct_h60_helisim_fnc_controlConfig) # 1) find _wanted;
 };
 if (_index < 0) exitWith {};
 
 //Power lever to FLY takes the other one with it when that engine runs at IDLE. Hatchet
 //moves it, so both travel at one rate. The other lever's own call skips this.
-if (_control in ["eng1PwrLvr", "eng2PwrLvr"] && {_index == 2} && {isNil "vtx_uh60_helisim_linking"}) then {
+if (_control in ["eng1PwrLvr", "eng2PwrLvr"] && {_index == 2} && {isNil "hct_h60_helisim_linking"}) then {
     private _otherIdx = [1, 0] select (_control == "eng2PwrLvr");
     private _other    = ["eng1PwrLvr", "eng2PwrLvr"] select _otherIdx;
     if (((_heli getVariable ["bmkhs_engState", ["OFF", "OFF"]]) # _otherIdx) == "ON" && {(_heli getVariable [format ["bmkhs_%1Idx", _other], 0]) == 1}) then {
-        vtx_uh60_helisim_linking = true;
-        [_heli, _other, 2] call vtx_uh60_helisim_fnc_cockpitBind;
-        vtx_uh60_helisim_linking = nil;
+        hct_h60_helisim_linking = true;
+        [_heli, _other, 2] call hct_h60_helisim_fnc_cockpitBind;
+        hct_h60_helisim_linking = nil;
     };
 };
 
@@ -38,5 +38,5 @@ if (_control in ["eng1PwrLvr", "eng2PwrLvr"] && {_index == 2} && {isNil "vtx_uh6
 if (local _heli) then {
     [_control, _index, _heli] call bmkhs_fnc_controlSet;
 } else {
-    ["vtx_uh60_helisim_controlSet", [_control, _index, _heli], _heli] call CBA_fnc_targetEvent;
+    ["hct_h60_helisim_controlSet", [_control, _index, _heli], _heli] call CBA_fnc_targetEvent;
 };

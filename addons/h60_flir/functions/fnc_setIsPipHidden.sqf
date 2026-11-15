@@ -1,6 +1,6 @@
 /*
  * Author: Ampersand
- * Set vtx_uh60_flir_isPipHidden for faster perFrame
+ * Set hct_h60_flir_isPipHidden for faster perFrame
  *
  * Arguments:
  * NONE
@@ -9,11 +9,11 @@
  * 0: New Effect <ARRAY>
  *
  * Example:
- * call vtx_uh60_flir_fnc_setIsPipHidden
+ * call hct_h60_flir_fnc_setIsPipHidden
  */
 
-vtx_uh60_flir_isPipHidden = isNil "vtx_uh60_flir_camera" ||
+hct_h60_flir_isPipHidden = isNil "hct_h60_flir_camera" ||
   {cameraView isNotEqualTo "INTERNAL"} ||
-  {vtx_uh60_flir_isVisibleMap} ||
-  {vtx_uh60_flir_featureCamera != ""} ||
+  {hct_h60_flir_isVisibleMap} ||
+  {hct_h60_flir_featureCamera != ""} ||
   {!isNull curatorCamera}

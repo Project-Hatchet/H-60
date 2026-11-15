@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_weapons_fnc_firedChaingun
+ * hct_h60_weapons_fnc_firedChaingun
  *
  * Fired (M230 chain gun): camera shake for the firing crew.
  *

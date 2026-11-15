@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_acre_fnc_setup
+ * hct_h60_acre_fnc_setup
  *
  * sets up the acre module
  *

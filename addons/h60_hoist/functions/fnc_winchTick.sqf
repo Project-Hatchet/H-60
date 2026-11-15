@@ -17,7 +17,7 @@
  * None
  *
  * Example:
- * [_heli, 1] call vtx_uh60_hoist_fnc_winchTick
+ * [_heli, 1] call hct_h60_hoist_fnc_winchTick
  *
  * Public: No
  */
@@ -25,11 +25,11 @@
 params ["_heli", "_direction"];
 
 private _lowering = _direction > 0;
-private _keyHeld = ["vtx_uh60_hoist_retracting", "vtx_uh60_hoist_extending"] select _lowering;
-private _running = ["vtx_uh60_hoist_raiseLoopRunning", "vtx_uh60_hoist_lowerLoopRunning"] select _lowering;
+private _keyHeld = ["hct_h60_hoist_retracting", "hct_h60_hoist_extending"] select _lowering;
+private _running = ["hct_h60_hoist_raiseLoopRunning", "hct_h60_hoist_lowerLoopRunning"] select _lowering;
 
 if (isNull _heli) exitWith {};
-private _hoist_vars = _heli getVariable ["vtx_uh60_hoist_vars", []];
+private _hoist_vars = _heli getVariable ["hct_h60_hoist_vars", []];
 if (!(_heli getVariable [_keyHeld, false]) || {_hoist_vars isEqualTo []}) exitWith {
     _heli setVariable [_running, false];
 };

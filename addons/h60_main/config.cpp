@@ -31,7 +31,7 @@ class Display3DEN {
                             class Controls {
                                 // Units
                                 class CreateObjectWEST: ctrlTree {
-                                    defaultItem[] = {"BLU_F", "vtx_h60"};
+                                    defaultItem[] = {"BLU_F", "hct_h60"};
                                 };
                                 class CreateObjectEAST: CreateObjectWEST {
                                     defaultItem[] = {};

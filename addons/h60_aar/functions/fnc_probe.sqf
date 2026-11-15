@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_aar_fnc_probe
+ * hct_h60_aar_fnc_probe
  *
  * handles probe extending and retracting, called from FMS interaction
  *

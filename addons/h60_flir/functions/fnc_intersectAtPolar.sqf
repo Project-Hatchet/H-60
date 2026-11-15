@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_flir_fnc_intersectAtPolar
+ * hct_h60_flir_fnc_intersectAtPolar
  *
  * Ray-casts from a point along a polar direction in 1 km segments (lineIntersectsSurfaces is range-limited).
  *

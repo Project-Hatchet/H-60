@@ -220,12 +220,12 @@ def report_orphan_headers():
 # The pack is layered: main -> common base (h60_config + uh60 assets) -> systems ->
 # variant PBOs (leaves) -> optional compat. A variant's classes are declared and
 # configured only inside its own PBO; systems talk to variants through the base
-# class and vtx_trait_* config, never by name.
+# class and hct_trait_* config, never by name.
 
 VARIANT_ADDONS = {"uh60m", "s70i", "hh60", "mh60m", "mh60s"}
 # optional compat addons may re-open variants (they load after them)
-COMPAT_ADDONS = {"h60_acre", "h60_aar", "h60_air_control"}
-VARIANT_DECL_RE = re.compile(r"^\s*class\s+(vtx_\w+)\s*:\s*vtx_H60_base\b", re.M | re.I)
+COMPAT_ADDONS = {"h60_acre", "h60_aar", "h60_air_control", "h60_compat_vtx"}
+VARIANT_DECL_RE = re.compile(r"^\s*class\s+(hct_\w+)\s*:\s*hct_H60_base\b", re.M | re.I)
 LINE_COMMENT_RE = re.compile(r"//[^\n]*")
 BLOCK_COMMENT_RE = re.compile(r"/\*.*?\*/", re.S)
 
@@ -265,7 +265,7 @@ def check_variant_layering():
                 fails.append(f"{rel}: declares variant class {m.group(1)} outside its variant PBO")
         if low.endswith(".sqf"):
             for m in literal_re.finditer(text):
-                fails.append(f"{rel}: hard-coded variant classname \"{m.group(1)}\" - use a vtx_trait_* (GET_TRAIT/HAS_TRAIT)")
+                fails.append(f"{rel}: hard-coded variant classname \"{m.group(1)}\" - use a hct_trait_* (GET_TRAIT/HAS_TRAIT)")
     return fails
 
 

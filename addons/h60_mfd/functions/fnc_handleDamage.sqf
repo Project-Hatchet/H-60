@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_mfd_fnc_handleDamage
+ * hct_h60_mfd_fnc_handleDamage
  *
  * MFD damage, once per second: a screen whose hitpoint is past 0.9 goes dark with
  * a cracked texture (on the aircraft's owner); a damaged screen (> 0.2) randomly
@@ -30,7 +30,7 @@ params ["_vehicle"];
 			};
 		};
 	};
-	private _flickerVar = format ["vtx_uh60_mfd_flicker_%1", _mfdIndex];
+	private _flickerVar = format ["hct_h60_mfd_flicker_%1", _mfdIndex];
 	if (_damage > 0.2 && {random 0.9 < _damage} && {isNil {_vehicle getVariable _flickerVar}}) then {
 		_vehicle setVariable [_flickerVar, true];
 		[{

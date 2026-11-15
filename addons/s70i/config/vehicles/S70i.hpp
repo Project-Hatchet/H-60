@@ -1,8 +1,8 @@
-// vtx_S70i — the civilian S-70i (unarmed). Lifted verbatim from
-// cfgVehicles.hpp into its own file (Phase 1 PR A). Renamed from vtx_S70M
+// hct_S70i — the civilian S-70i (unarmed). Lifted verbatim from
+// cfgVehicles.hpp into its own file (Phase 1 PR A). Renamed from hct_S70M
 // (dev tester report, Riverman flat-rename ruling 2026-09-07 - no compat
 // stub; civilian variant, mission breakage accepted).
-class vtx_S70i: vtx_H60_base {
+class hct_S70i: hct_H60_base {
     displayName = "S-70i";
     editorPreview = "z\vtx\addons\s70i\data\preview\vtx_S70i.jpg";
     crew = "C_man_pilot_F";
@@ -48,7 +48,7 @@ class vtx_S70i: vtx_H60_base {
       // Riverman ruling 2026-09-23: the crew chief never runs the winch from
       // the window seat; the pendant lives at the right cabin door.
       class CargoTurret_01: CargoTurret {
-        soundAttenuationTurret = "VTX_H60_CabinAttenuation"; // #510: pendant seat is inside the airframe, same as the base M door seats (#617)
+        soundAttenuationTurret = "HCT_H60_CabinAttenuation"; // #510: pendant seat is inside the airframe, same as the base M door seats (#617)
         gunnerAction = "passenger_bench_1";
         gunnerInAction = "passenger_bench_1";
         memoryPointsGetInGunner = "pos Cargo R";
@@ -72,33 +72,33 @@ class vtx_S70i: vtx_H60_base {
       };
     };
     class MFD: MFD {
-      class VTX_MFD_1_NOFLIR :           VTX_MFD_1_NOFLIR {};
-      class VTX_MFD_1_CMWS :      VTX_MFD_1_CMWS {};
-      class VTX_MFD_1_Monospace : VTX_MFD_1_Monospace {};
-      class VTX_MFD_1_Bold :      VTX_MFD_1_Bold {};
-      class VTX_MFD_2_NOFLIR :           VTX_MFD_2_NOFLIR {};
-      class VTX_MFD_2_CMWS :      VTX_MFD_2_CMWS {};
-      class VTX_MFD_2_Monospace : VTX_MFD_2_Monospace {};
-      class VTX_MFD_2_Bold :      VTX_MFD_2_Bold {};
-      class VTX_MFD_3_NOFLIR :           VTX_MFD_3_NOFLIR {};
-      class VTX_MFD_3_CMWS :      VTX_MFD_3_CMWS {};
-      class VTX_MFD_3_Monospace : VTX_MFD_3_Monospace {};
-      class VTX_MFD_3_Bold :      VTX_MFD_3_Bold {};
-      class VTX_MFD_4_NOFLIR :           VTX_MFD_4_NOFLIR {};
-      class VTX_MFD_4_CMWS :      VTX_MFD_4_CMWS {};
-      class VTX_MFD_4_Monospace : VTX_MFD_4_Monospace {};
-      class VTX_MFD_4_Bold :      VTX_MFD_4_Bold {};
+      class HCT_MFD_1_NOFLIR :           HCT_MFD_1_NOFLIR {};
+      class HCT_MFD_1_CMWS :      HCT_MFD_1_CMWS {};
+      class HCT_MFD_1_Monospace : HCT_MFD_1_Monospace {};
+      class HCT_MFD_1_Bold :      HCT_MFD_1_Bold {};
+      class HCT_MFD_2_NOFLIR :           HCT_MFD_2_NOFLIR {};
+      class HCT_MFD_2_CMWS :      HCT_MFD_2_CMWS {};
+      class HCT_MFD_2_Monospace : HCT_MFD_2_Monospace {};
+      class HCT_MFD_2_Bold :      HCT_MFD_2_Bold {};
+      class HCT_MFD_3_NOFLIR :           HCT_MFD_3_NOFLIR {};
+      class HCT_MFD_3_CMWS :      HCT_MFD_3_CMWS {};
+      class HCT_MFD_3_Monospace : HCT_MFD_3_Monospace {};
+      class HCT_MFD_3_Bold :      HCT_MFD_3_Bold {};
+      class HCT_MFD_4_NOFLIR :           HCT_MFD_4_NOFLIR {};
+      class HCT_MFD_4_CMWS :      HCT_MFD_4_CMWS {};
+      class HCT_MFD_4_Monospace : HCT_MFD_4_Monospace {};
+      class HCT_MFD_4_Bold :      HCT_MFD_4_Bold {};
       class NVGHUD: NVGHUD {};
-      class VTX_CLOCK: VTX_CLOCK {};
-      class VTX_ESIS_Horizon: VTX_ESIS_Horizon {};
-      class VTX_ESIS_Misc: VTX_ESIS_Misc {};
-      class VTX_FDRight: VTX_FDRight {};
-      class VTX_FDLeft: VTX_FDLeft {};
-      class VTX_FMS_L: VTX_FMS_L {};
-      class VTX_FMS_R: VTX_FMS_R {};
-      class VTX_ESIS_BOOT: VTX_ESIS_BOOT {};
+      class HCT_CLOCK: HCT_CLOCK {};
+      class HCT_ESIS_Horizon: HCT_ESIS_Horizon {};
+      class HCT_ESIS_Misc: HCT_ESIS_Misc {};
+      class HCT_FDRight: HCT_FDRight {};
+      class HCT_FDLeft: HCT_FDLeft {};
+      class HCT_FMS_L: HCT_FMS_L {};
+      class HCT_FMS_R: HCT_FMS_R {};
+      class HCT_ESIS_BOOT: HCT_ESIS_BOOT {};
     };
     #include "\z\vtx\addons\uh60_config\config\vehicleTransportSlick.hpp"
   // HeliSim seats (SEATS_* in uh60_helisim bmkhs_config/helisim_seats.hpp)
   class BMKHS_HeliSim: BMKHS_HeliSim { SEATS_S70I };
-}; // vtx_S70i
+}; // hct_S70i

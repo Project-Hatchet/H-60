@@ -1,11 +1,11 @@
 /*
  Used to handle which missile to fire, if any.
-	[_vehicle, _weapon, _fireMode] call vtx_uh60_weapons_fnc_commandFireMissile
+	[_vehicle, _weapon, _fireMode] call hct_h60_weapons_fnc_commandFireMissile
 */
 params ["_vehicle"];
 
 _weapons = weapons _vehicle;
 
-if ("vtx_hellfire_launcher" in _weapons) exitWith {driver _vehicle forceWeaponFire ["vtx_hellfire_launcher", "vtx_hellfire_launcher"];};
-if ("vtx_hellfire_launcher_N" in _weapons) exitWith {driver _vehicle forceWeaponFire ["vtx_hellfire_launcher_N", "vtx_hellfire_launcher_N"];};
-if ("vtx_apkws" in _weapons) exitWith {driver _vehicle forceWeaponFire ["vtx_apkws", "Medium_AI"];};
+if ("hct_hellfire_launcher" in _weapons) exitWith {driver _vehicle forceWeaponFire ["hct_hellfire_launcher", "hct_hellfire_launcher"];};
+if ("hct_hellfire_launcher_N" in _weapons) exitWith {driver _vehicle forceWeaponFire ["hct_hellfire_launcher_N", "hct_hellfire_launcher_N"];};
+if ("hct_apkws" in _weapons) exitWith {driver _vehicle forceWeaponFire ["hct_apkws", "Medium_AI"];};

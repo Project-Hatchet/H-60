@@ -1,4 +1,4 @@
-class vtx_agm114_trail
+class hct_agm114_trail
 {
 	class FX_Missile_AA_light_01
 	{
@@ -9,10 +9,10 @@ class vtx_agm114_trail
 		interval = 1;
 		lifeTime = 1;
 	};
-	class vtx_uh60_missileTrail
+	class hct_h60_missileTrail
 	{
 		simulation = "particles";
-		type = "vtx_uh60_missileTrail";
+		type = "hct_h60_missileTrail";
 		position[] = {0,0,0};
 		intensity = 1;
 		interval = 1;
@@ -20,7 +20,7 @@ class vtx_agm114_trail
 	};
 };
 
-class vtx_agm114_explosion
+class hct_agm114_explosion
 {
 	class LightExp
 	{
@@ -34,7 +34,7 @@ class vtx_agm114_explosion
 	class Explosion1
 	{
 		simulation = "particles";
-		type = "vtx_uh60_explosionCloudCenter";
+		type = "hct_h60_explosionCloudCenter";
 		position[] = {0,0,0};
 		intensity = 34;
 		interval = 1;
@@ -43,7 +43,7 @@ class vtx_agm114_explosion
 	class SmallSmoke1
 	{
 		simulation = "particles";
-		type = "vtx_uh60_explosionCloud";
+		type = "hct_h60_explosionCloud";
 		position[] = {0,0,0};
 		intensity = 1;
 		interval = 1;

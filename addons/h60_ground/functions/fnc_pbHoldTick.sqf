@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_ground_fnc_pbHoldTick
+ * hct_h60_ground_fnc_pbHoldTick
  *
  * SFM parking-brake hold (MH-47G-proven template): owner-side tick; brake
  * lever SET + weight on wheels + slow -> horizontal velocity damped each
@@ -21,28 +21,28 @@ params ["_vehicle"];
 #include "\bmkhs_helisim\functions\core\core.hpp"
 
 // tuning knobs (one-time init; console-tunable live like the taxi set)
-if (isNil "vtx_uh60_pbHoldMaxSlope") then {
-    vtx_uh60_pbHoldDamp     = 0.15; // horizontal velocity multiplier per tick
-    vtx_uh60_pbHoldMaxKts   = 4.3;  // ground speed above this (8 km/h) the hold stands down (takeoff/rollout)
+if (isNil "hct_h60_pbHoldMaxSlope") then {
+    hct_h60_pbHoldDamp     = 0.15; // horizontal velocity multiplier per tick
+    hct_h60_pbHoldMaxKts   = 4.3;  // ground speed above this (8 km/h) the hold stands down (takeoff/rollout)
     // TM 1-1520-280-10 5-28: slope landing limits are 15 deg upslope /
     // lateral, 6 deg nose-down. Undamped the hold gripped a 20 deg slope
     // (2026-09-08 test - stronger than the real gear); beyond this ground
     // angle the brakes lose and the ship slides, matching the book's
     // envelope edge with a small margin.
-    vtx_uh60_pbHoldMaxSlope = 17;   // deg terrain slope: past this, no hold
+    hct_h60_pbHoldMaxSlope = 17;   // deg terrain slope: past this, no hold
 };
 
 if (isNull _vehicle || {!alive _vehicle} || {!local _vehicle}) exitWith {
-    _vehicle setVariable ["vtx_uh60_ground_pbHoldOn", false];
+    _vehicle setVariable ["hct_h60_ground_pbHoldOn", false];
 };
 // per-tick gates just skip the damp (no chain churn on brake taps)
 if ((_vehicle animationPhase "handle_wheelbrake") > 0.5
     && {[_vehicle] call bmkhs_fnc_stateOnGround}
-    && {((_vehicle getVariable ["bmkhs_gndSpeed", 0]) * MPS_TO_KNOTS) < vtx_uh60_pbHoldMaxKts}
-    && {acos ((surfaceNormal (getPosASL _vehicle)) # 2) < vtx_uh60_pbHoldMaxSlope}) then {
+    && {((_vehicle getVariable ["bmkhs_gndSpeed", 0]) * MPS_TO_KNOTS) < hct_h60_pbHoldMaxKts}
+    && {acos ((surfaceNormal (getPosASL _vehicle)) # 2) < hct_h60_pbHoldMaxSlope}) then {
     private _vel = _vehicle getVariable ["bmkhs_velWorldSpaceNoWind", [0, 0, 0]];
     // horizontal exponential damp; vertical untouched so the suspension
     // settles instead of being pinned mid-droop
-    _vehicle setVelocity [(_vel # 0) * vtx_uh60_pbHoldDamp, (_vel # 1) * vtx_uh60_pbHoldDamp, _vel # 2];
+    _vehicle setVelocity [(_vel # 0) * hct_h60_pbHoldDamp, (_vel # 1) * hct_h60_pbHoldDamp, _vel # 2];
 };
-[vtx_uh60_ground_fnc_pbHoldTick, [_vehicle], 0.1] call CBA_fnc_waitAndExecute;
+[hct_h60_ground_fnc_pbHoldTick, [_vehicle], 0.1] call CBA_fnc_waitAndExecute;

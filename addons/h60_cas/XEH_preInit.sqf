@@ -2,7 +2,7 @@
 
 ADDON = false;
 
-vtx_uh60_cas_cautionsUnacked = 0;
+hct_h60_cas_cautionsUnacked = 0;
 
 #include "XEH_PREP.hpp"
 

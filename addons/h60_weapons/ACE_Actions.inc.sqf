@@ -1,9 +1,9 @@
 private _displayName = "Adjust Pylon Position";
-private _condition = {_this call vtx_uh60_weapons_fnc_canAdjustPylonPosition};
-private _statement = {_this call vtx_uh60_weapons_fnc_adjustPylonPosition};
+private _condition = {_this call hct_h60_weapons_fnc_canAdjustPylonPosition};
+private _statement = {_this call hct_h60_weapons_fnc_adjustPylonPosition};
 // Left Pylon
 private _action = [
-  "vtx_pylonPositionL",
+  "hct_pylonPositionL",
   _displayName,
   "\a3\3den\Data\CfgWrapperUI\Cursors\3denMoveZ_ca.paa",
   _statement,
@@ -15,7 +15,7 @@ private _action = [
 [QBASE_CLASS, 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
 // Right Pylon
 _action = [
-  "vtx_pylonPositionR",
+  "hct_pylonPositionR",
   _displayName,
   "\a3\3den\Data\CfgWrapperUI\Cursors\3denMoveZ_ca.paa",
   _statement,

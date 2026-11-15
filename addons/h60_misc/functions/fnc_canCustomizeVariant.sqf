@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_misc_fnc_canCustomizeVariant
+ * hct_h60_misc_fnc_canCustomizeVariant
  *
  * ACE condition: a toolkit, the part nearby and not already fitted.
  *

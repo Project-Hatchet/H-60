@@ -13,7 +13,7 @@
  * None
  *
  * Example:
- * [_vehicle, "l", -1] call vtx_uh60_config_fnc_setWindow
+ * [_vehicle, "l", -1] call hct_h60_config_fnc_setWindow
  */
 
 params ["_vehicle", "_window", ["_phase", -1], ["_speed", false]];

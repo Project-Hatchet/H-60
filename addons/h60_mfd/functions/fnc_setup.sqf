@@ -1,12 +1,12 @@
 /*
- * vtx_uh60_mfd_fnc_setup
+ * hct_h60_mfd_fnc_setup
  *
  * handles the setup of the mfd system
  *
  * params (array)[(object) vehicle]
  */
 params ["_vehicle"];
-if (!vtx_uh60m_enabled_mfd) exitWith {
+if (!hct_h60_enabled_mfd) exitWith {
     _vehicle setUserMFDvalue [23,1];
     _vehicle setUserMFDvalue [24,0];
     _vehicle setUserMFDvalue [25,0];
@@ -32,36 +32,36 @@ if (_zoom < 0) then {
 _vehicle animateSource ["MAP1_Scale", 1/_zoom, 1];
 _vehicle setUserMFDValue [40, worldSize / _zoom / 2];
 
-vtx_uh60_mfd_tac_mapPos = [0,0,0];
-vtx_uh60_mfd_tac_cursorPos = [0.5,0.5];
-vtx_uh60_mfd_slewX = 0;
-vtx_uh60_mfd_slewY = 0;
-vtx_uh60_mfd_allowText = true;
-vtx_uh60_tac_hookedObject = nil;
+hct_h60_mfd_tac_mapPos = [0,0,0];
+hct_h60_mfd_tac_cursorPos = [0.5,0.5];
+hct_h60_mfd_slewX = 0;
+hct_h60_mfd_slewY = 0;
+hct_h60_mfd_allowText = true;
+hct_h60_tac_hookedObject = nil;
 
 // likewise each screen's map texture: default once, never reset on boarding
 {
-    private _var = format ["vtx_uh60_mfd_%1_mapTextureMode", _x];
+    private _var = format ["hct_h60_mfd_%1_mapTextureMode", _x];
     if (isNil {_vehicle getVariable _var}) then {
         _vehicle setVariable [_var, "topo", true];
     };
 } forEach [23, 24, 25, 26];
 
-vtx_uh60_mfd_mfsc_focussedMFD = 25;
+hct_h60_mfd_mfsc_focussedMFD = 25;
 if (player != driver _vehicle) then {
-    vtx_uh60_mfd_mfsc_focussedMFD = 24;
+    hct_h60_mfd_mfsc_focussedMFD = 24;
 };
-vtx_uh60_ccfs_gameState = "MENU";
-vtx_uh60_ccfs_playerSelected = player;
-vtx_uh60_ccfs_isHost = false;
-vtx_uh60_ccfs_score = [0,0];
-vtx_uh60_ccfs_paddleMoved = false;
-vtx_uh60_ccfs_paddlePositions = [0.5,0.5];
-vtx_uh60_ccfs_ballPos = [0.5,0.5];
-vtx_uh60_ccfs_serveSide = -1;
-vtx_uh60_ccfs_ballVelocity = [vtx_uh60_ccfs_serveSide, -1 + (random 2)] vectorMultiply 0.005;
-vtx_uh60_ccfs_lastScore = time;
-vtx_uh60_ccfs_winningScore = 10;
+hct_h60_ccfs_gameState = "MENU";
+hct_h60_ccfs_playerSelected = player;
+hct_h60_ccfs_isHost = false;
+hct_h60_ccfs_score = [0,0];
+hct_h60_ccfs_paddleMoved = false;
+hct_h60_ccfs_paddlePositions = [0.5,0.5];
+hct_h60_ccfs_ballPos = [0.5,0.5];
+hct_h60_ccfs_serveSide = -1;
+hct_h60_ccfs_ballVelocity = [hct_h60_ccfs_serveSide, -1 + (random 2)] vectorMultiply 0.005;
+hct_h60_ccfs_lastScore = time;
+hct_h60_ccfs_winningScore = 10;
 
 [_vehicle, [0]] enableInfoPanelComponent ["left", "SlingLoadDisplay", false];
 [_vehicle, [0]] enableInfoPanelComponent ["left", "SensorsDisplayComponent", false];

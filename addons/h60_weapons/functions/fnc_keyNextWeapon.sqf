@@ -10,10 +10,10 @@
  * None
  *
  * Example:
- * [true] call vtx_uh60_weapons_fnc_keyNextWeapon
+ * [true] call hct_h60_weapons_fnc_keyNextWeapon
  */
 
 IS_EITHER_PILOT; // Sets _unit and _vehicle
 IS_MASTER_ARM;
 
-["vtx_nextWeapon", [_vehicle], driver _vehicle] call CBA_fnc_targetEvent;
+["hct_nextWeapon", [_vehicle], driver _vehicle] call CBA_fnc_targetEvent;

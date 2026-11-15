@@ -1,4 +1,5 @@
 #define COMPONENT s70i
+#define COMPONENT_PATH s70i
 #define COMPONENT_BEAUTIFIED S70I
 #include "\z\vtx\addons\main\script_mod.hpp"
 

@@ -14,16 +14,16 @@
  * None
  *
  * Example:
- * [cursorObject, 1] call vtx_uh60_misc_fnc_fold
+ * [cursorObject, 1] call hct_h60_misc_fnc_fold
  */
 
 params ["_heli", "_phase", ["_speed", 1]];
 
 if (_speed isEqualTo true) exitWith {
-  [_heli, _phase] call vtx_uh60_misc_fnc_foldInstant;
+  [_heli, _phase] call hct_h60_misc_fnc_foldInstant;
 };
 if (_speed isEqualTo -1) exitWith {
-  [_heli] call vtx_uh60_misc_fnc_foldFreeze;
+  [_heli] call hct_h60_misc_fnc_foldFreeze;
 };
 
 private _fnc_getAnimsTime = {
@@ -78,7 +78,7 @@ private _fnc_onFinish = {
 private _fnc_onFailure = {
     (_this select 0) params ["_unit", "_heli"];
 
-    [_heli] call vtx_uh60_misc_fnc_foldFreeze;
+    [_heli] call hct_h60_misc_fnc_foldFreeze;
 };
 private _fnc_condition = {
     (_this select 0) params ["_unit"];
@@ -125,7 +125,7 @@ if (_phase == 0) exitWith {
   }, [_this, _target], _delay, {
     params ["_args", "_target"];
     _args params ["_heli", "_phase", ["_speed", 1]];
-    [_heli] call vtx_uh60_misc_fnc_foldFreeze;
+    [_heli] call hct_h60_misc_fnc_foldFreeze;
   }] call CBA_fnc_waitUntilAndExecute;
 };
 
@@ -184,7 +184,7 @@ private _target = [];
 
       (_heli animationSourcePhase _anim) isNotEqualTo _phase
     } > -1) exitWith {
-      [_heli] call vtx_uh60_misc_fnc_foldFreeze;
+      [_heli] call hct_h60_misc_fnc_foldFreeze;
     };
 
     [
@@ -199,5 +199,5 @@ private _target = [];
 }, [_this, _target] , _delay, {
   params ["_args", "_target"];
   _args params ["_heli", "_phase", ["_speed", 1]];
-  [_heli] call vtx_uh60_misc_fnc_foldFreeze;
+  [_heli] call hct_h60_misc_fnc_foldFreeze;
 }] call CBA_fnc_waitUntilAndExecute;

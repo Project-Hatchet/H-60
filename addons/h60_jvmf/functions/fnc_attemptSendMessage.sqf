@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_jvmf_fnc_attemptSendMessage
+ * hct_h60_jvmf_fnc_attemptSendMessage
  *
  * Attempts to send a JVMF message
  *
@@ -16,7 +16,7 @@ params ["_id", "_sender", "_recipient", "_type"];
 #define FILLEDSTRING(STR) (typeName STR == "STRING" && count STR > 0)
 #define VALIDSIZESTRING(STR,LENGTH) (typeName STR == "STRING" && count STR < LENGTH)
 
-private _isUniqueID = (vtx_jvmf_messages findIf {_x # 0 == _id}) == -1;
+private _isUniqueID = (hct_jvmf_messages findIf {_x # 0 == _id}) == -1;
 if(!FILLEDSTRING(_sender) || !FILLEDSTRING(_recipient) || !FILLEDSTRING(_id)) exitWith { false };
 
 private _success = switch (_type) do {
@@ -41,8 +41,8 @@ private _success = switch (_type) do {
 if (_success) then {
     private _timestamp = [daytime, "HH:MM"] call BIS_fnc_timeToString;
     _this set [6, [[_timestamp, _sender, "SENT", player]]];
-    ["vtx_uh60_jvmf_messageSent", _this] call CBA_fnc_globalEvent;
-    if (vtx_uh60_ui_showDebugMessages) then {diag_log "attemptSend";};
+    ["hct_h60_jvmf_messageSent", _this] call CBA_fnc_globalEvent;
+    if (hct_h60_ui_showDebugMessages) then {diag_log "attemptSend";};
 };
 
 _success

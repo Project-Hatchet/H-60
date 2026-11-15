@@ -11,7 +11,7 @@
  * Unit can configure the aircraft's pylons <BOOL>
  *
  * Example:
- * [_heli, ace_player] call vtx_ace_viv_fnc_startLoading
+ * [_heli, ace_player] call hct_h60_ace_viv_fnc_startLoading
  *
  * Public: No
  */
@@ -25,8 +25,8 @@ GVAR(cargo) = objNull;
 // select no weapon and stop sprinting
 _unit action ["SwitchWeapon", _unit, _unit, 299];
 [_unit, "AmovPercMstpSnonWnonDnon", 0] call ace_common_fnc_doAnimation;
-[_unit, "forceWalk", "VTX_ACE_VIV", true] call ace_common_fnc_statusEffect_set;
-[_unit, "blockThrow", "VTX_ACE_VIV", true] call ace_common_fnc_statusEffect_set;
+[_unit, "forceWalk", "hct_h60_ace_viv", true] call ace_common_fnc_statusEffect_set;
+[_unit, "blockThrow", "hct_h60_ace_viv", true] call ace_common_fnc_statusEffect_set;
 [_carrier, true] call FUNC(lockSeats);
 
 // add mouse button action and hint

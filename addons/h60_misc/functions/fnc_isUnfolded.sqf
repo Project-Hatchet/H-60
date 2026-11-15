@@ -9,7 +9,7 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_heli] call vtx_uh60_misc_fnc_isUnfolded
+ * [_heli] call hct_h60_misc_fnc_isUnfolded
  */
 
 params ["_heli"];

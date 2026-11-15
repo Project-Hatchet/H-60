@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_jvmf_fnc_drawJVMF
+ * hct_h60_jvmf_fnc_drawJVMF
  *
  * Sets userMFD text and variables
  *
@@ -7,7 +7,7 @@
 params ["_vehicle"];
 
 //Do not draw JVMF is there are no JVMF Messages
-if (count vtx_jvmf_messages == 0) exitWith {
+if (count hct_jvmf_messages == 0) exitWith {
     _vehicle setUserMFDValue [16, -1];  //-1 sets as empty
 };
 
@@ -35,7 +35,7 @@ private _strings = [
     _x params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
     private _str = "";
     //_str = _str + (if (count _replies < 2) then [{">"}, {" "}]);
-    _str = _str + (if (_forEachIndex == vtx_jvmf_selected_idx) then [{"-"}, {" "}]);
+    _str = _str + (if (_forEachIndex == hct_jvmf_selected_idx) then [{"-"}, {" "}]);
     private _typeText = switch (_type) do {
         case 0: {"FRTXT "};
         case 1: {"CASREQ"};
@@ -49,15 +49,15 @@ private _strings = [
         _str = _str + ((_replies # 0) # 0);
     };
     _strings set [_foreachIndex, [_str, 20+3] call _fixString];
-} forEach vtx_jvmf_messages;
+} forEach hct_jvmf_messages;
 
 // a stale selection (message deleted) must not index past the end
-vtx_jvmf_selected_idx = (vtx_jvmf_selected_idx max 0) min (count vtx_jvmf_messages - 1);
-private _message = vtx_jvmf_messages # vtx_jvmf_selected_idx;
+hct_jvmf_selected_idx = (hct_jvmf_selected_idx max 0) min (count hct_jvmf_messages - 1);
+private _message = hct_jvmf_messages # hct_jvmf_selected_idx;
 _message params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
 
 _vehicle setUserMFDValue [16, _type];
-[_vehicle, 30, _sender + "/" + _recipient] call vtx_uh60_mfd_fnc_setUserText;
+[_vehicle, 30, _sender + "/" + _recipient] call hct_h60_mfd_fnc_setUserText;
 switch (_type) do {
     case 0: {
         {
@@ -77,13 +77,13 @@ switch (_type) do {
     };
 };
 {
-    [_vehicle, 31 + _foreachIndex, _x] call vtx_uh60_mfd_fnc_setUserText;
+    [_vehicle, 31 + _foreachIndex, _x] call hct_h60_mfd_fnc_setUserText;
 } forEach _strings;
 
 if (count _replies > 0) then {
     private _lastReply = _replies # ((count _replies) - 1);
-    [_vehicle, 41, [_lastReply # 0, _lastReply # 1, _lastReply # 2] joinString " "] call vtx_uh60_mfd_fnc_setUserText;
+    [_vehicle, 41, [_lastReply # 0, _lastReply # 1, _lastReply # 2] joinString " "] call hct_h60_mfd_fnc_setUserText;
 };
 
-private _messageCount = count vtx_jvmf_messages;
-[_vehicle, 42, format["%1/%2", vtx_jvmf_selected_idx + 1, count vtx_jvmf_messages]] call vtx_uh60_mfd_fnc_setUserText;
+private _messageCount = count hct_jvmf_messages;
+[_vehicle, 42, format["%1/%2", hct_jvmf_selected_idx + 1, count hct_jvmf_messages]] call hct_h60_mfd_fnc_setUserText;

@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * vtx_uh60_cas_fnc_updateCautions
+ * hct_h60_cas_fnc_updateCautions
  *
  * updates the cautions list on the EICAS from HeliSim
  *
@@ -8,12 +8,12 @@
  */
 
 params ["_vehicle"];
-if (!local _vehicle || missionNamespace getVariable ["vtx_uh60_mfd_eicas_testing", false]) exitWith {};
+if (!local _vehicle || missionNamespace getVariable ["hct_h60_mfd_eicas_testing", false]) exitWith {};
 
 // Caution labels by MFD slot: built once, not on every call (each second and
 // on every hit)
-if (isNil "vtx_uh60_cas_pylonLabels") then {
-    vtx_uh60_cas_pylonLabels = createHashMapFromArray [
+if (isNil "hct_h60_cas_pylonLabels") then {
+    hct_h60_cas_pylonLabels = createHashMapFromArray [
         [USERMFDV_L00, "GEN 1 FAIL"],
         [USERMFDV_L01, "HYD PUMP 1 FAIL"],
         [USERMFDV_L02, "FUEL 1 LOW"],
@@ -43,24 +43,24 @@ if (isNil "vtx_uh60_cas_pylonLabels") then {
         [USERMFDV_R25, "EGI FAIL"]
     ];
 };
-private _pylonLabels = vtx_uh60_cas_pylonLabels;
+private _pylonLabels = hct_h60_cas_pylonLabels;
 
 private _setPylonFn = {
     params ["_index", "_enable"];
     private _label  = _pylonLabels getOrDefault [_index, ""];
-    private _return = [_vehicle, _index, [0, 1] select _enable, true] call vtx_uh60_mfd_fnc_setPylonValue;
+    private _return = [_vehicle, _index, [0, 1] select _enable, true] call hct_h60_mfd_fnc_setPylonValue;
     if (_return == 2) then {
-        vtx_uh60_cas_cautionsUnacked = vtx_uh60_cas_cautionsUnacked + 1;
-        vtx_uh60_cas_firstAdvisory = vtx_uh60_cas_firstAdvisory + 1;
-        vtx_uh60_cas_cautionsLog = [_label] + vtx_uh60_cas_cautionsLog;
+        hct_h60_cas_cautionsUnacked = hct_h60_cas_cautionsUnacked + 1;
+        hct_h60_cas_firstAdvisory = hct_h60_cas_firstAdvisory + 1;
+        hct_h60_cas_cautionsLog = [_label] + hct_h60_cas_cautionsLog;
     };
     if (_return == 0) then {
-        vtx_uh60_cas_cautionsLog deleteAt (vtx_uh60_cas_cautionsLog find _label);
-        vtx_uh60_cas_firstAdvisory = vtx_uh60_cas_firstAdvisory - 1;
-        vtx_uh60_cas_cautionsUnacked = vtx_uh60_cas_cautionsUnacked min (count vtx_uh60_cas_cautionsLog);
+        hct_h60_cas_cautionsLog deleteAt (hct_h60_cas_cautionsLog find _label);
+        hct_h60_cas_firstAdvisory = hct_h60_cas_firstAdvisory - 1;
+        hct_h60_cas_cautionsUnacked = hct_h60_cas_cautionsUnacked min (count hct_h60_cas_cautionsLog);
     };
     if (_return > -1) then {
-        [_vehicle, (_return > 0)] call vtx_uh60_cas_fnc_updateOverlayList;
+        [_vehicle, (_return > 0)] call hct_h60_cas_fnc_updateOverlayList;
     };
 };
 
@@ -106,11 +106,11 @@ private _tailDrive = selectMax (["intermediateGearbox", "tailRotorGearbox", "tai
 [USERMFDV_R12, _tailDrive >= 0.85] call _setPylonFn;
 
 if (_priLow && {(_vehicle getVariable ["bmkhs_utilLevel_pct", 0]) >= 0.1}) then {
-    [_vehicle, "BACKUP PUMP ON", {}, false, false] call vtx_uh60_cas_fnc_registerCautionAdvisory;
-    [_vehicle, "T/R SERVO 2 ON", {}, false, false] call vtx_uh60_cas_fnc_registerCautionAdvisory;
+    [_vehicle, "BACKUP PUMP ON", {}, false, false] call hct_h60_cas_fnc_registerCautionAdvisory;
+    [_vehicle, "T/R SERVO 2 ON", {}, false, false] call hct_h60_cas_fnc_registerCautionAdvisory;
 } else {
-    [_vehicle, "BACKUP PUMP ON"] call vtx_uh60_cas_fnc_removeCautionAdvisory;
-    [_vehicle, "T/R SERVO 2 ON"] call vtx_uh60_cas_fnc_removeCautionAdvisory;
+    [_vehicle, "BACKUP PUMP ON"] call hct_h60_cas_fnc_removeCautionAdvisory;
+    [_vehicle, "T/R SERVO 2 ON"] call hct_h60_cas_fnc_removeCautionAdvisory;
 };
 
 // APU

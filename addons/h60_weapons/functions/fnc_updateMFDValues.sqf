@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * vtx_uh60_weapons_fnc_updateMFDValues
+ * hct_h60_weapons_fnc_updateMFDValues
  *
  * Weapons/FLIR MFD readouts: target range and grid, LOBL/LOAL constraints box, attack profile.
  *
@@ -9,7 +9,7 @@
 
 params ["_vehicle"];
 
-if (!([] call vtx_uh60_mfd_fnc_isAnyFlirOpened)) exitWith {};
+if (!([] call hct_h60_mfd_fnc_isAnyFlirOpened)) exitWith {};
 
 (getPilotCameraTarget _vehicle) params ["_stabilized", "_position"];
 private _outputString = "";
@@ -21,7 +21,7 @@ if (_stabilized) then {
 	private _gridStr = format ["%1    %2    %3    %4", _gridArea select 0, _gridArea select 1, _grid select 0, _grid select 1];
 	_outputString = _outputString + _gridStr;
 };
-private _impactTime = _vehicle getVariable ["vtx_uh60_hellfire_impactTime", -1];
+private _impactTime = _vehicle getVariable ["hct_h60_hellfire_impactTime", -1];
 private _currentTof = if (_impactTime < 0) then {-1} else {(ceil (_impactTime - cba_missionTime)) max -1};
 if (_currentTof > -1) then {
 	_outputString = _outputString + format["   HF TOF = %1", _currentTof];
@@ -35,13 +35,13 @@ if (_currentTof > -1) then {
 		} forEach (waypoints group player);
 	};
 };
-if (!(_vehicle getVariable ["vtx_uh60_flir_stowed", true])) then {
+if (!(_vehicle getVariable ["hct_h60_flir_stowed", true])) then {
 	_vehicle setUserMFDText [10, _outputString];
 };
 
 if (!local _vehicle) exitWith {};
 
-private _isLOBL = [_vehicle] call vtx_uh60_weapons_fnc_isLOBL;
+private _isLOBL = [_vehicle] call hct_h60_weapons_fnc_isLOBL;
 _isLOBL params ["_foundLaser", "_laserPosition"];
 private _targetPosition = if (_foundLaser) then {_laserPosition};
 
@@ -62,11 +62,11 @@ if (_foundLaser) then {
 	_constraintsBoxType = if (_angleDiff < 7.5) then [{3}, {4}];
 };
 
-if (cba_missionTime < (_vehicle getVariable ["vtx_uh60_hellfire_lastLaunchTime", 0]) + 1.5) then {
+if (cba_missionTime < (_vehicle getVariable ["hct_h60_hellfire_lastLaunchTime", 0]) + 1.5) then {
 	_constraintsBoxType = 6;
 };
 
-//[_vehicle, 40, _constraintsBoxType] call vtx_uh60_mfd_fnc_setPylonValue;
+//[_vehicle, 40, _constraintsBoxType] call hct_h60_mfd_fnc_setPylonValue;
 _vehicle setUserMFDValue [USERMFDV_HELLFIRE_BOX, _constraintsBoxType];
 
 private _launchMode = _vehicle getvariable ["ace_missileguidance_attackProfile", "hellfire"];
@@ -77,7 +77,7 @@ private _launchNum = switch (_launchMode) do {
 	default {-1}; // another mod's attack profile: leave the readout as it is
 };
 
-//[_vehicle, 41, _launchNum] call vtx_uh60_mfd_fnc_setPylonValue;
+//[_vehicle, 41, _launchNum] call hct_h60_mfd_fnc_setPylonValue;
 if (_launchNum >= 0) then {
 	_vehicle setUserMFDValue [USERMFDV_HELLFIRE_TRA, _launchNum];
 };

@@ -10,7 +10,7 @@ params ["_vehicle","_weapon","_fireMode"];
 
 private _currentWeapon = currentWeapon _vehicle;
 if (_weapon == "MISSILE") then {
-	[_vehicle] call vtx_uh60_weapons_fnc_commandFireMissile;
+	[_vehicle] call hct_h60_weapons_fnc_commandFireMissile;
 } else {
 	driver _vehicle forceWeaponFire [_weapon,_fireMode];
 };

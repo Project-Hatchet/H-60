@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_uh60_helisim_fnc_cockpitBind
+Function: hct_h60_helisim_fnc_cockpitBind
 
 Description:
     Moves a HeliSim control from script - keybinds and linked controls. Goes through the
@@ -19,7 +19,7 @@ params ["_heli", "_control", "_index"];
 private _hct = _heli getVariable ["hct_config", configNull];
 if (isNull _hct) exitWith {};
 
-([_heli, _control] call vtx_uh60_helisim_fnc_controlConfig) params ["_cfg", "_positions"];
+([_heli, _control] call hct_h60_helisim_fnc_controlConfig) params ["_cfg", "_positions"];
 private _path = getArray (_cfg >> "hctInteraction");
 private _item = _hct >> "interaction";
 {_item = _item >> _x} forEach _path;

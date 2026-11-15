@@ -10,7 +10,7 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_unit] call vtx_uh60_hoist_fnc_canControlHoist
+ * [_unit] call hct_h60_hoist_fnc_canControlHoist
  */
 
 params ["_unit"];

@@ -12,7 +12,7 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_heli, _player, 0] call vtx_uh60_weapons_fnc_canAdjustPylonPosition
+ * [_heli, _player, 0] call hct_h60_weapons_fnc_canAdjustPylonPosition
  */
 
 params ["_heli", "_player", "_side"];

@@ -14,7 +14,7 @@
  * None
  *
  * Example:
- * [cameraOn, [0], "VTX_M230_Chaingun_L",298, 1] call vtx_uh60_weapons_fnc_assignPylon
+ * [cameraOn, [0], "HCT_M230_Chaingun_L",298, 1] call hct_h60_weapons_fnc_assignPylon
  *
  * Public: No
  */

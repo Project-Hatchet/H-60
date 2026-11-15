@@ -1,5 +1,6 @@
-#define COMPONENT uh60_hoist
-#define COMPONENT_BEAUTIFIED UH60_Hoist
+#define COMPONENT h60_hoist
+#define COMPONENT_PATH uh60_hoist
+#define COMPONENT_BEAUTIFIED H60_HOIST
 #include "\z\vtx\addons\main\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL
@@ -7,12 +8,12 @@
 // #define CBA_DEBUG_SYNCHRONOUS
 // #define ENABLE_PERFORMANCE_COUNTERS
 
-#ifdef DEBUG_ENABLED_UH60_HOIST
+#ifdef DEBUG_ENABLED_H60_HOIST
     #define DEBUG_MODE_FULL
 #endif
 
-#ifdef DEBUG_SETTINGS_UH60_HOIST
-    #define DEBUG_SETTINGS DEBUG_SETTINGS_UH60_HOIST
+#ifdef DEBUG_SETTINGS_H60_HOIST
+    #define DEBUG_SETTINGS DEBUG_SETTINGS_H60_HOIST
 #endif
 
 #include "\z\vtx\addons\main\script_macros.hpp"

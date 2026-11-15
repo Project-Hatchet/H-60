@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: vtx_uh60_helisim_fnc_updateVisuals
+Function: hct_h60_helisim_fnc_updateVisuals
 
 Description:
     Power visuals, engine sounds and OAT gauges, on the aircraft's owner.
@@ -16,8 +16,8 @@ private _battBus   = _heli getVariable ["bmkhs_battBusOn", false];
 private _acBus     = _heli getVariable ["bmkhs_acBusOn", false];
 private _stbyInst  = (_heli getVariable ["bmkhs_stbyInstIdx", 0]) == 1;
 private _esisOn    = _battBus && {_acBus || _stbyInst};
-if (_esisOn isNotEqualTo (_heli getVariable ["vtx_uh60_helisim_esisOn", false])) then {
-    _heli setVariable ["vtx_uh60_helisim_esisOn", _esisOn, true];
+if (_esisOn isNotEqualTo (_heli getVariable ["hct_h60_helisim_esisOn", false])) then {
+    _heli setVariable ["hct_h60_helisim_esisOn", _esisOn, true];
     if (_esisOn) then { _heli setVariable ["ESIS_START_TIME", CBA_missionTime, true] };
 };
 {
@@ -32,13 +32,13 @@ if (_esisOn isNotEqualTo (_heli getVariable ["vtx_uh60_helisim_esisOn", false]))
 ];
 
 private _engState = _heli getVariable ["bmkhs_engState", ["OFF", "OFF"]];
-if (_engState isNotEqualTo (_heli getVariable ["vtx_uh60_helisim_lastEngState", ["OFF", "OFF"]])) then {
-    _heli setVariable ["vtx_uh60_helisim_lastEngState", +_engState];
-    ["vtx_uh60_helisim_playEngineSound", [_heli, +_engState, _heli getSoundController "RotorSpeed"]] call CBA_fnc_globalEvent;
+if (_engState isNotEqualTo (_heli getVariable ["hct_h60_helisim_lastEngState", ["OFF", "OFF"]])) then {
+    _heli setVariable ["hct_h60_helisim_lastEngState", +_engState];
+    ["hct_h60_helisim_playEngineSound", [_heli, +_engState, _heli getSoundController "RotorSpeed"]] call CBA_fnc_globalEvent;
 };
 
-if (time < (_heli getVariable ["vtx_uh60_helisim_visualsSecond", -1]) + 1) exitWith {};
-_heli setVariable ["vtx_uh60_helisim_visualsSecond", time];
+if (time < (_heli getVariable ["hct_h60_helisim_visualsSecond", -1]) + 1) exitWith {};
+_heli setVariable ["hct_h60_helisim_visualsSecond", time];
 
 private _fat = _heli getVariable ["bmkhs_fat", 15];
 _heli animate ["Gauge_temp_left",  0.5 + (_fat / 100), 2];

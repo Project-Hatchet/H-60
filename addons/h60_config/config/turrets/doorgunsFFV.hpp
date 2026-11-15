@@ -5,13 +5,13 @@ class LeftWindow: CargoTurret { //Left Doorgun
   // #510 + turn-out sound objective: filtered while in, raw slipstream leaning
   // out. =0 gives the native in/out switching (door-gunner-proven 2026-09-07);
   // =2 kills attenuation in BOTH states - it is not a turn-out-only switch.
-  soundAttenuationTurret = "VTX_H60_CabinAttenuation";
+  soundAttenuationTurret = "HCT_H60_CabinAttenuation";
   disableSoundAttenuation = 0;
   gunnerCompartments = "Compartment2";
   gunnerAction="vehicle_turnout_2";
   gunnerInAction="passenger_inside_1";
   gunnerName="Left Window";
-  gunnerType = "vtx_uh60_doorgunner";
+  gunnerType = "hct_h60_doorgunner";
   hideWeaponsGunner = 0;
   isPersonTurret = 1;
   LODTurnedIn = 1200;

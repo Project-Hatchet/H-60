@@ -9,7 +9,7 @@
 // door-state lock from fnc_interactedCabinDoor (#612) applies to them like
 // on every variant, since they match the "Door " name prefix.
 class CargoTurret_02: CargoTurret {
-    soundAttenuationTurret = "VTX_H60_CabinAttenuation"; // #510: door-sill pax are inside the airframe, same as the base M door seats (#617)
+    soundAttenuationTurret = "HCT_H60_CabinAttenuation"; // #510: door-sill pax are inside the airframe, same as the base M door seats (#617)
     gunnerAction = "passenger_bench_1";
     gunnerInAction = "passenger_bench_1";
     memoryPointsGetInGunner = "pos Cargo R5";

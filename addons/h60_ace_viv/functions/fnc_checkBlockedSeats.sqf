@@ -11,7 +11,7 @@
  * Unit can configure the aircraft's pylons <BOOL>
  *
  * Example:
- * [_heli] call vtx_ace_viv_fnc_checkBlockedSeats
+ * [_heli] call hct_h60_ace_viv_fnc_checkBlockedSeats
  *
  * Public: No
  */

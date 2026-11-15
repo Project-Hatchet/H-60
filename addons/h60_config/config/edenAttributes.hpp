@@ -9,16 +9,16 @@ class Attributes: Attributes {
     tooltip = "Equips the selected helicopter with a Fast Rope Insertion Extraction System";
     typeName = "BOOL";
   };
-  class vtx_uh60_DoorNumbers {
+  class hct_h60_DoorNumbers {
     displayName = "Door Numbers";
     tooltip = "2-digit number marked with white tape in the aft windows of the doors. Enter SPACE for blank.";
     property = "vtx_attribute_doorNumbers";
     control = "EditShort";
-    expression = "[_this, _value] call vtx_uh60_misc_fnc_setDoorNumbers;";
+    expression = "[_this, _value] call hct_h60_misc_fnc_setDoorNumbers;";
     defaultValue = "None";
     condition = "objectVehicle";
   };
-  class vtx_uh60_Markings {
+  class hct_h60_Markings {
     control = "combo";
     property = "vtx_attribute_markings";
     displayName = "Engine Cover Markings";
@@ -77,18 +77,18 @@ class Attributes: Attributes {
       //   value = "\z\vtx\addons\uh60_misc\data\theme\hatchet.paa";
       // };
     }; // Values
-  }; // vtx_uh60_Markings
-  class vtx_uh60_FoldRotorBlades {
+  }; // hct_h60_Markings
+  class hct_h60_FoldRotorBlades {
     condition = "objectVehicle";
     control = "Checkbox";
     defaultValue = "(false)";
     displayName = "Fold Rotor Blades";
-    expression = "[_this, parseNumber _value, true] call vtx_uh60_misc_fnc_fold;";
+    expression = "[_this, parseNumber _value, true] call hct_h60_misc_fnc_fold;";
     property = "vtx_uh60_FoldRotorBlades";
     tooltip = "Fold the rotor blades to reduce footprint.";
     typeName = "BOOL";
   };
-  class vtx_uh60_RemoveFuelProbe {
+  class hct_h60_RemoveFuelProbe {
     condition = "objectVehicle";
     control = "Checkbox";
     defaultValue = "(false)";

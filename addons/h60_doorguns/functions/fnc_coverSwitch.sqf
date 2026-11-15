@@ -1,5 +1,5 @@
 /*
- * vtx_uh60_doorguns_fnc_coverSwitch
+ * hct_h60_doorguns_fnc_coverSwitch
  *
  * Door-gun safety cover: lifting it uncovers the master switch; closing it also switches the gun to SAFE.
  *
@@ -12,5 +12,5 @@ if (_up) then {
 } else {
     _vehicle animateSource ["Switch_minigun_safe_cover_" + _side, 0, true];
     _vehicle animateSource ["Switch_minigun_safe_" + _side, 0, true];
-    [_vehicle, _side, true] call vtx_uh60_doorguns_fnc_switchSafety;
+    [_vehicle, _side, true] call hct_h60_doorguns_fnc_switchSafety;
 };
