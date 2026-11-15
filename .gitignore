@@ -16,3 +16,7 @@ Thumbs.db
 *.wav
 *.pkf
 apidocs/
+
+# Python bytecode caches from running the tools
+__pycache__/
+*.pyc

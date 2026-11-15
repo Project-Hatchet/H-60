@@ -148,6 +148,20 @@ def main():
         sha = git("rev-parse", "--short", "HEAD")
         hemtt = hemtt_exe()
         started = time.time()
+        # git does not track directories: a checkout across the #668 renames leaves
+        # old addon folders behind as empty shells, which HEMTT rejects as addons
+        for d in sorted(p for p in (REPO / "addons").iterdir() if p.is_dir()):
+            if any(f.is_file() for f in d.rglob("*")):
+                continue
+            for attempt in range(20):  # Windows may hold the folder for a moment after the checkout
+                try:
+                    shutil.rmtree(d)
+                    break
+                except PermissionError:
+                    if attempt == 19:
+                        die(f"cannot remove the empty leftover addon folder {d} - close anything holding it and retry")
+                    time.sleep(0.5)
+            print(f"  removed empty leftover addon folder {d.name}")
         print(f"  hemtt release for {label} ({hemtt})...")
         shutil.rmtree(REPO / ".hemttout", ignore_errors=True)
         shutil.rmtree(ZIPS, ignore_errors=True)
