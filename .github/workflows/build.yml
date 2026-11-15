@@ -46,7 +46,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           PR: ${{ github.event.pull_request.number }}
-          ALLOW: ${{ contains(github.event.pull_request.labels.*.name, 'Release Notes: Ignore') && '--allow' || '' }}
+          # quoted: the label's ": " otherwise starts a YAML mapping and the whole workflow fails to load
+          ALLOW: "${{ contains(github.event.pull_request.labels.*.name, 'Release Notes: Ignore') && '--allow' || '' }}"
         run: gh pr diff "$PR" --repo "$GITHUB_REPOSITORY" --name-only | python tools/changelog.py check --changed-files - $ALLOW
   # The build. Needs no Arma 3 Tools and no secrets, so it also runs for PRs
   # from forks. Models are pre-binarized (ODOL) and HEMTT rapifies configs
