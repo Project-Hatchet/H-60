@@ -1,7 +1,7 @@
 #define MFD_BTN(BTN_VAL,LABEL) \
     class BTN_VAL { \
         positionType="static"; \
-        position= BTN_VAL; \
+        position = QUOTE(BTN_VAL); \
         label=LABEL; \
         radius=0.025; \
         clickSound="hct_Switch_Sound_2";

@@ -30,7 +30,7 @@ class plane_background {
 };
 
 class north_background {
-	condition = USERNNN(USERMFDV_TAC_ALIGN);
+	condition = QUOTE(USERNNN(USERMFDV_TAC_ALIGN));
 	color[] =  common_black;
 	class white {
 		color[] =  common_white;

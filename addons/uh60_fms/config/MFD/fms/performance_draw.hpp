@@ -11,16 +11,18 @@ TEXT_FMS_L(FUEL_QTY_LABEL,FMS_MARGIN_L,FMS_Y1)
 class noAuxTanks {
 	condition = USER_LT(USERMFDV_FUELTANK,1);
 	TEXT_FMS_L(FUEL_QTY,FMS_MARGIN_L,FMS_Y12)
-		source="fuel";
-		sourceScale = 2412;
+		source="user";
+		sourceIndex = USERMFDV_FUELTOTAL;
+		sourceScale = 1;
 		sourceLength = 4;
 	};
 }; //FUEL_QTY
 class hasInternalAux {
 	condition = USER_GT(USERMFDV_FUELTANK,0);
 	TEXT_FMS_L(FUEL_QTY,FMS_MARGIN_L,FMS_Y12)
-		source="fuel";
-		sourceScale = 3506;
+		source="user";
+		sourceIndex = USERMFDV_FUELTOTAL;
+		sourceScale = 1;
 		sourceLength = 4;
 	};
 }; //FUEL_QTY

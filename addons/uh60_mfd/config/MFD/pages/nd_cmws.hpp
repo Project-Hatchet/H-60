@@ -14,7 +14,7 @@ class material {
 class Bones {
         class TAC_CMWS_Offset
         {
-            type	= fixed;
+            type	= "fixed";
             pos[]	= {0.285, 0.757};
         };
 };

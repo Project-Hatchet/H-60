@@ -57,7 +57,7 @@ def getPboInfo(settings):
         with open(os.path.join(pboInfo.folder,"$PBOPREFIX$"), "r") as file:
             pboInfo.pboPrefix = file.readline().strip()
         try:
-            pboInfo.a3symlink = os.path.join("P:",pboInfo.pboPrefix)
+            pboInfo.a3symlink = os.path.join(arma3Path(),pboInfo.pboPrefix)
         except:
             pboInfo.a3symlink = None
 
@@ -79,6 +79,7 @@ def removeSymlink(pathTo):
     return commands
 
 def buildSymlink(pathFrom, pathTo):
+#    print (pathFrom)
     if pathTo is None:
         return []
     commands = removeSymlink(pathTo)
@@ -128,11 +129,12 @@ def buildPbo(settings,env, pbo):
     def stampAction(target, source, env, path=os.path.abspath(pbo.filepath)):
         stampPboVersion(path, modVersion())
         return 0
-    env.Command(pbo.outputPath, allFilesIn(pbo.folder)+["build"],[
+    env.Command(pbo.outputPath, allFilesIn(pbo.folder)+includeCopies, [
         f'"{addonBuilderPath()}" "{os.path.abspath(pbo.buildSymlink)}" "{os.path.abspath(settings["outputFolder"])}" "-project=build" "-prefix={pbo.pboPrefix}" -include=tools\\buildExtIncludes.txt {optBinarize}',
         Move(os.path.abspath(settings["outputFolder"]) + "/" + pbo.filename, os.path.abspath(pbo.builtpath)),
         Action(stampAction, f"stampPboVersion({pbo.filename})")
         ])
+    env.Depends(pbo.outputPath, buildLinks)
     targetDefinition(pbo.name, f"Build the {pbo.name} pbo.")
     return env.Alias(pbo.name, pbo.outputPath)
 
@@ -143,15 +145,20 @@ def downloadNaturaldocs(target, source, env):
     with zipfile.ZipFile(zipFilePath, 'r') as zip_ref:
         zip_ref.extractall(r"buildTools")
 
-print(addonBuilderPath())
+#print(addonBuilderPath())
 settings = getSettings()
 pbos = getPboInfo(settings)
+
+includeCopies = [env.Command(os.path.join("build", os.path.relpath(f, "include")), f, Copy("$TARGET", "$SOURCE")) for f in allFilesIn("include")]
+
+# Every addon's config resolves z\vtx\addons\<other>\... through the build junctions, so all of them
+# must exist before the first PBO builds - on a fresh checkout none do. Created once, only the missing ones.
+buildLinks = env.Alias("links", [], sum((buildSymlink(p.folder, p.buildSymlink) for p in pbos if not os.path.isdir(p.buildSymlink)), []))
+env.AlwaysBuild(buildLinks)
 
 pboAliases = [buildPbo(settings,env, pbo) for pbo in pbos]
 
 env.Command("buildTools", [], Mkdir("buildTools"))
-
-buildDir = env.Command("build", allFilesIn("include"), [Copy("build", "include")] + sum(map(lambda pbo: buildSymlink(pbo.folder, pbo.buildSymlink),pbos),[]))
 
 env.Command(r"buildTools\Natural Docs", [], [downloadNaturaldocs, Delete(r"buildTools\NaturalDocs.zip")])
 

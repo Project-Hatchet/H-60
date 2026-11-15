@@ -32,6 +32,12 @@ private _staticMap = getUserMFDValue _vehicle select USERMFDV_TAC_MOVE > 0;
 private _center = [_vehicle] call vtx_uh60_mfd_fnc_tac_getMapCenter;
 private _rotation = if (_selfAligned) then {getDir _vehicle} else {0};
 
+//The active waypoint, for HeliSim's flight director NAV mode
+private _fdWpt = [[], _position] select (_position isNotEqualTo [0,0,0]);
+if ((_vehicle getVariable ["bmkhs_fdWaypoint", []]) isNotEqualTo _fdWpt) then {
+    _vehicle setVariable ["bmkhs_fdWaypoint", _fdWpt, true];
+};
+
 private _waypointDirection = (_center getDir _position) - _rotation;
 _vehicle setUserMFDvalue [0, (_vehicle getDir _position)];
 _vehicle setUserMFDvalue [1, _center distance2D _position];
@@ -101,8 +107,9 @@ if (vtx_uh60_fms_renderWaypointsOnTAC) then {
 };
 
 private _tofStr = "";
-if (speed _vehicle > 2) then {
-  private _speedMS = vectorMagnitude (velocity _vehicle);
+//HeliSim ground speed, m/s (USERMFDV_GS)
+private _speedMS = (getUserMFDValue _vehicle) # 103;
+if (_speedMS > 0.56) then {
   private _tofSecondsTotal = (_position distance _vehicle) / _speedMS;
   _tofStr = [_tofSecondsTotal] call CBA_fnc_formatElapsedTime;
 } else {

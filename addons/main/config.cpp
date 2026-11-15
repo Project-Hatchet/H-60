@@ -1,4 +1,4 @@
-#include "basicdefines_A3.hpp"
+#include "basicDefines_A3.hpp"
 #include "script_component.hpp"
 
 class CfgPatches {

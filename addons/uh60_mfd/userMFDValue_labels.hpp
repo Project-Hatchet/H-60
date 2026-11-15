@@ -94,5 +94,16 @@ vtx_uh60_mfd_userMFDValue_labels = ["TAC_WPCUS_Dir","TAC_WPCUS_DIST", // 0, 1 if
 "LST",
 "LRFD",
 "ADVISORIES",
-"LST_MODE"
+"LST_MODE",
+"FUELERFS",
+"FUELTOTAL",
+"BARALT",
+"RADALT",
+"IAS",
+"GS",
+"WINDDIR",
+"ONGROUND",
+"BALL",
+"TQLIMIT",
+"POWERON"
 ];

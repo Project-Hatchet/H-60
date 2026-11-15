@@ -31,26 +31,6 @@ moveOut _unit;
 	params ["_unit", "_heli"];
     _unit assignAsCargo _heli;
     _unit moveInCargo _heli;
-    /*
-    // find cargo positions close to hook
-    private _fullCrew = fullCrew [_heli, "", true];
-    private _typeArray = ["vtx_UH60M"];
-    private _typeIndex = _typeArray find typeOf _heli;
-
-    // preferred cargo seats near the hook
-    private _seatArray = [[3,4]];
-    private _openSeats = _seatArray select {(_fullCrew select _x select 0) isEqualTo objNull};
-    if !(_openSeats isEqualTo []) exitWith {_unit moveInCargo [_heli, _openSeats # 0]; true};
-
-    // try to find any open cargo seat
-    _openSeats = _fullCrew select {(_x select 0) isEqualTo objNull}
-        _unit moveInCargo _heli;
-    } else {
-        _unit moveInCargo [_heli, ;
-    };
-    if (_typeIndex == -1) exitWith {_unit moveInCargo _heli;};
-    if (_typeIndex == -1) exitWith {_unit moveInAny _heli;};
-    */
 }, [_unit, _heli]] call CBA_fnc_waitUntilAndExecute;
 
 true

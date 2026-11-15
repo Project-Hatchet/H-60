@@ -150,7 +150,8 @@ class VTX_ESIS_Misc
                 class Speed_scale{
                     type = "scale";
                     scale = 2;
-                    source = "speed";
+                    source="user";
+                    sourceIndex=102;
                     sourceScale=1.94384;
                     sourcelength=1;
                     align = "left";
@@ -351,7 +352,8 @@ class VTX_ESIS_Misc
 
                 class Value_Speed{
                     type="text";
-                    source="speed";
+                    source="user";
+                    sourceIndex=102;
                     scale=1;
                     sourceScale=1.94384;
                     align = "left";
@@ -361,7 +363,8 @@ class VTX_ESIS_Misc
                 };
                 class Value_Alt{
                     type="text";
-                    source="altitudeASL";
+                    source="user";
+                    sourceIndex=100;
                     scale=1;
                     sourceScale=3.28084;
                     align = "left";

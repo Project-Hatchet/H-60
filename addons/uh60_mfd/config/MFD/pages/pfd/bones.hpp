@@ -32,11 +32,13 @@ class RotationWind : HeadingRotationWind {
 	center[] = {0,0};
 	minAngle = 360;
 	maxAngle = 0;
-	source="windage";
+	source="user";
+	sourceIndex=104;
 	aspectRatio = 1;
 };
 class speedRotation : HeadingRotation {
-	source="speed";
+	source="user";
+	sourceIndex=102;
 	center[] = {0.1735,0.2865};
 	min = "0";
 	max = "102.889";
@@ -52,7 +54,8 @@ class FD_speedRotation : speedRotation {
 };
 class BALTRotation : HeadingRotation {
 	center[] = {0.8155,0.278};
-	source="altitudeASL";
+	source="user";
+	sourceIndex=100;
 	sourceScale = 3.2808399;
 	min = "0";
 	max = "30000";
@@ -71,7 +74,8 @@ class FD_ALTRotation : BALTRotation {
 };
 class RALTRotation1 : HeadingRotation {
 	center[] = {0.8710,0.6255};
-	source="altitudeAGL";
+	source="user";
+	sourceIndex=101;
 	sourceScale = 3.2808399;
 	min = "0";
 	max = "100";
@@ -79,14 +83,16 @@ class RALTRotation1 : HeadingRotation {
 	maxAngle = 0;
 };
 class RALTRotation2 : RALTRotation1 {
-	source="altitudeAGL";
+	source="user";
+	sourceIndex=101;
 	min = "100";
 	max = "400";
 	minAngle = 0;
 	maxAngle = 90;
 };
 class RALTRotation3 : RALTRotation2 {
-	source="altitudeAGL";
+	source="user";
+	sourceIndex=101;
 	min = "400";
 	max = "1000";
 	minAngle = 90;
@@ -233,7 +239,6 @@ class PFD_Q2 {
 class PFD_TRQ { 
 	type="linear";
 	source="user";
-	//source="rtdRotorTorque";
 	sourceIndex=22;
 	sourceScale=1;
 	min=0;
@@ -245,7 +250,6 @@ class PFD_TRQ {
 class PFD_COLL {
 	type="linear";
 	source="user";
-	//source="rtdCollective";
 	sourceIndex=48;
 	sourceScale=1;
 	min=0;
@@ -265,6 +269,12 @@ class PFD_RPM {
 	max=120;
 	minPos[]={0,BARTOP};
 	maxPos[]={0,BARBOTTOM};
+};
+class PFD_NP1: PFD_RPM {
+	sourceIndex=20;
+};
+class PFD_NP2: PFD_RPM {
+	sourceIndex=46;
 };
 
 class PFD_HSI_CENTER {

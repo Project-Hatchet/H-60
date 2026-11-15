@@ -11,5 +11,6 @@
         , "uh60_misc"
         , "uh60_weapons"
         ],
-    "outputFolder": "release/@H-60/addons"
+    "outputFolder": "release/@H-60/addons",
+    "devNextVersion": "0.8.0.2"
 }

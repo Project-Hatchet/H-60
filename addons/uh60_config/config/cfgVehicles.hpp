@@ -58,7 +58,6 @@ class CfgVehicles {
     class Eventhandlers;
     class Viewoptics;
     class ViewPilot;
-    class RotorLibHelicopterProperties;
     class CargoTurret;
     class Components;
     class Sounds;

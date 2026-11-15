@@ -47,6 +47,9 @@ class vtx_UH60M_MEDEVAC: vtx_H60_base {
               class NVGHUD: NVGHUD_COPILOT {};
         };
       };
+      //Door guns not fitted - no ammunition aboard
+      class MainTurret: MainTurret { magazines[] = {}; };
+      class RightDoorGun: RightDoorGun { magazines[] = {}; };
       #include "..\turrets\doorgunsFFV.hpp"
       #include "..\turrets\cargoTurrets.hpp"
     };

@@ -26,7 +26,7 @@ class CfgVehicles {
     class TransportItems {
       class _xx_vtx_stretcher_item {
         count = 1;
-        name = GVAR(item);
+        name = QGVAR(item);
       };
     };
   };
@@ -93,7 +93,6 @@ class CfgVehicles {
   	memoryPointsGetInCargoDir = "pos_cargo_dir";
     slingLoadCargoMemoryPoints[] = {"SlingLoadCargo1","SlingLoadCargo2","SlingLoadCargo3","SlingLoadCargo4"};
     transportSoldier = 1;
-    typicalCargo[] = {};
     textureList[] = {};
     class AnimationSources {};
     class Components {};

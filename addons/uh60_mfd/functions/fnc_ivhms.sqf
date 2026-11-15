@@ -4,8 +4,6 @@
 params ["_vehicle"];
 vtx_uh60_mfd_allowText = false;
 {_vehicle setUserMFDValue [_x, 6]} forEach [23, 24, 25, 26];
-_vehicle animate ["GeneratorsOnOff",1];
-_vehicle animate ["PowerOnOff",1];
 [_vehicle, ["startup", "b_batt1"], "ON"] call hct_interaction_fnc_scriptedInteract;
 
 
@@ -36,9 +34,6 @@ _vehicle setUserMFDText [5,_modulesText select [0,62]];
 _vehicle setUserMFDText [6,_modulesText select [62,62]];
 // 7 MODULES3
 _vehicle setUserMFDText [7,_modulesText select [124,62]];
-
-// 8 ADVANCED FLIGHT MODEL
-_vehicle setUserMFDText [8, if (difficultyEnabledRTD) then [{"FM ADVANCED"}, {"FM STANDARD"}]];
 
 // 9 hct_DRIVER
 _vehicle setUserMFDText [9, configName _config];

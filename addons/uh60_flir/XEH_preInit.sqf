@@ -3,8 +3,7 @@
 ADDON = false;
 
 #include "XEH_PREP.hpp"
-#include "initSettings.sqf"
-
+#include "initSettings.inc.sqf"
 call vtx_uh60_flir_fnc_initVars;
 
 vtx_uh60_flir_aspectRatio = getResolution # 4;

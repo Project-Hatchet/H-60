@@ -1,7 +1,8 @@
 class AGLScaleBar
 {
 	type="linear";
-	source="altitudeAGL";
+	source="user";
+	sourceIndex=101;
 	min=0;
 	max=200;
 	sourceScale=3.2808399;

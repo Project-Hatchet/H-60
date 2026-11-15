@@ -44,7 +44,7 @@ class cfgMagazines {
     weight = 164.3;
     count = 300;
     hardpoints[] =    {"VTX_ST_L"};
-    model = \z\vtx\addons\uh60_weapons\Data\M230\M230_L.p3d;
+    model = "\z\vtx\addons\uh60_weapons\Data\M230\M230_L.p3d";
     class mfdElements {
       class VTX_H60 {
         #include "gunMFD.hpp"
@@ -53,7 +53,7 @@ class cfgMagazines {
   };
   class VTX_M230_Chaingun_R: VTX_M230_Chaingun_L {
     hardpoints[] =    {"VTX_ST_R"};
-    model = \z\vtx\addons\uh60_weapons\Data\M230\M230_R.p3d;
+    model = "\z\vtx\addons\uh60_weapons\Data\M230\M230_R.p3d";
   };
 
   class PylonRack_12Rnd_missiles;

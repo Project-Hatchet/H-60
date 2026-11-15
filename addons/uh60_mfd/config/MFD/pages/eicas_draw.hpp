@@ -98,37 +98,23 @@ class barsWrapper {
     //BAR(T1BAR,   "T1",0.042,BARBOTTOM,BAR_WIDTH)
     //BAR(RPM1BAR, "EICAS_RPM1",0.11,BARBOTTOM,BAR_WIDTH)
 
-    BAR(NG1BAR,  "NG1",0.191,BARBOTTOM,BAR_WIDTH)
-    BAR(TGT1BAR, "TGT1",0.2775,BARBOTTOM,BAR_WIDTH)
-
-    BAR(RPM1BAR, "EICAS_RPM1",0.422,BARBOTTOM,BAR_WIDTH)
-    BAR(RPMBAR,  "EICAS_RPM",0.502,BARBOTTOM,BAR_WIDTH)
-    BAR(RPM2BAR, "EICAS_RPM2",0.581,BARBOTTOM,BAR_WIDTH)
-
-	BAR(TGT2BAR, "TGT2",0.725,BARBOTTOM,BAR_WIDTH)
-	BAR(NG2BAR,  "NG2",0.813,BARBOTTOM,BAR_WIDTH)
-
     //BAR(RPM2BAR, "EICAS_RPM2",0.893,BARBOTTOM,BAR_WIDTH)
 	//BAR(T2BAR,   "T2",0.962,BARBOTTOM,BAR_WIDTH)
 
-	BAR(FUEL1,   "EICAS_Fuel",0.459,FUEL_BARS_Y2,BAR_WIDTH)
-	BAR(FUEL2,   "EICAS_Fuel",0.545,FUEL_BARS_Y2,BAR_WIDTH)
+	BAR(FUEL1,   "EICAS_Fuel1",0.459,FUEL_BARS_Y2,BAR_WIDTH)
+	BAR(FUEL2,   "EICAS_Fuel2",0.545,FUEL_BARS_Y2,BAR_WIDTH)
 }; // barsWrapper
 
-class singleEngineTorque {
-	condition = "((user22 > 5) + (user48 > 5)) < 1.5";
-	BAR_WARN(Q1BAR,   "Q1",0.353,BARBOTTOM,BAR_WIDTH,22,135)
-	BAR_WARN(Q2BAR,   "Q2",0.651,BARBOTTOM,BAR_WIDTH,48,135)
-};
-class twinEngineSlowTorque {
-	condition = "(((user22 > 5) + (user48 > 5)) > 1.5) * (speed < 41)";
-	BAR_WARN(Q1BAR,   "Q1",0.353,BARBOTTOM,BAR_WIDTH,22,120)
-	BAR_WARN(Q2BAR,   "Q2",0.651,BARBOTTOM,BAR_WIDTH,48,120)
-};
-class twinEngineFastTorque {
-	condition = "(((user22 > 5) + (user48 > 5)) > 1.5) * (speed > 41)";
-	BAR_WARN(Q1BAR,   "Q1",0.353,BARBOTTOM,BAR_WIDTH,22,100)
-	BAR_WARN(Q2BAR,   "Q2",0.651,BARBOTTOM,BAR_WIDTH,48,100)
+class limitBars {
+	BAR_LIMITS(NG1BAR,  "NG1",       0.191, BARBOTTOM,BAR_WIDTH,LIM_NG_G(19), LIM_NG_Y(19), LIM_NG_R(19))
+	BAR_LIMITS(TGT1BAR, "TGT1",      0.2775,BARBOTTOM,BAR_WIDTH,LIM_TGT_G(21),LIM_TGT_Y(21),LIM_TGT_R(21))
+	BAR_LIMITS(Q1BAR,   "Q1",        0.353, BARBOTTOM,BAR_WIDTH,LIM_TQ_G(22), LIM_TQ_Y(22), LIM_TQ_R(22))
+	BAR_LIMITS(RPM1BAR, "EICAS_RPM1",0.422, BARBOTTOM,BAR_WIDTH,LIM_NP_G(20), LIM_NP_Y(20), LIM_NP_R(20))
+	BAR_LIMITS(RPMBAR,  "EICAS_RPM", 0.502, BARBOTTOM,BAR_WIDTH,LIM_NR_G,     LIM_NR_Y,     LIM_NR_R)
+	BAR_LIMITS(RPM2BAR, "EICAS_RPM2",0.581, BARBOTTOM,BAR_WIDTH,LIM_NP_G(46), LIM_NP_Y(46), LIM_NP_R(46))
+	BAR_LIMITS(Q2BAR,   "Q2",        0.651, BARBOTTOM,BAR_WIDTH,LIM_TQ_G(48), LIM_TQ_Y(48), LIM_TQ_R(48))
+	BAR_LIMITS(TGT2BAR, "TGT2",      0.725, BARBOTTOM,BAR_WIDTH,LIM_TGT_G(47),LIM_TGT_Y(47),LIM_TGT_R(47))
+	BAR_LIMITS(NG2BAR,  "NG2",       0.813, BARBOTTOM,BAR_WIDTH,LIM_NG_G(45), LIM_NG_Y(45), LIM_NG_R(45))
 };
 
 #define TOP_TEXT_Y 0.03
@@ -178,16 +164,18 @@ class eng2_out {
 class noAuxTanks {
   condition = USER_LT(USERMFDV_FUELTANK,1);
 	TEXT_MID_MID_SRC(FUEL_VAL,0.5,0.85)
-		source="fuel";
-		sourceScale = 2412;
+		source="user";
+		sourceIndex = USERMFDV_FUELTOTAL;
+		sourceScale = 1;
 		sourceLength = 4;
 	};
 };
 class hasInternalAux {
   condition = USER_GT(USERMFDV_FUELTANK,0);
 	TEXT_MID_MID_SRC(FUEL_VAL,0.5,0.85)
-		source="fuel";
-		sourceScale = 3506;
+		source="user";
+		sourceIndex = USERMFDV_FUELTOTAL;
+		sourceScale = 1;
 		sourceLength = 4;
 	};
 	class aux_fuel_boxes {
@@ -202,11 +190,11 @@ class hasInternalAux {
 		};
 	}; // aux_fuel_boxes
 	TEXT_MID_SCALED(FUEL_INT_L_INDICATOR,0.37,0.81,"INT",0.05)
-	TEXT_MID_SMALL_SRC(FUEL_VALUE_AUX_INT,0.37,0.85) source="fuel";    sourceScale = 1094;};
+	TEXT_MID_SMALL_SRC(FUEL_VALUE_AUX_INT,0.37,0.85) source="user"; sourceIndex = USERMFDV_FUELERFS; sourceScale = 1;};
 };
 
-TEXT_MID_SMALL_SRC(FUEL_VALUE_L,0.459,0.78) source="fuel";    sourceScale = 1206;};
-TEXT_MID_SMALL_SRC(FUEL_VALUE_R,0.545,0.78) source="fuel";    sourceScale = 1206;};
+TEXT_MID_SMALL_SRC(FUEL_VALUE_L,0.459,0.78) source="user"; sourceIndex = USERMFDV_FUEL1; sourceScale = 1;};
+TEXT_MID_SMALL_SRC(FUEL_VALUE_R,0.545,0.78) source="user"; sourceIndex = USERMFDV_FUEL2; sourceScale = 1;};
 //checklist?
 TEXT_RIGHT_SMALL_SRC(CAS1,0.043,0.745 - 0.05-0.006) source="userText"; sourceIndex = 0; sourceScale = 1;};
 TEXT_RIGHT_SMALL_SRC(CAS2,0.043,0.775 - 0.05-0.005) source="userText"; sourceIndex = 1; sourceScale = 1;};

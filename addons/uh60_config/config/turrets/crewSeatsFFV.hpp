@@ -13,8 +13,8 @@ class LeftCrewSeat: CargoTurret {
   canHideGunner = 1;
   forceHideGunner = 0;
   gunnerCompartments = "Compartment2";
-  gunnerAction=vehicle_turnout_2;
-  gunnerInAction=passenger_inside_1;
+  gunnerAction="vehicle_turnout_2";
+  gunnerInAction="passenger_inside_1";
   gunnerName="Left Crew Chief";
   gunnerType = "C_man_pilot_F";
   hideWeaponsGunner = 0;

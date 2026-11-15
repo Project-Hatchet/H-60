@@ -2,7 +2,7 @@
 #define action_tablet_open(CLASS, NAME) \
   class CLASS { \
     displayName = NAME; \
-    condition = [_player,STRINGIFY(CLASS)] call ace_common_fnc_hasItem; \
+    condition = QUOTE([ARR_2(_player,QUOTE(QUOTE(CLASS)))] call ace_common_fnc_hasItem); \
     statement = STRINGIFY(createDialog ""vtx_uh60_jvmf_inboxDialog"";); \
     priority = 2.6; \
     showDisabled = 1; \

@@ -8,8 +8,8 @@ class LeftWindow: CargoTurret { //Left Doorgun
   soundAttenuationTurret = "VTX_H60_CabinAttenuation";
   disableSoundAttenuation = 0;
   gunnerCompartments = "Compartment2";
-  gunnerAction=vehicle_turnout_2;
-  gunnerInAction=passenger_inside_1;
+  gunnerAction="vehicle_turnout_2";
+  gunnerInAction="passenger_inside_1";
   gunnerName="Left Window";
   gunnerType = "vtx_uh60_doorgunner";
   hideWeaponsGunner = 0;

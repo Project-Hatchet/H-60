@@ -3,7 +3,6 @@
 ADDON = false;
 
 #include "XEH_PREP.hpp"
-//#include "initSettings.sqf"
 
 // private _mh60 = "vtx_MH60S" createVehicle [0,0,0];
 // deleteVehicle _mh60;

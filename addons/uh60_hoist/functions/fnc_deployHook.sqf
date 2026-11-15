@@ -29,7 +29,7 @@ _hookSP = _hook selectionPosition "sling_point";
 _hook attachTo [_dummy, _hookSP vectorMultiply -1];
 _hook allowDamage false;
 detach _dummy;
-_dummy setVelocity velocity _heli;
+_dummy setVelocity (_heli getVariable "bmkhs_velWorldSpaceNoWind");
 _rope = ropeCreate [_heli, _hoistPos, _dummy, [0,0,0], 0.5];
 
 _heli setVariable ["vtx_uh60_hoist_vars", [_rope, _dummy, _hook], true];

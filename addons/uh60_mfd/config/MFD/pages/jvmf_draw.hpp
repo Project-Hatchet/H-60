@@ -38,10 +38,6 @@ class cantco_wrap {
     color[] = common_red;
     TEXT_MID_SCALED(JVMF_REPLY_CANTCO,0.86,JVMF_LINE_HEIGHT * 0.3,"CANTCO",0.04)
 };
-// class reply_options_blue {
-//     color[] = common_blue;
-//     TEXT_MID_SCALED(JVMF_REPLY_OPTIONS,0.5,JVMF_LINE_HEIGHT * 0.5,"",0.04)
-// };
 
 #define JVMF_BORDER_MARGIN 0.02
 #define JVMF_BOTTOM_MARGIN 0.14
@@ -70,30 +66,13 @@ class jvmf_type_1 {
 	#include "jvmf\jvmf_1.hpp"
 };
 
-class jvmf_type_2 {
-	// condition=COND_ISNUMBER(JVMF_TYPE,2);
-	condition="0";
-	#include "jvmf\jvmf_position.hpp"
-};
-
 class jvmf_position {
 	condition=COND_ISNUMBER(JVMF_TYPE,2);
 	#include "jvmf\jvmf_position.hpp"
 };
 
-// class jvmf_text {
-// 	// condition=COND_ISNUMBER(JVMF_TYPE,0);
-// 	condition="0";
-// 	#include "jvmf\jvmf_shared.hpp"
-// };
 
 #define BOTTOM_TEXT_Y 0.96
-// TEXT_LEFT_SMALL(B1,0.095,BOTTOM_TEXT_Y,"PFD")
-// TEXT_LEFT_SMALL(B2,0.2,BOTTOM_TEXT_Y,"ND")
-// TEXT_LEFT_SMALL(B3,0.325,BOTTOM_TEXT_Y,"EICAS")
 
-// TEXT_LEFT_SMALL(B5,0.65,BOTTOM_TEXT_Y,"DCP")
 TEXT_LEFT_SMALL(B6,0.75,BOTTOM_TEXT_Y,"IVHMS")
-// TEXT_LEFT_SMALL(B7,0.86,BOTTOM_TEXT_Y,"TAC")
-// TEXT_LEFT_SMALL(B8,0.98,BOTTOM_TEXT_Y,"JVMF")
 

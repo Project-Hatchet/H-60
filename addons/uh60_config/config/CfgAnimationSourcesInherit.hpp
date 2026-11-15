@@ -39,7 +39,6 @@ class AnimationSources: AnimationSources {
   class MLASS_show;
   class ESSS_show;
   class GunnerSeats_Hide;
-  class CabinSeats_Hide;
   class CabinSeats_1_Hide;
   class CabinSeats_2_Hide;
   class CabinSeats_3_Hide;

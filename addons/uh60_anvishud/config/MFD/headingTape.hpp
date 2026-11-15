@@ -56,19 +56,6 @@ class HEADINGTAPE_DCLT {
             {"AltitudeEdge", {-0.015, 0.015}, 1}
         }; // points
     }; // altitude_caret
-    class altitude_AP_caret {
-        color[] = common_purple;
-        condition="simulRTD";
-        class altitude_caret {
-            type="line";
-            width = 3;
-            points[] ={
-                {"RALT_AP", {-0.015, -0.015}, 1},
-                {"RALT_AP", {0.02, 0}, 1},
-                {"RALT_AP", {-0.015, 0.015}, 1}
-            }; // points
-        }; // altitude_caret
-    };
     #define ALT_INTERVAL 0.03
     LINE(ALT_CARET_0,5,0.97,0.5+(ALT_INTERVAL*0),1,0.5+(ALT_INTERVAL*0))
     LINE(ALT_CARET_1,5,0.98,0.5+(ALT_INTERVAL*1),1,0.5+(ALT_INTERVAL*1))
@@ -91,8 +78,8 @@ class HEADINGTAPE_DCLT {
         condition = COND_METRIC;
         class altitude_caret_label {
             type="text";
-            source="altitudeAGL";
-            sourceIndex=7;
+            source="user";
+            sourceIndex=101;
             scale=1.5;
             sourceScale=1;
             align = "left";
@@ -106,8 +93,8 @@ class HEADINGTAPE_DCLT {
         condition = COND_IMPERIAL;
         class altitude_caret_label {
             type="text";
-            source="altitudeAGL";
-            sourceIndex=7;
+            source="user";
+            sourceIndex=101;
             scale=1.5;
             sourceScale=3.28084;
             align = "left";

@@ -52,16 +52,6 @@ class TGT1: T1 {max=900;sourceScale=1;};
 class TGT2: T2 {max=900;sourceScale=1;};
 class Q1: T1 {max=120;sourceScale=1;};
 class Q2: T2 {max=120;sourceScale=1;};
-class TRQ: EICAS_RPM1 {
-    source="rtdRotorTorque";
-    max=0.1;
-};
-class COLL: EICAS_RPM1 {
-    min=0;
-    max=1;
-    sourceScale=1;
-    source="rtdCollective";
-};
 
 class RPM: EICAS_RPM1 {
     min=0;
@@ -163,7 +153,6 @@ class T2 {
     maxPos[]    = {0,BARBOTTOM};
 };
 class TRQ: EICAS_RPM1 {
-        //source="rtdRotorTorque";
         source = "user";
         //sourceIndex = 47;
         max=0.1;
@@ -172,7 +161,6 @@ class COLL: EICAS_RPM1 {
         min=0;
         max=1;
         sourceScale=1;
-        //source="rtdCollective";
 };*/
 
 
@@ -194,3 +182,14 @@ class EICAS_Fuel
     minPos[]={0,FUEL_BARS_Y1};
     maxPos[]={0,FUEL_BARS_Y2};
 }; // Fuel
+//Each main tank, lb, full at 547 kg (1206 lb)
+class EICAS_Fuel1: EICAS_Fuel
+{
+    source="user";
+    sourceIndex=USERMFDV_FUEL1;
+    max=1206;
+};
+class EICAS_Fuel2: EICAS_Fuel1
+{
+    sourceIndex=USERMFDV_FUEL2;
+};

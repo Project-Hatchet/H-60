@@ -16,8 +16,8 @@ class MFOSCrewChief_L: CargoTurret {
   disableSoundAttenuation = 0;
   gunnerType = "vtx_uh60_doorgunner";
   gunnerCompartments = "Compartment2";
-  gunnerAction = passenger_inside_1;
-  gunnerInAction = passenger_inside_1;
+  gunnerAction = "passenger_inside_1";
+  gunnerInAction = "passenger_inside_1";
   canHideGunner = 0;
   forceHideGunner = 0;
   hideWeaponsGunner = 0;

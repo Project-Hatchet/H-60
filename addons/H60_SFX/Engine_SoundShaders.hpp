@@ -214,7 +214,7 @@ class vtx_H60_APU_Start_Int_SoundShader: vtx_H60_Startup_Int_SoundShader
 };
 
 // -APU
-class vtx_ApuSoundLoop_Int_SoundShader: vtx_ApuSoundLoop_Ext_SoundShader
+class vtx_ApuSoundLoop_Int_SoundShader: vtx_APUSoundLoop_Ext_SoundShader
 {
 	samples[]=
 	{
