@@ -39,6 +39,16 @@ jobs:
           python-version: "3.12"
       - name: Validate the tree
         run: python tools/validate_tree.py
+      # A PR that changes addons/ must add a changelog fragment (changelog/README.md),
+      # unless it is labeled "Release Notes: Ignore". The changed paths come from the
+      # API (fetch-depth 1 has no merge base; fork PRs read fine with the default token).
+      - name: Changelog fragment
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          ALLOW: ${{ contains(github.event.pull_request.labels.*.name, 'Release Notes: Ignore') && '--allow' || '' }}
+        run: gh pr diff "$PR" --repo "$GITHUB_REPOSITORY" --name-only | python tools/changelog.py check --changed-files - $ALLOW
   build:
     # PRs from forks cannot build: the Arma 3 Tools download secret is
     # withheld from fork-triggered runs, so their build always fails at

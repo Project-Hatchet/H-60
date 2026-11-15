@@ -24,17 +24,18 @@ One source: `addons/main/script_version.hpp` (`MAJOR`, `MINOR`, `PATCHLVL`, `BUI
 The `devbuild` branch is machine-generated: Main plus every open PR labeled **Ready for Testing**, rebuilt by the bot on every label change and on every push to Main. `DEVBUILD.md` at its root lists what it contains. CI builds it; the Workshop push is a person running:
 
 ```
-python tools/push_dev.py --branch devbuild --note-from-prs --dry-run   # build + verify, no upload
-python tools/push_dev.py --branch devbuild --note-from-prs --yes       # upload
+python tools/push_dev.py --branch devbuild --note-from-fragments --dry-run   # build + verify, no upload
+python tools/push_dev.py --branch devbuild --note-from-fragments --yes       # upload
+python tools/push_dev.py --branch devbuild --note-from-prs --yes             # note = the PRs under test instead
 ```
 
-`push_dev.py` refuses a dirty working tree and a local `devbuild` that differs from origin (the bot force-pushes it), builds with `hemtt build`, replaces `release/@H-60` with the output plus a Development-branch `mod.cpp`, verifies one fresh PBO per addon, and uploads through `PublisherCmd` with the Steam client logged in on the machine. The Workshop note lists the PRs under test with links. Post the player-facing changelog to Discord after the push.
+`push_dev.py` refuses a dirty working tree and a local `devbuild` that differs from origin (the bot force-pushes it), builds with `hemtt build`, replaces `release/@H-60` with the output plus a Development-branch `mod.cpp`, verifies one fresh PBO per addon, and uploads through `PublisherCmd` with the Steam client logged in on the machine. The Workshop note lists the changelog fragments pending at the built tip (`--note-from-fragments`: everything merged since the last Stable plus the labeled PRs' own), or the PRs under test with links (`--note-from-prs`). Post the player-facing changelog to Discord after the push.
 
-Branch pushes outside the devbuild flow (`--branch release/x.y.z --note-from-changelog --bump`) still work as before: they stamp the version into the branch and use the top `CHANGELOG-DEV.md` block as the note.
+Branch pushes outside the devbuild flow (`--branch release/x.y.z --note-from-changelog --bump`) still work as before: they fold the branch's changelog fragments into the top `CHANGELOG-DEV.md` block, stamp the version into the branch and use that block as the note.
 
 ## Stable releases
 
-Everything that a Stable needs in git lands in **one release PR** to Main from a `release/<version>` branch: `script_version.hpp` set to `X.Y.Z` with `BUILD 0`, the `**X.Y.Z**` block prepended to `CHANGELOG.md`, the matching `CHANGELOG-DEV.md` block, the README version badge, plan-record and documentation bookkeeping for the cycle, and removal of `devNextVersion` from `tools/build.json` if it names this release. Merge it first; a package built before that carries the old version.
+Everything that a Stable needs in git lands in **one release PR** to Main from a `release/<version>` branch: `script_version.hpp` set to `X.Y.Z` with `BUILD 0`, the `**X.Y.Z**` block prepended to `CHANGELOG.md`, the matching `CHANGELOG-DEV.md` block (`python tools/changelog.py assemble --version X.Y.Z --delete` folds the pending `changelog/` fragments into it and removes them), the README version badge, plan-record and documentation bookkeeping for the cycle, and removal of `devNextVersion` from `tools/build.json` if it names this release. Merge it first; a package built before that carries the old version.
 
 Then:
 
