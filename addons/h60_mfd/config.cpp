@@ -20,4 +20,5 @@ class CfgPatches
 #include "config\pedestal\pedestal.hpp"
 #include "config\mfdDefines.hpp"
 #include "config\cfgVehicles.hpp"
+#include "config\flirVideo.hpp"
 #include "Armakeybinds.hpp"

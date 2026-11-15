@@ -14,6 +14,7 @@ PREP(setPylonValue);
 PREP(slewTAC);
 PREP(renderBFTUnits);
 PREP(cycleUserMFDValue);
+PREP(flirVideo);
 PREP(handleDamage);
 
 PREP(tac_getMapCenter);

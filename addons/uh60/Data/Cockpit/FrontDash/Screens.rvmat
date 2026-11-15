@@ -8,6 +8,8 @@ forcedDiffuse[] = {0,0,0,0};
 emmisive[] = {3,3,1,1};
 specular[] = {0.1,0.1,0.1,1};
 specularPower = 110;
+// The MFD screen faces: no sun shadow map, as the glass over them (Glass.rvmat)
+renderFlags[] = {"AlwaysInShadow"};
 PixelShaderID = "Super";
 VertexShaderID = "Super";
 class Stage1

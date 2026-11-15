@@ -33,14 +33,14 @@ switch (true) do {
     case (_pageIndex > MFD_PAGE_FLIR - 0.99 && _pageIndex < MFD_PAGE_FLIR + 0.99): {
       if ((_vehicle animationsourcephase "FLIR_HIDE") == 1 && {(_vehicle animationsourcephase "HH60GFlir_show") == 0}) exitWith {
         _slingCam = true;
-        _vehicle setObjectTextureGlobal [MFD_OVERLAY(_mfdIndex), "#(argb,512,512,1)r2t(hct_h60_flir_feed,1.0)"];
+        _vehicle setObjectTextureGlobal [MFD_OVERLAY(_mfdIndex), ["texture"] call hct_h60_mfd_fnc_flirVideo];
         _vehicle setObjectMaterialGlobal [MFD_OVERLAY(_mfdIndex), "\A3\Structures_F\Items\Electronics\Data\electronics_screens.rvmat"];
       };
       if (_vehicle getVariable ["hct_h60_flir_stowed", true]) then {
         _vehicle setUserMFDValue [_mfdIndex, FLIR_MODE_STOWED];
       } else {
         // Never gets to here currently
-        _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), "#(argb,512,512,1)r2t(hct_h60_flir_feed,1.0)"];
+        _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), ["texture"] call hct_h60_mfd_fnc_flirVideo]; // the feed at this client's aspect
         _vehicle setObjectMaterial [MFD_OVERLAY(_mfdIndex), "\A3\Structures_F\Items\Electronics\Data\electronics_screens.rvmat"];
         if (isNil "hct_h60_flir_controllable" || {!hct_h60_flir_controllable}) then {
           _slingCam = true;

@@ -7,3 +7,5 @@
 - Fix cTab markers of an unknown type importing into JVMF without a label
 - The TAC map cursor now syncs to the rest of the crew at most ten times a second while you slew it, instead of every frame
 - Fix script errors in the game log from the ACRE comm pages and knobs before the radios are ready, the FLIR in gunner view with no FLIR page open, an empty JVMF inbox, the hoist hook repair check, and every module start-up (CAS, FMS, MFD, JVMF, ground)
+- Fix diagonal streaks across the MFDs (TAC map, FLIR and every other page) - the screen glass was picking up the sun's shadow banding
+- The FLIR and sling-camera picture on the MFDs now keeps its proportions on any monitor - it was squeezed sideways, badly on ultrawide (21:9, 32:9) screens
