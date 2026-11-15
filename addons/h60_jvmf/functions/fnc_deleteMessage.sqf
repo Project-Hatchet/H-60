@@ -23,7 +23,7 @@ if (hct_jvmf_selected_idx != 0) then {
 	hct_jvmf_selected_idx = 0; 
 };
 
-if(hct_h60_ui_showDebugMessages) then {
+if(hct_h60_devMode) then {
 	systemChat format ["Deleted Message at index: %1 and new index is %2.", hct_jvmf_selected_idx, hct_jvmf_selected_idx];
 };
 

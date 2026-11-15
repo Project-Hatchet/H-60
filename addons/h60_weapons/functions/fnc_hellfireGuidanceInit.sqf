@@ -170,5 +170,5 @@ _onFiredFunc = getText (_config >> "onFired");
 if (_onFiredFunc != "") then {
     _args call (missionNamespace getVariable _onFiredFunc);
 };
-if (hct_h60_ui_showDebugMessages) then {systemChat format ["vtx hellfire init called with args: %1", _args];};
+if (hct_h60_devMode) then {systemChat format ["hct hellfire init called with args: %1", _args];};
 [ace_missileguidance_fnc_guidancePFH, 0, _args ] call CBA_fnc_addPerFrameHandler;

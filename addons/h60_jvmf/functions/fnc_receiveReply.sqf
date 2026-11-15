@@ -15,7 +15,7 @@ hct_jvmf_messages set [_messageIndex, _message];
 
 
 if (_senderObject != player) then {
-	if(hct_h60_ui_showDebugMessages) then {systemChat "REGISTERING ADVISORY";};
+	if(hct_h60_devMode) then {systemChat "REGISTERING ADVISORY";};
 	[vehicle player,"NEW JVMF REPLY",{},false,false] call hct_h60_cas_fnc_registerCautionAdvisory;
 };
 

@@ -51,7 +51,7 @@ if (!isNull _trackObj) exitWith {
   hct_h60_flir_lastReleaseDir = _dir;
   hct_h60_flir_lastReleaseTime = diag_tickTime;
   [[], objNull] call hct_h60_flir_fnc_syncPilotCamera;
-  if (missionNamespace getVariable ["hct_h60_ui_showDebugMessages", false]) then {
+  if (missionNamespace getVariable ["hct_h60_devMode", false]) then {
     systemChat format ["FLIR lock: released %1", typeOf _trackObj];
   };
   true
@@ -100,7 +100,7 @@ if (isNull _trackTarget) then {
     };
   } forEach (hct_vehicle nearEntities [["LandVehicle", "Air", "Ship"], 5000]);
 };
-if (missionNamespace getVariable ["hct_h60_ui_showDebugMessages", false]) then {
+if (missionNamespace getVariable ["hct_h60_devMode", false]) then {
   systemChat format ["FLIR lock: rayHit=%1 target=%2", typeOf _hitObject, typeOf _trackTarget];
 };
 

@@ -15,20 +15,21 @@ class cfgVehicles {
         //    class ACE_MainActions;
         //};
         class UserActions: UserActions {
-            class QuickStart
-			{
-				displayName = "$STR_hct_h60_misc_AutomaticEngineStartup";
-				displayNameDefault = "Automatic Engine Startup";
-				priority = 0;
-				radius = 10; // A too small radius might cause the action to not be visible
-				position = "camera";
-				showWindow = 0;
-				hideOnUse = 1;
-				onlyForPlayer = 0;
-				shortcut = "";
-				condition = "player == driver this && hct_h60_simpleStartup"; // Only show if the unit is alive and is not a player
-				statement = "[this] spawn hct_h60_misc_fnc_quickstart";
-			};
+            //Developer mode only (CBA setting hct_h60_devMode, Hatchet H-60 > Developer). A state-driven
+            //start with HeliSim diagnostics on screen - see fnc_quickstart; not a supported feature.
+            class QuickStart {
+                displayName = "$STR_hct_h60_misc_AutomaticEngineStartup";
+                displayNameDefault = "Automatic Engine Startup (DEV)";
+                priority = 0;
+                radius = 10; // A too small radius might cause the action to not be visible
+                position = "camera";
+                showWindow = 0;
+                hideOnUse = 1;
+                onlyForPlayer = 0;
+                shortcut = "";
+                condition = "player == driver this && {missionNamespace getVariable ['hct_h60_devMode', false]} && {!(this getVariable ['hct_h60_misc_qsRunning', false])}";
+                statement = "[this] spawn hct_h60_misc_fnc_quickstart";
+            };
         };
         class hct_cargo: hct_cargo {
             class interaction: interaction {

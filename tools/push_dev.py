@@ -7,15 +7,18 @@ Steam Workshop DEVELOPMENT BRANCH item.
     python tools/push_dev.py --branch <ref> --note-from-changelog --bump           # usual dev push: 0.7.9.1 -> 0.7.9.2
     python tools/push_dev.py --branch <ref> --note-from-changelog --version 0.7.9.1  # first push of a new cycle
     python tools/push_dev.py --branch <ref> --note-from-changelog --bump --preview-note  # print the note and exit
+    python tools/push_dev.py --branch devbuild --note-from-fragments               # devbuild push: note = pending changelog fragments
     python tools/push_dev.py --branch <ref> --note "..." --dry-run                  # build + verify, no upload
 
 What it does, in order:
   1. refuses to run on a dirty working tree
   2. checks out <ref> (and returns to the previous checkout afterwards)
   3. with --bump/--version: stamps the new version into
-     addons/h60_main/script_version.hpp, retitles the **Unreleased** block at
-     the top of CHANGELOG-DEV.md to that version, and commits both on <ref>
-     - so the in-game version, the changelog and the Workshop note agree
+     addons/h60_main/script_version.hpp, folds the branch's changelog fragments
+     (changelog/*.md, see tools/changelog.py) into the top block of
+     CHANGELOG-DEV.md, retitles an **Unreleased** block to that version, and
+     commits it all on <ref> - so the in-game version, the changelog and the
+     Workshop note agree
   4. refuses to build a branch whose local copy differs from origin (the
      devbuild branch is force-pushed by the bot; a stale local copy has
      been built twice before)
@@ -51,6 +54,8 @@ PBO_PREFIX = "hct_"  # HEMTT names PBOs <project prefix>_<addon folder>.pbo
 HEMTT_OUT = Path(".hemttout") / "build"
 VERSION_FILE = "addons/h60_main/script_version.hpp"
 CHANGELOG = "CHANGELOG-DEV.md"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import changelog as fragments  # noqa: E402  (tools/changelog.py)
 TESTING_LABEL = "Ready for Testing"  # the devbuild branch = Main + PRs wearing this label
 DEV_MOD_CPP = """name = "H-60 pack - Development branch";
 picture = "logo_vtx_ca.paa";
@@ -203,6 +208,27 @@ def changelog_note(ref, version):
     return "\n".join(out)
 
 
+def fragments_note(ref, version):
+    """Change note from the changelog fragments pending at <ref>: everything
+    merged to Main since the last Stable plus, on the devbuild branch, the
+    labeled PRs' own fragments - i.e. exactly what this build changes for
+    players, with no hand-written note and no shared file to conflict in."""
+    items = fragments.pending_bullets(ref)
+    if not items:
+        die(f"no changelog fragments at {ref} (changelog/*.md) - nothing to put in the note; "
+            "use --note-from-prs or --note instead")
+    label = fmt_version(version) if version else fmt_version(parse_version(show_file(ref, VERSION_FILE)))
+    out = [
+        f"[h1]Dev build {label}[/h1]",
+        f"[i]{ref}[/i]",
+        "Changes since the last Stable release:",
+        "[list]",
+        *[f"[*]{linkify(item)}" for item in items],
+        "[/list]",
+    ]
+    return "\n".join(out)
+
+
 def add_build_code(note, ref, sha):
     """Append the build code to the note's branch stamp line, so the Workshop
     note identifies the exact commit that was built (a --bump/--version stamp
@@ -250,9 +276,13 @@ def write_version_file(version):
 
 
 def stamp_version(version):
-    """On the checked-out branch: write the version, retitle the Unreleased block, commit both."""
+    """On the checked-out branch: write the version, fold the fragments in, retitle the Unreleased block, commit it all."""
     label = fmt_version(version)
     write_version_file(version)
+    folded = fragments.assemble(label, delete=True)
+    if folded:
+        print(f"  folded {folded} changelog fragment bullet(s) into {CHANGELOG}")
+        git("add", "-A", "--", fragments.FRAGMENT_DIR)
 
     cl = REPO / CHANGELOG
     text = cl.read_text(encoding="utf-8")
@@ -327,6 +357,8 @@ def main():
                       help="build the note from the top version block of CHANGELOG-DEV.md at <ref>")
     note.add_argument("--note-from-prs", action="store_true",
                       help=f"build the note from the open PRs labeled '{TESTING_LABEL}' (for devbuild pushes)")
+    note.add_argument("--note-from-fragments", action="store_true",
+                      help="build the note from the changelog fragments pending at <ref> (changelog/*.md)")
     ver = ap.add_mutually_exclusive_group()
     ver.add_argument("--bump", action="store_true", help="increment the build digit of the version on <ref> and stamp it")
     ver.add_argument("--version", help="stamp this exact version (e.g. 0.7.9.1) - use for the first push of a cycle")
@@ -351,6 +383,8 @@ def main():
         note_text = changelog_note(args.branch, version if stamp else None)
     elif args.note_from_prs:
         note_text = prs_note(args.branch, version if stamp else None)
+    elif args.note_from_fragments:
+        note_text = fragments_note(args.branch, version if stamp else None)
     elif args.note is not None:
         note_text = args.note
     else:

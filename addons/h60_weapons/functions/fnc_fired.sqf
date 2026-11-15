@@ -7,7 +7,7 @@
  */
 
 params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
-if (hct_h60_ui_showDebugMessages) then {systemchat "HELLFIRE LAUNCHED";};
+if (hct_h60_devMode) then {systemchat "HELLFIRE LAUNCHED";};
 
 private _vehicle = vehicle player;
 if (vehicle _gunner == _vehicle) then {

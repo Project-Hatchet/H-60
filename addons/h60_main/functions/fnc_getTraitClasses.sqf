@@ -14,7 +14,7 @@
  * Classnames <ARRAY of STRING>
  *
  * Example:
- * ["crewChiefTurnOut"] call hct_h60_main_fnc_getTraitClasses
+ * ["erfsService"] call hct_h60_main_fnc_getTraitClasses
  *
  * Public: Yes
  */

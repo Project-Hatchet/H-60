@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="HCT">
     <Package name="UH60_GROUND">
-        <Key ID="STR_hct_h60_GROUND_SimpleStartup">
-            <English>Simple Startup</English>
-            <Chinesesimp>简单启动</Chinesesimp>
-        </Key>
         <Key ID="STR_hct_h60_ground_ParkingBrake">
             <English>Parking Brake</English>
         </Key>

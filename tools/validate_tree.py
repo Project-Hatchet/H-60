@@ -21,6 +21,8 @@ Checks
                    expression using an SQF function (HEMTT evaluates it wrongly at
                    build time), no square-bracket arrays (CfgConvert stored them as
                    strings), no ';' after #include
+  changelog-fragments
+                   every changelog/*.md fragment is bullets only (tools/changelog.py)
   orphan-headers   REPORT ONLY: .hpp/.inc.sqf files nothing includes
 """
 
@@ -34,6 +36,9 @@ ADDONS = os.path.join(ROOT, "addons")
 INCLUDE_DIR = os.path.join(ROOT, "include")
 SOURCE_EXT = (".hpp", ".cpp", ".h", ".sqf", ".cfg", ".ext", ".rvmat", ".xml")
 INCLUDE_RE = re.compile(r'^\s*#include\s+"([^"]+)"(\s*;)?', re.M)
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import changelog as changelog_fragments  # noqa: E402  (tools/changelog.py)
 
 _listing_cache = {}
 
@@ -277,6 +282,7 @@ CHECKS = [
     ("addon-layout", check_addon_layout),
     ("hemtt-portable", check_hemtt_portable),
     ("variant-layering", check_variant_layering),
+    ("changelog-fragments", changelog_fragments.lint_errors),
 ]
 
 

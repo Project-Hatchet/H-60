@@ -10,5 +10,14 @@
         <Key ID="STR_hct_h60_main_Category">
             <English>Hatchet H-60</English>
         </Key>
+        <Key ID="STR_hct_h60_main_DevMode">
+            <English>Developer Mode</English>
+        </Key>
+        <Key ID="STR_hct_h60_main_DevMode_Tooltip">
+            <English>Developer tools, not for normal play: a panel with live HeliSim diagnostics whenever you are in an H-60, script debug messages in chat and the game log, and the Automatic Engine Startup (DEV) vehicle action.</English>
+        </Key>
+        <Key ID="STR_hct_h60_main_DeveloperCategory">
+            <English>Developer</English>
+        </Key>
     </Package>
 </Project>

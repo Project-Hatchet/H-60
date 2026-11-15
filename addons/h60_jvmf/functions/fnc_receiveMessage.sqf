@@ -10,11 +10,11 @@ if (_id == "") exitWith {};
 
 hct_jvmf_messages pushBack _this;
 
-if(hct_h60_ui_showDebugMessages) then {systemChat format ["RECEIVED JVMF: %1", _this];};
+if(hct_h60_devMode) then {systemChat format ["RECEIVED JVMF: %1", _this];};
 
 // systemChat str [_replySender, player];
 if ((_replies # 0 # 3) != player) then {
-	if(hct_h60_ui_showDebugMessages) then {systemChat "REGISTERING ADVISORY";};
+	if(hct_h60_devMode) then {systemChat "REGISTERING ADVISORY";};
 	[vehicle player,"NEW JVMF MSG",{},false,false] call hct_h60_cas_fnc_registerCautionAdvisory;
 };
 [vehicle player] call hct_h60_jvmf_fnc_drawJVMF;

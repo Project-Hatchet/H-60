@@ -1,0 +1,7 @@
+# CHANGELOG-DEV.md is written by tooling (tools/changelog.py folds the per-PR fragments
+# in changelog/ into it at release time), so PRs no longer edit it. The union driver
+# stays as a backstop for the branches that still do: two insertions at the same spot
+# concatenate instead of conflicting. GitHub's own merge check ignores this (a PR can
+# still show "conflicting" there - a local `git merge Main` then resolves it with no
+# editing), and a bullet brought in from both sides is left twice - delete the copy.
+CHANGELOG-DEV.md merge=union

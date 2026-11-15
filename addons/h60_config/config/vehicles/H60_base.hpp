@@ -23,7 +23,6 @@ class hct_H60_base: Heli_Transport_01_base_F {
     hct_trait_flirTurretAnimated = 0;  // FLIR ball follows the pilot camera (FLIR_DIRECTION/ELEVATION)
     hct_trait_irLaser = 0;             // fixed-forward IZLID keybind
     hct_trait_erfsService = 0;         // ERFS tank attach/remove ACE actions
-    hct_trait_crewChiefTurnOut = 0;    // crew chief turn-in/turn-out seat swap (DAP)
     editorSubcategory = "hct_h60";
     side = 1;
     faction = "BLU_F";

@@ -10,7 +10,7 @@ params ["_vehicle"];
 
 private _value = round ((_vehicle animationSourcePhase "TX_ROT") * 10); //changes it to 1-4 range
 
-if(hct_h60_ui_showDebugMessages) then {
+if(hct_h60_devMode) then {
     systemChat str [
         _value
     ];

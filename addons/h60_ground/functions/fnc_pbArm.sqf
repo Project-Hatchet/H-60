@@ -20,7 +20,7 @@ if (local _vehicle && {!(_vehicle getVariable ["hct_h60_ground_taxiOn", false])}
     && {[_vehicle] call bmkhs_fnc_stateOnGround}) then {
     _vehicle setVariable ["hct_h60_ground_taxiOn", true];
     // unconditional breadcrumb: proves in the RPT that the chain armed,
-    // independent of the hct_h60_taxiDebug console flag
+    // independent of the Developer Mode setting
     diag_log format ["VTXTAXI armed on %1", typeOf _vehicle];
     [_vehicle] call hct_h60_ground_fnc_taxiTick;
 };

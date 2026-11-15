@@ -15,9 +15,9 @@ if ((_mfdIndex == MFD_1_PAGE_INDEX || _mfdIndex == MFD_4_PAGE_INDEX) && _pageInd
 };
 
 if (_propagate) exitWith {
-    if(hct_h60_ui_showDebugMessages) then {systemChat "MFD MP Sync";};
+    if(hct_h60_devMode) then {systemChat "MFD MP Sync";};
     [_vehicle, _mfdIndex, _pageIndex, false] remoteExecCall ["hct_h60_mfd_fnc_switchPage", crew _vehicle];
-    if (hct_h60_ui_showDebugMessages) then {diag_log "switchPage mfd";};
+    if (hct_h60_devMode) then {diag_log "switchPage mfd";};
 };
 
 _vehicle setUserMFDValue [_mfdIndex, _pageIndex];

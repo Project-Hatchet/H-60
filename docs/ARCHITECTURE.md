@@ -93,7 +93,6 @@ These are declared on `hct_H60_base` (all default to 0) and set by variants:
 | `hct_trait_flirTurretAnimated` | FLIR ball follows the pilot camera | MH-60M family |
 | `hct_trait_irLaser` | fixed-forward IZLID keybind | MH-60M family |
 | `hct_trait_erfsService` | ERFS attach/remove ACE actions | MH-60M family |
-| `hct_trait_crewChiefTurnOut` | crew-chief turn-in/out seat swap | DAP |
 
 To add a trait, give it a default on the base, set it in the variants that have it,
 and read it with `GET_TRAIT`/`HAS_TRAIT`.

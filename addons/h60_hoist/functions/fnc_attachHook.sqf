@@ -61,26 +61,26 @@ _unit setVariable [QGVAR(pfhID), [{
   // Exit checks
   {
     if (isNull _x) then {
-      if (hct_h60_ui_showDebugMessages) then {diag_log _args;};
+      if (hct_h60_devMode) then {diag_log _args;};
       _unit setVariable [QGVAR(pfhID), -1, true];
     };
   } forEach _args;
 
   // Unit in other vehicle
   if (_vehicleUnit != _unit && {_vehicleUnit != _hook}) then {
-    if (hct_h60_ui_showDebugMessages) then {diag_log "in other vic";};
+    if (hct_h60_devMode) then {diag_log "in other vic";};
     _unit setVariable [QGVAR(pfhID), -1, true];
   };
 
   // Unit exited/detached hook
   if (!_isUnitInHook && {!_hookAttachedToUnit}) then {
-    if (hct_h60_ui_showDebugMessages) then {diag_log "manual";};
+    if (hct_h60_devMode) then {diag_log "manual";};
     _unit setVariable [QGVAR(pfhID), -1, true];
   };
 
   // Exit
   if (_pfhID != (_unit getVariable [QGVAR(pfhID), -1])) exitWith {
-    if (hct_h60_ui_showDebugMessages) then {diag_log "hct_h60_hoist_fnc_attachHook";};
+    if (hct_h60_devMode) then {diag_log "hct_h60_hoist_fnc_attachHook";};
     [_pfhID] call CBA_fnc_removePerFrameHandler;
     if (_isUnitInHook) then {
       moveOut _unit;

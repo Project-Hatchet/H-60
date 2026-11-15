@@ -1,14 +1,15 @@
-**Unreleased**
-
- - Rename the pack's identifiers from vtx to hct (Hatchet): classnames (e.g. hct_UH60M, hct_MH60M_DAP), functions, CBA settings, keybinds and addon (CfgPatches) names. Missions made with older versions keep working: the old vtx_* aircraft, crew, stretcher, magazine and addon names still load (as hidden aliases), and the old function names still work. **Your H-60 CBA settings and keybinds reset to defaults once** - set them again in Options > Addon Options / Controls
- - The sound addon now builds as hct_h60_sounds.pbo
- - The editor, Zeus and Addon Options categories are now named "Hatchet H-60" instead of "VTX". Every player-facing name, tooltip and hint now comes from the stringtables, so the pack can be translated
- - Fix a damaged MFD's flicker sometimes leaving the screen stuck on the wrong page, or undoing a page the crew had just selected
- - Retire the MH-60M DAP MLASS variant. It no longer appears in the editor, Zeus or the Virtual Garage. Missions that already placed one keep working: the old classname now spawns a regular MH-60M DAP. Saved MLASS pylon loadouts are ignored (the game log may show harmless unknown-magazine warnings)
-
 **0.8.0**
 
+ - Door minigun firing arcs now match the real mount limits: 1.5 degrees up and 55 down; 81 degrees aft of straight out on both guns; the left gun traverses 90 degrees forward (to dead ahead), the right gun 78. Previously both guns reached 70 down and about 80 forward / 75 aft (MH-60S pylon variants keep their own arcs)
+ - Retire the MH-60M DAP MLASS variant. It no longer appears in the editor, Zeus or the Virtual Garage. Missions that already placed one keep working: the old classname now spawns a regular MH-60M DAP. Saved MLASS pylon loadouts are ignored (the game log may show harmless unknown-magazine warnings)
  - Fix the cabin, kneeling, DAP passenger, S-70i and MH-60S GAU-21 cabin seat firing arcs never applying - the limits were written in a form the game read as text, so those seats had no arc limits at all
+ - Automatic Engine Startup rebuilt for HeliSim and moved behind a new Developer Mode setting (UH-60M > Developer). Developer Mode also shows a panel with live HeliSim state whenever you are in an H-60 and turns on script debug messages. The start now waits on the APU, bleed air, engine and generator state instead of fixed delays and is not a supported way to start the aircraft. Replaces the Simple Startup and Enable Debug Messages settings
+ - Add the hoist operator role: the right crew chief gets a "Enter Hoist Operator" ACE self-interaction (same menu as the DAP Turn Out) (right cabin door open, hoist fitted) that moves them onto the "Door Right 1 (hoist controls)" seat and makes them the aircraft's hoist operator; "Exit Hoist Operator" moves them back. Their crew seat stays reserved while they are on the hoist (on armed aircraft the right minigun is unmanned and locked during hoisting). Pilots keep hoist control as before
+ - Passengers who sit in the "(hoist controls)" seat no longer get hoist control - only the designated operator does (deliberate tightening of the 0.7.9 behavior)
+ - Works on every aircraft with the pendant seat, including the S-70i (Right Crew Chief) and MEDEVAC (Right Window)
+ - DAP: the right crew chief can run the hoist while turned out (the turned-out spot is the hoist station on the DAP)
+ - MEDEVAC window seats and S-70i crew chief seats now start turned in - you no longer board already leaning out of the window (turn out as usual when you want to)
+ - Fix attaching a removed part (rescue hoist, fuel probe, cockpit doors, ERFS tank) doing nothing while you are still carrying it
 
 **0.7.10**
 

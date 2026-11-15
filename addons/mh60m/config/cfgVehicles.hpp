@@ -162,7 +162,6 @@ class CfgVehicles {
         hct_trait_flirTurretAnimated = 1;
         hct_trait_irLaser = 1;
         hct_trait_erfsService = 1;
-        hct_trait_crewChiefTurnOut = 1;
         class pilotCamera: hct_templateFLIR {};
         driverWeaponsInfoType = "Rsc_vtx_MELB_Turret_UnitInfo";
         scope = 2;

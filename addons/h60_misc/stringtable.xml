@@ -5,7 +5,7 @@
             <English>Folding Rotors</English>
         </Key>
         <Key ID="STR_hct_h60_misc_AutomaticEngineStartup">
-            <English>Automatic Engine Startup</English>
+            <English>Automatic Engine Startup (DEV)</English>
         </Key>
         <Key ID="STR_hct_h60_misc_BlackhawkServicePlatform">
             <English>Blackhawk Service Platform</English>
@@ -90,6 +90,12 @@
         </Key>
         <Key ID="STR_hct_h60_misc_DoorIsBlocked">
             <English>Door is blocked</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_EnterHoistOperator">
+            <English>Enter Hoist Operator</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_ExitHoistOperator">
+            <English>Exit Hoist Operator</English>
         </Key>
     </Package>
 </Project>

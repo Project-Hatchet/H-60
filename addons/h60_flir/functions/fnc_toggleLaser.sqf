@@ -15,7 +15,7 @@
 params ["_vehicle"];
 private _pilot = driver _vehicle;
 if (isNull _pilot) exitWith {
-  if (hct_h60_ui_showDebugMessages) then {systemChat "Cannot toggle laser if pilot seat is empty.";};
+  if (hct_h60_devMode) then {systemChat "Cannot toggle laser if pilot seat is empty.";};
   false
 };
 
