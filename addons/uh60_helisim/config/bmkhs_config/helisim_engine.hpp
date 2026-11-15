@@ -96,23 +96,23 @@
                 fuelIdle = 0.784;        //settles Ng at 0.679
                 fuelFly  = 3.136;        //WIDE OPEN - the governor cuts back from here
 
-                startFuelBase = 0.50;
+                startFuelBase = 0.25;     //fitted to a real start: lever IDLE at 7 s, 52% at ~30 s, peak TGT 656 C
 
                 ffwdGain = 1.00;         //collective anticipation
 
                 leverTravelTime = 8.0;   //s, idle to fly
                 loadShareGain   = 8.0;
 
-                //Np governor, {kp, ki, kd, ki_clamp}.
-                pid[] = {80.0000, 40.0000, 0.0000, 0.0750};
+                //Np governor, {kp, ki, kd, limit}.
+                pid[] = {80.0000, 40.0000, 0.0000, 3.0000};
 
                 gate[] = {};             //what the ECU needs to keep metering fuel
             };
 
             class Starter {
                 type   = "pneumatic";
-                torque    = 0.45;               //stalled, on the spool, normalised
-                runawayNg = 0.25;               //no torque left - where motoring settles
+                torque    = 0.45;               //maximum, on the spool, normalised - then power-limited
+                motoringNg = 0.25;              //starter alone, no fuel
                 gate[] = {{"PNEU", 0.85}, "bmkhs_ignitionOn"};   //bleed air, and the master ignition key
             };
         };

@@ -68,6 +68,11 @@ jobs:
           set -euo pipefail
           git config user.name "devbuild bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          # .gitattributes union-merges CHANGELOG-DEV.md for people. Here a stacked
+          # PR's changelog is a superset of its parent's, and union would keep both
+          # copies - so this checkout uses the default driver and the "take the
+          # PR's copy" rule below instead.
+          echo "CHANGELOG-DEV.md merge=text" > .git/info/attributes
 
           base_sha=$(git rev-parse --short HEAD)
           included=""
