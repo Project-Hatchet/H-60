@@ -11,22 +11,23 @@ Steam Workshop DEVELOPMENT BRANCH item.
     python tools/push_dev.py --branch <ref> --note "..." --dry-run                  # build + verify, no upload
 
 What it does, in order:
-  1. refuses to run on a dirty working tree
-  2. checks out <ref> (and returns to the previous checkout afterwards)
-  3. with --bump/--version: stamps the new version into
-     addons/h60_main/script_version.hpp, folds the branch's changelog fragments
-     (changelog/*.md, see tools/changelog.py) into the top block of
-     CHANGELOG-DEV.md, retitles an **Unreleased** block to that version, and
-     commits it all on <ref> - so the in-game version, the changelog and the
-     Workshop note agree
-  4. refuses to build a branch whose local copy differs from origin (the
+  1. with --bump/--version: refuses a dirty working tree, checks out <ref>,
+     stamps the new version into the main addon's script_version.hpp, folds the
+     branch's changelog fragments (changelog/*.md, see tools/changelog.py) into
+     the top block of CHANGELOG-DEV.md, retitles an **Unreleased** block to that
+     version, commits it all on <ref> and returns to the previous checkout - so
+     the in-game version, the changelog and the Workshop note agree
+  2. refuses to build a branch whose local copy differs from origin (the
      devbuild branch is force-pushed by the bot; a stale local copy has
      been built twice before)
-  5. runs `hemtt build`, replaces release/@H-60 with the fresh output (so
-     PBOs of deleted addons never linger), writes a Development-branch
-     mod.cpp, and verifies every addon folder produced a fresh PBO
-  6. shows a summary and asks for confirmation (skip with --yes)
-  7. uploads release/@H-60 with PublisherCmd, which uses the Steam client
+  3. checks <ref> out into a throwaway git worktree and runs `hemtt build`
+     there - your own checkout is never switched (switching it across the
+     #668 folder renames leaves empty addon folders behind that HEMTT rejects)
+  4. replaces release/@H-60 with the fresh output (so PBOs of deleted addons
+     never linger), writes a Development-branch mod.cpp, and verifies every
+     addon folder produced a fresh PBO
+  5. shows a summary and asks for confirmation (skip with --yes)
+  6. uploads release/@H-60 with PublisherCmd, which uses the Steam client
      already logged in on this machine - no credentials are stored anywhere
 
 Versioning: Stable is X.Y.Z; Dev builds carry the NEXT Stable's number with
@@ -55,6 +56,7 @@ HEMTT_OUT = Path(".hemttout") / "build"
 VERSION_FILE = "addons/main/script_version.hpp"  # resolved per ref by resolve_version_file(): h60_main after #668
 VERSION_FILE_CANDIDATES = ("addons/h60_main/script_version.hpp", "addons/main/script_version.hpp")
 CHANGELOG = "CHANGELOG-DEV.md"
+sys.dont_write_bytecode = True  # importing tools/changelog.py must not leave a __pycache__ that dirties the tree
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import changelog as fragments  # noqa: E402  (tools/changelog.py)
 TESTING_LABEL = "Ready for Testing"  # the devbuild branch = Main + PRs wearing this label
@@ -279,8 +281,8 @@ def prs_note(ref, version):
     return "\n".join(out)
 
 
-def write_version_file(version):
-    hpp = REPO / VERSION_FILE
+def write_version_file(version, base=REPO):
+    hpp = base / VERSION_FILE
     hpp_text = hpp.read_text(encoding="utf-8")
     nl = "\r\n" if "\r\n" in hpp_text else "\n"
     hpp.write_text(nl.join([f"#define MAJOR {version[0]}", f"#define MINOR {version[1]}",
@@ -315,25 +317,40 @@ def stamp_version(version):
 
 # --- build -----------------------------------------------------------------
 
-def build():
-    """hemtt build, then release/@H-60 becomes exactly that output plus the Dev mod.cpp."""
-    addons_dir = REPO / "addons"
-    expected = sorted(p.name for p in addons_dir.iterdir() if p.is_dir())
-    hemtt = hemtt_exe()
+def build(ref, version_override=None):
+    """hemtt build of <ref> in a throwaway git worktree; release/@H-60 then becomes
+    exactly that output plus the Dev mod.cpp.
 
-    started = time.time()
-    print(f"  building {len(expected)} addons with hemtt ({hemtt})...")
-    shutil.rmtree(REPO / ".hemttout", ignore_errors=True)
-    r = subprocess.run([str(hemtt), "build"], cwd=REPO, text=True, capture_output=True)
-    if r.returncode != 0:
-        print(r.stdout[-3000:])
-        die(f"hemtt build failed:\n{r.stderr[-2000:]}")
-
-    # Replace the mod folder wholesale: the old Addon Builder flow wrote into it and never
-    # removed PBOs of addons that no longer exist, which then shipped.
-    mod = REPO / MOD_FOLDER
-    shutil.rmtree(mod, ignore_errors=True)
-    shutil.copytree(REPO / HEMTT_OUT, mod)
+    A worktree rather than a checkout of this clone: git does not track
+    directories, so switching the clone across the #668 folder renames leaves the
+    old addon folders behind as empty shells (an editor's file watcher can even
+    hold them), and HEMTT refuses such a tree ("Addon prefix not found: main").
+    A fresh worktree has nothing to leave behind, and the user's checkout is
+    never switched. With version_override the stamp is written into the
+    worktree only - nothing is committed anywhere."""
+    wt = Path(tempfile.mkdtemp(prefix="h60-build-"))
+    wt.rmdir()  # git worktree add creates it
+    git("worktree", "add", "--detach", "-q", str(wt), ref)
+    try:
+        if version_override:
+            write_version_file(version_override, base=wt)
+            print(f"  stamped {fmt_version(version_override)} into the build only (nothing committed)")
+        addons_dir = wt / "addons"
+        expected = sorted(p.name for p in addons_dir.iterdir() if p.is_dir())
+        hemtt = hemtt_exe()
+        started = time.time()
+        print(f"  building {len(expected)} addons with hemtt ({hemtt}) in {wt}...")
+        r = subprocess.run([str(hemtt), "build"], cwd=wt, text=True, capture_output=True)
+        if r.returncode != 0:
+            print(r.stdout[-3000:])
+            die(f"hemtt build failed:\n{r.stderr[-2000:]}")
+        # Replace the mod folder wholesale: the old Addon Builder flow wrote into it and never
+        # removed PBOs of addons that no longer exist, which then shipped.
+        mod = REPO / MOD_FOLDER
+        shutil.rmtree(mod, ignore_errors=True)
+        shutil.copytree(wt / HEMTT_OUT, mod)
+    finally:
+        git("worktree", "remove", "--force", str(wt))
     # the repo's mod.cpp is the Stable one; the Dev item gets its own name in the launcher
     (mod / "mod.cpp").write_text(DEV_MOD_CPP, encoding="utf-8")
 
@@ -411,27 +428,22 @@ def main():
         return
 
     if not args.skip_build:
-        if git("status", "--porcelain"):
-            die("working tree is not clean - commit or stash first")
         ensure_matches_origin(args.branch)
-        previous = git("rev-parse", "--abbrev-ref", "HEAD")
-        if previous == "HEAD":
-            previous = git("rev-parse", "HEAD")
-        print(f"checking out {args.branch} (will return to {previous})")
-        git("checkout", "-q", args.branch)
-        try:
-            if stamp:
-                if args.no_commit:
-                    write_version_file(version)
-                    print(f"  stamped {fmt_version(version)} into {VERSION_FILE} (build-time only, nothing committed)")
-                else:
-                    stamp_version(version)
-            sha = git("rev-parse", "--short", "HEAD")
-            count, total = build()
-        finally:
-            if stamp and args.no_commit:
-                git("checkout", "-q", "--", VERSION_FILE)
-            git("checkout", "-q", previous)
+        if stamp and not args.no_commit:
+            # the stamp commit lands on the branch itself, so this needs the clone
+            if git("status", "--porcelain"):
+                die("working tree is not clean - commit or stash first (a --bump/--version stamp commits on the branch)")
+            previous = git("rev-parse", "--abbrev-ref", "HEAD")
+            if previous == "HEAD":
+                previous = git("rev-parse", "HEAD")
+            print(f"checking out {args.branch} to stamp it (will return to {previous})")
+            git("checkout", "-q", args.branch)
+            try:
+                stamp_version(version)
+            finally:
+                git("checkout", "-q", previous)
+        sha = git("rev-parse", "--short", args.branch)
+        count, total = build(args.branch, version if (stamp and args.no_commit) else None)
     else:
         sha = "(skip-build)"
         out = REPO / MOD_FOLDER / "addons"

@@ -37,6 +37,7 @@ INCLUDE_DIR = os.path.join(ROOT, "include")
 SOURCE_EXT = (".hpp", ".cpp", ".h", ".sqf", ".cfg", ".ext", ".rvmat", ".xml")
 INCLUDE_RE = re.compile(r'^\s*#include\s+"([^"]+)"(\s*;)?', re.M)
 
+sys.dont_write_bytecode = True  # no __pycache__ in tools/ from a local run
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import changelog as changelog_fragments  # noqa: E402  (tools/changelog.py)
 
