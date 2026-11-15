@@ -9,7 +9,7 @@
 params ["_vehicle", "_newPage", "_propagate"];
 
 if (_newPage # 1 == 18) then {
-    private _displayName = getText (configFile >> "cfgVehicles" >> typeof _vehicle >> "displayName");
+    private _displayName = getText (configOf _vehicle >> "displayName");
     if (!("MH-60" in _displayName)) then {
         _newPage set [1, 19];
     };

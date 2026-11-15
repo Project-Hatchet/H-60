@@ -50,7 +50,9 @@ private _stationAssign = {
 	};
 	if (_pylon == -1) exitWith {};
 	private _turret = [[0], [-1]] select (_targetOwner == "pilot");
-  (getAllPylonsInfo _vehicle) # (_pylon - 1) params ["", "", "_currentTurret", "_magazine", "_ammo"];
+  private _pylonInfo = (getAllPylonsInfo _vehicle) param [_pylon - 1, []];
+  if (_pylonInfo isEqualTo []) exitWith {}; // this airframe has no such station
+  _pylonInfo params ["", "", "_currentTurret", "_magazine", "_ammo"];
   if (_turret isEqualTo [-1]) then {_turret = []};
   [_vehicle, _turret, _magazine, _ammo, _pylon] call hct_h60_weapons_fnc_assignPylon;
 };
@@ -71,6 +73,7 @@ switch (_button) do {
 			case "hellfire_lo": {"hellfire"};
 			case "hellfire": {"hellfire_hi"};
 			case "hellfire_hi": {"hellfire_lo"};
+			default {"hellfire"}; // another mod's profile: back into the cycle
 		};
 		_vehicle setVariable ["ace_missileguidance_attackProfile", _nextMode, true];
 	};

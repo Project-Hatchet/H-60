@@ -22,7 +22,8 @@ if (!hct_h60_flir_controllable) exitWith {false};
 hct_h60_flir_pipIsFixed = false;
 
 if (customWaypointPosition isNotEqualTo []) exitWith {
-  _vehicle setPilotCameraTarget AGLToASL customWaypointPosition;
+  private _target = AGLToASL customWaypointPosition; // the sync below used an undefined _target
+  _vehicle setPilotCameraTarget _target;
   [[], _target] call hct_h60_flir_fnc_syncPilotCamera;
   true
 };
@@ -38,7 +39,9 @@ if (_currentWaypointIndex < count _waypoints) exitWith { // valid base game wayp
 };
 
 if (ace_microdagr_currentwaypoint > -1) exitWith {
-  _vehicle setPilotCameraTarget ((player getVariable "ace_microdagr_waypoints") # ace_microdagr_currentwaypoint # 1);
+  private _target = ((player getVariable ["ace_microdagr_waypoints", []]) param [ace_microdagr_currentwaypoint, []]) param [1, []];
+  if (_target isEqualTo []) exitWith {false}; // the selected microDAGR waypoint is gone
+  _vehicle setPilotCameraTarget _target;
   [[], _target] call hct_h60_flir_fnc_syncPilotCamera;
   true
 };

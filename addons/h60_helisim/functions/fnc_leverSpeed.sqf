@@ -24,7 +24,7 @@ if (_label == "FLY") then {
     //Core's own value - published by coreConfig, or the declaration it reads where it has not run
     private _engines = _heli getVariable ["bmkhs_engines", []];
     _seconds = if (_engine < count _engines) then {
-        (_engines # _engine) get "leverTravelTime"
+        (_engines # _engine) getOrDefault ["leverTravelTime", HAND_SECONDS]
     } else {
         getNumber ((("true" configClasses (configOf _heli >> "BMKHS_HeliSim" >> "Engines")) # _engine) >> "Governor" >> "leverTravelTime")
     };

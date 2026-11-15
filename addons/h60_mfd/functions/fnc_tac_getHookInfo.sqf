@@ -19,7 +19,7 @@ private _grid = [_position] call ace_common_fnc_getMapGridFromPos;
 private _gridStr = format ["%1    %2    %3    %4", _gridArea select 0, _gridArea select 1, _grid select 0, _grid select 1];
 private _direction = round (player getDir _position);
 private _distance = round ((player distance _position) * 0.000539957);
-private _result = ["","",""];
+private _result = ["", "", "", "", [0, 0, 0]]; // fnc_tac_getHook reads four lines
 if (_type == "ground") then {
 	if (_side != "friendly") exitWith {
 		_result

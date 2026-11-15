@@ -6,7 +6,7 @@
  * params [(object) vehicle]
  */
 
-params ["_vehicle"];
+params ["_vehicle", "_value"]; // _value: the MFD page index the host button sits on
 hct_h60_ccfs_playerSelected = objNull;
 [] call hct_h60_mfd_fnc_resetGameVariables;
 hct_h60_ccfs_gameState = "WAITING";

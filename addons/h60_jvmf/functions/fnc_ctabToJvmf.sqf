@@ -37,7 +37,7 @@ private _positionType = switch (true) do {
 		case (_iconIndex in Sustainment_IDs): {"Sustainment"};
 	#endif
 
-	default {"UNKOWN"};
+	default {"UNKNOWN"};
 };
 
 #if __has_include("\z\ctab\addons\core\config.bin")

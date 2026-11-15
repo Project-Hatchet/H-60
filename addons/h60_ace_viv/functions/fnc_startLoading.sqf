@@ -47,29 +47,41 @@ _unit setVariable [QGVAR(Load), [
         if ((cursorObject distance GVAR(carrier)) > GVAR(loadDistance)) exitWith {hint format [(localize "STR_hct_h60_ace_viv_CargoTooFar"), cursorObject call _vehName, GVAR(carrier) call _vehName]};
         if (cursorObject getVariable [QGVAR(isLoading), false]) exitWith {hint format [(localize "STR_hct_h60_ace_viv_CargoBeingLoaded"), cursorObject call _vehName, cursorObject getVariable [QGVAR(loader), "Unknown Unit"]]};
 
-        // Start loading
-        GVAR(cargo) = cursorObject;
+        // Start loading. This runs from an addAction statement, where the
+        // caller is ACE_player (the handler only fires for them). The unit,
+        // carrier and cargo ride in the progress bar's args: its callbacks run
+        // later from a PFH, and the loading mode (GVAR(carrier)/GVAR(cargo))
+        // may have been left - and nulled - while the bar ran.
+        private _unit = ACE_player;
+        private _cargo = cursorObject;
+        GVAR(cargo) = _cargo;
         _unit setVariable [QGVAR(isLoading), true, true];
-        GVAR(cargo) setVariable [QGVAR(isLoading), true, true];
-        GVAR(cargo) setVariable [QGVAR(loader), name _unit, true];
+        _cargo setVariable [QGVAR(isLoading), true, true];
+        _cargo setVariable [QGVAR(loader), name _unit, true];
 
-        private _timeToLoad = 2 + (getMass GVAR(cargo) / 100);
+        private _fnc_release = {
+            params ["_unit", "", "_cargo"];
+            _unit setVariable [QGVAR(isLoading), false, true];
+            _cargo setVariable [QGVAR(isLoading), false, true];
+            _cargo setVariable [QGVAR(loader), "", true];
+            if (GVAR(cargo) isEqualTo _cargo) then {GVAR(cargo) = objNull};
+        };
+
+        private _timeToLoad = 2 + (getMass _cargo / 100);
         [
             _timeToLoad,
-            [],
+            [_unit, GVAR(carrier), _cargo, _fnc_release],
             {
-                [QGVAR(setVehicleCargo), [GVAR(carrier), GVAR(cargo)]] call CBA_fnc_localEvent;
-                _unit setVariable [QGVAR(isLoading), false, true];
-                GVAR(cargo) setVariable [QGVAR(isLoading), false, true];
-                GVAR(cargo) setVariable [QGVAR(loader), "", true];
-                GVAR(cargo) = objNull;
+                (_this # 0) params ["_unit", "_carrier", "_cargo", "_fnc_release"];
+                if (!isNull _carrier && {!isNull _cargo}) then {
+                    [QGVAR(setVehicleCargo), [_carrier, _cargo]] call CBA_fnc_localEvent;
+                };
+                (_this # 0) call _fnc_release;
             },
             {
-                TRACE_1("unload progressBar fail",_this);
-                _unit setVariable [QGVAR(isLoading), false, true];
-                GVAR(cargo) setVariable [QGVAR(isLoading), false, true];
-                GVAR(cargo) setVariable [QGVAR(loader), "", true];
-                GVAR(cargo) = objNull;
+                TRACE_1("load progressBar fail",_this);
+                (_this # 0) params ["", "", "", "_fnc_release"];
+                (_this # 0) call _fnc_release;
             },
             localize "STR_A3_MP_GroundSupport_ProgressBar_LoadingGroup",
             {true},

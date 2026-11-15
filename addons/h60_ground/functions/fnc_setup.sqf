@@ -7,7 +7,6 @@
  */
 
 params ["_vehicle"];
-if (!hct_h60_enabled_ground) exitWith {false};
 
 //Let EICAS know parking brake is on
 if ((_vehicle animationPhase "handle_wheelbrake") == 1) then {

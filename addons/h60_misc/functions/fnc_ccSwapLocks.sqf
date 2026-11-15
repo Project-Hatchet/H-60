@@ -43,7 +43,7 @@ if (_open) then {
         if (objectParent _unit isEqualTo _veh) then {
             private _seat = (fullCrew [_veh, "", true]) select {(_x # 0) isEqualTo _unit};
             if !(_seat isEqualTo []) then {
-                private _name = getText (([_veh, (_seat # 0) # 3] call BIS_fnc_turretConfig) >> "gunnerName");
+                private _name = ([_veh] call hct_h60_misc_fnc_turretNames) getOrDefault [(_seat # 0) # 3, ""];
                 _onPendant = _name == hct_h60_misc_ccHoistSeat;
             };
         };

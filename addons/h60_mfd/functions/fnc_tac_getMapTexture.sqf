@@ -20,5 +20,6 @@ private _texture = switch (_mode) do {
 	case "off": {
 		"#(rgb,8,8,3)color(0,0,0,1)"
 	};
+	default {""}; // mode not set yet (fnc_setup not run on this machine)
 };
 _texture

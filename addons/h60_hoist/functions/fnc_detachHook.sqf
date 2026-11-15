@@ -12,8 +12,9 @@
  */
 params ["_unit"];
 private _hook = _unit getVariable "hct_attachedHook";
-if (isNil "_hook") then { false };
-private _heli = _hook getVariable "hct_h60_hoist_heli";
+if (isNil "_hook" || {isNull _hook}) exitWith { false };
+private _heli = _hook getVariable ["hct_h60_hoist_heli", objNull];
+if (isNull _heli) exitWith { false };
 private _hoist_vars = _heli getVariable ["hct_h60_hoist_vars", []];
 if (_hoist_vars isEqualTo []) exitWith{ false };
 _hoist_vars params ["_rope", "_dummy", "_hook"];

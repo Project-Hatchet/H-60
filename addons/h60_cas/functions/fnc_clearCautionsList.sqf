@@ -8,14 +8,19 @@
 
 params ["_vehicle", ["_autoClearOnly", false]];
 
-private _casList = (_vehicle getVariable ["hct_cas_list",[]]);
+// a copy: removeCautionAdvisory deletes from the vehicle's list (the same
+// array), which would skip the entry after each one removed
+private _casList = +(_vehicle getVariable ["hct_cas_list",[]]);
 
-private ["_condition"];
 { // forEach _casList;
-    _condition = _x # 1;
-    _wantToClear = (_x # 2 && _autoClearOnly || !_autoClearOnly);
-    if (!(call _condition) && _wantToClear) then {
-        [_vehicle, _x # 0] call hct_h60_cas_fnc_removeCautionAdvisory;
+    _x params ["_text", "_condition", "_autoClear"];
+    if (_autoClear || {!_autoClearOnly}) then {
+        // an empty condition ({}, e.g. PARKING BRAKE) returns nothing: such an
+        // entry is cleared by its owner, never by the list - keep it
+        private _active = call _condition;
+        if (!isNil "_active" && {!_active}) then {
+            [_vehicle, _text] call hct_h60_cas_fnc_removeCautionAdvisory;
+        };
     };
 } forEach _casList;
 if(!_autoClearOnly) then {

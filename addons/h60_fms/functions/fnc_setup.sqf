@@ -7,7 +7,6 @@
  */
 
 params ["_vehicle"];
-if (!hct_h60_enabled_fms) exitWith {false};
 
 _vehicle setUserMFDValue [31, 0];
 _vehicle setUserMFDValue [32, 0];

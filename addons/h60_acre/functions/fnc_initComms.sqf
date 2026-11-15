@@ -16,13 +16,11 @@ if(!(_monitorPos == 7)) then {
 
 
 for "_i" from 1 to 4 do {
-    _value = _vehicle animationSourcePhase format ["COMM%1_ROT", _i]; 
-    _value = _value * (1/0.75);
-    _racks = [_vehicle] call acre_sys_rack_fnc_getVehicleRacks;
-    _radio = [_racks # (_i - 1)] call acre_sys_rack_fnc_getMountedRadio;
+    private _value = (_vehicle animationSourcePhase format ["COMM%1_ROT", _i]) * (1/0.75);
+    private _radio = [_vehicle, (_i - 1)] call hct_h60_acre_fnc_getRadio;
+    if (_radio isEqualTo "") then {continue}; // rack or radio not there yet
     [_radio, _value] call acre_sys_radio_fnc_setRadioVolume;
     [_radio, _i] call acre_api_fnc_setRadioChannel;
-    _wiredRacks = [_vehicle, acre_player, 0, "wiredRacks"] call acre_sys_intercom_fnc_getStationConfiguration;
-    _selectedRack = _wiredRacks select (_i - 1);
-    _selectedRack set [1, 1];
+    private _wiredRacks = [_vehicle, acre_player, 0, "wiredRacks"] call acre_sys_intercom_fnc_getStationConfiguration;
+    (_wiredRacks param [_i - 1, []]) set [1, 1];
 };

@@ -49,7 +49,8 @@ if (isNull _veh) exitWith {false};
 private _crew = fullCrew [_veh, "", true];
 private _mine = _crew findIf {(_x # 0) isEqualTo _unit};
 if (_mine == -1) exitWith {false};
-private _myName = getText (([_veh, (_crew # _mine) # 3] call BIS_fnc_turretConfig) >> "gunnerName");
+private _names = [_veh] call hct_h60_misc_fnc_turretNames;
+private _myName = _names getOrDefault [(_crew # _mine) # 3, ""];
 
 // Every row seated here of the wanted kind is a candidate: several crew-seat
 // names share the pendant seat, so the way back has one row per name and
@@ -66,7 +67,7 @@ private _pairKind = "";
         _tgt = _crew findIf {
             isNull (_x # 0)
             && {!((_x # 3) isEqualTo [])}
-            && {getText (([_veh, _x # 3] call BIS_fnc_turretConfig) >> "gunnerName") == _tgtName}
+            && {(_names getOrDefault [_x # 3, ""]) == _tgtName}
         };
         if (_tgt > -1) then {_pairKind = _rowKind;};
     };

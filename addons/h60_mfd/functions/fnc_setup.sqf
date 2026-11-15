@@ -6,14 +6,6 @@
  * params (array)[(object) vehicle]
  */
 params ["_vehicle"];
-if (!hct_h60_enabled_mfd) exitWith {
-    _vehicle setUserMFDvalue [23,1];
-    _vehicle setUserMFDvalue [24,0];
-    _vehicle setUserMFDvalue [25,0];
-    _vehicle setUserMFDvalue [26,1];
-    false
-};
-
 _vehicle setUserMFDvalue [23,1];
 _vehicle setUserMFDvalue [24,0];
 _vehicle setUserMFDvalue [25,0];

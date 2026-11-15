@@ -9,9 +9,12 @@
 
 params ["_vehicle"];
 
-private _selIndex = missionNamespace getVariable ["hct_h60_fms_wpSelection", currentWaypoint group player];
-private _selValid = _selIndex > -1 && {_selIndex < count (waypoints group player)};
-private _wayPoint = [group player, [_selIndex, 0] select (!_selValid)];
+// per frame: look the group and its waypoint count up once
+private _group = group player;
+private _wpCount = count waypoints _group;
+private _selIndex = missionNamespace getVariable ["hct_h60_fms_wpSelection", currentWaypoint _group];
+private _selValid = _selIndex > -1 && {_selIndex < _wpCount};
+private _wayPoint = [_group, [_selIndex, 0] select (!_selValid)];
 private _position = if (_selValid) then {waypointPosition _wayPoint} else {[0,0,0]};
 if ((count customWaypointPosition) > 0) then {
     _position = customWaypointPosition;
@@ -70,8 +73,8 @@ private _clearPos = {
 if (hct_h60_fms_renderWaypointsOnTAC) then {
     {
         private _wpSlotIndex = _selIndex + _forEachIndex - 1;
-        _waypointPosition = if (_wpSlotIndex >= 0 && {_wpSlotIndex < count (waypoints group player)}) then {
-            waypointPosition [group player, _wpSlotIndex]
+        _waypointPosition = if (_wpSlotIndex >= 0 && {_wpSlotIndex < _wpCount}) then {
+            waypointPosition [_group, _wpSlotIndex]
         } else {
             [0,0,0]
         };

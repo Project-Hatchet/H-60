@@ -16,11 +16,11 @@
 
 params ["_vehicle"];
 
-hct_h60_weapons_isKeyUp = !_isKeyDown;
 
 private _currentWeapon = currentWeapon _vehicle;
 
 private _weapons = weapons _vehicle - ["CMFlareLauncher", "Laserdesignator_pilotCamera"];
+if (_weapons isEqualTo []) exitWith {};
 private _currentWeaponIndex = _weapons find _currentWeapon;
 private _nextWeaponIndex = _currentWeaponIndex + 1;
 if (_nextWeaponIndex == count _weapons) then {

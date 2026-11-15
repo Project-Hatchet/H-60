@@ -16,8 +16,8 @@
 
 params [["_vehicle", hct_vehicle], ["_sync", true]];
 
-_pilot = driver _vehicle;
-_copilot = _vehicle turretUnit [0];
+private _pilot = driver _vehicle;
+private _copilot = _vehicle turretUnit [0];
 
 // only run for player pilot and copilot
 private _isNotInCockpit = switch (player) do {

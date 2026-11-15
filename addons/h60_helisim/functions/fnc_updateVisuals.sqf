@@ -40,6 +40,10 @@ if (_engState isNotEqualTo (_heli getVariable ["hct_h60_helisim_lastEngState", [
 if (time < (_heli getVariable ["hct_h60_helisim_visualsSecond", -1]) + 1) exitWith {};
 _heli setVariable ["hct_h60_helisim_visualsSecond", time];
 
-private _fat = _heli getVariable ["bmkhs_fat", 15];
-_heli animate ["Gauge_temp_left",  0.5 + (_fat / 100), 2];
-_heli animate ["Gauge_temp_right", 0.5 + (_fat / 100), 2];
+// animate is a network message: send the gauges only when the reading moved
+private _gauge = 0.5 + ((round (_heli getVariable ["bmkhs_fat", 15])) / 100);
+if (_gauge != (_heli getVariable ["hct_h60_helisim_fatGauge", -1])) then {
+    _heli setVariable ["hct_h60_helisim_fatGauge", _gauge];
+    _heli animate ["Gauge_temp_left",  _gauge, 2];
+    _heli animate ["Gauge_temp_right", _gauge, 2];
+};

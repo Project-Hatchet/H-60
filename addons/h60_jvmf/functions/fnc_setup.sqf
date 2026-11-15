@@ -6,7 +6,6 @@
  * params [(object) vehicle]
  */
 
-if (!hct_h60_enabled_jvmf) exitWith {false};
 // remove handlers a setup without a shutdown left behind (they were set to nil
 // here first, so a second setup made them unremovable and doubled every message)
 call hct_h60_jvmf_fnc_shutdown;

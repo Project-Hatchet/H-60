@@ -9,4 +9,4 @@
 params ["_center"];
 hct_h60_ccfs_ballPos params ["_x", "_y"];
 private _diff = (_y - _center);
-hct_h60_ccfs_ballVelocity = [_xVelocity * -1, _diff / 10];
+hct_h60_ccfs_ballVelocity = [(hct_h60_ccfs_ballVelocity # 0) * -1, _diff / 10]; // was the caller's _xVelocity

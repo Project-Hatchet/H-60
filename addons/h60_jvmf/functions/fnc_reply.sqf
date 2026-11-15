@@ -7,6 +7,7 @@
 params ["_vehicle", "_reply"];
 private _replySender = profileName;
 private _timestamp = [daytime, "HH:MM"] call BIS_fnc_timeToString;
+if (hct_jvmf_selected_idx < 0 || {hct_jvmf_selected_idx >= count hct_jvmf_messages}) exitWith {}; // empty inbox
 private _message = hct_jvmf_messages # hct_jvmf_selected_idx;
 _message params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
 

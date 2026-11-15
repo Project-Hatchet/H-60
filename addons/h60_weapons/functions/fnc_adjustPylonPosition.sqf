@@ -23,7 +23,7 @@ GVAR(pylonPositionParams) = [_heli, _anim];
 createDialog QGVAR(pylonPosition);
 private _okButton = (findDisplay 7777) displayCtrl 1;
 private _currentPos = _heli animationSourcePhase _anim;
-_okButton ctrlSetText (format ["Pylon Position: %1 m", _currentPos]);
+_okButton ctrlSetText (format [localize "STR_hct_h60_weapons_PylonPosition", _currentPos]);
 
 private _slider = (findDisplay 7777) displayCtrl 1900;
 _slider sliderSetPosition _currentPos;
@@ -32,5 +32,5 @@ _slider ctrlAddEventHandler ["SliderPosChanged", {
     (missionNamespace getVariable 'hct_h60_weapons_pylonPositionParams') params ['_v', '_a'];
     _v animateSource [_a, _newValue, true];
     private _okButton = (findDisplay 7777) displayCtrl 1;
-    _okButton ctrlSetText format ["Pylon Position: %1 m", _newValue];
+    _okButton ctrlSetText format [localize "STR_hct_h60_weapons_PylonPosition", _newValue];
 }];

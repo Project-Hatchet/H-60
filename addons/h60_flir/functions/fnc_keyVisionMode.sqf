@@ -17,7 +17,7 @@ private _pipEffects = [];
 if (hct_h60_flir_pipIsFixed && {!hct_h60_flir_isInScriptedCamera}) then {
   _pipEffects = [[0], [1]]; // Sling cam
 } else {
-  private _opticsInfo = hct_h60_flir_OpticsInfo get hct_h60_flir_FOV;
+  private _opticsInfo = hct_h60_flir_OpticsInfo getOrDefault [hct_h60_flir_FOV, [[0], []]]; // an FOV the optics table lacks: daylight only
   _opticsInfo params ["_visionModes", "_thermalModes"];
   {
     private _effect = (hct_h60_flir_pipEffectsHashMap get _x);
@@ -28,6 +28,7 @@ if (hct_h60_flir_pipIsFixed && {!hct_h60_flir_isInScriptedCamera}) then {
 };
 
 // Increment
+if (_pipEffects isEqualTo []) then {_pipEffects = [[0]]};
 private _currStep = _pipEffects findIf {_x isEqualTo hct_h60_flir_pipEffect};
 private _newStep = if (_currStep == (count _pipEffects - 1) || {_currStep == -1}) then {0} else {_currStep + 1};
 

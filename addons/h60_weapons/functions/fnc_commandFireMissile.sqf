@@ -4,7 +4,7 @@
 */
 params ["_vehicle"];
 
-_weapons = weapons _vehicle;
+private _weapons = weapons _vehicle;
 
 if ("hct_hellfire_launcher" in _weapons) exitWith {driver _vehicle forceWeaponFire ["hct_hellfire_launcher", "hct_hellfire_launcher"];};
 if ("hct_hellfire_launcher_N" in _weapons) exitWith {driver _vehicle forceWeaponFire ["hct_hellfire_launcher_N", "hct_hellfire_launcher_N"];};

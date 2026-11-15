@@ -36,13 +36,12 @@
 params ["_veh", ["_toggle", false]];
 
 private _busy = _veh getVariable ["hct_ccSwapBusy", []];
-private _turrets = (allTurrets [_veh, true]) apply {
-    [_x, getText (([_veh, _x] call BIS_fnc_turretConfig) >> "gunnerName")]
-};
+private _names = [_veh] call hct_h60_misc_fnc_turretNames;
 private _pathOf = {
     params ["_name"];
-    private _i = _turrets findIf {(_x # 1) == _name};
-    if (_i == -1) then {[]} else {(_turrets # _i) # 0}
+    private _path = [];
+    {if (_y == _name) exitWith {_path = _x}} forEach _names;
+    _path
 };
 
 // hoist operator: drop a designation that no longer points at the pendant seat

@@ -5,7 +5,7 @@ private _action = [
     (localize "STR_hct_h60_misc_AttachToBlackhawk"),
     "",
     {[_target] call hct_h60_misc_fnc_attachCRRC;},
-    {(count (nearestObjects [_target, [QBASE_CLASS], 10])) > 0}
+    {(_target nearEntities [QBASE_CLASS, 10]) isNotEqualTo []} // ACE re-runs this while the menu is open: nearEntities skips the sort
 ] call ace_interact_menu_fnc_createAction;
 ["Rubber_duck_base_F",0,["ACE_MainActions"],_action, true] call ace_interact_menu_fnc_addActionToClass;
 

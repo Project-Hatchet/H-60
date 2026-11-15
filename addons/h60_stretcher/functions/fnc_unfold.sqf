@@ -14,8 +14,9 @@
  * [_unit] call hct_h60_stretcher_fnc_unfold
  */
 
-params ["_unit", ["_variant", 0, 0]];
+params [["_unit", objNull, [objNull]], ["_variant", 0, [0]]];
 
+if !("hct_h60_stretcher_item" in items _unit) exitWith {objNull};
 _unit removeItem "hct_h60_stretcher_item";
 [_unit, "PutDown"] call ace_common_fnc_doGesture;
 
@@ -33,3 +34,4 @@ private _class = "hct_h60_stretcher_" + str _variant;
 private _vehicle = _class createVehicle _pos;
 _vehicle setPos _pos;
 _vehicle setDir getDir _unit;
+_vehicle

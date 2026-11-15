@@ -13,7 +13,7 @@
  */
 
 params ["_heli"];
-if !(local _heli) exitWith {[_heli] remoteExecCall ["hct_h60_hoist_fnc_secureHook", _heli]};
+if !(local _heli) exitWith {[_heli] remoteExecCall ["hct_h60_hoist_fnc_stabilizeHook", _heli]};
 
 private _hoist_vars = _heli getVariable ["hct_h60_hoist_vars", []];
 if (_hoist_vars isEqualTo []) exitWith{};

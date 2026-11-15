@@ -17,6 +17,7 @@ params ["_vehicle", ["_turret", [0]]];
 
 private _weapon = _vehicle currentWeaponTurret _turret;
 private _weapons = _vehicle weaponsTurret _turret;
+if (_weapons isEqualTo []) exitWith {false};
 _weapons pushBack (_weapons # 0);
 
 private _found = false;

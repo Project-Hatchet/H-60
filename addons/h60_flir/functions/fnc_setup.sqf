@@ -75,6 +75,7 @@ hct_h60_flir_camDirAndUp = [
 hct_h60_flir_isVisibleMap = visibleMap;
 call hct_h60_flir_fnc_setIsPipHidden;
 
+private _id = -1; // private: setup runs inside the framework's own scope
 if (hct_h60_flir_playerIsPilot) then {
   if (productVersion # 2 >= 207) then {
     // https://community.bistudio.com/wiki/Arma_3:_Event_Handlers#VisionModeChanged
@@ -132,10 +133,12 @@ _id = ["featureCamera", {
   call hct_h60_flir_fnc_setIsPipHidden;
   // Fix pip black screen
   if (_featureCamera == "" && {call hct_h60_mfd_fnc_isAnyFlirOpened}) then {
-    if (!isNil "hct_h60_flir_camera" || {isNull hct_h60_flir_camera}) then {
+    // re-apply whichever feed camera exists (the old `!isNil x || {isNull x}` read the
+    // undefined variable whenever it did not exist)
+    if (!isNil "hct_h60_flir_camera") then {
       call hct_h60_flir_fnc_pipStart;
     };
-    if (!isNil "hct_h60_mfd_slingCam" || {isNull hct_h60_mfd_slingCam}) then {
+    if (!isNil "hct_h60_mfd_slingCam") then {
       [hct_vehicle, true] call hct_h60_mfd_fnc_slingCam;
     };
   };

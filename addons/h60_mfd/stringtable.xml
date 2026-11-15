@@ -37,5 +37,8 @@
         <Key ID="STR_hct_h60_mfd_NoPlayerSelected">
             <English>No player selected</English>
         </Key>
+        <Key ID="STR_hct_h60_mfd_CCFSOnlyOnMFD23">
+            <English>Warning\nThe CCFS can only be opened on MFD 2 and 3</English>
+        </Key>
     </Package>
 </Project>

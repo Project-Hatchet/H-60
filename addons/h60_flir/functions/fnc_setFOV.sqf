@@ -15,7 +15,7 @@
 params ["_fov", ["_sync", true]];
 // systemChat str ["SYNCING", _this];
 hct_h60_flir_FOV = _fov;
-hct_h60_flir_camera camSetFov _fov;
+if (!isNil "hct_h60_flir_camera") then { hct_h60_flir_camera camSetFov _fov; }; // no PiP camera in native gunner view, or on a remote crew's machine
 
 if (_sync) then {
   // ["hct_h60_flir_syncFOV", [_fov], [hct_h60_flir_otherPilot]] call CBA_fnc_targetEvent;

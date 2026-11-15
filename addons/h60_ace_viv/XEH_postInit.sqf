@@ -39,10 +39,9 @@ GVAR(unloadActionCargo) = [ // create action
     localize "STR_A3_moduleDepot_Unload",
     "\a3\ui_f\data\IGUI\Cfg\Actions\unloadVehicle_ca.paa",
     {
+        // the setVehicleCargo handler re-checks the carrier's blocked seats
         [QGVAR(setVehicleCargo), [objNull, _target]] call CBA_fnc_localEvent;
-        _carrier = isVehicleCargo _target;
-        _cargoList = getVehicleCargo _carrier;
-        if (count _cargoList < 0) then {[_carrier, false] call hct_h60_ace_viv_fnc_lockSeats};},
+    },
     {!isNull (isVehicleCargo _target)}
 ] call ace_interact_menu_fnc_createAction;
 ["All", 0, ["ACE_MainActions"], GVAR(unloadActionCargo), true] call ace_interact_menu_fnc_addActionToClass;

@@ -11,7 +11,9 @@ params ["_heli", ["_active", true]];
 
 // permission is checked on the initiating client; the hoist owner may be a
 // dedicated server where player is objNull
-if (_active && {!([player] call hct_h60_hoist_fnc_canControlHoist)}) exitWith {};
+// permission is the caller's: on the owner's machine (a remote call) `player` is the
+// pilot, or nobody on a server-owned aircraft, which would refuse every remote press
+if (_active && {!isRemoteExecuted} && {!([player] call hct_h60_hoist_fnc_canControlHoist)}) exitWith {};
 
 if !(local _heli) exitWith {[_heli, _active] remoteExecCall ["hct_h60_hoist_fnc_lowerHook", _heli]};
 

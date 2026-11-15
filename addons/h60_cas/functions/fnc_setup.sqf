@@ -8,7 +8,6 @@
  */
 
 params ["_vehicle"];
-if (!hct_h60_enabled_cas) exitWith {false};
 #define SET_GLOBAL_DEFAULT(VAR,DEFAULT) _vehicle setVariable [VAR, _vehicle getVariable [VAR, DEFAULT], true];
 #define SET_DEFAULT(VAR,DEFAULT) _vehicle setVariable [VAR, _vehicle getVariable [VAR, DEFAULT]];
 // Local only: every client keeps its own list (registerCautionAdvisory never

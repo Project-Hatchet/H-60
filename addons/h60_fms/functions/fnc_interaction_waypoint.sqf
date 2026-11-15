@@ -49,7 +49,7 @@ switch (_action) do {
 
             private _wp = _group addWaypoint [ASLToAGL _tgtPosASL, -1, count _waypoints, "Track Pos"];
             _wp setWaypointDescription "Track Pos";
-            if (!_autoNext) then {
+            if !(_vehicle getVariable ["hct_h60_fms_import_autoCycle", false]) then {
               _wp setWaypointStatements ["false", ""];
             };
             _wp setWaypointVisible false;
@@ -86,6 +86,7 @@ switch (_action) do {
         private _position = waypointPosition _wayPoint;
 
         private _sender = profileName;
+        private _timestamp = [daytime, "HH:MM"] call BIS_fnc_timeToString;
         private _recipient = "ALL";
         private _id = "XMIT WAYPT";
         private _messageContent = [

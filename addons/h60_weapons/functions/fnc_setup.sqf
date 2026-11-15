@@ -27,7 +27,7 @@ _vehicle setVariable ["hct_h60_hellfire_impactTime", -1];
   USERMFDV_LST_MODE
 ];
 
-_lrfdCode = [_vehicle, "LRFD"] call hct_h60_weapons_fnc_getLaserCode;
+private _lrfdCode = [_vehicle, "LRFD"] call hct_h60_weapons_fnc_getLaserCode;
 _vehicle setVariable ["ace_laser_code", _lrfdCode, true];
 
 true

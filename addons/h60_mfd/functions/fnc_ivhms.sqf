@@ -25,8 +25,8 @@ private _timeStr = format["DATE %1/%2/%3 %4:%5Z", _year, _month, _day, _hour, _m
 _vehicle setUserMFDText [4, _timeStr];
 
 // MODULES
-private _modules = vehicle player getVariable "hct_modules";
-_modulesText =_modules apply {(_x # 0) + (if (_x # 1) then [{"/ACT"},{"/STB"}])} joinString " | ";
+private _modules = vehicle player getVariable ["hct_modules", []];
+private _modulesText =_modules apply {(_x # 0) + (if (_x # 1) then [{"/ACT"},{"/STB"}])} joinString " | ";
 
 // 5 MODULES1
 _vehicle setUserMFDText [5,_modulesText select [0,62]];
@@ -36,7 +36,7 @@ _vehicle setUserMFDText [6,_modulesText select [62,62]];
 _vehicle setUserMFDText [7,_modulesText select [124,62]];
 
 // 9 hct_DRIVER
-_vehicle setUserMFDText [9, configName _config];
+_vehicle setUserMFDText [9, if (isNil "_config") then {""} else {configName _config}];
 
 // Product info
 productVersion params ["_name", "_nameShort", "_version", "_build", "_branch", "", "_os", "_architecture"];

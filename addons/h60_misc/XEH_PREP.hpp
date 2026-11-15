@@ -25,3 +25,4 @@ PREP(removeCustomization);
 PREP(setDoorNumbers);
 PREP(setup);
 PREP(toggleLights);
+PREP(turretNames);

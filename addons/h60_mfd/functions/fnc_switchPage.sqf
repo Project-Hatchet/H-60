@@ -11,7 +11,7 @@ params ["_vehicle", "_mfdIndex", "_pageIndex", "_propagate"];
 #include "..\config\mfdDefines.hpp"
 
 if ((_mfdIndex == MFD_1_PAGE_INDEX || _mfdIndex == MFD_4_PAGE_INDEX) && _pageIndex == MFD_PAGE_CCFS_MENU) exitWith {
-  ["Warning\nThe CCFS can only be opened on MFD 2 and 3"] call hct_h60_misc_fnc_hint;
+  [localize "STR_hct_h60_mfd_CCFSOnlyOnMFD23"] call hct_h60_misc_fnc_hint;
 };
 
 if (_propagate) exitWith {

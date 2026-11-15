@@ -8,14 +8,14 @@
 
 params ["_vehicle", "_frameTime"];
 #include "\bmkhs_helisim\functions\core\core.hpp"
-private _ui = uiNamespace getVariable "hct_h60_flir_ui";
+private _ui = uiNamespace getVariable ["hct_h60_flir_ui", displayNull]; // overlay never opened: every ctrlSetText below is a no-op
 private _controlsGroup = _ui displayCtrl 170;
 
 if (hct_h60_flir_isInScriptedCamera) then {
 	//if (isNil "hct_h60_flir_camera") exitWith {};
 	(_controlsGroup controlsGroupCtrl 156) ctrlSetText str (round (getDir hct_h60_flir_camera)); // DIR
 
-	private _visText = hct_h60_flir_visionModeNamesHashMap get hct_h60_flir_pipEffect;
+	private _visText = hct_h60_flir_visionModeNamesHashMap getOrDefault [hct_h60_flir_pipEffect, ""];
 	(_controlsGroup controlsGroupCtrl 153) ctrlSetText _visText; // VIS
 
 	(_controlsGroup controlsGroupCtrl 158) ctrlSetText (if (isLaserOn _vehicle) then [{"LRF ARMED"}, {""}]); // LSR

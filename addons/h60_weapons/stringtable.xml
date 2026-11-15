@@ -124,5 +124,8 @@
         <Key ID="STR_hct_h60_weapons_AdjustPylonPosition">
             <English>Adjust Pylon Position</English>
         </Key>
+        <Key ID="STR_hct_h60_weapons_PylonPosition">
+            <English>Pylon Position: %1 m</English>
+        </Key>
     </Package>
 </Project>

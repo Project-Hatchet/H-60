@@ -7,3 +7,4 @@ PREP(cycleSpatial);
 PREP(fmsSetPreset);
 PREP(radioStatusUpdate);
 PREP(notifyOtherSeat);
+PREP(getRadio);

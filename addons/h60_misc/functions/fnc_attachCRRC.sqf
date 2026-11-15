@@ -4,8 +4,8 @@
  */
 params ["_boat"];
 
-private _helicopters = nearestObjects [_target, [QBASE_CLASS], 10];
-private _helicopter = _helicopters # 0;
+private _helicopter = (nearestObjects [_boat, [QBASE_CLASS], 10]) param [0, objNull]; // was _target: only defined in the ACE caller
+if (isNull _helicopter) exitWith {}; // flew off between the menu and the click
 
 private _attachedBoat = _helicopter getVariable ["hct_crrc_attached", nil];
 if (!isNil "_attachedBoat") exitWith {

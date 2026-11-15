@@ -13,7 +13,7 @@ hct_jvmf_messages pushBack _this;
 if(hct_h60_devMode) then {systemChat format ["RECEIVED JVMF: %1", _this];};
 
 // systemChat str [_replySender, player];
-if ((_replies # 0 # 3) != player) then {
+if (((_replies param [0, []]) param [3, objNull]) != player) then {
 	if(hct_h60_devMode) then {systemChat "REGISTERING ADVISORY";};
 	[vehicle player,"NEW JVMF MSG",{},false,false] call hct_h60_cas_fnc_registerCautionAdvisory;
 };

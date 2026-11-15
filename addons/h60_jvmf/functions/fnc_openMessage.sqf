@@ -6,6 +6,7 @@ params ["_ctrl"];
 private _display = ctrlParent _ctrl;
 private _ctrl = _display displayCtrl 1337;
 private _curSel = lbCurSel _ctrl;
+if (_curSel < 0 || {_curSel >= count hct_jvmf_messages}) exitWith {}; // nothing selected
 private _message = hct_jvmf_messages # _curSel;
 _message params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
 closeDialog 2;

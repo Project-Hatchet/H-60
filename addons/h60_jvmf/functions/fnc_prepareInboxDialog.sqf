@@ -21,11 +21,12 @@ private _fixString = {
         case 1: {"CASREQ"};
         case 2: {"POSRPT"};
         case 3: {"MEDEVC"};
+        default {"??????"}; // unknown type: no nil in the string build
     };
     _str = _str + _typeText + " ";
     _str = _str + ([_sender, 6] call _fixString) + " ";
     _str = _str + ([_recipient, 6] call _fixString) + " ";
-	private _lastReply = _replies # ((count _replies) - 1);
+    private _lastReply = _replies param [(count _replies) - 1, ["", "", ""]]; // a message with no replies yet
     _str = _str + ([_lastReply # 2, 4] call _fixString) + " ";
     if (count _replies > 0) then {
         _str = _str + ((_replies # 0) # 0);

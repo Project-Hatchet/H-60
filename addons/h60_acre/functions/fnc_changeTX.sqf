@@ -24,6 +24,8 @@ if (_newWorkPos == _workPos) exitWith {};
 
 private _wiredRacks = [_vehicle, acre_player, 0, "wiredRacks"] call acre_sys_intercom_fnc_getStationConfiguration;
 private _monitorPos = [_vehicle, acre_player, 0, "monitorKnob"] call acre_sys_intercom_fnc_getStationConfiguration;
+// both knob positions index the wired racks (1-based): none built yet, or fewer than the knob reaches
+if ((_workPos max _newWorkPos) > count _wiredRacks) exitWith {};
 
 // Set the previous rack to no monitor unless it is selected in the monitor knob
 if (_workPos != 0) then {

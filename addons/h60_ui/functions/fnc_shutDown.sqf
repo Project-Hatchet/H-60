@@ -8,6 +8,9 @@
 
 params ["_vehicle"];
 
-["hct_unPause", hct_h60_ui_keybindUpdateEvent] call CBA_fnc_removeEventHandler;
+if (!isNil "hct_h60_ui_keybindUpdateEvent") then {
+    ["hct_unPause", hct_h60_ui_keybindUpdateEvent] call CBA_fnc_removeEventHandler;
+    hct_h60_ui_keybindUpdateEvent = nil;
+};
 
 player hideObject false;

@@ -19,7 +19,6 @@ private _hoist_vars = _heli getVariable ["hct_h60_hoist_vars", []];
 if (_hoist_vars isEqualTo []) exitWith{false};
 _hoist_vars params ["_rope", "_dummy", "_hook"];
 
-_hoistPos = [1.405, 2.03, 0.45];
 ropeUnwind [_rope, 1.5, 0.5];
 
 true;

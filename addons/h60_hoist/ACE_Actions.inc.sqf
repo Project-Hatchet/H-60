@@ -5,13 +5,13 @@ private _action = ["hct_hoist_action", _displayName, "z\vtx\addons\uh60_hoist\da
 [QBASE_CLASS, 1, ["ACE_SelfActions"], _action, true] call ace_interact_menu_fnc_addActionToClass;
 
 _displayName = localize LSTRING(DeployHook);
-_condition = {[_player] call hct_h60_hoist_fnc_canControlHoist && [_target] call hct_h60_hoist_fnc_canDeployHook};
+_condition = {[_player] call hct_h60_hoist_fnc_canControlHoist && {[_target] call hct_h60_hoist_fnc_canDeployHook}};
 _statement = hct_h60_hoist_fnc_deployHook;
 _action = ["hct_hoist_DeployHook", _displayName, "", _statement, _condition] call ace_interact_menu_fnc_createAction;
 [QBASE_CLASS, 1, ["ACE_SelfActions", "hct_hoist_action"], _action, true] call ace_interact_menu_fnc_addActionToClass;
 
 _displayName = localize LSTRING(SecureHook);
-_condition = {[_player] call hct_h60_hoist_fnc_canControlHoist && [_target] call hct_h60_hoist_fnc_canSecureHook};
+_condition = {[_player] call hct_h60_hoist_fnc_canControlHoist && {[_target] call hct_h60_hoist_fnc_canSecureHook}};
 _statement = hct_h60_hoist_fnc_secureHook;
 _action = ["hct_hoist_SecureHook", _displayName, "", _statement, _condition] call ace_interact_menu_fnc_createAction;
 [QBASE_CLASS, 1, ["ACE_SelfActions", "hct_hoist_action"], _action, true] call ace_interact_menu_fnc_addActionToClass;
@@ -29,19 +29,19 @@ _action = ["hct_hoist_MoveToHook", _displayName, "", _statement, _condition] cal
 [QBASE_CLASS, 1, ["ACE_SelfActions", "hct_hoist_action"], _action, true] call ace_interact_menu_fnc_addActionToClass;
 
 _displayName = localize LSTRING(RaiseHookToHeli);
-_condition = {[_player] call hct_h60_hoist_fnc_canControlHoist && [_target] call hct_h60_hoist_fnc_isHoistReady};
+_condition = {[_player] call hct_h60_hoist_fnc_canControlHoist && {[_target] call hct_h60_hoist_fnc_isHoistReady}};
 _statement = hct_h60_hoist_fnc_raiseHookToHeli;
 _action = ["hct_hoist_RaiseHookToHeli", _displayName, "", _statement, _condition] call ace_interact_menu_fnc_createAction;
 [QBASE_CLASS, 1, ["ACE_SelfActions", "hct_hoist_action"], _action, true] call ace_interact_menu_fnc_addActionToClass;
 
 _displayName = localize LSTRING(LowerHookToGround);
-_condition = {[_player] call hct_h60_hoist_fnc_canControlHoist && [_target] call hct_h60_hoist_fnc_isHoistReady};
+_condition = {[_player] call hct_h60_hoist_fnc_canControlHoist && {[_target] call hct_h60_hoist_fnc_isHoistReady}};
 _statement = hct_h60_hoist_fnc_lowerHookToGround;
 _action = ["hct_hoist_LowerHookToGround", _displayName, "", _statement, _condition] call ace_interact_menu_fnc_createAction;
 [QBASE_CLASS, 1, ["ACE_SelfActions", "hct_hoist_action"], _action, true] call ace_interact_menu_fnc_addActionToClass;
 
 _displayName = localize LSTRING(StabilizeHook);
-_condition = {[_player] call hct_h60_hoist_fnc_canControlHoist && [_target] call hct_h60_hoist_fnc_isHookDeployed}; // can stabilize while hoist is "working"
+_condition = {[_player] call hct_h60_hoist_fnc_canControlHoist && {[_target] call hct_h60_hoist_fnc_isHookDeployed}}; // can stabilize while hoist is "working"
 _statement = hct_h60_hoist_fnc_stabilizeHook;
 _action = ["hct_hoist_StabilizeHook", _displayName, "", _statement, _condition] call ace_interact_menu_fnc_createAction;
 [QBASE_CLASS, 1, ["ACE_SelfActions", "hct_hoist_action"], _action, true] call ace_interact_menu_fnc_addActionToClass;

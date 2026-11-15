@@ -33,10 +33,10 @@ if (hct_h60_ui_helpEnabled) then {
             0.05
         ];
 
-        HELP_LABEL_COND("b_batt1","Battery switches",(_vehicle animationPhase "Switch_batt1" < 0.1))
+        HELP_LABEL_COND("b_batt1",localize "STR_hct_h60_ui_BatterySwitches",(_vehicle animationPhase "Switch_batt1" < 0.1))
         HELP_LABEL_COND("b_batt2","",(_vehicle animationPhase "Switch_batt2" < 0.1))
-        HELP_LABEL("FMS_L_1","FMS")
-        HELP_LABEL("FMS_R_1","FMS")
+        HELP_LABEL("FMS_L_1",localize "STR_hct_h60_ui_FMS")
+        HELP_LABEL("FMS_R_1",localize "STR_hct_h60_ui_FMS")
     };
 };
 

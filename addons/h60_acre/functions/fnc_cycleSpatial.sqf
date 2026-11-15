@@ -10,8 +10,8 @@ params ["_vehicle", "_index", "_cycle"];
 
 private _newSpatial = "CENTER";
 
-private _racks = [_vehicle] call acre_sys_rack_fnc_getVehicleRacks;
-private _radio = [_racks # _index] call acre_sys_rack_fnc_getMountedRadio;
+private _radio = [_vehicle, _index] call hct_h60_acre_fnc_getRadio;
+if (_radio isEqualTo "") exitWith {false}; // rack or radio not there yet
 private _oldSpatial = [_radio] call acre_api_fnc_getRadioSpatial;
 
 if (_cycle == 1) then {
@@ -30,6 +30,6 @@ if (_cycle == 1) then {
 	};
 };
 
-_setSpatial = [_radio, _newSpatial] call acre_api_fnc_setRadioSpatial;
+[_radio, _newSpatial] call acre_api_fnc_setRadioSpatial;
 [_vehicle] call hct_h60_acre_fnc_notifyOtherSeat;
 true

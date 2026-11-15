@@ -43,13 +43,12 @@ if (!local _vehicle) exitWith {};
 
 private _isLOBL = [_vehicle] call hct_h60_weapons_fnc_isLOBL;
 _isLOBL params ["_foundLaser", "_laserPosition"];
-private _targetPosition = if (_foundLaser) then {_laserPosition};
 
 private _launchVect = vectorDir _vehicle;
 private _direction = getPilotCameraDirection _vehicle;
 private _laserVect = _vehicle vectorModelToWorldVisual _direction;
 private _dotProd = _launchVect vectorDotProduct _laserVect;
-private _angleDiff = acos _dotProd;
+private _angleDiff = acos ((_dotProd min 1) max -1); // float overshoot past 1 is outside acos's domain
 
 private _outOfConstraints = false;
 if (_foundLaser && _angleDiff > 20) then {_outOfConstraints = true};

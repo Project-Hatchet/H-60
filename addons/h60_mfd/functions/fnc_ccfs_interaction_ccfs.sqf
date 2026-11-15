@@ -19,7 +19,7 @@ switch (_action) do {
 		[_vehicle, -1] call hct_h60_mfd_fnc_ccfs_CyclePlayer;
 	};
 	case 4: { // host
-		[_vehicle] call hct_h60_mfd_fnc_ccfs_host;
+		[_vehicle, _value] call hct_h60_mfd_fnc_ccfs_host;
 	};
 	case 5: { // exit
 		[_vehicle] call hct_h60_mfd_fnc_ccfs_exit;

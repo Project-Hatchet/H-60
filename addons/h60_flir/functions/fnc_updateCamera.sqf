@@ -13,6 +13,7 @@
  */
 
 params ["_vehicle"];
+if (isNil "hct_h60_flir_camera") exitWith {false}; // native gunner view with no PiP page open
 
 private _camPosASL = hct_vehicle modelToWorldVisualWorld hct_h60_flir_camPos;
 hct_h60_flir_camera setPosASL _camPosASL;

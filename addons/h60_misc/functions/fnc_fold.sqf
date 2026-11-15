@@ -88,7 +88,7 @@ private _fnc_condition = {
 
 // Unfold
 if (_phase == 0) exitWith {
-  _target = [];
+  private _target = []; // private: the ACE caller has its own _target
   [
     "Fold_Blade1",
     "Fold_Blade2",
