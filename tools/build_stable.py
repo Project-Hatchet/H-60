@@ -32,7 +32,8 @@ import time
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-VERSION_FILE = "addons/main/script_version.hpp"
+VERSION_FILE = "addons/main/script_version.hpp"  # resolved per ref in main(): h60_main after #668
+VERSION_FILE_CANDIDATES = ("addons/h60_main/script_version.hpp", "addons/main/script_version.hpp")
 HEMTT_OUT = REPO / ".hemttout" / "release"
 ZIPS = REPO / "releases"
 DEFAULT_DEST_ROOT = Path(os.environ.get("USERPROFILE", "")) / "OneDrive" / "Documents" / "Hatchet" / "H-60" / "Releases" / "Stable Branch"
@@ -119,6 +120,11 @@ def main():
         die("working tree is not clean - commit or stash first")
     ensure_matches_origin(args.branch)
 
+    global VERSION_FILE
+    for cand in VERSION_FILE_CANDIDATES:  # the main addon folder moved in #668
+        if run(["git", "cat-file", "-e", f"{args.branch}:{cand}"]).returncode == 0:
+            VERSION_FILE = cand
+            break
     r = run(["git", "show", f"{args.branch}:{VERSION_FILE}"])
     if r.returncode != 0:
         die(f"{VERSION_FILE} not found at {args.branch}")

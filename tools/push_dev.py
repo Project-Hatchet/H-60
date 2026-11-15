@@ -52,7 +52,8 @@ ISSUE_URL = "https://github.com/Project-Hatchet/H-60/issues/"
 MOD_FOLDER = Path("release") / "@H-60"
 PBO_PREFIX = "hct_"  # HEMTT names PBOs <project prefix>_<addon folder>.pbo
 HEMTT_OUT = Path(".hemttout") / "build"
-VERSION_FILE = "addons/main/script_version.hpp"
+VERSION_FILE = "addons/main/script_version.hpp"  # resolved per ref by resolve_version_file(): h60_main after #668
+VERSION_FILE_CANDIDATES = ("addons/h60_main/script_version.hpp", "addons/main/script_version.hpp")
 CHANGELOG = "CHANGELOG-DEV.md"
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import changelog as fragments  # noqa: E402  (tools/changelog.py)
@@ -138,6 +139,17 @@ def show_file(ref, path):
     if r.returncode != 0:
         die(f"{path} not found at {ref}")
     return r.stdout
+
+
+def resolve_version_file(ref):
+    """The main addon moved from addons/main to addons/h60_main (#668); use whichever
+    the ref has, so this script works on branches from either side of the rename."""
+    global VERSION_FILE
+    for cand in VERSION_FILE_CANDIDATES:
+        if run(["git", "cat-file", "-e", f"{ref}:{cand}"]).returncode == 0:
+            VERSION_FILE = cand
+            return cand
+    die(f"no script_version.hpp at {ref} under addons/h60_main or addons/main")
 
 
 def linkify(text):
@@ -372,6 +384,7 @@ def main():
     args = ap.parse_args()
 
     git("rev-parse", "--verify", f"{args.branch}^{{commit}}")
+    resolve_version_file(args.branch)
     version, stamp = target_version(args.branch, args)
     if stamp and args.skip_build:
         die("--bump/--version need a checkout to stamp the branch; drop --skip-build")
