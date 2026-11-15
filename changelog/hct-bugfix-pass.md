@@ -11,3 +11,5 @@
 - The FLIR and sling-camera picture on the MFDs now keeps its proportions on any monitor - it was squeezed sideways, badly on ultrawide (21:9, 32:9) screens
 - Fix the FLIR lock grabbing a vehicle far off that you were not looking at (behind a hill, a building or past your aim point). A narrowly missed target is still caught, but only one in front of what you are aiming at, close to the aim line, inside a window that narrows as you zoom, and in line of sight; aircraft against open sky can now be locked the same way
 - Fix one press of the FLIR lock key sometimes locking and releasing at once
+- Fix the copilot's fullscreen FLIR always opening in daylight TV even with a thermal or NVG mode selected, green-hot never applying in fullscreen, and the MFD FLIR picture coming back in the wrong mode after Zeus or spectator
+- Fix getting out (or respawning) while in the fullscreen FLIR leaving its camera or key hooks behind, and the sling camera continuing to render after you leave the aircraft

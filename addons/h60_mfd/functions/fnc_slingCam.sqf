@@ -30,8 +30,9 @@ if (_show) then {
   hct_h60_mfd_slingCam camCommit 0;
 } else {
   if (!isNil "hct_h60_mfd_slingCam") then {
-    camDestroy hct_h60_mfd_slingCam;
+    // end the effect before the camera: terminate on a destroyed camera does nothing
     hct_h60_mfd_slingCam cameraEffect ["terminate", "back", "hct_h60_flir_feed"];
+    camDestroy hct_h60_mfd_slingCam;
     hct_h60_mfd_slingCam = nil;
   };
   if (!isNil "hct_h60_flir_camera") then {

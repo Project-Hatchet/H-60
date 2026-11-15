@@ -9,20 +9,25 @@
 params ["_vehicle", "_frameTime"];
 #include "\bmkhs_helisim\functions\core\core.hpp"
 private _ui = uiNamespace getVariable ["hct_h60_flir_ui", displayNull]; // overlay never opened: every ctrlSetText below is a no-op
+if (isNull _ui) exitWith {}; // the fullscreen overlay is not up (PiP only): nothing to write
 private _controlsGroup = _ui displayCtrl 170;
 
-if (hct_h60_flir_isInScriptedCamera) then {
-	//if (isNil "hct_h60_flir_camera") exitWith {};
+if (hct_h60_flir_isInScriptedCamera && {!isNil "hct_h60_flir_camera"}) then {
 	(_controlsGroup controlsGroupCtrl 156) ctrlSetText str (round (getDir hct_h60_flir_camera)); // DIR
+
+	private _zoomRaw = ([0.5,0.5] distance2D  worldToScreen positionCameraToWorld [0,3,4])
+	* (getResolution select 5) / 2;
+	(_controlsGroup controlsGroupCtrl 180) ctrlSetText format["%1x", _zoomRaw toFixed 1]; // zoom
+
+	// The rest at 10 Hz: readable no faster, and the centre-of-screen raycast, two grid
+	// conversions and a time format were all done every frame
+	if (diag_tickTime < (missionNamespace getVariable ["hct_h60_flir_uiSlowNext", 0])) exitWith {};
+	hct_h60_flir_uiSlowNext = diag_tickTime + 0.1;
 
 	private _visText = hct_h60_flir_visionModeNamesHashMap getOrDefault [hct_h60_flir_pipEffect, ""];
 	(_controlsGroup controlsGroupCtrl 153) ctrlSetText _visText; // VIS
 
 	(_controlsGroup controlsGroupCtrl 158) ctrlSetText (if (isLaserOn _vehicle) then [{"LRF ARMED"}, {""}]); // LSR
-
-	private _zoomRaw = ([0.5,0.5] distance2D  worldToScreen positionCameraToWorld [0,3,4])
-	* (getResolution select 5) / 2;
-	(_controlsGroup controlsGroupCtrl 180) ctrlSetText format["%1x", _zoomRaw toFixed 1]; // zoom
 
 	(_controlsGroup controlsGroupCtrl 171) ctrlSetText (mapGridPosition _vehicle); // spd
 	(_controlsGroup controlsGroupCtrl 188) ctrlSetText str round (((getUserMFDValue _vehicle) # 103) * MPS_TO_KNOTS); // spd - HeliSim ground speed, kt (USERMFDV_GS)

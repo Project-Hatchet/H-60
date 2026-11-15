@@ -41,7 +41,11 @@ switch (_mode) do {
             params ["_args", "_handle"];
             _args params ["_display"];
             if (isNull _display) exitWith {[_handle] call CBA_fnc_removePerFrameHandler};
+            // nothing feeding it, or no MFD in sight (outside cockpit view, the map, Zeus, or
+            // the FLIR camera busy as the fullscreen view with no sling camera running)
             if (isNil "hct_h60_flir_camera" && {isNil "hct_h60_mfd_slingCam"}) exitWith {};
+            if (cameraView != "INTERNAL" || {visibleMap} || {!isNull curatorCamera}) exitWith {};
+            if (hct_h60_flir_isInScriptedCamera && {isNil "hct_h60_mfd_slingCam"}) exitWith {};
             if ((_display getVariable [QGVAR(flirVideoAspect), 0]) != (missionNamespace getVariable [QGVAR(screenAspect), 16 / 9])) then {
                 ["layout", [_display]] call FUNC(flirVideo);
             };

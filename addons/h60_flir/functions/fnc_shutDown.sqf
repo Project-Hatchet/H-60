@@ -21,6 +21,12 @@ if (!(isEngineOn _vehicle)) then {
     [_vehicle] call hct_h60_flir_fnc_syncAnimation;
 };
 
+// leaving mid-fullscreen: give the main view back and remove the fullscreen hooks first
+// (destroying the camera alone left its effect and the hooks behind)
+if (hct_h60_flir_isInScriptedCamera) then {
+  [false] call hct_h60_flir_fnc_scriptedCamera;
+};
+
 if (!isNil "hct_h60_flir_camera") then {
   [_vehicle] call hct_h60_flir_fnc_pipStop;
 };

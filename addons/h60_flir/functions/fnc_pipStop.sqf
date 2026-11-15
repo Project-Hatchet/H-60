@@ -15,8 +15,9 @@
 //params ["_vehicle"];
 
 if (isNil "hct_h60_flir_camera") exitWith {true};
-camDestroy hct_h60_flir_camera;
+// end the effect before the camera: terminate on a destroyed camera does nothing
 hct_h60_flir_camera cameraEffect ["terminate", "back", "hct_h60_flir_feed"];
+camDestroy hct_h60_flir_camera;
 hct_h60_flir_camera = nil;
 
 true

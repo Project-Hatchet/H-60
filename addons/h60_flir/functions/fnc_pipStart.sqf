@@ -16,10 +16,16 @@ if (isNil "hct_h60_flir_camera") then {
   hct_h60_flir_camera = "camera" camCreate [0,0,0];
 };
 
+// placed now, not on the next frame's fnc_updateCamera: a new camera starts at the map origin
+if (!isNil "hct_vehicle" && {!isNull hct_vehicle}) then {
+  [hct_vehicle] call hct_h60_flir_fnc_updateCamera;
+};
 hct_h60_flir_camera cameraEffect ["internal", "BACK", "hct_h60_flir_feed"];
 hct_h60_flir_camera camSetFocus [-1,-1];
 hct_h60_flir_camera camCommit 0;
-"hct_h60_flir_feed" setPiPEffect [3, 1.0, 1.0, 1.0, 0.0, [0.5, 0.5, 0.5, 0.25], [1.0, 0.0, 1.0, 1.0],  [0.199, 0.587, 0.114, 0.0]];
+// the selected vision mode - a fixed colour effect here overrode it, so returning from a
+// feature camera (fnc_setup) came back in the wrong mode until the next toggle
+"hct_h60_flir_feed" setPiPEffect (missionNamespace getVariable ["hct_h60_flir_pipEffect", [0]]);
 
 call hct_h60_flir_fnc_setIsPipHidden;
 

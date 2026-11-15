@@ -103,7 +103,7 @@ _id = ["vehicle", {
   params ["_unit", "_newVehicle", "_oldVehicle"];
   if (_unit == _newVehicle) then {
     //"filmGrain" ppEffectEnable false;
-    15 cutText ["", "PLAIN"];
+    ("hct_h60_flir_cameraOverlay" call BIS_fnc_rscLayer) cutText ["", "PLAIN"];
   };
 }] call CBA_fnc_addPlayerEventHandler;
 hct_h60_flir_playerCBAEHs pushBack ["vehicle", _id];
@@ -121,7 +121,7 @@ _id = ["cameraView", {
     //"filmGrain" ppEffectEnable true;
   } else {
     //"filmGrain" ppEffectEnable false;
-    15 cutText ["", "PLAIN"];
+    ("hct_h60_flir_cameraOverlay" call BIS_fnc_rscLayer) cutText ["", "PLAIN"];
   };
 }] call CBA_fnc_addPlayerEventHandler;
 hct_h60_flir_playerCBAEHs pushBack ["cameraView", _id];
@@ -160,7 +160,7 @@ _id = ["visibleMap", {
   if (hct_h60_flir_playerIsPilot && {cameraView == "GUNNER"}) then {
     // When pilot is in gunner view, remove/add the crosshair when going in and out of map
     if (_isVisibleMap) then {
-      15 cutText ["", "PLAIN"];
+      ("hct_h60_flir_cameraOverlay" call BIS_fnc_rscLayer) cutText ["", "PLAIN"];
     } else {
       //15 cutRsc ["hct_h60_flir_crossHair", "PLAIN"];
     };

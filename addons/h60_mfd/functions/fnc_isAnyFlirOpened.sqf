@@ -14,6 +14,8 @@
 
 #include "..\config\mfdDefines.hpp"
 
+if (isNil "hct_vehicle" || {isNull hct_vehicle}) exitWith {false}; // out of the aircraft
+
 scopeName "main";
 
 {

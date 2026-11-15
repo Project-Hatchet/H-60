@@ -20,7 +20,7 @@ hct_h60_flir_pipEffect = _effect;
 
 if (hct_h60_flir_isInScriptedCamera) then {
   camUseNVG (hct_h60_flir_pipEffect isEqualTo [1]);
-  if (hct_h60_flir_pipEffect in [[2], [7]]) then {
+  if (hct_h60_flir_pipEffect in [[2], [7], [8]]) then { // white, black and green hot (green was missed)
     true setCamUseTI (hct_h60_flir_pipEffectsHashMap get hct_h60_flir_pipEffect);
   } else {
     false setCamUseTI 0
