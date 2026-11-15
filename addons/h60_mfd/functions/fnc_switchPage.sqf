@@ -23,25 +23,32 @@ if (_propagate) exitWith {
 _vehicle setUserMFDValue [_mfdIndex, _pageIndex];
 
 private _slingCam = false;
+// The one material for every picture on an MFD face: emissive, no specular, no reflection.
+// The FLIR video used the stock electronics_screens.rvmat, a glossy material whose
+// reflection streaked the image as the view moved - and as the TAC branch never reset the
+// overlay face's material, the streaks stayed over the map once FLIR had been opened.
+#define SCREEN_MATERIAL "z\vtx\addons\uh60_mfd\data\Emmisive\Emmisive_2.rvmat"
+
 switch (true) do {
     case (_pageIndex > MFD_PAGE_TAC - 0.01 && _pageIndex < MFD_PAGE_TAC + 0.99): {
         private _texture = [_vehicle, _mfdIndex] call hct_h60_mfd_fnc_tac_getMapTexture;
         _vehicle setObjectTextureGlobal [MAP_SELECTION(_mfdIndex), _texture];
-        _vehicle setObjectMaterialGlobal [MAP_SELECTION(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Emmisive\Emmisive_2.rvmat"];
+        _vehicle setObjectMaterialGlobal [MAP_SELECTION(_mfdIndex), SCREEN_MATERIAL];
         _vehicle setObjectTextureGlobal [MFD_OVERLAY(_mfdIndex), "z\vtx\addons\uh60_mfd\data\Overlay_ca.paa"];
+        _vehicle setObjectMaterialGlobal [MFD_OVERLAY(_mfdIndex), SCREEN_MATERIAL];
     };
     case (_pageIndex > MFD_PAGE_FLIR - 0.99 && _pageIndex < MFD_PAGE_FLIR + 0.99): {
       if ((_vehicle animationsourcephase "FLIR_HIDE") == 1 && {(_vehicle animationsourcephase "HH60GFlir_show") == 0}) exitWith {
         _slingCam = true;
         _vehicle setObjectTextureGlobal [MFD_OVERLAY(_mfdIndex), ["texture"] call hct_h60_mfd_fnc_flirVideo];
-        _vehicle setObjectMaterialGlobal [MFD_OVERLAY(_mfdIndex), "\A3\Structures_F\Items\Electronics\Data\electronics_screens.rvmat"];
+        _vehicle setObjectMaterialGlobal [MFD_OVERLAY(_mfdIndex), SCREEN_MATERIAL];
       };
       if (_vehicle getVariable ["hct_h60_flir_stowed", true]) then {
         _vehicle setUserMFDValue [_mfdIndex, FLIR_MODE_STOWED];
       } else {
         // Never gets to here currently
         _vehicle setObjectTexture [MFD_OVERLAY(_mfdIndex), ["texture"] call hct_h60_mfd_fnc_flirVideo]; // the feed at this client's aspect
-        _vehicle setObjectMaterial [MFD_OVERLAY(_mfdIndex), "\A3\Structures_F\Items\Electronics\Data\electronics_screens.rvmat"];
+        _vehicle setObjectMaterial [MFD_OVERLAY(_mfdIndex), SCREEN_MATERIAL];
         if (isNil "hct_h60_flir_controllable" || {!hct_h60_flir_controllable}) then {
           _slingCam = true;
         } else {

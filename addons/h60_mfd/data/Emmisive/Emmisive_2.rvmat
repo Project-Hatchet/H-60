@@ -8,5 +8,11 @@ emmisive[] = {6, 6, 6, 1};
 specular[] = {0, 0, 0, 0};
 specularPower = 0;
 renderFlags[] = {"AlwaysInShadow", "NoAlphaWrite"};
+// Every picture on an MFD face (map, FLIR, sling camera) uses this: emissive, no
+// specular, and a flat normal map so the surface has no texture of its own to catch light
+class Stage1 {
+	texture = "#(argb,8,8,3)color(0.5,0.5,1,1,NOHQ)";
+	uvSource = "tex";
+};
 PixelShaderID = "Normal";
 VertexShaderID = "Basic";
