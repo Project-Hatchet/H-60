@@ -8,8 +8,6 @@ forcedDiffuse[] = {0,0,0,0};
 emmisive[] = {3,3,1,1};
 specular[] = {0.1,0.1,0.1,1};
 specularPower = 110;
-// The MFD screen faces: no sun shadow map, as the glass over them (Glass.rvmat)
-renderFlags[] = {"AlwaysInShadow"};
 PixelShaderID = "Super";
 VertexShaderID = "Super";
 class Stage1
@@ -77,8 +75,11 @@ class Stage6
 	texture = "#(ai,64,64,1)fresnel(2.7,0.7)";
 	uvSource = "none";
 };
+// Environment reflection: a flat colour, not a photo. The MFD glass and screens are
+// small, flat and glossy, so the stock env_land_ca.paa (a photographed grass field)
+// was mirrored blown up across every page as streaks that turned with the view.
 class Stage7
 {
-	texture = "a3\data_f\env_land_ca.paa";
+	texture = "#(argb,8,8,3)color(0.42,0.45,0.5,1)";
 	uvSource = "none";
 };
