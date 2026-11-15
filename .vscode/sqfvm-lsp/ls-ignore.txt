@@ -13,9 +13,8 @@
 ### Keep in mind that already analyzed files will not be     ###
 ### re-analyzed OR removed from the database.                ###
 ################################################################
-.vscode\sqfvm-lsp
 .vscode
 .github
 .git
 .hemtt
-.vscode
+.hemttout

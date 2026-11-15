@@ -1,6 +1,5 @@
 branches:
   - Main
-  - update-gitactions  # for testing edits to this configuration
 
 name-template: 'Version $NEXT_PATCH_VERSION'
 tag-template: 'v$NEXT_PATCH_VERSION'
@@ -28,7 +27,7 @@ exclude-labels:
 
 change-template: '- $TITLE (#$NUMBER)'
 template: |
-  _Requires CBA version X.Y.Z or later and Arma 3 version X.Y or later._
+  _Requires the latest CBA A3, ACE3 and Hatchet Interaction Framework, and BradMick's HeliSim Core 1.3.0 or later._
 
   ## Change Log Summary
 

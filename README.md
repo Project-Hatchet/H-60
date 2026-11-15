@@ -31,26 +31,13 @@ hemtt build    # build the mod into .hemttout/build
 
 No Arma 3 Tools are needed: every model and animation in the tree is already binarized, and HEMTT rapifies configs itself. The full build takes under a minute. `docs/RELEASE.md` covers versioning, Dev pushes and Stable releases.
 
-**Other errors**
-If you find any other errors, please ask the dev team in the Project Hatchet discord server.
+### Changelog
+Write what changed for players as a **changelog fragment**: a file `changelog/<pr-number>-<slug>.md` with one `- ` bullet per change (see `changelog/README.md`). CI requires one on any PR that touches `addons/`, unless the PR is labeled `Release Notes: Ignore`. Nobody edits `CHANGELOG-DEV.md` directly: the release PR folds the fragments into it.
 
-#### Pushing a build to the Steam Workshop Development branch
-`tools/push_dev.py` builds the mod from a named git ref with HEMTT and uploads it to the Development branch Workshop item in one step:
+### Dev and Stable releases
+`docs/RELEASE.md` covers versioning, Workshop Development pushes (`tools/push_dev.py`) and Stable releases (`tools/build_stable.py`).
 
-```
-python tools/push_dev.py --branch <ref> --note-from-changelog --bump               # usual dev push
-python tools/push_dev.py --branch <ref> --note-from-changelog --version 0.7.9.1    # first push of a new cycle
-python tools/push_dev.py --branch <ref> --note-from-changelog --bump --preview-note  # see the note, change nothing
-python tools/push_dev.py --branch <ref> --note "what changed" --dry-run             # build and verify only
-```
-
-Write what changed for players as a **changelog fragment**: a file `changelog/<pr-number>-<slug>.md` with one `- ` bullet per change (see `changelog/README.md`). CI requires one on any PR that touches `addons/` unless the PR is labeled `Release Notes: Ignore`. Dev pushes list the pending fragments in the Workshop note (`--note-from-fragments`); the release PR folds them into `CHANGELOG-DEV.md` with `python tools/changelog.py assemble --version X.Y.Z --delete`. Nobody edits `CHANGELOG-DEV.md` directly any more, which is what made every pair of open PRs conflict. With `--bump`/`--version` the script stamps the version into `addons/h60_main/script_version.hpp`, folds any fragments on the branch into the changelog, commits both, and uses the block as the Workshop change note - so the in-game version, the changelog and the Workshop always agree.
-
-Versioning: Stable releases are `X.Y.Z`; Development builds carry the *next* Stable's number with the build digit counting up per push (`0.7.9.1`, `0.7.9.2`, ...). Start a cycle with `--version`, continue with `--bump`. Bump the patch number for routine Stable promotions and the minor number for substantial ones.
-
-It refuses to run on a dirty working tree or on a local branch that differs from origin, replaces `release/@H-60` with the fresh HEMTT output so nothing stale can ship, verifies that every addon produced a fresh PBO, and asks for confirmation before uploading. The upload goes through `PublisherCmd` from Arma 3 Tools using the Steam client already logged in on your machine, so you need contributor rights on the Workshop item and nothing else. The script only knows the Development branch item - promoting to Stable is done by hand on purpose.
-
-
-
+### Help
+If you find any other errors, please ask the dev team in the Project Hatchet Discord server.
 
 <a rel="license" href="https://www.bohemia.net/community/licenses/arma-public-license-nd" target="_blank" ><img src="https://data.bistudio.com/images/license/APL-ND.png" ><br>This work is licensed under the Arma Public License No Derivatives</a>
