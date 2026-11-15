@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="VTX">
+    <Package name="MAIN">
+        <Key ID="STR_VTX_MAIN_DevMode">
+            <English>Developer Mode</English>
+        </Key>
+        <Key ID="STR_VTX_MAIN_DevMode_Tooltip">
+            <English>Developer tools, not for normal play: a panel with live HeliSim diagnostics whenever you are in an H-60, script debug messages in chat and the game log, and the Automatic Engine Startup (DEV) vehicle action.</English>
+        </Key>
+    </Package>
+</Project>

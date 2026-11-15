@@ -356,3 +356,10 @@ if (hasInterface) then {
   ["vehicle", _startTurnedIn, true] call CBA_fnc_addPlayerEventHandler;
   ["turret", _startTurnedIn] call CBA_fnc_addPlayerEventHandler;
 };
+
+// Developer panel (CBA setting vtx_uh60_devMode, UH-60M > Developer): HeliSim's state on
+// screen whenever the player is in an H-60, plus the automatic start's progress while one
+// runs. One cheap check per quarter second when the setting is off.
+if (hasInterface) then {
+    [{[vehicle player] call vtx_uh60_misc_fnc_devPanel}, 0.25, []] call CBA_fnc_addPerFrameHandler;
+};

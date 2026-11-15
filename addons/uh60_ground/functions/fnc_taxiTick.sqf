@@ -58,10 +58,10 @@ if ((driver _vehicle) isEqualTo player) then {
     private _rawP = _vehicle getVariable ["bmkhs_pedalLeftRight", 0];
     private _nr = _vehicle getVariable ["bmkhs_rtrRpm", 0];
 
-    // gate-hunt diagnostic (the 47G ghost-hunt pattern): console
-    // `vtx_uh60_taxiDebug = true;` -> one RPT line per second naming
-    // every gate value, so a dead drive convicts its blocker in one try
-    if (!isNil "vtx_uh60_taxiDebug" && {vtx_uh60_taxiDebug}
+    // gate-hunt diagnostic (the 47G ghost-hunt pattern): with Developer Mode on
+    // (CBA setting vtx_uh60_devMode, UH-60M > Developer) one RPT line per
+    // second names every gate value, so a dead drive convicts its blocker in one try
+    if ((missionNamespace getVariable ["vtx_uh60_devMode", false])
         && {diag_tickTime - (_vehicle getVariable ["vtx_uh60_taxiDbgT", 0]) > 1}) then {
         _vehicle setVariable ["vtx_uh60_taxiDbgT", diag_tickTime];
         diag_log format ["VTXTAXI nr=%1 brake=%2 heliUp=%3 rawF=%4 rawP=%5 base=%6 touching=%7 spd=%8",

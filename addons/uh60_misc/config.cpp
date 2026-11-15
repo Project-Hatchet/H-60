@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+class RscStructuredText;
+
 class CfgPatches {
     class ADDON {
         name = COMPONENT_NAME;
@@ -16,3 +18,4 @@ class CfgPatches {
 #include "CfgEventHandlers.hpp"
 
 #include "config\cfgVehicles.hpp"
+#include "config\rscTitles.hpp"

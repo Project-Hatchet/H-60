@@ -86,7 +86,7 @@ private _held = _veh getVariable ["vtx_ccHeld", []];
 _unlock = (_unlock - _busy) select {_x in _held};
 _veh setVariable ["vtx_ccHeld", (_held - _unlock) + (_lock - _held), true];
 
-private _debug = missionNamespace getVariable ["vtx_uh60_ui_showDebugMessages", false];
+private _debug = missionNamespace getVariable ["vtx_uh60_devMode", false];
 {_veh lockTurret [_x, false]} forEach _unlock;
 if (_toggle) then {
     {_veh lockTurret [_x, false]} forEach _lock;

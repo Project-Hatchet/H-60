@@ -47,6 +47,18 @@ position's label. From there it is a click: steps 1-3 above.
 - `scriptedInteract` leaves its interaction as Hatchet's current button. `cockpitBind`
   restores the cursor's, or Hatchet's interact key could fire the scripted one again.
 
+## The quick start
+
+The developer-mode "Automatic Engine Startup (DEV)" (`uh60_misc/fnc_quickstart`, behind the
+CBA setting `vtx_uh60_devMode`) is a script that works the cockpit, so it follows the keybind
+path: every switch goes through `cockpitBind`, after asking `cockpitAllowed` whether the move
+is allowed, and each step then waits on HeliSim's published state - `bmkhs_battBusOn`,
+`bmkhs_apuOn`, `bmkhs_pneuAvail`, `bmkhs_engState`, `bmkhs_engPctNg`, the generators - with
+a timeout. It never sleeps a fixed time and hopes: the timed version died with HeliSim, because
+Core refuses FLY while the other engine is STARTING and kills a start when the APU (and so the
+bleed air) goes off. A refused move or a timed-out wait aborts it where it stands, with Core's
+`bmkhs_<control>GateWhy` as the reason, on the developer panel (`fnc_devPanel`) and in the RPT.
+
 ## Linked controls - the power levers
 
 Moving a power lever to FLY while the other engine runs at IDLE takes both to FLY, as on
