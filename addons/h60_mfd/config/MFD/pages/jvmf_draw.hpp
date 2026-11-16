@@ -1,0 +1,92 @@
+alpha = BACKGROUND_ALPHA;
+class backgroundWrapper {
+	class polygon {
+		type        = "polygon";
+		texture = "z\vtx\addons\uh60_mfd\data\JVMF.paa";
+		points[] ={
+			{
+				{{0, 0},1},
+				{{1, 0},1},
+				{{1, 1},1},
+				{{0, 1},1}
+			}
+		};
+	};
+}; // backgroundWrapper
+
+#ifndef JVMF_LINE_HEIGHT
+#define JVMF_LINE_HEIGHT 0.06
+#endif
+#ifndef JVMF_LEFT_ALIGN
+#define JVMF_LEFT_ALIGN 0.1
+#endif
+#ifndef JVMF_TOP_MARGIN
+#define JVMF_TOP_MARGIN 0.16
+#endif
+
+TEXT_LEFT_SCALED(JVMF_MESSAGE_NEW,0.01,0.17,"NEW",0.04)
+TEXT_LEFT_SCALED(JVMF_MESSAGE_NEW2,0.01,0.17+0.04,"MSG",0.04)
+TEXT_LEFT_SCALED(JVMF_MESSAGE_CYCLE,0.01,0.36,"CYCLE",0.04)
+TEXT_LEFT_SCALED(JVMF_MESSAGE_INBOX,0.01,0.36+0.04,"PAGE",0.04)
+TEXT_LEFT_SCALED(JVMF_MESSAGE_DEL,0.01,0.72,"DEL",0.04)
+TEXT_LEFT_SCALED(JVMF_MESSAGE_DEL2,0.01,0.72+0.04,"MSG",0.04)
+
+TEXT_MID_SCALED(JVMF_REPLY_ACK,0.35,JVMF_LINE_HEIGHT * 0.3,"ACK",0.04)
+class wilco_wrap {
+    color[] = common_yellow;
+    TEXT_MID_SCALED(JVMF_REPLY_WILCO,0.64,JVMF_LINE_HEIGHT * 0.3,"WILCO",0.04)
+};
+class haveco_wrap {
+    color[] = common_green;
+    TEXT_MID_SCALED(JVMF_REPLY_HAVECO,0.74,JVMF_LINE_HEIGHT * 0.3,"HAVECO",0.04)
+};
+class cantco_wrap {
+    color[] = common_red;
+    TEXT_MID_SCALED(JVMF_REPLY_CANTCO,0.86,JVMF_LINE_HEIGHT * 0.3,"CANTCO",0.04)
+};
+
+#ifndef JVMF_BORDER_MARGIN
+#define JVMF_BORDER_MARGIN 0.02
+#endif
+#ifndef JVMF_BOTTOM_MARGIN
+#define JVMF_BOTTOM_MARGIN 0.14
+#endif
+#ifndef JVMF_LINE
+#define JVMF_LINE(CLASS,X1,Y1,X2,Y2) \
+    class CLASS { \
+        type="line"; \
+        width = 3; \
+        points[] = { \
+            {{X1, Y1}, 1}, \
+            {{X2, Y2}, 1} \
+        }; \
+    };
+#endif
+
+class jvmf_type_empty {
+	condition=COND_ISNUMBER(JVMF_TYPE,-1);
+	#include "jvmf\jvmf_empty.hpp"
+};
+
+class jvmf_type_0 {
+	condition=COND_ISNUMBER(JVMF_TYPE,0);
+	#include "jvmf\jvmf_freetext.hpp"
+};
+
+class jvmf_type_1 {
+	condition=COND_ISNUMBER(JVMF_TYPE,1);
+	#include "jvmf\jvmf_1.hpp"
+};
+
+class jvmf_position {
+	condition=COND_ISNUMBER(JVMF_TYPE,2);
+	#include "jvmf\jvmf_position.hpp"
+};
+
+
+#ifndef BOTTOM_TEXT_Y
+#define BOTTOM_TEXT_Y 0.96
+#endif
+
+TEXT_LEFT_SMALL(B6,0.75,BOTTOM_TEXT_Y,"IVHMS")
+

@@ -1,0 +1,53 @@
+/*
+ * Author: Ampersand
+ * Align the the pip camera to the pilotCamera and set fov
+ *
+ * Arguments:
+ * 0: Helicopter <OBJECT>
+ *
+ * Return Value:
+ * 0: Success <BOOLEAN>
+ *
+ * Example:
+ * [_vehicle] call hct_h60_flir_fnc_updateCamera
+ */
+
+params ["_vehicle"];
+if (isNil "hct_h60_flir_camera") exitWith {false}; // native gunner view with no PiP page open
+
+private _camPosASL = hct_vehicle modelToWorldVisualWorld hct_h60_flir_camPos;
+hct_h60_flir_camera setPosASL _camPosASL;
+getPilotCameraTarget _vehicle params ["_isTracking", "_tgtPosASL", ""];
+// Object follow: the engine's target position is a static snapshot for
+// script-set object locks - aim at the live object from the mod's own state
+// variable instead (element 2, patched in fnc_syncPilotCamera) (#538)
+private _trackedObj = hct_h60_flir_pilotCameraTarget param [2, objNull];
+if (!isNull _trackedObj) then {
+  _isTracking = true;
+  _tgtPosASL = getPosASLVisual _trackedObj;
+};
+if (_isTracking) then {
+  if (hct_h60_flir_isInScriptedCamera) then { // Fix laser target wandering off
+    private _laserTarget = laserTarget hct_vehicle;
+    if (!isNull _laserTarget) then {
+      _laserTarget setPosASL _tgtPosASL;
+    };
+  };
+  private _dir = _camPosASL vectorFromTo _tgtPosASL;
+  hct_h60_flir_camera setVectorDirAndUp [
+    _dir,
+    _dir vectorCrossProduct (_dir vectorCrossProduct (_vehicle vectorModelToWorldVisual [0, 0, -1]))
+  ];
+} else {
+  private _dir = getPilotCameraDirection _vehicle;
+  hct_h60_flir_camera setVectorDirAndUp [
+    _vehicle vectorModelToWorldVisual _dir,
+    _vehicle vectorModelToWorldVisual (_dir vectorCrossProduct (_dir vectorCrossProduct [0, 0, -1]))
+  ];
+};
+
+//drawLine3D [ASLToAGL _camPosASL, ASLToAGL _tgtPosASL, [0,1,0,1]];
+//drawLine3D [ASLToAGL _camPosASL, _camPosASL vectorAdd (hct_vehicle vectorModelToWorldVisual _dir), [1,0,0,1]];
+//drawLine3D [ASLToAGL _camPosASL, _camPosASL vectorAdd ((hct_vehicle vectorModelToWorldVisual getPilotCameraDirection hct_vehicle) vectorMultiply 1000), [0,0,1,1]];
+
+true

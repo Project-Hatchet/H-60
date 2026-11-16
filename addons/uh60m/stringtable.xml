@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="HCT">
+    <Package name="UH60M">
+        <Key ID="STR_hct_uh60m_HH60MMEDEVAC">
+            <English>HH-60M MEDEVAC</English>
+        </Key>
+        <Key ID="STR_hct_uh60m_HideCabinSeatsFront">
+            <English>Hide Cabin Seats (Front)</English>
+        </Key>
+        <Key ID="STR_hct_uh60m_HideCabinSeatsMiddle">
+            <English>Hide Cabin Seats (Middle)</English>
+        </Key>
+        <Key ID="STR_hct_uh60m_HideCabinSeatsRear">
+            <English>Hide Cabin Seats (Rear)</English>
+        </Key>
+        <Key ID="STR_hct_uh60m_UH60MSlick">
+            <English>UH-60M Slick</English>
+        </Key>
+    </Package>
+</Project>

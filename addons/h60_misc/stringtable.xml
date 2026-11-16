@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="HCT">
+    <Package name="UH60_MISC">
+        <Key ID="STR_hct_h60_MISC_FoldingRotors">
+            <English>Folding Rotors</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_AttachERFSTank">
+            <English>Attach ERFS Tank</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_AttachPart">
+            <English>Attach %1</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_AttachToBlackhawk">
+            <English>Attach to Blackhawk</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_AutomaticEngineStartup">
+            <English>Automatic Engine Startup (DEV)</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_BlackhawkCockpitDoors">
+            <English>Blackhawk Cockpit Doors</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_BlackhawkERFSTank">
+            <English>Blackhawk ERFS Tank</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_BlackhawkFuelProbe">
+            <English>Blackhawk Fuel Probe</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_BlackhawkHoist">
+            <English>Blackhawk Hoist</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_BlackhawkServicePlatform">
+            <English>Blackhawk Service Platform</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_BoatIsNotEmpty">
+            <English>Boat is not empty</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_CRRCAlreadyAttached">
+            <English>Helicopter already has a CRRC attached</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_ChangeMarkings">
+            <English>Change Markings</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_ChangeNumberTape">
+            <English>Change number tape</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_CockpitDoors">
+            <English>Cockpit Doors</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_DoorIsBlocked">
+            <English>Door is blocked</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_DoorIsBlockedByFRIES">
+            <English>Door is blocked by FRIES</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_EnterHoistOperator">
+            <English>Enter Hoist Operator</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_ExitHoistOperator">
+            <English>Exit Hoist Operator</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_Fold">
+            <English>Fold</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_FuelProbe">
+            <English>Fuel Probe</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_InstallSkis">
+            <English>Install Skis</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_OpenCloseCabinDoor">
+            <English>Open/Close cabin door</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_OpenCloseCockpitDoor">
+            <English>Open/Close cockpit door</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_RemoveERFSTank">
+            <English>Remove ERFS Tank</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_RemovePart">
+            <English>Remove %1</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_RescueHoist">
+            <English>Rescue Hoist</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_SetTo">
+            <English>Set to %1</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_TurnIn">
+            <English>Turn In</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_TurnOut">
+            <English>Turn Out</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_Unfold">
+            <English>Unfold</English>
+        </Key>
+        <Key ID="STR_hct_h60_misc_UninstallSkis">
+            <English>Uninstall Skis</English>
+        </Key>
+    </Package>
+</Project>

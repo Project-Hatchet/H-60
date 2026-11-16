@@ -1,6 +1,6 @@
 # UH-60 HeliSim integration - to-do
 
-Open items for the UH-60 pack (`addons/uh60_helisim`) and the HeliSim Core work it depends on.
+Open items for the H-60 pack (`addons/h60_helisim`) and the HeliSim Core work it depends on.
 
 ## HeliSim Core
 

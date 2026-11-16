@@ -1,1 +1,29 @@
-﻿
+# Hatchet H-60 Pack - authors
+#
+# Generated from the git history (2026-11-15). Identities sharing an email address are
+# merged, with the git name in brackets where it differs from the handle. Regenerate with
+# `git log --format="%aN|%aE" | sort -u` and merge by email.
+
+Project Hatchet Studios
+
+Contributors:
+Aaren
+Ampersand (Steve Zhao)
+Beans
+BradMick
+BroBeans
+Donov C. (AdozenBABYdogs)
+EinfachJul
+Erik (Lurch)
+James Perk
+jonpas
+Matthew Smith
+Michael
+Michael (a26mike)
+Riverman
+sevn10
+Snow (Dryden)
+Warren
+Xovolovo
+YannikH
+ZHANGTIANYAO1

@@ -32,7 +32,7 @@ on screen. Every HeliSim control follows this; don't add another path.
    animation. Telling HeliSim here, not in `animEnd`, keeps the engine and the lever in
    step - `animEnd` fires on arrival (or after 3 s).
 3. `cockpitInteract` maps the label to a position and calls `bmkhs_fnc_controlSet` where
-   the aircraft is local. From the other seat it raises `vtx_uh60_helisim_controlSet` on
+   the aircraft is local. From the other seat it raises `hct_h60_helisim_controlSet` on
    the owner (a CBA event, so CfgRemoteExec whitelists don't block it).
 
 ## A keybind
@@ -49,8 +49,8 @@ position's label. From there it is a click: steps 1-3 above.
 
 ## The quick start
 
-The developer-mode "Automatic Engine Startup (DEV)" (`uh60_misc/fnc_quickstart`, behind the
-CBA setting `vtx_uh60_devMode`) is a script that works the cockpit, so it follows the keybind
+The developer-mode "Automatic Engine Startup (DEV)" (`h60_misc/fnc_quickstart`, behind the
+CBA setting `hct_h60_devMode`) is a script that works the cockpit, so it follows the keybind
 path: every switch goes through `cockpitBind`, after asking `cockpitAllowed` whether the move
 is allowed, and each step then waits on HeliSim's published state - `bmkhs_battBusOn`,
 `bmkhs_apuOn`, `bmkhs_pneuAvail`, `bmkhs_engState`, `bmkhs_engPctNg`, the generators - with
@@ -64,7 +64,7 @@ bleed air) goes off. A refused move or a timed-out wait aborts it where it stand
 Moving a power lever to FLY while the other engine runs at IDLE takes both to FLY, as on
 the AH-64. `cockpitInteract` moves the other lever **through `cockpitBind`**, so Hatchet
 animates both at the same rate. The other lever's own `animStart` sees
-`vtx_uh60_helisim_linking` and does not link back.
+`hct_h60_helisim_linking` and does not link back.
 
 Other engine OFF or already at FLY: only the clicked lever moves. Other engine STARTING:
 `cockpitAllowed` refuses FLY.
@@ -72,7 +72,7 @@ Other engine OFF or already at FLY: only the clicked lever moves. Other engine S
 ## The flight director panel
 
 The FD buttons and knobs are not HeliSim controls - they are Core's FMC inputs, the same
-actions a keybind sends. Each calls `vtx_uh60_helisim_fnc_fmcInput`, which hands it to Core's
+actions a keybind sends. Each calls `hct_h60_helisim_fnc_fmcInput`, which hands it to Core's
 `inputControlHandle` / `inputAnalogHandler` on the owner:
 
 - **Buttons** send the mode's action (`bmkhs_fdAlt`, ...). Core engages it and cancels the others
@@ -105,8 +105,8 @@ that time:
 2. In `cfgHctCockpit.hpp`, give the interaction:
    - `animLabels[]` whose labels are the position class names (case and spaces aside:
      `"APU BOOST"` ↔ `ApuBoost`)
-   - `animStart="[(_this # 0), '<variableName>', (_this # 2)] call vtx_uh60_helisim_fnc_cockpitInteract";`
-   - `interactionCondition="[_this, '<variableName>'] call vtx_uh60_helisim_fnc_cockpitAllowed";`
+   - `animStart="[(_this # 0), '<variableName>', (_this # 2)] call hct_h60_helisim_fnc_cockpitInteract";`
+   - `interactionCondition="[_this, '<variableName>'] call hct_h60_helisim_fnc_cockpitAllowed";`
    - no `animEnd` that calls the pack
 3. Add its bind rows to `headers/bmkhs_controls.hpp`.
 4. **Check inheritance.** A Hatchet class inheriting from a HeliSim switch inherits its

@@ -1,0 +1,99 @@
+class CfgWeapons {
+    class ace_hellfire_launcher;
+    class ace_hellfire_launcher_L;
+    class ace_hellfire_launcher_N;
+    class hct_hellfire_launcher: ace_hellfire_launcher {
+      ace_laser_showHud = 0;
+      magazines[] = {"HCT_4Rnd_ACE_Hellfire_AGM114K"};
+      class EventHandlers {
+        class hct_hellfire {
+          fired = "_this call hct_h60_weapons_fnc_fired";
+        };
+      };
+    };
+    class hct_hellfire_launcher_N: ace_hellfire_launcher_N {
+      ace_laser_showHud = 0;
+      magazines[] = {"HCT_4Rnd_ACE_Hellfire_AGM114N"};
+      class EventHandlers {
+        class hct_hellfire {
+          fired = "_this call hct_h60_weapons_fnc_fired";
+        };
+      };
+    };
+    class autocannon_Base_F;
+    class autocannon_30mm_RCWS: autocannon_Base_F {
+      class player;
+      class manual;
+    };
+    class hct_chaingun_hedp: autocannon_30mm_RCWS {
+      displayName = "$STR_hct_h60_weapons_M230Chaingun";
+      displayNameShort = "$STR_hct_h60_weapons_M230HEDP";
+      magazines[] = {"HCT_M230_Chaingun_L", "HCT_M230_Chaingun_R"};
+      class player: player {
+        displayName = "$STR_hct_h60_weapons_M230HEDP";
+        reloadTime = 0.109;
+			  dispersion = 0.006;
+      class StandardSound 
+      {
+          soundSetShot[] = {"hct_m230_soundset"};
+      };	
+      };
+      class gunParticles
+      {
+          class effect1
+          {
+              positionName = "cartridge_pos";
+              directionName = "cartridge_dir";
+              effectName = "MachineGunCartridge1";
+          };
+          class effect2
+          {
+              positionName = "muzzle_effect_pos";
+              directionName = "muzzleend";
+              effectName = "MachineGun1";
+          };
+      };
+      class EventHandlers {
+        class hct_chaingun {
+          fired = "_this call hct_h60_weapons_fnc_firedChaingun";
+        };
+      };
+    };
+  class RocketPods;
+  class missiles_DAR: RocketPods {
+    class Burst;
+    class Far_AI;
+    class Medium_AI;
+  };
+  class hct_hydra: missiles_DAR{
+    displayName = "$STR_hct_h60_weapons_M299";
+    displayNameShort = "$STR_hct_h60_weapons_M299";
+    magazines[] = {"HCT_PylonRack_M261_M229"};
+    class Burst: Burst {
+      displayName = "$STR_hct_h60_weapons_M299Ripple";
+    };
+    class Single: Burst {
+      displayName = "$STR_hct_h60_weapons_M299Single";
+      autoFire = 0;
+    };
+    modes[] = {"Far_AI","Medium_AI", "Single", "Burst"};
+  };
+
+  class ace_missileguidance_dagr;
+  class hct_dagr: ace_missileguidance_dagr {
+    magazines[] = {"HCT_PylonRack_M261_DAGR"};
+    class Burst;
+    class Far_AI;
+    class Medium_AI;
+  };
+	class hct_apkws: hct_dagr {
+    displayName = "$STR_hct_h60_weapons_APKWS";
+    displayNameShort = "$STR_hct_h60_weapons_APKWS";
+    magazines[] = {"HCT_PylonRack_M261_APKWS"};
+    class Burst: Burst {
+      displayName = "$STR_hct_h60_weapons_APKWS";
+    };
+    class Far_AI: Far_AI {displayName = "APKWS";};
+    class Medium_AI: Medium_AI {displayName = "APKWS";};
+  };
+};

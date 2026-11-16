@@ -77,13 +77,32 @@ def read(path):
         return fh.read()
 
 
+_prefix_map = None
+
+
+def prefix_map():
+    """{lower-case $PBOPREFIX$ parts tuple: addon folder}. Folder names are decoupled
+    from the shipped prefix (z\\vtx\\addons\\<x>), so includes resolve through it."""
+    global _prefix_map
+    if _prefix_map is None:
+        _prefix_map = {}
+        for addon in os.listdir(ADDONS):
+            pf = os.path.join(ADDONS, addon, "$PBOPREFIX$")
+            if os.path.isfile(pf):
+                val = read(pf).decode("utf-8", "replace").strip().strip("\\")
+                _prefix_map[tuple(p.lower() for p in val.split("\\") if p)] = addon
+    return _prefix_map
+
+
 def resolve_include(src_dir, target):
     # Arma paths are written with backslashes; on Linux they must become real separators
     t = target.replace("\\", os.sep).replace("/", os.sep)
     if t.startswith(os.sep):
         parts = t.strip(os.sep).split(os.sep)
-        if len(parts) > 3 and parts[0].lower() == "z" and parts[1].lower() == "vtx" and parts[2].lower() == "addons":
-            return os.path.join(ADDONS, *parts[3:])
+        low = tuple(p.lower() for p in parts)
+        for pre, addon in prefix_map().items():
+            if low[:len(pre)] == pre:
+                return os.path.join(ADDONS, addon, *parts[len(pre):])
         return os.path.join(INCLUDE_DIR, *parts)
     cand = os.path.join(src_dir, t)
     if not os.path.exists(cand) and os.path.exists(os.path.join(INCLUDE_DIR, t)):
@@ -203,6 +222,61 @@ def report_orphan_headers():
     return orphans
 
 
+# --- variant layering --------------------------------------------------------
+# The pack is layered: main -> common base (h60_config + uh60 assets) -> systems ->
+# variant PBOs (leaves) -> HeliSim pack and optional compat. A variant's classes are declared and
+# configured only inside its own PBO; systems talk to variants through the base
+# class and hct_trait_* config, never by name.
+
+VARIANT_ADDONS = {"uh60m", "s70i", "hh60", "mh60m", "mh60s"}
+# optional compat addons may re-open variants (they load after them), and so may the
+# HeliSim pack: HeliSim Core's pack template keeps every BMKHS_HeliSim declaration in
+# the pack, so it re-opens each variant for its seats and loads after them
+COMPAT_ADDONS = {"h60_acre", "h60_aar", "h60_air_control", "h60_compat_vtx", "h60_helisim"}
+VARIANT_DECL_RE = re.compile(r"^\s*class\s+(hct_\w+)\s*:\s*hct_H60_base\b", re.M | re.I)
+LINE_COMMENT_RE = re.compile(r"//[^\n]*")
+BLOCK_COMMENT_RE = re.compile(r"/\*.*?\*/", re.S)
+
+
+def variant_classes():
+    names = set()
+    for addon in VARIANT_ADDONS:
+        d = os.path.join(ADDONS, addon)
+        for dp, dn, fn in os.walk(d):
+            for f in fn:
+                if f.lower().endswith((".hpp", ".cpp")):
+                    text = read(os.path.join(dp, f)).decode("utf-8", "replace")
+                    names.update(n.lower() for n in VARIANT_DECL_RE.findall(text))
+    return names
+
+
+def strip_comments(text):
+    return LINE_COMMENT_RE.sub("", BLOCK_COMMENT_RE.sub("", text))
+
+
+def check_variant_layering():
+    fails = []
+    variants = variant_classes()
+    if not variants:
+        return ["no variant classes found in " + ", ".join(sorted(VARIANT_ADDONS))]
+    class_re = re.compile(r"\bclass\s+(" + "|".join(sorted(variants)) + r")\b", re.I)
+    literal_re = re.compile(r'"(' + "|".join(sorted(variants)) + r')"', re.I)
+    for path in source_files():
+        rel = os.path.relpath(path, ROOT)
+        addon = rel.split(os.sep)[1]
+        if addon in VARIANT_ADDONS:
+            continue
+        low = path.lower()
+        text = strip_comments(read(path).decode("utf-8", "replace"))
+        if low.endswith((".hpp", ".cpp")) and addon not in COMPAT_ADDONS:
+            for m in class_re.finditer(text):
+                fails.append(f"{rel}: declares variant class {m.group(1)} outside its variant PBO")
+        if low.endswith(".sqf"):
+            for m in literal_re.finditer(text):
+                fails.append(f"{rel}: hard-coded variant classname \"{m.group(1)}\" - use a hct_trait_* (GET_TRAIT/HAS_TRAIT)")
+    return fails
+
+
 CHECKS = [
     ("include-case", check_include_case),
     ("empty-files", check_empty_files),
@@ -210,6 +284,7 @@ CHECKS = [
     ("prep-parity", check_prep_parity),
     ("addon-layout", check_addon_layout),
     ("hemtt-portable", check_hemtt_portable),
+    ("variant-layering", check_variant_layering),
     ("changelog-fragments", changelog_fragments.lint_errors),
 ]
 

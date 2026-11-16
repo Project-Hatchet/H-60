@@ -1,0 +1,17 @@
+/*
+ * hct_h60_mfd_fnc_perSecond
+ *
+ * handles occasional updates of data for MFDs
+ *
+ * params (array)[(object) vehicle]
+ */
+
+params ["_vehicle"];
+
+private _stabAnim = _vehicle animationPhase "Stabilator_rotate";
+private _stabAngle = ceil (80 - (_stabAnim * 1.1111111 + 13));
+[_vehicle, 11, str (_stabAngle min 40 max 0)] call hct_h60_mfd_fnc_setUserText;
+
+[_vehicle] call hct_h60_mfd_fnc_renderBFTUnits;
+[_vehicle] call hct_h60_mfd_fnc_tac_getHook;
+[_vehicle] call hct_h60_mfd_fnc_handleDamage;

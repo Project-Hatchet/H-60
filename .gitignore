@@ -10,11 +10,10 @@ texHeaders.bin
 *.swp
 *.swo
 *.biprivatekey
-build/
 Thumbs.db
-.sconsign.dblite
 *.wav
 *.pkf
+.hemttprivatekey
 apidocs/
 
 # Python bytecode caches from running the tools

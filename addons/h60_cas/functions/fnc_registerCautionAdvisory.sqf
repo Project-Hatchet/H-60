@@ -1,0 +1,42 @@
+/*
+ * hct_h60_cas_fnc_registerCautionAdvisory
+ *
+ * registers a caution/advisory in the cas system
+ * this gets run on all clients when a caution happens, to synchronize the cautions list
+ *
+ * params (array)[(object) vehicle,(string) text, (code) clear condition]
+ */
+
+params ["_vehicle", "_text", "_clearCondition", ["_caution", false], ["_autoClear", false]];
+
+private _casList = (_vehicle getVariable ["hct_cas_list",[]]);
+private _exists = false;
+{ // forEach _casList
+    if (_text == _x # 0) exitWith {
+        _exists = true;
+    };
+} forEach _casList;
+
+if (_exists) exitWith {};
+
+// if you are the pilot, make the event run for the crew
+if (local _vehicle) then {
+    //_this remoteExecCall ["hct_h60_cas_fnc_registerCautionAdvisory", ((crew _vehicle) - [player])];
+};
+
+if (isNil "hct_h60_cas_cautionsUnacked") then {hct_h60_cas_cautionsUnacked = 0};
+if (isNil "hct_h60_cas_cautionsLog") then {hct_h60_cas_cautionsLog = []};
+hct_h60_cas_cautionsLog pushBack _text;
+[_vehicle,true] call hct_h60_cas_fnc_updateOverlayList;
+
+_casList pushBack [_text, _clearCondition, _autoClear];
+_vehicle setVariable ["hct_cas_list", _casList];
+
+if (_vehicle == vehicle player) then {
+    [_vehicle] call hct_h60_cas_fnc_updateCautionsList;
+};
+_vehicle setVariable ["hct_cas_queue", (_vehicle getVariable ["hct_cas_queue",0]) + 1];
+
+if (_caution) then {
+    _vehicle animate ["CautionMasterCaution",1];
+};

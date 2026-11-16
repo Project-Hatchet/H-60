@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="HCT">
+    <Package name="H60_CONFIG">
+        <Key ID="STR_hct_h60_config_CloseLCabinDoor">
+            <English>Close L Cabin Door</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_CloseRCabinDoor">
+            <English>Close R Cabin Door</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_CrewChief">
+            <English>Crew Chief</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_DoorNumbers">
+            <English>Door Numbers</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_EngineCoverMarkings">
+            <English>Engine Cover Markings</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_EquipHelicopterWithFRIES">
+            <English>Equip helicopter with FRIES</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_EquipsTheSelectedHelicopterWithAFastRopeInsertio">
+            <English>Equips the selected helicopter with a Fast Rope Insertion Extraction System</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_FoldRotorBlades">
+            <English>Fold Rotor Blades</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_FoldTheRotorBladesToReduceFootprint">
+            <English>Fold the rotor blades to reduce footprint.</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_HH60WPavehawk">
+            <English>HH-60W Pavehawk</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_HH60WPavehawkFirefighting">
+            <English>HH-60W Pavehawk (Firefighting)</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_HMDBRTHIGH">
+            <English>HMD BRT HIGH</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_HMDBRTLOW">
+            <English>HMD BRT LOW</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_HMDBRTMED">
+            <English>HMD BRT MED</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_HMDDECLUTTER">
+            <English>&lt;t color='#ffff00'&gt;HMD DECLUTTER&lt;/t&gt;</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_HMDFULL">
+            <English>&lt;t color='#26ff00'&gt;HMD FULL&lt;/t&gt;</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_HMDGREEN">
+            <English>&lt;t color='#00ff00'&gt;HMD GREEN&lt;/t&gt;</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_HMDIMPERIAL">
+            <English>&lt;t color='#26ff00'&gt;HMD IMPERIAL&lt;/t&gt;</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_HMDMETRIC">
+            <English>&lt;t color='#ffff00'&gt;HMD METRIC&lt;/t&gt;</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_HMDOFF">
+            <English>&lt;t color='#ffff00'&gt;HMD OFF&lt;/t&gt;</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_HMDON">
+            <English>&lt;t color='#26ff00'&gt;HMD ON&lt;/t&gt;</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_HMDYELLOW">
+            <English>&lt;t color='#ffff00'&gt;HMD YELLOW&lt;/t&gt;</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_HatchetH60Pack">
+            <English>Hatchet H-60 Pack</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_HideGunnerSeats">
+            <English>Hide Gunner Seats</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_HideHoist">
+            <English>Hide Hoist</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_HideLeftCockpitDoor">
+            <English>Hide Left Cockpit Door</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_HideRightCockpitDoor">
+            <English>Hide Right Cockpit Door</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_MH60MAustralia">
+            <English>MH-60M (Australia)</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_MH60MBlackhawk">
+            <English>MH-60M Blackhawk</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_MH60SSeahawk">
+            <English>MH-60S Seahawk</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_N2DigitNumberMarkedWithWhiteTapeInTheAftWindowsOf">
+            <English>2-digit number marked with white tape in the aft windows of the doors. Enter SPACE for blank.</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_Pilot">
+            <English>Pilot</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_RemoveFuelProbe">
+            <English>Remove Fuel Probe</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_RemoveTheFuelProbe">
+            <English>Remove the fuel probe.</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_S70A9Australia">
+            <English>S-70A-9 (Australia)</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_S70A9MEDEVACAustralia">
+            <English>S-70A-9 MEDEVAC (Australia)</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_ShowERFS">
+            <English>Show ERFS</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_ShowSkis">
+            <English>Show Skis</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_UH60MEDEVACSweden">
+            <English>UH-60 MEDEVAC (Sweden)</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_UH60MMEDEVACUSArmy">
+            <English>UH-60M MEDEVAC (US Army)</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_UH60MUSArmy">
+            <English>UH-60M (US Army)</English>
+        </Key>
+        <Key ID="STR_hct_h60_config_UH60Sweden">
+            <English>UH-60 (Sweden)</English>
+        </Key>
+    </Package>
+</Project>

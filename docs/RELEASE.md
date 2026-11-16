@@ -7,17 +7,17 @@ The pack is built with [HEMTT](https://hemtt.dev). One command builds it, one sc
 ```
 python tools/validate_tree.py   # include case, empty files, BOMs, PREP parity, HEMTT portability rules; the CI validate job
 hemtt check            # lints and parses every config, script and stringtable; the CI gate
-hemtt build            # .hemttout/build - the mod folder, 25 PBOs
+hemtt build            # .hemttout/build - the mod folder, 28 PBOs
 hemtt launch           # .hemtt/launch.toml profiles (when they exist)
 ```
 
-`hemtt build --no-bin` is what the Linux CI job runs. Since every model and animation in the tree is committed binarized, `--no-bin` changes nothing and the CI artifact is byte-identical to a local build. The Windows SCons job and `SConstruct` remain only until the HEMTT output has shipped one Stable (plan WP4e); do not use them for new work.
+`hemtt build --no-bin` is what the Linux CI job runs. Since every model and animation in the tree is committed binarized, `--no-bin` changes nothing and the CI artifact is byte-identical to a local build.
 
 Install HEMTT with `winget install BrettMayson.HEMTT`. The scripts below find it on PATH or in the winget package folder.
 
 ## Versioning
 
-One source: `addons/main/script_version.hpp` (`MAJOR`, `MINOR`, `PATCHLVL`, `BUILD`). HEMTT reads it directly and stamps every PBO header with it. Stable releases are `X.Y.Z.0`; Dev builds carry the *next* Stable's number with `BUILD` counting up, stamped by the devbuild bot on the generated `devbuild` branch (`tools/build.json` names the next Stable when it is a minor/major bump).
+One source: `addons/h60_main/script_version.hpp` (`MAJOR`, `MINOR`, `PATCHLVL`, `BUILD`). HEMTT reads it directly and stamps every PBO header with it. Stable releases are `X.Y.Z.0`; Dev builds carry the *next* Stable's number with `BUILD` counting up, stamped by the devbuild bot on the generated `devbuild` branch (`tools/devbuild.json` names the next Stable when it is a minor/major bump).
 
 ## Dev builds (Workshop Development branch)
 
@@ -35,7 +35,7 @@ Branch pushes outside the devbuild flow (`--branch release/x.y.z --note-from-cha
 
 ## Stable releases
 
-Everything that a Stable needs in git lands in **one release PR** to Main from a `release/<version>` branch: `script_version.hpp` set to `X.Y.Z` with `BUILD 0`, the `**X.Y.Z**` block prepended to `CHANGELOG.md`, the matching `CHANGELOG-DEV.md` block (`python tools/changelog.py assemble --version X.Y.Z --delete` folds the pending `changelog/` fragments into it and removes them), the README version badge, plan-record and documentation bookkeeping for the cycle, and removal of `devNextVersion` from `tools/build.json` if it names this release. Merge it first; a package built before that carries the old version.
+Everything that a Stable needs in git lands in **one release PR** to Main from a `release/<version>` branch: `script_version.hpp` set to `X.Y.Z` with `BUILD 0`, the `**X.Y.Z**` block prepended to `CHANGELOG.md`, the matching `CHANGELOG-DEV.md` block (`python tools/changelog.py assemble --version X.Y.Z --delete` folds the pending `changelog/` fragments into it and removes them), the README version badge, plan-record and documentation bookkeeping for the cycle, and removal of `devNextVersion` from `tools/devbuild.json` if it names this release. Merge it first; a package built before that carries the old version.
 
 Then:
 

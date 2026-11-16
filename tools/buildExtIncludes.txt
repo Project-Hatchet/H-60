@@ -1,1 +1,0 @@
-*.bin;*.bisurf;*.cfg;*.cpp;*.fxy;*.hpp;*.h;*.ogg;*.p3d;*.paa;*.PAA;*.rtm;*.rvmat;*.sqf;*.sqs;*.wss;*.xml;*.jpg;*.ext;*.sqm

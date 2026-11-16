@@ -1,0 +1,124 @@
+#include "script_component.hpp"
+/*
+ * hct_h60_fms_fnc_updateWaypointInfo
+ *
+ * processes waypoint info
+ *
+ * params (array)[(object) vehicle]
+ */
+
+params ["_vehicle"];
+
+// per frame: look the group and its waypoint count up once
+private _group = group player;
+private _wpCount = count waypoints _group;
+private _selIndex = missionNamespace getVariable ["hct_h60_fms_wpSelection", currentWaypoint _group];
+private _selValid = _selIndex > -1 && {_selIndex < _wpCount};
+private _wayPoint = [_group, [_selIndex, 0] select (!_selValid)];
+private _position = if (_selValid) then {waypointPosition _wayPoint} else {[0,0,0]};
+if ((count customWaypointPosition) > 0) then {
+    _position = customWaypointPosition;
+    [_vehicle, 7, "MAP MARK"] call hct_h60_mfd_fnc_setUserText;
+} else {
+    [_vehicle, 7, [waypointDescription _wayPoint, ""] select (!_selValid)] call hct_h60_mfd_fnc_setUserText;
+};
+
+//private _centered = _vehicle ammoOnPylon 4 == 0;
+private _centered = getUserMFDValue _vehicle select USERMFDV_TAC_CENTER == 0;
+//private _fixed = _vehicle ammoOnPylon 7 == 0;
+private _fixed = getUserMFDValue _vehicle select USERMFDV_TAC_MOVE == 0;
+//private _selfAligned = _vehicle ammoOnPylon 5 == 0;
+private _selfAligned = getUserMFDValue _vehicle select USERMFDV_TAC_ALIGN == 0;
+//private _staticMap = _vehicle ammoOnPylon 7 > 0;
+private _staticMap = getUserMFDValue _vehicle select USERMFDV_TAC_MOVE > 0;
+private _center = [_vehicle] call hct_h60_mfd_fnc_tac_getMapCenter;
+private _rotation = if (_selfAligned) then {getDir _vehicle} else {0};
+
+//The active waypoint, for HeliSim's flight director NAV mode. Published by the
+//aircraft's owner only (where Core flies it): both pilots used to publish from
+//their own selection, so differing selections overwrote each other every frame.
+private _fdWpt = [[], _position] select (_position isNotEqualTo [0,0,0]);
+if (local _vehicle && {(_vehicle getVariable ["bmkhs_fdWaypoint", []]) isNotEqualTo _fdWpt}) then {
+    _vehicle setVariable ["bmkhs_fdWaypoint", _fdWpt, true];
+};
+
+private _waypointDirection = (_center getDir _position) - _rotation;
+_vehicle setUserMFDValue [0, (_vehicle getDir _position)];
+// distance from the aircraft (fnc_perFrame used to overwrite this same frame with
+// the aircraft distance after it was written as the map-centre distance)
+_vehicle setUserMFDValue [1, _vehicle distance2D _position];
+
+private _zoomLevel = _vehicle getVariable ["MAP_ZoomMult", 1];
+private ["_waypointPosition"];
+private _worldSize = missionNamespace getVariable ["hct_h60_fms_mapSize", worldSize]; // cached in fnc_setup
+
+private _positionToMfd = {
+    params ["_pos", "_i1", "_i2"];
+    // private _direction = (_center getDir _pos) - _rotation;
+    // _vehicle setUserMFDvalue [_i1, if(_direction < 0) then {_direction + 360} else {_direction}];
+    // _vehicle setUserMFDvalue [_i2, ((_center distance2D _pos) * _zoomLevel) / (hct_h60_fms_mapSize / 2)];
+
+	private _diff = _pos vectorDiff (getPos _vehicle);
+	private _dir = getDir _vehicle; // the aircraft's heading (was the player's)
+	private _rotated = [_diff, _dir] call BIS_fnc_rotateVector2D;
+    _vehicle setUserMFDValue [_i1, -1 * ((_rotated # 0) / (_worldSize/2)) * _zoomLevel];
+    _vehicle setUserMFDValue [_i2, (_rotated # 1)/ (_worldSize/2) * _zoomLevel];
+
+};
+private _clearPos = {
+    _vehicle setUserMFDValue [_this # 0, -1];
+    _vehicle setUserMFDValue [_this # 1, -1];
+};
+
+if (hct_h60_fms_renderWaypointsOnTAC) then {
+    {
+        private _wpSlotIndex = _selIndex + _forEachIndex - 1;
+        _waypointPosition = if (_wpSlotIndex >= 0 && {_wpSlotIndex < _wpCount}) then {
+            waypointPosition [_group, _wpSlotIndex]
+        } else {
+            [0,0,0]
+        };
+        if (_wpSlotIndex == _selIndex && (count customWaypointPosition) > 0) then {
+            _waypointPosition = customWaypointPosition;
+        };
+        if (_waypointPosition isNotEqualTo [0,0,0]) then {
+            [_waypointPosition, _x # 0, _x # 1] call _positionToMfd;
+        } else {
+            _x call _clearPos;
+        };
+    } forEach [[2,3],[4,5],[6,7],[8,9],[33,34],[35,36]];
+
+    if ((getPilotCameraTarget _vehicle) # 0) then {
+        private _target = (getPilotCameraTarget _vehicle) # 1;
+        [_target, 10, 11] call _positionToMfd;
+    } else {
+        [10, 11] call _clearPos;
+    };
+
+    //
+    //43 44
+    if (count hct_jvmf_messages > 0) then {
+        if (!isNil {hct_jvmf_messages # hct_jvmf_selected_idx}) then {
+            (hct_jvmf_messages # hct_jvmf_selected_idx) params ["_ID", "_sender", "_recipient", "_type", "_text", "_data", "_replies"];
+            if (_type == 2) then {
+                _data params ["_position"];
+                [_position, 43, 44] call _positionToMfd;
+            } else {
+                [43, 44] call _clearPos;
+            };
+        } else {
+            [43, 44] call _clearPos;
+        };
+    };
+};
+
+private _tofStr = "";
+//HeliSim ground speed, m/s (USERMFDV_GS)
+private _speedMS = (getUserMFDValue _vehicle) # 103;
+if (_speedMS > 0.56) then {
+  private _tofSecondsTotal = (_position distance _vehicle) / _speedMS;
+  _tofStr = [_tofSecondsTotal] call CBA_fnc_formatElapsedTime;
+} else {
+  _tofStr = "--:--:--";
+};
+[_vehicle, 8, _tofStr] call hct_h60_mfd_fnc_setUserText;

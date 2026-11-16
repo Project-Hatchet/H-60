@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="HCT">
+    <Package name="UH60_HOIST">
+        <Key ID="STR_hct_h60_HOIST_AttachHook">
+            <English>Attach Hook</English>
+            <Chinesesimp>连接吊钩</Chinesesimp>
+        </Key>
+        <Key ID="STR_hct_h60_HOIST_DeployHook">
+            <English>Deploy Hook</English>
+            <Chinesesimp>放下吊钩</Chinesesimp>
+        </Key>
+        <Key ID="STR_hct_h60_HOIST_DetachHook">
+            <English>Detach Hook</English>
+            <Chinesesimp>脱离吊钩</Chinesesimp>
+        </Key>
+        <Key ID="STR_hct_h60_HOIST_LowerHookToGround">
+            <English>Lower Hook To Ground</English>
+            <Chinesesimp>吊钩下降到地面</Chinesesimp>
+        </Key>
+        <Key ID="STR_hct_h60_HOIST_MoveToHook">
+            <English>Move To Hook</English>
+            <Chinesesimp>移动到吊钩</Chinesesimp>
+        </Key>
+        <Key ID="STR_hct_h60_HOIST_RaiseHookToHeli">
+            <English>Raise Hook To Heli</English>
+            <Chinesesimp>吊钩上升到直升机</Chinesesimp>
+        </Key>
+        <Key ID="STR_hct_h60_HOIST_RecoverPerson">
+            <English>Recover Person</English>
+            <Chinesesimp>移动人员到直升机</Chinesesimp>
+        </Key>
+        <Key ID="STR_hct_h60_HOIST_RepairHoistHook">
+            <English>Repair Hoist Hook</English>
+            <Chinesesimp>修理吊钩</Chinesesimp>
+        </Key>
+        <Key ID="STR_hct_h60_HOIST_RescueHoist">
+            <English>Rescue Hoist</English>
+            <Chinesesimp>吊钩操作</Chinesesimp>
+        </Key>
+        <Key ID="STR_hct_h60_HOIST_SecureHook">
+            <English>Secure Hook</English>
+            <Chinesesimp>收起吊钩</Chinesesimp>
+        </Key>
+        <Key ID="STR_hct_h60_HOIST_StabilizeHook">
+            <English>Stabilize Hook</English>
+            <Chinesesimp>稳定吊钩</Chinesesimp>
+        </Key>
+        <Key ID="STR_hct_h60_HOIST_Working">
+            <English>Working...</English>
+            <Chinesesimp>运行中...</Chinesesimp>
+        </Key>
+        <Key ID="STR_hct_h60_hoist_CableExtend">
+            <English>Cable Extend</English>
+        </Key>
+        <Key ID="STR_hct_h60_hoist_CableExtendAnalog">
+            <English>Cable Extend (Analog)</English>
+        </Key>
+        <Key ID="STR_hct_h60_hoist_CableRetract">
+            <English>Cable Retract</English>
+        </Key>
+        <Key ID="STR_hct_h60_hoist_CableRetractAnalog">
+            <English>Cable Retract (Analog)</English>
+        </Key>
+        <Key ID="STR_hct_h60_hoist_DeploysTheHoistHook">
+            <English>Deploys the Hoist Hook</English>
+        </Key>
+        <Key ID="STR_hct_h60_hoist_GetInHelicopter">
+            <English>Get In Helicopter</English>
+        </Key>
+        <Key ID="STR_hct_h60_hoist_LowersTheHookToTheGround">
+            <English>Lowers the hook to the ground</English>
+        </Key>
+        <Key ID="STR_hct_h60_hoist_ProgressivelyLowersTheHook">
+            <English>Progressively lowers the hook</English>
+        </Key>
+        <Key ID="STR_hct_h60_hoist_ProgressivelyRaisesTheHook">
+            <English>Progressively raises the hook</English>
+        </Key>
+        <Key ID="STR_hct_h60_hoist_RaisesTheHookToTheHelicopter">
+            <English>Raises the hook to the helicopter</English>
+        </Key>
+        <Key ID="STR_hct_h60_hoist_RescueHoistHook">
+            <English>Rescue Hoist Hook</English>
+        </Key>
+        <Key ID="STR_hct_h60_hoist_RescueHoistHookHelper">
+            <English>Rescue Hoist Hook Helper</English>
+        </Key>
+        <Key ID="STR_hct_h60_hoist_SecuresTheHoistHook">
+            <English>Secures the Hoist Hook</English>
+        </Key>
+        <Key ID="STR_hct_h60_hoist_SettingsCategory">
+            <English>Hoist</English>
+        </Key>
+        <Key ID="STR_hct_h60_hoist_StabilizeHoistHook">
+            <English>Stabilize Hoist Hook</English>
+        </Key>
+        <Key ID="STR_hct_h60_hoist_StabilizesTheHoistHookFromSwingingExcessively">
+            <English>Stabilizes the Hoist Hook from swinging excessively</English>
+        </Key>
+        <Key ID="STR_hct_h60_hoist_StowHook">
+            <English>Stow Hook</English>
+        </Key>
+        <Key ID="STR_hct_h60_hoist_UseAttachScript">
+            <English>Use Attach Script</English>
+        </Key>
+    </Package>
+</Project>

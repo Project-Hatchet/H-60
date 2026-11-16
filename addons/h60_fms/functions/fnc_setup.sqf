@@ -1,0 +1,27 @@
+/*
+ * hct_h60_fms_fnc_setup
+ *
+ * initial setup of FMS
+ *
+ * params (array)[(object) vehicle]
+ */
+
+params ["_vehicle"];
+
+_vehicle setUserMFDValue [31, 0];
+_vehicle setUserMFDValue [32, 0];
+_vehicle setUserMFDText [8, "--:--:--"];
+
+fms_locations_page_index = 0;
+fms_locations_page_open = false;
+fms_locations_page_list = [];
+fms_locations_selected = nil;
+fms_comm_presets_page_index = 0;
+fms_comm_presets_page_list = [];
+fms_radio_index = 0;
+fms_markpoint = nil;
+hct_h60_fms_mapSize = [] call BIS_fnc_mapSize;
+hct_h60_fms_nearestLocation = nil;
+hct_h60_fms_renderWaypointsOnTAC = true;
+
+true

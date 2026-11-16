@@ -1,0 +1,20 @@
+# HEMTT launch profiles
+# Usage: hemtt launch <profile>     e.g.  hemtt launch minimal
+#
+# Every profile loads the pack's hard dependencies: CBA_A3, ACE3, the Hatchet
+# Interaction Framework and HeliSim Core.
+
+[minimal]
+workshop = [
+    "450814997",  # CBA_A3
+    "463939057",  # ACE3
+    "2941986336", # Hatchet Interaction Framework - Stable Version
+    "3806917476", # HeliSim Core (bmkhs_helisim)
+]
+
+[profiling]
+extends = "minimal"
+workshop = [
+    "1652506957", # Arma Script Profiler (Dedmen Miller)
+    "1645973522", # Intercept Minimal Dev (Dedmen Miller)
+]
