@@ -1,0 +1,453 @@
+projectPrefix = "hct_h60";
+class modules {
+  class ground {
+    startOnEnter = 1;
+  };
+  class fd: ground {};
+  class jvmf: ground {};
+  class flir: ground {};
+  class misc: ground {};
+  class cas: ground {};
+  class ui: ground {
+    startOnEnter = 0;
+  };
+};
+
+#ifndef BTN_RADIUS_SWITCH
+#define BTN_RADIUS_SWITCH 0.015
+#endif
+#ifndef SIMPLE_SWITCH
+#define SIMPLE_SWITCH(CLASS,POSITION,LABEL,ANIMATION,OFFSTATE,ONSTATE,ANIMEND) \
+  class CLASS { \
+    positionType="static"; \
+    position=POSITION; \
+    label=LABEL; \
+    radius=BTN_RADIUS_SWITCH; \
+    animation=ANIMATION; \
+    animSpeed=0; \
+    animStates[] = {OFFSTATE, ONSTATE}; \
+    animLabels[] = {"OFF", "ON"}; \
+    animEnd=ANIMEND; \
+    clickSound="hct_Switch_Sound_3"; \
+  };
+#endif
+
+class interaction {
+  crossHair=0;
+  #include "interaction\help.hpp"
+  class startUp {
+    class Lights_collision {
+      positionType="static";
+      position="b_lights_collision";
+      label="Collision lights";
+      radius=BTN_RADIUS_SWITCH;
+      animation="Switch_lights_collision";
+      animSpeed=0;
+      animStates[] = {0.5, 1};
+      animLabels[] = {"OFF", "ON"};
+      animEnd="(_this # 0) setCollisionLight !(isCollisionLightOn (_this # 0))";
+      clickSound="hct_Switch_Sound";
+    }; // Lights_collision
+    class Lights_position {
+      positionType="static";
+      position="b_lights_position";
+      label="Position lights";
+      radius=BTN_RADIUS_SWITCH;
+      animation="Switch_lights_position";
+      animSpeed=0;
+      animStates[] = {0.5, 1};
+      animLabels[] = {"OFF", "ON"};
+      animEnd="[_this # 0] call hct_h60_misc_fnc_toggleLights";
+      clickSound="hct_Switch_Sound";
+    }; // Lights_position
+    class Lights_cockpit {
+      positionType="static";
+      position="b_lights_cockpit";
+      label="Cockpit light";
+      radius=BTN_RADIUS_SWITCH;
+      animation="Switch_lights_cockpit";
+      animSpeed=0;
+      animStates[] = {0.5, 1};
+      animLabels[] = {"OFF", "ON"};
+      animEnd="[_this # 0] call hct_h60_misc_fnc_toggleLights";
+      clickSound="hct_Switch_Sound";
+    }; // Lights_position
+    class fuelPump {
+      positionType="static";
+      position="b_fuelpump";
+      label="Fuel Pump";
+      radius=BTN_RADIUS_SWITCH;
+      animation="Switch_fuelpump";
+      animSpeed=0;
+      animStates[] = {0.5, 0};
+      animLabels[] = {"OFF", "APU BOOST"};
+      animStart="[(_this # 0), 'fuelPump', (_this # 2)] call hct_h60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'fuelPump'] call hct_h60_helisim_fnc_cockpitAllowed";
+      clickSound="hct_Switch_Sound";
+    }; // fuelPump
+    class apucont {
+      positionType="static";
+      position="b_apucont";
+      label="APU CONT";
+      radius=BTN_RADIUS_SWITCH;
+      animation="Switch_apucont";
+      animSpeed=0;
+      animStates[] = {0.5, 0};
+      animLabels[] = {"OFF", "ON"};
+      animStart="[(_this # 0), 'apuBtn', (_this # 2)] call hct_h60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'apuBtn'] call hct_h60_helisim_fnc_cockpitAllowed";
+      clickSound="hct_Switch_Sound_3";
+    }; // apucont
+    class b_airsce: apucont {
+      position="b_airsce";
+      label="AIR SCE";
+      animation="Switch_airsce";
+      animStates[] = {1, 0.5, 0};
+      animLabels[] = {"ENG" ,"OFF", "APU"};
+      clickSound="hct_Switch_Sound_3";
+      animStart="[(_this # 0), 'airSource', (_this # 2)] call hct_h60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'airSource'] call hct_h60_helisim_fnc_cockpitAllowed";
+    }; // b_airsce
+    class b_batt1: apucont {
+      position="b_batt1";
+      label="NO.1 BATT";
+      animation="Switch_batt1";
+      animStart="[(_this # 0), 'batt1Switch', (_this # 2)] call hct_h60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'batt1Switch'] call hct_h60_helisim_fnc_cockpitAllowed";
+      clickSound="hct_Switch_Sound_3";
+    }; // b_batt1
+    class b_batt2: b_batt1 {
+      position="b_batt2";
+      label="NO.2 BATT";
+      animation="Switch_batt2";
+      animStart="[(_this # 0), 'batt2Switch', (_this # 2)] call hct_h60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'batt2Switch'] call hct_h60_helisim_fnc_cockpitAllowed";
+    }; // b_batt2
+      SIMPLE_SWITCH(b_egi1,"button_egi1","NO.1 EGI","Switch_Egi1",1,0,"")
+      SIMPLE_SWITCH(b_egi2,"button_egi2","NO.2 EGI","Switch_Egi2",1,0,"")
+      SIMPLE_SWITCH(b_ralt_enable,"button_ralt_enable","RADAR ALTIMETER","Switch_Ralt_enable",1,0,"")
+    class b_stbyinst: b_batt1 {
+      position="b_stbyinst";
+      label="STBY INST";
+      animation="Switch_stbyinst";
+      animLabels[] = {"OFF", "ARM"};
+      animStart="[(_this # 0), 'stbyInst', (_this # 2)] call hct_h60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'stbyInst'] call hct_h60_helisim_fnc_cockpitAllowed";
+    }; // b_stbyinst
+    class b_fuelboostpump1: b_batt1 {
+      position="b_fuelboostpump1";
+      label="NO.1 FUEL BOOST PUMP";
+      animation="Switch_fuelboostpump1";
+      animEnd="";
+      animStart="";
+      interactionCondition="";
+    }; // b_fuelboostpump1
+    class b_fuelboostpump2: b_batt1 {
+      position="b_fuelboostpump2";
+      label="NO.2 FUEL BOOST PUMP";
+      animation="Switch_fuelboostpump2";
+      animEnd="";
+      animStart="";
+      interactionCondition="";
+    }; // b_fuelboostpump2
+    class b_gen1: b_batt1 {
+      position="b_gen1";
+      label="NO.1 GEN";
+      animation="Switch_gen1";
+      animStart="[(_this # 0), 'gen1Sw', (_this # 2)] call hct_h60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'gen1Sw'] call hct_h60_helisim_fnc_cockpitAllowed";
+    }; // b_gen1
+    class b_gen2: b_batt1 {
+      position="b_gen2";
+      label="NO.2 GEN";
+      animation="Switch_gen2";
+      animStart="[(_this # 0), 'gen2Sw', (_this # 2)] call hct_h60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'gen2Sw'] call hct_h60_helisim_fnc_cockpitAllowed";
+    }; // b_gen2
+    class b_apugen: b_batt1 {
+      position="b_apugen";
+      label="APU GEN";
+      animation="Switch_apugen";
+      animStart="[(_this # 0), 'apuGenSw', (_this # 2)] call hct_h60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'apuGenSw'] call hct_h60_helisim_fnc_cockpitAllowed";
+    }; // b_apugen
+    class b_fuelsys1 {
+      positionType="anim";
+      position="b_fuelsys1";
+      label="NO.1 FUEL SYS";
+      radius=0.035;
+      animSpeed=1;
+      animation="Lever_fuelsys1";
+      animStates[] = {0,0.6,1};
+      animLabels[] = {"OFF", "DIR","XFD"};
+      animStart="[(_this # 0), 'eng1FuelSys', (_this # 2)] call hct_h60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'eng1FuelSys'] call hct_h60_helisim_fnc_cockpitAllowed";
+    }; // b_fuelsys1
+    class b_fuelsys2: b_fuelsys1 {
+      position="b_fuelsys2";
+      label="NO.2 FUEL SYS";
+      animation="Lever_fuelsys2";
+      animStart="[(_this # 0), 'eng2FuelSys', (_this # 2)] call hct_h60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'eng2FuelSys'] call hct_h60_helisim_fnc_cockpitAllowed";
+    }; // b_fuelsys2
+    class b_ignition {
+      positionType="static";
+      position="b_ignition";
+      label="Engine Ignition";
+      radius=0.045;
+      animSpeed=5;
+      animation="Switch_ignition";
+      animStates[] = {0, 1};
+      animLabels[] = {"OFF", "ON"};
+      animStart="[(_this # 0), 'ignition', (_this # 2)] call hct_h60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'ignition'] call hct_h60_helisim_fnc_cockpitAllowed";
+      clickSound = "hct_Key_Sound";
+    }; // b_ignition
+    class b_starter1 {
+      positionType="anim";
+      position="b_starter1";
+      label="NO.1 Engine Starter";
+      radius=0.025;
+      buttonUp="[_this # 0, 'eng1StartSw', 1] call hct_h60_helisim_fnc_cockpitInteract";
+      clickSound="hct_Switch_Sound";
+    }; // b_starter1
+    class b_starter2 {
+      positionType="anim";
+      position="b_starter2";
+      label="NO.2 Engine Starter";
+      radius=0.025;
+      buttonUp="[_this # 0, 'eng2StartSw', 1] call hct_h60_helisim_fnc_cockpitInteract";
+      clickSound="hct_Switch_Sound";
+    }; // b_starter2
+    class powerContRFM {
+    class b_engpowercont1 {
+      positionType="anim";
+      position="b_engpowercont1";
+      label="NO.1 ENG PCL";
+      radius=0.035;
+      animation="Lever_engpower1";
+      animSpeed=0.0775;  //a Hatchet without animSpeedCode: (0.85 - 0.23) / leverTravelTime 8 s
+      animSpeedCode="[_this, 0] call hct_h60_helisim_fnc_leverSpeed";   //to FLY over Core's leverTravelTime
+      animStates[] = {0,0.23,0.85};
+      animLabels[] = {"OFF","IDLE","FLY"};
+      animStart="[(_this # 0), 'eng1PwrLvr', (_this # 2)] call hct_h60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'eng1PwrLvr'] call hct_h60_helisim_fnc_cockpitAllowed";
+    }; // b_engpowercont1
+    class b_engpowercont2: b_engpowercont1 {
+      position="b_engpowercont2";
+      label="NO.2 ENG PCL";
+      animation="Lever_engpower2";
+      animSpeedCode="[_this, 1] call hct_h60_helisim_fnc_leverSpeed";
+      animStart="[(_this # 0), 'eng2PwrLvr', (_this # 2)] call hct_h60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'eng2PwrLvr'] call hct_h60_helisim_fnc_cockpitAllowed";
+    }; // b_engpowercont2
+    }; // powerContRFM
+    class l_rotorbrake: b_airsce {
+      clickSound="hct_RotorBrake_Sound";
+      position="RotorBrake";
+      positionType="anim";
+      label="Rotor Brake";
+      animation="Lever_RotorBrake";
+      animStates[] = {0, 1};
+      animLabels[] = {"OFF", "ON"};
+      animStart="[(_this # 0), 'rotorBrake', (_this # 2)] call hct_h60_helisim_fnc_cockpitInteract";
+      interactionCondition="[_this, 'rotorBrake'] call hct_h60_helisim_fnc_cockpitAllowed";
+      radius=0.1;
+      animSpeed=1;
+    }; // l_rotorbrake
+    class l_wheelbrake: b_airsce {
+      clickSound="";
+      position="handle_wheelbrake";
+      positionType="anim";
+      label="Parking Brake";
+      animation="Handle_wheelbrake";
+      animStates[] = {1, 0};
+      animLabels[] = {"ON", "OFF"};
+      animEnd="_this call hct_h60_ground_fnc_wheelBrakes;";
+      animStart="";
+      interactionCondition="";
+      radius=0.1;
+      animSpeed=3;
+    }; // l_wheelbrake
+  }; // startUp
+  class misc {
+    class b_ap_ralt_L {
+      positionType="static";
+      position="ap_fdL_1";
+      label="RALT Hold";
+      radius=BTN_RADIUS_SWITCH;
+      clickSound="hct_Switch_Sound";
+      buttonUp="[(_this # 0), ""bmkhs_fdRalt"", true] call hct_h60_helisim_fnc_fmcInput;";
+    }; // ralt
+    class b_ap_ralt_R: b_ap_ralt_L {
+      position="ap_fdR_1";
+    }; // ralt
+    class b_ap_altp_L: b_ap_ralt_L {
+      position="ap_fdL_2";
+      label="ALTP Mode";
+      buttonUp="[(_this # 0), ""bmkhs_fdAltp"", true] call hct_h60_helisim_fnc_fmcInput;";
+    }; // altp
+    class b_ap_altp_R: b_ap_altp_L {
+      position="ap_fdR_2";
+    }; // altp
+    class b_ap_alt_L: b_ap_ralt_L {
+      position="ap_fdL_3";
+      label="ALT Hold";
+      buttonUp="[(_this # 0), ""bmkhs_fdAlt"", true] call hct_h60_helisim_fnc_fmcInput;";
+    }; // alt
+    class b_ap_alt_R: b_ap_alt_L {
+      position="ap_fdR_3";
+    }; // alt
+    class b_ap_ias_L: b_ap_ralt_L {
+      position="ap_fdL_4";
+      label="IAS Hold";
+      buttonUp="[(_this # 0), ""bmkhs_fdIas"", true] call hct_h60_helisim_fnc_fmcInput;";
+    }; // IAS
+    class b_ap_ias_R: b_ap_ias_L {
+      position="ap_fdR_4";
+    }; // IAS
+    class b_ap_hdg_L: b_ap_ralt_L {
+      position="ap_fdL_5";
+      label="HDG Hold";
+      buttonUp="[(_this # 0), ""bmkhs_fdHdg"", true] call hct_h60_helisim_fnc_fmcInput;";
+    }; // HDG
+    class b_ap_hdg_R: b_ap_hdg_L {
+      position="ap_fdR_5";
+    }; // HDG
+    class b_ap_fms_L: b_ap_ralt_L {
+      position="ap_fdL_fms";
+      label="FMS Couple";
+      buttonUp="[(_this # 0), ""bmkhs_fdNav"", true] call hct_h60_helisim_fnc_fmcInput;";
+    }; // HDG
+    class b_ap_fms_R: b_ap_fms_L {
+      position="ap_fdR_fms";
+    }; // HDG
+    class b_ap_hvr_L: b_ap_ralt_L {
+      position="ap_fdL_hvr";
+      label="Hover Hold";
+      buttonUp="[(_this # 0), ""bmkhs_fdHvr"", true] call hct_h60_helisim_fnc_fmcInput;";
+    }; // HDG
+    class b_ap_hvr_R: b_ap_hvr_L {
+      position="ap_fdR_hvr";
+    }; // HDG
+    class Knob_LightUpperConsole {
+      positionType="static";
+      position="knob_lights_uprcsl";
+      label="Upper Console Light";
+      radius=0.025;
+      animation="Knob_LightUpperConsole";
+      scrollIncrement = 0.2;
+      dragRange = 0.2;
+      looping = 0;
+      animLimits[] = {0, 1};
+      dragStart="";
+      dragging="(_this # 0) setObjectMaterialGlobal[0,format [""\z\vtx\addons\UH60\Data\Cockpit\Emmisive\Emmisive_%1.rvmat"",round(((_this # 0) animationPhase ""Knob_LightUpperConsole"")*10)]]";
+      dragStop="(_this # 0) setObjectMaterialGlobal[0,format [""\z\vtx\addons\UH60\Data\Cockpit\Emmisive\Emmisive_%1.rvmat"",round(((_this # 0) animationPhase ""Knob_LightUpperConsole"")*10)]]";
+    }; // Knob_LightUpperConsole
+    class Knob_LightLowerConsole: Knob_LightUpperConsole {
+      position="knob_lights_lwrcsl";
+      label="Lower Console Light";
+      animation="Knob_LightLowerConsole";
+      dragStart="";
+      dragging="(_this # 0) setObjectMaterialGlobal[2,format [""\z\vtx\addons\UH60\Data\Cockpit\Emmisive\Emmisive_%1.rvmat"",round(((_this # 0) animationPhase ""Knob_LightLowerConsole"")*10)]]";
+      dragStop="(_this # 0) setObjectMaterialGlobal[2,format [""\z\vtx\addons\UH60\Data\Cockpit\Emmisive\Emmisive_%1.rvmat"",round(((_this # 0) animationPhase ""Knob_LightLowerConsole"")*10)]]";
+    }; // Knob_LightLowerConsole
+    class Knob_LightInstPanel: Knob_LightUpperConsole {
+      position="knob_lights_instpnl";
+      label="Instrument Panel Light";
+      animation="Knob_LightInstPanel";
+      dragStart="";
+      dragging="(_this # 0) setObjectMaterialGlobal[1,format [""\z\vtx\addons\UH60\Data\Cockpit\Emmisive\Emmisive_%1.rvmat"",round(((_this # 0) animationPhase ""Knob_LightInstPanel"")*10)]]";
+      dragStop="(_this # 0) setObjectMaterialGlobal[1,format [""\z\vtx\addons\UH60\Data\Cockpit\Emmisive\Emmisive_%1.rvmat"",round(((_this # 0) animationPhase ""Knob_LightInstPanel"")*10)]]";
+    }; // Knob_LightInstPanel
+      //FlightDirectorControls
+    class KnobFDRight_RALT: Knob_LightUpperConsole {
+      position="knob_fdR_1";
+      label="RALT Select";
+      scrollIncrement = 0.1;
+      animLimits[] = {0, 10};
+      dragRange = 0.5*5;
+      animation="FD_1_ROT";
+      looping = 1;
+      dragStart="";
+      dragging="[(_this # 0), ""ralt""] call hct_h60_helisim_fnc_fdKnob;";
+      dragStop="[(_this # 0), ""ralt""] call hct_h60_helisim_fnc_fdKnob;";
+      buttonUp="[(_this # 0), ""bmkhs_fdRaltSync"", true] call hct_h60_helisim_fnc_fmcInput;";
+    }; // KnobFDRight_RALT
+    class KnobFDLeft_RALT: KnobFDRight_RALT {position="knob_fdL_1";};// KnobFDLeft_RALT
+    class KnobFDRight_ALTP: KnobFDRight_RALT {
+      position="knob_fdR_2";
+      animLimits[] = {0, 20};
+      dragRange = 0.5*10;
+      label="ALTP Select";
+      animation="FD_2_ROT";
+      dragging="[(_this # 0), ""altp""] call hct_h60_helisim_fnc_fdKnob;";
+      dragStop="[(_this # 0), ""altp""] call hct_h60_helisim_fnc_fdKnob;";
+      buttonUp="[(_this # 0), ""bmkhs_fdAltpSync"", true] call hct_h60_helisim_fnc_fmcInput;";
+    }; // KnobFDRight_ALTP
+    class KnobFDLeft_ALTP: KnobFDRight_ALTP {position="knob_fdL_2";};// KnobFDLeft_ALTP
+    class KnobFDRight_ALT: KnobFDRight_RALT {
+      position="knob_fdR_3";
+      animLimits[] = {0, 20};
+      dragRange = 0.5*10;
+      label="ALT Select";
+      animation="FD_3_ROT";
+      dragging="[(_this # 0), ""alt""] call hct_h60_helisim_fnc_fdKnob;";
+      dragStop="[(_this # 0), ""alt""] call hct_h60_helisim_fnc_fdKnob;";
+      buttonUp="[(_this # 0), ""bmkhs_fdAltSync"", true] call hct_h60_helisim_fnc_fmcInput;";
+    }; // KnobFDRight_ALT
+    class KnobFDLeft_ALT: KnobFDRight_ALT {position="knob_fdL_3";};// KnobFDLeft_ALT
+    class KnobFDRight_IAS: KnobFDRight_RALT {
+      position="knob_fdR_4";
+      animLimits[] = {0, 2};
+      dragRange = 0.5*0.65;
+      label="IAS Select";
+      animation="FD_4_ROT";
+      dragging="[(_this # 0), ""ias""] call hct_h60_helisim_fnc_fdKnob;";
+      dragStop="[(_this # 0), ""ias""] call hct_h60_helisim_fnc_fdKnob;";
+      buttonUp="[(_this # 0), ""bmkhs_fdIasSync"", true] call hct_h60_helisim_fnc_fmcInput;";
+    }; // KnobFDRight_IAS
+    class KnobFDLeft_IAS: KnobFDRight_IAS {position="knob_fdL_4";};// KnobFDLeft_IAS
+    class KnobFDRight_HDG: KnobFDRight_RALT {
+      position="knob_fdR_5";
+      animLimits[] = {-1, 11};
+      scrollIncrement = 1/7.2;
+      dragRange = 0.5*9;
+      label="HDG Select";
+      animation="FD_5_ROT";
+      dragging="[(_this # 0), ""hdg""] call hct_h60_helisim_fnc_fdKnob;";
+      dragStop="[(_this # 0), ""hdg""] call hct_h60_helisim_fnc_fdKnob;";
+      buttonUp="[(_this # 0), ""bmkhs_fdHdgSync"", true] call hct_h60_helisim_fnc_fmcInput;";
+    }; // KnobFDRight_IAS
+    class KnobFDLeft_HDG: KnobFDRight_HDG {position="knob_fdL_5";};// KnobFDLeft_HDG
+    class Wipers {
+      positionType="static";
+      position="axis_knob_wiper";
+      label="Wipers";
+      radius=BTN_RADIUS_SWITCH;
+      animation="Wipers";
+      animSpeed=0;
+      animStates[] = {0, 1};
+      animLabels[] = {"OFF", "ON"};
+      animEnd="";
+      clickSound="hct_Switch_Sound_3";
+    }; // Wipers
+    class toCabin {
+      condition = "hct_vehicle call hct_h60_misc_fnc_canMoveToCabin";
+      positionType = "coordinates";
+      position[] = POS_MOVE_CABIN_COCKPIT;
+      label = "Move To Cabin";
+      radius = 0.1;
+      buttonDown = "call hct_h60_misc_fnc_moveToCabin";
+    }; // toCabin
+  }; // misc
+  class JettStores {
+    positionType = "coordinates";
+    position[] = {0,4.3,-0.7};
+    label = "Jettison All Stores";
+    radius = 0.1;
+    buttonDown = "call hct_h60_weapons_fnc_jettisonAll";
+  }; // toCabin
+  class MFDs {
+  };
+}; // interaction

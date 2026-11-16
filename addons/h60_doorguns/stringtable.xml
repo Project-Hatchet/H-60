@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="HCT">
+    <Package name="H60_DOORGUNS">
+        <Key ID="STR_hct_h60_doorguns_AmmoCountCheck">
+            <English>Ammo Count Check</English>
+        </Key>
+        <Key ID="STR_hct_h60_doorguns_PowerSwitch">
+            <English>Power switch</English>
+        </Key>
+        <Key ID="STR_hct_h60_doorguns_SAFE">
+            <English>SAFE</English>
+        </Key>
+        <Key ID="STR_hct_h60_doorguns_SafetyCover">
+            <English>Safety cover</English>
+        </Key>
+    </Package>
+</Project>

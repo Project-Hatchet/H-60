@@ -1,0 +1,58 @@
+class CfgUserActions
+{
+	class hct_MFD_SlewUp {
+		displayName = "$STR_hct_h60_mfd_SlewCursorUp";
+		tooltip = "$STR_hct_h60_mfd_MovesTheMFDCursorUp";
+		onActivate = "['slewY', 1] call hct_h60_mfd_fnc_interaction_slew;";		// _this is always true.
+		onDeactivate = "['slewY', 0] call hct_h60_mfd_fnc_interaction_slew;";		// _this is always false.
+		onAnalog = "";	// _this is the scalar analog value.
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
+	};
+		class hct_MFD_SlewDown {
+		displayName = "$STR_hct_h60_mfd_SlewCursorDown";
+		tooltip = "$STR_hct_h60_mfd_MovesTheMFDCursorDown";
+		onActivate = "['slewY', -1] call hct_h60_mfd_fnc_interaction_slew;";		// _this is always true.
+		onDeactivate = "['slewY', 0] call hct_h60_mfd_fnc_interaction_slew;";		// _this is always false.
+		onAnalog = "";	// _this is the scalar analog value.
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
+	};
+		class hct_MFD_SlewLeft {
+		displayName = "$STR_hct_h60_mfd_SlewCursorLeft";
+		tooltip = "$STR_hct_h60_mfd_MovesTheMFDCursorLeft";
+		onActivate = "['slewX', -1] call hct_h60_mfd_fnc_interaction_slew;";		// _this is always true.
+		onDeactivate = "['slewX', 0] call hct_h60_mfd_fnc_interaction_slew;";		// _this is always false.
+		onAnalog = "";	// _this is the scalar analog value.
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
+	};
+		class hct_MFD_SlewRight {
+		displayName = "$STR_hct_h60_mfd_SlewCursorRight";
+		tooltip = "$STR_hct_h60_mfd_MovesTheMFDCursorRight";
+		onActivate = "['slewX', 1] call hct_h60_mfd_fnc_interaction_slew;";		// _this is always true.
+		onDeactivate = "['slewX', 0] call hct_h60_mfd_fnc_interaction_slew;";		// _this is always false.
+		onAnalog = "";	// _this is the scalar analog value.
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
+	};
+		class hct_MFD_CursorSelect {
+		displayName = "$STR_hct_h60_mfd_CursorSelect";
+		tooltip = "$STR_hct_h60_mfd_OpensTheActionMenuOnASelectedItem";
+		onActivate = "['slewAction', 1] call hct_h60_mfd_fnc_interaction_slew;";		// _this is always true.
+		onDeactivate = "";		// _this is always false.
+		onAnalog = "";	// _this is the scalar analog value.
+		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
+	};
+};
+class CfgDefaultKeysPresets {};
+class UserActionGroups
+{
+	class hct_KeyBinds_MFD {
+		name = "H-60 Multi-Function Display"; // Display name of your category.
+		isAddon = 1;
+		group[] = {
+		"hct_MFD_SlewUp",
+		"hct_MFD_SlewDown",
+		"hct_MFD_SlewLeft",
+		"hct_MFD_SlewRight",
+		"hct_MFD_CursorSelect",
+		}; // List of all actions inside this category.
+	};
+};

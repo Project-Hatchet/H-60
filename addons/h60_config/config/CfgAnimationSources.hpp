@@ -1,0 +1,681 @@
+// hct_H60_base AnimationSources — merged single owner (Phase 1 PR C).
+// Body order preserves the former two-unit merge: hct_UH60's sources first
+// (in their original order, each carrying the properties this addon used to
+// add via its delta re-open: MASS_* weight logic, forceAnimate wiring,
+// onPhaseChanged handlers), then the sources the delta added (pylons, EGMS,
+// MH60M misc, searchlight, FFV windows, wipers, the blade-fold set) at the
+// tail in their delta declaration order.
+class AnimationSources {
+  //#define ANIMSRC(name,src,per,init)
+  ANIMSRC(cockpitlight_show,user,1,0);
+  ANIMSRC(cabinlight_show,user,1,0);
+  ANIMSRC(PositionLight_Show,user,1,0);
+  ANIMSRC(Hoist_Hook_hide,user,1,0);
+  ANIMSRC(Door_LF,door,0.5,0);
+  ANIMSRC(Door_RF,door,0.5,0);
+  class Hoist_hide {
+    displayName = "$STR_hct_h60_config_HideHoist";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  ANIMSRC(rotorHide_User,user,1,0);
+  ANIMSRC(tailRotorHide_User,user,1,0);
+  // Rotate rotor hub to folding alignment
+  // animPeriod/initPhase: live values per uh60_config's former duplicate (Phase 1 WP1 collision ruling)
+  class RotorHFold {
+      animPeriod = 5;
+      initPhase = 0;
+      source = "user";
+  };
+  class RotorVFold: RotorHFold {
+      initPhase = 0;
+  };
+  class gunner_ffv_l {
+    source="user";
+    animPeriod=0.1;
+    initPhase=0;
+  };
+  class gunner_ffv_r {
+    source="user";
+    animPeriod=0.1;
+    initPhase=0;
+  };
+  class Switch_minigun_safe_cover_l {
+    source="user";
+    animPeriod=0.2;
+    initPhase=0;
+  };
+  class Switch_minigun_safe_cover_r: Switch_minigun_safe_cover_l {};
+  class Switch_minigun_safe_l: Switch_minigun_safe_cover_l {};
+  class Switch_minigun_safe_r: Switch_minigun_safe_cover_l {};
+  class GAU21_L_Hide {
+    source="user";
+    animPeriod=1;
+    initPhase=1;
+    mass = -MASS_GAU21;
+    forceAnimatePhase = 0;
+    forceAnimate[] = {
+      "CabinSeats_1_Hide", 1,
+      "CabinSeats_2_Hide", 1,
+      "CabinSeats_3_Hide", 1,
+      "ERFS_show", 0
+    };
+  };
+  class GAU21_R_Hide {
+    source="user";
+    animPeriod=1;
+    initPhase=1;
+    mass = -MASS_GAU21;
+    forceAnimatePhase = 0;
+    forceAnimate[] = {
+      "CabinSeats_1_Hide", 1,
+      "CabinSeats_2_Hide", 1,
+      "CabinSeats_3_Hide", 1,
+      "ERFS_show", 0
+    };
+  };
+  class Skis_show {
+    displayName = "$STR_hct_h60_config_ShowSkis";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = MASS_SKIS;
+  };
+  class HH60Flares_show {
+    //displayName = "Show HH-60 Flares";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = MASS_HH60FLARES;
+  };
+  class HH60GRadar_show {
+    //displayName = "Show HH-60 Weather Radar";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class HH60GFlir_show {
+    //displayName = "Show HH-60 Flir";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Fuelprobe_show {
+    //displayName = "Show Fuel Probe";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = MASS_PROBE;
+  };
+  class MITAS_show: Fuelprobe_show {};
+  class Door_LF_Hide {
+    displayName = "$STR_hct_h60_config_HideLeftCockpitDoor";
+    source = "user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Door_RF_Hide {
+    displayName = "$STR_hct_h60_config_HideRightCockpitDoor";
+    source = "user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Cockpitdoors_Hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = -MASS_COCKPITDOORS;
+  };
+  class LandingLight_Show {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class PositionLights_Show {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class RADAR_HIDE {
+    source="user";
+    animPeriod=1;
+    initPhase=1;
+    mass = -MASS_RADAR;
+  };
+  class FLIR_HIDE {
+    source="user";
+    animPeriod=1;
+    initPhase=1;
+    mass = -MASS_FLIR;
+  };
+  class FLIR_DIRECTION {
+    source="user";
+    animPeriod=1;
+    initPhase="rad 180";
+  };
+  class FLIR_ELEVATION {
+    source="user";
+    animPeriod=1;
+    initPhase="rad 80";
+  };
+  class ERFS_show {
+    displayName = "$STR_hct_h60_config_ShowERFS";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = MASS_ERFS;
+    forceAnimatePhase = 1;
+    forceAnimate[] = {
+      "CabinSeats_1_Hide", 1,
+      "CabinSeats_2_Hide", 1,
+      "CabinSeats_3_Hide", 1,
+      "GAU21_L_Hide", 1,
+      "GAU21_R_Hide", 1
+    };
+  };
+  class MAWS_Tubes_Show {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    //mass = MASS_MAWS; // only adjusts position
+    onPhaseChanged = "params ['_vehicle', '_phase']; _vehicle animate ['MAWS_Stubs_hide', _phase, true];";
+  };
+  class Fuelprobe_Extend {
+    source="user";
+    animPeriod=5;
+    initPhase=0;
+  };
+  class LASS_show {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = MASS_LASS;
+    forceAnimatePhase = 1;
+    forceAnimate[] = {
+      "ESSS", 0,
+      "EGMS", 0
+    };
+  };
+  // MLASS variant retired (compat stub in mh60m cfgVehicles); this source only
+  // keeps the baked-in MLASS mesh hidden on every variant - dies with the new model
+  class MLASS_show {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = MASS_LASS;
+    forceAnimatePhase = 1;
+    forceAnimate[] = {
+      "ESSS", 0,
+      "EGMS", 0
+    };
+  };
+  class ESSS_show {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = MASS_ESSS;
+    forceAnimatePhase = 1;
+    forceAnimate[] = {
+      "EGMS", 0,
+      "LASS", 0
+    };
+  };
+  //exterior parts
+  class GunnerSeats_Hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    displayName = "$STR_hct_h60_config_HideGunnerSeats";
+    mass = -MASS_GUNNERSEATS;
+    onPhaseChanged = "params ['_vehicle', '_phase']; {_vehicle lockTurret [_x, _phase == 1]} forEach [[1], [2]] ;";
+  };
+  class CabinSeats_1_Hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = -MASS_CABINSEATS3;
+    //lockCargoAnimationPhase = 1;
+    //lockCargo[] = { 8, 9, 10 };
+  };
+  class CabinSeats_2_Hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = -MASS_CABINSEATS4;
+    //lockCargoAnimationPhase = 1;
+    //lockCargo[] = { 4, 5, 6, 7 };
+    forceAnimatePhase = 0;
+    forceAnimate[] = {
+      "GAU21_L_Hide", 1,
+      "GAU21_R_Hide", 1
+    };
+  };
+  class CabinSeats_3_Hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = -MASS_CABINSEATS4;
+    //lockCargoAnimationPhase = 1;
+    //lockCargo[] = { 0, 1, 2, 3 };
+    forceAnimatePhase = 0;
+    forceAnimate[] = {
+      "ERFS_show", 0,
+      "GAU21_L_Hide", 1,
+      "GAU21_R_Hide", 1
+    };
+  };
+  class Minigun_Mount_L_hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = -MASS_GUNMOUNT;
+    forceAnimatePhase = 1;
+    forceAnimate[] = { "Minigun_L_hide", 1 };
+  };
+  class Minigun_Mount_R_hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = -MASS_GUNMOUNT;
+    forceAnimatePhase = 1;
+    forceAnimate[] = { "Minigun_R_hide", 1 };
+  };
+  class Minigun_L_hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = -MASS_MINIGUN;
+  };
+  class Minigun_R_hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = -MASS_MINIGUN;
+  };
+  class Minigun_Sight_L_hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Minigun_Sight_R_hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class cabindoor_L: LandingLight_Show {
+    displayName = "$STR_hct_h60_config_CloseLCabinDoor";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class cabindoor_R: LandingLight_Show {
+    displayName = "$STR_hct_h60_config_CloseRCabinDoor";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Stabilator_rotate_user: LandingLight_Show {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  //interriorparts
+  class MAP_X {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class MAP_Y {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class MAP_Rotation {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class MAP1_Scale {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class COMM1_ROT {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class COMM2_ROT:COMM1_ROT{};
+  class COMM3_ROT:COMM1_ROT{};
+  class COMM4_ROT:COMM1_ROT{};
+  class MVOL_ROT {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class TX_ROT {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class FD_1_ROT {
+    source="user";
+    animPeriod=1;
+    initPhase=0.5;
+  };
+  class FD_2_ROT:FD_1_ROT{};
+  class FD_3_ROT:FD_1_ROT{};
+  class FD_4_ROT:FD_1_ROT{};
+  class FD_5_ROT:FD_1_ROT{};
+  class ACCLow {
+    source="user";
+    animPeriod=0.00001;
+    initPhase=0;
+  };
+  class APUFail:ACCLow{};
+  class APUOn:ACCLow{};
+  class BattGood:ACCLow{};
+  class BattLow:ACCLow{};
+  class EmerRlse:ACCLow{};
+  class OilHot:ACCLow{};
+  class TestLte:ACCLow{};
+  class CautionEng1Out:ACCLow{};
+  class CautionEng2Out:ACCLow{};
+  class CautionFire:ACCLow{};
+  class CautionMasterCaution:ACCLow{
+    initPhase = 0;
+  };
+  class CautionLowRpm:ACCLow{
+    initPhase = 0;
+  };
+  class Gauge_temp {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Lever_RotorBrake {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Knob_LightInstPanel {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Knob_LightLowerConsole {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Knob_LightUpperConsole {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Knob_Lights_Formation {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Switch_lights_position {
+    source="user";
+    animPeriod=1;
+    initPhase=0.5;
+  };
+  class Switch_lights_collision {
+    source="user";
+    animPeriod=1;
+    initPhase=0.5;
+  };
+  class Switch_lights_cockpit {
+    source="user";
+    animPeriod=1;
+    initPhase=0.5;
+  };
+  class MFD1_hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class MFD2_hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class MFD3_hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class MFD4_hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class ESIS_hide {
+    source="user";
+    animPeriod=1;
+    initPhase=1;
+  };
+  class PowerOnOff {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class GeneratorsOnOff {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Switch_fuelboostpump1 {
+    source="user";
+    animPeriod=1;
+    initPhase=0.5;
+  };
+  class Switch_fuelboostpump2 {
+    source="user";
+    animPeriod=1;
+    initPhase=0.5;
+  };
+  class Switch_batt1 {
+    source="user";
+    animPeriod=1;
+    initPhase=0.5;
+  };
+
+  class Switch_Egi1: Switch_batt1 {initPhase=1;};
+  class Switch_Egi2: Switch_batt1 {initPhase=1;};
+  class Switch_Ralt_Enable: Switch_batt1 {initPhase=1;};
+  class Switch_batt2 {
+    source="user";
+    animPeriod=1;
+    initPhase=0.5;
+  };
+  class Switch_stbyinst {
+    source="user";
+    animPeriod=1;
+    initPhase=0.5;
+  };
+  class Switch_airsce {
+    source="user";
+    animPeriod=1;
+    initPhase=0.5;
+  };
+  class Lever_fuelsys1 {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Lever_fuelsys2 {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Lever_engpower1 {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Lever_engpower2 {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Switch_ignition {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class Switch_gen1 {
+    source="user";
+    animPeriod=1;
+    initPhase=0.5;
+  };
+  class Handle_wheelbrake {
+    source="user";
+    animPeriod=1;
+    initPhase=1;
+  };
+  class Switch_gen2 {
+    source="user";
+    animPeriod=1;
+    initPhase=0.5;
+  };
+  class Switch_apugen {
+    source="user";
+    animPeriod=1;
+    initPhase=0.5;
+  };
+  class Switch_apucont {
+    source="user";
+    animPeriod=1;
+    initPhase=0.5;
+  };
+  class Switch_fuelpump {
+    source="user";
+    animPeriod=1;
+    initPhase=0.5;
+  };
+  class wheel_dumper_l {
+    source="damper";
+    wheel="Wheel_1";
+  };
+  class wheel_dumper_r {
+    source="damper";
+    wheel="Wheel_2";
+  };
+  class wheel_dumper_rear {
+    source="damper";
+    wheel="Wheel_3";
+  };
+  class Wheel_l_source {
+    source="wheel";
+    wheel="Wheel_1";
+  };
+  class Wheel_r_source {
+    source="wheel";
+    wheel="Wheel_2";
+  };
+  class Wheel_rear_source {
+    source="wheel";
+    wheel="Wheel_3";
+  };
+  class Gatling_1 {
+    source="revolving";
+    weapon="hct_wpn_m134";
+  };
+  class Gatling_2 {
+    source="revolving";
+    weapon="hct_wpn_m134_2nd";
+  };
+  class Muzzle_Flash_M134_L {
+    source="ammoRandom";
+    weapon="hct_wpn_m134";
+  };
+  class Muzzle_Flash_M134_R {
+    source="ammoRandom";
+    weapon="hct_wpn_m134_2nd";
+  };
+
+  class searchlight_turn {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class searchlight_elev {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class landinglight_elev {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+
+  // --- Sources this addon formerly added via its delta re-open, in the
+  // delta's declaration order (matches the former two-unit merge order).
+  class PylonForward_L {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class PylonForward_R {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class EGMS_show {
+    //displayName = "Show EGMS";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = MASS_EGMS;
+    forceAnimatePhase = 1;
+    forceAnimate[] = {
+      "ESSS", 0,
+      "LASS", 0
+    };
+  };
+  class MH60MMisc_show {
+    //displayName = "Show MH-60M Exterior parts";
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+    mass = MASS_MH60M_MISC;
+  };
+  class SearchLight_Show: LandingLight_Show {};
+  class window_l: LandingLight_Show {};
+  class window_r: LandingLight_Show {};
+  class Wipers: ACCLow {};
+  class window_l_ffv {
+    source = "door";
+    animPeriod = 1;
+    initPhase = 0;
+  };
+  class window_r_ffv: window_l_ffv {};
+  class Fold_Stabilator_rotate: RotorHFold {};
+  class Fold_Stabilator_l: RotorHFold {};
+  class Fold_Stabilator_r: RotorHFold {};
+  class Fold_TailRotorOut: RotorHFold {};
+  class Fold_TailRotorRotate: RotorHFold {};
+  class Fold_Blade3: RotorHFold {};
+  class Fold_Blade4: RotorHFold {};
+  class Fold_Blade1: RotorHFold {animPeriod=10;};
+  class Fold_Blade2: Fold_Blade1 {};
+
+  // MFOS crew seats (model pass 2026-09-06): fwd = crew chief stations, shown
+  // on every variant; aft = DAP cabin fit, hidden unless a variant re-opens
+  // with ANIM_INIT(mfos_aft_hide,0) (the MH-60M DAPs do). No mass wiring yet —
+  // revisit with the cabin-furniture weights if the DAP loadout math needs it.
+  class mfos_fwd_hide {
+    source="user";
+    animPeriod=1;
+    initPhase=0;
+  };
+  class mfos_aft_hide: mfos_fwd_hide {
+    initPhase=1;
+  };
+};

@@ -1,0 +1,40 @@
+#include "script_component.hpp"
+/*
+ * hct_h60_mfd_fnc_interaction_tac
+ *
+ * handles tac page interaction
+ *
+ * params (array)[(object) vehicle, (string) action, (misc) _value]
+ */
+
+params ["_vehicle", "_action", "_value"];
+
+switch (_action) do {
+    case "zoom": {
+        private _curZoom = _vehicle getVariable ["MAP_Zoom", 1];
+        private _newZoom = (_curZoom + _value) max 1 min 30;
+        _vehicle setVariable ["MAP_Zoom", _newZoom, true];
+        _vehicle setVariable ["MAP_ZoomMult", _newZoom, true];
+        _vehicle animateSource ["MAP1_Scale", 1/_newZoom, 1];
+        _vehicle setUserMFDValue [40, worldSize / _newZoom / 2];
+        //[_vehicle, 6, _newZoom] call hct_h60_mfd_fnc_setPylonValue;
+        _vehicle setUserMFDValue [USERMFDV_TAC_ZOOM, _newZoom];
+    };
+    case "waypt": {
+        private _cursorPos = [] call hct_h60_mfd_fnc_tac_cursorToWorld;
+        [
+            format ["%1/%2", name player, hct_h60_mfd_marks],
+            _cursorPos,
+            ""
+        ] call hct_h60_fms_fnc_addWaypoint;
+        hct_h60_mfd_marks = hct_h60_mfd_marks + 1;
+    };
+    case "flir": {
+        private _cursorPos = [] call hct_h60_mfd_fnc_tac_cursorToWorld;
+        _vehicle setPilotCameraTarget _cursorPos;
+        [getPilotCameraDirection _vehicle, _cursorPos] call hct_h60_flir_fnc_syncPilotCamera;
+    };
+    case "centerMode": {
+        [_vehicle,USERMFDV_TAC_CENTER] call hct_h60_mfd_fnc_cycleUserMFDValue;
+    };
+};

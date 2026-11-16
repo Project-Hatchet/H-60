@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="HCT">
+    <Package name="MH60M">
+        <Key ID="STR_hct_mh60m_APKWS">
+            <English>APKWS</English>
+        </Key>
+        <Key ID="STR_hct_mh60m_APKWSHellfire">
+            <English>APKWS + Hellfire</English>
+        </Key>
+        <Key ID="STR_hct_mh60m_Default">
+            <English>Default</English>
+        </Key>
+        <Key ID="STR_hct_mh60m_Empty">
+            <English>Empty</English>
+        </Key>
+        <Key ID="STR_hct_mh60m_Hellfire">
+            <English>Hellfire</English>
+        </Key>
+        <Key ID="STR_hct_mh60m_M134LO">
+            <English>M134 LO</English>
+        </Key>
+        <Key ID="STR_hct_mh60m_MH60M">
+            <English>MH-60M</English>
+        </Key>
+        <Key ID="STR_hct_mh60m_MH60MDAP">
+            <English>MH-60M DAP</English>
+        </Key>
+        <Key ID="STR_hct_mh60m_N2xM134">
+            <English>2x M134</English>
+        </Key>
+        <Key ID="STR_hct_mh60m_N30mmAPKWS">
+            <English>30mm + APKWS</English>
+        </Key>
+        <Key ID="STR_hct_mh60m_Rocket">
+            <English>Rocket</English>
+        </Key>
+    </Package>
+</Project>

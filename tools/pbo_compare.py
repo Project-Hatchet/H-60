@@ -4,7 +4,7 @@ pbo_compare.py - manifest and compare two folders of PBOs (Phase 3 · WP0).
 
 Proves that two builds of the same commit ship the same content, while
 tolerating the differences two different packers are *allowed* to produce.
-Built for the scons -> HEMTT migration: every difference is classified as
+Built for the Addon Builder -> HEMTT migration: every difference is classified as
 EXPECTED (a known, harmless packer difference) or UNEXPECTED (a real content
 difference), and the exit code follows the UNEXPECTED count.
 

@@ -1,0 +1,37 @@
+#include "script_component.hpp"
+/*
+ * Author: Ampersand
+ * Creates a stretcher vehicle and removes the inventory item
+ *
+ * Arguments:
+ * 0: Unit <OBJECT>
+ * 1: Variant <NUMBER> 1 to 3
+ *
+ * Return Value:
+ * 0: Stretcher <OBJECT>
+ *
+ * Example:
+ * [_unit] call hct_h60_stretcher_fnc_unfold
+ */
+
+params [["_unit", objNull, [objNull]], ["_variant", 0, [0]]];
+
+if !("hct_h60_stretcher_item" in items _unit) exitWith {objNull};
+_unit removeItem "hct_h60_stretcher_item";
+[_unit, "PutDown"] call ace_common_fnc_doGesture;
+
+private _pos = _unit modelToWorld [0,0,0];
+private _offset = [0.8, 1] select ((_unit call CBA_fnc_getUnitAnim select 0) == "prone");
+
+_pos set [0, (_pos select 0) + (sin getDir _unit) * _offset];
+_pos set [1, (_pos select 1) + (cos getDir _unit) * _offset];
+_pos set [2, [_unit] call CBA_fnc_realHeight];
+
+if !(_variant in [1, 2, 3]) then {
+  _variant = selectRandom [1, 2, 3];
+};
+private _class = "hct_h60_stretcher_" + str _variant;
+private _vehicle = _class createVehicle _pos;
+_vehicle setPos _pos;
+_vehicle setDir getDir _unit;
+_vehicle

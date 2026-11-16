@@ -10,7 +10,7 @@ What it does, in order:
      differs from origin (same guard as push_dev.py)
   2. checks out <ref> (and returns to the previous checkout afterwards)
   3. runs `hemtt release` - unsigned and archived per .hemtt/project.toml;
-     the version is read from addons/main/script_version.hpp at <ref>, so a
+     the version is read from addons/h60_main/script_version.hpp at <ref>, so a
      Stable build needs the release PR merged first (BUILD must be 0)
   4. verifies: 25 fresh PBOs, every PBO header stamped with that version,
      no .bisign (signing is done by hand), the repo-root Stable mod.cpp

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="HCT">
+    <Package name="S70I">
+        <Key ID="STR_hct_s70i_S70i">
+            <English>S-70i</English>
+        </Key>
+    </Package>
+</Project>

@@ -7,15 +7,15 @@ changes each work package logs (see `docs/phase-1/PHASE_1_PLAN.md` §3/§5).
 
 ## What it captures
 
-- **CfgVehicles spawn matrix + `vtx_H60_base`**: `vtx_UH60M`, `vtx_UH60M_SLICK`,
-  `vtx_UH60M_MEDEVAC`, `vtx_HH60`, `vtx_S70i`, `vtx_MH60M`, `vtx_MH60M_DAP`,
-  `vtx_MH60S`, `vtx_MH60S_Pylons`, `vtx_MH60S_GAU21L`,
-  `vtx_MH60S_Pylons_GAU21L` — full recursive tree, inherited members included
+- **CfgVehicles spawn matrix + `hct_H60_base`**: `hct_UH60M`, `hct_UH60M_SLICK`,
+  `hct_UH60M_MEDEVAC`, `hct_HH60`, `hct_S70i`, `hct_MH60M`, `hct_MH60M_DAP`,
+  `hct_MH60S`, `hct_MH60S_Pylons`, `hct_MH60S_GAU21L`,
+  `hct_MH60S_Pylons_GAU21L` — full recursive tree, inherited members included
   (so a shadowed merge that silently drops inherited content shows up, the #510
   failure mode).
 - **Sound/function roots**: every class under `CfgSoundShapes`, `CfgSoundCurves`,
   `CfgSound3DProcessors`, `cfgDistanceFilters`, `CfgSoundSets`, `CfgSoundShaders`,
-  `CfgSounds`, `CfgSFX`, `CfgMusic`, `CfgFunctions` that any `vtx_*` addon
+  `CfgSounds`, `CfgSFX`, `CfgMusic`, `CfgFunctions` that any `hct_*` addon
   contributes (via `configSourceAddonList`) — this is the coverage for the
   H60_SFX demotion in WP1.
 
@@ -70,14 +70,14 @@ keeps unquoted arithmetic as a string (`"160/256"`) where HEMTT stores the numbe
 differently inside code strings. The engine resolves all of these to the same thing.
 
 ```
-python tools/config_dump/compare_dumps.py tools/config_dump/dumps/<scons-capture> tools/config_dump/dumps/<hemtt-capture>
+python tools/config_dump/compare_dumps.py tools/config_dump/dumps/<capture-A> tools/config_dump/dumps/<capture-B>
 ```
 
 compares by **value**: numbers as floats, strings whitespace-insensitively, pure
 arithmetic evaluated, expressions over `userN` variables evaluated at a fixed set of
 sample values, arrays element by element. Whatever still differs is listed as `DIFF`
-and is a real content difference; the exit code is 1 if any exist. Run it on two scons
-captures first — it must report everything identical. A full capture (575k values)
+and is a real content difference; the exit code is 1 if any exist. Run it on two captures of
+the same build first — it must report everything identical. A full capture (575k values)
 takes a couple of minutes.
 
 Acceptance per PHASE_1_PLAN.md: empty diff, except the deliberate changes the

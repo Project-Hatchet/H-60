@@ -1,6 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: GitHub Community Support
-    url: bug_report.md
-    about: Please ask and answer questions here.
-
+  - name: Project Hatchet Discord
+    url: https://discord.gg/58Pt5EGjvQ
+    about: Questions and help - ask the dev team and community here.

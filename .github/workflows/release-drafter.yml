@@ -4,7 +4,6 @@ on:
   push:
     branches:
     - Main
-    - update-gitactions # for testing edits to this configuration
 
 jobs:
   draft:

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="HCT">
+    <Package name="UH60">
+        <Key ID="STR_hct_h60_HHGMPavehawk">
+            <English>HH-60G/M Pavehawk</English>
+            <Chinesesimp>HH-60G/M 铺路鹰</Chinesesimp>
+        </Key>
+        <Key ID="STR_hct_h60_UHMBlackhawk">
+            <English>UH-60M Blackhawk</English>
+            <Chinesesimp>UH-60M 黑鹰</Chinesesimp>
+        </Key>
+    </Package>
+</Project>

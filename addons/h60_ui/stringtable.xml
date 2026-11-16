@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="HCT">
+    <Package name="UH60_UI">
+        <Key ID="STR_hct_h60_UI_HelpMode">
+            <English>Help Mode</English>
+            <Chinesesimp>帮助模式</Chinesesimp>
+        </Key>
+        <Key ID="STR_hct_h60_ui_BatterySwitches">
+            <English>Battery switches</English>
+        </Key>
+        <Key ID="STR_hct_h60_ui_FMS">
+            <English>FMS</English>
+        </Key>
+        <Key ID="STR_hct_h60_ui_InteractionKey">
+            <English>Interaction: %1</English>
+        </Key>
+        <Key ID="STR_hct_h60_ui_LeverNext">
+            <English>Lever next &amp; knob increase: %1</English>
+        </Key>
+        <Key ID="STR_hct_h60_ui_LeverPrev">
+            <English>Lever prev &amp; knob decrease: %1</English>
+        </Key>
+        <Key ID="STR_hct_h60_ui_PressForHelp">
+            <English>Press %1 For Help</English>
+        </Key>
+    </Package>
+</Project>

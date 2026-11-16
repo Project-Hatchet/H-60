@@ -1,0 +1,26 @@
+/*
+ * Author: Ampersand
+ * Move to a pilot seat
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * 0: Success <BOOLEAN>
+ *
+ * Example:
+ * [hct_vehicle] call hct_h60_misc_fnc_moveToCockpit
+ */
+
+params ["_vehicle"];
+
+if (isNull driver _vehicle) exitWith {
+  player action ["moveToDriver", hct_vehicle];
+  true
+};
+if (isNull (_vehicle turretUnit [0])) exitWith {
+  player action ["moveToTurret", hct_vehicle, [0]];
+  true
+};
+
+false

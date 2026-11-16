@@ -1,0 +1,22 @@
+#include "script_component.hpp"
+/*
+ * hct_h60_cas_fnc_updateOverlayList
+ */
+params ["_vehicle", ["_canOpen", false], ["_hide", false]];
+if (_hide) exitWith {
+  _vehicle setUserMFDValue [USERMFDV_CAS, 0];
+};
+if (count hct_h60_cas_cautionsLog == 0) exitWith {
+  _vehicle setUserMFDValue [USERMFDV_CAS, 0];
+};
+for "_i" from 14 to 19 do {
+	_vehicle setUserMFDText [_i, ""];
+};
+{
+	if (_forEachIndex > 5) exitWith {};
+	_vehicle setUserMFDText [14 + _forEachIndex, _x];
+} forEach hct_h60_cas_cautionsLog;
+if (_canOpen || (getUserMFDValue _vehicle select USERMFDV_CAS) isNotEqualTo 0) then {
+  _vehicle setUserMFDValue [USERMFDV_CAS, 1 + hct_h60_cas_cautionsUnacked];
+};
+_vehicle setUserMFDValue [USERMFDV_ADVISORIES, missionNamespace getVariable ["hct_h60_cas_firstAdvisory", 0]];

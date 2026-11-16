@@ -1,0 +1,11 @@
+class help {
+    condition = "hct_h60_ui_helpEnabled";
+    class b_hidePlayer {
+        positionType="coordinates";
+        position[] = {0,5,-0.7};
+        label="Toggle player body";
+        radius=0.05;
+        buttonUp="player hideObject !(isObjectHidden player);";
+        clickSound="hct_Switch_Sound";
+    }; // b_hidePlayer
+};

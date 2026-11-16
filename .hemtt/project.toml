@@ -6,9 +6,8 @@ mainprefix = "z"
 author = "Project Hatchet"
 
 [version]
-# addons/main/script_version.hpp is HEMTT's default location; MAJOR/MINOR/PATCHLVL/BUILD
-# are read from it. When the folder becomes h60_main (WP2d) set:
-# path = "addons/h60_main/script_version.hpp"
+# MAJOR/MINOR/PATCHLVL/BUILD are read from the main addon's script_version.hpp.
+path = "addons/h60_main/script_version.hpp"
 git_hash = 0
 
 [files]
@@ -20,13 +19,16 @@ include = [
     "LICENSE",
     "README.md",
 ]
-# Addon Builder packs only the extensions in tools/buildExtIncludes.txt; HEMTT packs
-# everything. These keep the PBO manifests identical to the scons build.
+# HEMTT packs everything under addons/ unless excluded: source images, notes and
+# generated texture headers stay out of the PBOs.
 exclude = [
     "*.png",
     "*.tga",
     "*.md",
     "texHeaders.bin",
+    # DEV ONLY - un-comment so -filePatching picks up loose .sqf edits (Arma prefers
+    # a packed .sqfc). hooks/pre_release/guard_sqfc.rhai blocks a release while it is on.
+    # "**/*.sqfc",
 ]
 
 [hemtt.release]

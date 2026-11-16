@@ -1,0 +1,158 @@
+/*
+ * hct_h60_fms_fnc_perSecond
+ *
+ * handles occasional updates of data for FMS
+ *
+ * params (array)[(object) vehicle]
+ */
+
+params ["_vehicle"];
+
+#include "..\config\fmsDefines.hpp"
+
+private _fms = if (player == driver _vehicle) then [{ FMS_R_PAGE_INDEX }, { FMS_L_PAGE_INDEX }];
+private _strings = switch ((getUserMFDValue _vehicle) # _fms) do {
+    case FMS_PAGE_PERFORMANCE: {
+        //HeliSim's fuel, readable from any seat: what is left (Arma's fuel fraction, which
+        //HeliSim keeps in step with its tanks) and what the engines are burning, kg/s.
+        private _fuelKg  = (fuel _vehicle) * (_vehicle getVariable ["bmkhs_maxTotFuelMass", 0]);
+        private _burnKgS = 0;
+        {_burnKgS = _burnKgS + _x} forEach (_vehicle getVariable ["bmkhs_engFuelFlow", []]);
+        private _endurance = if (_burnKgS > 0) then {_fuelKg / _burnKgS} else {-1};
+        //Gross mass less fuel, kg
+        private _weight = (_vehicle getVariable ["bmkhs_gwt", getMass _vehicle]) - _fuelKg;
+        private _state = _vehicle animationPhase "Fuelprobe_Extend";
+        private _stateText = "NOT INSTALLED";
+        if (_vehicle animationSourcePhase "Fuelprobe_show" > 0) then {
+            _stateText = "RETRACTED";
+            if (_state > 0.05 && _state < 0.95) then {
+                _stateText = "MOVING";
+            } else {
+                if (_state > 0.95) then { _stateText = "EXTENDED"; };
+            };
+        };
+        [
+            str ceil (_burnKgS * 2.20462 * 60),
+            if (_endurance < 0) then {"--:--:--"} else {[_endurance] call CBA_fnc_formatElapsedTime},
+            str floor (if (_endurance < 0) then {0} else {_endurance * ((getUserMFDValue _vehicle) # 103) * 0.000539957}),
+            str round (_weight * 2.20462),
+            _stateText
+        ]
+    };
+    case FMS_PAGE_NAV_WAYPOINT: {
+        private _waypoints = waypoints group player;
+        private _waypointIndex = missionNamespace getVariable ["hct_h60_fms_wpSelection", currentWaypoint group player];
+        if (_waypointIndex == -1 || {_waypointIndex >= count _waypoints}) then {
+          ["", format["%1/%2", 0, count _waypoints], "", "",""]
+        } else {
+          private _wayPoint = [group player, _waypointIndex];
+          private _position = waypointPosition _wayPoint;
+          private _gridArea = [worldName] call ace_common_fnc_getMGRSdata;
+          private _grid = [_position] call ace_common_fnc_getMapGridFromPos;
+          private _str = format ["%1    %2    %3    %4", _gridArea select 0, _gridArea select 1, _grid select 0, _grid select 1];
+          [_str, format["%1/%2", _waypointIndex + 1, count _waypoints], "", "",""]
+        }
+    };
+    case FMS_PAGE_NAV_IMPORT: {
+        private _autoCycle = _vehicle getVariable ["hct_h60_fms_import_autoCycle", false];
+        [(if(_autoCycle)then[{"ON"},{"OFF"}]), "", "", "",""]
+    };
+    case FMS_PAGE_NAV_LOCATIONS_LIST: {
+        private _locationTypes = ["Airport","Area","BorderCrossing","CityCenter","CivilDefense","CulturalProperty","DangerousForces","Flag","FlatArea","FlatAreaCity","FlatAreaCitySmall","Hill","HistoricalSite","Invisible","Mount","Name","NameCity","NameCityCapital","NameMarine","NameVillage","RockArea","SafetyZone","Strategic","StrongpointArea","VegetationBroadleaf","VegetationFir","VegetationPalm","VegetationVineyard","ViewPoint"];
+        if (!fms_locations_page_open) then {
+            private _places = [];
+            {
+                if (text _x != "") then {
+                    _places pushBack [(text _x), _x];
+                };
+            } forEach (nearestLocations [getPos player, _locationTypes, 15000]);
+            _places sort true;
+            fms_locations_page_list = _places;
+        };
+        private _pageCount = ceil ((count fms_locations_page_list) / 4);
+        fms_locations_page_index = fms_locations_page_index max 0 min ((_pageCount max 1) - 1); // an empty list gave -1 and negative-indexed the page
+        private _strings = [format["%1/%2", fms_locations_page_index + 1, _pageCount max 1], "", "", "",""];
+        private _fmsPrintStart = fms_locations_page_index * 4;
+        for "_i" from 0 to 3 do {
+            if (_fmsPrintStart + _i < count fms_locations_page_list) then {
+                _strings set [_i + 1, fms_locations_page_list # (_fmsPrintStart + _i) # 0];
+            };
+        };
+        _strings
+    };
+    case FMS_PAGE_NAV_LOCATIONS_SEL: {
+        if (isNil "fms_locations_selected") exitWith {["", "", "", "",""]};
+        private _location = fms_locations_selected;
+        private _gridArea = [worldName] call ace_common_fnc_getMGRSdata;
+        private _grid = [(locationPosition _location)] call ace_common_fnc_getMapGridFromPos;
+        private _direction = round (_vehicle getDir (locationPosition _location));
+        private _distance = round ((_vehicle distance (locationPosition _location)) * 0.000539957);
+        private _str = format ["%1    %2    %3    %4", _gridArea select 0, _gridArea select 1, _grid select 0, _grid select 1];
+        [text _location, _str, format["HDG %1 / %2 NM", _direction, _distance], "", ""]
+    };
+    case FMS_PAGE_COMM_ACRE: {
+        private _strings = ["", "", "", "", ""];
+        for "_i" from 0 to 3 do {
+            // a rack ACRE has not built yet reads as STBY
+            private _radio = [_vehicle, _i] call hct_h60_acre_fnc_getRadio;
+            if (_radio isEqualTo "" || {(_vehicle getVariable [format ["hct_h60_radio_%1", _i], 0]) == 0}) then {
+                _strings set [_i, "--.---MHz     STBY"]
+            } else {
+                private _radioChannel = [_radio] call acre_api_fnc_getRadioChannel;
+                private _radioPreset = ["ACRE_PRC117F", "default", _radioChannel, "label"] call acre_api_fnc_getPresetChannelField;
+                private _frequencyTX = ([_radio, "getCurrentChannelData"] call acre_sys_data_fnc_dataEvent) getVariable "frequencyTx";
+                private _frequencyTXOut = [_frequencyTX, 1, 3] call CBA_fnc_formatNumber;
+                _strings set [_i, format ["%1MHz     %2", _frequencyTXOut, [_radioPreset, 0, 7] call BIS_fnc_trimString]];
+            };
+        };
+        _strings
+    };
+    case FMS_PAGE_COMM_INFO_ACRE: {
+        private _strings = ["", "", "", "", ""];
+        private _status = _vehicle getVariable [(format ["hct_h60_radio_%1", fms_radio_index]), 0];
+        private _radio = [_vehicle, fms_radio_index] call hct_h60_acre_fnc_getRadio;
+        if (_status == 0 || {_radio isEqualTo ""}) then {
+            _strings = [format ["COM %1 SETTINGS", fms_radio_index + 1], "STBY", "---", "CENTER", "---.---"]
+        } else {
+            private _radioChannel = [_radio] call acre_api_fnc_getRadioChannel;
+            private _spatial = [_radio] call acre_api_fnc_getRadioSpatial;
+            private _radioPreset = ["ACRE_PRC117F", "default", _radioChannel, "label"] call acre_api_fnc_getPresetChannelField;
+            private _presetOut = [_radioPreset, 0, 7] call BIS_fnc_trimString;
+            private _frequencyTX = ([_radio, "getCurrentChannelData"] call acre_sys_data_fnc_dataEvent) getVariable "frequencyTx";
+            private _frequencyTXOut = [_frequencyTX, 1, 3] call CBA_fnc_formatNumber;
+
+            _strings = [format ["COM %1 SETTINGS", fms_radio_index + 1], "RX/TX", _presetOut, _spatial, format ["%1Mhz", _frequencyTXOut]]
+        };
+        _strings
+    };
+    case FMS_PAGE_COMM_PRESETS_ACRE: {
+        private _radio = [_vehicle, fms_radio_index] call hct_h60_acre_fnc_getRadio;
+        fms_comm_presets_page_list = [];
+        // no radio yet (ACRE still building the racks): one empty page
+        if (_radio isNotEqualTo "") then {
+            private _radioBase = [_radio] call acre_api_fnc_getBaseRadio;
+            for "_i" from 1 to 20 do {
+                fms_comm_presets_page_list pushBack ([_radioBase, "default", _i, "label"] call acre_api_fnc_getPresetChannelField);
+            };
+        };
+        private _pageCount = ceil ((count fms_comm_presets_page_list) / 4);
+        fms_comm_presets_page_index = fms_comm_presets_page_index max 0 min ((_pageCount max 1) - 1); // an empty list gave -1 and negative-indexed the page
+        private _strings = [format["%1/%2", fms_comm_presets_page_index + 1, _pageCount max 1], "", "", "",""];
+        private _fmsPrintStart = fms_comm_presets_page_index * 4;
+        for "_i" from 0 to 3 do {
+            if (_fmsPrintStart + _i < count fms_comm_presets_page_list) then {
+                _strings set [_i + 1, fms_comm_presets_page_list # (_fmsPrintStart + _i)];
+            };
+        };
+        _strings
+    };
+    default {
+        ["", "", "", "",""]
+    };
+};
+
+fms_locations_page_open = (((getUserMFDValue _vehicle) # _fms) == FMS_PAGE_NAV_LOCATIONS_LIST);
+
+{ // forEach [20, 21, 22, 23,24];
+    [_vehicle, _x, _strings # _forEachIndex] call hct_h60_mfd_fnc_setUserText
+} forEach [20, 21, 22, 23,24];
