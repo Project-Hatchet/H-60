@@ -53,9 +53,6 @@ class CfgVehicles {
   class hct_H60_base: Heli_Transport_01_base_F {
     class hct_templateFLIR;
     class MFD;
-    class BMKHS_HeliSim {
-      class Seats;
-    };
     class AnimationSources: AnimationSources {
       class FuelProbe_show;
       class HH60Flares_show;
@@ -171,8 +168,6 @@ class CfgVehicles {
       class HCT_FMS_R: HCT_FMS_R {};
       class HCT_ESIS_BOOT: HCT_ESIS_BOOT {};
     };
-    // HeliSim seats (SEATS_* in uh60_helisim bmkhs_config/helisim_seats.hpp)
-    class BMKHS_HeliSim: BMKHS_HeliSim { SEATS_MH60M };
   }; // hct_HH60
 
 }; // CfgVehicles

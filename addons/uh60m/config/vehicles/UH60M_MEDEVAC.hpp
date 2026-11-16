@@ -91,6 +91,4 @@ class hct_UH60M_MEDEVAC: hct_H60_base {
       class HCT_FMS_R: HCT_FMS_R {};
       class HCT_ESIS_BOOT: HCT_ESIS_BOOT {};
     };
-  // HeliSim seats (SEATS_* in uh60_helisim bmkhs_config/helisim_seats.hpp)
-  class BMKHS_HeliSim: BMKHS_HeliSim { SEATS_MEDEVAC };
 }; // hct_UH60M_MEDEVAC

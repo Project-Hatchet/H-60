@@ -224,13 +224,15 @@ def report_orphan_headers():
 
 # --- variant layering --------------------------------------------------------
 # The pack is layered: main -> common base (h60_config + uh60 assets) -> systems ->
-# variant PBOs (leaves) -> optional compat. A variant's classes are declared and
+# variant PBOs (leaves) -> HeliSim pack and optional compat. A variant's classes are declared and
 # configured only inside its own PBO; systems talk to variants through the base
 # class and hct_trait_* config, never by name.
 
 VARIANT_ADDONS = {"uh60m", "s70i", "hh60", "mh60m", "mh60s"}
-# optional compat addons may re-open variants (they load after them)
-COMPAT_ADDONS = {"h60_acre", "h60_aar", "h60_air_control", "h60_compat_vtx"}
+# optional compat addons may re-open variants (they load after them), and so may the
+# HeliSim pack: HeliSim Core's pack template keeps every BMKHS_HeliSim declaration in
+# the pack, so it re-opens each variant for its seats and loads after them
+COMPAT_ADDONS = {"h60_acre", "h60_aar", "h60_air_control", "h60_compat_vtx", "h60_helisim"}
 VARIANT_DECL_RE = re.compile(r"^\s*class\s+(hct_\w+)\s*:\s*hct_H60_base\b", re.M | re.I)
 LINE_COMMENT_RE = re.compile(r"//[^\n]*")
 BLOCK_COMMENT_RE = re.compile(r"/\*.*?\*/", re.S)

@@ -15,7 +15,7 @@ h60_config          the common base: hct_H60_base, crew, shared turrets/parts/an
    │                and texture sources, shared weapons, MASS_* (script_mass.hpp),
    │                variant scaffolds (config/variantExterns.hpp, variantBaseInherit.hpp)
    │
-systems             h60_helisim, h60_mfd, h60_fms, h60_flir, h60_weapons, h60_cas, h60_misc,
+systems             h60_mfd, h60_fms, h60_flir, h60_weapons, h60_cas, h60_misc,
    │                h60_ground, h60_hoist, h60_doorguns, h60_anvishud, h60_jvmf, h60_ui,
    │                h60_sounds, h60_ace_viv, h60_stretcher
    │                → extend hct_H60_base only
@@ -25,6 +25,10 @@ variants (leaves)   uh60m   hct_UH60M, hct_UH60M_SLICK, hct_UH60M_MEDEVAC
    │                hh60    hct_HH60              (+ HH-60G liveries)
    │                mh60m   hct_MH60M, _DAP (+ textures the p3d bakes in; hct_MH60M_DAP_MLASS is a hidden compat stub of the DAP)
    │                mh60s   4 hidden hct_MH60S classes
+   │
+HeliSim pack        h60_helisim - HeliSim Core's pack template, verbatim in shape: every
+   │                BMKHS_HeliSim declaration, variant seats included → re-opens variants;
+   │                loads after them
    │
 optional compat     h60_acre, h60_aar, h60_air_control (skipWhenMissingDependencies)
                     → may re-open variants; they load after them
@@ -58,9 +62,11 @@ for the airframes.
 ## Rules
 
 1. **One declaration per class.** A variant is declared and configured only inside its
-   own PBO. That covers everything specific to it: HeliSim seats
-   (`class BMKHS_HeliSim: BMKHS_HeliSim { SEATS_<x> };` as its last member), turrets,
-   MFD templates, liveries and its editor preview.
+   own PBO. That covers everything specific to it: turrets, MFD templates, liveries and
+   its editor preview. The one exception is HeliSim: `h60_helisim` follows HeliSim Core's
+   pack template (`docs/AIRCRAFT_GUIDE.md` in Core) exactly, so its layout, its
+   `CfgFunctions` and every `BMKHS_HeliSim` declaration, the per-variant seats included,
+   stay in the pack.
 2. **Systems extend the base, not variants.** Re-open `hct_H60_base` with
    `class X: X` and forward-declare inner classes. Never re-open a populated container
    without them.
@@ -101,18 +107,22 @@ and read it with `GET_TRAIT`/`HAS_TRAIT`.
 
 1. Create `addons/<name>/` containing `$PBOPREFIX$` (`z\vtx\addons\<name>`) and
    `addon.toml` (`ignore_pboprefix = true`). Add a `script_component.hpp` that includes
-   main's macros, `\z\vtx\addons\uh60_config\script_mass.hpp` and
-   `\z\vtx\addons\uh60_helisim\config\bmkhs_config\helisim_seats.hpp`.
+   main's macros and `\z\vtx\addons\uh60_config\script_mass.hpp`.
 2. Make `config.cpp` a manifest: CfgPatches with `units[]` and
-   `requiredAddons[] = {"hct_UH60", "hct_h60_config", "hct_h60_helisim"}` plus any
+   `requiredAddons[] = {"hct_UH60", "hct_h60_config"}` plus any
    system whose templates it mounts, followed by `#include "config\cfgVehicles.hpp"`.
 3. In `config/cfgVehicles.hpp`, include
    `\z\vtx\addons\uh60_config\config\variantExterns.hpp` at file scope and
    `...\variantBaseInherit.hpp` inside `class CfgVehicles`, then declare
-   `class hct_<X>: hct_H60_base { ... }` with its traits and seats.
+   `class hct_<X>: hct_H60_base { ... }` with its traits.
 4. Put variant-only textures and the preview in `<name>/data/`. Anything the shared
    p3d bakes in stays where it is.
 5. Add the folder to `VARIANT_ADDONS` in `tools/validate_tree.py`.
+6. Give it HeliSim seats in the pack: a `SEATS_<X>` macro in
+   `h60_helisim/config/bmkhs_config/helisim_mass.hpp` (Core's `tools/seats.sqf` measures
+   the arms), a `class hct_<X>: hct_H60_base { class BMKHS_HeliSim: BMKHS_HeliSim { SEATS_<X> }; };`
+   line in `h60_helisim/config/cfgVehicles.hpp`, and the variant's CfgPatches class in the
+   pack's `requiredAddons`.
 
 ## Verifying a change
 

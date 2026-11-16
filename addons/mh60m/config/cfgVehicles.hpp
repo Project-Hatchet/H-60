@@ -60,9 +60,6 @@ class CfgVehicles {
             class RightDoorGun;
         };
         class MFD;
-        class BMKHS_HeliSim {
-            class Seats;
-        };
     }; // hct_H60_base
     class hct_MH60M: hct_H60_base {
         hct_trait_flirTurretAnimated = 1;
@@ -155,8 +152,6 @@ class CfgVehicles {
             class HCT_FMS_R: HCT_FMS_R {};
             class HCT_ESIS_BOOT: HCT_ESIS_BOOT {};
         };
-        // HeliSim seats (SEATS_* in uh60_helisim bmkhs_config/helisim_seats.hpp)
-        class BMKHS_HeliSim: BMKHS_HeliSim { SEATS_MH60M };
     }; // hct_MH60M
     class hct_MH60M_DAP : hct_H60_base {
         hct_trait_flirTurretAnimated = 1;
@@ -271,8 +266,6 @@ class CfgVehicles {
             class HCT_FMS_R2: HCT_FMS_R2 {};
             class HCT_ESIS_BOOT: HCT_ESIS_BOOT {};
         };
-        // HeliSim seats (SEATS_* in uh60_helisim bmkhs_config/helisim_seats.hpp)
-        class BMKHS_HeliSim: BMKHS_HeliSim { SEATS_DAP };
     }; // hct_MH60M_DAP
     // MLASS variant retired (Riverman rulings 2026-09-09 / 2026-09-30). The
     // CLASSNAME stays for good as a compatibility stub so missions that placed

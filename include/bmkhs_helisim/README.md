@@ -14,5 +14,5 @@ The procedure is in HeliSim Core's `docs/AIRCRAFT_GUIDE.md` under
 |---|---|
 | `fmOverride.hpp` | `addons/h60_helisim/config/cfgVehicles.hpp` - the flight model override block |
 | `hitPoints.hpp` | `addons/h60_helisim/config/cfgVehicles.hpp` - `BMKHS_HITPOINT` for the hitpoint declarations |
-| `functions/core/core.hpp` | `addons/h60_helisim/functions/fnc_updateCockpit.sqf`, `addons/h60_flir/functions/fnc_updateUIValues.sqf` - Core's unit conversions, for the readouts |
+| `functions/core/core.hpp` | `addons/h60_helisim/functions/custom/fn_updateCockpit.sqf`, `addons/h60_helisim/XEH_preInit.sqf`, `addons/h60_flir/functions/fnc_updateUIValues.sqf` - Core's unit conversions, for the readouts |
 | `controlMacros.hpp` | `addons/h60_helisim/config/CfgUserActions.hpp` - keybind row macros (`BMKHS_CONTROL` is redefined there for Addon Builder, see `docs/HELISIM_TODO.md`) |

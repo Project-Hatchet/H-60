@@ -10,7 +10,7 @@ class CfgPatches {
         units[] = {"hct_UH60M", "hct_UH60M_SLICK", "hct_UH60M_MEDEVAC"};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"hct_UH60", "hct_h60_config", "hct_h60_helisim"};
+        requiredAddons[] = {"hct_UH60", "hct_h60_config"};
         author = "";
         authors[] = {""};
         VERSION_CONFIG;

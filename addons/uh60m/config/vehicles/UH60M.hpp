@@ -115,6 +115,4 @@ class hct_UH60M: hct_H60_base {
       class RightDoorGun: RightDoorGun {};
       #include "\z\vtx\addons\uh60_config\config\turrets\troopCommander.hpp"
     };
-  // HeliSim seats (SEATS_* in uh60_helisim bmkhs_config/helisim_seats.hpp)
-  class BMKHS_HeliSim: BMKHS_HeliSim { SEATS_UH60M };
 }; // hct_UH60M

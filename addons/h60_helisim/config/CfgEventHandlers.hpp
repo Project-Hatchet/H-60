@@ -1,9 +1,10 @@
 class Extended_PreInit_EventHandlers {
-    class ADDON {
-        init = QUOTE(call COMPILE_FILE(XEH_preInit));
+    class hct_h60_helisim_preInit {
+        init = "call compile preprocessFileLineNumbers '\z\vtx\addons\uh60_helisim\XEH_preInit.sqf';";
     };
 };
 
+//The pack starts itself. Nothing outside it calls in.
 class Extended_Init_EventHandlers {
     class hct_H60_base {
         class hct_h60_helisim_init_eh {

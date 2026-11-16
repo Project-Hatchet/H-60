@@ -20,9 +20,6 @@ class hct_H60_base: Heli_Transport_01_base_F {
   class MFD;
   class hct_turret_1;
   class hct_turret_2;
-  class BMKHS_HeliSim {
-    class Seats;
-  };
   class Turrets: Turrets {
     class CopilotTurret;
     class MainTurret;
