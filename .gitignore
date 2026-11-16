@@ -11,9 +11,9 @@ texHeaders.bin
 *.swo
 *.biprivatekey
 Thumbs.db
-__pycache__/
 *.wav
 *.pkf
+.hemttprivatekey
 apidocs/
 
 # Python bytecode caches from running the tools
