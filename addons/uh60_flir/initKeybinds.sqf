@@ -1,3 +1,13 @@
+vtx_uh60_flir_otherPilotHasControl = {
+  private _pilot = driver hct_vehicle;
+  private _other = [_pilot, hct_vehicle turretUnit [0]] select (player == _pilot);
+  if !(alive _other && {isPlayer _other} && {_other getVariable ["vtx_uh60_flir_hasControl", false]}) exitWith {false};
+  if (_this isNotEqualTo false) then {
+    hintSilent format ["The %1 is currently controlling the FLIR.", ["Co-Pilot", "Pilot"] select (_other == _pilot)];
+  };
+  true
+};
+
 //addUserActionEventHandler ["transportNightVision", "Activate", vtx_uh60_flir_fnc_keyVisionMode];
 addUserActionEventHandler ["vehLockTurretView", "Activate", {
   // "Fullscreen FLIR" for the DRIVER is the vanilla pilot-camera view, which is

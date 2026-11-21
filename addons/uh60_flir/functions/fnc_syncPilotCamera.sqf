@@ -45,6 +45,7 @@ if (!isNull _targetObject) then {
 } else {
   hct_vehicle setPilotCameraTarget _target;
 };
+vtx_uh60_flir_heldDir = nil;
 vtx_uh60_flir_pilotCameraTarget = getPilotCameraTarget hct_vehicle;
 if (vtx_uh60_flir_pilotCameraTarget # 0) then {
   vtx_uh60_flir_pilotCameraTarget set [2, _targetObject];

@@ -8,6 +8,16 @@
 params ["_vehicle", "_frameTime"];
 
 private _inFullScreenCam = (vtx_uh60_flir_isInScriptedCamera || cameraView == "GUNNER");
+
+if (player in [driver _vehicle, _vehicle turretUnit [0]]) then {
+  private _hadControl = player getVariable ["vtx_uh60_flir_hasControl", false];
+  private _hasControl = _inFullScreenCam && {
+    !(false call vtx_uh60_flir_otherPilotHasControl) || {_hadControl && {player == driver _vehicle}}
+  };
+  if (_hasControl isNotEqualTo _hadControl) then {
+    player setVariable ["vtx_uh60_flir_hasControl", _hasControl, true];
+  };
+};
 if (
     _inFullScreenCam &&
     (_vehicle getHitPointDamage "FlirHit") > 0.5

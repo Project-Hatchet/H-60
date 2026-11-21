@@ -104,12 +104,14 @@ switch (_action) do {
         _message call vtx_uh60_jvmf_fnc_attemptSendMessage;
     };
     case "slew_flir_waypt": {
+        if (call vtx_uh60_flir_otherPilotHasControl) exitWith {};
         private _wayPoint = [group player, currentWaypoint group player];
         private _position = waypointPosition _wayPoint;
         _vehicle setPilotCameraTarget (AGLtoASL (_position));
         [getPilotCameraDirection _vehicle, AGLtoASL _position] call vtx_uh60_flir_fnc_syncPilotCamera;
     };
     case "slew_flir": {
+        if (call vtx_uh60_flir_otherPilotHasControl) exitWith {};
         if (isNil "fms_locations_selected") exitWith {};
         private _location = fms_locations_selected;
         _vehicle setPilotCameraTarget (AGLtoASL (locationPosition _location));
