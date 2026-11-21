@@ -2,6 +2,8 @@
 
 params ["_heli", ["_active", true]];
 
+if !(_heli isKindOf "vtx_H60_base") exitWith {};
+
 // permission is checked on the initiating client; the hoist owner may be a
 // dedicated server where player is objNull
 if (_active && {!([player] call vtx_uh60_hoist_fnc_canControlHoist)}) exitWith {};

@@ -16,8 +16,8 @@
  *
  * params (array)[(object) vehicle]
  */
-params ["_vehicle"];
-if (isNull _vehicle || {!alive _vehicle} || {!local _vehicle}) exitWith {};
+params [["_vehicle", objNull]];
+if (!(_vehicle isKindOf "vtx_H60_base") || {!alive _vehicle} || {!local _vehicle}) exitWith {};
 private _new = [1, 0] select ((_vehicle animationPhase "handle_wheelbrake") > 0.5);
 _vehicle animateSource ["Handle_wheelbrake", _new, true];
 [_vehicle, true, ["OFF", "ON"] select (_new > 0.5)] call vtx_uh60_ground_fnc_wheelBrakes;

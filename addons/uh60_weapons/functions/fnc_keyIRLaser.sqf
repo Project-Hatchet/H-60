@@ -19,6 +19,8 @@
 
 params [["_state", -1]];
 
+IS_IN_H60;
+
 if !(
   hct_vehicle isKindOf "vtx_MH60M" ||
   {hct_vehicle isKindOf "vtx_MH60M_DAP"} // covers the vtx_MH60M_DAP_MLASS compat stub (inherits the DAP)
