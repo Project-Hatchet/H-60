@@ -17,6 +17,7 @@
 IS_EITHER_PILOT;
 
 if (!vtx_uh60_flir_controllable) exitWith {};
+if (call vtx_uh60_flir_otherPilotHasControl) exitWith {};
 
 private _currentWaypointIndex = currentWaypoint group player;
 private _waypoints = waypoints group player;

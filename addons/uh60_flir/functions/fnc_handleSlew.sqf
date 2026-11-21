@@ -47,6 +47,12 @@ vtx_uh60_flir_isSlewing = _keySlew || {vtx_uh60_flir_isInScriptedCamera && {_mou
 // deadzone so an accidental mouselook twitch cannot demote a vehicle follow
 private _hasSlewInput = vtx_uh60_flir_isSlewing && {_keySlew || {(abs _inputX + abs _inputY) > vtx_uh60_flir_setting_SlewDeadzone}};
 
+private _otherHasControl = _hasSlewInput call vtx_uh60_flir_otherPilotHasControl;
+if (_otherHasControl) then {
+  vtx_uh60_flir_isSlewing = false;
+  _hasSlewInput = false;
+};
+
 // Tracking state machine (per design spec):
 //   FREE    - camera moves freely
 //   GEOLOCK - holds a ground point; slew input DRAGS the point, which stays
@@ -104,6 +110,19 @@ if (!_hasSlewInput) then {
       };
     };
   };
+};
+
+if (
+  _otherHasControl
+  && {_inNativeGunnerView}
+  && {isNull _trackedObj}
+  && {!(vtx_uh60_flir_pilotCameraTarget param [0, false])}
+  && {!(_vehicle getVariable ["vtx_uh60_flir_stowed", true])}
+) then {
+  if (isNil "vtx_uh60_flir_heldDir") then {vtx_uh60_flir_heldDir = getPilotCameraDirection _vehicle};
+  _vehicle setPilotCameraDirection vtx_uh60_flir_heldDir;
+} else {
+  vtx_uh60_flir_heldDir = nil;
 };
 
 if (vtx_uh60_flir_isSlewing) then {

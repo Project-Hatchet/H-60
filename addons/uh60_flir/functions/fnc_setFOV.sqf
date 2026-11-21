@@ -17,7 +17,7 @@ params ["_fov", ["_sync", true]];
 vtx_uh60_flir_FOV = _fov;
 vtx_uh60_flir_camera camSetFov _fov;
 
-if (_sync) then {
+if (_sync && {!(false call vtx_uh60_flir_otherPilotHasControl)}) then {
   // ["vtx_uh60_flir_syncFOV", [_fov], [vtx_uh60_flir_otherPilot]] call CBA_fnc_targetEvent;
   private _targets = (crew vehicle player) - [player];
   if (_targets isNotEqualTo []) then {

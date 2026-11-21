@@ -21,7 +21,7 @@ params [
   ["_sync", true]
 ];
 
-//if (vtx_uh60_flir_playerIsPilot && {vtx_uh60_flir_isCopilotInGunnerView}) exitWith {false};
+if (call vtx_uh60_flir_otherPilotHasControl) exitWith {false};
 
 private _trackObj = vtx_uh60_flir_pilotCameraTarget param [2, objNull];
 

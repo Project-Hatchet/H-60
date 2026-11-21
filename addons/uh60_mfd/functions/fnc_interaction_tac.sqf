@@ -30,6 +30,7 @@ switch (_action) do {
         vtx_uh60_mfd_marks = vtx_uh60_mfd_marks + 1;
     };
     case "flir": {
+        if (call vtx_uh60_flir_otherPilotHasControl) exitWith {};
         private _cursorPos = [] call vtx_uh60_mfd_fnc_tac_cursorToWorld;
         _vehicle setPilotCameraTarget _cursorPos;
 		// [true, _cursorPos] remoteExecCall ["vtx_uh60_flir_fnc_syncTurret", crew _vehicle];
