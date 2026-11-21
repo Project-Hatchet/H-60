@@ -2,7 +2,8 @@
  * vtx_uh60_misc_fnc_animateIncrement
  */
 
-params ["_vehicle", "_animation", "_increment"];
+params [["_vehicle", objNull], "_animation", "_increment"];
+if !(_vehicle isKindOf "vtx_H60_base") exitWith {};
 
 if (isClass (configOf _vehicle >> "AnimationSources" >> "searchlight_turn")) exitWith {
   private _phase = _vehicle animationSourcePhase _animation;
